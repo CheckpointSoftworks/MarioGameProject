@@ -1,0 +1,5 @@
+Content\SuperMarioLandSheet.xnb
+Content\HelloGoodbye.xnb
+Content\SmileyWalk.xnb
+Content\MarioWalk.xnb
+Content\MarioWalkTransparent.xnb

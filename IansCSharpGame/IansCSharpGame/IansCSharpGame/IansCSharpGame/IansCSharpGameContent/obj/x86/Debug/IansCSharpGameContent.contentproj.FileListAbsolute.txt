@@ -1,0 +1,2 @@
+c:\users\ian\documents\visual studio 2013\Projects\IansCSharpGame\IansCSharpGame\IansCSharpGameContent\obj\x86\Debug\IansCSharpGameContent.contentprojResolveAssemblyReference.cache
+C:\Users\Ian\documents\visual studio 2013\Projects\IansCSharpGame\IansCSharpGame\IansCSharpGame\IansCSharpGameContent\obj\x86\Debug\IansCSharpGameContent.contentprojResolveAssemblyReference.cache
