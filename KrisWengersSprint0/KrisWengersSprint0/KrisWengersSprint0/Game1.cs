@@ -25,6 +25,7 @@ namespace Sprint0
         public Game1()
         {
             //Kris Added this comment and commited it
+            //Matt added this comment and commited it
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
