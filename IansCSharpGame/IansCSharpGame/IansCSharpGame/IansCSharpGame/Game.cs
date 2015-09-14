@@ -17,6 +17,7 @@ namespace IansCSharpGame
 {
     public class Game : Microsoft.Xna.Framework.Game
     {
+        //Matt Edited and committed this line
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private SpriteFont mainfont;
