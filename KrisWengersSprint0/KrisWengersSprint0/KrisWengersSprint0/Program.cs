@@ -10,7 +10,7 @@ namespace KrisWengersSprint0
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            using (Sprint0.Game1 game = new Sprint0.Game1())
             {
                 game.Run();
             }
