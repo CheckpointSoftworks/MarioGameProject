@@ -9,6 +9,10 @@ namespace Sprint2
 {
     public class QuestionBlock :IGameObject
     {
+        public QuestionBlock(Texture2D questionBlockSpriteSheet)
+        {
+
+        }
         public void Update()
         {
 

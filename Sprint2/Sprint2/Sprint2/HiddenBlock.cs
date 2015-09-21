@@ -9,6 +9,10 @@ namespace Sprint2
 {
     public class HiddenBlock : IGameObject
     {
+        public HiddenBlock(Texture2D groundBlockSpriteSheet)
+        {
+
+        }
         public void Update()
         {
 

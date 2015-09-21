@@ -17,32 +17,32 @@ namespace Sprint2
         private static Texture2D platformingBlockSpriteSheet;
 
         public static void Load(ContentManager content, GraphicsDevice device){
-            hiddenBlockSpritesheet=content.Load<Texture2D>("MarioTileSet");
-            brickBlockSpritesheet=content.Load<Texture2D>("MarioTileSet");
-            questionBlockSpriteSheet=content.Load<Texture2D>("MarioTileSet");
-            groundBlockSpriteSheet=content.Load<Texture2D>("MarioTileSet");
+            hiddenBlockSpritesheet = content.Load<Texture2D>("MarioTileSet");
+            brickBlockSpritesheet = content.Load<Texture2D>("MarioTileSet");
+            questionBlockSpriteSheet = content.Load<Texture2D>("MarioTileSet");
+            groundBlockSpriteSheet = content.Load<Texture2D>("MarioTileSet");
             platformingBlockSpriteSheet = content.Load<Texture2D>("MarioTileSet");
         }
 
         public static IGameObject CreateHiddenBlockSprite()
         {
-            return new HiddenBlock();
+            return new HiddenBlock(hiddenBlockSpritesheet);
         }
         public static IGameObject CreateBrickBlockSprite()
         {
-            return new BrickBlock();
+            return new BrickBlock(brickBlockSpritesheet);
         }
         public static IGameObject CreateQuestionBlockSprite()
         {
-            return new QuestionBlock();
+            return new QuestionBlock(questionBlockSpriteSheet);
         }
         public static IGameObject CreateGroundBlockSprite()
         {
-            return new GroundBlock();
+            return new GroundBlock(groundBlockSpriteSheet);
         }
         public static IGameObject CreatePlatformingBlockSprite()
         {
-            return new HiddenBlock();
+            return new PlatformingBlock(platformingBlockSpriteSheet);
         }
     }
 }

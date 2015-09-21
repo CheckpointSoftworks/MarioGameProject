@@ -7,8 +7,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class PlatofromingBlock : IGameObject
+    public class PlatformingBlock : IGameObject
     {
+        public PlatformingBlock(Texture2D platformingBlockSpriteSheet)
+        {
+
+        }
         public void Update()
         {
 
