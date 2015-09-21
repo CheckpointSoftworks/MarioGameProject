@@ -17,12 +17,12 @@ namespace Sprint2
         }
         public void Update()
         {
-
+            brickBlockSprite.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            brickBlockSprite.Draw(spriteBatch);
         }
     }
 }

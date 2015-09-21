@@ -16,12 +16,12 @@ namespace Sprint2
         }
         public void Update()
         {
-
+            groundBlockSprite.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            groundBlockSprite.Draw(spriteBatch);
         }
     }
 }

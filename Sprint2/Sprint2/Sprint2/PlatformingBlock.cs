@@ -9,18 +9,19 @@ namespace Sprint2
 {
     public class PlatformingBlock : IGameObject
     {
-        public PlatformingBlock(Texture2D platformingBlockSpriteSheet)
+        private PlatformingBlockSprite platformingBlockSprite;
+        public PlatformingBlock()
         {
-
+            platformingBlockSprite = new PlatformingBlockSprite();
         }
         public void Update()
         {
-
+            platformingBlockSprite.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            platformingBlockSprite.Draw(spriteBatch);
         }
     }
 }
