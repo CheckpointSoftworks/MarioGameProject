@@ -17,11 +17,11 @@ namespace Sprint2
         private static Texture2D platformingBlockSpriteSheet;
 
         public static void Load(ContentManager content, GraphicsDevice device){
-            hiddenBlockSpritesheet = content.Load<Texture2D>("MarioTileSet");
-            brickBlockSpritesheet = content.Load<Texture2D>("MarioTileSet");
-            questionBlockSpriteSheet = content.Load<Texture2D>("MarioTileSet");
-            groundBlockSpriteSheet = content.Load<Texture2D>("MarioTileSet");
-            platformingBlockSpriteSheet = content.Load<Texture2D>("MarioTileSet");
+            hiddenBlockSpritesheet = content.Load<Texture2D>("BrickSheetWithEmptyBlock");
+            brickBlockSpritesheet = content.Load<Texture2D>("BrickSheetWithEmptyBlock");
+            questionBlockSpriteSheet = content.Load<Texture2D>("BrickSheetWithEmptyBlock");
+            groundBlockSpriteSheet = content.Load<Texture2D>("BrickSheetWithEmptyBlock");
+            platformingBlockSpriteSheet = content.Load<Texture2D>("BrickSheetWithEmptyBlock");
         }
 
         public static Texture2D CreateHiddenBlockSprite()
