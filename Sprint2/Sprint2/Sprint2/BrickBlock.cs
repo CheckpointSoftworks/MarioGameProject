@@ -11,7 +11,7 @@ namespace Sprint2
     {
         public BrickBlock(Texture2D brickBlockSpriteSheet)
         {
-
+            BlockSpriteFactory.CreateBrickBlockSprite();
         }
         public void Update()
         {
