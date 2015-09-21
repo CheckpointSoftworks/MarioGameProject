@@ -7,6 +7,6 @@ namespace Sprint2
 {
     interface ICommand
     {
-
+        void Execute();
     }
 }
