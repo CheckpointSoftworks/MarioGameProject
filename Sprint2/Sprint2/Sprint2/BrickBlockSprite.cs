@@ -20,7 +20,7 @@ namespace Sprint2
         public void Update()
         {
             //Cause Brick block to disapper
-            smashed = !smashed;
+            smashed = true;
         }
 
         public void Draw(SpriteBatch spriteBatch)

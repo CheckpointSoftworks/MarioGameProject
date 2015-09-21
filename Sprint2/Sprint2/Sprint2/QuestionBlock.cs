@@ -10,6 +10,7 @@ namespace Sprint2
     public class QuestionBlock :IGameObject
     {
         private QuestionBlockSprite questionBlockSprite;
+
         public QuestionBlock(Texture2D questionBlockSpriteSheet)
         {
             questionBlockSprite = new QuestionBlockSprite();
