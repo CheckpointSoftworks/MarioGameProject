@@ -9,9 +9,10 @@ namespace Sprint2
 {
     public class GroundBlock : IGameObject
     {
+        private ISprite groundBlockSprite;
         public GroundBlock(Texture2D groundBlockSpriteSheet)
         {
-            
+            groundBlockSprite = new GroundBlockSprite();
         }
         public void Update()
         {

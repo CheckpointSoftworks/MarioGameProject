@@ -7,13 +7,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class BrickBlock : IGameObject
+    public class GroundBlockSprite : ISprite
     {
-        private ISprite brickBlockSprite;
-        
-        public BrickBlock(Texture2D brickBlockSpriteSheet)
+        private Texture2D groundBlockSpriteSheet;
+        public GroundBlockSprite()
         {
-            brickBlockSprite = new BrickBlockSprite();
+            groundBlockSpriteSheet = BlockSpriteTextureStorage.CreateGroundBlockSprite();
         }
         public void Update()
         {
