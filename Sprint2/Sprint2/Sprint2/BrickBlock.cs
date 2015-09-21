@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class BrickBlock : ISprite
+    public class BrickBlock : IGameObject
     {
         public void Update()
         {

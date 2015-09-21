@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class QuestionBlock :ISprite
+    public class QuestionBlock :IGameObject
     {
         public void Update()
         {

@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class PlatofromingBlock : ISprite
+    public class PlatofromingBlock : IGameObject
     {
         public void Update()
         {

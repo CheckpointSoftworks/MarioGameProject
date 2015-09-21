@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class HiddenBlock : ISprite
+    public class HiddenBlock : IGameObject
     {
         public void Update()
         {

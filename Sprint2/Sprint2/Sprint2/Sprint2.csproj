@@ -76,6 +76,7 @@
     <Compile Include="BrickBlock.cs" />
     <Compile Include="GroundBlock.cs" />
     <Compile Include="HiddenBlock.cs" />
+    <Compile Include="IGameObject.cs" />
     <Compile Include="ISprite.cs" />
     <Compile Include="PlatofromingBlock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
