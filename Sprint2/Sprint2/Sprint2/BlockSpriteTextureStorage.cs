@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint2
 {
-    public class BlockSpriteFactory
+    public class BlockSpriteTextureStorage
     {
         private static Texture2D hiddenBlockSpritesheet;
         private static Texture2D brickBlockSpritesheet;
@@ -24,25 +24,25 @@ namespace Sprint2
             platformingBlockSpriteSheet = content.Load<Texture2D>("MarioTileSet");
         }
 
-        public static IGameObject CreateHiddenBlockSprite()
+        public static Texture2D CreateHiddenBlockSprite()
         {
-            return new HiddenBlock(hiddenBlockSpritesheet);
+            return hiddenBlockSpritesheet;
         }
-        public static IGameObject CreateBrickBlockSprite()
+        public static Texture2D CreateBrickBlockSprite()
         {
-            return new BrickBlock(brickBlockSpritesheet);
+            return brickBlockSpritesheet;
         }
-        public static IGameObject CreateQuestionBlockSprite()
+        public static Texture2D CreateQuestionBlockSprite()
         {
-            return new QuestionBlock(questionBlockSpriteSheet);
+            return questionBlockSpriteSheet;
         }
-        public static IGameObject CreateGroundBlockSprite()
+        public static Texture2D CreateGroundBlockSprite()
         {
-            return new GroundBlock(groundBlockSpriteSheet);
+            return groundBlockSpriteSheet;
         }
-        public static IGameObject CreatePlatformingBlockSprite()
+        public static Texture2D CreatePlatformingBlockSprite()
         {
-            return new PlatformingBlock(platformingBlockSpriteSheet);
+            return platformingBlockSpriteSheet;
         }
     }
 }

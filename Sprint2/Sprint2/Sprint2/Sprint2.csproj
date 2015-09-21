@@ -72,8 +72,9 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlockSpriteFactory.cs" />
+    <Compile Include="BlockSpriteTextureStorage.cs" />
     <Compile Include="BrickBlock.cs" />
+    <Compile Include="BrickBlockSprite.cs" />
     <Compile Include="GroundBlock.cs" />
     <Compile Include="HiddenBlock.cs" />
     <Compile Include="IGameObject.cs" />

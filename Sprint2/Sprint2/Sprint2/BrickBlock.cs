@@ -9,9 +9,10 @@ namespace Sprint2
 {
     public class BrickBlock : IGameObject
     {
+        
         public BrickBlock(Texture2D brickBlockSpriteSheet)
         {
-            BlockSpriteFactory.CreateBrickBlockSprite();
+
         }
         public void Update()
         {
