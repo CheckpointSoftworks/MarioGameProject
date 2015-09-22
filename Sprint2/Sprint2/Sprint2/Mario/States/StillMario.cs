@@ -11,7 +11,29 @@ namespace KrisWengersSprint0
         public MarioStill(Mario mario)
         {
             this.mario = mario;
-            //Set Sprite here
+            if (mario.small)
+            {
+                if (mario.fire)
+                {
+                    //Set mario sprite to small still fire
+                }
+                if (mario.star)
+                {
+                    //Set mario sprite to small still star
+                }
+            }
+            else //mario is big
+            {
+                if (mario.fire)
+                {
+                    //Set mario sprite to big still fire
+                }
+                if (mario.star)
+                {
+                    //Set mario sprite to big still star
+                }
+            }
+            
         }
         public void Still()
         {

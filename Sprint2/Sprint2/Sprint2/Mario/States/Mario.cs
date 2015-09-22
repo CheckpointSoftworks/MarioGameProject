@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace KrisWengersSprint0
 {
@@ -14,6 +16,7 @@ namespace KrisWengersSprint0
         public bool star;
         public float velX;
         public float velY;
+        public Vector2 location;
         public IPlayerState state;
         public Mario()
         {
@@ -47,5 +50,16 @@ namespace KrisWengersSprint0
         {
             state.Dying();
         }
+
+        /*void Draw(spriteBatch spriteBatch)
+         * {
+         *  if (!facingRight)
+         *  {
+         *      sprite = flipped sprite   
+         *  }
+         *  Draw(sprite, location) 
+         * 
+         * 
+         * */
     }
 }
