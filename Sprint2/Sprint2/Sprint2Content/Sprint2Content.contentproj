@@ -37,13 +37,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BricksSheetWithEmptyBlock.png">
-      <Name>BricksSheetWithEmptyBlock</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="BigMarioMushroom.png">
       <Name>BigMarioMushroom</Name>
       <Importer>TextureImporter</Importer>
@@ -74,6 +67,13 @@
   <ItemGroup>
     <Compile Include="BoxCoin.png">
       <Name>BoxCoin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BricksSheetWithEmptyBlock.png">
+      <Name>BricksSheetWithEmptyBlock</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -11,11 +11,13 @@ namespace Sprint2
     {
         private Texture2D brickBlockSpriteSheet;
         private bool smashed;
+        private Vector2 location;
 
         public BrickBlockSprite()
         {
             brickBlockSpriteSheet = BlockSpriteTextureStorage.CreateBrickBlockSprite();
             smashed = false;
+            location = new Vector2(500, 400);
         }
         public void Update()
         {
@@ -25,7 +27,21 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            int spriteSheetSpriteSize = 16;
+            Rectangle sourceRectangle = new Rectangle(0, 0, 0, 0);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
+            if (!smashed)
+            {
+                sourceRectangle = new Rectangle((spriteSheetSpriteSize), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
+            }
+            else
+            {
+                sourceRectangle = new Rectangle((spriteSheetSpriteSize * 6), 0, (spriteSheetSpriteSize), spriteSheetSpriteSize);
+            }
+            spriteBatch.Begin();
+            spriteBatch.Draw(brickBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.End();
         }
     }
 }

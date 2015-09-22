@@ -11,11 +11,13 @@ namespace Sprint2
     {
         private Texture2D hiddenBlockSpriteSheet;
         private bool used;
+        private Vector2 location;
 
         public HiddenBlockSprite()
         {
             hiddenBlockSpriteSheet = BlockSpriteTextureStorage.CreateHiddenBlockSprite();
             used = false;
+            location = new Vector2(300, 400);
         }
         public void Update()
         {
@@ -25,7 +27,21 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            int spriteSheetSpriteSize = 16;
+            Rectangle sourceRectangle = new Rectangle(0, 0, 0, 0);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
+            if (!used)
+            {
+                sourceRectangle = new Rectangle((spriteSheetSpriteSize * 6), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
+            }
+            else
+            {
+                sourceRectangle = new Rectangle((spriteSheetSpriteSize * 3), 0, (spriteSheetSpriteSize), spriteSheetSpriteSize);
+            }
+            spriteBatch.Begin();
+            spriteBatch.Draw(hiddenBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.End();
         }
     }
 }
