@@ -84,6 +84,15 @@
     <Compile Include="IKeyboard.cs" />
     <Compile Include="ISprite.cs" />
     <Compile Include="KeyboardController.cs" />
+    <Compile Include="Mario\States\IPlayerState.cs" />
+    <Compile Include="Mario\States\Mario.cs" />
+    <Compile Include="Mario\States\MarioChangeDirection.cs" />
+    <Compile Include="Mario\States\MarioDuck.cs" />
+    <Compile Include="Mario\States\MarioDying.cs" />
+    <Compile Include="Mario\States\MarioJump.cs" />
+    <Compile Include="Mario\States\MarioRunning.cs" />
+    <Compile Include="Mario\States\MarioShootFireball.cs" />
+    <Compile Include="Mario\States\StillMario.cs" />
     <Compile Include="PlatformingBlock.cs" />
     <Compile Include="PlatformingBlockSprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
