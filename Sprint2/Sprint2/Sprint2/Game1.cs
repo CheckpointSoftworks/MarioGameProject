@@ -21,6 +21,7 @@ namespace Sprint2
         SpriteBatch spriteBatch;
         private ArrayList blockObjectList;
 
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
