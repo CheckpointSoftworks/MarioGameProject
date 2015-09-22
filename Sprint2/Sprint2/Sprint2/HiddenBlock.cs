@@ -10,7 +10,7 @@ namespace Sprint2
     public class HiddenBlock : IGameObject
     {
         private HiddenBlockSprite hiddenBlockSprite;
-        public HiddenBlock(Texture2D groundBlockSpriteSheet)
+        public HiddenBlock()
         {
             hiddenBlockSprite = new HiddenBlockSprite();
         }

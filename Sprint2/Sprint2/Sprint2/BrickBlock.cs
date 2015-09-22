@@ -11,7 +11,7 @@ namespace Sprint2
     {
         private ISprite brickBlockSprite;
         
-        public BrickBlock(Texture2D brickBlockSpriteSheet)
+        public BrickBlock()
         {
             brickBlockSprite = new BrickBlockSprite();
         }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -18,6 +19,7 @@ namespace Sprint2
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private ArrayList blockObjectList;
 
         public Game1()
         {
@@ -33,7 +35,13 @@ namespace Sprint2
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            blockObjectList = new ArrayList();
+            blockObjectList.Add(new PlatformingBlock());
+            blockObjectList.Add(new HiddenBlock());
+            blockObjectList.Add(new QuestionBlock());
+            blockObjectList.Add(new BrickBlock());
+            blockObjectList.Add(new GroundBlock());
+
 
             base.Initialize();
         }
@@ -46,8 +54,9 @@ namespace Sprint2
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            
             // TODO: use this.Content to load your game content here
+            BlockSpriteTextureStorage.Load(Content, GraphicsDevice);
         }
 
         /// <summary>
@@ -84,6 +93,11 @@ namespace Sprint2
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
+            foreach (IGameObject block in blockObjectList)
+            {
+                block.Draw(spriteBatch);
+            }
 
             base.Draw(gameTime);
         }

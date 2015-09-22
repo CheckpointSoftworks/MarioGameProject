@@ -11,7 +11,7 @@ namespace Sprint2
     {
         private QuestionBlockSprite questionBlockSprite;
 
-        public QuestionBlock(Texture2D questionBlockSpriteSheet)
+        public QuestionBlock()
         {
             questionBlockSprite = new QuestionBlockSprite();
         }
