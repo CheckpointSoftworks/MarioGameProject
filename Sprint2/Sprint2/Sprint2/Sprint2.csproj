@@ -75,6 +75,8 @@
     <Compile Include="BlockSpriteTextureStorage.cs" />
     <Compile Include="BrickBlock.cs" />
     <Compile Include="BrickBlockSprite.cs" />
+    <Compile Include="EnemySpriteFactory.cs" />
+    <Compile Include="GoombaSprite.cs" />
     <Compile Include="GroundBlock.cs" />
     <Compile Include="GroundBlockSprite.cs" />
     <Compile Include="HiddenBlock.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="ISprite.cs" />
     <Compile Include="KeyboardController.cs" />
     <Compile Include="IPlayerState.cs" />
+    <Compile Include="KoopaSprite.cs" />
     <Compile Include="Mario.cs" />
     <Compile Include="MarioChangeDirection.cs" />
     <Compile Include="MarioDuck.cs" />
