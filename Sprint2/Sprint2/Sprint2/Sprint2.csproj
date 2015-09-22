@@ -80,9 +80,10 @@
     <Compile Include="HiddenBlock.cs" />
     <Compile Include="HiddenBlockSprite.cs" />
     <Compile Include="IGameObject.cs" />
-	<Compile Include="ICommand.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="IKeyboard.cs" />
-	<Compile Include="ISprite.cs" />
+    <Compile Include="ISprite.cs" />
+    <Compile Include="KeyboardController.cs" />
     <Compile Include="PlatformingBlock.cs" />
     <Compile Include="PlatformingBlockSprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
