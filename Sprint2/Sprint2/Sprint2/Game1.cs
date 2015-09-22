@@ -56,7 +56,7 @@ namespace Sprint2
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
             // TODO: use this.Content to load your game content here
-            BlockSpriteTextureStorage.Load(Content, GraphicsDevice);
+            BlockSpriteTextureStorage.Load(this.Content, this.GraphicsDevice);
         }
 
         /// <summary>
