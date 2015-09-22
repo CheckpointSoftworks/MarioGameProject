@@ -85,6 +85,7 @@
     <Compile Include="ICommand.cs" />
     <Compile Include="IKeyboard.cs" />
     <Compile Include="ISprite.cs" />
+    <Compile Include="ItemSpriteTextureStorage.cs" />
     <Compile Include="KeyboardController.cs" />
     <Compile Include="IPlayerState.cs" />
     <Compile Include="KoopaSprite.cs" />
