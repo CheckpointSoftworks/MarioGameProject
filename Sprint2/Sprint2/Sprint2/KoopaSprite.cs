@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class KoopaSprite
+    class KoopaSprite : ISprite
     {
 
         private int currentFrame;
