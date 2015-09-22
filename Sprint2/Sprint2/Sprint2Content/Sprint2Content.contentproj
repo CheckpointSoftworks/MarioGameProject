@@ -37,15 +37,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BigMarioMushroom.png">
-      <Name>BigMarioMushroom</Name>
+    <Compile Include="SuperMushroom.png">
+      <Name>SuperMushroom</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="1UpMushroom.png">
-      <Name>1UpMushroom</Name>
+    <Compile Include="OneUpMushroom.png">
+      <Name>OneUpMushroom</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
