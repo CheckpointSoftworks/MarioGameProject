@@ -21,6 +21,7 @@ namespace Sprint2
         SpriteBatch spriteBatch;
         private ArrayList blockObjectList;
         private ArrayList itemObjectList;
+        private ArrayList enemyLists;
         private IGameObject pipe;
         public IGameObject hiddenBlock;
         public IGameObject questionBlock;
@@ -66,6 +67,11 @@ namespace Sprint2
             itemObjectList.Add(new SuperMushroom());
             itemObjectList.Add(new OneUpMushroom());
             itemObjectList.Add(new SuperStar());
+
+            //Create all of the enemies
+            enemyLists = new ArrayList();
+            enemyLists.Add(new Goomba());
+            enemyLists.Add(new Koopa());
 
             //Mario Commands
             //Example keyboard.RegisterCommand(Keys.I, new FireMarioCommand(this));
@@ -149,7 +155,6 @@ namespace Sprint2
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
             foreach (IGameObject block in blockObjectList)
             {
                 block.Draw(spriteBatch);
@@ -159,6 +164,11 @@ namespace Sprint2
             {
                 //Draw all of the items
                 item.Draw(spriteBatch);
+            }
+
+            foreach (IGameObject enemy in enemyLists)
+            {
+                enemy.Draw(spriteBatch);
             }
 
             pipe.Draw(spriteBatch);
