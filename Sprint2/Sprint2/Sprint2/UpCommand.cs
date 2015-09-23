@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sprint2
 {
-    class UpCommand
+    class UpCommand: ICommand
     {
             private Game1 Game;
 
