@@ -24,7 +24,7 @@ namespace Sprint2
         public IGameObject hiddenBlock;
         public IGameObject questionBlock;
         public IGameObject brickBlock;
-
+        public IKeyboard keyboard;
 
 
         public Game1()
@@ -41,6 +41,9 @@ namespace Sprint2
         /// </summary>
         protected override void Initialize()
         {
+            keyboard = new KeyboardController();
+
+            //Create the block objects
             blockObjectList = new ArrayList();
             hiddenBlock = new HiddenBlock();
             questionBlock = new QuestionBlock();
@@ -97,7 +100,7 @@ namespace Sprint2
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            keyboard.Update();
 
             base.Update(gameTime);
         }
