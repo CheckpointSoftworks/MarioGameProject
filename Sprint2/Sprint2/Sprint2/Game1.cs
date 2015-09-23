@@ -20,6 +20,7 @@ namespace Sprint2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private ArrayList blockObjectList;
+        private ArrayList itemObjectList;
 
 
         public Game1()
@@ -43,6 +44,13 @@ namespace Sprint2
             blockObjectList.Add(new BrickBlock());
             blockObjectList.Add(new GroundBlock());
 
+            //Create all of the items.
+            itemObjectList = new ArrayList();
+            blockObjectList.Add(new FireFlower());
+            blockObjectList.Add(new BoxCoin());
+            blockObjectList.Add(new SuperMushroom());
+            blockObjectList.Add(new OneUpMushroom());
+            blockObjectList.Add(new SuperStar());
 
             base.Initialize();
         }
@@ -98,6 +106,12 @@ namespace Sprint2
             foreach (IGameObject block in blockObjectList)
             {
                 block.Draw(spriteBatch);
+            }
+
+            foreach (IGameObject item in itemObjectList)
+            {
+                //Draw all of the items
+                item.Draw(spriteBatch);
             }
 
             base.Draw(gameTime);
