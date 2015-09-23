@@ -80,6 +80,7 @@
     <Compile Include="BrickBlock.cs" />
     <Compile Include="BrickBlockDisappearCommand.cs" />
     <Compile Include="BrickBlockSprite.cs" />
+    <Compile Include="DeadMarioCommand.cs" />
     <Compile Include="DownCommand.cs" />
     <Compile Include="EnemySpriteFactory.cs" />
     <Compile Include="FireFlower.cs" />
