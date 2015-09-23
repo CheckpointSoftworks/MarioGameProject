@@ -146,7 +146,7 @@ namespace Sprint2
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            //keyboard.Update();
+            keyboard.Update();
 
             base.Update(gameTime);
         }
@@ -166,20 +166,20 @@ namespace Sprint2
                 block.Draw(spriteBatch);
             }
 
-            //foreach (IGameObject item in itemObjectList)
-            //{
+            foreach (IGameObject item in itemObjectList)
+            {
                 //Draw all of the items
-             //   item.Draw(spriteBatch);
-            //}
+                item.Draw(spriteBatch);
+            }
 
-            //foreach (IGameObject enemy in enemyLists)
-            //{
-             //   enemy.Draw(spriteBatch);
-            //}
+            foreach (IGameObject enemy in enemyLists)
+            {
+                enemy.Draw(spriteBatch);
+            }
 
-            //pipe.Draw(spriteBatch);
+            pipe.Draw(spriteBatch);
 
-            //mario.Draw(spriteBatch);
+            mario.Draw(spriteBatch);
 
             base.Draw(gameTime);
             
