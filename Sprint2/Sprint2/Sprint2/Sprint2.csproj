@@ -100,9 +100,10 @@
     <Compile Include="MarioJump.cs" />
     <Compile Include="MarioRunning.cs" />
     <Compile Include="MarioShootFireball.cs" />
+    <Compile Include="MarioSpriteFactory.cs" />
     <Compile Include="OneUpMushroom.cs" />
     <Compile Include="OneUpMushroomSprite.cs" />
-    <Compile Include="StillMario.cs" />
+    <Compile Include="MarioStill.cs" />
     <Compile Include="PlatformingBlock.cs" />
     <Compile Include="PlatformingBlockSprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
