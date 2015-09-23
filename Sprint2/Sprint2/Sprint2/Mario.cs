@@ -14,6 +14,13 @@ namespace Sprint2
         public bool falling;
         public bool fire;
         public bool star;
+        public bool isChangingDirection { get; }
+        public bool isDucking { get; }
+        public bool isDying { get; }
+        public bool isJumping { get; }
+        public bool isRunning { get; }
+        public bool isShooting { get; }
+        public bool isStill { get; }
         public Vector2 location;
         public float velX;
         public float velY;

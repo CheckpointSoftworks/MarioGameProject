@@ -127,6 +127,7 @@ namespace Sprint2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            spriteBatch.Begin();
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
@@ -145,8 +146,9 @@ namespace Sprint2
             pipe.Draw(spriteBatch);
             mario.Draw(spriteBatch);
             //Mario draw command goes here
-
+            spriteBatch.End();
             base.Draw(gameTime);
+            
         }
     }
 }
