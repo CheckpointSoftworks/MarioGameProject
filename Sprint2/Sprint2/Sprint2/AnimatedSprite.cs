@@ -47,7 +47,9 @@ namespace Sprint2
 
             Rectangle sourceRectangle = new Rectangle(width * col, height * row, width, height);
             Rectangle destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, width, height);
+            spriteBatch.Begin();
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.End();
         }
 
         public bool isFinished()

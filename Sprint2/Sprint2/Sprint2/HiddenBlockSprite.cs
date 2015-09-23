@@ -17,7 +17,7 @@ namespace Sprint2
         {
             hiddenBlockSpriteSheet = BlockSpriteTextureStorage.CreateHiddenBlockSprite();
             used = false;
-            location = new Vector2(300, 400);
+            location = new Vector2(300, 200);
         }
         public void Update()
         {
