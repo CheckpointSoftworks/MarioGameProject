@@ -48,16 +48,69 @@ namespace Sprint2
         {
             keyboard = new KeyboardController();
 
-            blockObjectList = new ArrayList();            
-
-            //Create all of the items.
+            blockObjectList = new ArrayList();           
             itemObjectList = new ArrayList();           
+            enemyLists = new ArrayList();         
+           
+            base.Initialize();
+        }
 
-            //Create all of the enemies
-            enemyLists = new ArrayList();
+        
+        /// <summary>
+        /// LoadContent will be called once per game and is the place to load
+        /// all of your content.
+        /// </summary>
+        protected override void LoadContent()
+        {
+            // Create a new SpriteBatch, which can be used to draw textures.
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            
+            // TODO: use this.Content to load your game content here
+            BlockSpriteTextureStorage.Load(this.Content, GraphicsDevice);
+            ItemSpriteTextureStorage.Load(this.Content, GraphicsDevice);
+            EnemySpriteFactory.Load(this.Content, GraphicsDevice);
+            MiscGameObjectTextureStorage.Load(this.Content, GraphicsDevice);
+            MarioSpriteFactory.Load(this.Content, GraphicsDevice);
 
-            //Mario Commands
-            //Example keyboard.RegisterCommand(Keys.I, new FireMarioCommand(this));
+
+            mario = new Mario();
+            pipe = new Pipe();
+
+            LoadBlockObjects(blockObjectList);
+            LoadItems(itemObjectList);
+            LoadEnemies(enemyLists);        
+            LoadKeyBoardCommands(keyboard);
+        }
+
+        private void LoadBlockObjects(ArrayList blockObjectList)
+        {
+            //Create the block objects
+            hiddenBlock = new HiddenBlock();
+            questionBlock = new QuestionBlock();
+            brickBlock = new BrickBlock();
+            blockObjectList.Add(new PlatformingBlock());
+            blockObjectList.Add(hiddenBlock);
+            blockObjectList.Add(questionBlock);
+            blockObjectList.Add(brickBlock);
+            blockObjectList.Add(new GroundBlock());
+        }
+
+        private void LoadItems(ArrayList itemObjectsList)
+        {
+            itemObjectList.Add(new FireFlower());
+            itemObjectList.Add(new BoxCoin());
+            itemObjectList.Add(new SuperMushroom());
+            itemObjectList.Add(new OneUpMushroom());
+            itemObjectList.Add(new SuperStar());
+        }
+
+        private void LoadEnemies(ArrayList enemyList)
+        {
+            enemyLists.Add(new Goomba());
+            enemyLists.Add(new Koopa());
+        }
+        private void LoadKeyBoardCommands(IKeyboard keyboard)
+        {
             //Mario Movement Key Registration
             keyboard.RegisterCommand(Keys.W, new UpCommand(this));
             keyboard.RegisterCommand(Keys.Up, new UpCommand(this));
@@ -81,51 +134,7 @@ namespace Sprint2
 
             //Misc Commands
             keyboard.RegisterCommand(Keys.R, new ResetCommand(this));
-
-           
-            base.Initialize();
         }
-
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
-        protected override void LoadContent()
-        {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            
-            // TODO: use this.Content to load your game content here
-            BlockSpriteTextureStorage.Load(this.Content, GraphicsDevice);
-            ItemSpriteTextureStorage.Load(this.Content, GraphicsDevice);
-            EnemySpriteFactory.Load(this.Content, GraphicsDevice);
-            MiscGameObjectTextureStorage.Load(this.Content, GraphicsDevice);
-            MarioSpriteFactory.Load(this.Content, GraphicsDevice);
-
-
-            mario = new Mario();
-            pipe = new Pipe();
-
-            //Create the block objects
-            hiddenBlock = new HiddenBlock();
-            questionBlock = new QuestionBlock();
-            brickBlock = new BrickBlock();
-            blockObjectList.Add(new PlatformingBlock());
-            blockObjectList.Add(hiddenBlock);
-            blockObjectList.Add(questionBlock);
-            blockObjectList.Add(brickBlock);
-            blockObjectList.Add(new GroundBlock());
-
-            itemObjectList.Add(new FireFlower());
-            itemObjectList.Add(new BoxCoin());
-            itemObjectList.Add(new SuperMushroom());
-            itemObjectList.Add(new OneUpMushroom());
-            itemObjectList.Add(new SuperStar());
-
-            enemyLists.Add(new Goomba());
-            enemyLists.Add(new Koopa());
-        }
-
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
