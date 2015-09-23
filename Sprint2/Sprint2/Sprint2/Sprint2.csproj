@@ -117,6 +117,7 @@
     <Compile Include="Pipe.cs" />
     <Compile Include="PipeSprite.cs" />
     <Compile Include="QuestionBlockUsedCommand.cs" />
+    <Compile Include="ResetCommand.cs" />
     <Compile Include="RightCommand.cs" />
     <Compile Include="SmallMarioCommand.cs" />
     <Compile Include="PlatformingBlock.cs" />

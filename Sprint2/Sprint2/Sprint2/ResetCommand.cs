@@ -16,7 +16,10 @@ namespace Sprint2
 
             public void Execute()
             {
-                
+                Game.mario.small = true;
+                Game.mario.state.Still();
+                //to add: block resets
+
             }
     }
 }
