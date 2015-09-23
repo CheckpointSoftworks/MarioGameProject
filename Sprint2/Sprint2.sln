@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint2", "Sprint2\Sprint2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint2Content", "Sprint2\Sprint2Content\Sprint2Content.contentproj", "{07F1E1DE-0710-428D-9B96-9AD2F42262CA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeReviewFolder", "CodeReviewFolder", "{3A9EECF9-AA16-47C2-A3DF-F337223AE5E0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
