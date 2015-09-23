@@ -68,8 +68,11 @@ namespace Sprint2
             itemObjectList.Add(new SuperStar());
 
             //Mario Commands
-            //Example keyboard.RegisterCommand(Keys.Z, new FireMarioCommand(this));
-           
+            //Example keyboard.RegisterCommand(Keys.I, new FireMarioCommand(this));
+            keyboard.RegisterCommand(Keys.Y, new SmallMarioCommand(this));
+            keyboard.RegisterCommand(Keys.U, new BigMarioCommand(this));
+            keyboard.RegisterCommand(Keys.I, new FireMarioCommand(this));
+
             //Block Commands
             keyboard.RegisterCommand(Keys.Z, new QuestionBlockUsedCommand(this));
             keyboard.RegisterCommand(Keys.X, new BrickBlockDisappearCommand(this));
