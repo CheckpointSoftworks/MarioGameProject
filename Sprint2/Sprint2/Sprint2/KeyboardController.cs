@@ -27,8 +27,7 @@ namespace Sprint2
             foreach (Keys key in pressedKeys)
             {
                 //Calls the Execute method in the command object corresponding to the pressed key.
-                try { controllerMappings[key].Execute(); }
-                catch (Exception e) {  } 
+                controllerMappings[key].Execute();
             }
         }
     }

@@ -36,7 +36,7 @@ namespace Sprint2
         {
             int spriteWidth = 16;
             int spriteHeight = 24;
-            Rectangle sourceRectangle = new Rectangle();
+            Rectangle sourceRectangle = new Rectangle(0,0,0,0);
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteWidth, spriteHeight);
 
             if (currentFrame < 10)

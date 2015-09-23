@@ -19,9 +19,12 @@ namespace Sprint2
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        //Lists to hold the gameObjects
         private ArrayList blockObjectList;
         private ArrayList itemObjectList;
+        private ArrayList enemyLists;
         private IGameObject pipe;
+        //Dynamic Objects based of Sprint's Description
         public IGameObject hiddenBlock;
         public IGameObject questionBlock;
         public IGameObject brickBlock;
@@ -45,27 +48,13 @@ namespace Sprint2
         {
             keyboard = new KeyboardController();
 
-            mario = new Mario();
-            pipe = new Pipe();
-
-            //Create the block objects
-            blockObjectList = new ArrayList();
-            hiddenBlock = new HiddenBlock();
-            questionBlock = new QuestionBlock();
-            brickBlock = new BrickBlock();
-            blockObjectList.Add(new PlatformingBlock());
-            blockObjectList.Add(hiddenBlock);
-            blockObjectList.Add(questionBlock);
-            blockObjectList.Add(brickBlock);
-            blockObjectList.Add(new GroundBlock());
+            blockObjectList = new ArrayList();            
 
             //Create all of the items.
-            itemObjectList = new ArrayList();
-            itemObjectList.Add(new FireFlower());
-            itemObjectList.Add(new BoxCoin());
-            itemObjectList.Add(new SuperMushroom());
-            itemObjectList.Add(new OneUpMushroom());
-            itemObjectList.Add(new SuperStar());
+            itemObjectList = new ArrayList();           
+
+            //Create all of the enemies
+            enemyLists = new ArrayList();
 
             //Mario Commands
             //Example keyboard.RegisterCommand(Keys.I, new FireMarioCommand(this));
@@ -83,6 +72,7 @@ namespace Sprint2
             keyboard.RegisterCommand(Keys.Y, new SmallMarioCommand(this));
             keyboard.RegisterCommand(Keys.U, new BigMarioCommand(this));
             keyboard.RegisterCommand(Keys.I, new FireMarioCommand(this));
+            keyboard.RegisterCommand(Keys.O, new DeadMarioCommand(this));
 
             //Block Commands Registration
             keyboard.RegisterCommand(Keys.Z, new QuestionBlockUsedCommand(this));
@@ -111,6 +101,29 @@ namespace Sprint2
             EnemySpriteFactory.Load(this.Content, GraphicsDevice);
             MiscGameObjectTextureStorage.Load(this.Content, GraphicsDevice);
             MarioSpriteFactory.Load(this.Content, GraphicsDevice);
+
+
+            mario = new Mario();
+            pipe = new Pipe();
+
+            //Create the block objects
+            hiddenBlock = new HiddenBlock();
+            questionBlock = new QuestionBlock();
+            brickBlock = new BrickBlock();
+            blockObjectList.Add(new PlatformingBlock());
+            blockObjectList.Add(hiddenBlock);
+            blockObjectList.Add(questionBlock);
+            blockObjectList.Add(brickBlock);
+            blockObjectList.Add(new GroundBlock());
+
+            itemObjectList.Add(new FireFlower());
+            itemObjectList.Add(new BoxCoin());
+            itemObjectList.Add(new SuperMushroom());
+            itemObjectList.Add(new OneUpMushroom());
+            itemObjectList.Add(new SuperStar());
+
+            enemyLists.Add(new Goomba());
+            enemyLists.Add(new Koopa());
         }
 
         /// <summary>
@@ -145,11 +158,10 @@ namespace Sprint2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            spriteBatch.Begin();
+            
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
             foreach (IGameObject block in blockObjectList)
             {
                 block.Draw(spriteBatch);
@@ -161,11 +173,15 @@ namespace Sprint2
                 item.Draw(spriteBatch);
             }
 
+            foreach (IGameObject enemy in enemyLists)
+            {
+                enemy.Draw(spriteBatch);
+            }
+
             pipe.Draw(spriteBatch);
 
             mario.Draw(spriteBatch);
 
-            spriteBatch.End();
             base.Draw(gameTime);
             
         }

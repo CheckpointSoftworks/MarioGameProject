@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint2
 {
-    public class BlockSpriteTextureStorage
+    public static class BlockSpriteTextureStorage
     {
         private static Texture2D hiddenBlockSpritesheet;
         private static Texture2D brickBlockSpritesheet;
