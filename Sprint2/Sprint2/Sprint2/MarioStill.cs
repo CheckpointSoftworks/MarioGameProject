@@ -2,38 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
-namespace KrisWengersSprint0
+namespace Sprint2
 {
-    public class MarioStill : IPlayerState
+    public class MarioStill: IPlayerState
     {
         private Mario mario;
+        AnimatedSprite big;
+        AnimatedSprite small;
+        AnimatedSprite fire;
         public MarioStill(Mario mario)
         {
             this.mario = mario;
-            if (mario.small)
-            {
-                if (mario.fire)
-                {
-                    //Set mario sprite to small still fire
-                }
-                if (mario.star)
-                {
-                    //Set mario sprite to small still star
-                }
-            }
-            else //mario is big
-            {
-                if (mario.fire)
-                {
-                    //Set mario sprite to big still fire
-                }
-                if (mario.star)
-                {
-                    //Set mario sprite to big still star
-                }
-            }
-            
+            //Set Sprite here
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallJumpingSprite(mario.facingRight), 1, 1);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            if (mario.fire)
+                fire.Draw(spriteBatch, mario.location);
+            else if (mario.small)
+                small.Draw(spriteBatch, mario.location);
+            else
+                big.Draw(spriteBatch, mario.location);
         }
         public void Still()
         {

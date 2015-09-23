@@ -30,6 +30,7 @@ namespace Sprint2
             spriteBatch.Begin();
             spriteBatch.Draw(platformingBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
+            
         }
     }
 }

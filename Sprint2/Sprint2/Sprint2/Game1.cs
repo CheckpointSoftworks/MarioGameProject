@@ -19,7 +19,18 @@ namespace Sprint2
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        //Lists to hold the gameObjects
         private ArrayList blockObjectList;
+        private ArrayList itemObjectList;
+        private ArrayList enemyLists;
+        private IGameObject pipe;
+        //Dynamic Objects based of Sprint's Description
+        public IGameObject hiddenBlock;
+        public IGameObject questionBlock;
+        public IGameObject brickBlock;
+        public IKeyboard keyboard;
+        public Mario mario;
+
 
         public Game1()
         {
@@ -35,17 +46,16 @@ namespace Sprint2
         /// </summary>
         protected override void Initialize()
         {
-            blockObjectList = new ArrayList();
-            blockObjectList.Add(new PlatformingBlock());
-            blockObjectList.Add(new HiddenBlock());
-            blockObjectList.Add(new QuestionBlock());
-            blockObjectList.Add(new BrickBlock());
-            blockObjectList.Add(new GroundBlock());
+            keyboard = new KeyboardController();
 
-
+            blockObjectList = new ArrayList();           
+            itemObjectList = new ArrayList();           
+            enemyLists = new ArrayList();         
+           
             base.Initialize();
         }
 
+        
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -56,15 +66,82 @@ namespace Sprint2
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
             // TODO: use this.Content to load your game content here
-            BlockSpriteTextureStorage.Load(Content, GraphicsDevice);
+            BlockSpriteTextureStorage.Load(this.Content, GraphicsDevice);
+            ItemSpriteTextureStorage.Load(this.Content, GraphicsDevice);
+            EnemySpriteFactory.Load(this.Content, GraphicsDevice);
+            MiscGameObjectTextureStorage.Load(this.Content, GraphicsDevice);
+            MarioSpriteFactory.Load(this.Content, GraphicsDevice);
+
+
+            mario = new Mario();
+            pipe = new Pipe();
+
+            LoadBlockObjects(blockObjectList);
+            LoadItems(itemObjectList);
+            LoadEnemies(enemyLists);        
+            LoadKeyBoardCommands(keyboard);
         }
 
+        private void LoadBlockObjects(ArrayList blockObjectList)
+        {
+            //Create the block objects
+            hiddenBlock = new HiddenBlock();
+            questionBlock = new QuestionBlock();
+            brickBlock = new BrickBlock();
+            blockObjectList.Add(new PlatformingBlock());
+            blockObjectList.Add(hiddenBlock);
+            blockObjectList.Add(questionBlock);
+            blockObjectList.Add(brickBlock);
+            blockObjectList.Add(new GroundBlock());
+        }
+
+        private void LoadItems(ArrayList itemObjectsList)
+        {
+            itemObjectList.Add(new FireFlower());
+            itemObjectList.Add(new BoxCoin());
+            itemObjectList.Add(new SuperMushroom());
+            itemObjectList.Add(new OneUpMushroom());
+            itemObjectList.Add(new SuperStar());
+        }
+
+        private void LoadEnemies(ArrayList enemyList)
+        {
+            enemyLists.Add(new Goomba());
+            enemyLists.Add(new Koopa());
+        }
+        private void LoadKeyBoardCommands(IKeyboard keyboard)
+        {
+            //Mario Movement Key Registration
+            keyboard.RegisterCommand(Keys.W, new UpCommand(this));
+            keyboard.RegisterCommand(Keys.Up, new UpCommand(this));
+            keyboard.RegisterCommand(Keys.S, new DownCommand(this));
+            keyboard.RegisterCommand(Keys.Down, new DownCommand(this));
+            keyboard.RegisterCommand(Keys.A, new LeftCommand(this));
+            keyboard.RegisterCommand(Keys.Left, new LeftCommand(this));
+            keyboard.RegisterCommand(Keys.D, new RightCommand(this));
+            keyboard.RegisterCommand(Keys.Right, new RightCommand(this));
+
+            //Mario State Key Registration
+            keyboard.RegisterCommand(Keys.Y, new SmallMarioCommand(this));
+            keyboard.RegisterCommand(Keys.U, new BigMarioCommand(this));
+            keyboard.RegisterCommand(Keys.I, new FireMarioCommand(this));
+            keyboard.RegisterCommand(Keys.O, new DeadMarioCommand(this));
+
+            //Block Commands Registration
+            keyboard.RegisterCommand(Keys.Z, new QuestionBlockUsedCommand(this));
+            keyboard.RegisterCommand(Keys.X, new BrickBlockDisappearCommand(this));
+            keyboard.RegisterCommand(Keys.C, new HiddenBlockUsedCommand(this));
+
+            //Misc Commands
+            keyboard.RegisterCommand(Keys.R, new ResetCommand(this));
+        }
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
         /// </summary>
         protected override void UnloadContent()
         {
+            // Not Yet Needed in the scope of the project
             // TODO: Unload any non ContentManager content here
         }
 
@@ -79,7 +156,7 @@ namespace Sprint2
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            keyboard.Update();
 
             base.Update(gameTime);
         }
@@ -90,16 +167,32 @@ namespace Sprint2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
             foreach (IGameObject block in blockObjectList)
             {
                 block.Draw(spriteBatch);
             }
 
+            foreach (IGameObject item in itemObjectList)
+            {
+                //Draw all of the items
+                item.Draw(spriteBatch);
+            }
+
+            foreach (IGameObject enemy in enemyLists)
+            {
+                enemy.Draw(spriteBatch);
+            }
+
+            pipe.Draw(spriteBatch);
+
+            mario.Draw(spriteBatch);
+
             base.Draw(gameTime);
+            
         }
     }
 }

@@ -72,27 +72,55 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimatedSprite.cs" />
+    <Compile Include="BigMarioCommand.cs" />
     <Compile Include="BlockSpriteTextureStorage.cs" />
+    <Compile Include="BoxCoin.cs" />
+    <Compile Include="BoxCoinSprite.cs" />
     <Compile Include="BrickBlock.cs" />
+    <Compile Include="BrickBlockDisappearCommand.cs" />
     <Compile Include="BrickBlockSprite.cs" />
+    <Compile Include="DeadMarioCommand.cs" />
+    <Compile Include="DownCommand.cs" />
+    <Compile Include="EnemySpriteFactory.cs" />
+    <Compile Include="FireFlower.cs" />
+    <Compile Include="FireFlowerSprite.cs" />
+    <Compile Include="FireMarioCommand.cs" />
+    <Compile Include="Goomba.cs" />
+    <Compile Include="GoombaSprite.cs" />
     <Compile Include="GroundBlock.cs" />
     <Compile Include="GroundBlockSprite.cs" />
     <Compile Include="HiddenBlock.cs" />
     <Compile Include="HiddenBlockSprite.cs" />
+    <Compile Include="HiddenBlockUsedCommand.cs" />
     <Compile Include="IGameObject.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IKeyboard.cs" />
     <Compile Include="ISprite.cs" />
+    <Compile Include="ItemSpriteTextureStorage.cs" />
     <Compile Include="KeyboardController.cs" />
-    <Compile Include="Mario\States\IPlayerState.cs" />
-    <Compile Include="Mario\States\Mario.cs" />
-    <Compile Include="Mario\States\MarioChangeDirection.cs" />
-    <Compile Include="Mario\States\MarioDuck.cs" />
-    <Compile Include="Mario\States\MarioDying.cs" />
-    <Compile Include="Mario\States\MarioJump.cs" />
-    <Compile Include="Mario\States\MarioRunning.cs" />
-    <Compile Include="Mario\States\MarioShootFireball.cs" />
-    <Compile Include="Mario\States\StillMario.cs" />
+    <Compile Include="IPlayerState.cs" />
+    <Compile Include="Koopa.cs" />
+    <Compile Include="KoopaSprite.cs" />
+    <Compile Include="LeftCommand.cs" />
+    <Compile Include="Mario.cs" />
+    <Compile Include="MarioChangeDirection.cs" />
+    <Compile Include="MarioDuck.cs" />
+    <Compile Include="MarioDying.cs" />
+    <Compile Include="MarioJump.cs" />
+    <Compile Include="MarioRunning.cs" />
+    <Compile Include="MarioShootFireball.cs" />
+    <Compile Include="MarioSpriteFactory.cs" />
+    <Compile Include="MarioStill.cs" />
+    <Compile Include="MiscGameObjectTextureStorage.cs" />
+    <Compile Include="OneUpMushroom.cs" />
+    <Compile Include="OneUpMushroomSprite.cs" />
+    <Compile Include="Pipe.cs" />
+    <Compile Include="PipeSprite.cs" />
+    <Compile Include="QuestionBlockUsedCommand.cs" />
+    <Compile Include="ResetCommand.cs" />
+    <Compile Include="RightCommand.cs" />
+    <Compile Include="SmallMarioCommand.cs" />
     <Compile Include="PlatformingBlock.cs" />
     <Compile Include="PlatformingBlockSprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,6 +128,11 @@
     <Compile Include="Game1.cs" />
     <Compile Include="QuestionBlock.cs" />
     <Compile Include="QuestionBlockSprite.cs" />
+    <Compile Include="SuperMushroom.cs" />
+    <Compile Include="SuperMushroomSprite.cs" />
+    <Compile Include="SuperStar.cs" />
+    <Compile Include="SuperStarSprite.cs" />
+    <Compile Include="UpCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
@@ -135,6 +168,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-  
-namespace KrisWengersSprint0
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+
+namespace Sprint2
 {  
     class MarioShootFireball: IPlayerState
     {
@@ -12,6 +14,10 @@ namespace KrisWengersSprint0
         {
             this.mario = mario;
             //Set Sprite here
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+
         }
         public void Still()
         {

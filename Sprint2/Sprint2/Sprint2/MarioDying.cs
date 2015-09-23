@@ -2,16 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
-namespace KrisWengersSprint0
+namespace Sprint2
 {
     class MarioDying: IPlayerState
     {
+        private AnimatedSprite sprite;
         private Mario mario;
         public MarioDying(Mario mario)
         {
             this.mario = mario;
-            //Set Sprite here
+            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(false), 1, 1);
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            sprite.Draw(spriteBatch, mario.location);
         }
         public void Still()
         {

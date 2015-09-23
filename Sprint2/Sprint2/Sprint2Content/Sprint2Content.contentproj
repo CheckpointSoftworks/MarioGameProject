@@ -37,15 +37,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BigMarioMushroom.png">
-      <Name>BigMarioMushroom</Name>
+    <Compile Include="SuperMushroom.png">
+      <Name>SuperMushroom</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="1UpMushroom.png">
-      <Name>1UpMushroom</Name>
+    <Compile Include="OneUpMushroom.png">
+      <Name>OneUpMushroom</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -74,6 +74,152 @@
   <ItemGroup>
     <Compile Include="BricksSheetWithEmptyBlock.png">
       <Name>BricksSheetWithEmptyBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemySpriteSheet.png">
+      <Name>enemySpriteSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MarioBigChangeDirection.png">
+      <Name>MarioBigChangeDirection</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioBigFlagpole.png">
+      <Name>MarioBigFlagpole</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioBigJump.png">
+      <Name>MarioBigJump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioBigRunning.png">
+      <Name>MarioBigRunning</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioBigStill.png">
+      <Name>MarioBigStill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioBigSwimming.png">
+      <Name>MarioBigSwimming</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioDuck.png">
+      <Name>MarioDuck</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioDying.png">
+      <Name>MarioDying</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioShoot.png">
+      <Name>MarioShoot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioSmallChangeDirection.png">
+      <Name>MarioSmallChangeDirection</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioSmallFlagpole.png">
+      <Name>MarioSmallFlagpole</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioSmallJump.png">
+      <Name>MarioSmallJump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioSmallRunning.png">
+      <Name>MarioSmallRunning</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioSmallStill.png">
+      <Name>MarioSmallStill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioSmallSwim.png">
+      <Name>MarioSmallSwim</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mario\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PipeSprite.png">
+      <Name>PipeSprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MarioFireChangeDirection.png">
+      <Name>MarioFireChangeDirection</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioFireDuck.png">
+      <Name>MarioFireDuck</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MariofireFlagpole.png">
+      <Name>MariofireFlagpole</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioFireJump.png">
+      <Name>MarioFireJump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioFireRunning.png">
+      <Name>MarioFireRunning</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioFireShootingRunning.png">
+      <Name>MarioFireShootingRunning</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioFireShootingStill.png">
+      <Name>MarioFireShootingStill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioFireShootingSwim.png">
+      <Name>MarioFireShootingSwim</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioFireStill.png">
+      <Name>MarioFireStill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MarioFireSwim.png">
+      <Name>MarioFireSwim</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

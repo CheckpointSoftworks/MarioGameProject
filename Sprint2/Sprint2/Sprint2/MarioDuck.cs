@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
- namespace KrisWengersSprint0
+namespace Sprint2
 {
-     class MarioChangeDirection: IPlayerState
+    class MarioDuck: IPlayerState
     {
+        private AnimatedSprite sprite;
         private Mario mario;
-        public MarioChangeDirection(Mario mario)
+        public MarioDuck(Mario mario)
         {
             this.mario = mario;
-            mario.facingRight = !mario.facingRight;
+            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(false), 1, 1);
             //Set Sprite here
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            sprite.Draw(spriteBatch, mario.location);
         }
         public void Still()
         {
@@ -20,15 +27,15 @@ using System.Text;
         }
         public void Running()
         {
-            mario.state = new MarioRunning(mario);
+            //Do nothing, maybe stand up?
         }
         public void ChangeDirection()
         {
-            //Nothing
+            //Do nothing, invalid
         }
         public void Jump()
         {
-            mario.state = new MarioChangeDirection(mario);
+            // Nothing for now, but duck jump may exist
         }
         public void ShootFireball()
         {
@@ -37,12 +44,11 @@ using System.Text;
         }
         public void Duck()
         {
-            mario.state = new MarioDuck(mario);
+            // Nothing
         }
         public void Dying()
         {
             mario.state = new MarioDying(mario);
         }
     }
- }
-
+}

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
-namespace KrisWengersSprint0
+namespace Sprint2
 {
     public interface IPlayerState
     {
@@ -14,6 +16,7 @@ namespace KrisWengersSprint0
         void ShootFireball();
         void Duck();
         void Dying();
+        void Draw(SpriteBatch spriteBatch);
 
 
     }

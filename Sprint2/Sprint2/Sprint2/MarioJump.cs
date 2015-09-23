@@ -2,16 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
-namespace KrisWengersSprint0
+namespace Sprint2
 {
     class MarioJump: IPlayerState
     {
         private Mario mario;
+        private AnimatedSprite big;
+        private AnimatedSprite small;
+        private AnimatedSprite fire;
         public MarioJump(Mario mario)
         {
             this.mario = mario;
-            //Set Sprite here
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallJumpingSprite(mario.facingRight), 1, 1);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            if (mario.fire)
+                fire.Draw(spriteBatch, mario.location);
+            else if (mario.small)
+                small.Draw(spriteBatch,mario.location);
+            else
+                big.Draw(spriteBatch, mario.location);
+           
         }
         public void Still()
         {

@@ -5,23 +5,43 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace KrisWengersSprint0
+namespace Sprint2
 {
-    public class Mario 
+    public class Mario : IGameObject
     {
         public bool facingRight;
         public bool small;
         public bool falling;
         public bool fire;
         public bool star;
+        public bool isChangingDirection { get; set; }
+        public bool isDucking { get; set; }
+        public bool isDying { get; set; }
+        public bool isJumping { get; set; }
+        public bool isRunning { get; set; }
+        public bool isShooting { get; set; }
+        public bool isStill { get; set; }
+        public Vector2 location;
         public float velX;
         public float velY;
         public Vector2 location;
         public IPlayerState state;
+        public AnimatedSprite sprite;
+        //private MarioSpriteFactory spriteFactory;
         public Mario()
         {
             state = new MarioStill(this);
         }
+
+        public void Update()
+        {
+
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            state.Draw(spriteBatch);
+        }
+
         void Still()
         {
             state.Still();
