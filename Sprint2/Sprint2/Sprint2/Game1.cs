@@ -21,6 +21,7 @@ namespace Sprint2
         SpriteBatch spriteBatch;
         private ArrayList blockObjectList;
         private ArrayList itemObjectList;
+        private IGameObject pipe;
         public IGameObject hiddenBlock;
         public IGameObject questionBlock;
         public IGameObject brickBlock;
@@ -45,6 +46,7 @@ namespace Sprint2
             keyboard = new KeyboardController();
 
             mario = new Mario();
+            pipe = new Pipe();
 
             //Create the block objects
             blockObjectList = new ArrayList();
@@ -89,6 +91,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(this.Content, GraphicsDevice);
             ItemSpriteTextureStorage.Load(this.Content, GraphicsDevice);
             EnemySpriteFactory.Load(this.Content, GraphicsDevice);
+            MiscGameObjectTextureStorage.Load(this.Content, GraphicsDevice);
         }
 
         /// <summary>
@@ -137,6 +140,8 @@ namespace Sprint2
                 //Draw all of the items
                 item.Draw(spriteBatch);
             }
+
+            pipe.Draw(spriteBatch);
 
             //Mario draw command goes here
 
