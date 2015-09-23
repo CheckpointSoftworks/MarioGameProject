@@ -21,6 +21,10 @@ namespace Sprint2
         SpriteBatch spriteBatch;
         private ArrayList blockObjectList;
         private ArrayList itemObjectList;
+        public IGameObject hiddenBlock;
+        public IGameObject questionBlock;
+        public IGameObject brickBlock;
+
 
 
         public Game1()
@@ -38,19 +42,22 @@ namespace Sprint2
         protected override void Initialize()
         {
             blockObjectList = new ArrayList();
+            hiddenBlock = new HiddenBlock();
+            questionBlock = new QuestionBlock();
+            brickBlock = new BrickBlock();
             blockObjectList.Add(new PlatformingBlock());
-            blockObjectList.Add(new HiddenBlock());
-            blockObjectList.Add(new QuestionBlock());
-            blockObjectList.Add(new BrickBlock());
+            blockObjectList.Add(hiddenBlock);
+            blockObjectList.Add(questionBlock);
+            blockObjectList.Add(brickBlock);
             blockObjectList.Add(new GroundBlock());
 
             //Create all of the items.
             itemObjectList = new ArrayList();
-            blockObjectList.Add(new FireFlower());
-            blockObjectList.Add(new BoxCoin());
-            blockObjectList.Add(new SuperMushroom());
-            blockObjectList.Add(new OneUpMushroom());
-            blockObjectList.Add(new SuperStar());
+            itemObjectList.Add(new FireFlower());
+            itemObjectList.Add(new BoxCoin());
+            itemObjectList.Add(new SuperMushroom());
+            itemObjectList.Add(new OneUpMushroom());
+            itemObjectList.Add(new SuperStar());
 
             base.Initialize();
         }
@@ -66,6 +73,8 @@ namespace Sprint2
             
             // TODO: use this.Content to load your game content here
             BlockSpriteTextureStorage.Load(this.Content, this.GraphicsDevice);
+            ItemSpriteTextureStorage.Load(this.Content, this.GraphicsDevice);
+            EnemySpriteFactory.Load(this.Content, this.GraphicsDevice);
         }
 
         /// <summary>
