@@ -11,9 +11,12 @@ namespace Sprint2
     {
 
         private int currentFrame;
+        private Vector2 location;
+        private Texture2D KoopaSpriteSheet;
 
-        public KoopaSprite(Texture2D goombaSpritesheet, Game1 game)
+        public KoopaSprite(Texture2D koopaSpritesheet, Game1 game)
         {
+            KoopaSpriteSheet = koopaSpritesheet;
 
         }
         public void Update()
@@ -29,8 +32,10 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            int spriteWidth = 16;
+            int spriteHeight = 24;
             Rectangle sourceRectangle = new Rectangle();
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteWidth, spriteHeight);
 
             if (currentFrame < 10)
             {
@@ -40,6 +45,10 @@ namespace Sprint2
             {
                 sourceRectangle = new Rectangle(179, 0, 18, 24);
             }
+
+            spriteBatch.Begin();
+            spriteBatch.Draw(KoopaSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.End();
 
         }
     }
