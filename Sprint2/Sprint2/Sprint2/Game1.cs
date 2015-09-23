@@ -84,10 +84,10 @@ namespace Sprint2
 
         private void LoadBlockObjects(ArrayList blockObjectList)
         {
-            //Create the block objects
             hiddenBlock = new HiddenBlock();
             questionBlock = new QuestionBlock();
             brickBlock = new BrickBlock();
+
             blockObjectList.Add(new PlatformingBlock());
             blockObjectList.Add(hiddenBlock);
             blockObjectList.Add(questionBlock);

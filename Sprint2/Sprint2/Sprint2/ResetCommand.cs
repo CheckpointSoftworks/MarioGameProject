@@ -29,8 +29,8 @@ namespace Sprint2
                 Game.brickBlock = new BrickBlock();
 
                 Game.blockObjectList.Add(Game.hiddenBlock);
-                Game.blockObjectList.Add(Game.brickBlock);
                 Game.blockObjectList.Add(Game.questionBlock);
+                Game.blockObjectList.Add(Game.brickBlock);
             }
     }
 }
