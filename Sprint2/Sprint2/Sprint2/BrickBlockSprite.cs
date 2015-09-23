@@ -17,7 +17,7 @@ namespace Sprint2
         {
             brickBlockSpriteSheet = BlockSpriteTextureStorage.CreateBrickBlockSprite();
             smashed = false;
-            location = new Vector2(500, 400);
+            location = new Vector2(500, 200);
         }
         public void Update()
         {

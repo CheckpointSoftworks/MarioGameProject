@@ -14,7 +14,7 @@ namespace Sprint2
         public GroundBlockSprite()
         {
             groundBlockSpriteSheet = BlockSpriteTextureStorage.CreateGroundBlockSprite();
-            location = new Vector2(600, 400);
+            location = new Vector2(600, 200);
         }
         public void Update()
         {

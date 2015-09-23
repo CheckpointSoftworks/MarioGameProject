@@ -14,7 +14,7 @@ namespace Sprint2
         public PipeSprite()
         {
             pipeSpriteSheet = MiscGameObjectTextureStorage.CreatePipeSprite();
-            location = new Vector2(700, 400);
+            location = new Vector2(700, 200);
         }
         public void Update()
         {
