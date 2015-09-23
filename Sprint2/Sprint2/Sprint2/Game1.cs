@@ -20,6 +20,11 @@ namespace Sprint2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private ArrayList blockObjectList;
+        private ArrayList itemObjectList;
+        public IGameObject hiddenBlock;
+        public IGameObject questionBlock;
+        public IGameObject brickBlock;
+        public IKeyboard keyboard;
 
 
         public Game1()
@@ -36,13 +41,26 @@ namespace Sprint2
         /// </summary>
         protected override void Initialize()
         {
+            keyboard = new KeyboardController();
+
+            //Create the block objects
             blockObjectList = new ArrayList();
+            hiddenBlock = new HiddenBlock();
+            questionBlock = new QuestionBlock();
+            brickBlock = new BrickBlock();
             blockObjectList.Add(new PlatformingBlock());
-            blockObjectList.Add(new HiddenBlock());
-            blockObjectList.Add(new QuestionBlock());
-            blockObjectList.Add(new BrickBlock());
+            blockObjectList.Add(hiddenBlock);
+            blockObjectList.Add(questionBlock);
+            blockObjectList.Add(brickBlock);
             blockObjectList.Add(new GroundBlock());
 
+            //Create all of the items.
+            itemObjectList = new ArrayList();
+            itemObjectList.Add(new FireFlower());
+            itemObjectList.Add(new BoxCoin());
+            itemObjectList.Add(new SuperMushroom());
+            itemObjectList.Add(new OneUpMushroom());
+            itemObjectList.Add(new SuperStar());
 
             base.Initialize();
         }
@@ -57,7 +75,9 @@ namespace Sprint2
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
             // TODO: use this.Content to load your game content here
-            BlockSpriteTextureStorage.Load(this.Content, this.GraphicsDevice);
+            BlockSpriteTextureStorage.Load(this.Content, GraphicsDevice);
+            ItemSpriteTextureStorage.Load(this.Content, GraphicsDevice);
+            EnemySpriteFactory.Load(this.Content, GraphicsDevice);
         }
 
         /// <summary>
@@ -80,7 +100,7 @@ namespace Sprint2
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            keyboard.Update();
 
             base.Update(gameTime);
         }
@@ -98,6 +118,12 @@ namespace Sprint2
             foreach (IGameObject block in blockObjectList)
             {
                 block.Draw(spriteBatch);
+            }
+
+            foreach (IGameObject item in itemObjectList)
+            {
+                //Draw all of the items
+                item.Draw(spriteBatch);
             }
 
             base.Draw(gameTime);
