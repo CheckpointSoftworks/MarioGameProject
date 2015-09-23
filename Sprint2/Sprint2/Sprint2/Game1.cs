@@ -19,10 +19,12 @@ namespace Sprint2
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        //Lists to hold the gameObjects
         private ArrayList blockObjectList;
         private ArrayList itemObjectList;
         private ArrayList enemyLists;
         private IGameObject pipe;
+        //Dynamic Objects based of Sprint's Description
         public IGameObject hiddenBlock;
         public IGameObject questionBlock;
         public IGameObject brickBlock;
