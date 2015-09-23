@@ -26,10 +26,9 @@ namespace Sprint2
             int spriteSheetSpriteSize = 16;
             Rectangle sourceRectangle = new Rectangle((spriteSheetSpriteSize * 7), 0, spriteSheetSpriteSize, spriteSheetSpriteSize);
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
-
-            
+            spriteBatch.Begin();
             spriteBatch.Draw(platformingBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
-            
+            spriteBatch.End();
         }
     }
 }
