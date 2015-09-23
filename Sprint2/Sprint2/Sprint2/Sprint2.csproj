@@ -105,6 +105,7 @@
     <Compile Include="MarioRunning.cs" />
     <Compile Include="MarioShootFireball.cs" />
     <Compile Include="MarioStill.cs" />
+    <Compile Include="MiscGameObjectTextureStorage.cs" />
     <Compile Include="OneUpMushroom.cs" />
     <Compile Include="OneUpMushroomSprite.cs" />
     <Compile Include="Pipe.cs" />
