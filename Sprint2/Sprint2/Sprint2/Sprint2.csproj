@@ -80,10 +80,12 @@
     <Compile Include="BrickBlock.cs" />
     <Compile Include="BrickBlockDisappearCommand.cs" />
     <Compile Include="BrickBlockSprite.cs" />
+    <Compile Include="DownCommand.cs" />
     <Compile Include="EnemySpriteFactory.cs" />
     <Compile Include="FireFlower.cs" />
     <Compile Include="FireFlowerSprite.cs" />
     <Compile Include="FireMarioCommand.cs" />
+    <Compile Include="Goomba.cs" />
     <Compile Include="GoombaSprite.cs" />
     <Compile Include="GroundBlock.cs" />
     <Compile Include="GroundBlockSprite.cs" />
@@ -97,7 +99,9 @@
     <Compile Include="ItemSpriteTextureStorage.cs" />
     <Compile Include="KeyboardController.cs" />
     <Compile Include="IPlayerState.cs" />
+    <Compile Include="Koopa.cs" />
     <Compile Include="KoopaSprite.cs" />
+    <Compile Include="LeftCommand.cs" />
     <Compile Include="Mario.cs" />
     <Compile Include="MarioChangeDirection.cs" />
     <Compile Include="MarioDuck.cs" />
@@ -113,6 +117,8 @@
     <Compile Include="Pipe.cs" />
     <Compile Include="PipeSprite.cs" />
     <Compile Include="QuestionBlockUsedCommand.cs" />
+    <Compile Include="ResetCommand.cs" />
+    <Compile Include="RightCommand.cs" />
     <Compile Include="SmallMarioCommand.cs" />
     <Compile Include="PlatformingBlock.cs" />
     <Compile Include="PlatformingBlockSprite.cs" />
@@ -125,6 +131,7 @@
     <Compile Include="SuperMushroomSprite.cs" />
     <Compile Include="SuperStar.cs" />
     <Compile Include="SuperStarSprite.cs" />
+    <Compile Include="UpCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

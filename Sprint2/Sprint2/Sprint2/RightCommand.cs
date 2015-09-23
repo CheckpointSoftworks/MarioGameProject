@@ -5,18 +5,18 @@ using System.Text;
 
 namespace Sprint2
 {
-    public class SmallMarioCommand : ICommand
+    class RightCommand: ICommand
     {
             private Game1 Game;
 
-            public SmallMarioCommand(Game1 game)
+            public RightCommand(Game1 game)
             {
                 Game = game;
             }
 
             public void Execute()
             {
-                Game.mario.small = true;
+                Game.mario.facingRight = true;
             }
     }
 }
