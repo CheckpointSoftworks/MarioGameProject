@@ -20,7 +20,7 @@ namespace Sprint2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         //Lists to hold the gameObjects
-        private ArrayList blockObjectList;
+        public ArrayList blockObjectList;
         private ArrayList itemObjectList;
         private ArrayList enemyLists;
         private IGameObject pipe;
