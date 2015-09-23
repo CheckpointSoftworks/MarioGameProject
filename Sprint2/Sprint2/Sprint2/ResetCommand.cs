@@ -17,8 +17,12 @@ namespace Sprint2
             public void Execute()
             {
                 Game.mario.small = true;
+                Game.mario.facingRight = false;
                 Game.mario.state.Still();
-                //to add: block resets
+                
+                Game.hiddenBlock = new HiddenBlock();
+                Game.questionBlock = new QuestionBlock();
+                Game.brickBlock = new BrickBlock();
 
             }
     }
