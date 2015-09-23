@@ -76,6 +76,7 @@
     <Compile Include="BoxCoin.cs" />
     <Compile Include="BoxCoinSprite.cs" />
     <Compile Include="BrickBlock.cs" />
+    <Compile Include="BrickBlockDisappearCommand.cs" />
     <Compile Include="BrickBlockSprite.cs" />
     <Compile Include="EnemySpriteFactory.cs" />
     <Compile Include="FireFlower.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="GroundBlockSprite.cs" />
     <Compile Include="HiddenBlock.cs" />
     <Compile Include="HiddenBlockSprite.cs" />
+    <Compile Include="HiddenBlockUsedCommand.cs" />
     <Compile Include="IGameObject.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IKeyboard.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="MarioShootFireball.cs" />
     <Compile Include="OneUpMushroom.cs" />
     <Compile Include="OneUpMushroomSprite.cs" />
+    <Compile Include="QuestionBlockUsedCommand.cs" />
     <Compile Include="StillMario.cs" />
     <Compile Include="PlatformingBlock.cs" />
     <Compile Include="PlatformingBlockSprite.cs" />
