@@ -27,6 +27,7 @@ namespace Sprint2
         public IKeyboard keyboard;
         public Mario mario;
 
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -42,6 +43,8 @@ namespace Sprint2
         protected override void Initialize()
         {
             keyboard = new KeyboardController();
+
+            mario = new Mario();
 
             //Create the block objects
             blockObjectList = new ArrayList();
@@ -62,8 +65,14 @@ namespace Sprint2
             itemObjectList.Add(new OneUpMushroom());
             itemObjectList.Add(new SuperStar());
 
-            mario = new Mario();
-
+            //Mario Commands
+            //Example keyboard.RegisterCommand(Keys.Z, new FireMarioCommand(this));
+           
+            //Block Commands
+            keyboard.RegisterCommand(Keys.Z, new QuestionBlockUsedCommand(this));
+            keyboard.RegisterCommand(Keys.X, new BrickBlockDisappearCommand(this));
+            keyboard.RegisterCommand(Keys.C, new HiddenBlockUsedCommand(this));
+           
             base.Initialize();
         }
 
@@ -80,7 +89,6 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(this.Content, GraphicsDevice);
             ItemSpriteTextureStorage.Load(this.Content, GraphicsDevice);
             EnemySpriteFactory.Load(this.Content, GraphicsDevice);
-            MarioSpriteFactory.Load(this.Content, GraphicsDevice);
         }
 
         /// <summary>
@@ -89,6 +97,7 @@ namespace Sprint2
         /// </summary>
         protected override void UnloadContent()
         {
+            // Not Yet Needed in the scope of the project
             // TODO: Unload any non ContentManager content here
         }
 
@@ -128,6 +137,8 @@ namespace Sprint2
                 //Draw all of the items
                 item.Draw(spriteBatch);
             }
+
+            //Mario draw command goes here
 
             base.Draw(gameTime);
         }

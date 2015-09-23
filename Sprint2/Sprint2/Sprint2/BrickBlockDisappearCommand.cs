@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sprint2
 {
-    class BrickBlockDisappearCommand
+    public class BrickBlockDisappearCommand : ICommand
     {
             private Game1 Game;
 
@@ -16,7 +16,7 @@ namespace Sprint2
 
             public void Execute()
             {
-                Game.brickblock.update();
+                Game.brickBlock.Update();
             }
     }
 }

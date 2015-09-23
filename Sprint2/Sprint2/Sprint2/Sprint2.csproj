@@ -107,8 +107,11 @@
     <Compile Include="MarioShootFireball.cs" />
     <Compile Include="MarioSpriteFactory.cs" />
     <Compile Include="MarioStill.cs" />
+    <Compile Include="MiscGameObjectTextureStorage.cs" />
     <Compile Include="OneUpMushroom.cs" />
     <Compile Include="OneUpMushroomSprite.cs" />
+    <Compile Include="Pipe.cs" />
+    <Compile Include="PipeSprite.cs" />
     <Compile Include="QuestionBlockUsedCommand.cs" />
     <Compile Include="SmallMarioCommand.cs" />
     <Compile Include="PlatformingBlock.cs" />
