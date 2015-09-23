@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace KrisWengersSprint0
+namespace Sprint2
 {
-    public class MarioStill : IPlayerState
+    public class MarioStill: IPlayerState
     {
         private Mario mario;
         public MarioStill(Mario mario)

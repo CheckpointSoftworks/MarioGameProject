@@ -104,11 +104,11 @@
     <Compile Include="MarioJump.cs" />
     <Compile Include="MarioRunning.cs" />
     <Compile Include="MarioShootFireball.cs" />
+    <Compile Include="MarioStill.cs" />
     <Compile Include="OneUpMushroom.cs" />
     <Compile Include="OneUpMushroomSprite.cs" />
     <Compile Include="QuestionBlockUsedCommand.cs" />
     <Compile Include="SmallMarioCommand.cs" />
-    <Compile Include="StillMario.cs" />
     <Compile Include="PlatformingBlock.cs" />
     <Compile Include="PlatformingBlockSprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
