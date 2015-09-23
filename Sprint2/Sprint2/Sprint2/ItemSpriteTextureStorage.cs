@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint2
 {
-    public class ItemSpriteTextureStorage
+    public static class ItemSpriteTextureStorage
     {
         private static Texture2D oneUpMushroomSpriteSheet;
         private static Texture2D superMushroomSpriteSheet;

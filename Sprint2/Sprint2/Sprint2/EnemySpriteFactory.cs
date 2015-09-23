@@ -8,11 +8,10 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    class EnemySpriteFactory
+    public static class EnemySpriteFactory
     {
         private static Texture2D goombaSpritesheet;
         private static Texture2D koopaSpritesheet;
-        private static Game1 game;
 
 		public static void Load(ContentManager content, GraphicsDevice device)
 		{
