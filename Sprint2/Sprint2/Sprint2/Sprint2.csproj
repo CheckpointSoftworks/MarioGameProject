@@ -76,6 +76,8 @@
     <Compile Include="BrickBlock.cs" />
     <Compile Include="BrickBlockSprite.cs" />
     <Compile Include="EnemySpriteFactory.cs" />
+    <Compile Include="FireFlower.cs" />
+    <Compile Include="FireFlowerSprite.cs" />
     <Compile Include="GoombaSprite.cs" />
     <Compile Include="GroundBlock.cs" />
     <Compile Include="GroundBlockSprite.cs" />
@@ -96,6 +98,8 @@
     <Compile Include="MarioJump.cs" />
     <Compile Include="MarioRunning.cs" />
     <Compile Include="MarioShootFireball.cs" />
+    <Compile Include="OneUpMushroom.cs" />
+    <Compile Include="OneUpMushroomSprite.cs" />
     <Compile Include="StillMario.cs" />
     <Compile Include="PlatformingBlock.cs" />
     <Compile Include="PlatformingBlockSprite.cs" />
@@ -104,6 +108,10 @@
     <Compile Include="Game1.cs" />
     <Compile Include="QuestionBlock.cs" />
     <Compile Include="QuestionBlockSprite.cs" />
+    <Compile Include="SuperMushroom.cs" />
+    <Compile Include="SuperMushroomSprite.cs" />
+    <Compile Include="SuperStar.cs" />
+    <Compile Include="SuperStarSprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
