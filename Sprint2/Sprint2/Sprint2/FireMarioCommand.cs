@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sprint2
 {
-    class FireMarioCommand
+    public class FireMarioCommand : ICommand
     {
             private Game1 Game;
 

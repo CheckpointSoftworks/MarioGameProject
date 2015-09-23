@@ -25,6 +25,7 @@ namespace Sprint2
         public IGameObject questionBlock;
         public IGameObject brickBlock;
         public IKeyboard keyboard;
+        public Mario mario;
 
 
         public Game1()
@@ -42,6 +43,8 @@ namespace Sprint2
         protected override void Initialize()
         {
             keyboard = new KeyboardController();
+
+            mario = new Mario();
 
             //Create the block objects
             blockObjectList = new ArrayList();
@@ -61,6 +64,14 @@ namespace Sprint2
             itemObjectList.Add(new SuperMushroom());
             itemObjectList.Add(new OneUpMushroom());
             itemObjectList.Add(new SuperStar());
+
+            //Mario Commands
+            //Example keyboard.RegisterCommand(Keys.Z, new FireMarioCommand(this));
+           
+            //Block Commands
+            keyboard.RegisterCommand(Keys.Z, new QuestionBlockUsedCommand(this));
+            keyboard.RegisterCommand(Keys.X, new BrickBlockDisappearCommand(this));
+            keyboard.RegisterCommand(Keys.C, new HiddenBlockUsedCommand(this));
 
             base.Initialize();
         }

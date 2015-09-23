@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sprint2
 {
-    class QuestionBlockUsedCommand
+    public class QuestionBlockUsedCommand : ICommand
     {
             private Game1 Game;
 
@@ -16,7 +16,7 @@ namespace Sprint2
 
             public void Execute()
             {
-                Game.questionblock.update();
+                Game.questionBlock.Update();
             }
     }
 }

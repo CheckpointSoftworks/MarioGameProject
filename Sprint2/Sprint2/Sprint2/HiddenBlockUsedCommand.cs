@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sprint2
 {
-    class HiddenBlockUsedCommand
+    public class HiddenBlockUsedCommand : ICommand
     {
             private Game1 Game;
 
@@ -16,7 +16,7 @@ namespace Sprint2
 
             public void Execute()
             {
-                Game.hiddenblock.update();
+                Game.hiddenBlock.Update();
             }
     }
 }
