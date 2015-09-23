@@ -28,7 +28,7 @@ namespace Sprint2
         public void Update()
         {
             currentFrame++;
-            if (currentFrame >= totalFrames)
+            if (currentFrame == totalFrames)
             {
                 currentFrame = 0;
                 finished = true;
@@ -37,7 +37,7 @@ namespace Sprint2
             {
                 finished = false;
             }
-            if (totalFrames == 1)
+            if (totalFrames <= 1)
             {
                 currentFrame = 0;
             }
@@ -46,15 +46,16 @@ namespace Sprint2
         {
             int width = texture.Width / columns;
             int height = texture.Height / row;
-            int rows = (int)((float)currentFrame / (float)columns); //This doesn't work for 1 frame anims
+            int rows = (int)((float)currentFrame / (float)columns);
             int col = currentFrame % columns;
-
-            Console.WriteLine("Col: " + col + " Row: " + row);
-            Rectangle sourceRectangle = new Rectangle(width * col, height * row, width, height);
+            Console.WriteLine("Rows: " + rows + " Col: " + col);
+            Console.WriteLine("Width: " + width + " Height: " + height);
+            //rows = 1;
+            //col = 1;
+            Rectangle sourceRectangle = new Rectangle(width * col, height * rows, width, height);
             Rectangle destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, width, height);
             spriteBatch.Begin();
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
-            Console.WriteLine("Source: " + sourceRectangle + " destination: " + destinationRectangle);
             spriteBatch.End();
         }
 

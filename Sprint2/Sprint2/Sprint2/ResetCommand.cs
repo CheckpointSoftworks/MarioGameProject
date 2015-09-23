@@ -19,11 +19,18 @@ namespace Sprint2
                 Game.mario.small = true;
                 Game.mario.facingRight = false;
                 Game.mario.state.Still();
-                
+
+                Game.blockObjectList.Remove(Game.hiddenBlock);
+                Game.blockObjectList.Remove(Game.brickBlock);
+                Game.blockObjectList.Remove(Game.questionBlock);
+
                 Game.hiddenBlock = new HiddenBlock();
                 Game.questionBlock = new QuestionBlock();
                 Game.brickBlock = new BrickBlock();
 
+                Game.blockObjectList.Add(Game.hiddenBlock);
+                Game.blockObjectList.Add(Game.questionBlock);
+                Game.blockObjectList.Add(Game.brickBlock);
             }
     }
 }
