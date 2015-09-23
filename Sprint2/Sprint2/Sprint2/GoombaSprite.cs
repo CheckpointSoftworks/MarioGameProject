@@ -13,8 +13,10 @@ namespace Sprint2
         private Vector2 location;
         private Texture2D GoombaSpriteSheet;
 
-        public GoombaSprite(Texture2D goombaSpritesheet, Game1 game)
+        public GoombaSprite(Texture2D goombaSpritesheet)
         {
+            //Replace this
+            location = new Vector2(50, 50);
             GoombaSpriteSheet = goombaSpritesheet;
 
 

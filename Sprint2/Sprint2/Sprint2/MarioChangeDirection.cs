@@ -17,6 +17,9 @@ namespace Sprint2
         {
             this.mario = mario;
             mario.facingRight = !mario.facingRight;
+            bigSprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(mario.facingRight), 1, 1);
+            smallSprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(mario.facingRight), 1, 1);
+            fireSprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
             //Set Sprite here
         }
         public void Draw(SpriteBatch spriteBatch)

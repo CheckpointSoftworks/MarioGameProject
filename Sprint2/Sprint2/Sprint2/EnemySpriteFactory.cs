@@ -22,12 +22,12 @@ namespace Sprint2
 		
 		public static ISprite CreateGoombaSprite()
 		{
-			return new GoombaSprite(goombaSpritesheet, game);
+			return new GoombaSprite(goombaSpritesheet);
 		}
 		
 		public static ISprite CreateGreenKoopaSprite()
 		{
-			return new KoopaSprite(koopaSpritesheet, game);
+			return new KoopaSprite(koopaSpritesheet);
 		}
     }
 }

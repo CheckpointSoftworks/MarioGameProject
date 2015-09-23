@@ -33,21 +33,21 @@ namespace Sprint2
 
         public static void Load(ContentManager content, GraphicsDevice device)
         {
-            marioSmallStill = content.Load<Texture2D>("Mario/MarioSmallStill");
-            marioSmallRunning = content.Load<Texture2D>("Mario/MarioSmallRunning");
-            marioSmallJumping = content.Load<Texture2D>("Mario/MarioSmallJump");
-            marioSmallFlagpole = content.Load<Texture2D>("Mario/MarioFlagpole");
-            marioSmallChangeDirection = content.Load<Texture2D>("Mario/MarioSmallChangeDirection");
+            marioSmallStill = content.Load<Texture2D>("MarioSmallStill");
+            marioSmallRunning = content.Load<Texture2D>("MarioSmallRunning");
+            marioSmallJumping = content.Load<Texture2D>("MarioSmallJump");
+            //marioSmallFlagpole = content.Load<Texture2D>("MarioSmallFlagpole");
+            marioSmallChangeDirection = content.Load<Texture2D>("MarioSmallChangeDirection");
 
-            marioBigStill = content.Load<Texture2D>("Mario/MarioBigStill");
-            marioBigRunning = content.Load<Texture2D>("Mario/MarioBigRunning");
-            marioBigJumping = content.Load<Texture2D>("Mario/MarioBigJump");
-            marioShootFireball = content.Load<Texture2D>("Mario/MarioShoot");
-            marioBigFlagpole = content.Load<Texture2D>("Mario/MarioBigFlagpole");
-            marioBigChangeDirection = content.Load<Texture2D>("Mario/MarioBigChangeDirection");
+            marioBigStill = content.Load<Texture2D>("MarioBigStill");
+            marioBigRunning = content.Load<Texture2D>("MarioBigRunning");
+            marioBigJumping = content.Load<Texture2D>("MarioBigJump");
+            marioShootFireball = content.Load<Texture2D>("MarioShoot");
+           // marioBigFlagpole = content.Load<Texture2D>("MarioBigFlagpole");
+            marioBigChangeDirection = content.Load<Texture2D>("MarioBigChangeDirection");
 
-            marioDuck = content.Load<Texture2D>("");
-            marioDying = content.Load<Texture2D>("");
+            marioDuck = content.Load<Texture2D>("MarioDuck");
+            marioDying = content.Load<Texture2D>("MarioDying");
             
         }
 

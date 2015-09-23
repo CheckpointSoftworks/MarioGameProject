@@ -89,6 +89,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(this.Content, GraphicsDevice);
             ItemSpriteTextureStorage.Load(this.Content, GraphicsDevice);
             EnemySpriteFactory.Load(this.Content, GraphicsDevice);
+            MarioSpriteFactory.Load(this.Content, GraphicsDevice);
         }
 
         /// <summary>
@@ -137,7 +138,7 @@ namespace Sprint2
                 //Draw all of the items
                 item.Draw(spriteBatch);
             }
-
+            mario.Draw(spriteBatch);
             //Mario draw command goes here
 
             base.Draw(gameTime);

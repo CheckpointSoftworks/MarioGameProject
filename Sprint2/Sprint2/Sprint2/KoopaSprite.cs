@@ -14,8 +14,10 @@ namespace Sprint2
         private Vector2 location;
         private Texture2D KoopaSpriteSheet;
 
-        public KoopaSprite(Texture2D koopaSpritesheet, Game1 game)
+        public KoopaSprite(Texture2D koopaSpritesheet)
         {
+            //Replace this
+            location = new Vector2(50, 50);
             KoopaSpriteSheet = koopaSpritesheet;
 
         }
