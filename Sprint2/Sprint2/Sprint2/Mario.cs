@@ -24,7 +24,7 @@ namespace Sprint2
         public Vector2 location;
         public float velX;
         public float velY;
-        public Vector2 location;
+        //public Vector2 location;
         public IPlayerState state;
         public AnimatedSprite sprite;
         //private MarioSpriteFactory spriteFactory;
