@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
      class MarioChangeDirection: IPlayerState
     {
         private Mario mario;
+        private AnimatedSprite smallSprite;
+        private AnimatedSprite bigSprite;
+        private AnimatedSprite fireSprite;
         public MarioChangeDirection(Mario mario)
         {
             this.mario = mario;
             mario.facingRight = !mario.facingRight;
             //Set Sprite here
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+
         }
         public void Still()
         {

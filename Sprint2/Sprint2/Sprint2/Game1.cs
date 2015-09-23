@@ -25,7 +25,7 @@ namespace Sprint2
         public IGameObject questionBlock;
         public IGameObject brickBlock;
         public IKeyboard keyboard;
-
+        public Mario mario;
 
         public Game1()
         {
@@ -62,6 +62,8 @@ namespace Sprint2
             itemObjectList.Add(new OneUpMushroom());
             itemObjectList.Add(new SuperStar());
 
+            mario = new Mario();
+
             base.Initialize();
         }
 
@@ -78,6 +80,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(this.Content, GraphicsDevice);
             ItemSpriteTextureStorage.Load(this.Content, GraphicsDevice);
             EnemySpriteFactory.Load(this.Content, GraphicsDevice);
+            MarioSpriteFactory.Load(this.Content, GraphicsDevice);
         }
 
         /// <summary>

@@ -8,31 +8,14 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint2
 {
-    class MarioSpriteFactory
+    public class MarioSpriteFactory
     {
-        /*
-        private static Texture2D marioRightSmallStill;
-        private static Texture2D marioRightSmallRunning;
-        private static Texture2D marioRightSmallJumping;
-        private static Texture2D marioRightBigStill;
-        private static Texture2D marioRightBigRunning;
-        private static Texture2D marioRightBigJumping;
-        private static Texture2D marioRightShootFireball;
-
-        
-        private static Texture2D marioLeftSmallStill;
-        private static Texture2D marioLeftSmallRunning;
-        private static Texture2D marioLeftSmallJumping;
-        private static Texture2D marioLeftBigStill;
-        private static Texture2D marioLeftBigRunning;
-        private static Texture2D marioLeftBigJumping;
-        private static Texture2D marioLeftShootFireball;
-        */
-
         private static Texture2D marioSmallStill;
         private static Texture2D marioSmallRunning;
         private static Texture2D marioSmallJumping;
         private static Texture2D marioSmallFlagpole;
+        private static Texture2D marioSmallChangeDirection;
+
         private static Texture2D marioBigStill;
         private static Texture2D marioBigRunning;
         private static Texture2D marioBigJumping;
@@ -41,46 +24,35 @@ namespace Sprint2
 
         private static Texture2D marioDuck;
         private static Texture2D marioDying;
+        private static Texture2D marioBigChangeDirection;
 
+        public MarioSpriteFactory()
+        {
+            //Nothing
+        }
 
         public static void Load(ContentManager content, GraphicsDevice device)
         {
-            /*
-             marioRightSmallStill = content.Load<Texture2D>("");
-             marioRightSmallRunning = content.Load<Texture2D>("");
-             marioRightSmallJumping = content.Load<Texture2D>("");
-             marioRightBigStill = content.Load<Texture2D>("");
-             marioRightBigRunning = content.Load<Texture2D>("");
-             marioRightBigJumping = content.Load<Texture2D>("");
-             marioRightShootFireball = content.Load<Texture2D>("");
+            marioSmallStill = content.Load<Texture2D>("Mario/MarioSmallStill");
+            marioSmallRunning = content.Load<Texture2D>("Mario/MarioSmallRunning");
+            marioSmallJumping = content.Load<Texture2D>("Mario/MarioSmallJump");
+            marioSmallFlagpole = content.Load<Texture2D>("Mario/MarioFlagpole");
+            marioSmallChangeDirection = content.Load<Texture2D>("Mario/MarioSmallChangeDirection");
 
-            
-             marioLeftSmallStill = content.Load<Texture2D>("");
-             marioLeftSmallRunning = content.Load<Texture2D>("");
-             marioLeftSmallJumping = content.Load<Texture2D>("");
-             marioLeftBigStill = content.Load<Texture2D>("");
-             marioLeftBigRunning = content.Load<Texture2D>("");
-             marioLeftBigJumping = content.Load<Texture2D>("");
-             marioLeftShootFireball = content.Load<Texture2D>("");
-             * */
-
-            marioSmallStill = content.Load<Texture2D>("");
-            marioSmallRunning = content.Load<Texture2D>("");
-            marioSmallJumping = content.Load<Texture2D>("");
-            marioSmallFlagpole = content.Load<Texture2D>("");
-            marioBigStill = content.Load<Texture2D>("");
-            marioBigRunning = content.Load<Texture2D>("");
-            marioBigJumping = content.Load<Texture2D>("");
-            marioShootFireball = content.Load<Texture2D>("");
-            marioBigFlagpole = content.Load<Texture2D>("");
+            marioBigStill = content.Load<Texture2D>("Mario/MarioBigStill");
+            marioBigRunning = content.Load<Texture2D>("Mario/MarioBigRunning");
+            marioBigJumping = content.Load<Texture2D>("Mario/MarioBigJump");
+            marioShootFireball = content.Load<Texture2D>("Mario/MarioShoot");
+            marioBigFlagpole = content.Load<Texture2D>("Mario/MarioBigFlagpole");
+            marioBigChangeDirection = content.Load<Texture2D>("Mario/MarioBigChangeDirection");
 
             marioDuck = content.Load<Texture2D>("");
             marioDying = content.Load<Texture2D>("");
+            
         }
 
         public static Texture2D CreateMarioSmallStillSprite(bool facingRight)
         {
-
             return marioSmallStill;
         }
         public static Texture2D CreateMarioSmallRunningSprite(bool facingRight)

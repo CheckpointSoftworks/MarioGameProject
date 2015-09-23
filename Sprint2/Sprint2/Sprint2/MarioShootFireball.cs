@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {  
@@ -12,6 +14,10 @@ namespace Sprint2
         {
             this.mario = mario;
             //Set Sprite here
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+
         }
         public void Still()
         {

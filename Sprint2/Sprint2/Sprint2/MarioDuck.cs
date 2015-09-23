@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
     class MarioDuck: IPlayerState
     {
+        private AnimatedSprite sprite;
         private Mario mario;
         public MarioDuck(Mario mario)
         {
             this.mario = mario;
+            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(false), 1, 1);
             //Set Sprite here
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            sprite.Draw(spriteBatch, mario.location);
         }
         public void Still()
         {
