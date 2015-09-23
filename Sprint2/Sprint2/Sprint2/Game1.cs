@@ -72,7 +72,7 @@ namespace Sprint2
             keyboard.RegisterCommand(Keys.Z, new QuestionBlockUsedCommand(this));
             keyboard.RegisterCommand(Keys.X, new BrickBlockDisappearCommand(this));
             keyboard.RegisterCommand(Keys.C, new HiddenBlockUsedCommand(this));
-
+           
             base.Initialize();
         }
 
@@ -97,6 +97,7 @@ namespace Sprint2
         /// </summary>
         protected override void UnloadContent()
         {
+            // Not Yet Needed in the scope of the project
             // TODO: Unload any non ContentManager content here
         }
 
@@ -136,6 +137,8 @@ namespace Sprint2
                 //Draw all of the items
                 item.Draw(spriteBatch);
             }
+
+            //Mario draw command goes here
 
             base.Draw(gameTime);
         }
