@@ -77,6 +77,10 @@ namespace Sprint2
             keyboard.RegisterCommand(Keys.Z, new QuestionBlockUsedCommand(this));
             keyboard.RegisterCommand(Keys.X, new BrickBlockDisappearCommand(this));
             keyboard.RegisterCommand(Keys.C, new HiddenBlockUsedCommand(this));
+
+            //Misc Commands
+            keyboard.RegisterCommand(Keys.R, new ResetCommand(this));
+
            
             base.Initialize();
         }
