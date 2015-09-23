@@ -69,11 +69,22 @@ namespace Sprint2
 
             //Mario Commands
             //Example keyboard.RegisterCommand(Keys.I, new FireMarioCommand(this));
+            //Mario Movement Key Registration
+            keyboard.RegisterCommand(Keys.W, new UpCommand(this));
+            keyboard.RegisterCommand(Keys.Up, new UpCommand(this));
+            keyboard.RegisterCommand(Keys.S, new DownCommand(this));
+            keyboard.RegisterCommand(Keys.Down, new DownCommand(this));
+            keyboard.RegisterCommand(Keys.A, new LeftCommand(this));
+            keyboard.RegisterCommand(Keys.Left, new LeftCommand(this));
+            keyboard.RegisterCommand(Keys.D, new RightCommand(this));
+            keyboard.RegisterCommand(Keys.Right, new RightCommand(this));
+
+            //Mario State Key Registration
             keyboard.RegisterCommand(Keys.Y, new SmallMarioCommand(this));
             keyboard.RegisterCommand(Keys.U, new BigMarioCommand(this));
             keyboard.RegisterCommand(Keys.I, new FireMarioCommand(this));
 
-            //Block Commands
+            //Block Commands Registration
             keyboard.RegisterCommand(Keys.Z, new QuestionBlockUsedCommand(this));
             keyboard.RegisterCommand(Keys.X, new BrickBlockDisappearCommand(this));
             keyboard.RegisterCommand(Keys.C, new HiddenBlockUsedCommand(this));
@@ -151,8 +162,9 @@ namespace Sprint2
             }
 
             pipe.Draw(spriteBatch);
+
             mario.Draw(spriteBatch);
-            //Mario draw command goes here
+
             spriteBatch.End();
             base.Draw(gameTime);
             
