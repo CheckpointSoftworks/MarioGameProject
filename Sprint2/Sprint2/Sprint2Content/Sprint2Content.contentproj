@@ -86,81 +86,84 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mario\MarioBigChangeDirection.png">
+    <Compile Include="MarioBigChangeDirection.png">
       <Name>MarioBigChangeDirection</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioBigFlagpole.png">
+    <Compile Include="MarioBigFlagpole.png">
       <Name>MarioBigFlagpole</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioBigJump.png">
+    <Compile Include="MarioBigJump.png">
       <Name>MarioBigJump</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioBigRunning.png">
+    <Compile Include="MarioBigRunning.png">
       <Name>MarioBigRunning</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioBigStill.png">
+    <Compile Include="MarioBigStill.png">
       <Name>MarioBigStill</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioBigSwimming.png">
+    <Compile Include="MarioBigSwimming.png">
       <Name>MarioBigSwimming</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioDuck.png">
+    <Compile Include="MarioDuck.png">
       <Name>MarioDuck</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioDying.png">
+    <Compile Include="MarioDying.png">
       <Name>MarioDying</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioShoot.png">
+    <Compile Include="MarioShoot.png">
       <Name>MarioShoot</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioSmallChangeDirection.png">
+    <Compile Include="MarioSmallChangeDirection.png">
       <Name>MarioSmallChangeDirection</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioSmallFlagpole.png">
+    <Compile Include="MarioSmallFlagpole.png">
       <Name>MarioSmallFlagpole</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioSmallJump.png">
+    <Compile Include="MarioSmallJump.png">
       <Name>MarioSmallJump</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioSmallRunning.png">
+    <Compile Include="MarioSmallRunning.png">
       <Name>MarioSmallRunning</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioSmallStill.png">
+    <Compile Include="MarioSmallStill.png">
       <Name>MarioSmallStill</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Mario\MarioSmallSwim.png">
+    <Compile Include="MarioSmallSwim.png">
       <Name>MarioSmallSwim</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mario\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
