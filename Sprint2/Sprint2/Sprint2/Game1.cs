@@ -48,32 +48,13 @@ namespace Sprint2
         {
             keyboard = new KeyboardController();
 
-            mario = new Mario();
-            pipe = new Pipe();
-
-            //Create the block objects
-            blockObjectList = new ArrayList();
-            hiddenBlock = new HiddenBlock();
-            questionBlock = new QuestionBlock();
-            brickBlock = new BrickBlock();
-            blockObjectList.Add(new PlatformingBlock());
-            blockObjectList.Add(hiddenBlock);
-            blockObjectList.Add(questionBlock);
-            blockObjectList.Add(brickBlock);
-            blockObjectList.Add(new GroundBlock());
+            blockObjectList = new ArrayList();            
 
             //Create all of the items.
-            itemObjectList = new ArrayList();
-            itemObjectList.Add(new FireFlower());
-            itemObjectList.Add(new BoxCoin());
-            itemObjectList.Add(new SuperMushroom());
-            itemObjectList.Add(new OneUpMushroom());
-            itemObjectList.Add(new SuperStar());
+            itemObjectList = new ArrayList();           
 
             //Create all of the enemies
             enemyLists = new ArrayList();
-            enemyLists.Add(new Goomba());
-            enemyLists.Add(new Koopa());
 
             //Mario Commands
             //Example keyboard.RegisterCommand(Keys.I, new FireMarioCommand(this));
@@ -119,6 +100,29 @@ namespace Sprint2
             EnemySpriteFactory.Load(this.Content, GraphicsDevice);
             MiscGameObjectTextureStorage.Load(this.Content, GraphicsDevice);
             MarioSpriteFactory.Load(this.Content, GraphicsDevice);
+
+
+            mario = new Mario();
+            pipe = new Pipe();
+
+            //Create the block objects
+            hiddenBlock = new HiddenBlock();
+            questionBlock = new QuestionBlock();
+            brickBlock = new BrickBlock();
+            blockObjectList.Add(new PlatformingBlock());
+            blockObjectList.Add(hiddenBlock);
+            blockObjectList.Add(questionBlock);
+            blockObjectList.Add(brickBlock);
+            blockObjectList.Add(new GroundBlock());
+
+            itemObjectList.Add(new FireFlower());
+            itemObjectList.Add(new BoxCoin());
+            itemObjectList.Add(new SuperMushroom());
+            itemObjectList.Add(new OneUpMushroom());
+            itemObjectList.Add(new SuperStar());
+
+            enemyLists.Add(new Goomba());
+            enemyLists.Add(new Koopa());
         }
 
         /// <summary>
@@ -142,7 +146,7 @@ namespace Sprint2
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            keyboard.Update();
+            //keyboard.Update();
 
             base.Update(gameTime);
         }
@@ -153,7 +157,7 @@ namespace Sprint2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            spriteBatch.Begin();
+            
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
@@ -162,22 +166,21 @@ namespace Sprint2
                 block.Draw(spriteBatch);
             }
 
-            foreach (IGameObject item in itemObjectList)
-            {
+            //foreach (IGameObject item in itemObjectList)
+            //{
                 //Draw all of the items
-                item.Draw(spriteBatch);
-            }
+             //   item.Draw(spriteBatch);
+            //}
 
-            foreach (IGameObject enemy in enemyLists)
-            {
-                enemy.Draw(spriteBatch);
-            }
+            //foreach (IGameObject enemy in enemyLists)
+            //{
+             //   enemy.Draw(spriteBatch);
+            //}
 
-            pipe.Draw(spriteBatch);
+            //pipe.Draw(spriteBatch);
 
-            mario.Draw(spriteBatch);
+            //mario.Draw(spriteBatch);
 
-            spriteBatch.End();
             base.Draw(gameTime);
             
         }
