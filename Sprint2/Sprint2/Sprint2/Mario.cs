@@ -30,7 +30,19 @@ namespace Sprint2
         //private MarioSpriteFactory spriteFactory;
         public Mario()
         {
+            small = true;
+            facingRight = true;
+            falling = false;
+            star = false;
+            star = false;
+            isChangingDirection = false;
+            isDucking = false;
+            isJumping = false;
+            isRunning = false;
+            isShooting = false;
+            isStill = true;
             state = new MarioStill(this);
+            location = new Vector2(30, 200);
         }
 
         public void Update()

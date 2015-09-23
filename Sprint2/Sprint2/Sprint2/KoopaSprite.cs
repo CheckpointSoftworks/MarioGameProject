@@ -47,7 +47,6 @@ namespace Sprint2
             {
                 sourceRectangle = new Rectangle(179, 0, 18, 24);
             }
-
             spriteBatch.Begin();
             spriteBatch.Draw(KoopaSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
