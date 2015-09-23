@@ -30,7 +30,11 @@ namespace Sprint2
         //private MarioSpriteFactory spriteFactory;
         public Mario()
         {
+            small = true;
+            fire = false;
+            facingRight = true;
             state = new MarioStill(this);
+            location = new Vector2(20, 300);
         }
 
         public void Update()
@@ -69,17 +73,6 @@ namespace Sprint2
         void Dying()
         {
             state.Dying();
-        }
-
-        /*void Draw(spriteBatch spriteBatch)
-         * {
-         *  if (!facingRight)
-         *  {
-         *      sprite = flipped sprite   
-         *  }
-         *  Draw(sprite, location) 
-         * 
-         * 
-         * */
+        }        
     }
 }

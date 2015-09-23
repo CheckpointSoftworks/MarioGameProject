@@ -37,6 +37,10 @@ namespace Sprint2
             {
                 finished = false;
             }
+            if (totalFrames <= 1)
+            {
+                currentFrame = 0;
+            }
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 loc)
         {
@@ -44,8 +48,11 @@ namespace Sprint2
             int height = texture.Height / row;
             int rows = (int)((float)currentFrame / (float)columns);
             int col = currentFrame % columns;
-
-            Rectangle sourceRectangle = new Rectangle(width * col, height * row, width, height);
+            Console.WriteLine("Rows: " + rows + " Col: " + col);
+            Console.WriteLine("Width: " + width + " Height: " + height);
+            //rows = 1;
+            //col = 1;
+            Rectangle sourceRectangle = new Rectangle(width * col, height * rows, width, height);
             Rectangle destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, width, height);
             spriteBatch.Begin();
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

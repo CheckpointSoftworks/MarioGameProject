@@ -17,9 +17,9 @@ namespace Sprint2
         {
             this.mario = mario;
             //Set Sprite here
-            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
-            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallJumpingSprite(mario.facingRight), 1, 1);
-            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(mario.facingRight), 1, 1);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(mario.facingRight), 1, 1);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(mario.facingRight), 1, 1);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
