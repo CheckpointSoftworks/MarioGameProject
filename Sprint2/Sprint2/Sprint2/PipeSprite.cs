@@ -14,6 +14,7 @@ namespace Sprint2
         public PipeSprite()
         {
             pipeSpriteSheet = MiscGameObjectTextureStorage.CreatePipeSprite();
+            location = new Vector2(700, 400);
         }
         public void Update()
         {
@@ -22,7 +23,13 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            int spriteSheetSpriteSize = 31;
+            Rectangle sourceRectangle = new Rectangle(spriteSheetSpriteSize * 0, 0, spriteSheetSpriteSize, spriteSheetSpriteSize);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
+            spriteBatch.Begin();
+            spriteBatch.Draw(pipeSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.End();
         }
     }
 }
