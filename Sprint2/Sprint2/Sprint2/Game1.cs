@@ -72,6 +72,7 @@ namespace Sprint2
             keyboard.RegisterCommand(Keys.Y, new SmallMarioCommand(this));
             keyboard.RegisterCommand(Keys.U, new BigMarioCommand(this));
             keyboard.RegisterCommand(Keys.I, new FireMarioCommand(this));
+            keyboard.RegisterCommand(Keys.O, new DeadMarioCommand(this));
 
             //Block Commands Registration
             keyboard.RegisterCommand(Keys.Z, new QuestionBlockUsedCommand(this));
