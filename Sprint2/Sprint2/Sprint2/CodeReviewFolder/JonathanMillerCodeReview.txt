@@ -3,9 +3,26 @@ Date of the code review: 9/23/2015
 Sprint number: 2
 Name of .cs file being review: BrickBlockSprite.cs
 Author of the .cs file being review: Kristopher Wenger
-Number of minutes taken to complete the review: 
+Number of minutes taken to complete the review: 20
 
 Comments:
 
-I am reviewing the BrickBlockSprite class. The class is very readable. Most of the variable names and function names make sense, and they are named appropriately. The only thing that could potentially detract from the readability is the reuse of the local variable spriteSheetSpriteSize in the draw method. It is reused for a lot of different arguments in the sourceRectangle object. It is used as the x-coordinate, width, and height in the sourceRectangle object. Which is fine if you know what all the arguments are in a Rectangle object. For readability, you could possibly make different variables that were named spriteSheetSpriteLocation, spriteSheetSpriteWidth, spriteSheetSpriteHeight. It would be slightly less efficient though. The update logic is simple and makes sense, since the smashed boolean variable is initialized to flase. Then when update is called, the variable gets set to true and the sprite is drawn as an empty block. The class is maintainable since the textures are chosen in the BlockSpiteTextureStorage class. So if we wanted to change textures for the block, nothing would need to be changed in the BrickBlockSprite class. Overall, the class is readable, maintainable, and simple.
+I am reviewing the BrickBlockSprite class. The class is very readable. 
+Most of the variable names and function names make sense, and they are 
+named appropriately. The only thing that could potentially detract from 
+the readability is the reuse of the local variable spriteSheetSpriteSize 
+in the draw method. It is reused for a lot of different arguments in the 
+sourceRectangle object. It is used as the x-coordinate, width, and 
+height in the sourceRectangle object. Which is fine if you know what all 
+the arguments are in a Rectangle object. For readability, you could 
+possibly make different variables that were named 
+spriteSheetSpriteLocation, spriteSheetSpriteWidth, 
+spriteSheetSpriteHeight. It would be slightly less efficient though. The 
+update logic is simple and makes sense, since the smashed boolean 
+variable is initialized to flase. Then when update is called, the 
+variable gets set to true and the sprite is drawn as an empty block. The 
+class is maintainable since the textures are chosen in the 
+BlockSpiteTextureStorage class. So if we wanted to change textures for 
+the block, nothing would need to be changed in the BrickBlockSprite 
+class. Overall, the class is readable, maintainable, and simple.
 
