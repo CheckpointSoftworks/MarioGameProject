@@ -2,7 +2,7 @@ Author: Scott Weddendorf
 Date: September 23, 2015
 Sprint: 2
 Name of File: PipeSprite.cs
-Author of File: Ian Weber
+Author of File: Kris Wenger
 Minutes: 5
 Comments on Readability: 
 	Very readable.  Creating the pipe using the sprite storage is clear.  Draw method uses clear variable names.
