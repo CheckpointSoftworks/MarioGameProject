@@ -135,6 +135,7 @@
     <Compile Include="UpCommand.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CodeReviewFolder\JonathanMillerCodeReview.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrCodeReview.txt" />
     <Content Include="CodeReviewFolder\ScottWeddendorfCodeReview.txt" />
