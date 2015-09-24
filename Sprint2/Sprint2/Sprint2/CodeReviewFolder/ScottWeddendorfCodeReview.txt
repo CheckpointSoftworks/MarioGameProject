@@ -1,6 +1,7 @@
 Author: Scott Weddendorf
 Date: September 23, 2015
 Sprint: 2
+Name of File: PipeSprite.cs
 Author of File: Ian Weber
 Minutes: 5
 Comments on Readability: 
