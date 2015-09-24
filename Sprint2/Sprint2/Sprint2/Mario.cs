@@ -34,7 +34,7 @@ namespace Sprint2
             fire = false;
             facingRight = true;
             state = new MarioStill(this);
-            location = new Vector2(20, 300);
+            location = new Vector2(450, 300);
         }
 
         public void Update()
