@@ -1,8 +1,8 @@
-Author of the code review:			Matt Mohr
-Date of the code review: 			9/23/15
-Sprint number: 					2
-Name of the .cs file being reviewed: 		Goomba()
-Author of the .cs file being reviewed: 		Scott
+Author of the code review:						Matt Mohr
+Date of the code review: 						9/23/15
+Sprint number: 									2
+Name of the .cs file being reviewed: 			Goomba()
+Author of the .cs file being reviewed: 			Scott
 Number of minutes taken to complete the review: 3
 Specific comments on what is readable and what is not: 
  - Perfectly readable, but there is still a comment leftover that doesn't relate to much of anything. 
