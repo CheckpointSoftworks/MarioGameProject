@@ -157,6 +157,7 @@ namespace Sprint2
                 this.Exit();
 
             keyboard.Update();
+            mario.Update();
 
             base.Update(gameTime);
         }

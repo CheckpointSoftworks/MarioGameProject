@@ -10,21 +10,47 @@ namespace Sprint2
      class MarioChangeDirection: IPlayerState
     {
         private Mario mario;
-        private AnimatedSprite smallSprite;
-        private AnimatedSprite bigSprite;
-        private AnimatedSprite fireSprite;
+        private AnimatedSprite small;
+        private AnimatedSprite big;
+        private AnimatedSprite fire;
         public MarioChangeDirection(Mario mario)
         {
             this.mario = mario;
             mario.facingRight = !mario.facingRight;
-            bigSprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(mario.facingRight), 1, 1);
-            smallSprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(mario.facingRight), 1, 1);
-            fireSprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigChangeDirectionSprite(), 1, 1);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallChangeDirectionSprite(), 1, 1);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireChangeDirectionSprite(), 1, 1);
             //Set Sprite here
+        }
+        public void Update()
+        {
+            if (mario.fire)
+            {
+                fire.Update();
+            }
+            else if (mario.small)
+            {
+                small.Update();
+            }
+            else
+            {
+                big.Update();
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            if (mario.fire)
+            {
+                fire.Draw(spriteBatch,mario.location,mario.facingRight);
+            }
+            else if (mario.small)
+            {
+                small.Draw(spriteBatch, mario.location, mario.facingRight);
+            }
+            else
+            {
+                big.Draw(spriteBatch, mario.location, mario.facingRight);
+            }
         }
         public void Still()
         {

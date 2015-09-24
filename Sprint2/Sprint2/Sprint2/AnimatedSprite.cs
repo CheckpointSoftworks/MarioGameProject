@@ -37,25 +37,27 @@ namespace Sprint2
             {
                 finished = false;
             }
-            if (totalFrames <= 1)
-            {
-                currentFrame = 0;
-            }
+
         }
-        public void Draw(SpriteBatch spriteBatch, Vector2 loc)
+        public void Draw(SpriteBatch spriteBatch, Vector2 loc, bool facingRight)
         {
             int width = texture.Width / columns;
             int height = texture.Height / row;
             int rows = (int)((float)currentFrame / (float)columns);
             int col = currentFrame % columns;
-            Console.WriteLine("Rows: " + rows + " Col: " + col);
-            Console.WriteLine("Width: " + width + " Height: " + height);
-            //rows = 1;
-            //col = 1;
+
             Rectangle sourceRectangle = new Rectangle(width * col, height * rows, width, height);
             Rectangle destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, width, height);
             spriteBatch.Begin();
-            spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+            if (facingRight)
+            {
+                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
+            }
+            
             spriteBatch.End();
         }
 

@@ -16,9 +16,7 @@ namespace Sprint2
 
             public void Execute()
             {
-                Game.mario.small = true;
-                Game.mario.facingRight = false;
-                Game.mario.state.Still();
+                Game.mario = new Mario();
 
                 Game.blockObjectList.Remove(Game.hiddenBlock);
                 Game.blockObjectList.Remove(Game.brickBlock);

@@ -16,19 +16,35 @@ namespace Sprint2
         public MarioStill(Mario mario)
         {
             this.mario = mario;
+            mario.isStill = true;
             //Set Sprite here
-            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(mario.facingRight), 1, 1);
-            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(mario.facingRight), 1, 1);
-            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(mario.facingRight), 1, 1);
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(), 1, 1);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireStillSprite(), 1, 1);
+        }
+        public void Update()
+        {
+            if (mario.fire)
+            {
+                fire.Update();
+            }
+            else if (mario.small)
+            {
+                small.Update();
+            }
+            else
+            {
+                big.Update();
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (mario.fire)
-                fire.Draw(spriteBatch, mario.location);
-            else if (mario.small)
-                small.Draw(spriteBatch, mario.location);
+            if (mario.small) 
+                small.Draw(spriteBatch, mario.location, mario.facingRight);
+            else if (mario.fire)
+                fire.Draw(spriteBatch, mario.location, mario.facingRight);
             else
-                big.Draw(spriteBatch, mario.location);
+                big.Draw(spriteBatch, mario.location, mario.facingRight);
         }
         public void Still()
         {

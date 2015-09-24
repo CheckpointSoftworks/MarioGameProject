@@ -16,6 +16,7 @@ namespace Sprint2
         void ShootFireball();
         void Duck();
         void Dying();
+        void Update();
         void Draw(SpriteBatch spriteBatch);
 
 

@@ -16,18 +16,33 @@ namespace Sprint2
         public MarioJump(Mario mario)
         {
             this.mario = mario;
-            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
-            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallJumpingSprite(mario.facingRight), 1, 1);
-            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(), 1, 1);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallJumpingSprite(), 1, 1);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireJumpingSprite(), 1, 1);
+        }
+        public void Update()
+        {
+            if (mario.fire)
+            {
+                fire.Update();
+            }
+            else if (mario.small)
+            {
+                small.Update();
+            }
+            else
+            {
+                big.Update();
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (mario.fire)
-                fire.Draw(spriteBatch, mario.location);
+                fire.Draw(spriteBatch, mario.location, mario.facingRight);
             else if (mario.small)
-                small.Draw(spriteBatch,mario.location);
+                small.Draw(spriteBatch,mario.location, mario.facingRight);
             else
-                big.Draw(spriteBatch, mario.location);
+                big.Draw(spriteBatch, mario.location, mario.facingRight);
            
         }
         public void Still()
@@ -53,7 +68,7 @@ namespace Sprint2
         }
         public void Duck()
         {
-            //Do nothing, Jump -> Duck is invalid
+            mario.state = new MarioStill(mario);
         }
         public void Dying()
         {

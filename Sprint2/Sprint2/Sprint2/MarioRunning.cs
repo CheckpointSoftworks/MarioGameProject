@@ -16,24 +16,40 @@ namespace Sprint2
         public MarioRunning(Mario mario)
         {
             this.mario = mario;
-            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(mario.facingRight), 1, 3);
-            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(mario.facingRight), 1, 3);
-            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(mario.facingRight), 1, 3);
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(), 1, 3);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(), 1, 3);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireRunningSprite(), 1, 3);
             //Set Sprite here
+        }
+
+        public void Update()
+        {
+            if (mario.fire)
+            {
+                fire.Update();
+            }
+            else if (mario.small)
+            {
+                small.Update();
+            }
+            else
+            {
+                big.Update();
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (mario.fire)
             {
-                fire.Draw(spriteBatch, mario.location);
+                fire.Draw(spriteBatch, mario.location, mario.facingRight);
             }
             else if (mario.small)
             {
-                small.Draw(spriteBatch, mario.location);
+                small.Draw(spriteBatch, mario.location, mario.facingRight);
             }
             else
             {
-                big.Draw(spriteBatch, mario.location);
+                big.Draw(spriteBatch, mario.location, mario.facingRight);
             }
         }
         public void Still()
@@ -50,7 +66,7 @@ namespace Sprint2
         }
         public void Jump()
         {
-            mario.state = new MarioChangeDirection(mario);
+            mario.state = new MarioJump(mario);   
         }
         public void ShootFireball()
         {

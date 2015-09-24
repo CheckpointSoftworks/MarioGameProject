@@ -15,6 +15,10 @@ namespace Sprint2
             this.mario = mario;
             //Set Sprite here
         }
+        public void Update()
+        {
+
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
 

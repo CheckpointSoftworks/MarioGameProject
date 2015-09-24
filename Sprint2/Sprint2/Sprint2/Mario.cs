@@ -39,7 +39,7 @@ namespace Sprint2
 
         public void Update()
         {
-
+            state.Update();
         }
         public void Draw(SpriteBatch spriteBatch)
         {
