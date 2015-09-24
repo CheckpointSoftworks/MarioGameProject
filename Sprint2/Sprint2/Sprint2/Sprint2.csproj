@@ -137,6 +137,7 @@
   <ItemGroup>
     <Content Include="CodeReviewFolder\KrisWengerCodeReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrCodeReview.txt" />
+    <Content Include="CodeReviewFolder\ScottWeddendorfCodeReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>

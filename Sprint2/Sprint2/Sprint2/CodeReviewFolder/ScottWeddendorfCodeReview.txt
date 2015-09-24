@@ -1,0 +1,8 @@
+Author: Scott Weddendorf
+Date: September 23, 2015
+Sprint: 2
+Author of File: Ian Weber
+Minutes: 5
+Comments on Readability: 
+	Very readable.  Creating the pipe using the sprite storage is clear.  Draw method uses clear variable names.
+	Only thing is for the sourceRectangle position is starting at spriteSheet * 0 and I think it could simply be declared at 0.
