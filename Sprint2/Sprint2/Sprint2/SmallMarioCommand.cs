@@ -18,6 +18,7 @@ namespace Sprint2
             {
                 Game.mario.fire = false;
                 Game.mario.small = true;
+                Game.mario.isDying = false;
             }
     }
 }
