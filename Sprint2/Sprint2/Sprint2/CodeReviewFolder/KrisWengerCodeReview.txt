@@ -1,7 +1,20 @@
 ﻿Author of the code review: Kris Wenger
 Date of the code review: 9/23/15
 Sprint number: 2
-Name of the .cs file being reviewed:
-Author of the .cs file being reviewed:
-Number of minutes taken to complete the review:
+Name of the .cs file being reviewed: FireFlowerSprite.cs
+Author of the .cs file being reviewed: Jonathan Miller
+Number of minutes taken to complete the review: 10 mins to write all the review, only 2 or 3 to read the code.
 Specific comments on what is readable and what is not:
+	Most of the naming of the variables are easy to understand what they, stand for and what they should do.  
+	The calls to outside classes aslo make since because of the method names, and class names, such as calling
+	the ItemTextureStorage.CreateFireFlowerSprite, makes some sense what it should do.  This is true even not knowing
+	what that method looks like, just having the name implies that it creates the fireFlowerSprite.  However, I can
+	see it being confusing to some who think  the method actually creates a sprite and not a Texture2D of the sprite sheet
+	like it actually does.  But then again, the method is set to return to a variable called fireFlowerSpriteSheet, so
+	that may clear some confustion.  This is an easy fix however just adding Sheet to the name of the method, in the 
+	ItemTextureStorage class.  But back to the FireFlower class, most math makes sense, the Update method is straight foward,
+	it seems to loop through the frames as update is called.  Some confusion might be made in the Draw method with using a
+	variable called	width then using the math fireFlowerSpriteSheet.Width/columns, is it impling that the width of the whole
+	spritesheet, or	just a sprite.  If it just a sprite I would have called something like spriteWidth, the same is true of 
+	height.  However, the context they are in does give some idea of which it is, the width and height of a single sprite
+	in the sprite sheet.  Overall I believe the code itself is very Readable.
