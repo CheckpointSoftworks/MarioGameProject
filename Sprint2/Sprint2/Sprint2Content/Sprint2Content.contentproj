@@ -79,13 +79,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="enemySpriteSheet.png">
-      <Name>enemySpriteSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="MarioBigChangeDirection.png">
       <Name>MarioBigChangeDirection</Name>
       <Importer>TextureImporter</Importer>
@@ -220,6 +213,20 @@
     </Compile>
     <Compile Include="MarioFireSwim.png">
       <Name>MarioFireSwim</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GoombaSpriteSheet.png">
+      <Name>GoombaSpriteSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="KoopaSpriteSheet.png">
+      <Name>KoopaSpriteSheet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

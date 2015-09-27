@@ -41,11 +41,11 @@ namespace Sprint2
 
             if (currentFrame < 10)
             {
-                sourceRectangle = new Rectangle(149, 0, 18, 24);
+                sourceRectangle = new Rectangle(0, 0, 16, 24);
             }
             if (currentFrame >= 10)
             {
-                sourceRectangle = new Rectangle(179, 0, 18, 24);
+                sourceRectangle = new Rectangle(16, 0, 16, 24);
             }
             spriteBatch.Begin();
             spriteBatch.Draw(KoopaSpriteSheet, destinationRectangle, sourceRectangle, Color.White);

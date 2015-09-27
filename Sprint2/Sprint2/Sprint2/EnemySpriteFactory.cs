@@ -15,8 +15,8 @@ namespace Sprint2
 
 		public static void Load(ContentManager content, GraphicsDevice device)
 		{
-			goombaSpritesheet = content.Load<Texture2D>("enemySpriteSheet");
-            koopaSpritesheet = content.Load<Texture2D>("enemySpriteSheet");
+			goombaSpritesheet = content.Load<Texture2D>("GoombaSpriteSheet");
+            koopaSpritesheet = content.Load<Texture2D>("KoopaSpriteSheet");
 		}
 		
 		public static ISprite CreateGoombaSprite()

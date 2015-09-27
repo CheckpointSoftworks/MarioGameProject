@@ -42,11 +42,11 @@ namespace Sprint2
 
             if (currentFrame < 10)
             {
-                sourceRectangle = new Rectangle(0, 4, 16, 16);
+                sourceRectangle = new Rectangle(0, 0, 16, 16);
             }
             if (currentFrame >= 10)
             {
-                sourceRectangle = new Rectangle(30, 4, 16, 16);
+                sourceRectangle = new Rectangle(16, 0, 16, 16);
             }
 
             spriteBatch.Begin();
