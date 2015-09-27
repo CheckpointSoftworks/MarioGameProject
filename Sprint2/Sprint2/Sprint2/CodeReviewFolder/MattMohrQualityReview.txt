@@ -1,10 +1,9 @@
-﻿Author of the code review: Matt Mohr
-Date of the code review: 9/27/15
-Sprint number: 2
-Name of the .cs file being reviewed: FireFlowerSprite.cs
-Author of the .cs file being reviewed: Johnathan Miller
-Specific comments on code quality:
-	- Code quality is okay, but the constructor is completely hardcoded. While this is an artifact of the ISprite class, adding later sprites is going to be a time-consuming process.
-	- The values width and height in Draw() don't change, so the reassignments are unnecessary. They should be moved into class fields and set in the constructor.
-A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change
-	- This sprite will go through frames at the same rate that the game updates, so the animation will be extremely fast. A possible new feature would be setting the frames per minute so that each frame of animation can be perceived. 
+﻿Author of the code review:						Matt Mohr
+Date of the code review: 						9/27/15
+Sprint number: 									2
+Name of the .cs file being reviewed: 			Goomba()
+Author of the .cs file being reviewed: 			Scott
+
+*	The Goomba class is about as clean as it can get. The variables are limited to only the Sprite, and the only methods are one-line and utilitarian. 
+*	While this implementation is fine for this sprint, eventually the Goomba class is going to need to track its position and life status. But as long as the additions to the class are 
+	as to the book as the rest of the class, that won't be a problem.
