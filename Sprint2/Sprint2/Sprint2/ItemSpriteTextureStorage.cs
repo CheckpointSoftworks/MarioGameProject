@@ -16,7 +16,7 @@ namespace Sprint2
         private static Texture2D superStarSpriteSheet;
         private static Texture2D boxCoinSpriteSheet;
 
-        public static void Load(ContentManager content, GraphicsDevice device)
+        public static void Load(ContentManager content)
         {
             oneUpMushroomSpriteSheet = content.Load<Texture2D>("OneUpMushroom");
             superMushroomSpriteSheet = content.Load<Texture2D>("SuperMushroom");

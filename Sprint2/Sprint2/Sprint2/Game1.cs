@@ -18,7 +18,6 @@ namespace Sprint2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public ArrayList staticObjectsList;
         public ArrayList dynamicObjectsList;
 
         public IGameObject hiddenBlock;
@@ -26,6 +25,9 @@ namespace Sprint2
         public IGameObject brickBlock;
         public IController keyboard;
         public Mario mario;
+
+        private ArrayList staticObjectsList = new ArrayList();
+
 
 
         public Game1()
@@ -51,16 +53,16 @@ namespace Sprint2
             
 
             BlockSpriteTextureStorage.Load(this.Content);
-            ItemSpriteTextureStorage.Load(this.Content, GraphicsDevice);
-            EnemySpriteFactory.Load(this.Content, GraphicsDevice);
-            MiscGameObjectTextureStorage.Load(this.Content, GraphicsDevice);
+            ItemSpriteTextureStorage.Load(this.Content);
+            EnemySpriteFactory.Load(this.Content);
+            MiscGameObjectTextureStorage.Load(this.Content);
             MarioSpriteFactory.Load(this.Content);
 
 
             mario = new Mario();
 
             LoadDynamicObjects(dynamicObjectsList);
-            LoadStaticObjects(staticObjectsList);    
+            LoadStaticObjects();    
             LoadKeyBoardCommands(keyboard);
         }
 
@@ -75,18 +77,18 @@ namespace Sprint2
             dynaimcObjectList.Add(brickBlock);
         }
 
-        private void LoadStaticObjects(ArrayList staticObjectsList)
+        private void LoadStaticObjects()
         {
-            staticObjectsList.Add(new FireFlower());
-            staticObjectsList.Add(new BoxCoin());
-            staticObjectsList.Add(new SuperMushroom());
-            staticObjectsList.Add(new OneUpMushroom());
-            staticObjectsList.Add(new SuperStar());
-            staticObjectsList.Add(new GroundBlock());
-            staticObjectsList.Add(new PlatformingBlock());
-            staticObjectsList.Add(new Pipe());
-            staticObjectsList.Add(new Goomba());
-            staticObjectsList.Add(new Koopa());
+            this.staticObjectsList.Add(new FireFlower());
+            this.staticObjectsList.Add(new BoxCoin());
+            this.staticObjectsList.Add(new SuperMushroom());
+            this.staticObjectsList.Add(new OneUpMushroom());
+            this.staticObjectsList.Add(new SuperStar());
+            this.staticObjectsList.Add(new GroundBlock());
+            this.staticObjectsList.Add(new PlatformingBlock());
+            this.staticObjectsList.Add(new Pipe());
+            this.staticObjectsList.Add(new Goomba());
+            this.staticObjectsList.Add(new Koopa());
         }
 
         private void LoadKeyBoardCommands(IController keyboard)
