@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Sprint2
 {
-    public class KeyboardController : IKeyboard
+    public class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> controllerMappings;
 

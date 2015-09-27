@@ -10,15 +10,17 @@ namespace Sprint2
     public class GroundBlock : IGameObject
     {
         private ISprite groundBlockSprite;
+
         public GroundBlock()
         {
             groundBlockSprite = new GroundBlockSprite();
         }
+
         public void Update()
         {
             groundBlockSprite.Update();
         }
-
+        
         public void Draw(SpriteBatch spriteBatch)
         {
             groundBlockSprite.Draw(spriteBatch);

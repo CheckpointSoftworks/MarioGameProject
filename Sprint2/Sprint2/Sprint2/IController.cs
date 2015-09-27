@@ -6,9 +6,8 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Sprint2
 {
-    public interface IKeyboard
+    public interface IController
     {       
-        void RegisterCommand(Keys key,ICommand command);
         void Update();
     }
 }

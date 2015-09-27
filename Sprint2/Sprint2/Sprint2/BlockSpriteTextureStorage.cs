@@ -16,7 +16,7 @@ namespace Sprint2
         private static Texture2D groundBlockSpriteSheet;
         private static Texture2D platformingBlockSpriteSheet;
 
-        public static void Load(ContentManager content, GraphicsDevice device){
+        public static void Load(ContentManager content){
             hiddenBlockSpritesheet = content.Load<Texture2D>("BricksSheetWithEmptyBlock");
             brickBlockSpritesheet = content.Load<Texture2D>("BricksSheetWithEmptyBlock");
             questionBlockSpriteSheet = content.Load<Texture2D>("BricksSheetWithEmptyBlock");
@@ -24,23 +24,23 @@ namespace Sprint2
             platformingBlockSpriteSheet = content.Load<Texture2D>("BricksSheetWithEmptyBlock");
         }
 
-        public static Texture2D CreateHiddenBlockSprite()
+        public static Texture2D CreateHiddenBlockSpriteSheet()
         {
             return hiddenBlockSpritesheet;
         }
-        public static Texture2D CreateBrickBlockSprite()
+        public static Texture2D CreateBrickBlockSpriteSheet()
         {
             return brickBlockSpritesheet;
         }
-        public static Texture2D CreateQuestionBlockSprite()
+        public static Texture2D CreateQuestionBlockSpriteSheet()
         {
             return questionBlockSpriteSheet;
         }
-        public static Texture2D CreateGroundBlockSprite()
+        public static Texture2D CreateGroundBlockSpriteSheet()
         {
             return groundBlockSpriteSheet;
         }
-        public static Texture2D CreatePlatformingBlockSprite()
+        public static Texture2D CreatePlatformingBlockSpriteSheet()
         {
             return platformingBlockSpriteSheet;
         }

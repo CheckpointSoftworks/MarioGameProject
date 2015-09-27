@@ -96,7 +96,7 @@
     <Compile Include="HiddenBlockUsedCommand.cs" />
     <Compile Include="IGameObject.cs" />
     <Compile Include="ICommand.cs" />
-    <Compile Include="IKeyboard.cs" />
+    <Compile Include="IController.cs" />
     <Compile Include="ISprite.cs" />
     <Compile Include="ItemSpriteTextureStorage.cs" />
     <Compile Include="KeyboardController.cs" />
@@ -138,7 +138,7 @@
   <ItemGroup>
     <Content Include="CodeReviewFolder\IanWeberCodeReview.txt" />
     <Content Include="CodeReviewFolder\JonathanMillerCodeReview.txt" />
-    <Content Include="CodeReviewFolder\KrisWengerCodeReview.txt" />
+    <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrQualityReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\ScottWeddendorfCodeReview.txt" />

@@ -15,7 +15,7 @@ namespace Sprint2
 
         public QuestionBlockSprite()
         {
-            questionBlockSpriteSheet = BlockSpriteTextureStorage.CreateQuestionBlockSprite();
+            questionBlockSpriteSheet = BlockSpriteTextureStorage.CreateQuestionBlockSpriteSheet();
             used = false;
             location = new Vector2(400, 200);
         }

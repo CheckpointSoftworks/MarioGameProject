@@ -18,17 +18,17 @@ namespace Sprint2
             {
                 Game.mario = new Mario();
 
-                Game.blockObjectList.Remove(Game.hiddenBlock);
-                Game.blockObjectList.Remove(Game.brickBlock);
-                Game.blockObjectList.Remove(Game.questionBlock);
+                Game.dynamicObjectsList.Remove(Game.hiddenBlock);
+                Game.dynamicObjectsList.Remove(Game.brickBlock);
+                Game.dynamicObjectsList.Remove(Game.questionBlock);
 
                 Game.hiddenBlock = new HiddenBlock();
                 Game.questionBlock = new QuestionBlock();
                 Game.brickBlock = new BrickBlock();
 
-                Game.blockObjectList.Add(Game.hiddenBlock);
-                Game.blockObjectList.Add(Game.questionBlock);
-                Game.blockObjectList.Add(Game.brickBlock);
+                Game.dynamicObjectsList.Add(Game.hiddenBlock);
+                Game.dynamicObjectsList.Add(Game.questionBlock);
+                Game.dynamicObjectsList.Add(Game.brickBlock);
             }
     }
 }

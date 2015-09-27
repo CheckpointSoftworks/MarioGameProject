@@ -11,11 +11,13 @@ namespace Sprint2
     {
         private Texture2D groundBlockSpriteSheet;
         private Vector2 location;
+
         public GroundBlockSprite()
         {
-            groundBlockSpriteSheet = BlockSpriteTextureStorage.CreateGroundBlockSprite();
+            groundBlockSpriteSheet = BlockSpriteTextureStorage.CreateGroundBlockSpriteSheet();
             location = new Vector2(600, 200);
         }
+
         public void Update()
         {
             //No update needed for ground blocks

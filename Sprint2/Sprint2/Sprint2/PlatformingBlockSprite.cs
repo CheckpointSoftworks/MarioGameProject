@@ -13,7 +13,7 @@ namespace Sprint2
         private Vector2 location;
         public PlatformingBlockSprite()
         {
-            platformingBlockSpriteSheet = BlockSpriteTextureStorage.CreatePlatformingBlockSprite();
+            platformingBlockSpriteSheet = BlockSpriteTextureStorage.CreatePlatformingBlockSpriteSheet();
             location = new Vector2(200, 200);
         }
         public void Update()
