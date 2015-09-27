@@ -19,6 +19,7 @@ namespace Sprint2
             used = false;
             location = new Vector2(300, 200);
         }
+
         public void Update()
         {
             //Change the question block to the opposite of what it currently is
@@ -39,6 +40,7 @@ namespace Sprint2
             {
                 sourceRectangle = new Rectangle((spriteSheetSpriteSize * 3), 0, (spriteSheetSpriteSize), spriteSheetSpriteSize);
             }
+
             spriteBatch.Begin();
             spriteBatch.Draw(hiddenBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();

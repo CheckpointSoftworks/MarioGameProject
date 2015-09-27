@@ -10,10 +10,12 @@ namespace Sprint2
     public class HiddenBlock : IGameObject
     {
         private HiddenBlockSprite hiddenBlockSprite;
+
         public HiddenBlock()
         {
             hiddenBlockSprite = new HiddenBlockSprite();
         }
+
         public void Update()
         {
             hiddenBlockSprite.Update();

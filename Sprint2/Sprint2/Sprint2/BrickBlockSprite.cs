@@ -19,6 +19,7 @@ namespace Sprint2
             smashed = false;
             location = new Vector2(500, 200);
         }
+
         public void Update()
         {
             smashed = true;
