@@ -11,14 +11,12 @@ namespace Sprint2
     {
 
         private Vector2 location;
-        private Texture2D KoopaSpriteSheet;
         private AnimatedSprite AnimatedKoopa;
         private bool FacingRight = true;
 
         public KoopaSprite(Texture2D koopaSpritesheet)
         {
             location = new Vector2(700, 150);
-            KoopaSpriteSheet = koopaSpritesheet;
             AnimatedKoopa = new AnimatedSprite(koopaSpritesheet, 1, 2);
 
 
