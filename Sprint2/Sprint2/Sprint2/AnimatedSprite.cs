@@ -9,20 +9,24 @@ namespace Sprint2
 {
     public class AnimatedSprite 
     {
-        private int row;
+        private int rows;
         private int columns;
         private Texture2D texture;
         private int currentFrame;
         private int totalFrames;
         private bool finished;
+        private int frameWidth;
+        private int frameHeight;
 
         public AnimatedSprite(Texture2D texture, int rows, int columns)
         {
             this.texture = texture;
-            this.row = rows;
+            this.rows = rows;
             this.columns = columns;
             currentFrame = 0;
-            totalFrames = row * columns;
+            totalFrames = rows * columns;
+            frameWidth = texture.Width / columns;
+            frameHeight = texture.Height / rows;        
         }
 
         public void Update()
@@ -41,13 +45,11 @@ namespace Sprint2
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 loc, bool facingRight)
         {
-            int width = texture.Width / columns;
-            int height = texture.Height / row;
-            int rows = (int)((float)currentFrame / (float)columns);
-            int col = currentFrame % columns;
+            int frameRow = (int)((float)currentFrame / (float)columns);
+            int frameColumn = currentFrame % columns;
 
-            Rectangle sourceRectangle = new Rectangle(width * col, height * rows, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, width, height);
+            Rectangle sourceRectangle = new Rectangle(frameWidth * frameColumn, frameHeight * frameRow, frameWidth, frameHeight);
+            Rectangle destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, frameWidth, frameHeight);
             spriteBatch.Begin();
             if (facingRight)
             {

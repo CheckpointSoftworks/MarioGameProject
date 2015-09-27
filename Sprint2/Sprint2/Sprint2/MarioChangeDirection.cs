@@ -16,7 +16,7 @@ namespace Sprint2
         public MarioChangeDirection(Mario mario)
         {
             this.mario = mario;
-            mario.facingRight = !mario.facingRight;
+            mario.FacingRight = !mario.FacingRight;
             big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigChangeDirectionSprite(), 1, 1);
             small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallChangeDirectionSprite(), 1, 1);
             fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireChangeDirectionSprite(), 1, 1);
@@ -24,11 +24,11 @@ namespace Sprint2
         }
         public void Update()
         {
-            if (mario.fire)
+            if (mario.Fire)
             {
                 fire.Update();
             }
-            else if (mario.small)
+            else if (mario.Small)
             {
                 small.Update();
             }
@@ -39,26 +39,26 @@ namespace Sprint2
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (mario.fire)
+            if (mario.Fire)
             {
-                fire.Draw(spriteBatch,mario.location,mario.facingRight);
+                fire.Draw(spriteBatch,mario.Location,mario.FacingRight);
             }
-            else if (mario.small)
+            else if (mario.Small)
             {
-                small.Draw(spriteBatch, mario.location, mario.facingRight);
+                small.Draw(spriteBatch, mario.Location, mario.FacingRight);
             }
             else
             {
-                big.Draw(spriteBatch, mario.location, mario.facingRight);
+                big.Draw(spriteBatch, mario.Location, mario.FacingRight);
             }
         }
         public void Still()
         {
-            mario.state = new MarioStill(mario);
+            mario.State = new MarioStill(mario);
         }
         public void Running()
         {
-            mario.state = new MarioRunning(mario);
+            mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {
@@ -66,20 +66,20 @@ namespace Sprint2
         }
         public void Jump()
         {
-            mario.state = new MarioChangeDirection(mario);
+            mario.State = new MarioChangeDirection(mario);
         }
         public void ShootFireball()
         {
-            if (mario.fire)
-            mario.state = new MarioShootFireball(mario);
+            if (mario.Fire)
+            mario.State = new MarioShootFireball(mario);
         }
         public void Duck()
         {
-            mario.state = new MarioDuck(mario);
+            mario.State = new MarioDuck(mario);
         }
         public void Dying()
         {
-            mario.state = new MarioDying(mario);
+            mario.State = new MarioDying(mario);
         }
     }
  }

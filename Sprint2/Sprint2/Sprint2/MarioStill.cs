@@ -16,7 +16,7 @@ namespace Sprint2
         public MarioStill(Mario mario)
         {
             this.mario = mario;
-            mario.isStill = true;
+            mario.IsStill = true;
             //Set Sprite here
             big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(), 1, 1);
             small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1);
@@ -24,11 +24,11 @@ namespace Sprint2
         }
         public void Update()
         {
-            if (mario.fire)
+            if (mario.Fire)
             {
                 fire.Update();
             }
-            else if (mario.small)
+            else if (mario.Small)
             {
                 small.Update();
             }
@@ -39,12 +39,12 @@ namespace Sprint2
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (mario.small) 
-                small.Draw(spriteBatch, mario.location, mario.facingRight);
-            else if (mario.fire)
-                fire.Draw(spriteBatch, mario.location, mario.facingRight);
+            if (mario.Small) 
+                small.Draw(spriteBatch, mario.Location, mario.FacingRight);
+            else if (mario.Fire)
+                fire.Draw(spriteBatch, mario.Location, mario.FacingRight);
             else
-                big.Draw(spriteBatch, mario.location, mario.facingRight);
+                big.Draw(spriteBatch, mario.Location, mario.FacingRight);
         }
         public void Still()
         {
@@ -52,28 +52,28 @@ namespace Sprint2
         }
         public void Running()
         {
-            mario.state = new MarioRunning(mario);
+            mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {
-            mario.state = new MarioChangeDirection(mario);
+            mario.State = new MarioChangeDirection(mario);
         }
         public void Jump()
         {
-            mario.state = new MarioJump(mario);
+            mario.State = new MarioJump(mario);
         }
         public void ShootFireball()
         {
-            if (mario.fire)
-            mario.state = new MarioShootFireball(mario);
+            if (mario.Fire)
+            mario.State = new MarioShootFireball(mario);
         }
         public void Duck()
         {
-            mario.state = new MarioDuck(mario);
+            mario.State = new MarioDuck(mario);
         }
         public void Dying()
         {
-            mario.state = new MarioDying(mario);
+            mario.State = new MarioDying(mario);
         }
     }
 }

@@ -16,14 +16,14 @@ namespace Sprint2
 
             public void Execute()
             {
-                if (Game.mario.facingRight)
+                if (Game.mario.FacingRight)
                 {
-                    Game.mario.facingRight = false;
-                    Game.mario.state.ChangeDirection();
+                    Game.mario.FacingRight = false;
+                    Game.mario.State.ChangeDirection();
                 }
                 else
                 {
-                    Game.mario.state.Running();
+                    Game.mario.State.Running();
                 }
             }
     }

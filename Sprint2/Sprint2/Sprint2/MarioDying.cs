@@ -22,15 +22,15 @@ namespace Sprint2
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, mario.location, mario.facingRight);
+            sprite.Draw(spriteBatch, mario.Location, mario.FacingRight);
         }
         public void Still()
         {
-            mario.state = new MarioStill(mario);
+            mario.State = new MarioStill(mario);
         }
         public void Running()
         {
-            mario.state = new MarioRunning(mario);
+            mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {
@@ -38,7 +38,7 @@ namespace Sprint2
         }
         public void Jump()
         {
-            mario.state = new MarioJump(mario);
+            mario.State = new MarioJump(mario);
         }
         public void ShootFireball()
         {
@@ -46,7 +46,7 @@ namespace Sprint2
         }
         public void Duck()
         {
-            mario.state = new MarioDuck(mario);
+            mario.State = new MarioDuck(mario);
         }
         public void Dying()
         {

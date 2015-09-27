@@ -16,7 +16,7 @@ namespace Sprint2
 
             public void Execute()
             {
-                Game.mario.state.Duck();    
+                Game.mario.State.Duck();    
             }
     }
 }

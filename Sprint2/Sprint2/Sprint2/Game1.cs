@@ -70,7 +70,7 @@ namespace Sprint2
             ItemSpriteTextureStorage.Load(this.Content, GraphicsDevice);
             EnemySpriteFactory.Load(this.Content, GraphicsDevice);
             MiscGameObjectTextureStorage.Load(this.Content, GraphicsDevice);
-            MarioSpriteFactory.Load(this.Content, GraphicsDevice);
+            MarioSpriteFactory.Load(this.Content);
 
 
             mario = new Mario();

@@ -16,9 +16,9 @@ namespace Sprint2
 
             public void Execute()
             {
-                Game.mario.fire = true;
-                Game.mario.small = false;
-                Game.mario.isDying = false;
+                Game.mario.Fire = true;
+                Game.mario.Small = false;
+                Game.mario.IsDying = false;
             }
     }
 }

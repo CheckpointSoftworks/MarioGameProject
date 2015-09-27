@@ -22,11 +22,11 @@ namespace Sprint2
         }
         public void Update()
         {
-            if (mario.fire)
+            if (mario.Fire)
             {
                 fire.Update();
             }
-            else if (mario.small)
+            else if (mario.Small)
             {
                 small.Update();
             }
@@ -37,25 +37,25 @@ namespace Sprint2
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (mario.fire)
-                fire.Draw(spriteBatch, mario.location, mario.facingRight);
-            else if (mario.small)
-                small.Draw(spriteBatch,mario.location, mario.facingRight);
+            if (mario.Fire)
+                fire.Draw(spriteBatch, mario.Location, mario.FacingRight);
+            else if (mario.Small)
+                small.Draw(spriteBatch,mario.Location, mario.FacingRight);
             else
-                big.Draw(spriteBatch, mario.location, mario.facingRight);
+                big.Draw(spriteBatch, mario.Location, mario.FacingRight);
            
         }
         public void Still()
         {
-            mario.state = new MarioStill(mario);
+            mario.State = new MarioStill(mario);
         }
         public void Running()
         {
-            mario.state = new MarioRunning(mario);
+            mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {
-            mario.state = new MarioChangeDirection(mario);
+            mario.State = new MarioChangeDirection(mario);
         }
         public void Jump()
         {
@@ -63,16 +63,16 @@ namespace Sprint2
         }
         public void ShootFireball()
         {
-            if (mario.fire)
-            mario.state = new MarioShootFireball(mario);
+            if (mario.Fire)
+            mario.State = new MarioShootFireball(mario);
         }
         public void Duck()
         {
-            mario.state = new MarioStill(mario);
+            mario.State = new MarioStill(mario);
         }
         public void Dying()
         {
-            mario.state = new MarioDying(mario);
+            mario.State = new MarioDying(mario);
         }
     }
 }
