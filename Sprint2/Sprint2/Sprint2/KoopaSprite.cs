@@ -13,7 +13,7 @@ namespace Sprint2
         private Vector2 location;
         private Texture2D KoopaSpriteSheet;
         private AnimatedSprite AnimatedKoopa;
-        private bool FacingRight = true;//sprite sheet needs editing
+        private bool FacingRight = true;
 
         public KoopaSprite(Texture2D koopaSpritesheet)
         {
