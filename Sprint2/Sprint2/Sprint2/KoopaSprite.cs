@@ -10,46 +10,29 @@ namespace Sprint2
     class KoopaSprite : ISprite
     {
 
-        private int currentFrame;
         private Vector2 location;
         private Texture2D KoopaSpriteSheet;
+        private AnimatedSprite AnimatedKoopa;
+        private bool FacingRight = true;//sprite sheet needs editing
 
         public KoopaSprite(Texture2D koopaSpritesheet)
         {
-            //Replace this
             location = new Vector2(700, 150);
             KoopaSpriteSheet = koopaSpritesheet;
+            AnimatedKoopa = new AnimatedSprite(koopaSpritesheet, 1, 2);
+
 
         }
         public void Update()
         {
 
-            currentFrame++;
-            if (currentFrame == 20)
-            {
-                currentFrame = 0;
-            }
+            AnimatedKoopa.Update();
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int spriteWidth = 16;
-            int spriteHeight = 24;
-            Rectangle sourceRectangle = new Rectangle(0,0,0,0);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteWidth, spriteHeight);
-
-            if (currentFrame < 10)
-            {
-                sourceRectangle = new Rectangle(0, 0, 16, 24);
-            }
-            if (currentFrame >= 10)
-            {
-                sourceRectangle = new Rectangle(16, 0, 16, 24);
-            }
-            spriteBatch.Begin();
-            spriteBatch.Draw(KoopaSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
+            AnimatedKoopa.Draw(spriteBatch, location, FacingRight);
 
         }
     }

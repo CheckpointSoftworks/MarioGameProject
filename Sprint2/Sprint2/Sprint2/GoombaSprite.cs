@@ -9,49 +9,29 @@ namespace Sprint2
 {
     class GoombaSprite : ISprite
     {
-        private int currentFrame;
         private Vector2 location;
         private Texture2D GoombaSpriteSheet;
+        private AnimatedSprite AnimatedGoomba;
+        private bool FacingRight = true;
 
         public GoombaSprite(Texture2D goombaSpritesheet)
         {
-            //Replace this
             location = new Vector2(600, 150);
             GoombaSpriteSheet = goombaSpritesheet;
+            AnimatedGoomba = new AnimatedSprite(goombaSpritesheet, 1, 2);
 
 
         }
         public void Update()
         {
 
-            currentFrame++;
-            if (currentFrame == 20)
-            {
-                currentFrame = 0;
-            }
+            AnimatedGoomba.Update();
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int spriteWidth = 16;
-            int spriteHeight = 16;
-            Rectangle sourceRectangle = new Rectangle(0,0,0,0);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteWidth, spriteHeight);
-
-
-            if (currentFrame < 10)
-            {
-                sourceRectangle = new Rectangle(0, 0, 16, 16);
-            }
-            if (currentFrame >= 10)
-            {
-                sourceRectangle = new Rectangle(16, 0, 16, 16);
-            }
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(GoombaSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
+            AnimatedGoomba.Draw(spriteBatch, location, FacingRight);
 
         }
     }
