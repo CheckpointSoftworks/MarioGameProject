@@ -136,7 +136,6 @@
     <Compile Include="UpCommand.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CodeReviewFolder\IanWeberCodeReview.txt" />
     <Content Include="CodeReviewFolder\JonathanMillerCodeQualityReview.txt" />
     <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
@@ -149,6 +148,8 @@
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
+    <Content Include="CodeReviewFolder\IanWeberCodeQualityReview.txt" />
+    <Content Include="CodeReviewFolder\IanWeberCodeReadabilityReview.txt" />
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
