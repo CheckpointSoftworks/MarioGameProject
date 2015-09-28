@@ -63,7 +63,7 @@ namespace Sprint2
 
             LoadDynamicObjects(dynamicObjectsList);
             LoadStaticObjects();    
-            LoadKeyBoardCommands(keyboard);
+            LoadKeyBoardCommands();
         }
 
         private void LoadDynamicObjects(ArrayList dynaimcObjectList)
@@ -91,7 +91,7 @@ namespace Sprint2
             this.staticObjectsList.Add(new Koopa());
         }
 
-        private void LoadKeyBoardCommands(IController keyboard)
+        private void LoadKeyBoardCommands()
         {
             
             ((KeyboardController)keyboard).RegisterCommand(Keys.W, new UpCommand(this));
