@@ -51,13 +51,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FireFlower.png">
-      <Name>FireFlower</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="SuperStar.png">
       <Name>SuperStar</Name>
       <Importer>TextureImporter</Importer>
