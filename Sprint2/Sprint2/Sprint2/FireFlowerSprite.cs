@@ -17,12 +17,12 @@ namespace Sprint2
         private int columns;
         public FireFlowerSprite()
         {
-            fireFlowerSpriteSheet = ItemSpriteTextureStorage.CreateFireFlowerSprite();
+            fireFlowerSpriteSheet = ItemSpriteTextureStorage.CreateFireFlowerSpriteSheet();
             location = new Vector2(100, 100);
             currentFrame = 0;
-            totalFrames = 8;
+            totalFrames = 4;
             rows = 1;
-            columns = 8;
+            columns = 4;
         }
 
         public void Update()

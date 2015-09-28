@@ -17,7 +17,7 @@ namespace Sprint2
         private int columns;
         public BoxCoinSprite()
         {
-            boxCoinSpriteSheet = ItemSpriteTextureStorage.CreateBoxCoinSprite();
+            boxCoinSpriteSheet = ItemSpriteTextureStorage.CreateBoxCoinSpriteSheet();
             location = new Vector2(200, 100);
             currentFrame = 0;
             totalFrames = 4;

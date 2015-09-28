@@ -13,7 +13,7 @@ namespace Sprint2
         private Vector2 location;
         public OneUpMushroomSprite()
         {
-            oneUpMushroomSpriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSprite();
+            oneUpMushroomSpriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSpriteSheet();
             location = new Vector2(400, 100);
         }
 

@@ -17,7 +17,7 @@ namespace Sprint2
         private int columns;
         public SuperStarSprite()
         {
-            superStarSpriteSheet = ItemSpriteTextureStorage.CreateSuperStarSprite();
+            superStarSpriteSheet = ItemSpriteTextureStorage.CreateSuperStarSpriteSheet();
             location = new Vector2(500, 100);
             currentFrame = 0;
             totalFrames = 4;
