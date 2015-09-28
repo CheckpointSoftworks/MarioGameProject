@@ -36,13 +36,13 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int width = fireFlowerSpriteSheet.Width / columns;
-            int height = fireFlowerSpriteSheet.Height / rows;
+            int frameWidth = fireFlowerSpriteSheet.Width / columns;
+            int frameHeight = fireFlowerSpriteSheet.Height / rows;
             int row = (int)((float)currentFrame / (float)columns);
             int column = currentFrame % columns;
 
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+            Rectangle sourceRectangle = new Rectangle(frameWidth * column, frameHeight * row, frameWidth, frameHeight);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, frameWidth, frameHeight);
 
             spriteBatch.Begin();
             spriteBatch.Draw(fireFlowerSpriteSheet, destinationRectangle, sourceRectangle, Color.White);

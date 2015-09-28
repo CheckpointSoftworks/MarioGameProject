@@ -36,13 +36,13 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int width = superStarSpriteSheet.Width / columns;
-            int height = superStarSpriteSheet.Height / rows;
+            int frameWidth = superStarSpriteSheet.Width / columns;
+            int frameHeight = superStarSpriteSheet.Height / rows;
             int row = (int)((float)currentFrame / (float)columns);
             int column = currentFrame % columns;
 
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+            Rectangle sourceRectangle = new Rectangle(frameWidth * column, frameHeight * row, frameWidth, frameHeight);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, frameWidth, frameHeight);
 
             spriteBatch.Begin();
             spriteBatch.Draw(superStarSpriteSheet, destinationRectangle, sourceRectangle, Color.White);

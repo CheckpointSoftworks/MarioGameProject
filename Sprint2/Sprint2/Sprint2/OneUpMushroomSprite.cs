@@ -19,7 +19,7 @@ namespace Sprint2
 
         public void Update()
         {
-            //No update needed for the super mushroom
+            //No update needed for the one-up mushroom
         }
 
         public void Draw(SpriteBatch spriteBatch)
