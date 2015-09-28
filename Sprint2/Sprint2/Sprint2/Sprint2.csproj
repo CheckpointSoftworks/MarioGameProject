@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CodeReviewFolder\IanWeberCodeReview.txt" />
+    <Content Include="CodeReviewFolder\JonathanMillerCodeQualityReview.txt" />
     <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrQualityReview.txt" />

@@ -1,0 +1,22 @@
+Author of the code review: Jonathan Miller
+Date of the code review: 9/27/2015
+Sprint number: 2
+Name of .cs file being review: BrickBlockSprite.cs
+Author of the .cs file being review: Kristopher Wenger
+Number of minutes taken to complete the review: 10
+
+Comments:
+ 
+This class is organized well. It uses proper naming conventions for all 
+variables, methods, and classes. The class is maintainable since the textures 
+are chosen in the BlockSpiteTextureStorage class. So if we wanted to change 
+textures for the block, the only changes would be inside of the Draw() method. 
+Since the frame size is hard-coded into the animation, you would need to change 
+spriteSheetSpriteSize if individual frame sizes are different in the new Brick 
+Block texture. Also, the new frames would need to be perefectly square since 
+spriteSheetSpriteSize is used for the width and the height. The "smashed" Brick 
+Block frame would need to be in the same location. There are also some un-needed 
+parentheses around spriteSheetSpriteSize in the Draw() method. Overall, it is 
+maintainable, but there will need to be some changes in the Draw() method if you 
+want a new texture that doesn't follow the same formatting as the original 
+texture.
