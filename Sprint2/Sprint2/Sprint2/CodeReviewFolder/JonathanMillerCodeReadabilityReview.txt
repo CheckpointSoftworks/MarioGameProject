@@ -20,9 +20,6 @@ spriteSheetSpriteLocation, spriteSheetSpriteWidth,
 spriteSheetSpriteHeight. It would be slightly less efficient though. The 
 update logic is simple and makes sense, since the smashed boolean 
 variable is initialized to flase. Then when update is called, the 
-variable gets set to true and the sprite is drawn as an empty block. The 
-class is maintainable since the textures are chosen in the 
-BlockSpiteTextureStorage class. So if we wanted to change textures for 
-the block, nothing would need to be changed in the BrickBlockSprite 
-class. Overall, the class is readable, maintainable, and simple.
+variable gets set to true and the sprite is drawn as an empty block. 
+Overall, the class is very readable.
 
