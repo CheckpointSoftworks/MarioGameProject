@@ -22,3 +22,19 @@ In game1.cs the analyzer said for all the public fields not declare them as publ
 	however becuase of the need to change these fields in other parts
 	of the game, i.e. changing mario's or the blocks' states, the team
 	opted to leave them as public fields.
+
+	Controls:
+Mario:
+up/w = change mario to an idle state if he was in a crouching state and a jumping state if he was not.
+down/s = change mario to an idle state if he was jumping state and a crouching state if he was not.
+left/a = change mario between left running, left idle
+right/d = change mario between right idle, and right running.
+y should change mario to a small state.
+u should change mario to a big state.
+i should change mario to a fire state.
+o should change mario to a dead state.
+For different types of blocks:
+z = Question block turns into used block
+x = Brick block disappears
+c = Hidden block turns into used block
+r=reset everything back to its initial state.
