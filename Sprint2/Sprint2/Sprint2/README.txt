@@ -18,10 +18,10 @@ The Anaylzer said for game1.cs to avoid unused private fields refering, to the
 	it part of the game's template and removing it the team fears, it
 	would break the game.
 
-In game1.cs the analyzer said for all the public fields not declare them as public,
+In game1.cs the analyzer said for all the public fields not to declare them as public,
 	however becuase of the need to change these fields in other parts
 	of the game, i.e. changing mario's or the blocks' states, the team
-	opted to leave them as public fields.
+	opted to leave them as public fields to keep the game working.
 
 	Controls:
 Mario:
