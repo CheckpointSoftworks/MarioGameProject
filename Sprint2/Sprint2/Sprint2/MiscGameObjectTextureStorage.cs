@@ -8,16 +8,16 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint2
 {
-    public static class MiscGameObjectTextureStorage
+    class MiscGameObjectTextureStorage
     {
         private static Texture2D pipeSpriteSheet;
 
-        public static void Load(ContentManager content)
+        public static void Load(ContentManager content, GraphicsDevice device)
         {
             pipeSpriteSheet = content.Load<Texture2D>("PipeSprite");
         }
 
-        public static Texture2D CreatePipeSpriteSheet()
+        public static Texture2D CreatePipeSprite()
         {
             return pipeSpriteSheet;
         }

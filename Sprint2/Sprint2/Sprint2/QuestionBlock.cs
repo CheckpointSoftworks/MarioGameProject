@@ -15,7 +15,6 @@ namespace Sprint2
         {
             questionBlockSprite = new QuestionBlockSprite();
         }
-
         public void Update()
         {
             questionBlockSprite.Update();

@@ -16,7 +16,7 @@ namespace Sprint2
 
             public void Execute()
             {
-                Game.mario.State.Jump();
+                Game.mario.state.Jump();
             }
     }
 }

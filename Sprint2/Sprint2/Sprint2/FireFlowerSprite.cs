@@ -17,12 +17,12 @@ namespace Sprint2
         private int columns;
         public FireFlowerSprite()
         {
-            fireFlowerSpriteSheet = ItemSpriteTextureStorage.CreateFireFlowerSpriteSheet();
+            fireFlowerSpriteSheet = ItemSpriteTextureStorage.CreateFireFlowerSprite();
             location = new Vector2(100, 100);
             currentFrame = 0;
-            totalFrames = 4;
+            totalFrames = 8;
             rows = 1;
-            columns = 4;
+            columns = 8;
         }
 
         public void Update()
@@ -36,13 +36,13 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int frameWidth = fireFlowerSpriteSheet.Width / columns;
-            int frameHeight = fireFlowerSpriteSheet.Height / rows;
+            int width = fireFlowerSpriteSheet.Width / columns;
+            int height = fireFlowerSpriteSheet.Height / rows;
             int row = (int)((float)currentFrame / (float)columns);
             int column = currentFrame % columns;
 
-            Rectangle sourceRectangle = new Rectangle(frameWidth * column, frameHeight * row, frameWidth, frameHeight);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, frameWidth, frameHeight);
+            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
             spriteBatch.Begin();
             spriteBatch.Draw(fireFlowerSpriteSheet, destinationRectangle, sourceRectangle, Color.White);

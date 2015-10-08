@@ -15,11 +15,10 @@ namespace Sprint2
 
         public HiddenBlockSprite()
         {
-            hiddenBlockSpriteSheet = BlockSpriteTextureStorage.CreateHiddenBlockSpriteSheet();
+            hiddenBlockSpriteSheet = BlockSpriteTextureStorage.CreateHiddenBlockSprite();
             used = false;
-            location = new Vector2(300, 200);
+            location = new Vector2(300, 400);
         }
-
         public void Update()
         {
             //Change the question block to the opposite of what it currently is
@@ -40,7 +39,6 @@ namespace Sprint2
             {
                 sourceRectangle = new Rectangle((spriteSheetSpriteSize * 3), 0, (spriteSheetSpriteSize), spriteSheetSpriteSize);
             }
-
             spriteBatch.Begin();
             spriteBatch.Draw(hiddenBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();

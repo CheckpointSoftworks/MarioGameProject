@@ -5,20 +5,18 @@ using System.Text;
 
 namespace Sprint2
 {
-    class DeadMarioCommand:ICommand
+    public class EnemyHitsMarioCollision:ICommand
     {
-        private Game1 Game;
+        private Mario mario;
 
-        public DeadMarioCommand(Game1 game)
+        public EnemyHitsMarioCollision(Mario mario)
         {
-            Game = game;
+            this.mario = mario;
         }
 
         public void Execute()
         {
-            Game.mario.state.Dying();
+            //Mario Takes damage
         }
-
     }
 }
-

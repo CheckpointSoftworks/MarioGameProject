@@ -17,7 +17,7 @@ namespace Sprint2
         private int columns;
         public SuperStarSprite()
         {
-            superStarSpriteSheet = ItemSpriteTextureStorage.CreateSuperStarSpriteSheet();
+            superStarSpriteSheet = ItemSpriteTextureStorage.CreateSuperStarSprite();
             location = new Vector2(500, 100);
             currentFrame = 0;
             totalFrames = 4;
@@ -36,13 +36,13 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int frameWidth = superStarSpriteSheet.Width / columns;
-            int frameHeight = superStarSpriteSheet.Height / rows;
+            int width = superStarSpriteSheet.Width / columns;
+            int height = superStarSpriteSheet.Height / rows;
             int row = (int)((float)currentFrame / (float)columns);
             int column = currentFrame % columns;
 
-            Rectangle sourceRectangle = new Rectangle(frameWidth * column, frameHeight * row, frameWidth, frameHeight);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, frameWidth, frameHeight);
+            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
             spriteBatch.Begin();
             spriteBatch.Draw(superStarSpriteSheet, destinationRectangle, sourceRectangle, Color.White);

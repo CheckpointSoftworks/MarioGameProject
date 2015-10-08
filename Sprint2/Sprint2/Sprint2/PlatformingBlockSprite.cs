@@ -11,13 +11,11 @@ namespace Sprint2
     {
         private Texture2D platformingBlockSpriteSheet;
         private Vector2 location;
-
         public PlatformingBlockSprite()
         {
-            platformingBlockSpriteSheet = BlockSpriteTextureStorage.CreatePlatformingBlockSpriteSheet();
-            location = new Vector2(200, 200);
+            platformingBlockSpriteSheet = BlockSpriteTextureStorage.CreatePlatformingBlockSprite();
+            location = new Vector2(200, 400);
         }
-
         public void Update()
         {
             //No update logic needed, object is static and non-anitmated

@@ -15,13 +15,13 @@ namespace Sprint2
 
         public BrickBlockSprite()
         {
-            brickBlockSpriteSheet = BlockSpriteTextureStorage.CreateBrickBlockSpriteSheet();
+            brickBlockSpriteSheet = BlockSpriteTextureStorage.CreateBrickBlockSprite();
             smashed = false;
-            location = new Vector2(500, 200);
+            location = new Vector2(500, 400);
         }
-
         public void Update()
         {
+            //Cause Brick block to disapper
             smashed = true;
         }
 
@@ -39,7 +39,6 @@ namespace Sprint2
             {
                 sourceRectangle = new Rectangle((spriteSheetSpriteSize * 6), 0, (spriteSheetSpriteSize), spriteSheetSpriteSize);
             }
-
             spriteBatch.Begin();
             spriteBatch.Draw(brickBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();

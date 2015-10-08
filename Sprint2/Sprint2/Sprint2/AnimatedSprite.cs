@@ -9,24 +9,20 @@ namespace Sprint2
 {
     public class AnimatedSprite 
     {
-        private int rows;
+        private int row;
         private int columns;
         private Texture2D texture;
         private int currentFrame;
         private int totalFrames;
         private bool finished;
-        private int frameWidth;
-        private int frameHeight;
 
         public AnimatedSprite(Texture2D texture, int rows, int columns)
         {
             this.texture = texture;
-            this.rows = rows;
+            this.row = rows;
             this.columns = columns;
             currentFrame = 0;
-            totalFrames = rows * columns;
-            frameWidth = texture.Width / columns;
-            frameHeight = texture.Height / rows;        
+            totalFrames = row * columns;
         }
 
         public void Update()
@@ -41,26 +37,17 @@ namespace Sprint2
             {
                 finished = false;
             }
-
         }
-        public void Draw(SpriteBatch spriteBatch, Vector2 loc, bool facingRight)
+        public void Draw(SpriteBatch spriteBatch, Vector2 loc)
         {
-            int frameRow = (int)((float)currentFrame / (float)columns);
-            int frameColumn = currentFrame % columns;
+            int width = texture.Width / columns;
+            int height = texture.Height / row;
+            int rows = (int)((float)currentFrame / (float)columns);
+            int col = currentFrame % columns;
 
-            Rectangle sourceRectangle = new Rectangle(frameWidth * frameColumn, frameHeight * frameRow, frameWidth, frameHeight);
-            Rectangle destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, frameWidth, frameHeight);
-            spriteBatch.Begin();
-            if (facingRight)
-            {
-                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
-            }
-            else
-            {
-                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
-            }
-            
-            spriteBatch.End();
+            Rectangle sourceRectangle = new Rectangle(width * col, height * row, width, height);
+            Rectangle destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, width, height);
+            spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
         }
 
         public bool isFinished()

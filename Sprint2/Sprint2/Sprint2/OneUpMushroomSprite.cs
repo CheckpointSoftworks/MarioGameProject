@@ -13,13 +13,13 @@ namespace Sprint2
         private Vector2 location;
         public OneUpMushroomSprite()
         {
-            oneUpMushroomSpriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSpriteSheet();
+            oneUpMushroomSpriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSprite();
             location = new Vector2(400, 100);
         }
 
         public void Update()
         {
-            //No update needed for the one-up mushroom
+            //No update needed for the super mushroom
         }
 
         public void Draw(SpriteBatch spriteBatch)

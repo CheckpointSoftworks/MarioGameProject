@@ -15,7 +15,6 @@ namespace Sprint2
         {
             brickBlockSprite = new BrickBlockSprite();
         }
-
         public void Update()
         {
             brickBlockSprite.Update();

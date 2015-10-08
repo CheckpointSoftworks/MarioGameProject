@@ -15,11 +15,10 @@ namespace Sprint2
 
         public QuestionBlockSprite()
         {
-            questionBlockSpriteSheet = BlockSpriteTextureStorage.CreateQuestionBlockSpriteSheet();
+            questionBlockSpriteSheet = BlockSpriteTextureStorage.CreateQuestionBlockSprite();
             used = false;
-            location = new Vector2(400, 200);
+            location = new Vector2(400, 400);
         }
-
         public void Update()
         {
             //Change the state of the Question block, do not address the bouncing of it in this Sprint
@@ -40,7 +39,6 @@ namespace Sprint2
             {
                 sourceRectangle = new Rectangle((spriteSheetSpriteSize * 5), 0, (spriteSheetSpriteSize), spriteSheetSpriteSize);
             }
-
             spriteBatch.Begin();
             spriteBatch.Draw(questionBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();

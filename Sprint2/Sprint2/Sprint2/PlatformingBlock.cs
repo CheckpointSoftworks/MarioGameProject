@@ -10,12 +10,10 @@ namespace Sprint2
     public class PlatformingBlock : IGameObject
     {
         private PlatformingBlockSprite platformingBlockSprite;
-
         public PlatformingBlock()
         {
             platformingBlockSprite = new PlatformingBlockSprite();
         }
-
         public void Update()
         {
             platformingBlockSprite.Update();

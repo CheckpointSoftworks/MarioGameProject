@@ -16,46 +16,31 @@ namespace Sprint2
         public MarioJump(Mario mario)
         {
             this.mario = mario;
-            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(), 1, 1);
-            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallJumpingSprite(), 1, 1);
-            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireJumpingSprite(), 1, 1);
-        }
-        public void Update()
-        {
-            if (mario.Fire)
-            {
-                fire.Update();
-            }
-            else if (mario.Small)
-            {
-                small.Update();
-            }
-            else
-            {
-                big.Update();
-            }
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallJumpingSprite(mario.facingRight), 1, 1);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (mario.Fire)
-                fire.Draw(spriteBatch, mario.Location, mario.FacingRight);
-            else if (mario.Small)
-                small.Draw(spriteBatch,mario.Location, mario.FacingRight);
+            if (mario.fire)
+                fire.Draw(spriteBatch, mario.location);
+            else if (mario.small)
+                small.Draw(spriteBatch,mario.location);
             else
-                big.Draw(spriteBatch, mario.Location, mario.FacingRight);
+                big.Draw(spriteBatch, mario.location);
            
         }
         public void Still()
         {
-            mario.State = new MarioStill(mario);
+            mario.state = new MarioStill(mario);
         }
         public void Running()
         {
-            mario.State = new MarioRunning(mario);
+            mario.state = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {
-            mario.State = new MarioChangeDirection(mario);
+            mario.state = new MarioChangeDirection(mario);
         }
         public void Jump()
         {
@@ -63,16 +48,16 @@ namespace Sprint2
         }
         public void ShootFireball()
         {
-            if (mario.Fire)
-            mario.State = new MarioShootFireball(mario);
+            if (mario.fire)
+            mario.state = new MarioShootFireball(mario);
         }
         public void Duck()
         {
-            mario.State = new MarioStill(mario);
+            //Do nothing, Jump -> Duck is invalid
         }
         public void Dying()
         {
-            mario.State = new MarioDying(mario);
+            mario.state = new MarioDying(mario);
         }
     }
 }
