@@ -11,8 +11,9 @@ namespace Sprint2
     {
         private ISprite groundBlockSprite;
         private BlockType type;
-        public GroundBlock(Vector2 location)
+        public GroundBlock(int locX,int locY)
         {
+            Vector2 location = new Vector2(locX, locY);
             groundBlockSprite = new GroundBlockSprite(location);
             type = BlockType.Ground;
         }

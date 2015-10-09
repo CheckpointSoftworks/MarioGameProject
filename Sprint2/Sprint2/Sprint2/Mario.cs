@@ -27,9 +27,10 @@ namespace Sprint2
         public IPlayerState state;
         public AnimatedSprite sprite;
         //private MarioSpriteFactory spriteFactory;
-        public Mario()
+        public Mario(int locX, int locY)
         {
             state = new MarioStill(this);
+            location = new Vector2(locX, locY);
         }
 
         public void Update()

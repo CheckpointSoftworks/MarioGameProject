@@ -12,8 +12,9 @@ namespace Sprint2
         private ISprite questionBlockSprite;
         private BlockType type;
 
-        public QuestionBlock(Vector2 location)
+        public QuestionBlock(int locX,int locY)
         {
+            Vector2 location = new Vector2(locX, locY);
             questionBlockSprite = new QuestionBlockSprite(location);
             type = BlockType.Question;
         }

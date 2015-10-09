@@ -11,8 +11,9 @@ namespace Sprint2
     {
         private PlatformingBlockSprite platformingBlockSprite;
         private BlockType type;
-        public PlatformingBlock(Vector2 location)
+        public PlatformingBlock(int locX,int locY)
         {
+            Vector2 location = new Vector2(locX, locY);
             platformingBlockSprite = new PlatformingBlockSprite(location);
             type = BlockType.Platforming;
         }

@@ -12,8 +12,9 @@ namespace Sprint2
         private ISprite brickBlockSprite;
         private BlockType type;
         
-        public BrickBlock(Vector2 location)
+        public BrickBlock(int locX, int locY)
         {
+            Vector2 location = new Vector2(locX, locY);
             brickBlockSprite = new BrickBlockSprite(location);
             type = BlockType.Brick;
         }

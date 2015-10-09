@@ -91,8 +91,7 @@ namespace Sprint2
             MiscGameObjectTextureStorage.Load(this.Content, GraphicsDevice);
             MarioSpriteFactory.Load(this.Content, GraphicsDevice);
 
-
-            mario = new Mario();            
+           
         }
 
         protected override void UnloadContent()

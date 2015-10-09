@@ -11,8 +11,9 @@ namespace Sprint2
     {
         private ISprite hiddenBlockSprite;
         private BlockType type;
-        public HiddenBlock(Vector2 location)
+        public HiddenBlock(int locX,int locY)
         {
+            Vector2 location = new Vector2(locX, locY);
             hiddenBlockSprite = new HiddenBlockSprite(location);
             type = BlockType.Hidden;
         }
