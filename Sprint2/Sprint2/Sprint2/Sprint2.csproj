@@ -103,6 +103,7 @@
     <Compile Include="IBlock.cs" />
     <Compile Include="ICollision.cs" />
     <Compile Include="IEnemyObject.cs" />
+    <Compile Include="IEnviromental.cs" />
     <Compile Include="IGameObject.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IController.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="MarioHiddenBlockCollisionCommand.cs" />
     <Compile Include="MarioHitsEnemyCollision.cs" />
     <Compile Include="MarioJump.cs" />
+    <Compile Include="MarioPipeCollisionHandler.cs" />
     <Compile Include="MarioQuestionBlockCollisionCommand.cs" />
     <Compile Include="MarioRunning.cs" />
     <Compile Include="MarioShootFireball.cs" />
