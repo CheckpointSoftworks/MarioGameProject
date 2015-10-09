@@ -11,9 +11,9 @@ namespace Sprint2
     {
         private ISprite pipeSprite;
 
-        public Pipe()
+        public Pipe(Vector2 location)
         {
-            pipeSprite = new PipeSprite();
+            pipeSprite = new PipeSprite(location);
         }
 
         public void Update()

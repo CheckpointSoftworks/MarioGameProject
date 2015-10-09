@@ -10,10 +10,12 @@ namespace Sprint2
     public class QuestionBlock :IBlock
     {
         private ISprite questionBlockSprite;
+        private BlockType type;
 
         public QuestionBlock(Vector2 location)
         {
             questionBlockSprite = new QuestionBlockSprite(location);
+            type = BlockType.Question;
         }
         public void Update()
         {
@@ -23,6 +25,10 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             questionBlockSprite.Draw(spriteBatch);
+        }
+        public BlockType returnBlockType()
+        {
+            return type;
         }
         public Rectangle returnCollisionRectange()
         {

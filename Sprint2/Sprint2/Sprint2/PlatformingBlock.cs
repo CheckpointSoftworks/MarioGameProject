@@ -10,9 +10,11 @@ namespace Sprint2
     public class PlatformingBlock : IBlock
     {
         private PlatformingBlockSprite platformingBlockSprite;
+        private BlockType type;
         public PlatformingBlock(Vector2 location)
         {
             platformingBlockSprite = new PlatformingBlockSprite(location);
+            type = BlockType.Platforming;
         }
         public void Update()
         {
@@ -22,6 +24,11 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             platformingBlockSprite.Draw(spriteBatch);
+        }
+
+        public BlockType returnBlockType()
+        {
+            return type;
         }
 
         public Rectangle returnCollisionRectange()

@@ -10,9 +10,11 @@ namespace Sprint2
     public class HiddenBlock : IBlock
     {
         private ISprite hiddenBlockSprite;
+        private BlockType type;
         public HiddenBlock(Vector2 location)
         {
             hiddenBlockSprite = new HiddenBlockSprite(location);
+            type = BlockType.Hidden;
         }
         public void Update()
         {
@@ -22,6 +24,10 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             hiddenBlockSprite.Draw(spriteBatch);
+        }
+        public BlockType returnBlockType()
+        {
+            return type;
         }
         public Rectangle returnCollisionRectange()
         {

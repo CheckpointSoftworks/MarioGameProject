@@ -14,10 +14,9 @@ namespace Sprint2
         private Vector2 location;
         private Texture2D KoopaSpriteSheet;
 
-        public KoopaSprite(Texture2D koopaSpritesheet)
+        public KoopaSprite(Texture2D koopaSpritesheet,Vector2 location)
         {
-            //Replace this
-            location = new Vector2(700, 200);
+            this.location = location;
             KoopaSpriteSheet = koopaSpritesheet;
 
         }
@@ -52,6 +51,11 @@ namespace Sprint2
             spriteBatch.Draw(KoopaSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return new Rectangle(0,0,0,0);
         }
     }
 }

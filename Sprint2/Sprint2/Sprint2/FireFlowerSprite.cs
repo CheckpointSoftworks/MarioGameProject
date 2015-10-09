@@ -48,5 +48,10 @@ namespace Sprint2
             spriteBatch.Draw(fireFlowerSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
         }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return new Rectangle(0, 0, 0, 0);
+        }
     }
 }

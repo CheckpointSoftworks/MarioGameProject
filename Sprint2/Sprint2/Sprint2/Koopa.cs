@@ -11,9 +11,9 @@ namespace Sprint2
     {
         private ISprite koopaSprite;
         
-        public Koopa()
+        public Koopa(Vector2 location)
         {
-            koopaSprite = EnemySpriteFactory.CreateGreenKoopaSprite();
+            koopaSprite = EnemySpriteFactory.CreateGreenKoopaSprite(location);
         }
         public void Update()
         {

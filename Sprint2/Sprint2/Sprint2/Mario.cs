@@ -69,5 +69,10 @@ namespace Sprint2
         {
             state.Dying();
         }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return state.returnStateCollisionRectangle();
+        }
     }
 }

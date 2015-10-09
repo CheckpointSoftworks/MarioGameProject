@@ -19,11 +19,6 @@ namespace Sprint2
                 Game.mario.small = true;
                 Game.mario.facingRight = false;
                 Game.mario.state.Still();
-                
-                Game.hiddenBlock = new HiddenBlock();
-                Game.questionBlock = new QuestionBlock();
-                Game.brickBlock = new BrickBlock();
-
             }
     }
 }

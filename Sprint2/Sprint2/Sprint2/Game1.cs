@@ -92,20 +92,7 @@ namespace Sprint2
             MarioSpriteFactory.Load(this.Content, GraphicsDevice);
 
 
-            mario = new Mario();
-            pipe = new Pipe();
-
-            blockObjectList.Add(new PlatformingBlock());
-            blockObjectList.Add(new GroundBlock());
-
-            itemObjectList.Add(new FireFlower());
-            itemObjectList.Add(new BoxCoin());
-            itemObjectList.Add(new SuperMushroom());
-            itemObjectList.Add(new OneUpMushroom());
-            itemObjectList.Add(new SuperStar());
-
-            enemyLists.Add(new Goomba());
-            enemyLists.Add(new Koopa());
+            mario = new Mario();            
         }
 
         protected override void UnloadContent()

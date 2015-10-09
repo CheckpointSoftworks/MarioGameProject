@@ -47,5 +47,14 @@ namespace Sprint2
         {
             mario.state = new MarioDying(mario);
         }
+
+        public Rectangle returnStateCollisionRectangle()
+        {
+            Rectangle collisionRectangle=new Rectangle(0,0,0,0);
+
+            //No collision needed for this class yet
+
+            return collisionRectangle;
+        }
     }
 }

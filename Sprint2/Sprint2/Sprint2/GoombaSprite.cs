@@ -13,10 +13,10 @@ namespace Sprint2
         private Vector2 location;
         private Texture2D GoombaSpriteSheet;
 
-        public GoombaSprite(Texture2D goombaSpritesheet)
+        public GoombaSprite(Texture2D goombaSpritesheet,Vector2 location)
         {
             //Replace this
-            location = new Vector2(600, 200);
+            this.location = location;
             GoombaSpriteSheet = goombaSpritesheet;
 
 
@@ -53,6 +53,11 @@ namespace Sprint2
             spriteBatch.Draw(GoombaSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return new Rectangle(0,0,0,0);
         }
     }
 }

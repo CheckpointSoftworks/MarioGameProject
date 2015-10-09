@@ -50,5 +50,10 @@ namespace Sprint2
         {
             mario.state = new MarioDying(mario);
         }
+
+        public Rectangle returnStateCollisionRectangle()
+        {
+            return sprite.returnCollisionRectangle();
+        }
     }
 }

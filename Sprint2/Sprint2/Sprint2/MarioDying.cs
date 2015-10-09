@@ -48,5 +48,10 @@ namespace Sprint2
         {
             //Nothing, death consumes all
         }
+
+        public Rectangle returnStateCollisionRectangle()
+        {
+            return sprite.returnCollisionRectangle();
+        }
     }
 }

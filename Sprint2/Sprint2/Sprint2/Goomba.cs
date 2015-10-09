@@ -11,9 +11,9 @@ namespace Sprint2
     {
         private ISprite goombaSprite;
         
-        public Goomba()
+        public Goomba(Vector2 location)
         {
-            goombaSprite = EnemySpriteFactory.CreateGoombaSprite();
+            goombaSprite = EnemySpriteFactory.CreateGoombaSprite(location);
         }
         public void Update()
         {

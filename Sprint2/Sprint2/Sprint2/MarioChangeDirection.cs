@@ -13,6 +13,7 @@ namespace Sprint2
         private AnimatedSprite smallSprite;
         private AnimatedSprite bigSprite;
         private AnimatedSprite fireSprite;
+
         public MarioChangeDirection(Mario mario)
         {
             this.mario = mario;
@@ -54,6 +55,26 @@ namespace Sprint2
         public void Dying()
         {
             mario.state = new MarioDying(mario);
+        }
+
+        public Rectangle returnStateCollisionRectangle()
+        {
+            Rectangle collisionRectangle;
+
+            if (mario.small)
+            {
+                collisionRectangle = smallSprite.returnCollisionRectangle();
+            }
+            else if(mario.fire)
+            {
+                collisionRectangle = fireSprite.returnCollisionRectangle();
+            }
+            else
+            {
+                collisionRectangle = bigSprite.returnCollisionRectangle();
+            }
+
+            return collisionRectangle;
         }
     }
  }

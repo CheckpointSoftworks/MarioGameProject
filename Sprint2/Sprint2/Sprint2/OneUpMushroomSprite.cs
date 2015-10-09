@@ -28,5 +28,9 @@ namespace Sprint2
             spriteBatch.Draw(oneUpMushroomSpriteSheet, location, Color.White);
             spriteBatch.End();
         }
+        public Rectangle returnCollisionRectangle()
+        {
+            return new Rectangle(0,0,0,0);
+        }
     }
 }

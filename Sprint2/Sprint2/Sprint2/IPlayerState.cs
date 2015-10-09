@@ -18,6 +18,7 @@ namespace Sprint2
         void Dying();
         void Draw(SpriteBatch spriteBatch);
 
+        Rectangle returnStateCollisionRectangle();
 
     }
 }

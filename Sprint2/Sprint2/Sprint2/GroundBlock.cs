@@ -10,9 +10,11 @@ namespace Sprint2
     public class GroundBlock : IBlock
     {
         private ISprite groundBlockSprite;
+        private BlockType type;
         public GroundBlock(Vector2 location)
         {
             groundBlockSprite = new GroundBlockSprite(location);
+            type = BlockType.Ground;
         }
         public void Update()
         {
@@ -22,6 +24,10 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             groundBlockSprite.Draw(spriteBatch);
+        }
+        public BlockType returnBlockType()
+        {
+            return type;
         }
 
         public Rectangle  returnCollisionRectange()
