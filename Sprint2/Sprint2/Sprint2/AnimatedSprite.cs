@@ -31,6 +31,7 @@ namespace Sprint2
             frameHeight = texture.Height / rows;
             int width = texture.Width / this.columns;
             int height = texture.Height / this.rows;
+            this.location = location;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
         }

@@ -7,11 +7,14 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    public class Mario : IGameObject
+    public class Mario : IPlayer
     {
+
+
         private bool facingRight;
-        public bool  FacingRight{
-            get 
+        public bool FacingRight
+        {
+            get
             {
                 return facingRight;
             }
@@ -19,7 +22,7 @@ namespace Sprint2
             {
                 facingRight = value;
             }
-        }        
+        }
         private bool small;
         public bool Small
         {
@@ -99,6 +102,10 @@ namespace Sprint2
             {
                 return location;
             }
+            set
+            {
+                location = value;
+            }
         }
         private IPlayerState state;
         public IPlayerState State
@@ -113,13 +120,13 @@ namespace Sprint2
             }
         }
 
-        public Mario()
+        public Mario(int locX, int locY)
         {
             small = true;
             fire = false;
             facingRight = true;
             state = new MarioStill(this);
-            location = new Vector2(450, 300);
+            location = new Vector2(locX, locY);
         }
 
         public void Update()
@@ -129,6 +136,11 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             state.Draw(spriteBatch);
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return state.returnStateCollisionRectangle();
         }
     }
 }

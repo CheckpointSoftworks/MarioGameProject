@@ -7,22 +7,39 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class BoxCoin : IGameObject
+    public class BoxCoin : IItemObjects
     {
         private ISprite boxCoinSprite;
+        private ItemType type;
+        private Rectangle collisonRectangle;
+
         public BoxCoin(int locX, int locY)
         {
             Vector2 location = new Vector2(locX, locY);
             boxCoinSprite = new BoxCoinSprite(location);
+            type = ItemType.Coin;
+            collisonRectangle = boxCoinSprite.returnCollisionRectangle();
         }
         public void Update()
         {
             boxCoinSprite.Update();
         }
-
+        public ItemType returnItemType()
+        {
+            return type;
+        }
+        public Rectangle returnCollisionRectangle()
+        {
+            return collisonRectangle;
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
             boxCoinSprite.Draw(spriteBatch);
+        }
+
+        public void setCollisionRectangle(Rectangle collisionRectangle)
+        {
+            this.collisonRectangle = collisionRectangle;
         }
     }
 }

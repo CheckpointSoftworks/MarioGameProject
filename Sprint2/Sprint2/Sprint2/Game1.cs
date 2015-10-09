@@ -115,7 +115,7 @@ namespace Sprint2
 
             mario.Draw(spriteBatch);
 
-            foreach (IGameObject item in loader.staticObjectsList)
+            foreach (IItemObjects item in loader.staticObjectsList)
             {
                 item.Draw(spriteBatch);
             }

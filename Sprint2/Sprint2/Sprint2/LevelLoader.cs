@@ -81,7 +81,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
                             Console.WriteLine(YVal);
 
-                            IGameObject GameObject;
+                            IItemObjects GameObject;
                             GameObject = new BoxCoin(XVal, YVal);
                             staticObjectsList.Add(GameObject);
 
@@ -104,7 +104,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
                             Console.WriteLine(YVal);
 
-                            IGameObject GameObject;
+                            IItemObjects GameObject;
                             GameObject = new FireFlower(XVal, YVal);
                             staticObjectsList.Add(GameObject);
 
@@ -219,7 +219,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
                             Console.WriteLine(YVal);
 
-                            IGameObject GameObject;
+                            IItemObjects GameObject;
                             GameObject = new OneUpMushroom(XVal, YVal);
                             staticObjectsList.Add(GameObject);
 
@@ -311,7 +311,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
                             Console.WriteLine(YVal);
 
-                            IGameObject GameObject;
+                            IItemObjects GameObject;
                             GameObject = new SuperMushroom(XVal, YVal);
                             staticObjectsList.Add(GameObject);
 
@@ -334,7 +334,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
                             Console.WriteLine(YVal);
 
-                            IGameObject GameObject;
+                            IItemObjects GameObject;
                             GameObject = new SuperStar(XVal, YVal);
                             staticObjectsList.Add(GameObject);
 
