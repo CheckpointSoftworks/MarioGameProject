@@ -10,9 +10,9 @@ namespace Sprint2
     public class SuperStar : IGameObject
     {
         private ISprite superStarSprite;
-        public SuperStar()
+        public SuperStar(Vector2 location)
         {
-            superStarSprite = new SuperStarSprite();
+            superStarSprite = new SuperStarSprite(location);
         }
         public void Update()
         {
@@ -22,6 +22,11 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             superStarSprite.Draw(spriteBatch);
+        }
+
+        public Rectangle retrunCollisionRecatangle()
+        {
+            return superStarSprite.returnCollisionRectangle();
         }
     }
 }

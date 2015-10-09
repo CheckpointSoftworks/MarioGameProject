@@ -11,37 +11,46 @@ namespace Sprint2
     {
         private Texture2D hiddenBlockSpriteSheet;
         private bool used;
-        private Vector2 location;
+        private Vector2 location; 
+        private Rectangle collisionRectangle;
+        private int frame;
+        private int spriteSheetSpriteSize = 16;
 
-        public HiddenBlockSprite()
+
+        public HiddenBlockSprite(Vector2 location)
         {
             hiddenBlockSpriteSheet = BlockSpriteTextureStorage.CreateHiddenBlockSprite();
+            this.location = location;
+            frame = 0;
             used = false;
-            location = new Vector2(300, 400);
+            collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
+
         public void Update()
         {
-            //Change the question block to the opposite of what it currently is
-            used = true;
+            if (!used)
+            {
+                frame++;
+            }
+            else
+            {
+                used = true;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int spriteSheetSpriteSize = 16;
-            Rectangle sourceRectangle = new Rectangle(0, 0, 0, 0);
+            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize * frame), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
-            if (!used)
-            {
-                sourceRectangle = new Rectangle((spriteSheetSpriteSize * 6), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
-            }
-            else
-            {
-                sourceRectangle = new Rectangle((spriteSheetSpriteSize * 3), 0, (spriteSheetSpriteSize), spriteSheetSpriteSize);
-            }
             spriteBatch.Begin();
             spriteBatch.Draw(hiddenBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return collisionRectangle;
         }
     }
 }

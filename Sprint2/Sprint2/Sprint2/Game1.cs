@@ -38,13 +38,7 @@ namespace Sprint2
             Content.RootDirectory = "Content";
         }
 
-        /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
-        /// </summary>
-        protected override void Initialize()
+         protected override void Initialize()
         {
             keyboard = new KeyboardController();
 
@@ -85,10 +79,6 @@ namespace Sprint2
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -105,14 +95,7 @@ namespace Sprint2
             mario = new Mario();
             pipe = new Pipe();
 
-            //Create the block objects
-            hiddenBlock = new HiddenBlock();
-            questionBlock = new QuestionBlock();
-            brickBlock = new BrickBlock();
             blockObjectList.Add(new PlatformingBlock());
-            blockObjectList.Add(hiddenBlock);
-            blockObjectList.Add(questionBlock);
-            blockObjectList.Add(brickBlock);
             blockObjectList.Add(new GroundBlock());
 
             itemObjectList.Add(new FireFlower());
@@ -125,21 +108,12 @@ namespace Sprint2
             enemyLists.Add(new Koopa());
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
         protected override void UnloadContent()
         {
             // Not Yet Needed in the scope of the project
             // TODO: Unload any non ContentManager content here
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
@@ -151,10 +125,6 @@ namespace Sprint2
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
             

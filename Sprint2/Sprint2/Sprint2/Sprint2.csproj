@@ -77,12 +77,14 @@
     <Compile Include="BigMarioBrickBlockCollisionCommand.cs" />
     <Compile Include="BigMarioCommand.cs" />
     <Compile Include="BlockSpriteTextureStorage.cs" />
+    <Compile Include="BlockTypeEnum.cs" />
     <Compile Include="BottomCollision.cs" />
     <Compile Include="BoxCoin.cs" />
     <Compile Include="BoxCoinSprite.cs" />
     <Compile Include="BrickBlock.cs" />
     <Compile Include="BrickBlockDisappearCommand.cs" />
     <Compile Include="BrickBlockSprite.cs" />
+    <Compile Include="CollisionSideEnum.cs" />
     <Compile Include="CollisionDetector.cs" />
     <Compile Include="DeadMarioCommand.cs" />
     <Compile Include="DownCommand.cs" />

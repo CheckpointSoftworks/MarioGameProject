@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Sprint2
 {
-    public interface ICollision
+    public enum BlockType
     {
-        CollisionSide returnCollisionSide();
+        Brick, Hidden, Ground, Platforming, Question
     }
 }

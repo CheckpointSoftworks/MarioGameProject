@@ -7,12 +7,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class PlatformingBlock : IGameObject
+    public class PlatformingBlock : IBlock
     {
         private PlatformingBlockSprite platformingBlockSprite;
-        public PlatformingBlock()
+        public PlatformingBlock(Vector2 location)
         {
-            platformingBlockSprite = new PlatformingBlockSprite();
+            platformingBlockSprite = new PlatformingBlockSprite(location);
         }
         public void Update()
         {
@@ -22,6 +22,11 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             platformingBlockSprite.Draw(spriteBatch);
+        }
+
+        public Rectangle returnCollisionRectange()
+        {
+            return platformingBlockSprite.returnCollisionRectangle();
         }
     }
 }

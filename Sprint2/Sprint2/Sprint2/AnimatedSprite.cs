@@ -15,14 +15,20 @@ namespace Sprint2
         private int currentFrame;
         private int totalFrames;
         private bool finished;
+        private Vector2 location;
+        private Rectangle collisionRectangle;
 
-        public AnimatedSprite(Texture2D texture, int rows, int columns)
+        public AnimatedSprite(Texture2D texture, int rows, int columns, Vector2 location)
         {
             this.texture = texture;
             this.row = rows;
             this.columns = columns;
             currentFrame = 0;
             totalFrames = row * columns;
+            int width = texture.Width / this.columns;
+            int height = texture.Height / this.row;
+            collisionRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+
         }
 
         public void Update()
@@ -38,7 +44,7 @@ namespace Sprint2
                 finished = false;
             }
         }
-        public void Draw(SpriteBatch spriteBatch, Vector2 loc)
+        public void Draw(SpriteBatch spriteBatch)
         {
             int width = texture.Width / columns;
             int height = texture.Height / row;
@@ -46,13 +52,18 @@ namespace Sprint2
             int col = currentFrame % columns;
 
             Rectangle sourceRectangle = new Rectangle(width * col, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, width, height);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
         }
 
         public bool isFinished()
         {
             return finished;
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return collisionRectangle;
         }
     }
 }

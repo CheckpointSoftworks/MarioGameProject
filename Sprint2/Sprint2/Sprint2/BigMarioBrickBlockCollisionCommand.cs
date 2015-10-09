@@ -7,9 +7,9 @@ namespace Sprint2
 {
     public class BigMarioBrickBlockCollisionCommand : ICommand
     {
-        private IGameObject block;
+        private IBlock block;
 
-        public BigMarioBrickBlockCollisionCommand(IGameObject block)
+        public BigMarioBrickBlockCollisionCommand(IBlock block)
         {
             this.block = block;
         }

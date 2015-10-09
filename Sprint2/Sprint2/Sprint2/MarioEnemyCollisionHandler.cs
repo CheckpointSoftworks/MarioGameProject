@@ -12,18 +12,18 @@ namespace Sprint2
         void HandleCollision(Mario mario, IEnemyObject enemy, ICollision side)
         {
             ICommand command;
-            if (!(side.returnCollisionSide().Equals(ICollision.CollisionSide.None)))
+            if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
                 //Handle moving mario and the enemy to no longer collide
             }
 
-            if (side.returnCollisionSide().Equals(ICollision.CollisionSide.Top))
+            if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
                 //Mario takes no damage
                 //Enemy is damaged/killed
                 command = new MarioHitsEnemyCollision(enemy);
             }
-            else if (!(side.returnCollisionSide().Equals(ICollision.CollisionSide.None)))
+            else if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
                 //Enemy takes no damage
                 //Mario takes damage
@@ -35,7 +35,6 @@ namespace Sprint2
         private void HandleMovement(Mario mario, IEnemyObject enemy)
         {
             Rectangle enemyRectangle= enemy.returnCollisionRectange();
-            Rectangle marioRectangle;
         }
     }
 }

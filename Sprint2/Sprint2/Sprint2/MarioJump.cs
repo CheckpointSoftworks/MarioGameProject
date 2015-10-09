@@ -16,18 +16,18 @@ namespace Sprint2
         public MarioJump(Mario mario)
         {
             this.mario = mario;
-            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
-            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallJumpingSprite(mario.facingRight), 1, 1);
-            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1);
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1, mario.location);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallJumpingSprite(mario.facingRight), 1, 1,mario.location);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1,mario.location);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (mario.fire)
-                fire.Draw(spriteBatch, mario.location);
+                fire.Draw(spriteBatch);
             else if (mario.small)
-                small.Draw(spriteBatch,mario.location);
+                small.Draw(spriteBatch);
             else
-                big.Draw(spriteBatch, mario.location);
+                big.Draw(spriteBatch);
            
         }
         public void Still()

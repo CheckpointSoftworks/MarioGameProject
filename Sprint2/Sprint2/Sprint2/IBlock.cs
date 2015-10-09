@@ -7,10 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public interface IBlock:IGameObject
+    public interface IBlock
     {
-        public enum BlockType { Brick, Hidden, Ground, Platforming, Question };
-
         void Update();
 
         void Draw(SpriteBatch spriteBatch);

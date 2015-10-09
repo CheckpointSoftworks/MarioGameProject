@@ -7,15 +7,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public interface IEnemyObject:IGameObject
+    public interface IEnemyObject
     {
-        public enum EnemyType { Goomba, Koopa };
         void Update();
 
         void Draw(SpriteBatch spriteBatch);
-
-        EnemyType retrunEnemyType();
-        
+                
         Rectangle returnCollisionRectange();
     
     }

@@ -14,12 +14,12 @@ namespace Sprint2
         public MarioDuck(Mario mario)
         {
             this.mario = mario;
-            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(false), 1, 1);
+            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(false), 1, 1,mario.location);
             //Set Sprite here
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, mario.location);
+            sprite.Draw(spriteBatch);
         }
         public void Still()
         {

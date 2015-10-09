@@ -10,38 +10,46 @@ namespace Sprint2
     public class BrickBlockSprite : ISprite
     {
         private Texture2D brickBlockSpriteSheet;
-        private bool smashed;
         private Vector2 location;
+        private bool smashed;
+        private Rectangle collisionRectangle;
+        private int frame;
+        private int spriteSheetSpriteSize = 16;
 
-        public BrickBlockSprite()
+        public BrickBlockSprite(Vector2 location)
         {
             brickBlockSpriteSheet = BlockSpriteTextureStorage.CreateBrickBlockSprite();
+            this.location = location;
+            frame = 0;
             smashed = false;
-            location = new Vector2(500, 400);
+            collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
         public void Update()
         {
-            //Cause Brick block to disapper
-            smashed = true;
+            if (!smashed)
+            {
+                frame++;
+                collisionRectangle = new Rectangle(0, 0, 0, 0);
+            }
+            else
+            {
+                smashed = true;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int spriteSheetSpriteSize = 16;
-            Rectangle sourceRectangle = new Rectangle(0, 0, 0, 0);
+            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize*frame), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
-            if (!smashed)
-            {
-                sourceRectangle = new Rectangle((spriteSheetSpriteSize), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
-            }
-            else
-            {
-                sourceRectangle = new Rectangle((spriteSheetSpriteSize * 6), 0, (spriteSheetSpriteSize), spriteSheetSpriteSize);
-            }
             spriteBatch.Begin();
             spriteBatch.Draw(brickBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return collisionRectangle;
         }
     }
 }

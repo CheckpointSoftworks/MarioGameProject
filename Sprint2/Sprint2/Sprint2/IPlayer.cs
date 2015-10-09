@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public interface IPlayer:IGameObject
+    public interface IPlayer
     {
         void Update();
 

@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Sprint2
 {
-    public interface ICollision
+    public enum CollisionSide
     {
-        CollisionSide returnCollisionSide();
+        Top, Bottom, Left, Right, None
     }
 }

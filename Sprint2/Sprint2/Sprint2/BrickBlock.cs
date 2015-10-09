@@ -7,13 +7,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class BrickBlock : IGameObject
+    public class BrickBlock : IBlock
     {
         private ISprite brickBlockSprite;
         
-        public BrickBlock()
+        public BrickBlock(Vector2 location)
         {
-            brickBlockSprite = new BrickBlockSprite();
+            brickBlockSprite = new BrickBlockSprite(location);
         }
         public void Update()
         {
@@ -23,6 +23,11 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             brickBlockSprite.Draw(spriteBatch);
+        }
+
+        public Rectangle returnCollisionRectange()
+        {
+            return brickBlockSprite.returnCollisionRectangle();
         }
     }
 }

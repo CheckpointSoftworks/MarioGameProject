@@ -7,14 +7,14 @@ namespace Sprint2
 {
     public class BottomCollision : ICollision
     {
-        public ICollision.CollisionSide sideOfCollision {get;set;}
+        public CollisionSide sideOfCollision {get;set;}
 
         public BottomCollision()
         {
-            sideOfCollision = ICollision.CollisionSide.Bottom;
+            sideOfCollision = CollisionSide.Bottom;
         }
 
-        public ICollision.CollisionSide reutrnCollisionSide()
+        public CollisionSide returnCollisionSide()
         {
             return sideOfCollision;
         }
