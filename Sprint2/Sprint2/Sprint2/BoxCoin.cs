@@ -10,9 +10,10 @@ namespace Sprint2
     public class BoxCoin : IGameObject
     {
         private ISprite boxCoinSprite;
-        public BoxCoin()
+        public BoxCoin(int locX, int locY)
         {
-            boxCoinSprite = new BoxCoinSprite();
+            Vector2 location = new Vector2(locX, locY);
+            boxCoinSprite = new BoxCoinSprite(location);
         }
         public void Update()
         {

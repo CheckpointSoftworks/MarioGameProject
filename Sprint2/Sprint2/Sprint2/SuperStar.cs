@@ -10,8 +10,9 @@ namespace Sprint2
     public class SuperStar : IGameObject
     {
         private ISprite superStarSprite;
-        public SuperStar(Vector2 location)
+        public SuperStar(int locX,int locY)
         {
+            Vector2 location = new Vector2(locX, locY);
             superStarSprite = new SuperStarSprite(location);
         }
         public void Update()

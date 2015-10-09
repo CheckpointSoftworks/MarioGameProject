@@ -16,9 +16,9 @@ namespace Sprint2
 
             public void Execute()
             {
-                Game.mario.small = true;
-                Game.mario.facingRight = false;
-                Game.mario.state.Still();
+                ((Mario)Game.mario).Small = true;
+                ((Mario)Game.mario).FacingRight = false;
+                ((Mario)Game.mario).State.Still();
             }
     }
 }

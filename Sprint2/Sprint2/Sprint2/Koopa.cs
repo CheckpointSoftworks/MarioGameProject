@@ -7,12 +7,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class Koopa: IGameObject
+    class Koopa: IEnemyObject
     {
         private ISprite koopaSprite;
-        
-        public Koopa(Vector2 location)
+
+        public Koopa(int locX, int locY)
         {
+            Vector2 location = new Vector2(locX, locY);
             koopaSprite = EnemySpriteFactory.CreateGreenKoopaSprite(location);
         }
         public void Update()
@@ -23,6 +24,11 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             koopaSprite.Draw(spriteBatch);
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return koopaSprite.returnCollisionRectangle();
         }
     }
 }

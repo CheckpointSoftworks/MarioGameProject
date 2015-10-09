@@ -27,22 +27,26 @@ namespace Sprint2
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
             {
                 locationDiffToChange = intersectionRectangle.Width;
-                mario.location.X = mario.location.X - locationDiffToChange;
+                int newMarioX = (int)mario.Location.X-locationDiffToChange;
+                mario.Location = new Vector2(newMarioX,mario.Location.Y);
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Right))
             {
                 locationDiffToChange = intersectionRectangle.Width;
-                mario.location.X = mario.location.X + locationDiffToChange;
+                int newMarioX = (int)mario.Location.X + locationDiffToChange;
+                mario.Location = new Vector2(newMarioX, mario.Location.Y);
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
                 locationDiffToChange = intersectionRectangle.Height;
-                mario.location.Y = mario.location.Y - locationDiffToChange;
+                int newMarioY = (int)mario.Location.Y - locationDiffToChange;
+                mario.Location = new Vector2(mario.Location.Y, newMarioY);
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 locationDiffToChange = intersectionRectangle.Height;
-                mario.location.Y = mario.location.Y + locationDiffToChange;
+                int newMarioY = (int)mario.Location.Y + locationDiffToChange;
+                mario.Location = new Vector2(mario.Location.Y,newMarioY);
             }
         }
 

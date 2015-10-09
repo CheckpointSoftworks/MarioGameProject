@@ -14,39 +14,43 @@ namespace Sprint2
         public MarioDying(Mario mario)
         {
             this.mario = mario;
-            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(false), 1, 1,mario.location);
+            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDyingSprite(), 1, 1, mario.Location);
+        }
+        public void Update()
+        {
+            sprite.Update();
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch,mario.location);
+            sprite.Draw(spriteBatch, mario.Location, mario.FacingRight);
         }
         public void Still()
         {
-            //Nothing, death consumes all
+            mario.State = new MarioStill(mario);
         }
         public void Running()
         {
-            //Nothing, death consumes all
+            mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {
-            //Nothing, death consumes all
+            //Nothing yet
         }
         public void Jump()
         {
-            //Nothing, death consumes all
+            mario.State = new MarioJump(mario);
         }
         public void ShootFireball()
         {
-            //Nothing, death consumes all
+            //Nothing yet
         }
         public void Duck()
         {
-            //Nothing, death consumes all
+            mario.State = new MarioDuck(mario);
         }
         public void Dying()
         {
-            //Nothing, death consumes all
+            //Nothing
         }
 
         public Rectangle returnStateCollisionRectangle()

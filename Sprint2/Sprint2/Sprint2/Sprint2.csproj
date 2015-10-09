@@ -107,6 +107,7 @@
     <Compile Include="IGameObject.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IController.cs" />
+    <Compile Include="IItemObjects.cs" />
     <Compile Include="IKeyboard.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="ISprite.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="KoopaSprite.cs" />
     <Compile Include="LeftCollision.cs" />
     <Compile Include="LeftCommand.cs" />
+    <Compile Include="LevelLoader.cs" />
     <Compile Include="Mario.cs" />
     <Compile Include="MarioBlockCollisionHandler.cs" />
     <Compile Include="MarioChangeDirection.cs" />

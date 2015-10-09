@@ -10,9 +10,10 @@ namespace Sprint2
     public class SuperMushroom : IGameObject
     {
         private ISprite superMushroomSprite;
-        public SuperMushroom()
+        public SuperMushroom(int locX, int locY)
         {
-            superMushroomSprite = new SuperMushroomSprite();
+            Vector2 location = new Vector2(locX, locY);
+            superMushroomSprite = new SuperMushroomSprite(location);
         }
         public void Update()
         {

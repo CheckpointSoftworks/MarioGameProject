@@ -15,25 +15,29 @@ namespace Sprint2
             this.mario = mario;
             //Set Sprite here
         }
+        public void Update()
+        {
+            //Nothing yet
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            //Nothing yet
         }
         public void Still()
         {
-            mario.state = new MarioStill(mario);
+            mario.State = new MarioStill(mario);
         }
         public void Running()
         {
-            mario.state = new MarioRunning(mario);
+            mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {
-            mario.state = new MarioChangeDirection(mario);
+            mario.State = new MarioChangeDirection(mario);
         }
         public void Jump()
         {
-            mario.state = new MarioChangeDirection(mario);
+            mario.State = new MarioChangeDirection(mario);
         }
         public void ShootFireball()
         {
@@ -41,11 +45,11 @@ namespace Sprint2
         }
         public void Duck()
         {
-            mario.state = new MarioDuck(mario);
+            mario.State = new MarioDuck(mario);
         }
         public void Dying()
         {
-            mario.state = new MarioDying(mario);
+            mario.State = new MarioDying(mario);
         }
 
         public Rectangle returnStateCollisionRectangle()

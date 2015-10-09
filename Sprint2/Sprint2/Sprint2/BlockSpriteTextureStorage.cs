@@ -16,7 +16,7 @@ namespace Sprint2
         private static Texture2D groundBlockSpriteSheet;
         private static Texture2D platformingBlockSpriteSheet;
 
-        public static void Load(ContentManager content, GraphicsDevice device){
+        public static void Load(ContentManager content){
             hiddenBlockSpritesheet = content.Load<Texture2D>("HiddenBlockSpriteSheet");
             brickBlockSpritesheet = content.Load<Texture2D>("BrickBlockSpriteSheet");
             questionBlockSpriteSheet = content.Load<Texture2D>("QuestionBlockSpriteSheet");

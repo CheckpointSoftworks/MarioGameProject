@@ -10,30 +10,56 @@ namespace Sprint2
      class MarioChangeDirection: IPlayerState
     {
         private Mario mario;
-        private AnimatedSprite smallSprite;
-        private AnimatedSprite bigSprite;
-        private AnimatedSprite fireSprite;
+        private AnimatedSprite small;
+        private AnimatedSprite big;
+        private AnimatedSprite fire;
 
         public MarioChangeDirection(Mario mario)
         {
             this.mario = mario;
-            mario.facingRight = !mario.facingRight;
-            bigSprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(mario.facingRight), 1, 1, mario.location);
-            smallSprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(mario.facingRight), 1, 1, mario.location);
-            fireSprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(mario.facingRight), 1, 1, mario.location);
+            mario.FacingRight = !mario.FacingRight;
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(), 1, 1, mario.Location);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1, mario.Location);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(), 1, 1, mario.Location);
             //Set Sprite here
+        }
+        public void Update()
+        {
+            if (mario.Fire)
+            {
+                fire.Update();
+            }
+            else if (mario.Small)
+            {
+                small.Update();
+            }
+            else
+            {
+                big.Update();
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            if (mario.Fire)
+            {
+                fire.Draw(spriteBatch, mario.Location, mario.FacingRight);
+            }
+            else if (mario.Small)
+            {
+                small.Draw(spriteBatch, mario.Location, mario.FacingRight);
+            }
+            else
+            {
+                big.Draw(spriteBatch, mario.Location, mario.FacingRight);
+            }
         }
         public void Still()
         {
-            mario.state = new MarioStill(mario);
+            mario.State = new MarioStill(mario);
         }
         public void Running()
         {
-            mario.state = new MarioRunning(mario);
+            mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {
@@ -41,37 +67,36 @@ namespace Sprint2
         }
         public void Jump()
         {
-            mario.state = new MarioChangeDirection(mario);
+            mario.State = new MarioChangeDirection(mario);
         }
         public void ShootFireball()
         {
-            if (mario.fire)
-            mario.state = new MarioShootFireball(mario);
+            if (mario.Fire)
+                mario.State = new MarioShootFireball(mario);
         }
         public void Duck()
         {
-            mario.state = new MarioDuck(mario);
+            mario.State = new MarioDuck(mario);
         }
         public void Dying()
         {
-            mario.state = new MarioDying(mario);
+            mario.State = new MarioDying(mario);
         }
-
         public Rectangle returnStateCollisionRectangle()
         {
             Rectangle collisionRectangle;
 
-            if (mario.small)
+            if (mario.Small)
             {
-                collisionRectangle = smallSprite.returnCollisionRectangle();
+                collisionRectangle = small.returnCollisionRectangle();
             }
-            else if(mario.fire)
+            else if(mario.Fire)
             {
-                collisionRectangle = fireSprite.returnCollisionRectangle();
+                collisionRectangle = fire.returnCollisionRectangle();
             }
             else
             {
-                collisionRectangle = bigSprite.returnCollisionRectangle();
+                collisionRectangle = big.returnCollisionRectangle();
             }
 
             return collisionRectangle;

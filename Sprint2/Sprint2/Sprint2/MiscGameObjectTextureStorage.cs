@@ -12,7 +12,7 @@ namespace Sprint2
     {
         private static Texture2D pipeSpriteSheet;
 
-        public static void Load(ContentManager content, GraphicsDevice device)
+        public static void Load(ContentManager content)
         {
             pipeSpriteSheet = content.Load<Texture2D>("PipeSprite");
         }

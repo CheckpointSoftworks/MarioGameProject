@@ -7,13 +7,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public interface IEnemyObject
+    interface IItemObjects
     {
         void Update();
 
         void Draw(SpriteBatch spriteBatch);
-                
-        Rectangle returnCollisionRectangle();
-    
+
+        Rectangle retrunCollisionRectangle();
+
+        void setCollisionRectangle(Rectangle collisionRectangle);
     }
 }

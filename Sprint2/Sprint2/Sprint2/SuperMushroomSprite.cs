@@ -11,10 +11,10 @@ namespace Sprint2
     {
         private Texture2D superMushroomSpriteSheet;
         private Vector2 location;
-        public SuperMushroomSprite()
+        public SuperMushroomSprite(Vector2 location)
         {
             superMushroomSpriteSheet = ItemSpriteTextureStorage.CreateSuperMushroomSprite();
-            location = new Vector2(300, 100);
+            this.location = location;
         }
 
         public void Update()

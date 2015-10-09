@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Sprint2
 {
-    public class KeyboardController : IKeyboard
+    public class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> controllerMappings;
 
@@ -27,7 +27,10 @@ namespace Sprint2
             foreach (Keys key in pressedKeys)
             {
                 //Calls the Execute method in the command object corresponding to the pressed key.
-                controllerMappings[key].Execute();
+                if (controllerMappings.ContainsKey(key))
+                {
+                    controllerMappings[key].Execute();
+                }
             }
         }
     }
