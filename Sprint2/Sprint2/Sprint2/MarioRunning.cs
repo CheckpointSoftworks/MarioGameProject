@@ -25,15 +25,15 @@ namespace Sprint2
         {
             if (mario.fire)
             {
-                fire.Draw(spriteBatch);
+                fire.Draw(spriteBatch,mario.location);
             }
             else if (mario.small)
             {
-                small.Draw(spriteBatch);
+                small.Draw(spriteBatch,mario.location);
             }
             else
             {
-                big.Draw(spriteBatch);
+                big.Draw(spriteBatch,mario.location);
             }
         }
         public void Still()

@@ -19,7 +19,7 @@ namespace Sprint2
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch);
+            sprite.Draw(spriteBatch,mario.location);
         }
         public void Still()
         {
