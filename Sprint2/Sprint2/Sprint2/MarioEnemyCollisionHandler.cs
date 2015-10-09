@@ -14,7 +14,7 @@ namespace Sprint2
             ICommand command;
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
-                //Handle moving mario and the enemy to no longer collide
+                HandleMovement(mario, enemy, side);
             }
 
             if (side.returnCollisionSide().Equals(CollisionSide.Top))
@@ -32,9 +32,33 @@ namespace Sprint2
 
         }
 
-        private void HandleMovement(Mario mario, IEnemyObject enemy)
+        private void HandleMovement(Mario mario, IEnemyObject enemy,ICollision side)
         {
             Rectangle enemyRectangle= enemy.returnCollisionRectange();
+            Rectangle marioRectangle = mario.returnCollisionRectangle();
+            Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, enemyRectangle);
+            int locationDiffToChange = 0;
+
+            if(side.returnCollisionSide().Equals(CollisionSide.Left))
+            {
+                locationDiffToChange = intersectionRectangle.Width;
+                mario.location.X = mario.location.X - locationDiffToChange;
+            }
+            else if(side.returnCollisionSide().Equals(CollisionSide.Right))
+            {
+                locationDiffToChange = intersectionRectangle.Width;
+                mario.location.X = mario.location.X + locationDiffToChange;
+            }
+            else if (side.returnCollisionSide().Equals(CollisionSide.Top))
+            {
+                locationDiffToChange = intersectionRectangle.Height;
+                mario.location.Y = mario.location.Y - locationDiffToChange;
+            }
+            else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
+            {
+                locationDiffToChange = intersectionRectangle.Height;
+                mario.location.Y = mario.location.Y + locationDiffToChange;
+            }
         }
     }
 }

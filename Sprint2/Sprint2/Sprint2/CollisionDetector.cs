@@ -38,15 +38,26 @@ namespace Sprint2
         private ICollision chooseRightOrLeft(Rectangle intersectionRectangle, Rectangle firstObjectRectangle, Rectangle secondObjectRectangle)
         {
             ICollision side = new LeftCollision();
+            int firstObjectXCoordinate = firstObjectRectangle.X;
+            int secondObjectXCoordinate = secondObjectRectangle.X;
 
-
+            if ((firstObjectXCoordinate - secondObjectXCoordinate) > 0)
+            {
+                side = new RightCollision();
+            }
 
             return side;
         }
         private ICollision chooseTopOrBottom(Rectangle intersectionRectangle, Rectangle firstObjectRectangle, Rectangle secondObjectRectangle)
         {
             ICollision side = new TopCollision();
+            int firstObjectYCoordinate = firstObjectRectangle.Y;
+            int secondObjectYCoordinate = secondObjectRectangle.Y;
 
+            if ((firstObjectYCoordinate - secondObjectYCoordinate) > 0)
+            {
+                side = new BottomCollision();
+            }
 
 
             return side;

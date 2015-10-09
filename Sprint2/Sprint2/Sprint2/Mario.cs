@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    public class Mario : IGameObject
+    public class Mario : IPlayer
     {
         public bool facingRight;
         public bool small;
