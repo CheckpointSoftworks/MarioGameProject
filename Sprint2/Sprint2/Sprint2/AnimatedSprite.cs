@@ -17,7 +17,7 @@ namespace Sprint2
         private bool finished;
         private int frameWidth;
         private int frameHeight;
-
+        //private int frameframe;
         public AnimatedSprite(Texture2D texture, int rows, int columns)
         {
             this.texture = texture;
