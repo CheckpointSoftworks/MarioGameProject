@@ -16,19 +16,9 @@ namespace Sprint2
 
             public void Execute()
             {
-                Game.mario = new Mario();
-
-                Game.dynamicObjectsList.Remove(Game.hiddenBlock);
-                Game.dynamicObjectsList.Remove(Game.brickBlock);
-                Game.dynamicObjectsList.Remove(Game.questionBlock);
-
-                Game.hiddenBlock = new HiddenBlock();
-                Game.questionBlock = new QuestionBlock();
-                Game.brickBlock = new BrickBlock();
-
-                Game.dynamicObjectsList.Add(Game.hiddenBlock);
-                Game.dynamicObjectsList.Add(Game.questionBlock);
-                Game.dynamicObjectsList.Add(Game.brickBlock);
+                ((Mario)Game.mario).Small = true;
+                ((Mario)Game.mario).FacingRight = false;
+                ((Mario)Game.mario).State.Still();
             }
     }
 }

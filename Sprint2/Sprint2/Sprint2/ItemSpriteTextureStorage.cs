@@ -25,23 +25,23 @@ namespace Sprint2
             boxCoinSpriteSheet = content.Load<Texture2D>("BoxCoin");
         }
 
-        public static Texture2D CreateOneUpMushroomSpriteSheet()
+        public static Texture2D CreateOneUpMushroomSprite()
         {
             return oneUpMushroomSpriteSheet;
         }
-        public static Texture2D CreateSuperMushroomSpriteSheet()
+        public static Texture2D CreateSuperMushroomSprite()
         {
             return superMushroomSpriteSheet;
         }
-        public static Texture2D CreateFireFlowerSpriteSheet()
+        public static Texture2D CreateFireFlowerSprite()
         {
             return fireFlowerSpriteSheet;
         }
-        public static Texture2D CreateSuperStarSpriteSheet()
+        public static Texture2D CreateSuperStarSprite()
         {
             return superStarSpriteSheet;
         }
-        public static Texture2D CreateBoxCoinSpriteSheet()
+        public static Texture2D CreateBoxCoinSprite()
         {
             return boxCoinSpriteSheet;
         }        

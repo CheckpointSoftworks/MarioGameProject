@@ -15,10 +15,10 @@ namespace Sprint2
         private int totalFrames;
         private int rows;
         private int columns;
-        public BoxCoinSprite()
+        public BoxCoinSprite(Vector2 location)
         {
-            boxCoinSpriteSheet = ItemSpriteTextureStorage.CreateBoxCoinSpriteSheet();
-            location = new Vector2(200, 100);
+            boxCoinSpriteSheet = ItemSpriteTextureStorage.CreateBoxCoinSprite();
+            this.location = location;
             currentFrame = 0;
             totalFrames = 4;
             rows = 1;
@@ -36,17 +36,22 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int frameWidth = boxCoinSpriteSheet.Width / columns;
-            int frameHeight = boxCoinSpriteSheet.Height / rows;
+            int width = boxCoinSpriteSheet.Width / columns;
+            int height = boxCoinSpriteSheet.Height / rows;
             int row = (int)((float)currentFrame / (float)columns);
             int column = currentFrame % columns;
 
-            Rectangle sourceRectangle = new Rectangle(frameWidth * column, frameHeight * row, frameWidth, frameHeight);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, frameWidth, frameHeight);
+            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
             spriteBatch.Begin();
             spriteBatch.Draw(boxCoinSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return new Rectangle(0,0,0,0);
         }
     }
 }

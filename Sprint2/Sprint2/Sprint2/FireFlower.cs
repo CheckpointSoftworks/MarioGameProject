@@ -10,9 +10,10 @@ namespace Sprint2
     public class FireFlower : IGameObject
     {
         private ISprite fireFlowerSprite;
-        public FireFlower()
+        public FireFlower(int locX, int locY)
         {
-            fireFlowerSprite = new FireFlowerSprite();
+            Vector2 location = new Vector2(locX, locY);
+            fireFlowerSprite = new FireFlowerSprite(location);
         }
         public void Update()
         {

@@ -7,13 +7,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class Pipe : IGameObject
+    public class Pipe : IEnviromental
     {
         private ISprite pipeSprite;
 
-        public Pipe()
+        public Pipe(int locX, int locY)
         {
-            pipeSprite = new PipeSprite();
+            Vector2 location = new Vector2(locX, locY);
+            pipeSprite = new PipeSprite(location);
         }
 
         public void Update()
@@ -24,6 +25,11 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             pipeSprite.Draw(spriteBatch);
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return pipeSprite.returnCollisionRectangle();
         }
     }
 }

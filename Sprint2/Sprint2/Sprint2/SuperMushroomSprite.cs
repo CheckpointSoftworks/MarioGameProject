@@ -11,10 +11,10 @@ namespace Sprint2
     {
         private Texture2D superMushroomSpriteSheet;
         private Vector2 location;
-        public SuperMushroomSprite()
+        public SuperMushroomSprite(Vector2 location)
         {
-            superMushroomSpriteSheet = ItemSpriteTextureStorage.CreateSuperMushroomSpriteSheet();
-            location = new Vector2(300, 100);
+            superMushroomSpriteSheet = ItemSpriteTextureStorage.CreateSuperMushroomSprite();
+            this.location = location;
         }
 
         public void Update()
@@ -27,6 +27,11 @@ namespace Sprint2
             spriteBatch.Begin();
             spriteBatch.Draw(superMushroomSpriteSheet, location, Color.White);
             spriteBatch.End();
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return new Rectangle(0, 0, 0, 0);
         }
     }
 }

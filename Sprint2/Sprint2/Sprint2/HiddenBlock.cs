@@ -7,15 +7,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class HiddenBlock : IGameObject
+    public class HiddenBlock : IBlock
     {
-        private HiddenBlockSprite hiddenBlockSprite;
-
-        public HiddenBlock()
+        private ISprite hiddenBlockSprite;
+        private BlockType type;
+        public HiddenBlock(int locX,int locY)
         {
-            hiddenBlockSprite = new HiddenBlockSprite();
+            Vector2 location = new Vector2(locX, locY);
+            hiddenBlockSprite = new HiddenBlockSprite(location);
+            type = BlockType.Hidden;
         }
-
         public void Update()
         {
             hiddenBlockSprite.Update();
@@ -24,6 +25,14 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             hiddenBlockSprite.Draw(spriteBatch);
+        }
+        public BlockType returnBlockType()
+        {
+            return type;
+        }
+        public Rectangle returnCollisionRectange()
+        {
+            return hiddenBlockSprite.returnCollisionRectangle();
         }
     }
 }

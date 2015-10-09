@@ -19,14 +19,14 @@ namespace Sprint2
             koopaSpritesheet = content.Load<Texture2D>("KoopaSpriteSheet");
 		}
 		
-		public static ISprite CreateGoombaSprite()
+		public static ISprite CreateGoombaSprite(Vector2 location)
 		{
-			return new GoombaSprite(goombaSpritesheet);
+			return new GoombaSprite(goombaSpritesheet,location);
 		}
 		
-		public static ISprite CreateGreenKoopaSprite()
+		public static ISprite CreateGreenKoopaSprite(Vector2 location)
 		{
-			return new KoopaSprite(koopaSpritesheet);
+			return new KoopaSprite(koopaSpritesheet,location);
 		}
     }
 }

@@ -16,13 +16,12 @@ namespace Sprint2
             this.mario = mario;
             if (mario.Fire)
             {
-                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireDuckSprite(), 1, 1);
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireDuckSprite(), 1, 1,mario.Location);
             }
             else
             {
-                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(), 1, 1);
-            }
-            //Set Sprite here
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(), 1, 1,mario.Location);
+            }//Set Sprite here
         }
         public void Update()
         {
@@ -51,7 +50,7 @@ namespace Sprint2
         public void ShootFireball()
         {
             if (mario.Fire)
-            mario.State = new MarioShootFireball(mario);
+                mario.State = new MarioShootFireball(mario);
         }
         public void Duck()
         {
@@ -60,6 +59,10 @@ namespace Sprint2
         public void Dying()
         {
             mario.State = new MarioDying(mario);
+        }
+        public Rectangle returnStateCollisionRectangle()
+        {
+            return sprite.returnCollisionRectangle();
         }
     }
 }

@@ -15,10 +15,10 @@ namespace Sprint2
         private int totalFrames;
         private int rows;
         private int columns;
-        public FireFlowerSprite()
+        public FireFlowerSprite(Vector2 location)
         {
-            fireFlowerSpriteSheet = ItemSpriteTextureStorage.CreateFireFlowerSpriteSheet();
-            location = new Vector2(100, 100);
+            fireFlowerSpriteSheet = ItemSpriteTextureStorage.CreateFireFlowerSprite();
+            this.location = location;
             currentFrame = 0;
             totalFrames = 4;
             rows = 1;
@@ -47,6 +47,11 @@ namespace Sprint2
             spriteBatch.Begin();
             spriteBatch.Draw(fireFlowerSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return new Rectangle(0, 0, 0, 0);
         }
     }
 }

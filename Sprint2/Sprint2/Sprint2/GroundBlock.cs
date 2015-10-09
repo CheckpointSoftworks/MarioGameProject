@@ -7,23 +7,33 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class GroundBlock : IGameObject
+    public class GroundBlock : IBlock
     {
         private ISprite groundBlockSprite;
-
-        public GroundBlock()
+        private BlockType type;
+        public GroundBlock(int locX,int locY)
         {
-            groundBlockSprite = new GroundBlockSprite();
+            Vector2 location = new Vector2(locX, locY);
+            groundBlockSprite = new GroundBlockSprite(location);
+            type = BlockType.Ground;
         }
-
         public void Update()
         {
             groundBlockSprite.Update();
         }
-        
+
         public void Draw(SpriteBatch spriteBatch)
         {
             groundBlockSprite.Draw(spriteBatch);
+        }
+        public BlockType returnBlockType()
+        {
+            return type;
+        }
+
+        public Rectangle  returnCollisionRectange()
+        {
+            return groundBlockSprite.returnCollisionRectangle();
         }
     }
 }

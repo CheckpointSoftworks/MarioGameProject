@@ -7,15 +7,17 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class QuestionBlock :IGameObject
+    public class QuestionBlock :IBlock
     {
-        private QuestionBlockSprite questionBlockSprite;
+        private ISprite questionBlockSprite;
+        private BlockType type;
 
-        public QuestionBlock()
+        public QuestionBlock(int locX,int locY)
         {
-            questionBlockSprite = new QuestionBlockSprite();
+            Vector2 location = new Vector2(locX, locY);
+            questionBlockSprite = new QuestionBlockSprite(location);
+            type = BlockType.Question;
         }
-
         public void Update()
         {
             questionBlockSprite.Update();
@@ -24,6 +26,14 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             questionBlockSprite.Draw(spriteBatch);
+        }
+        public BlockType returnBlockType()
+        {
+            return type;
+        }
+        public Rectangle returnCollisionRectange()
+        {
+            return questionBlockSprite.returnCollisionRectangle();
         }
     }
 }

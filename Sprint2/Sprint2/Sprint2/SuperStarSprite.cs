@@ -15,14 +15,18 @@ namespace Sprint2
         private int totalFrames;
         private int rows;
         private int columns;
-        public SuperStarSprite()
+        private Rectangle collisionRectangle;
+        public SuperStarSprite(Vector2 location)
         {
-            superStarSpriteSheet = ItemSpriteTextureStorage.CreateSuperStarSpriteSheet();
-            location = new Vector2(500, 100);
+            superStarSpriteSheet = ItemSpriteTextureStorage.CreateSuperStarSprite();
+            this.location = location;
             currentFrame = 0;
             totalFrames = 4;
             rows = 1;
             columns = 4;
+            int width = superStarSpriteSheet.Width / columns;
+            int height = superStarSpriteSheet.Height / rows;
+            collisionRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
         }
 
         public void Update()
@@ -36,17 +40,22 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int frameWidth = superStarSpriteSheet.Width / columns;
-            int frameHeight = superStarSpriteSheet.Height / rows;
+            int width = superStarSpriteSheet.Width / columns;
+            int height = superStarSpriteSheet.Height / rows;
             int row = (int)((float)currentFrame / (float)columns);
             int column = currentFrame % columns;
 
-            Rectangle sourceRectangle = new Rectangle(frameWidth * column, frameHeight * row, frameWidth, frameHeight);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, frameWidth, frameHeight);
+            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
             spriteBatch.Begin();
             spriteBatch.Draw(superStarSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return collisionRectangle;
         }
     }
 }

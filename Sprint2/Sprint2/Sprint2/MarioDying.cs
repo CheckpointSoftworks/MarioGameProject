@@ -14,7 +14,7 @@ namespace Sprint2
         public MarioDying(Mario mario)
         {
             this.mario = mario;
-            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDyingSprite(), 1, 1);
+            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDyingSprite(), 1, 1, mario.Location);
         }
         public void Update()
         {
@@ -51,6 +51,11 @@ namespace Sprint2
         public void Dying()
         {
             //Nothing
+        }
+
+        public Rectangle returnStateCollisionRectangle()
+        {
+            return sprite.returnCollisionRectangle();
         }
     }
 }

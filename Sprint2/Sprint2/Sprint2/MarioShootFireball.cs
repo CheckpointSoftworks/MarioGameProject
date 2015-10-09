@@ -12,7 +12,8 @@ namespace Sprint2
         private Mario mario;
         public MarioShootFireball(Mario mario)
         {
-            this.mario = mario;            
+            this.mario = mario;
+            //Set Sprite here
         }
         public void Update()
         {
@@ -49,6 +50,15 @@ namespace Sprint2
         public void Dying()
         {
             mario.State = new MarioDying(mario);
+        }
+
+        public Rectangle returnStateCollisionRectangle()
+        {
+            Rectangle collisionRectangle=new Rectangle(0,0,0,0);
+
+            //No collision needed for this class yet
+
+            return collisionRectangle;
         }
     }
 }

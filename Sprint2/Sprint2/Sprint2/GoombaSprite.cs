@@ -13,15 +13,17 @@ namespace Sprint2
         private AnimatedSprite AnimatedGoomba;
         private bool FacingRight = true;
 
-        public GoombaSprite(Texture2D goombaSpritesheet)
+        public GoombaSprite(Texture2D goombaSpritesheet,Vector2 location)
         {
-            location = new Vector2(600, 150);
-            AnimatedGoomba = new AnimatedSprite(goombaSpritesheet, 1, 2);
+            //Replace this
+            this.location = location; 
+            AnimatedGoomba = new AnimatedSprite(goombaSpritesheet, 1, 2,location);
 
 
         }
         public void Update()
         {
+
 
             AnimatedGoomba.Update();
 
@@ -31,6 +33,11 @@ namespace Sprint2
         {
             AnimatedGoomba.Draw(spriteBatch, location, FacingRight);
 
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return AnimatedGoomba.returnCollisionRectangle();
         }
     }
 }

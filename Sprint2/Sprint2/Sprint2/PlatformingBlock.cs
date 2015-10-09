@@ -7,15 +7,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class PlatformingBlock : IGameObject
+    public class PlatformingBlock : IBlock
     {
         private PlatformingBlockSprite platformingBlockSprite;
-
-        public PlatformingBlock()
+        private BlockType type;
+        public PlatformingBlock(int locX,int locY)
         {
-            platformingBlockSprite = new PlatformingBlockSprite();
+            Vector2 location = new Vector2(locX, locY);
+            platformingBlockSprite = new PlatformingBlockSprite(location);
+            type = BlockType.Platforming;
         }
-
         public void Update()
         {
             platformingBlockSprite.Update();
@@ -24,6 +25,16 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             platformingBlockSprite.Draw(spriteBatch);
+        }
+
+        public BlockType returnBlockType()
+        {
+            return type;
+        }
+
+        public Rectangle returnCollisionRectange()
+        {
+            return platformingBlockSprite.returnCollisionRectangle();
         }
     }
 }

@@ -12,5 +12,7 @@ namespace Sprint2
         void Update();
 
         void Draw(SpriteBatch spriteBatch);
+
+        Rectangle returnCollisionRectangle();
     }
 }

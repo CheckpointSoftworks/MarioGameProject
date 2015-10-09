@@ -16,11 +16,12 @@ namespace Sprint2
         public MarioRunning(Mario mario)
         {
             this.mario = mario;
-            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(), 1, 3);
-            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(), 1, 3);
-            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireRunningSprite(), 1, 3);
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(), 1, 3, mario.Location);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(), 1, 3, mario.Location);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(), 1, 3,mario.Location);
             //Set Sprite here
         }
+
 
         public void Update()
         {
@@ -80,6 +81,25 @@ namespace Sprint2
         public void Dying()
         {
             mario.State = new MarioDying(mario);
+        }
+        public Rectangle returnStateCollisionRectangle()
+        {
+            Rectangle collisionRectangle;
+
+            if (mario.Small)
+            {
+                collisionRectangle = small.returnCollisionRectangle();
+            }
+            else if (mario.Fire)
+            {
+                collisionRectangle = fire.returnCollisionRectangle();
+            }
+            else
+            {
+                collisionRectangle = big.returnCollisionRectangle();
+            }
+
+            return collisionRectangle;
         }
     }
 

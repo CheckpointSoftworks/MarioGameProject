@@ -12,38 +12,44 @@ namespace Sprint2
         private Texture2D questionBlockSpriteSheet;
         private bool used;
         private Vector2 location;
+        private Rectangle collisionRectangle;
+        private int frame;
+        private int spriteSheetSpriteSize = 16;
 
-        public QuestionBlockSprite()
+        public QuestionBlockSprite(Vector2 location)
         {
-            questionBlockSpriteSheet = BlockSpriteTextureStorage.CreateQuestionBlockSpriteSheet();
+            questionBlockSpriteSheet = BlockSpriteTextureStorage.CreateQuestionBlockSprite();
+            this.location = location;
+            frame = 0;
             used = false;
-            location = new Vector2(400, 200);
+            collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
 
         public void Update()
         {
-            //Change the state of the Question block, do not address the bouncing of it in this Sprint
-            used = true;
+            if (!used)
+            {
+                frame++;
+            }
+            else
+            {
+                used = true;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int spriteSheetSpriteSize = 16;
-            Rectangle sourceRectangle = new Rectangle(0, 0, 0, 0);
+            Rectangle sourceRectangle = new Rectangle((spriteSheetSpriteSize * frame), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
-
-            if (!used)
-            {
-                sourceRectangle = new Rectangle((spriteSheetSpriteSize*4), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
-            }
-            else
-            {
-                sourceRectangle = new Rectangle((spriteSheetSpriteSize * 5), 0, (spriteSheetSpriteSize), spriteSheetSpriteSize);
-            }
 
             spriteBatch.Begin();
             spriteBatch.Draw(questionBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return collisionRectangle;
         }
     }
 }

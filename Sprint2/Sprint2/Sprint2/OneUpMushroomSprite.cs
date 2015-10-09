@@ -11,15 +11,15 @@ namespace Sprint2
     {
         private Texture2D oneUpMushroomSpriteSheet;
         private Vector2 location;
-        public OneUpMushroomSprite()
+        public OneUpMushroomSprite(Vector2 location)
         {
-            oneUpMushroomSpriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSpriteSheet();
-            location = new Vector2(400, 100);
+            oneUpMushroomSpriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSprite();
+            this.location = location;
         }
 
         public void Update()
         {
-            //No update needed for the one-up mushroom
+            //No update needed for the super mushroom
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -27,6 +27,10 @@ namespace Sprint2
             spriteBatch.Begin();
             spriteBatch.Draw(oneUpMushroomSpriteSheet, location, Color.White);
             spriteBatch.End();
+        }
+        public Rectangle returnCollisionRectangle()
+        {
+            return new Rectangle(0,0,0,0);
         }
     }
 }

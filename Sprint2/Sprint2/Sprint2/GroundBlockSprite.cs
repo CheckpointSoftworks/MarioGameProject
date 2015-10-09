@@ -11,13 +11,15 @@ namespace Sprint2
     {
         private Texture2D groundBlockSpriteSheet;
         private Vector2 location;
+        private Rectangle collisionRectangle;
+        private int spriteSheetSpriteSize = 16;
 
-        public GroundBlockSprite()
+        public GroundBlockSprite(Vector2 location)
         {
-            groundBlockSpriteSheet = BlockSpriteTextureStorage.CreateGroundBlockSpriteSheet();
-            location = new Vector2(600, 200);
+            groundBlockSpriteSheet = BlockSpriteTextureStorage.CreateGroundBlockSprite();
+            this.location = location;
+            collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
-
         public void Update()
         {
             //No update needed for ground blocks
@@ -25,13 +27,17 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int spriteSheetSpriteSize = 16;
             Rectangle sourceRectangle = new Rectangle(spriteSheetSpriteSize*0, 0, spriteSheetSpriteSize, spriteSheetSpriteSize);
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
             
             spriteBatch.Begin();
             spriteBatch.Draw(groundBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return collisionRectangle;
         }
     }
 }

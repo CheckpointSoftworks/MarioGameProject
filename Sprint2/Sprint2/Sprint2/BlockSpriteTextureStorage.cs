@@ -17,30 +17,30 @@ namespace Sprint2
         private static Texture2D platformingBlockSpriteSheet;
 
         public static void Load(ContentManager content){
-            hiddenBlockSpritesheet = content.Load<Texture2D>("BricksSheetWithEmptyBlock");
-            brickBlockSpritesheet = content.Load<Texture2D>("BricksSheetWithEmptyBlock");
-            questionBlockSpriteSheet = content.Load<Texture2D>("BricksSheetWithEmptyBlock");
-            groundBlockSpriteSheet = content.Load<Texture2D>("BricksSheetWithEmptyBlock");
-            platformingBlockSpriteSheet = content.Load<Texture2D>("BricksSheetWithEmptyBlock");
+            hiddenBlockSpritesheet = content.Load<Texture2D>("HiddenBlockSpriteSheet");
+            brickBlockSpritesheet = content.Load<Texture2D>("BrickBlockSpriteSheet");
+            questionBlockSpriteSheet = content.Load<Texture2D>("QuestionBlockSpriteSheet");
+            groundBlockSpriteSheet = content.Load<Texture2D>("GroundBlockSpriteSheet");
+            platformingBlockSpriteSheet = content.Load<Texture2D>("PlatformingBlockSpriteSheet");
         }
 
-        public static Texture2D CreateHiddenBlockSpriteSheet()
+        public static Texture2D CreateHiddenBlockSprite()
         {
             return hiddenBlockSpritesheet;
         }
-        public static Texture2D CreateBrickBlockSpriteSheet()
+        public static Texture2D CreateBrickBlockSprite()
         {
             return brickBlockSpritesheet;
         }
-        public static Texture2D CreateQuestionBlockSpriteSheet()
+        public static Texture2D CreateQuestionBlockSprite()
         {
             return questionBlockSpriteSheet;
         }
-        public static Texture2D CreateGroundBlockSpriteSheet()
+        public static Texture2D CreateGroundBlockSprite()
         {
             return groundBlockSpriteSheet;
         }
-        public static Texture2D CreatePlatformingBlockSpriteSheet()
+        public static Texture2D CreatePlatformingBlockSprite()
         {
             return platformingBlockSpriteSheet;
         }

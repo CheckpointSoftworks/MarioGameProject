@@ -7,13 +7,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class Goomba: IGameObject
+    class Goomba: IEnemyObject
     {
         private ISprite goombaSprite;
-        
-        public Goomba()
+
+        public Goomba(int locX, int locY)
         {
-            goombaSprite = EnemySpriteFactory.CreateGoombaSprite();
+            Vector2 location = new Vector2(locX, locY);
+            goombaSprite = EnemySpriteFactory.CreateGoombaSprite(location);
         }
         public void Update()
         {
@@ -23,6 +24,11 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             goombaSprite.Draw(spriteBatch);
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return goombaSprite.returnCollisionRectangle();
         }
     }
 }

@@ -13,13 +13,14 @@ namespace Sprint2
         private AnimatedSprite small;
         private AnimatedSprite big;
         private AnimatedSprite fire;
+
         public MarioChangeDirection(Mario mario)
         {
             this.mario = mario;
             mario.FacingRight = !mario.FacingRight;
-            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigChangeDirectionSprite(), 1, 1);
-            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallChangeDirectionSprite(), 1, 1);
-            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireChangeDirectionSprite(), 1, 1);
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(), 1, 1, mario.Location);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1, mario.Location);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(), 1, 1, mario.Location);
             //Set Sprite here
         }
         public void Update()
@@ -41,7 +42,7 @@ namespace Sprint2
         {
             if (mario.Fire)
             {
-                fire.Draw(spriteBatch,mario.Location,mario.FacingRight);
+                fire.Draw(spriteBatch, mario.Location, mario.FacingRight);
             }
             else if (mario.Small)
             {
@@ -71,7 +72,7 @@ namespace Sprint2
         public void ShootFireball()
         {
             if (mario.Fire)
-            mario.State = new MarioShootFireball(mario);
+                mario.State = new MarioShootFireball(mario);
         }
         public void Duck()
         {
@@ -80,6 +81,25 @@ namespace Sprint2
         public void Dying()
         {
             mario.State = new MarioDying(mario);
+        }
+        public Rectangle returnStateCollisionRectangle()
+        {
+            Rectangle collisionRectangle;
+
+            if (mario.Small)
+            {
+                collisionRectangle = small.returnCollisionRectangle();
+            }
+            else if(mario.Fire)
+            {
+                collisionRectangle = fire.returnCollisionRectangle();
+            }
+            else
+            {
+                collisionRectangle = big.returnCollisionRectangle();
+            }
+
+            return collisionRectangle;
         }
     }
  }
