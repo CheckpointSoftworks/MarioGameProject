@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
@@ -16,7 +18,9 @@ namespace Sprint2
         }
         public void Execute()
         {
-
+            fireFlower.setCollisionRectangle(new Microsoft.Xna.Framework.Rectangle(0, 0, 0, 0));
+            ((Mario)mario).Fire = true;
+            ((Mario)mario).Small = false;
         }
     }
 }

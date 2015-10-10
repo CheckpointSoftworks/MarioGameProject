@@ -15,31 +15,27 @@ namespace Sprint2
         private int totalFrames;
         private int rows;
         private int columns;
-        private bool pickedUp;
+        private Rectangle collisionRectangle;
+
         public FireFlowerSprite(Vector2 location)
         {
             fireFlowerSpriteSheet = ItemSpriteTextureStorage.CreateFireFlowerSprite();
             this.location = location;
             currentFrame = 0;
-            totalFrames = 5;
+            totalFrames = 4;
             rows = 1;
-            columns = 5;
-            pickedUp = false;
+            columns = 4;
+            int width = fireFlowerSpriteSheet.Width / columns;
+            int height = fireFlowerSpriteSheet.Height / rows;
+            collisionRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
         }
 
         public void Update()
         {
-            if (pickedUp == false)
+            currentFrame++;
+            if (currentFrame == (totalFrames - 1))
             {
-                currentFrame++;
-                if (currentFrame == (totalFrames - 1))
-                {
-                    currentFrame = 0;
-                }
-            }
-            else
-            {
-                currentFrame = 4;
+                currentFrame = 0;
             }
         }
 
@@ -60,7 +56,7 @@ namespace Sprint2
 
         public Rectangle returnCollisionRectangle()
         {
-            return new Rectangle(0, 0, 0, 0);
+            return collisionRectangle;
         }
     }
 }

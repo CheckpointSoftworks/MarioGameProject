@@ -13,10 +13,11 @@ namespace Sprint2
         private ItemType type;
         private Rectangle collisionRectangle;
         private bool testForCollision;
+        private Vector2 location;
 
         public OneUpMushroom(int locX, int locY)
         {
-            Vector2 location = new Vector2(locX, locY);
+            location = new Vector2(locX, locY);
             oneUpMushroomSprite = new OneUpMushroomSprite(location);
             type = ItemType.OneUpMushroom;
             collisionRectangle = oneUpMushroomSprite.returnCollisionRectangle();
@@ -36,6 +37,7 @@ namespace Sprint2
         {
             this.collisionRectangle = collisionRectangle;
             testForCollision=false;
+            oneUpMushroomSprite = new UsedItemSprite(location);
         }
         public Rectangle returnCollisionRectangle()
         {

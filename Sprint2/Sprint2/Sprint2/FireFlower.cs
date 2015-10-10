@@ -13,9 +13,11 @@ namespace Sprint2
         private ItemType type;
         private Rectangle collisonRectangle;
         private bool testForCollision;
+        private Vector2 location;
+
         public FireFlower(int locX, int locY)
         {
-            Vector2 location = new Vector2(locX, locY);
+            location = new Vector2(locX, locY);
             fireFlowerSprite = new FireFlowerSprite(location);
             type = ItemType.FireFlower;
             collisonRectangle = fireFlowerSprite.returnCollisionRectangle();
@@ -43,6 +45,7 @@ namespace Sprint2
         {
             this.collisonRectangle = collisionRectangle;
             testForCollision = false;
+            fireFlowerSprite = new UsedItemSprite(location);
         }
         public bool checkForCollisionTestFlag()
         {

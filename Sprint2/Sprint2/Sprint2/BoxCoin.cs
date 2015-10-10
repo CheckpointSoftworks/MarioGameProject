@@ -13,10 +13,11 @@ namespace Sprint2
         private ItemType type;
         private Rectangle collisonRectangle;
         private bool testForCollision;
+        private Vector2 location;
 
         public BoxCoin(int locX, int locY)
         {
-            Vector2 location = new Vector2(locX, locY);
+            location = new Vector2(locX, locY);
             boxCoinSprite = new BoxCoinSprite(location);
             type = ItemType.Coin;
             collisonRectangle = boxCoinSprite.returnCollisionRectangle();
@@ -43,6 +44,7 @@ namespace Sprint2
         {
             this.collisonRectangle = collisionRectangle;
             testForCollision = false;
+            boxCoinSprite = new UsedItemSprite(location);
         }
 
         public bool checkForCollisionTestFlag()

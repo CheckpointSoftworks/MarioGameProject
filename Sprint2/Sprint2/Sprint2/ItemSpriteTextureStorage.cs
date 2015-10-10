@@ -15,6 +15,7 @@ namespace Sprint2
         private static Texture2D fireFlowerSpriteSheet;
         private static Texture2D superStarSpriteSheet;
         private static Texture2D boxCoinSpriteSheet;
+        private static Texture2D usedItemSpriteSheet;
 
         public static void Load(ContentManager content)
         {
@@ -23,6 +24,7 @@ namespace Sprint2
             fireFlowerSpriteSheet = content.Load<Texture2D>("FireFlower");
             superStarSpriteSheet = content.Load<Texture2D>("SuperStar");
             boxCoinSpriteSheet = content.Load<Texture2D>("BoxCoin");
+            usedItemSpriteSheet = content.Load<Texture2D>("UsedItemSprite");
         }
 
         public static Texture2D CreateOneUpMushroomSprite()
@@ -44,6 +46,10 @@ namespace Sprint2
         public static Texture2D CreateBoxCoinSprite()
         {
             return boxCoinSpriteSheet;
+        }
+        public static Texture2D CreateUsedItemSprite()
+        {
+            return usedItemSpriteSheet;
         }        
     }
 }

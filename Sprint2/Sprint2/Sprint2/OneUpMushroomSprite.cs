@@ -14,27 +14,23 @@ namespace Sprint2
         private int currentFrame;
         private int rows;
         private int columns;
-        private bool pickedUp;
+        private Rectangle collisionRectangle;
+
         public OneUpMushroomSprite(Vector2 location)
         {
             oneUpMushroomSpriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSprite();
             this.location = location;
             currentFrame = 0;
             rows = 1;
-            columns = 2;
-            pickedUp = false;
+            columns = 1;
+            int width = oneUpMushroomSpriteSheet.Width / columns;
+            int height = oneUpMushroomSpriteSheet.Height / rows;
+            collisionRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
         }
 
         public void Update()
         {
-            if (pickedUp == false)
-            {
-                currentFrame = 0;
-            }
-            else
-            {
-                currentFrame = 1;
-            }
+            //No update logic needed
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -53,7 +49,7 @@ namespace Sprint2
         }
         public Rectangle returnCollisionRectangle()
         {
-            return new Rectangle(0,0,0,0);
+            return collisionRectangle;
         }
     }
 }

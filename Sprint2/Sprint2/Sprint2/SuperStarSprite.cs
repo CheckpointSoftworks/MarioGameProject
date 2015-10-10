@@ -16,7 +16,7 @@ namespace Sprint2
         private int rows;
         private int columns;
         private Rectangle collisionRectangle;
-        private bool pickedUp;
+
         public SuperStarSprite(Vector2 location)
         {
             superStarSpriteSheet = ItemSpriteTextureStorage.CreateSuperStarSprite();
@@ -24,27 +24,20 @@ namespace Sprint2
             currentFrame = 0;
             totalFrames = 5;
             rows = 1;
-            columns = 5;
+            columns = 4;
             int width = superStarSpriteSheet.Width / columns;
             int height = superStarSpriteSheet.Height / rows;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
-            pickedUp = false;
         }
 
         public void Update()
         {
-            if (pickedUp == false)
+            currentFrame++;
+            if (currentFrame == (totalFrames - 1))
             {
-                currentFrame++;
-                if (currentFrame == (totalFrames - 1))
-                {
-                    currentFrame = 0;
-                }
+                currentFrame = 0;
             }
-            else
-            {
-                currentFrame = 4;
-            }
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
