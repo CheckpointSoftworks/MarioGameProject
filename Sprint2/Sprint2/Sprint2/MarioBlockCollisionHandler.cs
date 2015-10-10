@@ -9,6 +9,11 @@ namespace Sprint2
 {
     public class MarioBlockCollisionHandler
     {
+        public MarioBlockCollisionHandler()
+        {
+
+        }
+
         public void HandleCollision(Mario mario, IBlock block, ICollision side)
         {
 
@@ -46,11 +51,11 @@ namespace Sprint2
 
         }
 
-        private void HandleMovement(Mario mario, IBlock enemy, ICollision side)
+        private void HandleMovement(Mario mario, IBlock block, ICollision side)
         {
-            Rectangle enemyRectangle = enemy.returnCollisionRectange();
+            Rectangle blockRectangle = block.returnCollisionRectange();
             Rectangle marioRectangle = mario.returnCollisionRectangle();
-            Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, enemyRectangle);
+            Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, blockRectangle);
             int locationDiffToChange = 0;
 
             if (side.returnCollisionSide().Equals(CollisionSide.Left))

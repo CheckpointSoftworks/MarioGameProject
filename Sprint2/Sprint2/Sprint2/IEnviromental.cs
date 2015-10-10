@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    interface IEnviromental
+    public interface IEnviromental
     {
         void Update();
 

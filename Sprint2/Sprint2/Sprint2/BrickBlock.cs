@@ -11,12 +11,14 @@ namespace Sprint2
     {
         private ISprite brickBlockSprite;
         private BlockType type;
+        private bool testForCollision;
         
         public BrickBlock(int locX, int locY)
         {
             Vector2 location = new Vector2(locX, locY);
             brickBlockSprite = new BrickBlockSprite(location);
             type = BlockType.Brick;
+            testForCollision=true;
         }
         public void Update()
         {
@@ -36,6 +38,15 @@ namespace Sprint2
         public Rectangle returnCollisionRectange()
         {
             return brickBlockSprite.returnCollisionRectangle();
+        }
+        public bool checkForCollisionTestFlag()
+        {
+            return testForCollision;
+        }
+
+        public void brickBlockShattered()
+        {
+            testForCollision = false;
         }
     }
 }

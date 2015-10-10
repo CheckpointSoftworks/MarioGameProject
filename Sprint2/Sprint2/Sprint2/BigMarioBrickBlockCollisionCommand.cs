@@ -17,6 +17,7 @@ namespace Sprint2
         public void Execute()
         {
             block.Update();
+            ((BrickBlock)block).brickBlockShattered();
         }
     }
 }

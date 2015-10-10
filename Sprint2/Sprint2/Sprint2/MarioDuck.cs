@@ -41,7 +41,7 @@ namespace Sprint2
         }
         public void Running()
         {
-            //Do nothing, maybe stand up?
+            mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {

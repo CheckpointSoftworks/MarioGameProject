@@ -17,6 +17,7 @@ namespace Sprint2
             public void Execute()
             {
                ((Mario)Game.mario).Small = true;
+               ((Mario)Game.mario).Fire = false;
             }
     }
 }

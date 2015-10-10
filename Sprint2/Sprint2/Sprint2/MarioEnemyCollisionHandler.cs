@@ -9,7 +9,11 @@ namespace Sprint2
 {
     public class MarioEnemyCollisionHandler
     {
-        void HandleCollision(Mario mario, IEnemyObject enemy, ICollision side)
+        public MarioEnemyCollisionHandler()
+        {
+
+        }
+        public void HandleCollision(Mario mario, IEnemyObject enemy, ICollision side)
         {
             ICommand command;
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))

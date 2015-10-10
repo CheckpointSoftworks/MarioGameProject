@@ -102,6 +102,7 @@
     <Compile Include="HiddenBlockUsedCommand.cs" />
     <Compile Include="IBlock.cs" />
     <Compile Include="ICollision.cs" />
+    <Compile Include="ICollisionDetector.cs" />
     <Compile Include="IEnemyObject.cs" />
     <Compile Include="IEnviromental.cs" />
     <Compile Include="IGameObject.cs" />
