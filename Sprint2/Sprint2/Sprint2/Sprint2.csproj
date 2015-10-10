@@ -115,6 +115,7 @@
     <Compile Include="ItemTypeEnum.cs" />
     <Compile Include="KeyboardController.cs" />
     <Compile Include="IPlayerState.cs" />
+    <Compile Include="KeyNotPressed.cs" />
     <Compile Include="KillMarioCommand.cs" />
     <Compile Include="Koopa.cs" />
     <Compile Include="KoopaSprite.cs" />
