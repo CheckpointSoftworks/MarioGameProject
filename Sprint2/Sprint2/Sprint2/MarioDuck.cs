@@ -11,6 +11,7 @@ namespace Sprint2
     {
         private AnimatedSprite sprite;
         private Mario mario;
+        private float duckSpeed;
         public MarioDuck(Mario mario)
         {
             this.mario = mario;
@@ -26,10 +27,12 @@ namespace Sprint2
             {
                 sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(), 1, 1,mario.Location);
             }
+            duckSpeed = 1.5f;
         }
         public void Update()
         {
             sprite.Update();
+            mario.Location += new Vector2(0, duckSpeed);
         }
         public void Draw(SpriteBatch spriteBatch)
         {

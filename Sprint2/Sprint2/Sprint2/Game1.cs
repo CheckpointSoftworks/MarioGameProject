@@ -23,6 +23,7 @@ namespace Sprint2
         private LevelLoader loader;
         private Texture2D background;
         private Rectangle mainframe;
+        public ICommand keyboardNotPressed;
 
 
 
@@ -35,6 +36,7 @@ namespace Sprint2
         protected override void Initialize()
         {
             keyboard = new KeyboardController();
+            keyboardNotPressed = new KeyNotPressed(this);
             loader= new LevelLoader("Level.xml");
             mainframe = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
@@ -94,6 +96,7 @@ namespace Sprint2
                 this.Exit();
 
             keyboard.Update();
+            keyboardNotPressed.Execute();
             mario.Update();
             handleCollision();
             foreach (IItemObjects item in loader.staticObjectsList)
