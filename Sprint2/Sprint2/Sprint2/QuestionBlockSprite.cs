@@ -29,7 +29,7 @@ namespace Sprint2
         {
             if (!used)
             {
-                frame++;
+                frame=1;
             }
             else
             {
