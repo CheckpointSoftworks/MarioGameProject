@@ -14,6 +14,7 @@ namespace Sprint2
 
         public void Execute(){
             //Change Enemy to damaged state
+            enemy.TakeDamage();
         }
     }
 }

@@ -10,11 +10,14 @@ namespace Sprint2
     class Koopa: IEnemyObject
     {
         private ISprite koopaSprite;
-
+        private ISprite koopaDamagedSprite;
+        private ISprite currentSprite;
         public Koopa(int locX, int locY)
         {
             Vector2 location = new Vector2(locX, locY);
             koopaSprite = EnemySpriteFactory.CreateGreenKoopaSprite(location);
+            koopaDamagedSprite = EnemySpriteFactory.CreateGreenKoopaShellSprite(location);
+            currentSprite = koopaSprite;
         }
         public void Update()
         {
@@ -23,12 +26,17 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            koopaSprite.Draw(spriteBatch);
+            currentSprite.Draw(spriteBatch);
         }
 
         public Rectangle returnCollisionRectangle()
         {
-            return koopaSprite.returnCollisionRectangle();
+            return currentSprite.returnCollisionRectangle();
+        }
+
+        public void TakeDamage()
+        {
+            currentSprite = koopaDamagedSprite;
         }
     }
 }

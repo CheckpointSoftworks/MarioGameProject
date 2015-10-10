@@ -9,26 +9,36 @@ namespace Sprint2
 {
     class Goomba: IEnemyObject
     {
-        private ISprite goombaSprite;
+        private ISprite currentSprite;
+        private ISprite normalGoombaSprite;
+        private ISprite damagedGoombaSprite;
 
         public Goomba(int locX, int locY)
         {
             Vector2 location = new Vector2(locX, locY);
-            goombaSprite = EnemySpriteFactory.CreateGoombaSprite(location);
+            normalGoombaSprite = EnemySpriteFactory.CreateGoombaSprite(location);
+            damagedGoombaSprite = EnemySpriteFactory.CreateGoombaDamangedSprite(location);
+            currentSprite = normalGoombaSprite;
+
         }
         public void Update()
         {
-            goombaSprite.Update();
+            currentSprite.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            goombaSprite.Draw(spriteBatch);
+            currentSprite.Draw(spriteBatch);
         }
 
         public Rectangle returnCollisionRectangle()
         {
-            return goombaSprite.returnCollisionRectangle();
+            return currentSprite.returnCollisionRectangle();
+        }
+
+        public void TakeDamage()
+        {
+            currentSprite = damagedGoombaSprite;
         }
     }
 }
