@@ -13,12 +13,14 @@ namespace Sprint2
         private AnimatedSprite big;
         private AnimatedSprite small;
         private AnimatedSprite fire;
+        private float jumpSpeed;
         public MarioJump(Mario mario)
         {
             this.mario = mario;
             big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(), 1, 1, mario.Location);
             small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallJumpingSprite(), 1, 1, mario.Location);
             fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireJumpingSprite(), 1, 1, mario.Location);
+            jumpSpeed = 1.5f;
         }
         public void Update()
         {
@@ -34,6 +36,7 @@ namespace Sprint2
             {
                 big.Update();
             }
+            mario.Location -= new Vector2(0, jumpSpeed);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
