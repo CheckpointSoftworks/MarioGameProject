@@ -15,22 +15,31 @@ namespace Sprint2
         private int totalFrames;
         private int rows;
         private int columns;
+        private bool pickedUp;
         public BoxCoinSprite(Vector2 location)
         {
             boxCoinSpriteSheet = ItemSpriteTextureStorage.CreateBoxCoinSprite();
             this.location = location;
             currentFrame = 0;
-            totalFrames = 4;
+            totalFrames = 5;
             rows = 1;
-            columns = 4;
+            columns = 5;
+            pickedUp = false;
         }
 
         public void Update()
         {
-            currentFrame++;
-            if (currentFrame == totalFrames)
+            if (pickedUp == false)
             {
-                currentFrame = 0;
+                currentFrame++;
+                if (currentFrame == (totalFrames - 1))
+                {
+                    currentFrame = 0;
+                }
+            }
+            else
+            {
+                currentFrame = 4;
             }
         }
 
