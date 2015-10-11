@@ -14,7 +14,6 @@ namespace Sprint2
         AnimatedSprite big;
         AnimatedSprite fire;
         private float runSpeed;
-        private float verticalSpeed;
         public MarioRunning(Mario mario)
         {
             this.mario = mario;
@@ -22,11 +21,8 @@ namespace Sprint2
             small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(), 1, 3, mario.Location);
             fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireRunningSprite(), 1, 3,mario.Location);
             runSpeed = 1.5f;
-            verticalSpeed = 0;
-            //Set Sprite here
+            runSpeed *= mario.FacingRight ? 1 : -1;
         }
-
-
         public void Update()
         {
             if (mario.Fire)
@@ -41,8 +37,8 @@ namespace Sprint2
             {
                 big.Update();
             }
-            
-            mario.Location += mario.FacingRight ? new Vector2(runSpeed, verticalSpeed) : new Vector2(-runSpeed, verticalSpeed);
+
+            mario.Location += new Vector2(runSpeed, 0);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -73,7 +69,11 @@ namespace Sprint2
         }
         public void Jump()
         {
-            mario.State = new MarioJump(mario);   
+            mario.State = new MarioJumpRun(mario);   
+        }
+        public void JumpRun()
+        {
+            mario.State = new MarioJumpRun(mario);
         }
         public void ShootFireball()
         {
@@ -82,7 +82,11 @@ namespace Sprint2
         }
         public void Duck()
         {
-            mario.State = new MarioDuck(mario);
+            mario.State = new MarioDuckRun(mario);
+        }
+        public void DuckRun()
+        {
+            mario.State = new MarioDuckRun(mario);
         }
         public void Dying()
         {

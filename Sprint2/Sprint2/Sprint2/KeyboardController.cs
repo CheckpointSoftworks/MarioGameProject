@@ -11,6 +11,10 @@ namespace Sprint2
     public class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> controllerMappings;
+        private ICommand upRight;
+        private ICommand upLeft;
+        private ICommand downRight;
+        private ICommand downLeft;
 
         public KeyboardController()
         {
@@ -20,6 +24,14 @@ namespace Sprint2
         public void RegisterCommand(Keys key, ICommand command)
         {
             controllerMappings.Add(key, command);
+        }
+
+        public void RegisterDiagonalCommands(Game1 game)
+        {
+            upRight = new RightUpCommand(game);
+            upLeft = new LeftUpCommand(game);
+            downRight = new RightDownCommand(game);
+            downLeft = new LeftDownCommand(game);
         }
 
         public void Update()
@@ -40,11 +52,25 @@ namespace Sprint2
             {
                 if ((keyList.Contains(Keys.W) && (keyList.Contains(Keys.D) || keyList.Contains(Keys.A)))||(keyList.Contains(Keys.Up)&&(keyList.Contains(Keys.Right)||keyList.Contains(Keys.Left))))
                 {
-                    //call up diagonal command
+                    if (keyList.Contains(Keys.D))
+                    {
+                        upRight.Execute();
+                    }
+                    else
+                    {
+                        upLeft.Execute();
+                    }                    
                 }
                 else if ((keyList.Contains(Keys.S) && (keyList.Contains(Keys.D) || keyList.Contains(Keys.A))) || (keyList.Contains(Keys.Down) && (keyList.Contains(Keys.Right) || keyList.Contains(Keys.Left))))
                 {
-                    //call down diagonal command
+                    if (keyList.Contains(Keys.D))
+                    {
+                        downRight.Execute();
+                    }
+                    else
+                    {
+                        downLeft.Execute();
+                    }
                 }
                 else
                 {

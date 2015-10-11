@@ -125,12 +125,15 @@
     <Compile Include="KoopaSprite.cs" />
     <Compile Include="LeftCollision.cs" />
     <Compile Include="LeftCommand.cs" />
+    <Compile Include="LeftDownCommand.cs" />
+    <Compile Include="LeftUpCommand.cs" />
     <Compile Include="LevelLoader.cs" />
     <Compile Include="Mario.cs" />
     <Compile Include="MarioBlockCollisionHandler.cs" />
     <Compile Include="MarioChangeDirection.cs" />
     <Compile Include="MarioCoinCollisionCommand.cs" />
     <Compile Include="MarioDuck.cs" />
+    <Compile Include="MarioDuckRun.cs" />
     <Compile Include="MarioDying.cs" />
     <Compile Include="MarioEnemyCollisionHandler.cs" />
     <Compile Include="MarioFireFlowerCollisionCommand.cs" />
@@ -138,6 +141,7 @@
     <Compile Include="MarioHitsEnemyCollision.cs" />
     <Compile Include="MarioItemCollisionHandler.cs" />
     <Compile Include="MarioJump.cs" />
+    <Compile Include="MarioJumpRun.cs" />
     <Compile Include="MarioOneUpMushroomCollisionCommand.cs" />
     <Compile Include="MarioPipeCollisionHandler.cs" />
     <Compile Include="MarioQuestionBlockCollisionCommand.cs" />
@@ -157,6 +161,8 @@
     <Compile Include="ResetCommand.cs" />
     <Compile Include="RightCollision.cs" />
     <Compile Include="RightCommand.cs" />
+    <Compile Include="RightDownCommand.cs" />
+    <Compile Include="RightUpCommand.cs" />
     <Compile Include="SmallMarioCommand.cs" />
     <Compile Include="PlatformingBlock.cs" />
     <Compile Include="PlatformingBlockSprite.cs" />

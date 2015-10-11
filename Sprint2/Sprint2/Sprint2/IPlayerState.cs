@@ -13,8 +13,10 @@ namespace Sprint2
         void Running();
         void ChangeDirection();
         void Jump();
+        void JumpRun();
         void ShootFireball();
         void Duck();
+        void DuckRun();
         void Dying();
         void Update();
         void Draw(SpriteBatch spriteBatch);

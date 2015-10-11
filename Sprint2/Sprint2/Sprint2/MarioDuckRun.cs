@@ -7,18 +7,34 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    class MarioDying: IPlayerState
+    class MarioDuckRun : IPlayerState
     {
         private AnimatedSprite sprite;
         private Mario mario;
-        public MarioDying(Mario mario)
+        private float duckSpeed;
+        private float runSpeed;
+        public MarioDuckRun(Mario mario)
         {
             this.mario = mario;
-            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDyingSprite(), 1, 1, mario.Location);
+            if (mario.Fire)
+            {
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireDuckSprite(), 1, 1, mario.Location);
+            }
+            else if (mario.Small)
+            {
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1, mario.Location);
+            }
+            else
+            {
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(), 1, 1, mario.Location);
+            }
+            duckSpeed = 1.5f;
+            runSpeed = mario.FacingRight ? 1.5f : -1.5f;
         }
         public void Update()
         {
             sprite.Update();
+            mario.Location += new Vector2(runSpeed, duckSpeed);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -30,15 +46,15 @@ namespace Sprint2
         }
         public void Running()
         {
-            mario.State = new MarioRunning(mario);
+            //Nothing
         }
         public void ChangeDirection()
         {
-            //Nothing yet
+            //Do nothing, invalid
         }
         public void Jump()
         {
-            mario.State = new MarioJump(mario);
+            mario.State = new MarioStill(mario);
         }
         public void JumpRun()
         {
@@ -46,21 +62,21 @@ namespace Sprint2
         }
         public void ShootFireball()
         {
-            //Nothing yet
+            if (mario.Fire)
+                mario.State = new MarioShootFireball(mario);
         }
         public void Duck()
         {
-            mario.State = new MarioDuck(mario);
+            // Nothing
         }
         public void DuckRun()
         {
-            mario.State = new MarioDuckRun(mario);
+            //Nothing
         }
         public void Dying()
         {
-            //Nothing
+            mario.State = new MarioDying(mario);
         }
-
         public Rectangle returnStateCollisionRectangle()
         {
             return sprite.returnCollisionRectangle();

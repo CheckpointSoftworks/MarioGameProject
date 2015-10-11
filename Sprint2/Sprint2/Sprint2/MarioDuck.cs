@@ -46,8 +46,7 @@ namespace Sprint2
         }
         public void Running()
         {
-            runSpeed = 1.5f;
-            runSpeed *= mario.FacingRight ? 1 : -1;
+            mario.State = new MarioDuckRun(mario);
         }
         public void ChangeDirection()
         {
@@ -57,6 +56,10 @@ namespace Sprint2
         {
             mario.State = new MarioStill(mario);
         }
+        public void JumpRun()
+        {
+            mario.State = new MarioJumpRun(mario);
+        }
         public void ShootFireball()
         {
             if (mario.Fire)
@@ -65,6 +68,10 @@ namespace Sprint2
         public void Duck()
         {
             // Nothing
+        }
+        public void DuckRun()
+        {
+            mario.State = new MarioDuckRun(mario);
         }
         public void Dying()
         {
