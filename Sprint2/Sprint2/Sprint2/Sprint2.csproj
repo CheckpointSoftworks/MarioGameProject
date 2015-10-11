@@ -181,22 +181,13 @@
     <Compile Include="UsedItemSprite.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CodeReviewFolder\JonathanMillerCodeQualityReview.txt" />
-    <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReviewSprint3.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
-    <Content Include="CodeReviewFolder\MattMohrQualityReview.txt" />
-    <Content Include="CodeReviewFolder\MattMohrReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrReadabilityReviewSprint3.txt" />
-    <Content Include="CodeReviewFolder\ScottWeddendorfCodeQualityReview.txt" />
-    <Content Include="CodeReviewFolder\ScottWeddendorfCodeReadabilityReview.txt" />
-    <Content Include="CodeReviewFolder\KrisWengerCodeQualityReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
-    <Content Include="CodeReviewFolder\IanWeberCodeQualityReview.txt" />
-    <Content Include="CodeReviewFolder\IanWeberCodeReadabilityReview.txt" />
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>

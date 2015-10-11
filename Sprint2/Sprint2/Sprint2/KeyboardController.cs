@@ -52,7 +52,7 @@ namespace Sprint2
             {
                 if ((keyList.Contains(Keys.W) && (keyList.Contains(Keys.D) || keyList.Contains(Keys.A)))||(keyList.Contains(Keys.Up)&&(keyList.Contains(Keys.Right)||keyList.Contains(Keys.Left))))
                 {
-                    if (keyList.Contains(Keys.D))
+                    if (keyList.Contains(Keys.D)||keyList.Contains(Keys.Right))
                     {
                         upRight.Execute();
                     }
@@ -63,7 +63,7 @@ namespace Sprint2
                 }
                 else if ((keyList.Contains(Keys.S) && (keyList.Contains(Keys.D) || keyList.Contains(Keys.A))) || (keyList.Contains(Keys.Down) && (keyList.Contains(Keys.Right) || keyList.Contains(Keys.Left))))
                 {
-                    if (keyList.Contains(Keys.D))
+                    if (keyList.Contains(Keys.D)||keyList.Contains(Keys.Right))
                     {
                         downRight.Execute();
                     }
