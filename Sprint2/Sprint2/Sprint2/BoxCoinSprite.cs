@@ -21,7 +21,7 @@ namespace Sprint2
             boxCoinSpriteSheet = ItemSpriteTextureStorage.CreateBoxCoinSprite();
             this.location = location;
             currentFrame = 0;
-            totalFrames = 5;
+            totalFrames = 4;
             rows = 1;
             columns = 4;
             int width = boxCoinSpriteSheet.Width / columns;

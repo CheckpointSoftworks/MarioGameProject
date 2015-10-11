@@ -93,6 +93,7 @@
     <Compile Include="FireFlower.cs" />
     <Compile Include="FireFlowerSprite.cs" />
     <Compile Include="FireMarioCommand.cs" />
+    <Compile Include="GamepadController.cs" />
     <Compile Include="Goomba.cs" />
     <Compile Include="GoombaDamagedSprite.cs" />
     <Compile Include="GoombaSprite.cs" />

@@ -22,7 +22,7 @@ namespace Sprint2
             superStarSpriteSheet = ItemSpriteTextureStorage.CreateSuperStarSprite();
             this.location = location;
             currentFrame = 0;
-            totalFrames = 5;
+            totalFrames = 4;
             rows = 1;
             columns = 4;
             int width = superStarSpriteSheet.Width / columns;
