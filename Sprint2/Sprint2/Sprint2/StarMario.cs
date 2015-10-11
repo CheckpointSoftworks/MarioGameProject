@@ -10,11 +10,13 @@ namespace Sprint2
     class StarMario: IPlayer
     {
         private Mario decoratedMario;
+        IPlayerState state;
         int timer = 600;
         Game1 game;
         public StarMario(Mario decoratedMario, Game1 game)
         {
-            
+            this.decoratedMario = decoratedMario;
+            this.state = decoratedMario.State;
         }
         public void Update()
         {
