@@ -93,7 +93,9 @@
     <Compile Include="FireFlower.cs" />
     <Compile Include="FireFlowerSprite.cs" />
     <Compile Include="FireMarioCommand.cs" />
+    <Compile Include="GamepadController.cs" />
     <Compile Include="Goomba.cs" />
+    <Compile Include="GoombaDamagedSprite.cs" />
     <Compile Include="GoombaSprite.cs" />
     <Compile Include="GroundBlock.cs" />
     <Compile Include="GroundBlockSprite.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="KeyNotPressed.cs" />
     <Compile Include="KillMarioCommand.cs" />
     <Compile Include="Koopa.cs" />
+    <Compile Include="KoopaShellSprite.cs" />
     <Compile Include="KoopaSprite.cs" />
     <Compile Include="LeftCollision.cs" />
     <Compile Include="LeftCommand.cs" />

@@ -19,6 +19,7 @@ namespace Sprint2
         SpriteBatch spriteBatch;
 
         public IController keyboard;
+        public IController gamepad;
         public IPlayer mario;
         private LevelLoader loader;
         private Texture2D background;
@@ -72,12 +73,6 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterCommand(Keys.Left, new LeftCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.D, new RightCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Right, new RightCommand(this));
-
-
-            ((KeyboardController)keyboard).RegisterCommand(Keys.Y, new SmallMarioCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.U, new BigMarioCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.I, new FireMarioCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.O, new DeadMarioCommand(this));
 
             ((KeyboardController)keyboard).RegisterCommand(Keys.R, new ResetCommand(this));
         }

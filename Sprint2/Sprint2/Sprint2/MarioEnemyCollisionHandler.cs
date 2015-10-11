@@ -26,14 +26,15 @@ namespace Sprint2
                 //Mario takes no damage
                 //Enemy is damaged/killed
                 command = new MarioHitsEnemyCollision(enemy);
+                command.Execute();
             }
             else if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
                 //Enemy takes no damage
                 //Mario takes damage
                 command = new EnemyHitsMarioCollision(mario);
+                command.Execute();
             }
-
         }
 
         private void HandleMovement(Mario mario, IEnemyObject enemy,ICollision side)

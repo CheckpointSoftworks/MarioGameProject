@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System.Collections;
 
@@ -37,11 +38,12 @@ namespace Sprint2
             }
             foreach (Keys key in keyList)
             {
-                if (keyList.Contains(Keys.W) && (keyList.Contains(Keys.D) || keyList.Contains(Keys.A)))
+                if ((keyList.Contains(Keys.W) && (keyList.Contains(Keys.D) || keyList.Contains(Keys.A)))||(keyList.Contains(Keys.Up)&&(keyList.Contains(Keys.Right)||keyList.Contains(Keys.Left))))
                 {
                     //call up diagonal command
                 }
-                else if(keyList.Contains(Keys.S) && (keyList.Contains(Keys.D) || keyList.Contains(Keys.A))){
+                else if ((keyList.Contains(Keys.S) && (keyList.Contains(Keys.D) || keyList.Contains(Keys.A))) || (keyList.Contains(Keys.Down) && (keyList.Contains(Keys.Right) || keyList.Contains(Keys.Left))))
+                {
                     //call down diagonal command
                 }
                 else
