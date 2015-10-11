@@ -15,6 +15,7 @@ namespace Sprint2
         public StarMario(Mario decoratedMario)
         {
             this.decoratedMario = decoratedMario;
+            state = decoratedMario.State;
         }
         public void Update()
         {

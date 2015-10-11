@@ -184,6 +184,7 @@
     <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReviewSprint3.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrReadabilityReviewSprint3.txt" />
+    <Content Include="CodeReviewFolder\ScottWeddendorfReadabilityReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>

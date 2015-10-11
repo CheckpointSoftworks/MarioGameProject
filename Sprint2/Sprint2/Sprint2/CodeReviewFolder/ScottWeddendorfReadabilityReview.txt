@@ -1,0 +1,15 @@
+Author: Scott Weddendorf
+Date: October 11, 2015
+Sprint: 3
+Name of File: LevelLoader.cs
+Author of File: Ian Weber
+Minutes: 10
+Comments on Readability:
+	First thing I noticed was that the class is pretty long.  However most of the code
+	looks necessary.  The arrays including the seperators for x and y (xstringSeparator
+	and ystringSeparator) are declared within each if statement and it could reduce the
+	length of the code if they were declared somewhere outside of the if statements
+	to be reused.  When adding a game object to its respective list, the variable name
+	"GameObject" is used when instead it could probably be more specific.  Camel case
+	on some of the variables such as "xstring" could be "xString" to help clarity.
+	The class overall is very readable but a lot of repeat code makes it a bit long.
