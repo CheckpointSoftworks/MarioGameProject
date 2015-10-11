@@ -10,29 +10,31 @@ namespace Sprint2
 {
     public class GamepadController : IController
     {
-        GamePadState padState1;
-        Vector2 leftThumbPosition;
-        ICommand leftOnlyCommand;
-        ICommand rightOnlyCommand;
-        ICommand upOnlyCommand;
-        ICommand downOnlyCommand;
-        //ICommand upLeftCommand;
-        //ICommand upRightCommand;
-        //ICommand downLeftCommand;
-        //ICommand downRightCommand;
+        private GamePadState padState1;
+        private Vector2 leftThumbPosition;
+        private ICommand rightOnlyCommand;
+        private ICommand leftOnlyCommand;
+        private ICommand upOnlyCommand;
+        private ICommand downOnlyCommand;
+        private ICommand leftUpCommand;
+        private ICommand leftDownCommand;
+        private ICommand rightUpCommand;
+        private ICommand rightDownCommand;
+        private float deadZone;
 
         public GamepadController (Game1 game)
         {
             leftThumbPosition.X = 0;
             leftThumbPosition.Y = 0;
-            leftOnlyCommand = new LeftCommand(game);
             rightOnlyCommand = new RightCommand(game);
+            leftOnlyCommand = new LeftCommand(game);
             upOnlyCommand = new UpCommand(game);
             downOnlyCommand = new DownCommand(game);
-            //upLeftCommand = new UpLeftCommand(game);
-            //upRightCommand = new UpRightCommand(game);
-            //downLeftCommand = new DownLeftCommand(game);
-            //downRightCommand = new DownRightCommand(game);
+            leftUpCommand = new LeftUpCommand(game);
+            leftDownCommand = new LeftDownCommand(game);
+            rightUpCommand = new RightUpCommand(game);
+            rightDownCommand = new RightDownCommand(game);
+            deadZone = 0.3f;
         }
 
         public void Update()
@@ -44,27 +46,45 @@ namespace Sprint2
                 leftThumbPosition.X = padState1.ThumbSticks.Left.X;
                 leftThumbPosition.Y = padState1.ThumbSticks.Left.Y;
 
-                if (leftThumbPosition.X > 0.2f && (leftThumbPosition.Y < 0.2f && leftThumbPosition.Y > -0.2f))
+                if (leftThumbPosition.X > deadZone && (leftThumbPosition.Y < deadZone && leftThumbPosition.Y > -deadZone))
                 {
                     rightOnlyCommand.Execute();
                 }
 
-                if (leftThumbPosition.X < -0.2f && (leftThumbPosition.Y < 0.2f && leftThumbPosition.Y > -0.2f))
+                if (leftThumbPosition.X < -deadZone && (leftThumbPosition.Y < deadZone && leftThumbPosition.Y > -deadZone))
                 {
                     leftOnlyCommand.Execute();
                 }
 
-                if (leftThumbPosition.Y > 0.2f && (leftThumbPosition.X < 0.2f && leftThumbPosition.X > -0.2f))
+                if (leftThumbPosition.Y > deadZone && (leftThumbPosition.X < deadZone && leftThumbPosition.X > -deadZone))
                 {
                     upOnlyCommand.Execute();
                 }
 
-                if (leftThumbPosition.Y < -0.2f && (leftThumbPosition.X < 0.2f && leftThumbPosition.X > -0.2f))
+                if (leftThumbPosition.Y < -deadZone && (leftThumbPosition.X < deadZone && leftThumbPosition.X > -deadZone))
                 {
                     downOnlyCommand.Execute();
                 }
 
-                //TODO: Implement diagonal logic.
+                if (leftThumbPosition.X < -deadZone && leftThumbPosition.Y > deadZone)
+                {
+                    leftUpCommand.Execute();
+                }
+
+                if (leftThumbPosition.X < -deadZone && leftThumbPosition.Y < -deadZone)
+                {
+                    leftDownCommand.Execute();
+                }
+
+                if (leftThumbPosition.X > deadZone && leftThumbPosition.Y > deadZone)
+                {
+                    rightUpCommand.Execute();
+                }
+
+                if (leftThumbPosition.X > deadZone && leftThumbPosition.Y < -deadZone)
+                {
+                    rightDownCommand.Execute();
+                }
             }
         }
     }
