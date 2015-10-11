@@ -17,6 +17,7 @@ namespace Sprint2
         {
             this.decoratedMario = decoratedMario;
             this.state = decoratedMario.State;
+            this.game = game;
         }
         public void Update()
         {

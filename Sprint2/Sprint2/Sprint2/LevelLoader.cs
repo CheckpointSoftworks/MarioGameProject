@@ -49,14 +49,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IBlock GameObject;
                             GameObject = new BrickBlock(XVal, YVal);
@@ -72,14 +70,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IItemObjects GameObject;
                             GameObject = new BoxCoin(XVal, YVal);
@@ -95,14 +91,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IItemObjects GameObject;
                             GameObject = new FireFlower(XVal, YVal);
@@ -118,14 +112,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IEnemyObject GameObject;
                             GameObject = new Goomba(XVal, YVal);
@@ -142,14 +134,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IBlock GameObject;
                             GameObject = new GroundBlock(XVal, YVal);
@@ -164,14 +154,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IBlock GameObject;
                             GameObject = new HiddenBlock(XVal, YVal);
@@ -187,14 +175,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IEnemyObject GameObject;
                             GameObject = new Koopa(XVal, YVal);
@@ -210,14 +196,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IItemObjects GameObject;
                             GameObject = new OneUpMushroom(XVal, YVal);
@@ -233,14 +217,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IEnviromental GameObject;
                             GameObject = new Pipe(XVal, YVal);
@@ -256,14 +238,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IBlock GameObject;
                             GameObject = new PlatformingBlock(XVal, YVal);
@@ -279,14 +259,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IBlock GameObject;
                             GameObject = new QuestionBlock(XVal, YVal);
@@ -302,14 +280,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IItemObjects GameObject;
                             GameObject = new SuperMushroom(XVal, YVal);
@@ -325,14 +301,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IItemObjects GameObject;
                             GameObject = new SuperStar(XVal, YVal);
@@ -348,14 +322,12 @@ namespace Sprint2
                             string xtrimmed = xstring.Trim();
                             var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
                             int XVal = Int32.Parse(xsplit[1]);
-                            Console.WriteLine(XVal);
 
                             var ystring = sr.ReadLine();
                             string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
                             string ytrimmed = ystring.Trim();
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
-                            Console.WriteLine(YVal);
 
                             IPlayer GameObject;
                             GameObject = new Mario(XVal, YVal);
