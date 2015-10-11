@@ -31,8 +31,8 @@ namespace Sprint2
                 && currentState.IsKeyUp(Keys.W) && currentState.IsKeyUp(Keys.S)
                 && currentState.IsKeyUp(Keys.Up) && currentState.IsKeyUp(Keys.Down) 
                 && currentState.IsKeyUp(Keys.Left) && currentState.IsKeyUp(Keys.Right)
-                && (leftThumbPosition.X < 0.5f && leftThumbPosition.X > -0.5f)
-                && (leftThumbPosition.Y < 0.5f && leftThumbPosition.Y > -0.5f))
+                && (leftThumbPosition.X < 0.2f && leftThumbPosition.X > -0.2f)
+                && (leftThumbPosition.Y < 0.2f && leftThumbPosition.Y > -0.2f))
             {
                 ((Mario)game.mario).State.Still();
             }

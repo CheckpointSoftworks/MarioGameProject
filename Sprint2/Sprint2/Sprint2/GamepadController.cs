@@ -16,10 +16,10 @@ namespace Sprint2
         ICommand rightOnlyCommand;
         ICommand upOnlyCommand;
         ICommand downOnlyCommand;
-        ICommand upLeftCommand;
-        ICommand upRightCommand;
-        ICommand downLeftCommand;
-        ICommand downRightCommand;
+        //ICommand upLeftCommand;
+        //ICommand upRightCommand;
+        //ICommand downLeftCommand;
+        //ICommand downRightCommand;
 
         public GamepadController (Game1 game)
         {
@@ -44,22 +44,22 @@ namespace Sprint2
                 leftThumbPosition.X = padState1.ThumbSticks.Left.X;
                 leftThumbPosition.Y = padState1.ThumbSticks.Left.Y;
 
-                if (leftThumbPosition.X > 0.5f && (leftThumbPosition.Y < 0.5f && leftThumbPosition.Y > -0.5f))
+                if (leftThumbPosition.X > 0.2f && (leftThumbPosition.Y < 0.2f && leftThumbPosition.Y > -0.2f))
                 {
                     rightOnlyCommand.Execute();
                 }
 
-                if (leftThumbPosition.X < -0.5f && (leftThumbPosition.Y < 0.5f && leftThumbPosition.Y > -0.5f))
+                if (leftThumbPosition.X < -0.2f && (leftThumbPosition.Y < 0.2f && leftThumbPosition.Y > -0.2f))
                 {
                     leftOnlyCommand.Execute();
                 }
 
-                if (leftThumbPosition.Y > 0.5f && (leftThumbPosition.X < 0.5f && leftThumbPosition.X > -0.5f))
+                if (leftThumbPosition.Y > 0.2f && (leftThumbPosition.X < 0.2f && leftThumbPosition.X > -0.2f))
                 {
                     upOnlyCommand.Execute();
                 }
 
-                if (leftThumbPosition.Y < -0.5f && (leftThumbPosition.X < 0.5f && leftThumbPosition.X > -0.5f))
+                if (leftThumbPosition.Y < -0.2f && (leftThumbPosition.X < 0.2f && leftThumbPosition.X > -0.2f))
                 {
                     downOnlyCommand.Execute();
                 }
