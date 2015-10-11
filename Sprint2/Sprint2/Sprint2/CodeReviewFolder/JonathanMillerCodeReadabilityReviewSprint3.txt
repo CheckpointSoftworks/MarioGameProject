@@ -1,0 +1,14 @@
+﻿Author of the code review: Jonathan Miller
+Date of the code review: 10/11/2015
+Sprint number: 3
+Name of the .cs file being reviewed: MarioBlockCollisionHandler.cs
+Author of the .cs file being reviewed: Kris Wenger
+Number of minutes taken to complete the review: 15
+
+Comments:
+
+This class is well designed. The variable names are easy to understand and the logic flows nicely. 
+The chooseCollisionCommand() method should use the Pascal case naming convention though. The use of 
+commands make the class easier to read, and the command class names suit each class. The comment in 
+the code is subjectively meaningful. Somebody that doesn't know the behavior of blocks in Super Mario
+Bros. would find it meaningful. Overall, the class is very readable.

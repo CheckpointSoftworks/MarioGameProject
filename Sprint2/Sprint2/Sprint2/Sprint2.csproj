@@ -183,6 +183,7 @@
   <ItemGroup>
     <Content Include="CodeReviewFolder\JonathanMillerCodeQualityReview.txt" />
     <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReview.txt" />
+    <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReviewSprint3.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrQualityReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrReadabilityReview.txt" />
