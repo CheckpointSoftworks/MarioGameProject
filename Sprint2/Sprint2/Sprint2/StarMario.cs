@@ -7,15 +7,14 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    class StarMario: IPlayerState
+    class StarMario: IPlayer
     {
         private Mario decoratedMario;
         int timer = 600;
         Game1 game;
         public StarMario(Mario decoratedMario, Game1 game)
         {
-            this.decoratedMario = decoratedMario;
-            this.game = game;
+            
         }
         public void Update()
         {
@@ -68,47 +67,17 @@ namespace Sprint2
                 }
             }
         }
-        public void Still()
+
+        public Rectangle returnCollisionRectangle()
         {
-            decoratedMario.State = new MarioStill(decoratedMario);
-        }
-        public void Running()
-        {
-            decoratedMario.State = new MarioRunning(decoratedMario);
-        }
-        public void ChangeDirection()
-        {
-            decoratedMario.State = new MarioChangeDirection(decoratedMario);
-        }
-        public void Jump()
-        {
-            decoratedMario.State = new MarioChangeDirection(decoratedMario);
-        }
-        public void ShootFireball()
-        {
-            //Nothing
-        }
-        public void Duck()
-        {
-            decoratedMario.State = new MarioDuck(decoratedMario);
-        }
-        public void Dying()
-        {
-            //Star mario cannot die.
+            return state.returnStateCollisionRectangle();
         }
 
         void RemoveStar()
         {
             game.mario = decoratedMario;
+            decoratedMario.Star = false;
         }
 
-        public Rectangle returnStateCollisionRectangle()
-        {
-            Rectangle collisionRectangle=new Rectangle(0,0,0,0);
-
-            //No collision needed for this class yet
-
-            return collisionRectangle;
-        }
     }
 }
