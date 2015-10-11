@@ -30,7 +30,7 @@ namespace Sprint2
         }
         public void Running()
         {
-            mario.State = new MarioRunning(mario);
+           // mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {
@@ -38,11 +38,11 @@ namespace Sprint2
         }
         public void Jump()
         {
-            mario.State = new MarioJump(mario);
+            //mario.State = new MarioJump(mario);
         }
         public void JumpRun()
         {
-            mario.State = new MarioJumpRun(mario);
+           // mario.State = new MarioJumpRun(mario);
         }
         public void ShootFireball()
         {
@@ -50,11 +50,11 @@ namespace Sprint2
         }
         public void Duck()
         {
-            mario.State = new MarioDuck(mario);
+            //mario.State = new MarioDuck(mario);
         }
         public void DuckRun()
         {
-            mario.State = new MarioDuckRun(mario);
+            //mario.State = new MarioDuckRun(mario);
         }
         public void Dying()
         {
@@ -64,6 +64,10 @@ namespace Sprint2
         public Rectangle returnStateCollisionRectangle()
         {
             return sprite.returnCollisionRectangle();
+        }
+        public void setDrawColor(Color color)
+        {
+            sprite.setColorForDrawing(color);
         }
     }
 }

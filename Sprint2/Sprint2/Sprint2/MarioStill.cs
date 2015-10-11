@@ -39,11 +39,17 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch)
         {
             if (mario.Small)
+            {
                 small.Draw(spriteBatch, mario.Location, mario.FacingRight);
+            }
             else if (mario.Fire)
+            {
                 fire.Draw(spriteBatch, mario.Location, mario.FacingRight);
+            }
             else
+            {
                 big.Draw(spriteBatch, mario.Location, mario.FacingRight);
+            }
         }
         public void Still()
         {
@@ -101,6 +107,21 @@ namespace Sprint2
             }
 
             return collisionRectangle;
+        }
+        public void setDrawColor(Color color)
+        {
+            if (mario.Small)
+            {
+                small.setColorForDrawing(color);
+            }
+            else if (mario.Fire)
+            {
+                fire.setColorForDrawing(color);
+            }
+            else
+            {
+                big.setColorForDrawing(color);
+            }
         }
     }
 }

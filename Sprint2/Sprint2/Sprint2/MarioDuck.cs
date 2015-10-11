@@ -81,5 +81,9 @@ namespace Sprint2
         {
             return sprite.returnCollisionRectangle();
         }
+        public void setDrawColor(Color color)
+        {
+            sprite.setColorForDrawing(color);
+        }
     }
 }

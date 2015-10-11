@@ -68,5 +68,9 @@ namespace Sprint2
 
             return collisionRectangle;
         }
+        public void setDrawColor(Color color)
+        {
+            //No logic for this class
+        }
     }
 }

@@ -30,8 +30,6 @@ namespace Sprint2
             }
             else if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
-                //Enemy takes no damage
-                //Mario takes damage
                 command = new EnemyHitsMarioCollision(mario);
                 command.Execute();
             }

@@ -107,5 +107,21 @@ namespace Sprint2
 
             return collisionRectangle;
         }
+
+        public void setDrawColor(Color color)
+        {
+            if (mario.Small)
+            {
+                small.setColorForDrawing(color);
+            }
+            else if (mario.Fire)
+            {
+                fire.setColorForDrawing(color);
+            }
+            else
+            {
+                big.setColorForDrawing(color);
+            }
+        }
     }
 }

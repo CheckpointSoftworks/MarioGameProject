@@ -19,6 +19,7 @@ namespace Sprint2
         private int frameHeight;
         private Vector2 location;
         private Rectangle collisionRectangle;
+        private Color color;
 
         public AnimatedSprite(Texture2D texture, int rows, int columns, Vector2 location)
         {
@@ -32,6 +33,7 @@ namespace Sprint2
             int width = texture.Width / this.columns;
             int height = texture.Height / this.rows;
             this.location = location;
+            color = Color.White;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
         }
@@ -61,11 +63,11 @@ namespace Sprint2
             spriteBatch.Begin();
             if (facingRight)
             {
-                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, color);
             }
             else
             {
-                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, color, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
             }
 
             spriteBatch.End();
@@ -80,6 +82,11 @@ namespace Sprint2
         public Rectangle returnCollisionRectangle()
         {
             return collisionRectangle;
+        }
+
+        public void setColorForDrawing(Color newColor)
+        {
+            color = newColor;
         }
     }
 }

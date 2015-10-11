@@ -34,7 +34,14 @@ namespace Sprint2
                 && (leftThumbPosition.X < 0.2f && leftThumbPosition.X > -0.2f)
                 && (leftThumbPosition.Y < 0.2f && leftThumbPosition.Y > -0.2f))
             {
-                ((Mario)game.mario).State.Still();
+                if (!((Mario)game.mario).IsDying)
+                {
+                    ((Mario)game.mario).State.Still();
+                }
+                else
+                {
+                    ((Mario)game.mario).State.Dying();
+                }
             }
         }
     }

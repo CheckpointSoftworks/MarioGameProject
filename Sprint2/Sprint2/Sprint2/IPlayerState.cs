@@ -20,6 +20,7 @@ namespace Sprint2
         void Dying();
         void Update();
         void Draw(SpriteBatch spriteBatch);
+        void setDrawColor(Color color);
 
         Rectangle returnStateCollisionRectangle();
 

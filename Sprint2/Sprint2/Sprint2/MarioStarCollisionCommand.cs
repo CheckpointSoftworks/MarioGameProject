@@ -19,7 +19,7 @@ namespace Sprint2
         public void Execute()
         {
             star.setCollisionRectangle(new Rectangle(0, 0, 0, 0));
-            //Need star decorator
+            mario = new StarMario((Mario)mario);
         }
     }
 }
