@@ -10,7 +10,10 @@ namespace Sprint2
 {
     public class GamepadController:IController
     {
+        public GamepadController()
+        {
 
+        }
         public void Update()
         {
 

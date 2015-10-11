@@ -32,7 +32,7 @@ namespace Sprint2
         public void Update()
         {
             currentFrame++;
-            if (currentFrame == (totalFrames - 1))
+            if (currentFrame == totalFrames)
             {
                     currentFrame = 0;
             }

@@ -19,6 +19,7 @@ namespace Sprint2
         SpriteBatch spriteBatch;
 
         public IController keyboard;
+        public IController gamepad;
         public IPlayer mario;
         private LevelLoader loader;
         private Texture2D background;
