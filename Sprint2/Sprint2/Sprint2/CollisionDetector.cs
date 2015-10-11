@@ -35,7 +35,6 @@ namespace Sprint2
                 //Top-Bottom Intersection
                 side = chooseTopOrBottom(intersectionRectange, firstObjectRectangle, secondObjectRectangle);
             }
-
             return side;
         }
 

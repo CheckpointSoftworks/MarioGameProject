@@ -58,6 +58,7 @@ namespace Sprint2
             MarioSpriteFactory.Load(this.Content);
             background = Content.Load<Texture2D>("Background");
 
+
             loader.LoadLevel();
             LoadKeyBoardCommands();
             mario = loader.player;

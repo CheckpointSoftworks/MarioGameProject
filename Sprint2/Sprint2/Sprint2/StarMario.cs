@@ -7,14 +7,16 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    class StarMario: IPlayerState
+    class StarMario: IPlayer
     {
         private Mario decoratedMario;
+        IPlayerState state;
         int timer = 600;
         Game1 game;
         public StarMario(Mario decoratedMario, Game1 game)
         {
             this.decoratedMario = decoratedMario;
+            this.state = decoratedMario.State;
             this.game = game;
         }
         public void Update()
@@ -29,56 +31,56 @@ namespace Sprint2
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (timer % 5==0)
+            if (timer > 180)
             {
-                decoratedMario.Draw(spriteBatch);
-            }
-            else if (timer % 2 == 0)
-            {
+                if (timer % 60 == 0)
+                {
 
+                }
+                else if (timer % 48 == 0)
+                {
+
+                }
+                else if (timer % 36 == 0)
+                {
+
+                }
+                else if (timer % 24 == 0)
+                {
+
+                }
+                else if (timer % 12 == 0)
+                {
+
+                }
             }
             else
             {
+                if (timer % 60 == 0)
+                {
 
+                }
+                else if (timer % 40 == 0)
+                {
+
+                }
+                else if (timer % 20 == 0)
+                {
+
+                }
             }
         }
-        public void Still()
+
+        public Rectangle returnCollisionRectangle()
         {
-            decoratedMario.State = new MarioStill(decoratedMario);
-        }
-        public void Running()
-        {
-            decoratedMario.State = new MarioRunning(decoratedMario);
-        }
-        public void ChangeDirection()
-        {
-            decoratedMario.State = new MarioChangeDirection(decoratedMario);
-        }
-        public void Jump()
-        {
-            decoratedMario.State = new MarioChangeDirection(decoratedMario);
-        }
-        public void ShootFireball()
-        {
-            //Nothing
-        }
-        public void Duck()
-        {
-            decoratedMario.State = new MarioDuck(decoratedMario);
-        }
-        public void Dying()
-        {
-            //Star mario cannot die.
+            return state.returnStateCollisionRectangle();
         }
 
         void RemoveStar()
         {
             game.mario = decoratedMario;
+            decoratedMario.Star = false;
         }
 
-        public Rectangle returnStateCollisionRectangle()
-        {
-            return decoratedMario.returnCollisionRectangle();
-        }
     }
 }
