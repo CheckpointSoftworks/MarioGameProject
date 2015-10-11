@@ -16,8 +16,7 @@ namespace Sprint2
 
         public void HandleCollision(Mario mario, IBlock block, ICollision side)
         {
-            //mario.State.Still();
-
+            
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
                 HandleMovement(mario, block, side);

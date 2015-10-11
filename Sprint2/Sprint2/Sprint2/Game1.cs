@@ -104,6 +104,8 @@ namespace Sprint2
 
         private void handleCollision()
         {
+            IPlayerState state = ((Mario)mario).State;
+            ((Mario)mario).State.Still();
             ICollisionDetector collisionDetector = new CollisionDetector();
             ICollision side;
             MarioBlockCollisionHandler blockHandler = new MarioBlockCollisionHandler();
@@ -136,6 +138,7 @@ namespace Sprint2
                 side=collisionDetector.getCollision(mario.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
                 pipeHandler.HandleCollision((Mario)mario, enviromental,side);
             }
+            ((Mario)mario).State = state;
         }
 
         protected override void Draw(GameTime gameTime)
