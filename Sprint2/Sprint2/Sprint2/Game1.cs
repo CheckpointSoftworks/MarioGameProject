@@ -25,6 +25,7 @@ namespace Sprint2
         private Texture2D background;
         private Rectangle mainframe;
         public ICommand keyboardNotPressed;
+        public ICommand leftThumbstickIdle;
 
 
 
@@ -39,6 +40,7 @@ namespace Sprint2
             keyboard = new KeyboardController();
             gamepad = new GamepadController(this);
             keyboardNotPressed = new KeyNotPressed(this);
+            leftThumbstickIdle = new LeftThumbstickIdle(this);
             loader= new LevelLoader("Level.xml");
             mainframe = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
@@ -94,6 +96,7 @@ namespace Sprint2
             keyboard.Update();
             gamepad.Update();
             keyboardNotPressed.Execute();
+            leftThumbstickIdle.Execute();
             mario.Update();
             handleCollision();
             foreach (IItemObjects item in loader.staticObjectsList)

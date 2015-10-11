@@ -63,6 +63,8 @@ namespace Sprint2
                 {
                     downOnlyCommand.Execute();
                 }
+
+                //TODO: Implement diagonal logic.
             }
         }
     }
