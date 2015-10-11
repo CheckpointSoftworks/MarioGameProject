@@ -26,8 +26,6 @@ namespace Sprint2
         private Rectangle mainframe;
         public ICommand keyboardNotPressed;
 
-
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -38,7 +36,7 @@ namespace Sprint2
         {
             keyboard = new KeyboardController();
             gamepad = new GamepadController(this);
-            keyboardNotPressed = new KeyNotPressed(this);
+            keyboardNotPressed = new KeyNotPressed(this); 
             loader= new LevelLoader("Level.xml");
             mainframe = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
