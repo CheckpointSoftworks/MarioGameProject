@@ -45,13 +45,13 @@ namespace Sprint2
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y - locationDiffToChange;
-                mario.Location = new Vector2(mario.Location.Y, newMarioY);
+                mario.Location = new Vector2(mario.Location.X, newMarioY);
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y + locationDiffToChange;
-                mario.Location = new Vector2(mario.Location.Y,newMarioY);
+                mario.Location = new Vector2(mario.Location.X,newMarioY);
             }
         }
 
