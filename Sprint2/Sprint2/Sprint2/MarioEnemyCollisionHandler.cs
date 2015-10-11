@@ -30,7 +30,7 @@ namespace Sprint2
             }
             else if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
-                command = new EnemyHitsMarioCollision(mario);
+                command = new EnemyHitsMarioCollision(mario,enemy);
                 command.Execute();
             }
         }
