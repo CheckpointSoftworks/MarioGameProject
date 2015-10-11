@@ -162,6 +162,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="QuestionBlock.cs" />
     <Compile Include="QuestionBlockSprite.cs" />
+    <Compile Include="StarMario.cs" />
     <Compile Include="SuperMushroom.cs" />
     <Compile Include="SuperMushroomSprite.cs" />
     <Compile Include="SuperStar.cs" />
