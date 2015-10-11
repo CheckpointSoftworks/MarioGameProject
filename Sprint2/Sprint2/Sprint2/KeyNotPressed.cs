@@ -17,8 +17,10 @@ namespace Sprint2
 
         public void Execute()
         {
-            if (Keyboard.GetState().IsKeyUp(Keys.A) && Keyboard.GetState().IsKeyUp(Keys.D)
-                && Keyboard.GetState().IsKeyUp(Keys.W) && Keyboard.GetState().IsKeyUp(Keys.S))
+            KeyboardState currentState=Keyboard.GetState();
+            if (currentState.IsKeyUp(Keys.A) && currentState.IsKeyUp(Keys.D)
+                && currentState.IsKeyUp(Keys.W) && currentState.IsKeyUp(Keys.S)&& currentState.IsKeyUp(Keys.Up)
+                && currentState.IsKeyUp(Keys.Down)&&currentState.IsKeyUp(Keys.Left)&&currentState.IsKeyUp(Keys.Right))
             {
                 ((Mario)game.mario).State.Still();
             }
