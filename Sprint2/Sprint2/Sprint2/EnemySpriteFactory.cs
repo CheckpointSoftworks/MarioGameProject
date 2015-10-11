@@ -30,7 +30,7 @@ namespace Sprint2
 		}
         public static ISprite CreateGoombaDamangedSprite(Vector2 location)
         {
-            return new GoombaSprite(goombaDamagedSpritesheet, location);
+            return new GoombaDamagedSprite(goombaDamagedSpritesheet, location);
         }
 		
 		public static ISprite CreateGreenKoopaSprite(Vector2 location)
@@ -39,7 +39,7 @@ namespace Sprint2
 		}
         public static ISprite CreateGreenKoopaShellSprite(Vector2 location)
         {
-            return new KoopaSprite(koopaShellSpritesheet, location);
+            return new KoopaShellSprite(koopaShellSpritesheet, location);
         }
 
         
