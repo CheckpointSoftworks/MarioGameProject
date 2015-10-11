@@ -28,7 +28,7 @@ namespace Sprint2
         {
             if (!smashed)
             {
-                frame++;
+                frame=1;
                 collisionRectangle = new Rectangle(0, 0, 0, 0);
             }
             else

@@ -7,12 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public interface IEnviromental
+    public interface ICollisionDetector
     {
-        void Update();
-
-        void Draw(SpriteBatch spriteBatch);
-
-        Rectangle returnCollisionRectangle();
+        ICollision getCollision(Rectangle firstObjectRectangle, Rectangle secondObjectRectangle);
     }
 }

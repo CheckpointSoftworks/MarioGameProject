@@ -11,11 +11,13 @@ namespace Sprint2
     {
         private ISprite groundBlockSprite;
         private BlockType type;
+        private bool testForCollision;
         public GroundBlock(int locX,int locY)
         {
             Vector2 location = new Vector2(locX, locY);
             groundBlockSprite = new GroundBlockSprite(location);
             type = BlockType.Ground;
+            testForCollision = true;
         }
         public void Update()
         {
@@ -34,6 +36,11 @@ namespace Sprint2
         public Rectangle  returnCollisionRectange()
         {
             return groundBlockSprite.returnCollisionRectangle();
+        }
+
+        public bool checkForCollisionTestFlag()
+        {
+            return testForCollision;
         }
     }
 }

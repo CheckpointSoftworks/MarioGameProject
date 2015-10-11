@@ -37,34 +37,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SuperMushroom.png">
-      <Name>SuperMushroom</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="OneUpMushroom.png">
-      <Name>OneUpMushroom</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="SuperStar.png">
-      <Name>SuperStar</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="BoxCoin.png">
-      <Name>BoxCoin</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="BricksSheetWithEmptyBlock.png">
       <Name>BricksSheetWithEmptyBlock</Name>
       <Importer>TextureImporter</Importer>
@@ -225,13 +197,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FireFlower.png">
-      <Name>FireFlower</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="BrickBlockSpriteSheet.png">
       <Name>BrickBlockSpriteSheet</Name>
       <Importer>TextureImporter</Importer>
@@ -283,6 +248,48 @@
   <ItemGroup>
     <Compile Include="GoombaDamagedSprite.png">
       <Name>GoombaDamagedSprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BoxCoin.png">
+      <Name>BoxCoin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FireFlower.png">
+      <Name>FireFlower</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SuperStar.png">
+      <Name>SuperStar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SuperMushroom.png">
+      <Name>SuperMushroom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OneUpMushroom.png">
+      <Name>OneUpMushroom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UsedItemSprite.png">
+      <Name>UsedItemSprite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

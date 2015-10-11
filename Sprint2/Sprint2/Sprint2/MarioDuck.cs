@@ -20,6 +20,10 @@ namespace Sprint2
             {
                 sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireDuckSprite(), 1, 1,mario.Location);
             }
+            else if (mario.Small)
+            {
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1, mario.Location);
+            }
             else
             {
                 sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(), 1, 1,mario.Location);

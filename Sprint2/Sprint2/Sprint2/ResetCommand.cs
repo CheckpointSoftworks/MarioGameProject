@@ -18,6 +18,7 @@ namespace Sprint2
             {
                 ((Mario)Game.mario).Small = true;
                 ((Mario)Game.mario).FacingRight = false;
+                ((Mario)Game.mario).Fire = false;
                 ((Mario)Game.mario).State.Still();
             }
     }

@@ -7,12 +7,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class CollisionDetector
+    public class CollisionDetector:ICollisionDetector
     {
         private ICollision side;
-        ICollision getCollision(Rectangle firstObjectRectangle, Rectangle secondObjectRectangle)
+        public CollisionDetector()
         {
             side = new NoneCollision();
+        }
+
+        public ICollision getCollision(Rectangle firstObjectRectangle, Rectangle secondObjectRectangle)
+        {
             Rectangle intersectionRectange = Rectangle.Intersect(firstObjectRectangle, secondObjectRectangle);
             int intersectionRectangleWidth = intersectionRectange.Width;
             int intersectionRectangleHeight = intersectionRectange.Height;
@@ -31,7 +35,6 @@ namespace Sprint2
                 //Top-Bottom Intersection
                 side = chooseTopOrBottom(intersectionRectange, firstObjectRectangle, secondObjectRectangle);
             }
-
             return side;
         }
 

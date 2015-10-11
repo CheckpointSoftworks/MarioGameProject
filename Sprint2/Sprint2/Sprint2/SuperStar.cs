@@ -12,13 +12,16 @@ namespace Sprint2
         private ISprite superStarSprite;
         private ItemType type;
         private Rectangle collisionRectangle;
+        private bool testForCollision;
+        private Vector2 location;
 
         public SuperStar(int locX,int locY)
         {
-            Vector2 location = new Vector2(locX, locY);
+            location = new Vector2(locX, locY);
             superStarSprite = new SuperStarSprite(location);
             type = ItemType.Star;
             collisionRectangle = superStarSprite.returnCollisionRectangle();
+            testForCollision=true;
         }
         public void Update()
         {
@@ -41,6 +44,12 @@ namespace Sprint2
         public void setCollisionRectangle(Rectangle collisionRectangle)
         {
             this.collisionRectangle = collisionRectangle;
+            testForCollision=false;
+            superStarSprite = new UsedItemSprite(location);
+        }
+        public bool checkForCollisionTestFlag()
+        {
+            return testForCollision;
         }
     }
 }

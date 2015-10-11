@@ -9,13 +9,15 @@ namespace Sprint2
 {
     public class PlatformingBlock : IBlock
     {
-        private PlatformingBlockSprite platformingBlockSprite;
+        private ISprite platformingBlockSprite;
         private BlockType type;
+        private bool testForCollision;
         public PlatformingBlock(int locX,int locY)
         {
             Vector2 location = new Vector2(locX, locY);
             platformingBlockSprite = new PlatformingBlockSprite(location);
             type = BlockType.Platforming;
+            testForCollision = true;
         }
         public void Update()
         {
@@ -35,6 +37,10 @@ namespace Sprint2
         public Rectangle returnCollisionRectange()
         {
             return platformingBlockSprite.returnCollisionRectangle();
+        }
+        public bool checkForCollisionTestFlag()
+        {
+            return testForCollision;
         }
     }
 }

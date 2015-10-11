@@ -9,7 +9,11 @@ namespace Sprint2
 {
     public class MarioEnemyCollisionHandler
     {
-        void HandleCollision(Mario mario, IEnemyObject enemy, ICollision side)
+        public MarioEnemyCollisionHandler()
+        {
+
+        }
+        public void HandleCollision(Mario mario, IEnemyObject enemy, ICollision side)
         {
             ICommand command;
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
@@ -22,14 +26,15 @@ namespace Sprint2
                 //Mario takes no damage
                 //Enemy is damaged/killed
                 command = new MarioHitsEnemyCollision(enemy);
+                command.Execute();
             }
             else if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
                 //Enemy takes no damage
                 //Mario takes damage
                 command = new EnemyHitsMarioCollision(mario);
+                command.Execute();
             }
-
         }
 
         private void HandleMovement(Mario mario, IEnemyObject enemy,ICollision side)
@@ -55,13 +60,13 @@ namespace Sprint2
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y - locationDiffToChange;
-                mario.Location = new Vector2(mario.Location.Y, newMarioY);
+                mario.Location = new Vector2(mario.Location.X, newMarioY);
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y + locationDiffToChange;
-                mario.Location = new Vector2(mario.Location.Y, newMarioY);
+                mario.Location = new Vector2(mario.Location.X, newMarioY);
             }
         }
     }

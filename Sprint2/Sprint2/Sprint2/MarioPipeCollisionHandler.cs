@@ -8,20 +8,25 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Sprint2
 {
    public class MarioPipeCollisionHandler{
-        public void HandleCollision(Mario mario, IBlock block, ICollision side)
+        public MarioPipeCollisionHandler()
+        {
+
+        }
+
+        public void HandleCollision(Mario mario, IEnviromental enviromental, ICollision side)
         {
 
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
-                HandleMovement(mario, block, side);
+                HandleMovement(mario, enviromental, side);
             }
 
         }
-        private void HandleMovement(Mario mario, IBlock block, ICollision side)
+        private void HandleMovement(Mario mario, IEnviromental enviromental, ICollision side)
         {
-            Rectangle enemyRectangle = block.returnCollisionRectange();
+            Rectangle enviromentalRectangle = enviromental.returnCollisionRectangle();
             Rectangle marioRectangle = mario.returnCollisionRectangle();
-            Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, enemyRectangle);
+            Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, enviromentalRectangle);
             int locationDiffToChange = 0;
 
             if (side.returnCollisionSide().Equals(CollisionSide.Left))

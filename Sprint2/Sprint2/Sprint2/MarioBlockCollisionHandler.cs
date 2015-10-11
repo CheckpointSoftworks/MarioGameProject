@@ -9,9 +9,14 @@ namespace Sprint2
 {
     public class MarioBlockCollisionHandler
     {
-        public void HandleCollision(Mario mario, IBlock block, ICollision side)
+        public MarioBlockCollisionHandler()
         {
 
+        }
+
+        public void HandleCollision(Mario mario, IBlock block, ICollision side)
+        {
+            
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
                 HandleMovement(mario, block, side);
@@ -46,11 +51,11 @@ namespace Sprint2
 
         }
 
-        private void HandleMovement(Mario mario, IBlock enemy, ICollision side)
+        private void HandleMovement(Mario mario, IBlock block, ICollision side)
         {
-            Rectangle enemyRectangle = enemy.returnCollisionRectange();
+            Rectangle blockRectangle = block.returnCollisionRectange();
             Rectangle marioRectangle = mario.returnCollisionRectangle();
-            Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, enemyRectangle);
+            Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, blockRectangle);
             int locationDiffToChange = 0;
 
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
@@ -69,13 +74,13 @@ namespace Sprint2
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y - locationDiffToChange;
-                mario.Location = new Vector2(mario.Location.Y, newMarioY);
+                mario.Location = new Vector2(mario.Location.X, newMarioY);
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y + locationDiffToChange;
-                mario.Location = new Vector2(mario.Location.Y, newMarioY);
+                mario.Location = new Vector2(mario.Location.X, newMarioY);
             }
         }
 

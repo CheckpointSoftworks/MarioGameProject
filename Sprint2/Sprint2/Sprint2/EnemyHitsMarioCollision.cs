@@ -16,7 +16,8 @@ namespace Sprint2
 
         public void Execute()
         {
-            //Mario Takes damage
+            ((Mario)mario).IsDying = true;
+            mario.State.Dying();
         }
     }
 }

@@ -9,12 +9,16 @@ namespace Sprint2
 {
     public class MarioItemCollisionHandler
     {
-        void HandleCollision(IPlayer mario, IItemObjects item, ICollision side)
+        public MarioItemCollisionHandler()
+        {
+
+        }
+        public void HandleCollision(Mario mario, IItemObjects item, ICollision side)
         {
             ICommand command;
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
-                HandleMovement((Mario)mario, item, side);
+                HandleMovement(mario, item, side);
                 command = chooseCorrectCommand(item,mario);
                 command.Execute();
             }
@@ -46,9 +50,9 @@ namespace Sprint2
         }
         private void HandleMovement(Mario mario, IItemObjects item, ICollision side)
         {
-            Rectangle enemyRectangle = item.returnCollisionRectangle();
+            Rectangle itemRectangle = item.returnCollisionRectangle();
             Rectangle marioRectangle = mario.returnCollisionRectangle();
-            Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, enemyRectangle);
+            Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, itemRectangle);
             int locationDiffToChange = 0;
 
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
@@ -67,13 +71,13 @@ namespace Sprint2
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y - locationDiffToChange;
-                mario.Location = new Vector2(mario.Location.Y, newMarioY);
+                mario.Location = new Vector2(mario.Location.X, newMarioY);
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y + locationDiffToChange;
-                mario.Location = new Vector2(mario.Location.Y, newMarioY);
+                mario.Location = new Vector2(mario.Location.X, newMarioY);
             }
         }
     }

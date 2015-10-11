@@ -19,13 +19,12 @@ namespace Sprint2
         SpriteBatch spriteBatch;
 
         public IController keyboard;
-        public ICommand keyboardNotPressed;
+        public IController gamepad;
         public IPlayer mario;
         private LevelLoader loader;
         private Texture2D background;
         private Rectangle mainframe;
-
-
+        public ICommand keyboardNotPressed;
 
         public Game1()
         {
@@ -36,7 +35,8 @@ namespace Sprint2
         protected override void Initialize()
         {
             keyboard = new KeyboardController();
-            keyboardNotPressed = new KeyNotPressed(this);
+            gamepad = new GamepadController(this);
+            keyboardNotPressed = new KeyNotPressed(this); 
             loader= new LevelLoader("Level.xml");
             mainframe = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
@@ -56,6 +56,7 @@ namespace Sprint2
             MarioSpriteFactory.Load(this.Content);
             background = Content.Load<Texture2D>("Background");
 
+
             loader.LoadLevel();
             LoadKeyBoardCommands();
             mario = loader.player;
@@ -72,18 +73,6 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterCommand(Keys.Left, new LeftCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.D, new RightCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Right, new RightCommand(this));
-
-
-            ((KeyboardController)keyboard).RegisterCommand(Keys.Y, new SmallMarioCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.U, new BigMarioCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.I, new FireMarioCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.O, new DeadMarioCommand(this));
-
-
-            ((KeyboardController)keyboard).RegisterCommand(Keys.Z, new QuestionBlockUsedCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.X, new BrickBlockDisappearCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.C, new HiddenBlockUsedCommand(this));
-
 
             ((KeyboardController)keyboard).RegisterCommand(Keys.R, new ResetCommand(this));
         }
@@ -102,11 +91,56 @@ namespace Sprint2
                 this.Exit();
 
             keyboard.Update();
+            gamepad.Update();
             keyboardNotPressed.Execute();
             mario.Update();
+            handleCollision();
+            foreach (IItemObjects item in loader.staticObjectsList)
+            {
+                item.Update();
+            } 
+
             base.Update(gameTime);
         }
 
+        private void handleCollision()
+        {
+            IPlayerState state = ((Mario)mario).State;
+            ((Mario)mario).State.Still();
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side;
+            MarioBlockCollisionHandler blockHandler = new MarioBlockCollisionHandler();
+            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
+            MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
+            MarioPipeCollisionHandler pipeHandler = new MarioPipeCollisionHandler();
+            foreach (IBlock block in loader.blocksList)
+            {
+                if (block.checkForCollisionTestFlag())
+                {
+                    side =collisionDetector.getCollision(mario.returnCollisionRectangle(), block.returnCollisionRectange());
+                    blockHandler.HandleCollision((Mario)mario, block, side);
+                }
+            }
+            foreach (IEnemyObject enemy in loader.enemiesList)
+            {
+                side=collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
+                enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            }
+            foreach (IItemObjects item in loader.staticObjectsList)
+            {
+                if (item.checkForCollisionTestFlag())
+                {
+                    side=collisionDetector.getCollision(mario.returnCollisionRectangle(), item.returnCollisionRectangle());
+                    itemHandler.HandleCollision((Mario)mario, item, side);
+                }
+            }
+            foreach (IEnviromental enviromental in loader.enviromentalObjectsList)
+            {
+                side=collisionDetector.getCollision(mario.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
+                pipeHandler.HandleCollision((Mario)mario, enviromental,side);
+            }
+            ((Mario)mario).State = state;
+        }
 
         protected override void Draw(GameTime gameTime)
         {

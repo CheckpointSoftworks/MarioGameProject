@@ -93,7 +93,9 @@
     <Compile Include="FireFlower.cs" />
     <Compile Include="FireFlowerSprite.cs" />
     <Compile Include="FireMarioCommand.cs" />
+    <Compile Include="GamepadController.cs" />
     <Compile Include="Goomba.cs" />
+    <Compile Include="GoombaDamagedSprite.cs" />
     <Compile Include="GoombaSprite.cs" />
     <Compile Include="GroundBlock.cs" />
     <Compile Include="GroundBlockSprite.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="HiddenBlockUsedCommand.cs" />
     <Compile Include="IBlock.cs" />
     <Compile Include="ICollision.cs" />
+    <Compile Include="ICollisionDetector.cs" />
     <Compile Include="IEnemyObject.cs" />
     <Compile Include="IEnviromental.cs" />
     <Compile Include="IGameObject.cs" />
@@ -118,6 +121,7 @@
     <Compile Include="KeyNotPressed.cs" />
     <Compile Include="KillMarioCommand.cs" />
     <Compile Include="Koopa.cs" />
+    <Compile Include="KoopaShellSprite.cs" />
     <Compile Include="KoopaSprite.cs" />
     <Compile Include="LeftCollision.cs" />
     <Compile Include="LeftCommand.cs" />
@@ -161,12 +165,14 @@
     <Compile Include="Game1.cs" />
     <Compile Include="QuestionBlock.cs" />
     <Compile Include="QuestionBlockSprite.cs" />
+    <Compile Include="StarMario.cs" />
     <Compile Include="SuperMushroom.cs" />
     <Compile Include="SuperMushroomSprite.cs" />
     <Compile Include="SuperStar.cs" />
     <Compile Include="SuperStarSprite.cs" />
     <Compile Include="TopCollision.cs" />
     <Compile Include="UpCommand.cs" />
+    <Compile Include="UsedItemSprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CodeReviewFolder\JonathanMillerCodeQualityReview.txt" />

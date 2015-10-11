@@ -16,6 +16,7 @@ namespace Sprint2
         private int rows;
         private int columns;
         private Rectangle collisionRectangle;
+
         public SuperStarSprite(Vector2 location)
         {
             superStarSpriteSheet = ItemSpriteTextureStorage.CreateSuperStarSprite();
@@ -36,6 +37,7 @@ namespace Sprint2
             {
                 currentFrame = 0;
             }
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
