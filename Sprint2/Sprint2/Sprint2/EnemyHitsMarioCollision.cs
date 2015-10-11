@@ -8,16 +8,25 @@ namespace Sprint2
     public class EnemyHitsMarioCollision:ICommand
     {
         private Mario mario;
+        private IEnemyObject enemy;
 
-        public EnemyHitsMarioCollision(Mario mario)
+        public EnemyHitsMarioCollision(Mario mario,IEnemyObject enemy)
         {
             this.mario = mario;
+            this.enemy = enemy;
         }
 
         public void Execute()
         {
-            ((Mario)mario).IsDying = true;
-            ((Mario)mario).State.Dying();
+            if (!((Mario)mario).Star)
+            {
+                ((Mario)mario).IsDying = true;
+                ((Mario)mario).State.Dying();
+            }
+            else
+            {
+                enemy.TakeDamage();
+            }
         }
     }
 }

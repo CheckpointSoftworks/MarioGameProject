@@ -38,7 +38,7 @@ namespace Sprint2
                 {
                     ((Mario)game.mario).State.Still();
                 }
-                else
+                else if(!((Mario)game.mario).Star)
                 {
                     ((Mario)game.mario).State.Dying();
                 }

@@ -43,7 +43,7 @@ namespace Sprint2
                 command = new MarioHiddenBlockCollisionCommand(block);
                 command.Execute();
             }
-            else if (type.Equals(BlockType.Brick)&&(!mario.Small))
+            else if (type.Equals(BlockType.Brick)&&((!mario.Small)||(mario.Star)))
             {
                 command = new BigMarioBrickBlockCollisionCommand(block);
                 command.Execute();

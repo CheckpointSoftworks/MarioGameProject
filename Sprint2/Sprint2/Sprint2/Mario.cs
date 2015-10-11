@@ -119,23 +119,65 @@ namespace Sprint2
                 state = value;
             }
         }
-
+        private int timer = 600;
         public Mario(int locX, int locY)
         {
             small = true;
             fire = false;
             facingRight = true;
+            star = false;
+            isDying = false;
             state = new MarioStill(this);
             location = new Vector2(locX, locY);
         }
 
         public void Update()
         {
-            state.Update();
+            if (!star)
+            {
+                state.Update();
+            }
+            else
+            {
+                timer--;
+                if (timer == 0)
+                {
+                    star = false;
+                }
+
+                state.Update();
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            state.Draw(spriteBatch);
+            if (!star)
+            {
+                state.setDrawColor(Color.White);
+                state.Draw(spriteBatch);
+            }
+            else
+            {
+                if (timer % 7 == 0)
+                {
+                    state.setDrawColor(Color.Purple);
+                    state.Draw(spriteBatch);
+                }
+                else if (timer % 5 == 0)
+                {
+                    state.setDrawColor(Color.Blue);
+                    state.Draw(spriteBatch);
+                }
+                else if (timer % 4 == 0)
+                {
+                    state.setDrawColor(Color.Red);
+                    state.Draw(spriteBatch);
+                }
+                else
+                {
+                    state.setDrawColor(Color.Gold);
+                    state.Draw(spriteBatch);
+                }
+            }
         }
 
         public Rectangle returnCollisionRectangle()

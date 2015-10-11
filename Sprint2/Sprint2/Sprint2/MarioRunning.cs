@@ -90,7 +90,10 @@ namespace Sprint2
         }
         public void Dying()
         {
-            mario.State = new MarioDying(mario);
+            if (!mario.Star)
+            {
+                mario.State = new MarioDying(mario);
+            }
         }
         public Rectangle returnStateCollisionRectangle()
         {
