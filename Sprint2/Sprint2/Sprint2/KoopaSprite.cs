@@ -17,7 +17,7 @@ namespace Sprint2
         public KoopaSprite(Texture2D koopaSpritesheet,Vector2 location)
         {
             this.location = location;
-            AnimatedKoopa = new AnimatedSprite(koopaSpritesheet, 1, 2,location);
+            AnimatedKoopa = new AnimatedSprite(koopaSpritesheet, 1, 2, location);
         }
         public void Update()
         {

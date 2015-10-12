@@ -98,7 +98,11 @@ namespace Sprint2
             foreach (IItemObjects item in loader.staticObjectsList)
             {
                 item.Update();
-            } 
+            }
+            foreach (IEnemyObject enemy in loader.enemiesList)
+            {
+                enemy.Update();
+            }
 
             base.Update(gameTime);
         }
