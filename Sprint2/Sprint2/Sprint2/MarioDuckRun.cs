@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    class MarioDuckRun : IPlayerState
+    class MarioDuckRun : IMarioState
     {
         private AnimatedSprite sprite;
         private Mario mario;

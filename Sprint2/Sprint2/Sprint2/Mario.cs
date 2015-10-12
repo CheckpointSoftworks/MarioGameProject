@@ -107,8 +107,8 @@ namespace Sprint2
                 location = value;
             }
         }
-        private IPlayerState state;
-        public IPlayerState State
+        private IMarioState state;
+        public IMarioState State
         {
             get
             {

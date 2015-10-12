@@ -112,7 +112,7 @@
     <Compile Include="ItemSpriteTextureStorage.cs" />
     <Compile Include="ItemTypeEnum.cs" />
     <Compile Include="KeyboardController.cs" />
-    <Compile Include="IPlayerState.cs" />
+    <Compile Include="IMarioState.cs" />
     <Compile Include="KeyNotPressed.cs" />
     <Compile Include="Koopa.cs" />
     <Compile Include="KoopaShellSprite.cs" />

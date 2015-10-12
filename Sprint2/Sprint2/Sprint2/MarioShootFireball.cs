@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {  
-    class MarioShootFireball: IPlayerState
+    class MarioShootFireball: IMarioState
     {
         private Mario mario;
         public MarioShootFireball(Mario mario)

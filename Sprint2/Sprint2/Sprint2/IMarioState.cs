@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    public interface IPlayerState
+    public interface IMarioState
     {
         void Still();
         void Running();

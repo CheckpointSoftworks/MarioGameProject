@@ -105,7 +105,7 @@ namespace Sprint2
 
         private void handleCollision()
         {
-            IPlayerState state = ((Mario)mario).State;
+            IMarioState state = ((Mario)mario).State;
             ((Mario)mario).State.Still();
             ICollisionDetector collisionDetector = new CollisionDetector();
             ICollision side;
