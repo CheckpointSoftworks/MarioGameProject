@@ -75,7 +75,6 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterCommand(Keys.D, new RightCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Right, new RightCommand(this));
             ((KeyboardController)keyboard).RegisterDiagonalCommands(this);
-            ((KeyboardController)keyboard).RegisterCommand(Keys.R, new ResetCommand(this));
         }
 
 

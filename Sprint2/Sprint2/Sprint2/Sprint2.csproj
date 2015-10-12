@@ -75,24 +75,20 @@
   <ItemGroup>
     <Compile Include="AnimatedSprite.cs" />
     <Compile Include="BigMarioBrickBlockCollisionCommand.cs" />
-    <Compile Include="BigMarioCommand.cs" />
     <Compile Include="BlockSpriteTextureStorage.cs" />
     <Compile Include="BlockTypeEnum.cs" />
     <Compile Include="BottomCollision.cs" />
     <Compile Include="BoxCoin.cs" />
     <Compile Include="BoxCoinSprite.cs" />
     <Compile Include="BrickBlock.cs" />
-    <Compile Include="BrickBlockDisappearCommand.cs" />
     <Compile Include="BrickBlockSprite.cs" />
     <Compile Include="CollisionSideEnum.cs" />
     <Compile Include="CollisionDetector.cs" />
-    <Compile Include="DeadMarioCommand.cs" />
     <Compile Include="DownCommand.cs" />
     <Compile Include="EnemyHitsMarioCollision.cs" />
     <Compile Include="EnemySpriteFactory.cs" />
     <Compile Include="FireFlower.cs" />
     <Compile Include="FireFlowerSprite.cs" />
-    <Compile Include="FireMarioCommand.cs" />
     <Compile Include="GamepadController.cs" />
     <Compile Include="Goomba.cs" />
     <Compile Include="GoombaDamagedSprite.cs" />
@@ -101,7 +97,6 @@
     <Compile Include="GroundBlockSprite.cs" />
     <Compile Include="HiddenBlock.cs" />
     <Compile Include="HiddenBlockSprite.cs" />
-    <Compile Include="HiddenBlockUsedCommand.cs" />
     <Compile Include="IBlock.cs" />
     <Compile Include="ICollision.cs" />
     <Compile Include="ICollisionDetector.cs" />
@@ -119,7 +114,6 @@
     <Compile Include="KeyboardController.cs" />
     <Compile Include="IPlayerState.cs" />
     <Compile Include="KeyNotPressed.cs" />
-    <Compile Include="KillMarioCommand.cs" />
     <Compile Include="Koopa.cs" />
     <Compile Include="KoopaShellSprite.cs" />
     <Compile Include="KoopaSprite.cs" />
@@ -157,8 +151,6 @@
     <Compile Include="OneUpMushroomSprite.cs" />
     <Compile Include="Pipe.cs" />
     <Compile Include="PipeSprite.cs" />
-    <Compile Include="QuestionBlockUsedCommand.cs" />
-    <Compile Include="ResetCommand.cs" />
     <Compile Include="RightCollision.cs" />
     <Compile Include="RightCommand.cs" />
     <Compile Include="RightDownCommand.cs" />
