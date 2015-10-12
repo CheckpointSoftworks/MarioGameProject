@@ -172,6 +172,7 @@
     <Compile Include="ItemSpriteClasses\UsedItemSprite.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CodeReviewFolder\IanWeberReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReviewSprint3.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrReadabilityReviewSprint3.txt" />
