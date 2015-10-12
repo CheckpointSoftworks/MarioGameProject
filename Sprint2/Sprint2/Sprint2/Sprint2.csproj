@@ -166,7 +166,7 @@
     <Compile Include="ItemSpriteClasses\SuperMushroomSprite.cs" />
     <Compile Include="ItemObjectClasses\SuperStar.cs" />
     <Compile Include="ItemSpriteClasses\SuperStarSprite.cs" />
-    <Compile Include="TestingClass.cs" />
+    <Compile Include="TestingClass\TestingClass.cs" />
     <Compile Include="CollisionClasses\TopCollision.cs" />
     <Compile Include="KeyBoardCommands\MovementCommands\UpCommand.cs" />
     <Compile Include="ItemSpriteClasses\UsedItemSprite.cs" />
