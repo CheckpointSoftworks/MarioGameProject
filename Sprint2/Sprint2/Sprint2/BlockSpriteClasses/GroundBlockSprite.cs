@@ -7,35 +7,34 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class PlatformingBlockSprite : ISprite
+    public class GroundBlockSprite : ISprite
     {
-        private Texture2D platformingBlockSpriteSheet;
-        private Vector2 location; 
+        private Texture2D groundBlockSpriteSheet;
+        private Vector2 location;
         private Rectangle collisionRectangle;
         private int spriteSheetSpriteSize = 16;
 
-        public PlatformingBlockSprite(Vector2 location)
+        public GroundBlockSprite(Vector2 location)
         {
-            platformingBlockSpriteSheet = BlockSpriteTextureStorage.CreatePlatformingBlockSprite();
+            groundBlockSpriteSheet = BlockSpriteTextureStorage.CreateGroundBlockSprite();
             this.location = location;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
-
         public void Update()
         {
-            //No update logic needed, object is static and non-anitmated
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRectangle = new Rectangle(spriteSheetSpriteSize * 0, 0, spriteSheetSpriteSize, spriteSheetSpriteSize);
+            Rectangle sourceRectangle = new Rectangle(spriteSheetSpriteSize*0, 0, spriteSheetSpriteSize, spriteSheetSpriteSize);
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(platformingBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
             
+            spriteBatch.Begin();
+            spriteBatch.Draw(groundBlockSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.End();
         }
+
         public Rectangle returnCollisionRectangle()
         {
             return collisionRectangle;

@@ -30,35 +30,35 @@ namespace Sprint2
         }
         public void Running()
         {
-           // mario.State = new MarioRunning(mario);
+           
         }
         public void ChangeDirection()
         {
-            //Nothing yet
+            
         }
         public void Jump()
         {
-            //mario.State = new MarioJump(mario);
+            
         }
         public void JumpRun()
         {
-           // mario.State = new MarioJumpRun(mario);
+          
         }
         public void ShootFireball()
         {
-            //Nothing yet
+            
         }
         public void Duck()
         {
-            //mario.State = new MarioDuck(mario);
+            
         }
         public void DuckRun()
         {
-            //mario.State = new MarioDuckRun(mario);
+            
         }
         public void Dying()
         {
-            //Nothing
+            
         }
 
         public Rectangle returnStateCollisionRectangle()
