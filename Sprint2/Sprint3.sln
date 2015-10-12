@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint2", "Sprint2\Sprint2\Sprint2.csproj", "{68840923-6557-4A6F-8E73-5968349DAE30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint3", "Sprint2\Sprint2\Sprint3.csproj", "{68840923-6557-4A6F-8E73-5968349DAE30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint2Content", "Sprint2\Sprint2Content\Sprint2Content.contentproj", "{07F1E1DE-0710-428D-9B96-9AD2F42262CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint3Content", "Sprint2\Sprint2Content\Sprint3Content.contentproj", "{07F1E1DE-0710-428D-9B96-9AD2F42262CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

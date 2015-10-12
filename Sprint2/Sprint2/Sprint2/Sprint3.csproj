@@ -184,9 +184,10 @@
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sprint2Content\Sprint2Content.contentproj">
-      <Name>Sprint2Content</Name>
+    <ProjectReference Include="..\Sprint2Content\Sprint3Content.contentproj">
+      <Name>Sprint3Content</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{07F1E1DE-0710-428D-9B96-9AD2F42262CA}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
