@@ -175,6 +175,7 @@
     <Compile Include="SuperMushroomSprite.cs" />
     <Compile Include="SuperStar.cs" />
     <Compile Include="SuperStarSprite.cs" />
+    <Compile Include="TestingClass.cs" />
     <Compile Include="TopCollision.cs" />
     <Compile Include="UpCommand.cs" />
     <Compile Include="UsedItemSprite.cs" />

@@ -15,8 +15,8 @@ namespace Sprint2
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public GraphicsDeviceManager graphics;
+        public SpriteBatch spriteBatch;
 
         public IController keyboard;
         public IController gamepad;
@@ -25,6 +25,7 @@ namespace Sprint2
         private Texture2D background;
         private Rectangle mainframe;
         public ICommand keyboardNotPressed;
+        private TestingClass tester;
 
         public Game1()
         {
@@ -34,6 +35,7 @@ namespace Sprint2
 
         protected override void Initialize()
         {
+            tester = new TestingClass(this);
             keyboard = new KeyboardController();
             gamepad = new GamepadController(this);
             keyboardNotPressed = new KeyNotPressed(this); 
@@ -41,6 +43,7 @@ namespace Sprint2
             mainframe = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
             base.Initialize();
+            tester.runTests();
         }
 
         protected override void LoadContent()
@@ -48,14 +51,12 @@ namespace Sprint2
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-
             BlockSpriteTextureStorage.Load(this.Content);
             ItemSpriteTextureStorage.Load(this.Content);
             EnemySpriteFactory.Load(this.Content);
             MiscGameObjectTextureStorage.Load(this.Content);
             MarioSpriteFactory.Load(this.Content);
             background = Content.Load<Texture2D>("Background");
-
 
             loader.LoadLevel();
             LoadKeyBoardCommands();
@@ -168,7 +169,7 @@ namespace Sprint2
             {
                 enviromental.Draw(spriteBatch);
             }
-            
+
             base.Draw(gameTime);
 
         }

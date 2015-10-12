@@ -127,8 +127,8 @@ namespace Sprint2
             facingRight = true;
             star = false;
             isDying = false;
-            state = new MarioStill(this);
             location = new Vector2(locX, locY);
+            state = new MarioStill(this);
         }
 
         public void Update()
