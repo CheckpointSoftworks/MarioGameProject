@@ -40,8 +40,15 @@ namespace Sprint2
             leftThumbPosition.X = padState1.ThumbSticks.Left.X;
             leftThumbPosition.Y = padState1.ThumbSticks.Left.Y;
 
-            return (leftThumbPosition.X < deadZone && leftThumbPosition.X > -deadZone)
-                && (leftThumbPosition.Y < deadZone && leftThumbPosition.Y > -deadZone);
+            if (padState1.IsConnected)
+            {
+                return (leftThumbPosition.X < deadZone && leftThumbPosition.X > -deadZone)
+                    && (leftThumbPosition.Y < deadZone && leftThumbPosition.Y > -deadZone);
+            }
+            else
+            {
+                return true;
+            }
 
         }
 
