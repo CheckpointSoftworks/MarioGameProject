@@ -11,7 +11,9 @@ namespace Sprint2
     class KeyNotPressed : ICommand
     {
         private Game1 game;
-        Vector2 leftThumbPosition;
+        private Vector2 leftThumbPosition;
+        private KeyboardState keyState;
+        private GamePadState padState;
         private float deadZone;
 
         public KeyNotPressed(Game1 gameInstance)
@@ -24,19 +26,19 @@ namespace Sprint2
 
         public bool MovementKeysReleased()
         {
-            KeyboardState currentState = Keyboard.GetState();
+           keyState = Keyboard.GetState();
 
-            return currentState.IsKeyUp(Keys.W) && currentState.IsKeyUp(Keys.S)
-                && currentState.IsKeyUp(Keys.A) && currentState.IsKeyUp(Keys.D)
-                && currentState.IsKeyUp(Keys.Up) && currentState.IsKeyUp(Keys.Down)
-                && currentState.IsKeyUp(Keys.Left) && currentState.IsKeyUp(Keys.Right);
+            return keyState.IsKeyUp(Keys.W) && keyState.IsKeyUp(Keys.S)
+                && keyState.IsKeyUp(Keys.A) && keyState.IsKeyUp(Keys.D)
+                && keyState.IsKeyUp(Keys.Up) && keyState.IsKeyUp(Keys.Down)
+                && keyState.IsKeyUp(Keys.Left) && keyState.IsKeyUp(Keys.Right);
         }
 
         public bool LeftStickInDeadzone()
         {
-            GamePadState padState1 = GamePad.GetState(PlayerIndex.One);
-            leftThumbPosition.X = padState1.ThumbSticks.Left.X;
-            leftThumbPosition.Y = padState1.ThumbSticks.Left.Y;
+            padState = GamePad.GetState(PlayerIndex.One);
+            leftThumbPosition.X = padState.ThumbSticks.Left.X;
+            leftThumbPosition.Y = padState.ThumbSticks.Left.Y;
 
             return (leftThumbPosition.X < deadZone && leftThumbPosition.X > -deadZone)
                 && (leftThumbPosition.Y < deadZone && leftThumbPosition.Y > -deadZone);
