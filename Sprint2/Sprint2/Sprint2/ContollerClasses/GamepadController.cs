@@ -34,7 +34,7 @@ namespace Sprint2
             leftDownCommand = new LeftDownCommand(game);
             rightUpCommand = new RightUpCommand(game);
             rightDownCommand = new RightDownCommand(game);
-            deadZone = 0.3f;
+            deadZone = 0.5f;
         }
 
         public void Update()
