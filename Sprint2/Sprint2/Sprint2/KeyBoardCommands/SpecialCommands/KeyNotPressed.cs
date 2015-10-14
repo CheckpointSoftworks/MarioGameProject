@@ -13,7 +13,7 @@ namespace Sprint2
         private Game1 game;
         private Vector2 leftThumbPosition;
         private KeyboardState keyState;
-        private GamePadState padState;
+        private GamePadState padState1;
         private float deadZone;
 
         public KeyNotPressed(Game1 gameInstance)
@@ -36,9 +36,9 @@ namespace Sprint2
 
         public bool LeftStickInDeadzone()
         {
-            padState = GamePad.GetState(PlayerIndex.One);
-            leftThumbPosition.X = padState.ThumbSticks.Left.X;
-            leftThumbPosition.Y = padState.ThumbSticks.Left.Y;
+            padState1 = GamePad.GetState(PlayerIndex.One);
+            leftThumbPosition.X = padState1.ThumbSticks.Left.X;
+            leftThumbPosition.Y = padState1.ThumbSticks.Left.Y;
 
             return (leftThumbPosition.X < deadZone && leftThumbPosition.X > -deadZone)
                 && (leftThumbPosition.Y < deadZone && leftThumbPosition.Y > -deadZone);
