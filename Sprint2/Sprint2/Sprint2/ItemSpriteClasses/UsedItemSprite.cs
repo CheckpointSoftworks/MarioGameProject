@@ -9,29 +9,25 @@ namespace Sprint2
 {
     public class UsedItemSprite:ISprite
     {
-        private Texture2D usedItemSprite;
+        private Texture2D usedItemSpriteSheet;
         private Vector2 location;
+        private AnimatedSprite usedItemSprite;
         private Rectangle collisionRectangle;
-        private int spriteSheetSpriteSize = 16;
         public UsedItemSprite(Vector2 location)
         {
-            usedItemSprite = ItemSpriteTextureStorage.CreateUsedItemSprite();
+            usedItemSpriteSheet = ItemSpriteTextureStorage.CreateUsedItemSprite();
             this.location = location;
+            usedItemSprite = new AnimatedSprite(usedItemSpriteSheet, 1, 1, location);
             collisionRectangle = new Rectangle(0,0,0,0);
         }
         public void Update()
         {
-            //No update needed for ground blocks
+            //No update needed. Only one frame of animation.
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRectangle = new Rectangle(spriteSheetSpriteSize*0, 0, spriteSheetSpriteSize, spriteSheetSpriteSize);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
-            
-            spriteBatch.Begin();
-            spriteBatch.Draw(usedItemSprite, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
+            usedItemSprite.Draw(spriteBatch, location, true);
         }
 
         public Rectangle returnCollisionRectangle()

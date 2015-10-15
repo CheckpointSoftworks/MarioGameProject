@@ -11,47 +11,24 @@ namespace Sprint2
     {
         private Texture2D boxCoinSpriteSheet;
         private Vector2 location;
-        private int currentFrame;
-        private int totalFrames;
-        private int rows;
-        private int columns;
+        private AnimatedSprite boxCoinSprite;
         private Rectangle collisionRectangle;
         public BoxCoinSprite(Vector2 location)
         {
             boxCoinSpriteSheet = ItemSpriteTextureStorage.CreateBoxCoinSprite();
             this.location = location;
-            currentFrame = 0;
-            totalFrames = 4;
-            rows = 1;
-            columns = 4;
-            int width = boxCoinSpriteSheet.Width / columns;
-            int height = boxCoinSpriteSheet.Height / rows;
-            collisionRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+            boxCoinSprite = new AnimatedSprite(boxCoinSpriteSheet, 1, 4, location);
+            collisionRectangle = boxCoinSprite.returnCollisionRectangle();
         }
 
         public void Update()
         {
-            currentFrame++;
-            if (currentFrame == totalFrames)
-            {
-                    currentFrame = 0;
-            }
-           
+            boxCoinSprite.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int width = boxCoinSpriteSheet.Width / columns;
-            int height = boxCoinSpriteSheet.Height / rows;
-            int row = (int)((float)currentFrame / (float)columns);
-            int column = currentFrame % columns;
-
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(boxCoinSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
+            boxCoinSprite.Draw(spriteBatch, location, true);
         }
 
         public Rectangle returnCollisionRectangle()

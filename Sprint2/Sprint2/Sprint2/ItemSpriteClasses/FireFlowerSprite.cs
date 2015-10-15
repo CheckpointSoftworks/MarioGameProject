@@ -11,47 +11,24 @@ namespace Sprint2
     {
         private Texture2D fireFlowerSpriteSheet;
         private Vector2 location;
-        private int currentFrame;
-        private int totalFrames;
-        private int rows;
-        private int columns;
+        private AnimatedSprite fireFlowerSprite;
         private Rectangle collisionRectangle;
-
         public FireFlowerSprite(Vector2 location)
         {
             fireFlowerSpriteSheet = ItemSpriteTextureStorage.CreateFireFlowerSprite();
             this.location = location;
-            currentFrame = 0;
-            totalFrames = 4;
-            rows = 1;
-            columns = 4;
-            int width = fireFlowerSpriteSheet.Width / columns;
-            int height = fireFlowerSpriteSheet.Height / rows;
-            collisionRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+            fireFlowerSprite = new AnimatedSprite(fireFlowerSpriteSheet, 1, 4, location);
+            collisionRectangle = fireFlowerSprite.returnCollisionRectangle();
         }
 
         public void Update()
         {
-            currentFrame++;
-            if (currentFrame == totalFrames)
-            {
-                currentFrame = 0;
-            }
+            fireFlowerSprite.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int frameWidth = fireFlowerSpriteSheet.Width / columns;
-            int frameHeight = fireFlowerSpriteSheet.Height / rows;
-            int row = (int)((float)currentFrame / (float)columns);
-            int column = currentFrame % columns;
-
-            Rectangle sourceRectangle = new Rectangle(frameWidth * column, frameHeight * row, frameWidth, frameHeight);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, frameWidth, frameHeight);
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(fireFlowerSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
+            fireFlowerSprite.Draw(spriteBatch, location, true);
         }
 
         public Rectangle returnCollisionRectangle()
