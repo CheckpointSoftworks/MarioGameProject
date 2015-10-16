@@ -18,15 +18,15 @@ namespace Sprint2
             this.mario = mario;
             if (mario.Fire)
             {
-                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireDuckSprite(), 1, 1, mario.Location);
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireDuckSprite(), 1, 1, mario.Location, 4);
             }
             else if (mario.Small)
             {
-                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1, mario.Location);
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1, mario.Location, 4);
             }
             else
             {
-                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(), 1, 1, mario.Location);
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(), 1, 1, mario.Location, 4);
             }
             duckSpeed = 1.5f;
             runSpeed = mario.FacingRight ? 1.5f : -1.5f;

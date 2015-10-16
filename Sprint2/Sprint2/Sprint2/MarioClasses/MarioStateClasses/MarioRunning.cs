@@ -17,9 +17,9 @@ namespace Sprint2
         public MarioRunning(Mario mario)
         {
             this.mario = mario;
-            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(), 1, 3, mario.Location);
-            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(), 1, 3, mario.Location);
-            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireRunningSprite(), 1, 3,mario.Location);
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(), 1, 3, mario.Location, 4);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(), 1, 3, mario.Location, 4);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireRunningSprite(), 1, 3,mario.Location, 4);
             runSpeed = 1.5f;
             runSpeed *= mario.FacingRight ? 1 : -1;
         }

@@ -17,7 +17,7 @@ namespace Sprint2
         {
             boxCoinSpriteSheet = ItemSpriteTextureStorage.CreateBoxCoinSprite();
             this.location = location;
-            boxCoinSprite = new AnimatedSprite(boxCoinSpriteSheet, 1, 4, location);
+            boxCoinSprite = new AnimatedSprite(boxCoinSpriteSheet, 1, 4, location, 3);
             collisionRectangle = boxCoinSprite.returnCollisionRectangle();
         }
 

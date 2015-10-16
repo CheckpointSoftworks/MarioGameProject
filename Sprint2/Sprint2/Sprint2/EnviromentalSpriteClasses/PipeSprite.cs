@@ -11,27 +11,23 @@ namespace Sprint2
     {
         private Texture2D pipeSpriteSheet;
         private Vector2 location;
+        private AnimatedSprite pipeSprite;
         private Rectangle collisionRectangle;
-        private int spriteSheetSpriteSize = 31;
         public PipeSprite(Vector2 location)
         {
             pipeSpriteSheet = MiscGameObjectTextureStorage.CreatePipeSprite();
             this.location = location;
-            collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
+            pipeSprite = new AnimatedSprite(pipeSpriteSheet, 1, 1, location, 1);
+            collisionRectangle = pipeSprite.returnCollisionRectangle();
         }
         public void Update()
         {
-            //No Update Logic Needed
+            //No update needed. Only one frame of animation.
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRectangle = new Rectangle(spriteSheetSpriteSize * 0, 0, spriteSheetSpriteSize, spriteSheetSpriteSize);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(pipeSpriteSheet, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
+            pipeSprite.Draw(spriteBatch, location, true);
         }
 
         public Rectangle returnCollisionRectangle()

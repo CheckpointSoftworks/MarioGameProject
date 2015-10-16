@@ -14,7 +14,7 @@ namespace Sprint2
         public MarioDying(Mario mario)
         {
             this.mario = mario;
-            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDyingSprite(), 1, 1, mario.Location);
+            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDyingSprite(), 1, 1, mario.Location, 4);
         }
         public void Update()
         {

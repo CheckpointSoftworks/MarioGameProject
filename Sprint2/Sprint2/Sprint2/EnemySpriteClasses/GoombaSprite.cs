@@ -17,7 +17,7 @@ namespace Sprint2
         {
             //Replace this
             this.location = location;   
-            AnimatedGoomba = new AnimatedSprite(goombaSpritesheet, 1, 2,location);
+            AnimatedGoomba = new AnimatedSprite(goombaSpritesheet, 1, 2, location, 8);
 
 
         }

@@ -17,7 +17,7 @@ namespace Sprint2
         {
             superMushroomSpriteSheet = ItemSpriteTextureStorage.CreateSuperMushroomSprite();
             this.location = location;
-            superMushroomSprite = new AnimatedSprite(superMushroomSpriteSheet, 1, 1, location);
+            superMushroomSprite = new AnimatedSprite(superMushroomSpriteSheet, 1, 1, location, 1);
             collisionRectangle = superMushroomSprite.returnCollisionRectangle();
         }
 

@@ -20,8 +20,10 @@ namespace Sprint2
         private Vector2 location;
         private Rectangle collisionRectangle;
         private Color color;
+        private int currentUpdate;
+        private int updatesPerFrame;
 
-        public AnimatedSprite(Texture2D texture, int rows, int columns, Vector2 location)
+        public AnimatedSprite(Texture2D texture, int rows, int columns, Vector2 location, int updatesPerFrame)
         {
             this.texture = texture;
             this.rows = rows;
@@ -35,20 +37,25 @@ namespace Sprint2
             this.location = location;
             color = Color.White;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
-
+            this.updatesPerFrame = updatesPerFrame;
         }
 
         public void Update()
         {
-            currentFrame++;
-            if (currentFrame == totalFrames)
+            currentUpdate++;
+            if (currentUpdate == updatesPerFrame)
             {
-                currentFrame = 0;
-                finished = true;
-            }
-            else if (finished)
-            {
-                finished = false;
+                currentUpdate = 0;
+                currentFrame++;
+                if (currentFrame == totalFrames)
+                {
+                    currentFrame = 0;
+                    finished = true;
+                }
+                else if (finished)
+                {
+                    finished = false;
+                }
             }
         }
         
