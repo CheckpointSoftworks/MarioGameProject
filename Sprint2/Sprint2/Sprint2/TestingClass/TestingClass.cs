@@ -27,15 +27,23 @@ namespace Sprint2
         {
             questionBlockTestBottom();
             questionBlockTestLeft();
+            questionBlockTestRight();
+            questionBlockTestTop();
 
             PlatformingBlockTestBottom();
             PlatformingBlockTestLeft();
+            PlatformingBlockTestRight();
+            PlatformingBlockTestTop();
 
             GroundBlockTestBottom();
             GroundBlockTestLeft();
+            GroundBlockTestRight();
+            GroundBlockTestTop();
 
             HiddenBlockTestBottom();
             HiddenBlockTestLeft();
+            HiddenBlockTestRight();
+            HiddenBlockTestTop();
 
             FireFlowerTest();
             CoinTest();
@@ -44,13 +52,18 @@ namespace Sprint2
             OneUpMushroomTest();
 
             GoombaTestLeft();
+            GoombaTestRight();
             GoombaTestTop();
+            GoombaTestBottom();
 
             KoopaTestLeft();
+            KoopaTestRight();
             KoopaTestTop();
+            KoopaTestBottom();
 
             PipeTestLeft();
             PipeTestTop();
+            PipeTestRight();
         }
 
         public void questionBlockTestBottom()
@@ -89,6 +102,46 @@ namespace Sprint2
             else
             {
                 Console.WriteLine("QuestionBlockTestLeft failed");
+            }
+        }
+
+        public void questionBlockTestRight()
+        {
+            bool passed = true;
+            BlockSpriteTextureStorage.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(410, 400);
+            IBlock question = new QuestionBlock(400, 400);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
+            {
+                Console.WriteLine("QuestionBlockTestRight Passed");
+            }
+            else
+            {
+                Console.WriteLine("QuestionBlockTestRight failed");
+            }
+        }
+
+        public void questionBlockTestTop()
+        {
+            bool passed = true;
+            BlockSpriteTextureStorage.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(400, 400);
+            IBlock question = new QuestionBlock(400, 415);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
+            {
+                Console.WriteLine("QuestionBlockTestTop Passed");
+            }
+            else
+            {
+                Console.WriteLine("QuestionBlockTestTop failed");
             }
         }
 
@@ -132,6 +185,46 @@ namespace Sprint2
             }
         }
 
+        public void PlatformingBlockTestRight()
+        {
+            bool passed = true;
+            BlockSpriteTextureStorage.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(410, 400);
+            IBlock platform = new PlatformingBlock(400, 400);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
+            {
+                Console.WriteLine("PlatformBlockRight Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("PlatformBlockRight failed");
+            }
+        }
+
+        public void PlatformingBlockTestTop()
+        {
+            bool passed = true;
+            BlockSpriteTextureStorage.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(400, 400);
+            IBlock platform = new PlatformingBlock(400, 415);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
+            {
+                Console.WriteLine("PlatformBlockTop Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("PlatformBlockTop failed");
+            }
+        }
+
         public void GroundBlockTestBottom()
         {
             bool passed = true;
@@ -172,6 +265,46 @@ namespace Sprint2
             }
         }
 
+        public void GroundBlockTestRight()
+        {
+            bool passed = true;
+            BlockSpriteTextureStorage.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(410, 400);
+            IBlock ground = new GroundBlock(400, 400);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
+            {
+                Console.WriteLine("GroundBlockRight Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("GroundBlockRight failed");
+            }
+        }
+
+        public void GroundBlockTestTop()
+        {
+            bool passed = true;
+            BlockSpriteTextureStorage.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(400, 400);
+            IBlock ground = new GroundBlock(400, 415);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
+            {
+                Console.WriteLine("GroundBlockTop Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("GroundBlockTop failed");
+            }
+        }
+
         public void HiddenBlockTestBottom()
         {
             bool passed = true;
@@ -209,6 +342,46 @@ namespace Sprint2
             else
             {
                 Console.WriteLine("HiddenBlockLeft failed");
+            }
+        }
+
+        public void HiddenBlockTestRight()
+        {
+            bool passed = true;
+            BlockSpriteTextureStorage.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(410, 400);
+            IBlock hidden = new HiddenBlock(400, 400);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
+            {
+                Console.WriteLine("HiddenBlockRight Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("HiddenBlockRight failed");
+            }
+        }
+
+        public void HiddenBlockTestTop()
+        {
+            bool passed = true;
+            BlockSpriteTextureStorage.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(400, 400);
+            IBlock hidden = new HiddenBlock(400, 415);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
+            {
+                Console.WriteLine("HiddenBlockTop Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("HiddenBlockTop failed");
             }
         }
 
@@ -390,6 +563,36 @@ namespace Sprint2
             }
         }
 
+        public void GoombaTestRight()
+        {
+            bool passed = true;
+            EnemySpriteFactory.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(410, 400);
+            IEnemyObject enemy = new Goomba(400, 400);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
+            {
+                passed = true;
+            }
+            else
+            {
+                passed = false;
+            }
+            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
+            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            if ((((Mario)mario).IsDying) && passed)
+            {
+                Console.WriteLine("Goomba Right Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("Goomba Right Test failed");
+            }
+        }
+
         public void GoombaTestTop()
         {
             bool passed = true;
@@ -417,6 +620,36 @@ namespace Sprint2
             else
             {
                 Console.WriteLine("Goomba Top Test failed");
+            }
+        }
+
+        public void GoombaTestBottom()
+        {
+            bool passed = true;
+            EnemySpriteFactory.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(400, 400);
+            IEnemyObject enemy = new Goomba(400, 385);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
+            {
+                passed = true;
+            }
+            else
+            {
+                passed = false;
+            }
+            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
+            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            if ((((Mario)mario).IsDying) && passed)
+            {
+                Console.WriteLine("Goomba Bottom Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("Goomba Bottom Test failed");
             }
         }
 
@@ -450,6 +683,36 @@ namespace Sprint2
             }
         }
 
+        public void KoopaTestRight()
+        {
+            bool passed = true;
+            EnemySpriteFactory.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(410, 400);
+            IEnemyObject enemy = new Koopa(400, 400);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
+            {
+                passed = true;
+            }
+            else
+            {
+                passed = false;
+            }
+            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
+            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            if ((((Mario)mario).IsDying) && passed)
+            {
+                Console.WriteLine("Koopa Right Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("Koopa Right Test failed");
+            }
+        }
+
         public void KoopaTestTop()
         {
             bool passed = true;
@@ -477,6 +740,36 @@ namespace Sprint2
             else
             {
                 Console.WriteLine("Koopa Top Test failed");
+            }
+        }
+
+        public void KoopaTestBottom()
+        {
+            bool passed = true;
+            EnemySpriteFactory.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(400, 400);
+            IEnemyObject enemy = new Koopa(400, 385);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
+            {
+                passed = true;
+            }
+            else
+            {
+                passed = false;
+            }
+            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
+            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            if ((((Mario)mario).IsDying) && passed)
+            {
+                Console.WriteLine("Koopa Bottom Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("Koopa Bottom Test failed");
             }
         }
 
@@ -517,6 +810,25 @@ namespace Sprint2
             else
             {
                 Console.WriteLine("PipeLeft failed");
+            }
+        }
+        public void PipeTestRight()
+        {
+            bool passed = true;
+            BlockSpriteTextureStorage.Load(game.Content);
+            MarioSpriteFactory.Load(game.Content);
+            IPlayer mario = new Mario(410, 400);
+            IEnviromental pipe = new Pipe(400, 400);
+            IMarioState state = ((Mario)mario).State;
+            ICollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), pipe.returnCollisionRectangle());
+            if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
+            {
+                Console.WriteLine("PipeRight Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("PipeRight failed");
             }
         }
 
