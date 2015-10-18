@@ -1,0 +1,9 @@
+﻿Author of the code review:						Matt Mohr
+Date of the code review: 						10/18/15
+Sprint number: 									3
+Name of the .cs file being reviewed: 			KeyNotPressed
+Author of the .cs file being reviewed: 			Johnathan
+Specific comments on code quality:				Has solid cohesion, good to see that the originally complicated and dense boolean call has been methodized. Unfortunately tight coupling with references to game and controller, but that has to happen. 
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change
+- This should probably be folded into KeyboardController. This would reduce coupling and tighten the cohesion of both. Additionally, there would be fewer calls to the gamepad and keyboard's status. 
+- This will also need to change because the actual SMB game has momentum, where velocity determines state instead of input. In that sense, this class will have to be changed, so if done well, this class might not even be necessary. 
