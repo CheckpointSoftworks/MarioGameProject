@@ -86,10 +86,6 @@ namespace Sprint2
 
         protected override void Update(GameTime gameTime)
         {
-
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
             keyboard.Update();
             gamepad.Update();
             keyboardNotPressed.Execute();
@@ -111,7 +107,7 @@ namespace Sprint2
         {
             IMarioState state = ((Mario)mario).State;
             ((Mario)mario).State.Still();
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side;
             MarioBlockCollisionHandler blockHandler = new MarioBlockCollisionHandler();
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
@@ -122,26 +118,26 @@ namespace Sprint2
                 if (block.checkForCollisionTestFlag())
                 {
                     side =collisionDetector.getCollision(mario.returnCollisionRectangle(), block.returnCollisionRectange());
-                    blockHandler.HandleCollision((Mario)mario, block, side);
+                    blockHandler.handleCollision((Mario)mario, block, side);
                 }
             }
             foreach (IEnemyObject enemy in loader.enemiesList)
             {
                 side=collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
-                enemyHandler.HandleCollision((Mario)mario, enemy, side);
+                enemyHandler.handleCollision((Mario)mario, enemy, side);
             }
             foreach (IItemObjects item in loader.staticObjectsList)
             {
                 if (item.checkForCollisionTestFlag())
                 {
                     side=collisionDetector.getCollision(mario.returnCollisionRectangle(), item.returnCollisionRectangle());
-                    itemHandler.HandleCollision((Mario)mario, item, side);
+                    itemHandler.handleCollision((Mario)mario, item, side);
                 }
             }
             foreach (IEnviromental enviromental in loader.enviromentalObjectsList)
             {
                 side=collisionDetector.getCollision(mario.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
-                pipeHandler.HandleCollision((Mario)mario, enviromental,side);
+                pipeHandler.handleCollision((Mario)mario, enviromental,side);
             }
             ((Mario)mario).State = state;
         }

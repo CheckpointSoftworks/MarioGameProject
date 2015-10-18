@@ -13,16 +13,16 @@ namespace Sprint2
 
         }
 
-        public void HandleCollision(Mario mario, IEnviromental enviromental, ICollision side)
+        public void handleCollision(Mario mario, IEnviromental enviromental, ICollision side)
         {
 
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
-                HandleMovement(mario, enviromental, side);
+                handleMarioMovement(mario, enviromental, side);
             }
 
         }
-        private void HandleMovement(Mario mario, IEnviromental enviromental, ICollision side)
+        private void handleMarioMovement(Mario mario, IEnviromental enviromental, ICollision side)
         {
             Rectangle enviromentalRectangle = enviromental.returnCollisionRectangle();
             Rectangle marioRectangle = mario.returnCollisionRectangle();

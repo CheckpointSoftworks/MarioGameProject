@@ -99,7 +99,6 @@
     <Compile Include="BlockSpriteClasses\HiddenBlockSprite.cs" />
     <Compile Include="Interfaces\IBlock.cs" />
     <Compile Include="Interfaces\ICollision.cs" />
-    <Compile Include="Interfaces\ICollisionDetector.cs" />
     <Compile Include="Interfaces\IEnemyObject.cs" />
     <Compile Include="Interfaces\IEnviromental.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
