@@ -74,7 +74,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock question = new QuestionBlock(400, 385);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
@@ -93,7 +93,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IBlock question = new QuestionBlock(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -113,7 +113,7 @@ namespace Sprint2
             IPlayer mario = new Mario(410, 400);
             IBlock question = new QuestionBlock(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
             {
@@ -133,7 +133,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock question = new QuestionBlock(400, 415);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
             {
@@ -153,7 +153,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock platform = new PlatformingBlock(400, 385);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
@@ -173,7 +173,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IBlock platform = new PlatformingBlock(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -193,7 +193,7 @@ namespace Sprint2
             IPlayer mario = new Mario(410, 400);
             IBlock platform = new PlatformingBlock(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
             {
@@ -213,7 +213,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock platform = new PlatformingBlock(400, 415);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
             {
@@ -233,7 +233,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock ground = new GroundBlock(400, 385);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
@@ -253,7 +253,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IBlock ground = new GroundBlock(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -273,7 +273,7 @@ namespace Sprint2
             IPlayer mario = new Mario(410, 400);
             IBlock ground = new GroundBlock(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
             {
@@ -293,7 +293,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock ground = new GroundBlock(400, 415);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
             {
@@ -313,7 +313,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock hidden = new HiddenBlock(400, 385);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
@@ -333,7 +333,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IBlock hidden = new HiddenBlock(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -353,7 +353,7 @@ namespace Sprint2
             IPlayer mario = new Mario(410, 400);
             IBlock hidden = new HiddenBlock(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
             {
@@ -373,7 +373,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock hidden = new HiddenBlock(400, 415);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
             {
@@ -393,7 +393,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IItemObjects fireFlower = new FireFlower(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), fireFlower.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -404,7 +404,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            itemHandler.HandleCollision((Mario)mario, fireFlower, side);
+            itemHandler.handleCollision((Mario)mario, fireFlower, side);
             if (((Mario)mario).Fire && passed)
             {
                 Console.WriteLine("FireFlower Test Passed");
@@ -422,7 +422,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IItemObjects item = new SuperMushroom(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), item.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -433,7 +433,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            itemHandler.HandleCollision((Mario)mario, item, side);
+            itemHandler.handleCollision((Mario)mario, item, side);
             if ((!((Mario)mario).Small) && passed)
             {
                 Console.WriteLine("SuperMushroom Test Passed");
@@ -452,7 +452,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IItemObjects item = new OneUpMushroom(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), item.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -463,7 +463,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            itemHandler.HandleCollision((Mario)mario, item, side);
+            itemHandler.handleCollision((Mario)mario, item, side);
             if (passed)
             {
                 Console.WriteLine("OneUpMushroom Test Passed");
@@ -482,7 +482,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IItemObjects coin = new BoxCoin(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), coin.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -493,7 +493,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            itemHandler.HandleCollision((Mario)mario, coin, side);
+            itemHandler.handleCollision((Mario)mario, coin, side);
             if (passed)
             {
                 Console.WriteLine("Coin Test Passed");
@@ -512,7 +512,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IItemObjects star = new SuperStar(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), star.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -523,7 +523,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            itemHandler.HandleCollision((Mario)mario, star, side);
+            itemHandler.handleCollision((Mario)mario, star, side);
             if (((Mario)mario).Star && passed)
             {
                 Console.WriteLine("Star Test Passed");
@@ -541,7 +541,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IEnemyObject enemy = new Goomba(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -552,7 +552,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            enemyHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Goomba Left Test Passed");
@@ -571,7 +571,7 @@ namespace Sprint2
             IPlayer mario = new Mario(410, 400);
             IEnemyObject enemy = new Goomba(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
             {
@@ -582,7 +582,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            enemyHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Goomba Right Test Passed");
@@ -601,7 +601,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IEnemyObject enemy = new Goomba(400, 415);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
             {
@@ -612,7 +612,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            enemyHandler.handleCollision((Mario)mario, enemy, side);
             if (passed)
             {
                 Console.WriteLine("Goomba Top Test Passed");
@@ -631,7 +631,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IEnemyObject enemy = new Goomba(400, 385);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
@@ -642,7 +642,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            enemyHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Goomba Bottom Test Passed");
@@ -661,7 +661,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IEnemyObject enemy = new Koopa(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -672,7 +672,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            enemyHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Koopa Left Test Passed");
@@ -691,7 +691,7 @@ namespace Sprint2
             IPlayer mario = new Mario(410, 400);
             IEnemyObject enemy = new Koopa(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
             {
@@ -702,7 +702,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            enemyHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Koopa Right Test Passed");
@@ -721,7 +721,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IEnemyObject enemy = new Koopa(400, 415);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
             {
@@ -732,7 +732,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            enemyHandler.handleCollision((Mario)mario, enemy, side);
             if (passed)
             {
                 Console.WriteLine("Koopa Top Test Passed");
@@ -751,7 +751,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IEnemyObject enemy = new Koopa(400, 385);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
@@ -762,7 +762,7 @@ namespace Sprint2
                 passed = false;
             }
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.HandleCollision((Mario)mario, enemy, side);
+            enemyHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Koopa Bottom Test Passed");
@@ -781,7 +781,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IEnviromental pipe = new Pipe(400, 415);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), pipe.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
             {
@@ -801,7 +801,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IEnviromental pipe = new Pipe(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), pipe.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
@@ -820,7 +820,7 @@ namespace Sprint2
             IPlayer mario = new Mario(410, 400);
             IEnviromental pipe = new Pipe(400, 400);
             IMarioState state = ((Mario)mario).State;
-            ICollisionDetector collisionDetector = new CollisionDetector();
+            CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), pipe.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
             {

@@ -14,22 +14,22 @@ namespace Sprint2
 
         }
 
-        public void HandleCollision(Mario mario, IBlock block, ICollision side)
+        public void handleCollision(Mario mario, IBlock block, ICollision side)
         {
             
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
-                HandleMovement(mario, block, side);
+                handleMarioMovement(mario, block, side);
             }
 
             //Only side that matters is from below and None
             if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
-                chooseCollisionCommand(mario, block);
+                executeCollisionCommand(mario, block);
             }
         }
 
-        private void chooseCollisionCommand(Mario mario, IBlock block)
+        private void executeCollisionCommand(Mario mario, IBlock block)
         {
             BlockType type = block.returnBlockType();
             ICommand command;
@@ -51,7 +51,7 @@ namespace Sprint2
 
         }
 
-        private void HandleMovement(Mario mario, IBlock block, ICollision side)
+        private void handleMarioMovement(Mario mario, IBlock block, ICollision side)
         {
             Rectangle blockRectangle = block.returnCollisionRectange();
             Rectangle marioRectangle = mario.returnCollisionRectangle();

@@ -13,12 +13,12 @@ namespace Sprint2
         {
 
         }
-        public void HandleCollision(Mario mario, IItemObjects item, ICollision side)
+        public void handleCollision(Mario mario, IItemObjects item, ICollision side)
         {
             ICommand command;
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
-                HandleMovement(mario, item, side);
+                handleMarioMovement(mario, item, side);
                 command = chooseCorrectCommand(item,mario);
                 command.Execute();
             }
@@ -48,7 +48,7 @@ namespace Sprint2
             }
             return command;
         }
-        private void HandleMovement(Mario mario, IItemObjects item, ICollision side)
+        private void handleMarioMovement(Mario mario, IItemObjects item, ICollision side)
         {
             Rectangle itemRectangle = item.returnCollisionRectangle();
             Rectangle marioRectangle = mario.returnCollisionRectangle();

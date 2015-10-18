@@ -11,11 +11,13 @@ namespace Sprint2
     {
         private ISprite goombaSprite;
         private Vector2 location;
+        private Rectangle collisionRectangle;
 
         public Goomba(int locX, int locY)
         {
             location = new Vector2(locX, locY);
             goombaSprite = EnemySpriteFactory.CreateGoombaSprite(location);
+            collisionRectangle = goombaSprite.returnCollisionRectangle();
         }
         public void Update()
         {
@@ -29,12 +31,13 @@ namespace Sprint2
 
         public Rectangle returnCollisionRectangle()
         {
-            return goombaSprite.returnCollisionRectangle();
+            return collisionRectangle;
         }
 
         public void TakeDamage()
         {
             goombaSprite = EnemySpriteFactory.CreateGoombaDamangedSprite(location);
+            collisionRectangle = new Rectangle(0, 0, 0, 0);
         }
     }
 }

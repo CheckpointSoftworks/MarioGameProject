@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class CollisionDetector:ICollisionDetector
+    public class CollisionDetector
     {
         private ICollision side;
         public CollisionDetector()
