@@ -29,7 +29,15 @@ namespace Sprint2
             enviromentalObjectsList = new ArrayList();
         }
         public void Update(IPlayer mario)
-        {
+        {            
+            foreach (IItemObjects item in staticObjectsList)
+            {
+                item.Update();
+            }
+            foreach (IEnemyObject enemy in enemiesList)
+            {
+                enemy.Update();
+            }
             handleCollision((Mario)mario);
         }
 

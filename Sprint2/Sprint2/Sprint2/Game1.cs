@@ -93,14 +93,6 @@ namespace Sprint2
             gamepad.Update();
             keyboardNotPressed.Execute();
             mario.Update();
-            foreach (IItemObjects item in levelStore.staticObjectsList)
-            {
-                item.Update();
-            }
-            foreach (IEnemyObject enemy in levelStore.enemiesList)
-            {
-                enemy.Update();
-            }
             levelStore.Update(mario);
             base.Update(gameTime);
         }
