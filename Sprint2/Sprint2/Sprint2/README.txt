@@ -22,6 +22,13 @@ Notes:
 	needed to change when loaded so it wouldn’t make sense to have them as read only properties
 	which the analyzer wants collections to be. 
 
+	The analyzer said to mark assemblies with CLSCompliantAttributes.  The team was unsure what this
+	meant or how to comply with the analyzer on this so the change was not made.
+
+	The analyzer said not to dispose of objects multiple times when refering to the levelfile in levelLoader.
+	The team did not make this change becuase the team did not believe that the change needed to be made.
+	This is becuase of the functionality of the levelLoader class.
+
 Controls:
 Mario:
 	up/w or left-thumbstick up= to move Mario up.
