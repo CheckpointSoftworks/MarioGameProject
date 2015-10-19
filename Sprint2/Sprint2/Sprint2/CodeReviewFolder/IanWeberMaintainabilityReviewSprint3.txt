@@ -1,0 +1,13 @@
+Author of the code review:						Ian Weber
+Date of the code review: 						10/18/15
+Sprint number: 									3
+Name of the .cs file being reviewed: 			Mario
+Author of the .cs file being reviewed: 			Matthew Mohr
+Number of minutes taken to complete the review: 20
+Description: Still has the public and private booleans representing Mario's state.  This is fine for now because we have the additional classes in the
+MarioStateClasses folder for "helping" the Mario class achieve it's different state changes.  Not much has changed with the class but I took this time 
+re-read the MarioStateClasses and think about how we can tidy them up further and reduce coupling with the Mario class and vice-versa.  The state
+transition errors from before appear to be fixed upon testing, they must have been hard to catch because I didn't even realize them occurring
+for sprint 2 and certainly didn't spot them in the code.  One last thing is star still needs to be split into a concrete subclass, but I believe
+we agreed to keep things as is for sprint3.   All said, Mario is still one of our more readable and easily maintainable classes.  For future
+reviews I'll make sure to review the whole of the Mario state-related classes and not just Mario.
