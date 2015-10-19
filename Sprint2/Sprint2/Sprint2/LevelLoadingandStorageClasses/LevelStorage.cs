@@ -15,7 +15,7 @@ namespace Sprint2
 {
     public class LevelStorage
     {
-        private LevelLoader loader;
+        public IPlayer player;
         public ArrayList staticObjectsList;
         public ArrayList enemiesList;
         public ArrayList blocksList;
@@ -23,21 +23,14 @@ namespace Sprint2
 
         public LevelStorage()
         {
-            loader = new LevelLoader("Level.xml");
             staticObjectsList = new ArrayList();
             enemiesList = new ArrayList();
             blocksList = new ArrayList();
             enviromentalObjectsList = new ArrayList();
         }
-        public void loadLevel(IPlayer player)
+        public void Update(IPlayer mario)
         {
-
-            loader.LoadLevel();
-            player = loader.player;
-        }
-        public void Update(Mario mario)
-        {
-            handleCollision(mario);
+            handleCollision((Mario)mario);
         }
 
         private void handleCollision(Mario mario)

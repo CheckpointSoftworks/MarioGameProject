@@ -21,10 +21,12 @@ namespace Sprint2
         public IController keyboard;
         public IController gamepad;
         public IPlayer mario;
+
+        private ICommand keyboardNotPressed;
         private LevelLoader loader;
+        private LevelStorage levelStore;
         private Texture2D background;
         private Rectangle mainframe;
-        public ICommand keyboardNotPressed;
         private TestingClass tester;
 
         public Game1()
@@ -41,6 +43,7 @@ namespace Sprint2
             keyboardNotPressed = new KeyNotPressed(this); 
             loader= new LevelLoader("Level.xml");
             mainframe = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+            levelStore = new LevelStorage();
 
             base.Initialize();
             tester.runTests();
@@ -58,9 +61,9 @@ namespace Sprint2
             MarioSpriteFactory.Load(this.Content);
             background = Content.Load<Texture2D>("Background");
 
-            loader.LoadLevel();
+            loader.LoadLevel(levelStore);
             LoadKeyBoardCommands();
-            mario = loader.player;
+            mario = levelStore.player;
         }
 
         private void LoadKeyBoardCommands()
@@ -90,57 +93,19 @@ namespace Sprint2
             gamepad.Update();
             keyboardNotPressed.Execute();
             mario.Update();
-            handleCollision();
-            foreach (IItemObjects item in loader.staticObjectsList)
+            foreach (IItemObjects item in levelStore.staticObjectsList)
             {
                 item.Update();
             }
-            foreach (IEnemyObject enemy in loader.enemiesList)
+            foreach (IEnemyObject enemy in levelStore.enemiesList)
             {
                 enemy.Update();
             }
-
+            levelStore.Update(mario);
             base.Update(gameTime);
         }
 
-        private void handleCollision()
-        {
-            IMarioState state = ((Mario)mario).State;
-            ((Mario)mario).State.Still();
-            CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side;
-            MarioBlockCollisionHandler blockHandler = new MarioBlockCollisionHandler();
-            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            MarioPipeCollisionHandler pipeHandler = new MarioPipeCollisionHandler();
-            foreach (IBlock block in loader.blocksList)
-            {
-                if (block.checkForCollisionTestFlag())
-                {
-                    side =collisionDetector.getCollision(mario.returnCollisionRectangle(), block.returnCollisionRectange());
-                    blockHandler.handleCollision((Mario)mario, block, side);
-                }
-            }
-            foreach (IEnemyObject enemy in loader.enemiesList)
-            {
-                side=collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
-                enemyHandler.handleCollision((Mario)mario, enemy, side);
-            }
-            foreach (IItemObjects item in loader.staticObjectsList)
-            {
-                if (item.checkForCollisionTestFlag())
-                {
-                    side=collisionDetector.getCollision(mario.returnCollisionRectangle(), item.returnCollisionRectangle());
-                    itemHandler.handleCollision((Mario)mario, item, side);
-                }
-            }
-            foreach (IEnviromental enviromental in loader.enviromentalObjectsList)
-            {
-                side=collisionDetector.getCollision(mario.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
-                pipeHandler.handleCollision((Mario)mario, enviromental,side);
-            }
-            ((Mario)mario).State = state;
-        }
+       
 
         protected override void Draw(GameTime gameTime)
         {
@@ -152,19 +117,19 @@ namespace Sprint2
 
             mario.Draw(spriteBatch);
 
-            foreach (IItemObjects item in loader.staticObjectsList)
+            foreach (IItemObjects item in levelStore.staticObjectsList)
             {
                 item.Draw(spriteBatch);
             }
-            foreach (IEnemyObject enemy in loader.enemiesList)
+            foreach (IEnemyObject enemy in levelStore.enemiesList)
             {
                 enemy.Draw(spriteBatch);
             }
-            foreach (IBlock block in loader.blocksList)
+            foreach (IBlock block in levelStore.blocksList)
             {
                 block.Draw(spriteBatch);
             }
-            foreach (IEnviromental enviromental in loader.enviromentalObjectsList)
+            foreach (IEnviromental enviromental in levelStore.enviromentalObjectsList)
             {
                 enviromental.Draw(spriteBatch);
             }

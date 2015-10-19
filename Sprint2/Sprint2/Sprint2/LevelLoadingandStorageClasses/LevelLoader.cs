@@ -17,22 +17,13 @@ namespace Sprint2
 {
     public class LevelLoader
     {
-        public IPlayer player;
-        public ArrayList staticObjectsList;
-        public ArrayList enemiesList;
-        public ArrayList blocksList;
-        public ArrayList enviromentalObjectsList;
 
         public string LevelName { get; set; }
         public LevelLoader(string levelname)
         {
             this.LevelName = levelname;
-            staticObjectsList = new ArrayList();
-            enemiesList = new ArrayList();
-            blocksList = new ArrayList();
-            enviromentalObjectsList = new ArrayList();
         }
-        public void LoadLevel()
+        public void LoadLevel(LevelStorage storage)
         {
             using (var levelfile = TitleContainer.OpenStream(@"Content\" + LevelName))
             {
@@ -58,7 +49,7 @@ namespace Sprint2
 
                             IBlock GameObject;
                             GameObject = new BrickBlock(XVal, YVal);
-                            blocksList.Add(GameObject);
+                            storage.blocksList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType.Trim();
@@ -79,7 +70,7 @@ namespace Sprint2
 
                             IItemObjects GameObject;
                             GameObject = new BoxCoin(XVal, YVal);
-                            staticObjectsList.Add(GameObject);
+                            storage.staticObjectsList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -100,7 +91,7 @@ namespace Sprint2
 
                             IItemObjects GameObject;
                             GameObject = new FireFlower(XVal, YVal);
-                            staticObjectsList.Add(GameObject);
+                            storage.staticObjectsList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -121,7 +112,7 @@ namespace Sprint2
 
                             IEnemyObject GameObject;
                             GameObject = new Goomba(XVal, YVal);
-                            enemiesList.Add(GameObject);
+                            storage.enemiesList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -143,7 +134,7 @@ namespace Sprint2
 
                             IBlock GameObject;
                             GameObject = new GroundBlock(XVal, YVal);
-                            blocksList.Add(GameObject);
+                            storage.blocksList.Add(GameObject);
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
                         } 
@@ -163,7 +154,7 @@ namespace Sprint2
 
                             IBlock GameObject;
                             GameObject = new HiddenBlock(XVal, YVal);
-                            blocksList.Add(GameObject);
+                            storage.blocksList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -184,7 +175,7 @@ namespace Sprint2
 
                             IEnemyObject GameObject;
                             GameObject = new Koopa(XVal, YVal);
-                            enemiesList.Add(GameObject);
+                            storage.enemiesList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -205,7 +196,7 @@ namespace Sprint2
 
                             IItemObjects GameObject;
                             GameObject = new OneUpMushroom(XVal, YVal);
-                            staticObjectsList.Add(GameObject);
+                            storage.staticObjectsList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -226,7 +217,7 @@ namespace Sprint2
 
                             IEnviromental GameObject;
                             GameObject = new Pipe(XVal, YVal);
-                            enviromentalObjectsList.Add(GameObject);
+                            storage.enviromentalObjectsList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -247,7 +238,7 @@ namespace Sprint2
 
                             IBlock GameObject;
                             GameObject = new PlatformingBlock(XVal, YVal);
-                            blocksList.Add(GameObject);
+                            storage.blocksList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -268,7 +259,7 @@ namespace Sprint2
 
                             IBlock GameObject;
                             GameObject = new QuestionBlock(XVal, YVal);
-                            blocksList.Add(GameObject);
+                            storage.blocksList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -289,7 +280,7 @@ namespace Sprint2
 
                             IItemObjects GameObject;
                             GameObject = new SuperMushroom(XVal, YVal);
-                            staticObjectsList.Add(GameObject);
+                            storage.staticObjectsList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -310,7 +301,7 @@ namespace Sprint2
 
                             IItemObjects GameObject;
                             GameObject = new SuperStar(XVal, YVal);
-                            staticObjectsList.Add(GameObject);
+                            storage.staticObjectsList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -331,7 +322,7 @@ namespace Sprint2
 
                             IPlayer GameObject;
                             GameObject = new Mario(XVal, YVal);
-                            player = GameObject;
+                            storage.player = GameObject;
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();

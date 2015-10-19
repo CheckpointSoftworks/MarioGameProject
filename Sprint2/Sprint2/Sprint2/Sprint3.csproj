@@ -73,7 +73,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LevelStorage.cs" />
+    <Compile Include="LevelLoadingandStorageClasses\LevelStorage.cs" />
     <Compile Include="SpriteHelperClasses\AnimatedSprite.cs" />
     <Compile Include="CollisionCommands\BlockCollisionCommands\BigMarioBrickBlockCollisionCommand.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\BlockSpriteTextureStorage.cs" />
@@ -121,7 +121,7 @@
     <Compile Include="KeyBoardCommands\MovementCommands\LeftCommand.cs" />
     <Compile Include="KeyBoardCommands\MovementCommands\LeftDownCommand.cs" />
     <Compile Include="KeyBoardCommands\MovementCommands\LeftUpCommand.cs" />
-    <Compile Include="LevelLoadingClasses\LevelLoader.cs" />
+    <Compile Include="LevelLoadingandStorageClasses\LevelLoader.cs" />
     <Compile Include="MarioClasses\Mario\Mario.cs" />
     <Compile Include="CollisionHandlerClasses\MarioBlockCollisionHandler.cs" />
     <Compile Include="MarioClasses\MarioStateClasses\MarioChangeDirection.cs" />
