@@ -35,18 +35,6 @@ namespace Sprint2
                 small = value;
             }
         }
-        private bool falling;
-        public bool Falling
-        {
-            get
-            {
-                return falling;
-            }
-            set
-            {
-                falling = value;
-            }
-        }
         private bool fire;
         public bool Fire
         {
@@ -76,23 +64,8 @@ namespace Sprint2
         {
             get
             {
+                //return state 
                 return isDying;
-            }
-            set
-            {
-                isDying = value;
-            }
-        }
-        private bool isStill;
-        public bool IsStill
-        {
-            get
-            {
-                return isStill;
-            }
-            set
-            {
-                isStill = value;
             }
         }
         private Vector2 location;

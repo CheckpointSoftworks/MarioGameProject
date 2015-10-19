@@ -20,7 +20,6 @@ namespace Sprint2
         {
             if (!((Mario)mario).Star)
             {
-                ((Mario)mario).IsDying = true;
                 ((Mario)mario).State.Dying();
             }
             else
