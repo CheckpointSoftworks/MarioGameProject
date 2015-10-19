@@ -56,15 +56,14 @@ namespace Sprint2
         {
             if (MovementKeysReleased() && LeftStickInDeadzone())
             {
-                /*if (!((Mario)game.mario).IsDying)
+                if (!((Mario)game.mario).IsDying)
                 {
                     ((Mario)game.mario).State.Still();
                 }
                 else if(!((Mario)game.mario).Star)
                 {
                     ((Mario)game.mario).State.Dying();
-                }*/
-                ((Mario)game.mario).State.Still();
+                }
             }
         }
     }

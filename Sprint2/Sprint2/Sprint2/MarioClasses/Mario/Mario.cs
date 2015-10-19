@@ -64,8 +64,11 @@ namespace Sprint2
         {
             get
             {
-                //return state 
                 return isDying;
+            }
+            set
+            {
+                isDying = value;
             }
         }
         private Vector2 location;

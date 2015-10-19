@@ -14,6 +14,7 @@ namespace Sprint2
         public MarioDying(Mario mario)
         {
             this.mario = mario;
+            mario.IsDying = true;
             sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDyingSprite(), 1, 1, mario.Location, 4);
         }
         public void Update()
@@ -26,7 +27,7 @@ namespace Sprint2
         }
         public void Still()
         {
-            mario.State = new MarioStill(mario);
+           // mario.State = new MarioStill(mario);
         }
         public void Running()
         {
