@@ -17,9 +17,16 @@ namespace Sprint2
         public void handleCollision(Mario mario, IBlock block, ICollision side)
         {
             
-            if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
+            if (!(side.returnCollisionSide().Equals(CollisionSide.None))&&!(block.returnBlockType().Equals(BlockType.Hidden)))
             {
                 handleMarioMovement(mario, block, side);
+            }
+            else if (block.returnBlockType().Equals(BlockType.Hidden))
+            {
+                if (!(side.returnCollisionSide().Equals(CollisionSide.None))&&((HiddenBlock)block).checkForHit())
+                {
+                    handleMarioMovement(mario, block, side);
+                }
             }
 
             //Only side that matters is from below and None
