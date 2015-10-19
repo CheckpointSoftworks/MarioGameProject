@@ -18,5 +18,8 @@ namespace Sprint2
         Rectangle returnCollisionRectange();
 
         bool checkForCollisionTestFlag();
+
+        void removeFromTestingCollision();
+        bool checkForSpecalizedSideCollision();
     }
 }

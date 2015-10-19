@@ -72,7 +72,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(400, 400);
-            IBlock question = new QuestionBlock(400, 385);
+            IBlock question = new Blocks(400, 385,BlockType.Question);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
@@ -91,7 +91,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(390, 400);
-            IBlock question = new QuestionBlock(400, 400);
+            IBlock question = new Blocks(400, 400,BlockType.Question);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
@@ -111,7 +111,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(410, 400);
-            IBlock question = new QuestionBlock(400, 400);
+            IBlock question = new Blocks(400, 400,BlockType.Question);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
@@ -131,7 +131,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(400, 400);
-            IBlock question = new QuestionBlock(400, 415);
+            IBlock question = new Blocks(400, 415,BlockType.Question);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
@@ -151,7 +151,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(400, 400);
-            IBlock platform = new PlatformingBlock(400, 385);
+            IBlock platform = new Blocks(400, 385,BlockType.Platforming);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
@@ -171,7 +171,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(390, 400);
-            IBlock platform = new PlatformingBlock(400, 400);
+            IBlock platform = new Blocks(400, 400,BlockType.Platforming);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
@@ -191,7 +191,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(410, 400);
-            IBlock platform = new PlatformingBlock(400, 400);
+            IBlock platform = new Blocks(400, 400,BlockType.Platforming);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
@@ -211,7 +211,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(400, 400);
-            IBlock platform = new PlatformingBlock(400, 415);
+            IBlock platform = new Blocks(400, 415,BlockType.Platforming);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
@@ -231,7 +231,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(400, 400);
-            IBlock ground = new GroundBlock(400, 385);
+            IBlock ground = new Blocks(400, 385,BlockType.Ground);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
@@ -251,7 +251,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(390, 400);
-            IBlock ground = new GroundBlock(400, 400);
+            IBlock ground = new Blocks(400, 400,BlockType.Ground);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
@@ -271,7 +271,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(410, 400);
-            IBlock ground = new GroundBlock(400, 400);
+            IBlock ground = new Blocks(400, 400,BlockType.Ground);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
@@ -291,7 +291,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(400, 400);
-            IBlock ground = new GroundBlock(400, 415);
+            IBlock ground = new Blocks(400, 415,BlockType.Ground);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
@@ -311,7 +311,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(400, 400);
-            IBlock hidden = new HiddenBlock(400, 385);
+            IBlock hidden = new Blocks(400, 385,BlockType.Hidden);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
@@ -331,7 +331,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(390, 400);
-            IBlock hidden = new HiddenBlock(400, 400);
+            IBlock hidden = new Blocks(400, 400,BlockType.Hidden);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
@@ -351,7 +351,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(410, 400);
-            IBlock hidden = new HiddenBlock(400, 400);
+            IBlock hidden = new Blocks(400, 400,BlockType.Hidden);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
@@ -371,7 +371,7 @@ namespace Sprint2
             BlockSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
             IPlayer mario = new Mario(400, 400);
-            IBlock hidden = new HiddenBlock(400, 415);
+            IBlock hidden = new Blocks(400, 415,BlockType.Hidden);
             IMarioState state = ((Mario)mario).State;
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());

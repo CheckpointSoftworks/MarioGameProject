@@ -48,7 +48,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
 
                             IBlock GameObject;
-                            GameObject = new BrickBlock(XVal, YVal);
+                            GameObject = new Blocks(XVal, YVal,BlockType.Brick);
                             storage.blocksList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
@@ -133,7 +133,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
 
                             IBlock GameObject;
-                            GameObject = new GroundBlock(XVal, YVal);
+                            GameObject = new Blocks(XVal, YVal,BlockType.Ground);
                             storage.blocksList.Add(GameObject);
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -153,7 +153,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
 
                             IBlock GameObject;
-                            GameObject = new HiddenBlock(XVal, YVal);
+                            GameObject = new Blocks(XVal, YVal,BlockType.Hidden);
                             storage.blocksList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
@@ -237,7 +237,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
 
                             IBlock GameObject;
-                            GameObject = new PlatformingBlock(XVal, YVal);
+                            GameObject = new Blocks(XVal, YVal,BlockType.Platforming);
                             storage.blocksList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
@@ -258,7 +258,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
 
                             IBlock GameObject;
-                            GameObject = new QuestionBlock(XVal, YVal);
+                            GameObject = new Blocks(XVal,YVal,BlockType.Question);
                             storage.blocksList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
