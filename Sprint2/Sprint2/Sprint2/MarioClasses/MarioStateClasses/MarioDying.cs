@@ -27,7 +27,7 @@ namespace Sprint2
         }
         public void Still()
         {
-           // mario.State = new MarioStill(mario);
+            mario.State = new MarioStill(mario);
         }
         public void Running()
         {
