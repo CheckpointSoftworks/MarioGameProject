@@ -23,7 +23,7 @@ namespace Sprint2
             }
             else if (block.returnBlockType().Equals(BlockType.Hidden))
             {
-                if (!(side.returnCollisionSide().Equals(CollisionSide.None))&&((HiddenBlock)block).checkForHit())
+                if (!(side.returnCollisionSide().Equals(CollisionSide.None))&&(block.checkForSpecalizedSideCollision()))
                 {
                     handleMarioMovement(mario, block, side);
                 }
