@@ -1,0 +1,27 @@
+﻿Author of the code review: Kris Wenger
+Date of the code review: 10/19/15
+Sprint number: 3
+Name of the .cs file being reviewed: MarioJumpRun
+Author of the .cs file being reviewed: Matt Mohr
+Specific comments on code quality:
+	The class still has some vagueness when it comes to variable names such as big, small, fire.  
+	However given their context it easy enough to figure out what each variable pertains to.  In
+	terms of maintainability, the class could handle a new player item similar to Mario if the 
+	new item had the same types of states as the original Mario.  This is plausible to believe 
+	because given something like a Luigi character, he would have the same states as Mario.  
+	However changing the actual character to a new character is much harder because it would require
+	changing all three of the sprites to a new character sprites.  The magic numbers are understandable
+	given what they are doing they are the modifiers for the state’s movement.  However these changes 
+	would not break any other classes because they only happen in this class, but making the changes to
+	allow for other characters could be like having a new player character sprite factory that created 
+	Luigi characters then when calling create Mario call create Luigi instead.  The class is dependent 
+	on three concrete animated sprites which does create a tighter coupling in the class.  This could 
+	be lessened by having only one animated sprite, for the current sprite and when the state is created 
+	decide which state needs to be placed in that sprite.  However, given the logic in the rest of state 
+	this design may prove to be incorrect in handling the state changing logic.  The class is also 
+	dependent on Mario which is understandable because the class is for a Mario state.  The class is really
+	only handling the logic for a state, updating the state when it changes, and updating location since it
+	is a movement state class.  It also deals with other parts of the state logic, such as returning a 
+	collision rectangle for that state and setting the drawing color for special times such as for star Mario.
+	Overall I believe the class has a high degree of cohesion, and a medium to loose coupling, depending on 
+	the need for the three animated sprites.

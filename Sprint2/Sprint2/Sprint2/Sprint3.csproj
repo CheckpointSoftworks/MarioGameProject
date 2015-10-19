@@ -184,6 +184,7 @@
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
     <Content Include="README.txt" />
+    <Content Include="CodeReviewFolder\KrisWengerCodeQualityReview.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sprint2Content\Sprint3Content.contentproj">
