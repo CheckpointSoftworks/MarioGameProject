@@ -15,12 +15,12 @@ namespace Sprint2
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        public GraphicsDeviceManager graphics;
-        public SpriteBatch spriteBatch;
+        public GraphicsDeviceManager graphics{get;set;}
+        public SpriteBatch spriteBatch{get;set;}
 
-        public IController keyboard;
-        public IController gamepad;
-        public IPlayer mario;
+        public IController keyboard { get; set; }
+        public IController gamepad{get;set;}
+        public IPlayer mario { get; set; }
 
         private ICommand keyboardNotPressed;
         private LevelLoader loader;

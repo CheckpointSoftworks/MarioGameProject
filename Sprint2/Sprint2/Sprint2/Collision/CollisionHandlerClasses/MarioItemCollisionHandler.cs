@@ -25,7 +25,7 @@ namespace Sprint2
 
 
         }
-        private ICommand chooseCorrectCommand(IItemObjects item,IPlayer mario)
+        private static ICommand chooseCorrectCommand(IItemObjects item,IPlayer mario)
         {
             ICommand command;
             if (item.returnItemType().Equals(ItemType.Coin))
@@ -48,7 +48,7 @@ namespace Sprint2
             }
             return command;
         }
-        private void handleMarioMovement(Mario mario, IItemObjects item, ICollision side)
+        private static void handleMarioMovement(Mario mario, IItemObjects item, ICollision side)
         {
             Rectangle itemRectangle = item.returnCollisionRectangle();
             Rectangle marioRectangle = mario.returnCollisionRectangle();

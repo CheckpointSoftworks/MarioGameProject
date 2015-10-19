@@ -17,7 +17,6 @@ namespace Sprint2
         private bool finished;
         private int frameWidth;
         private int frameHeight;
-        private Vector2 location;
         private Rectangle collisionRectangle;
         private Color color;
         private int currentUpdate;
@@ -34,7 +33,6 @@ namespace Sprint2
             frameHeight = texture.Height / rows;
             int width = texture.Width / this.columns;
             int height = texture.Height / this.rows;
-            this.location = location;
             color = Color.White;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
             this.updatesPerFrame = updatesPerFrame;

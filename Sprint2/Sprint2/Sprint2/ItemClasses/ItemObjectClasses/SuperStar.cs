@@ -41,9 +41,9 @@ namespace Sprint2
             return collisionRectangle;
         }
 
-        public void setCollisionRectangle(Rectangle collisionRectangle)
+        public void setCollisionRectangle(Rectangle sentCollisionRectangle)
         {
-            this.collisionRectangle = collisionRectangle;
+            collisionRectangle = sentCollisionRectangle;
             testForCollision=false;
             superStarSprite = new UsedItemSprite(location);
         }

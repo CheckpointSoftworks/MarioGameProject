@@ -36,7 +36,7 @@ namespace Sprint2
             }
         }
 
-        private void executeCollisionCommand(Mario mario, IBlock block)
+        private static void executeCollisionCommand(Mario mario, IBlock block)
         {
             BlockType type = block.returnBlockType();
             ICommand command;
@@ -58,7 +58,7 @@ namespace Sprint2
 
         }
 
-        private void handleMarioMovement(Mario mario, IBlock block, ICollision side)
+        private static void handleMarioMovement(Mario mario, IBlock block, ICollision side)
         {
             Rectangle blockRectangle = block.returnCollisionRectange();
             Rectangle marioRectangle = mario.returnCollisionRectangle();

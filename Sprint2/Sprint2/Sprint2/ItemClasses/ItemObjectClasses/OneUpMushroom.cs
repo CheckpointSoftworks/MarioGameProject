@@ -33,9 +33,9 @@ namespace Sprint2
             oneUpMushroomSprite.Draw(spriteBatch);
         }
 
-        public void setCollisionRectangle(Rectangle collisionRectangle)
+        public void setCollisionRectangle(Rectangle sentCollisionRectangle)
         {
-            this.collisionRectangle = collisionRectangle;
+            collisionRectangle = sentCollisionRectangle;
             testForCollision=false;
             oneUpMushroomSprite = new UsedItemSprite(location);
         }

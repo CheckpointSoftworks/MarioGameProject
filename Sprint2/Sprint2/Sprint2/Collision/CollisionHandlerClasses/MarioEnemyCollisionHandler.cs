@@ -23,8 +23,6 @@ namespace Sprint2
 
             if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
-                //Mario takes no damage
-                //Enemy is damaged/killed
                 command = new MarioHitsEnemyCollision(enemy);
                 command.Execute();
             }
@@ -35,7 +33,7 @@ namespace Sprint2
             }
         }
 
-        private void handleMarioMovement(Mario mario, IEnemyObject enemy,ICollision side)
+        private static void handleMarioMovement(Mario mario, IEnemyObject enemy,ICollision side)
         {
             Rectangle enemyRectangle= enemy.returnCollisionRectangle();
             Rectangle marioRectangle = mario.returnCollisionRectangle();

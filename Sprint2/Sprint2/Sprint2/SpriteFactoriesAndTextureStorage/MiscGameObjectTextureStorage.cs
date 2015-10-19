@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint2
 {
-    class MiscGameObjectTextureStorage
+    public static class MiscGameObjectTextureStorage
     {
         private static Texture2D pipeSpriteSheet;
 
