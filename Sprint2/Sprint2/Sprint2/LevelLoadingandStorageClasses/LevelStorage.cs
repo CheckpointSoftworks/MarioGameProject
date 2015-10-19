@@ -33,6 +33,28 @@ namespace Sprint2
             handleCollision((Mario)mario);
         }
 
+        public void Draw(IPlayer player,SpriteBatch spriteBatch)
+        {
+            player.Draw(spriteBatch);
+
+            foreach (IItemObjects item in staticObjectsList)
+            {
+                item.Draw(spriteBatch);
+            }
+            foreach (IEnemyObject enemy in enemiesList)
+            {
+                enemy.Draw(spriteBatch);
+            }
+            foreach (IBlock block in blocksList)
+            {
+                block.Draw(spriteBatch);
+            }
+            foreach (IEnviromental enviromental in enviromentalObjectsList)
+            {
+                enviromental.Draw(spriteBatch);
+            }
+        }
+
         private void handleCollision(Mario mario)
         {
             IMarioState state = ((Mario)mario).State;

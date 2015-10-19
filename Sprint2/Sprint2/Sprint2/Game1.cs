@@ -115,25 +115,7 @@ namespace Sprint2
             spriteBatch.Draw(background, mainframe, Color.White);
             spriteBatch.End();
 
-            mario.Draw(spriteBatch);
-
-            foreach (IItemObjects item in levelStore.staticObjectsList)
-            {
-                item.Draw(spriteBatch);
-            }
-            foreach (IEnemyObject enemy in levelStore.enemiesList)
-            {
-                enemy.Draw(spriteBatch);
-            }
-            foreach (IBlock block in levelStore.blocksList)
-            {
-                block.Draw(spriteBatch);
-            }
-            foreach (IEnviromental enviromental in levelStore.enviromentalObjectsList)
-            {
-                enviromental.Draw(spriteBatch);
-            }
-
+            levelStore.Draw(mario, spriteBatch);
             base.Draw(gameTime);
 
         }
