@@ -63,7 +63,7 @@ namespace Sprint2
             }
         }
 
-        private void handleCollision(Mario mario)
+        private void handleCollision(IPlayer mario)
         {
             IMarioState state = ((Mario)mario).State;
             ((Mario)mario).State.Still();
