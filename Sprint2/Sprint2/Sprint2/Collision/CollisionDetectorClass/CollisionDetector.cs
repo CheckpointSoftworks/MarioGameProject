@@ -27,43 +27,41 @@ namespace Sprint2
             }
             else if (intersectionRectangleHeight > intersectionRectangleWidth)
             {
-                //Left-Right Intersection
-                side = chooseRightOrLeft(intersectionRectange, firstObjectRectangle, secondObjectRectangle);
+                side = chooseRightOrLeft(firstObjectRectangle, secondObjectRectangle);
             }
             else if (intersectionRectangleHeight < intersectionRectangleWidth)
             {
-                //Top-Bottom Intersection
-                side = chooseTopOrBottom(intersectionRectange, firstObjectRectangle, secondObjectRectangle);
+                side = chooseTopOrBottom(firstObjectRectangle, secondObjectRectangle);
             }
             return side;
         }
 
-        private ICollision chooseRightOrLeft(Rectangle intersectionRectangle, Rectangle firstObjectRectangle, Rectangle secondObjectRectangle)
+        private static ICollision chooseRightOrLeft(Rectangle firstObjectRectangle, Rectangle secondObjectRectangle)
         {
-            ICollision side = new LeftCollision();
+            ICollision collisionSide = new LeftCollision();
             int firstObjectXCoordinate = firstObjectRectangle.X;
             int secondObjectXCoordinate = secondObjectRectangle.X;
 
             if ((firstObjectXCoordinate - secondObjectXCoordinate) > 0)
             {
-                side = new RightCollision();
+                collisionSide = new RightCollision();
             }
 
-            return side;
+            return collisionSide;
         }
-        private ICollision chooseTopOrBottom(Rectangle intersectionRectangle, Rectangle firstObjectRectangle, Rectangle secondObjectRectangle)
+        private static ICollision chooseTopOrBottom(Rectangle firstObjectRectangle, Rectangle secondObjectRectangle)
         {
-            ICollision side = new TopCollision();
+            ICollision collisionSide = new TopCollision();
             int firstObjectYCoordinate = firstObjectRectangle.Y;
             int secondObjectYCoordinate = secondObjectRectangle.Y;
 
             if ((firstObjectYCoordinate - secondObjectYCoordinate) > 0)
             {
-                side = new BottomCollision();
+                collisionSide = new BottomCollision();
             }
 
 
-            return side;
+            return collisionSide;
         }
     }
 }

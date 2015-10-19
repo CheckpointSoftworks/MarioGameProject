@@ -36,9 +36,9 @@ namespace Sprint2
         {
             return type;
         }
-        public void setCollisionRectangle(Rectangle collisionRectangle)
+        public void setCollisionRectangle(Rectangle sentCollisionRectangle)
         {
-            this.collisionRectangle = collisionRectangle;
+            collisionRectangle = sentCollisionRectangle;
             testForCollision=false;
             superMushroomSprite =new UsedItemSprite(location);
         }

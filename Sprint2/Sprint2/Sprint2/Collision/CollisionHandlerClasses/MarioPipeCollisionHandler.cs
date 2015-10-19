@@ -22,7 +22,7 @@ namespace Sprint2
             }
 
         }
-        private void handleMarioMovement(Mario mario, IEnviromental enviromental, ICollision side)
+        private static void handleMarioMovement(Mario mario, IEnviromental enviromental, ICollision side)
         {
             Rectangle enviromentalRectangle = enviromental.returnCollisionRectangle();
             Rectangle marioRectangle = mario.returnCollisionRectangle();

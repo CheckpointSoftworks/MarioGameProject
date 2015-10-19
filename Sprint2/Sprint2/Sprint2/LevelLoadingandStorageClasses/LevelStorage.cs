@@ -15,7 +15,7 @@ namespace Sprint2
 {
     public class LevelStorage
     {
-        public IPlayer player;
+        public IPlayer player { get; set; }
         public ArrayList staticObjectsList;
         public ArrayList enemiesList;
         public ArrayList blocksList;

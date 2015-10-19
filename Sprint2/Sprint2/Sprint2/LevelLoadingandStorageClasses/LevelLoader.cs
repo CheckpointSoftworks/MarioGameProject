@@ -327,7 +327,7 @@ namespace Sprint2
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
                         }
-                        else //Skip since comment or end of node.
+                        else
                         {
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
