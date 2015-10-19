@@ -15,7 +15,6 @@ namespace Sprint2
 
         public GoombaSprite(Texture2D goombaSpritesheet,Vector2 location)
         {
-            //Replace this
             this.location = location;   
             AnimatedGoomba = new AnimatedSprite(goombaSpritesheet, 1, 2, location, 8);
 
