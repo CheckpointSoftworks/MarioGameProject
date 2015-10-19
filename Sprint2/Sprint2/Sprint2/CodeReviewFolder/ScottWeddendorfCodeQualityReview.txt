@@ -1,0 +1,14 @@
+Author: Scott Weddendorf
+Date: October 19, 2015
+Sprint: 3
+Name of File: LevelLoader.cs
+Author of File: Ian Weber
+Minutes: 10
+Comments on Quality:
+	The code still has a lot of reused lines that could possibly be condensed.  However, these lines
+	should not need to be altered so it doesn't create any difficulties for maintainability.  
+	Currently, the class has an "if" case for every object being loaded into the game.  In the future
+	when there could possibly be hundreds of different objects to be added, this class could get
+	bloated.  It could possibly be changed to accept new types of objects and load them using much of
+	the same code.  This might be done by creating a method to handle the loading given the class type
+	as an argument.
