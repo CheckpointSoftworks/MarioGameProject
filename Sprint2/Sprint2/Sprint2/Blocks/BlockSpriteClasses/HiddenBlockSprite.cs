@@ -15,6 +15,7 @@ namespace Sprint2
         private Rectangle collisionRectangle;
         private int frame;
         private int spriteSheetSpriteSize = 16;
+        private int totalFrames;
 
 
         public HiddenBlockSprite(Vector2 location)
@@ -23,14 +24,15 @@ namespace Sprint2
             this.location = location;
             frame = 0;
             used = false;
+            totalFrames = 1;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
 
         public void Update()
         {
-            if (!used)
+            if (!used&&frame<totalFrames)
             {
-                frame=1;
+                frame++;
             }
             else
             {

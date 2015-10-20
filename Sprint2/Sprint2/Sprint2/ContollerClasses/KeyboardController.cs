@@ -41,11 +41,9 @@ namespace Sprint2
 
             foreach (Keys key in pressedKeys)
             {
-                //Calls the Execute method in the command object corresponding to the pressed key.
                 if (controllerMappings.ContainsKey(key))
                 {
                     keyList.Add(key);
-                    //controllerMappings[key].Execute();
                 }
             }
             foreach (Keys key in keyList)

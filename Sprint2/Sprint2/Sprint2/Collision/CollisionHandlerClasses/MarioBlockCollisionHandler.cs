@@ -29,7 +29,6 @@ namespace Sprint2
                 }
             }
 
-            //Only side that matters is from below and None
             if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 executeCollisionCommand(mario, block);

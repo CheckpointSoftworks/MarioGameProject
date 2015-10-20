@@ -23,7 +23,7 @@ namespace Sprint2
 
         public void Update()
         {
-            //No update needed. Only one frame of animation.
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)

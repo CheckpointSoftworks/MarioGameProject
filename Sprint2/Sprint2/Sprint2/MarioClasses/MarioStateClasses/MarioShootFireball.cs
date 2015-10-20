@@ -13,15 +13,14 @@ namespace Sprint2
         public MarioShootFireball(Mario mario)
         {
             this.mario = mario;
-            //Set Sprite here
         }
         public void Update()
         {
-            //Nothing yet
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            //Nothing yet
+            
         }
         public void Still()
         {
@@ -45,7 +44,7 @@ namespace Sprint2
         }
         public void ShootFireball()
         {
-            //Nothing
+            
         }
         public void Duck()
         {
@@ -64,13 +63,13 @@ namespace Sprint2
         {
             Rectangle collisionRectangle=new Rectangle(0,0,0,0);
 
-            //No collision needed for this class yet
+            
 
             return collisionRectangle;
         }
         public void setDrawColor(Color color)
         {
-            //No logic for this class
+            
         }
     }
 }

@@ -16,7 +16,6 @@ namespace Sprint2
         public MarioStill(Mario mario)
         {
             this.mario = mario;
-            //Set Sprite here
             big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(), 1, 1, mario.Location, 4);
             small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1, mario.Location, 4);
             fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireStillSprite(), 1, 1, mario.Location, 4);
@@ -53,7 +52,7 @@ namespace Sprint2
         }
         public void Still()
         {
-            //Do nothing
+            
         }
         public void Running()
         {

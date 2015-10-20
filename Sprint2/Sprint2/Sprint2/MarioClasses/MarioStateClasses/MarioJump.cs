@@ -64,7 +64,7 @@ namespace Sprint2
         }
         public void Jump()
         {
-            //Do Nothing
+
         }
         public void JumpRun()
         {

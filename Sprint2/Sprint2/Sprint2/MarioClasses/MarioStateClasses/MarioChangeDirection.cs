@@ -21,7 +21,6 @@ namespace Sprint2
             big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(), 1, 1, mario.Location, 4);
             small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1, mario.Location, 4);
             fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(), 1, 1, mario.Location, 4);
-            //Set Sprite here
         }
         public void Update()
         {
@@ -63,7 +62,7 @@ namespace Sprint2
         }
         public void ChangeDirection()
         {
-            //Nothing
+            
         }
         public void Jump()
         {

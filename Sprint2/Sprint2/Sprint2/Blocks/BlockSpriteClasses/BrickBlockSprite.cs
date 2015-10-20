@@ -15,20 +15,22 @@ namespace Sprint2
         private Rectangle collisionRectangle;
         private int frame;
         private int spriteSheetSpriteSize = 16;
+        private int totalFrames;
 
         public BrickBlockSprite(Vector2 location)
         {
             brickBlockSpriteSheet = BlockSpriteTextureStorage.CreateBrickBlockSprite();
             this.location = location;
             frame = 0;
+            totalFrames = 1;
             smashed = false;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
         public void Update()
         {
-            if (!smashed)
+            if (!smashed&&frame<totalFrames)
             {
-                frame=1;
+                frame++;
                 collisionRectangle = new Rectangle(0, 0, 0, 0);
             }
             else

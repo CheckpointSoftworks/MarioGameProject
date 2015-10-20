@@ -13,7 +13,6 @@ namespace Sprint2
         private static Texture2D marioSmallStill;
         private static Texture2D marioSmallRunning;
         private static Texture2D marioSmallJumping;
-        //private static Texture2D marioSmallFlagpole;
         private static Texture2D marioSmallChangeDirection;
 
         private static Texture2D marioBigStill;
@@ -25,8 +24,6 @@ namespace Sprint2
         private static Texture2D marioFireRunning;
         private static Texture2D marioFireJumping;
         private static Texture2D marioFireDuck;
-        //private static Texture2D marioFireShootFireball;
-        //private static Texture2D marioFireFlagpole;
         private static Texture2D marioFireChangeDirection;
 
         private static Texture2D marioDuck;
@@ -38,7 +35,6 @@ namespace Sprint2
             marioSmallStill = content.Load<Texture2D>("MarioSmallStill");
             marioSmallRunning = content.Load<Texture2D>("MarioSmallRunning");
             marioSmallJumping = content.Load<Texture2D>("MarioSmallJump");
-            //marioSmallFlagpole = content.Load<Texture2D>("MarioSmallFlagpole");
             marioSmallChangeDirection = content.Load<Texture2D>("MarioSmallChangeDirection");
 
             marioBigStill = content.Load<Texture2D>("MarioBigStill");
@@ -53,8 +49,6 @@ namespace Sprint2
             marioFireJumping = content.Load<Texture2D>("MarioFireJump");
             marioFireDuck = content.Load<Texture2D>("MarioFireDuck");
             marioFireChangeDirection = content.Load<Texture2D>("MarioFireChangeDirection");
-            //marioFireShootFireball = content.Load<Texture2D>("MarioFireShootingStill");
-            //marioFireFlagpole = content.Load<Texture2D>("MarioFireFlagpole");
 
             marioDuck = content.Load<Texture2D>("MarioDuck");
             marioDying = content.Load<Texture2D>("MarioDying");
@@ -73,12 +67,8 @@ namespace Sprint2
         public static Texture2D CreateMarioSmallJumpingSprite()
         {
             return marioSmallJumping;
-        }/*
-        public static Texture2D CreateMarioSmallFlagpoleSprite()
-        {
+        }
 
-            return marioSmallFlagpole;
-        }*/
         public static Texture2D CreateMarioSmallChangeDirectionSprite()
         {
 

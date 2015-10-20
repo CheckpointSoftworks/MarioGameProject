@@ -50,7 +50,7 @@ namespace Sprint2
         }
         public void ChangeDirection()
         {
-            //Do nothing, invalid
+            
         }
         public void Jump()
         {
@@ -67,7 +67,7 @@ namespace Sprint2
         }
         public void Duck()
         {
-            // Nothing
+            
         }
         public void DuckRun()
         {

@@ -56,7 +56,7 @@ namespace Sprint2
         }
         public void Running()
         {
-            //Nothing
+            
         }
         public void ChangeDirection()
         {
@@ -64,11 +64,11 @@ namespace Sprint2
         }
         public void Jump()
         {
-            //Do Nothing
+            
         }
         public void JumpRun()
         {
-         // Nothing
+
         }
         public void ShootFireball()
         {
