@@ -75,6 +75,8 @@
   <ItemGroup>
     <Compile Include="Blocks\BlockObjectClasses\Blocks.cs" />
     <Compile Include="LevelLoadingandStorageClasses\LevelStorage.cs" />
+    <Compile Include="Physics\AutonomousPhysicsObject.cs" />
+    <Compile Include="Physics\ControllablePhysicsObject.cs" />
     <Compile Include="SpriteHelperClasses\AnimatedSprite.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\BigMarioBrickBlockCollisionCommand.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\BlockSpriteTextureStorage.cs" />
