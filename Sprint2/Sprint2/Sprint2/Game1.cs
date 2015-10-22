@@ -40,8 +40,8 @@ namespace Sprint2
             tester = new TestingClass(this);
             keyboard = new KeyboardController();
             gamepad = new GamepadController(this);
-            keyboardNotPressed = new KeyNotPressed(this); 
-            loader= new LevelLoader("Level.xml");
+            keyboardNotPressed = new KeyNotPressed(this);
+            loader = new LevelLoader("PhysicsTestLevel.xml");
             mainframe = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             levelStore = new LevelStorage();
 

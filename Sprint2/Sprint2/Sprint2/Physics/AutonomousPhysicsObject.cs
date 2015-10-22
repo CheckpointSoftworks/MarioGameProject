@@ -107,7 +107,7 @@ class AutonomousPhysicsObject
     {
         velocity = new Vector2(0, 0);
         elasticity = 0;
-        g = new Vector2(0, -9.8f);
+        g = new Vector2(0, 98f);
     }
 
     public AutonomousPhysicsObject(Vector2 gravity)
@@ -120,7 +120,8 @@ class AutonomousPhysicsObject
 
     public void UpdatePhysics()
     {
-        velocity += g;
+        velocity += g*0.2f;
+        //MAGIC NUMBER
         DampenVelocity();
         ClampVelocity();
     }
@@ -132,7 +133,7 @@ class AutonomousPhysicsObject
 
     private void ClampVelocity()
     {
-        velocity = Clamp(velocity, 0, maxVelocity.X, 0, maxVelocity.Y);
+        velocity = Clamp(velocity, -maxVelocity.X, maxVelocity.X, -maxVelocity.Y, maxVelocity.Y);
     }
 
     public void HorizontalCollision()
@@ -150,6 +151,7 @@ class AutonomousPhysicsObject
         //I'm pretty sure this function exists in the XNA, but I can't seem to find it. Feel free to cut this and replace the calls with the already written function if you can find it. 
         if (value < min || value > max)
         {
+            Console.WriteLine(value + " is greater than " + max + " or less than " + min);
             return value < min ? min : max;
         }
         else

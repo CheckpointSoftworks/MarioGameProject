@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-class ControllablePhysicsObject
+public class ControllablePhysicsObject
 {
     // A controllable physics object is a physics object which has Commands to move in every direction but down. 
     // Physics should be updated before collision handling. That said, physics should be included in collision handling so velocites can be reset. 
@@ -67,7 +67,7 @@ class ControllablePhysicsObject
     {
         set
         {
-            value = jumpSpeed;
+            jumpSpeed = value;
         }
     }
 
@@ -94,7 +94,7 @@ class ControllablePhysicsObject
     {
         velocity = new Vector2(0, 0);
         elasticity = 0;
-        g = new Vector2(0, -9.8f);
+        g = new Vector2(0, 30f);
     }
 
     public ControllablePhysicsObject(Vector2 gravity)
@@ -119,7 +119,7 @@ class ControllablePhysicsObject
 
     private void ClampVelocity()
     {
-        velocity = Clamp(velocity, 0, maxVelocity.X, 0, maxVelocity.Y);
+        velocity = Clamp(velocity, -maxVelocity.X, maxVelocity.X, -maxVelocity.Y, maxVelocity.Y);
     }
 
     public void MoveRight()
@@ -139,7 +139,8 @@ class ControllablePhysicsObject
         if (airTime < jumpDuration)
         {
             velocity.Y = jumpSpeed;
-            airTime += 0.16f;
+            airTime += 0.1f;
+            Console.WriteLine("Jump!" + " jumpspeed is " + jumpSpeed);
             //MAGIC NUMBER! This should be set to the frame rate, whether it's dynamically set or determined
         }
     }
@@ -156,6 +157,7 @@ class ControllablePhysicsObject
 
     public void BottomCollision()
     {
+        Console.WriteLine("Bottom collision");
         velocity.Y = 0;
         airTime = 0;
     }
