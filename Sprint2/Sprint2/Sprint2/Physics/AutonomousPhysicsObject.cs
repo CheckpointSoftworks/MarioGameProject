@@ -10,6 +10,18 @@ class AutonomousPhysicsObject
     // An autonomous physics object is a physics object which has a set velocity that never changes. This is for enemies, projectiles, etc.
     // Physics should be updated before collision handling. That said, physics should be included in collision handling so velocites can be reset. 
 
+    private bool enabled;
+    public bool IsEnabled
+    {
+        get
+        {
+            return enabled;
+        }
+        set
+        {
+            enabled = value;
+        }
+    }
     private Vector2 velocity;
     public Vector2 Velocity
     {
@@ -120,10 +132,14 @@ class AutonomousPhysicsObject
 
     public void UpdatePhysics()
     {
-        velocity += g*0.2f;
-        //MAGIC NUMBER
-        DampenVelocity();
-        ClampVelocity();
+        if (enabled)
+        {
+            velocity += g * 0.2f;
+            //MAGIC NUMBER
+            DampenVelocity();
+            ClampVelocity();
+        }
+        else { Console.WriteLine("Physics object not enabled."); }
     }
 
     private void DampenVelocity()

@@ -10,6 +10,18 @@ public class ControllablePhysicsObject
     // A controllable physics object is a physics object which has Commands to move in every direction but down. 
     // Physics should be updated before collision handling. That said, physics should be included in collision handling so velocites can be reset. 
 
+    private bool enabled;
+    public bool IsEnabled
+    {
+        get
+        {
+            return enabled;
+        }
+        set
+        {
+            enabled = value;
+        }
+    }
     private Vector2 velocity;
     public Vector2 Velocity
     {
@@ -107,9 +119,13 @@ public class ControllablePhysicsObject
 
     public void UpdatePhysics()
     {
-        velocity += g;
-        DampenVelocity();
-        ClampVelocity();
+        if (enabled)
+        {
+            velocity += g;
+            DampenVelocity();
+            ClampVelocity();
+        }
+        else { Console.WriteLine("Physics object not enabled."); }
     }
 
     private void DampenVelocity()
