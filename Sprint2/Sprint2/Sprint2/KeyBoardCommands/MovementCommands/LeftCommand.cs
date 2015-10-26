@@ -18,6 +18,7 @@ namespace Sprint2
             {
                 ((Mario)Game.mario).FacingRight = false;
                 ((Mario)Game.mario).State.Running();
+                ((Mario)Game.mario).rigidbody.MoveLeft();
             }
     }
 }

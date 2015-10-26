@@ -28,13 +28,10 @@ namespace Sprint2
             {
                 sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(), 1, 1, mario.Location, 4);
             }
-            duckSpeed = 1.5f;
-            runSpeed = mario.FacingRight ? 1.5f : -1.5f;
         }
         public void Update()
         {
             sprite.Update();
-            mario.Location += new Vector2(runSpeed, duckSpeed);
         }
         public void Draw(SpriteBatch spriteBatch)
         {

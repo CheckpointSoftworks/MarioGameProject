@@ -113,19 +113,14 @@ namespace Sprint2
         private void LoadPhysicsProperties()
         {
             rigidbody.AirFriction = 0.1f;
-            rigidbody.GroundFriction = 0.4f;
+            rigidbody.GroundFriction = 0.7f;
             rigidbody.maxVelocityX = 20;
             rigidbody.maxVelocityY = 10;
             rigidbody.GroundSpeed = 1;
             rigidbody.JumpSpeed = -600;
             rigidbody.JumpDuration = 1;
+            rigidbody.IsEnabled = true;
         }
-
-        public void Jump()
-        {
-            rigidbody.Jump();
-        }
-
         public void Update()
         {
             if (!star)
