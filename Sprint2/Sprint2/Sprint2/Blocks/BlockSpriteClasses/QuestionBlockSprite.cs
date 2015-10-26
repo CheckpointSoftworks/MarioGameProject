@@ -46,7 +46,6 @@ namespace Sprint2
                 newY--;
                 location = new Vector2(location.X, newY);
                 bounceTimer--;
-                Console.WriteLine(bounceTimer);
             }
             else if (bounce && bounceTimer>=0)
             {
