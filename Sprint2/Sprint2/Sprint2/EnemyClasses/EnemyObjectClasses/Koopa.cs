@@ -27,11 +27,10 @@ namespace Sprint2
             collisionRectangle = koopaSprite.returnCollisionRectangle();
             isDamaged = false;
             walkSpeed = 0.7f;
-            shellSlideSpeed = 1.0f;
+            shellSlideSpeed = 1.4f;
             fallSpeed = 6.0f;
             decayRate = 0.98f;
-            velocity.X = 0;
-            velocity.Y = 0;
+            FallLeft();
         }
         public void MoveLeft()
         {
@@ -43,6 +42,7 @@ namespace Sprint2
             else
             {
                 velocity.X = -walkSpeed;
+                ((KoopaSprite)koopaSprite).FacingRight = false;
             }
             velocity.Y = 0;
         }
@@ -56,6 +56,7 @@ namespace Sprint2
             else
             {
                 velocity.X = walkSpeed;
+                ((KoopaSprite)koopaSprite).FacingRight = true;
             }
             velocity.Y = 0;
         }
@@ -68,6 +69,7 @@ namespace Sprint2
             else
             {
                 velocity.X = -walkSpeed;
+                ((KoopaSprite)koopaSprite).FacingRight = false;
             }
             velocity.X = -walkSpeed;
             velocity.Y = fallSpeed;
@@ -82,6 +84,7 @@ namespace Sprint2
             else
             {
                 velocity.X = walkSpeed;
+                ((KoopaSprite)koopaSprite).FacingRight = true;
             }
             velocity.Y = fallSpeed;
         }

@@ -10,7 +10,12 @@ namespace Sprint2
     class KoopaSprite : ISprite
     {
         private AnimatedSprite AnimatedKoopa;
-        private bool FacingRight = true;
+        private bool facingRight = false;
+        public bool FacingRight
+        {
+            get { return facingRight; }
+            set { facingRight = value; }
+        }
         private Vector2 location;
         public Vector2 Location
         {
@@ -30,7 +35,7 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            AnimatedKoopa.Draw(spriteBatch, location, FacingRight);
+            AnimatedKoopa.Draw(spriteBatch, location, facingRight);
         }
 
         public Rectangle returnCollisionRectangle()

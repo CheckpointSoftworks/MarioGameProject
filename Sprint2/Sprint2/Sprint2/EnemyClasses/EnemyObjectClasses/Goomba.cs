@@ -28,8 +28,7 @@ namespace Sprint2
             walkSpeed = 0.7f;
             fallSpeed = 6.0f;
             decayRate = 0.98f;
-            velocity.X = 0;
-            velocity.Y = 0;
+            FallLeft();
         }
 
         public void MoveLeft()

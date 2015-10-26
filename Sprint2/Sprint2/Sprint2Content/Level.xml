@@ -37,11 +37,11 @@
   </SuperStar>
   <Koopa>
     <x>196</x>
-    <y>432</y>
+    <y>0</y>
   </Koopa>  
   <Goomba>
     <x>220</x>
-    <y>440</y>
+    <y>0</y>
   </Goomba>
   <BrickBlock>
     <x>144</x>

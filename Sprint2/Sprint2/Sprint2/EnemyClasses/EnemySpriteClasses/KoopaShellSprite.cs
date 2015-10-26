@@ -10,7 +10,7 @@ namespace Sprint2
     public class KoopaShellSprite:ISprite
     {
         private AnimatedSprite AnimatedKoopa;
-        private bool FacingRight = true;
+        private bool FacingRight = false;
         private Vector2 location;
         public Vector2 Location
         {
