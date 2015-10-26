@@ -61,6 +61,10 @@ namespace Sprint2
             {
                 enviromental.Draw(spriteBatch);
             }
+            foreach (IBlock block in blocksList)
+            {
+                block.Update();
+            }
         }
 
         private void handleCollision(IPlayer mario)

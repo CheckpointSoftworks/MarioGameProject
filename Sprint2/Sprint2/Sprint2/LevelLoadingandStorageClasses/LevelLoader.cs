@@ -258,7 +258,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
 
                             IBlock GameObject;
-                            GameObject = new Blocks(XVal,YVal,BlockType.Question);
+                            GameObject = new QuestionBlock(XVal,YVal,BlockType.Question);
                             storage.blocksList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();

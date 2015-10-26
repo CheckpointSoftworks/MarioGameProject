@@ -74,7 +74,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blocks\BlockObjectClasses\Blocks.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\EnemyBlockCollisionHandler.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\EnemyEnemyCollisionHandler.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\EnemyEnviromentalCollisionHandler.cs" />
     <Compile Include="LevelLoadingandStorageClasses\LevelStorage.cs" />
+    <Compile Include="Blocks\BlockObjectClasses\QuestionBlock.cs" />
     <Compile Include="SpriteHelperClasses\AnimatedSprite.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\BigMarioBrickBlockCollisionCommand.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\BlockSpriteTextureStorage.cs" />

@@ -95,5 +95,15 @@ namespace Sprint2
             goombaSprite = EnemySpriteFactory.CreateGoombaDamangedSprite(location);
             collisionRectangle = new Rectangle(0, 0, 0, 0);
         }
+
+        public void updateLocation(Vector2 newLocation)
+        {
+            this.location = newLocation;
+        }
+
+        public Vector2 returnLocation()
+        {
+           return location;
+        }
     }
 }

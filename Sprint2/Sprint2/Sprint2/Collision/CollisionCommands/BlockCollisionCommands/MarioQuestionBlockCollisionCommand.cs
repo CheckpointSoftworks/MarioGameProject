@@ -14,6 +14,7 @@ namespace Sprint2
         }
         public void Execute()
         {
+            ((QuestionBlock)block).bounceBlock();
             block.Update();
         }
     }

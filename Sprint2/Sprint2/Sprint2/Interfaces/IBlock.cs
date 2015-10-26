@@ -21,5 +21,6 @@ namespace Sprint2
 
         void removeFromTestingCollision();
         bool checkForSpecalizedSideCollision();
+
     }
 }
