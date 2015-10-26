@@ -78,7 +78,12 @@
     <Compile Include="Collision\CollisionHandlerClasses\EnemyEnemyCollisionHandler.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\EnemyEnviromentalCollisionHandler.cs" />
     <Compile Include="LevelLoadingandStorageClasses\LevelStorage.cs" />
-    <Compile Include="Blocks\BlockObjectClasses\QuestionBlock.cs" />
+    <Compile Include="Blocks\BlockObjectClasses\QuestionCoinBlock.cs" />
+    <Compile Include="Blocks\BlockObjectClasses\QuestionSuperMushroomFireFlower.cs" />
+    <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionSuperMushroomCommand.cs" />
+    <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionFireFlowerCommand.cs" />
+    <Compile Include="Blocks\BlockObjectClasses\QuestionStarBlock.cs" />
+    <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionStarCommand.cs" />
     <Compile Include="SpriteHelperClasses\AnimatedSprite.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\BigMarioBrickBlockCollisionCommand.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\BlockSpriteTextureStorage.cs" />
@@ -140,7 +145,7 @@
     <Compile Include="MarioClasses\MarioStateClasses\MarioJumpRun.cs" />
     <Compile Include="Collision\CollisionCommands\ItemCollisionCommands\MarioOneUpMushroomCollisionCommand.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\MarioPipeCollisionHandler.cs" />
-    <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\MarioQuestionBlockCollisionCommand.cs" />
+    <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\MarioQuestionCoinBlockCollisionCommand.cs" />
     <Compile Include="MarioClasses\MarioStateClasses\MarioRunning.cs" />
     <Compile Include="MarioClasses\MarioStateClasses\MarioShootFireball.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\MarioSpriteFactory.cs" />

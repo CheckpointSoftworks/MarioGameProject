@@ -21,10 +21,10 @@ namespace Sprint2
         public IController keyboard { get; set; }
         public IController gamepad{get;set;}
         public IPlayer mario { get; set; }
+        public LevelStorage levelStore { get; set; }
 
         private ICommand keyboardNotPressed;
         private LevelLoader loader;
-        private LevelStorage levelStore;
         private Texture2D background;
         private Rectangle mainframe;
         private TestingClass tester;
@@ -93,7 +93,7 @@ namespace Sprint2
             gamepad.Update();
             keyboardNotPressed.Execute();
             mario.Update();
-            levelStore.Update(mario);
+            levelStore.Update(mario,this);
             base.Update(gameTime);
         }
 

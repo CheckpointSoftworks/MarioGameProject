@@ -86,6 +86,14 @@ namespace Sprint2
 
         public Rectangle returnCollisionRectangle()
         {
+            if (!isDamaged)
+            {
+                collisionRectangle = goombaSprite.returnCollisionRectangle();
+            }
+            else
+            {
+                collisionRectangle = new Rectangle(0, 0, 0, 0);
+            }
             return collisionRectangle;
         }
 

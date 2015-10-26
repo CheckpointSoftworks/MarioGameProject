@@ -14,7 +14,7 @@ namespace Sprint2
 
         }
 
-        public void handleCollision(Mario mario, IBlock block, ICollision side)
+        public void handleCollision(Mario mario, IBlock block, ICollision side,Game1 game)
         {
             
             if (!(side.returnCollisionSide().Equals(CollisionSide.None))&&!(block.returnBlockType().Equals(BlockType.Hidden)))
@@ -31,17 +31,32 @@ namespace Sprint2
 
             if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
-                executeCollisionCommand(mario, block);
+                executeCollisionCommand(mario, block,game);
             }
         }
 
-        private static void executeCollisionCommand(Mario mario, IBlock block)
+        private static void executeCollisionCommand(Mario mario, IBlock block,Game1 game)
         {
             BlockType type = block.returnBlockType();
             ICommand command;
-            if (type.Equals(BlockType.Question))
+            if (type.Equals(BlockType.QuestionCoin))
             {
-                command = new MarioQuestionBlockCollisionCommand(block);
+                command = new MarioQuestionCoinBlockCollisionCommand(block,game);
+                command.Execute();
+            }
+            else if(type.Equals(BlockType.QuestionSuperMushroomFireFlower)&&mario.Small&&!mario.Fire)
+            {
+                command = new QuestionSuperMushroomCommand(block, game);
+                command.Execute();
+            }
+            else if (type.Equals(BlockType.QuestionSuperMushroomFireFlower) && !mario.Small)
+            {
+                command = new QuestionFireFlowerCommand(block, game);
+                command.Execute();
+            }
+            else if (type.Equals(BlockType.QuestionStar))
+            {
+                command = new QuestionStarCommand(block, game);
                 command.Execute();
             }
             else if (type.Equals(BlockType.Hidden))
