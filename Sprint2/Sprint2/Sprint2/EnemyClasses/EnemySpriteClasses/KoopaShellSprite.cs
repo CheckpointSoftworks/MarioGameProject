@@ -8,9 +8,15 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Sprint2
 {
     public class KoopaShellSprite:ISprite
-    { private Vector2 location;
+    {
         private AnimatedSprite AnimatedKoopa;
         private bool FacingRight = true;
+        private Vector2 location;
+        public Vector2 Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
 
         public KoopaShellSprite(Texture2D koopaSpritesheet,Vector2 location)
         {

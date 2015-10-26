@@ -9,9 +9,14 @@ namespace Sprint2
 {
     public class GoombaDamagedSprite:ISprite
     {
-        private Vector2 location;
         private AnimatedSprite AnimatedDamGoomba;
         private bool FacingRight = true;
+        private Vector2 location;
+        public Vector2 Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
 
         public GoombaDamagedSprite(Texture2D goombaDamSpritesheet,Vector2 location)
         {

@@ -9,10 +9,14 @@ namespace Sprint2
 {
     class KoopaSprite : ISprite
     {
-
-        private Vector2 location;
         private AnimatedSprite AnimatedKoopa;
         private bool FacingRight = true;
+        private Vector2 location;
+        public Vector2 Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
 
         public KoopaSprite(Texture2D koopaSpritesheet,Vector2 location)
         {
@@ -21,15 +25,12 @@ namespace Sprint2
         }
         public void Update()
         {
-
             AnimatedKoopa.Update();
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             AnimatedKoopa.Draw(spriteBatch, location, FacingRight);
-
         }
 
         public Rectangle returnCollisionRectangle()
