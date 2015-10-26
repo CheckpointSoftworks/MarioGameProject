@@ -18,6 +18,12 @@ namespace Sprint2
         private float decayRate;
         private bool isFalling;
         private bool isDamaged;
+        private bool previousMovingDirectionLeft;
+        public bool PreviousMovingDirectionLeft
+        {
+            get { return previousMovingDirectionLeft; }
+            set { previousMovingDirectionLeft = value; }
+        }
 
         public Goomba(int locX, int locY)
         {
