@@ -47,7 +47,10 @@ namespace Sprint2
         public void Update()
         {
             location += velocity;
-            ((FireFlowerSprite)fireFlowerSprite).Location = location;
+            if (testForCollision)
+            {
+                ((FireFlowerSprite)fireFlowerSprite).Location = location;
+            }
             fireFlowerSprite.Update();
         }
         public void Draw(SpriteBatch spriteBatch)

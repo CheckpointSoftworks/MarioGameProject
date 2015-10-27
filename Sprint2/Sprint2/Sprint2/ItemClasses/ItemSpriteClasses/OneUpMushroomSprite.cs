@@ -10,9 +10,14 @@ namespace Sprint2
     class OneUpMushroomSprite : ISprite
     {
         private Texture2D oneUpMushroomSpriteSheet;
-        private Vector2 location;
         private AnimatedSprite oneUpMushroomSprite;
         private Rectangle collisionRectangle;
+        private Vector2 location;
+        public Vector2 Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
         public OneUpMushroomSprite(Vector2 location)
         {
             oneUpMushroomSpriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSprite();
