@@ -12,8 +12,13 @@ namespace Sprint2
         private ISprite boxCoinSprite;
         private ItemType type;
         private Rectangle collisonRectangle;
-        private bool testForCollision;
         private Vector2 location;
+        private Vector2 velocity;
+        private float moveSpeed;
+        private float decayRate;
+        private int timer;
+        private bool animate;
+        private bool testForCollision;
 
         public BoxCoin(int locX, int locY)
         {
@@ -22,9 +27,34 @@ namespace Sprint2
             type = ItemType.Coin;
             collisonRectangle = boxCoinSprite.returnCollisionRectangle();
             testForCollision = true;
+            moveSpeed = -6.25f;
+            decayRate = 0.32f;
+            timer = 30;
+        }
+        public void StartAnimation()
+        {
+            animate = true;
         }
         public void Update()
         {
+            if (animate)
+            {
+                if (timer > 0)
+                {
+                    moveSpeed += decayRate;
+                    velocity.Y = moveSpeed;
+                    location += velocity;
+                    timer--;
+                }
+                else
+                {
+                    setCollisionRectangle(new Rectangle(0, 0, 0, 0));
+                }
+            }
+            if (testForCollision)
+            {
+                ((BoxCoinSprite)boxCoinSprite).Location = location;
+            }
             boxCoinSprite.Update();
         }
         public ItemType returnItemType()
