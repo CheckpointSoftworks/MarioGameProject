@@ -11,11 +11,11 @@ namespace Sprint2
     {
         bool DirectionLeft
         { get; set; }
-        public void MoveLeft();
-        public void MoveRight();
-        public void FallLeft();
-        public void FallRight();
-        public void StopMoving();
+        void MoveLeft();
+        void MoveRight();
+        void FallLeft();
+        void FallRight();
+        void StopMoving();
         void Update();
 
         void Draw(SpriteBatch spriteBatch);

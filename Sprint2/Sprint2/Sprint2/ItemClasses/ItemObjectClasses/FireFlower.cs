@@ -12,8 +12,10 @@ namespace Sprint2
         private ISprite fireFlowerSprite;
         private ItemType type;
         private Rectangle collisonRectangle;
-        private bool testForCollision;
         private Vector2 location;
+        private Vector2 velocity;
+        private float riseSpeed;
+        private bool testForCollision;
 
         public FireFlower(int locX, int locY)
         {
@@ -22,10 +24,7 @@ namespace Sprint2
             type = ItemType.FireFlower;
             collisonRectangle = fireFlowerSprite.returnCollisionRectangle();
             testForCollision = true;
-        }
-        public void Update()
-        {
-            fireFlowerSprite.Update();
+            riseSpeed = 0.4f;
         }
         public ItemType returnItemType()
         {
@@ -35,12 +34,26 @@ namespace Sprint2
         {
             return collisonRectangle;
         }
-
+        public void RiseUp()
+        {
+            velocity.X = 0;
+            velocity.Y = -riseSpeed;
+        }
+        public void StopMoving()
+        {
+            velocity.X = 0;
+            velocity.Y = 0;
+        }
+        public void Update()
+        {
+            location += velocity;
+            ((FireFlowerSprite)fireFlowerSprite).Location = location;
+            fireFlowerSprite.Update();
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
             fireFlowerSprite.Draw(spriteBatch);
         }
-
         public void setCollisionRectangle(Rectangle collisionRectangle)
         {
             this.collisonRectangle = collisionRectangle;
