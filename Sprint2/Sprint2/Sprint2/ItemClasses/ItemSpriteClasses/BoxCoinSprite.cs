@@ -10,9 +10,14 @@ namespace Sprint2
     class BoxCoinSprite : ISprite
     {
         private Texture2D boxCoinSpriteSheet;
-        private Vector2 location;
         private AnimatedSprite boxCoinSprite;
         private Rectangle collisionRectangle;
+        private Vector2 location;
+        public Vector2 Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
         public BoxCoinSprite(Vector2 location)
         {
             boxCoinSpriteSheet = ItemSpriteTextureStorage.CreateBoxCoinSprite();

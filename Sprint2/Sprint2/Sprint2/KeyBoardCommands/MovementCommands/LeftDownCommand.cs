@@ -17,7 +17,7 @@ namespace Sprint2
         public void Execute()
         {
             ((Mario)Game.mario).FacingRight = false;
-            ((Mario)Game.mario).State.DuckRun();
+            //((Mario)Game.mario).State.DuckRun();
         }
     }
 }
