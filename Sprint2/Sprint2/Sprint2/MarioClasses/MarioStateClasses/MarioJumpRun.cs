@@ -53,7 +53,7 @@ namespace Sprint2
         }
         public void Running()
         {
-            
+            mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {

@@ -117,12 +117,25 @@ namespace Sprint2
             rigidbody.maxVelocityX = 20;
             rigidbody.maxVelocityY = 10;
             rigidbody.GroundSpeed = 1;
-            rigidbody.JumpSpeed = -600;
+            rigidbody.JumpSpeed = -500;
             rigidbody.JumpDuration = 1;
             rigidbody.IsEnabled = true;
         }
         public void Update()
         {
+            if (Math.Abs(rigidbody.Velocity.Y) > 0) { state.Jump(); }
+            else if (rigidbody.Floored)
+            {
+                Console.WriteLine(rigidbody.Velocity.X);
+                if (Math.Abs(rigidbody.Velocity.X) > 0)
+                {
+                    state.Running();
+                }
+                else
+                {
+                    state.Still();
+                }
+            }
             if (!star)
             {
                 state.Update();

@@ -69,6 +69,8 @@ namespace Sprint2
             ((Mario)mario).State.Still();
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side;
+            Rectangle floorCheck = ((Mario)mario).returnCollisionRectangle();
+            floorCheck.Y++;
             MarioBlockCollisionHandler blockHandler = new MarioBlockCollisionHandler();
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
             MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
@@ -80,9 +82,13 @@ namespace Sprint2
                 {
                     side = collisionDetector.getCollision(mario.returnCollisionRectangle(), block.returnCollisionRectange());
                     blockHandler.handleCollision((Mario)mario, block, side);
+                    if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectange()).returnCollisionSide().Equals(CollisionSide.Top))
+                    {
+                        ((Mario)mario).rigidbody.Floored = true;
+                    }                    
                 }
+                
             }
-            ((Mario)mario).rigidbody.ResetGravityCheck();
             foreach (IEnemyObject enemy in enemiesList)
             {
                 side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
@@ -102,6 +108,22 @@ namespace Sprint2
                 pipeHandler.handleCollision((Mario)mario, enviromental, side);
             }
             ((Mario)mario).State = state;
+        }
+
+        public bool CheckFloorAgainstBlocks(Rectangle source)
+        {
+            ICollision side;
+            source.Y--;
+            CollisionDetector collisionDetector = new CollisionDetector();
+            foreach (IBlock block in blocksList)
+            {
+                if (block.checkForCollisionTestFlag())
+                {
+                    side = collisionDetector.getCollision(source, block.returnCollisionRectange());
+                    if ((side.returnCollisionSide().Equals(CollisionSide.Top))) return true;
+                }
+            }
+            return false;
         }
     }
 }

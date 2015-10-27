@@ -45,7 +45,7 @@ public class ControllablePhysicsObject
         {
             maxVelocity.Y = value;
         }
-    }
+    }  
 
     private float groundSpeed;
     public float GroundSpeed
@@ -99,6 +99,10 @@ public class ControllablePhysicsObject
         get { return floored; }
         set { floored = value; }
     }
+    public void WasFloored()
+    {
+        floored = true;
+    }
     private static Vector2 g;
     private static Vector2 gOrigin;
     public static Vector2 Gravity
@@ -130,7 +134,7 @@ public class ControllablePhysicsObject
     {
         if (enabled)
         {
-            velocity += g;
+            if (!floored) velocity += g;
             DampenVelocity();
             ClampVelocity();
         }
@@ -145,6 +149,8 @@ public class ControllablePhysicsObject
     private void ClampVelocity()
     {
         velocity = Clamp(velocity, -maxVelocity.X, maxVelocity.X, -maxVelocity.Y, maxVelocity.Y);
+        if (Math.Abs(velocity.X) < 0.1) velocity.X = 0;
+        if (Math.Abs(velocity.Y) < 0.1) velocity.Y = 0;
     }
 
     public void MoveRight()
@@ -165,14 +171,13 @@ public class ControllablePhysicsObject
         {
             velocity.Y = jumpSpeed;
             airTime += 0.1f;
-            Console.WriteLine("Jump!" + " jumpspeed is " + jumpSpeed);
             //MAGIC NUMBER! This should be set to the frame rate, whether it's dynamically set or determined
         }
     }
 
     public void ResetGravityCheck()
     {
-        if (!floored) g = gOrigin;
+       //if (!floored) g = gOrigin;
        // if (!floored) g = -g;
     }
 
@@ -192,7 +197,7 @@ public class ControllablePhysicsObject
     public void BottomCollision()
     {
         floored = true;
-        g = new Vector2(0,0);
+        //g = new Vector2(0,0);
         velocity.Y = 0;
         airTime = 0;
     }
