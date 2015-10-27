@@ -11,6 +11,8 @@ namespace Sprint2
     {
         bool DirectionLeft
         { get; set; }
+        Vector2 Gravity
+        { get; set; }
         void MoveLeft();
         void MoveRight();
         void FallLeft();

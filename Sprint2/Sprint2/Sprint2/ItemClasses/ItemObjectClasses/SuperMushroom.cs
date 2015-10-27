@@ -16,17 +16,22 @@ namespace Sprint2
         private Vector2 velocity;
         private float riseSpeed;
         private float slideSpeed;
-        private float fallSpeed;
+        private Vector2 gravity;
         private float decayRate;
         private bool testForCollision;
         private bool isFalling;
+        private bool applyGravity;
         private bool directionLeft;
         public bool DirectionLeft
         {
             get { return directionLeft; }
             set { directionLeft = value; }
         }
-
+        public Vector2 Gravity
+        {
+            get { return gravity; }
+            set { gravity = value; }
+        }
         public SuperMushroom(int locX, int locY)
         {
             location = new Vector2(locX, locY);
@@ -34,60 +39,65 @@ namespace Sprint2
             type = ItemType.SuperMushroom;
             collisionRectangle = superMushroomSprite.returnCollisionRectangle();
             testForCollision=true;
+            applyGravity = false;
             riseSpeed = 0.5f;
             slideSpeed = 1.0f;
-            fallSpeed = 6.0f;
-            decayRate = 0.98f;
+            gravity.X = 0;
+            gravity.Y = 6.0f;
+            decayRate = 0.90f;
         }
         public void RiseUp()
         {
+            applyGravity = false;
             velocity.X = 0;
             velocity.Y = -riseSpeed;
         }
         public void MoveLeft()
         {
+            applyGravity = true;
             isFalling = false;
             velocity.X = -slideSpeed;
-            velocity.Y = 0;
         }
         public void MoveRight()
         {
+            applyGravity = true;
             isFalling = false;
             velocity.X = slideSpeed;
-            velocity.Y = 0;
         }
         public void FallLeft()
         {
+            applyGravity = true;
             isFalling = true;
             velocity.X = -slideSpeed;
-            velocity.Y = fallSpeed;
         }
         public void FallRight()
         {
+            applyGravity = true;
             isFalling = true;
             velocity.X = slideSpeed;
-            velocity.Y = fallSpeed;
         }
         public void StopMoving()
         {
+            applyGravity = false;
             isFalling = false;
             velocity.X = 0;
             velocity.Y = 0;
         }
         public void Update()
         {
-            location += velocity;
-            if (isFalling)
+            if (applyGravity) 
             {
-                velocity.X *= decayRate;
+                velocity.Y = 0;
+                velocity += gravity; 
             }
+            location += velocity;
+            if (isFalling) { velocity.X *= decayRate; }
             if (testForCollision)
             {
                 ((SuperMushroomSprite)superMushroomSprite).Location = location;
             }
             superMushroomSprite.Update();
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             superMushroomSprite.Draw(spriteBatch);
@@ -102,7 +112,6 @@ namespace Sprint2
             testForCollision=false;
             superMushroomSprite =new UsedItemSprite(location);
         }
-
         public Rectangle returnCollisionRectangle()
         {
             return collisionRectangle;
@@ -111,7 +120,5 @@ namespace Sprint2
         {
             return testForCollision;
         }
-
-
     }
 }
