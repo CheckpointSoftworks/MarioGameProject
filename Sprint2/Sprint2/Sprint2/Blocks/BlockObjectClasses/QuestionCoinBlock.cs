@@ -7,40 +7,23 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class Blocks:IBlock
+    public class QuestionCoinBlock:IBlock
     {
         private ISprite sprite;
         private BlockType type;
         private bool testForCollision;
         private bool noLongerSpecialized;
+        private Vector2 location;
         
-        public Blocks(int locX,int locY,BlockType type)
+        public QuestionCoinBlock(int locX,int locY,BlockType type)
         {
-            Vector2 location = new Vector2(locX, locY);
-            if(type.Equals(BlockType.Brick)){
-                sprite = new BrickBlockSprite(location);
-            }
-            else if(type.Equals(BlockType.Ground))
-            {
-                sprite = new GroundBlockSprite(location);
-            }
-            else if (type.Equals(BlockType.Hidden))
-            {
-                sprite = new HiddenBlockSprite(location);
-            }
-            else if (type.Equals(BlockType.Platforming))
-            {
-                sprite = new PlatformingBlockSprite(location);
-            }
-            else if (type.Equals(BlockType.Question))
-            {
-                sprite = new QuestionBlockSprite(location);
-            }
-
+            location = new Vector2(locX, locY);            
+            sprite = new QuestionBlockSprite(location);
             this.type = type;
             testForCollision=true;
             noLongerSpecialized = false;
         }
+
         public void Update()
         {
             sprite.Update();
@@ -74,6 +57,15 @@ namespace Sprint2
         public bool checkForSpecalizedSideCollision()
         {
             return noLongerSpecialized;
+        }
+        public void bounceBlock()
+        {
+            ((QuestionBlockSprite)sprite).bounceSprite();
+        }
+
+        public IItemObjects spawnCoin()
+        {
+            return new BoxCoin((int)location.X, (int)location.Y-16);
         }
     }
 }

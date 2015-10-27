@@ -10,9 +10,14 @@ namespace Sprint2
     class FireFlowerSprite : ISprite
     {
         private Texture2D fireFlowerSpriteSheet;
-        private Vector2 location;
         private AnimatedSprite fireFlowerSprite;
         private Rectangle collisionRectangle;
+        private Vector2 location;
+        public Vector2 Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
         public FireFlowerSprite(Vector2 location)
         {
             fireFlowerSpriteSheet = ItemSpriteTextureStorage.CreateFireFlowerSprite();

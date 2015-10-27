@@ -9,6 +9,13 @@ namespace Sprint2
 {
     public interface IEnemyObject
     {
+        bool DirectionLeft
+        { get; set; }
+        void MoveLeft();
+        void MoveRight();
+        void FallLeft();
+        void FallRight();
+        void StopMoving();
         void Update();
 
         void Draw(SpriteBatch spriteBatch);
@@ -16,6 +23,10 @@ namespace Sprint2
         Rectangle returnCollisionRectangle();
 
         void TakeDamage();
+
+        void updateLocation(Vector2 location);
+
+        Vector2 returnLocation();
     
     }
 }

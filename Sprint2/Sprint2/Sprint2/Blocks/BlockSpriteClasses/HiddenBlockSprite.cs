@@ -30,13 +30,9 @@ namespace Sprint2
 
         public void Update()
         {
-            if (!used&&frame<totalFrames)
+            if (used&&frame<totalFrames)
             {
                 frame++;
-            }
-            else
-            {
-                used = true;
             }
         }
 
@@ -53,6 +49,10 @@ namespace Sprint2
         public Rectangle returnCollisionRectangle()
         {
             return collisionRectangle;
+        }
+        public void usedHiddenBlock()
+        {
+            used = true;
         }
     }
 }

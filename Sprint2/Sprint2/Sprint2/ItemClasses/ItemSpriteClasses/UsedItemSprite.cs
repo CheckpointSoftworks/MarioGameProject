@@ -10,9 +10,14 @@ namespace Sprint2
     public class UsedItemSprite:ISprite
     {
         private Texture2D usedItemSpriteSheet;
-        private Vector2 location;
         private AnimatedSprite usedItemSprite;
         private Rectangle collisionRectangle;
+        private Vector2 location;
+        public Vector2 Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
         public UsedItemSprite(Vector2 location)
         {
             usedItemSpriteSheet = ItemSpriteTextureStorage.CreateUsedItemSprite();

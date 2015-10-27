@@ -28,7 +28,7 @@ namespace Sprint2
             blocksList = new ArrayList();
             enviromentalObjectsList = new ArrayList();
         }
-        public void Update(IPlayer mario)
+        public void Update(IPlayer mario,Game1 game)
         {            
             foreach (IItemObjects item in staticObjectsList)
             {
@@ -38,7 +38,7 @@ namespace Sprint2
             {
                 enemy.Update();
             }
-            handleCollision((Mario)mario);
+            handleCollision((Mario)mario,game);
         }
 
         public void Draw(IPlayer player,SpriteBatch spriteBatch)
@@ -61,33 +61,29 @@ namespace Sprint2
             {
                 enviromental.Draw(spriteBatch);
             }
+            foreach (IBlock block in blocksList)
+            {
+                block.Update();
+            }
         }
 
-        private void handleCollision(IPlayer mario)
+        private void handleCollision(IPlayer mario,Game1 game)
         {
             IMarioState state = ((Mario)mario).State;
             ((Mario)mario).State.Still();
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side;
-            Rectangle floorCheck = ((Mario)mario).returnCollisionRectangle();
-            floorCheck.Y++;
             MarioBlockCollisionHandler blockHandler = new MarioBlockCollisionHandler();
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
             MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
             MarioPipeCollisionHandler pipeHandler = new MarioPipeCollisionHandler();
-            ((Mario)mario).rigidbody.Floored = false;
             foreach (IBlock block in blocksList)
             {
                 if (block.checkForCollisionTestFlag())
                 {
                     side = collisionDetector.getCollision(mario.returnCollisionRectangle(), block.returnCollisionRectange());
-                    blockHandler.handleCollision((Mario)mario, block, side);
-                    if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectange()).returnCollisionSide().Equals(CollisionSide.Top))
-                    {
-                        ((Mario)mario).rigidbody.Floored = true;
-                    }                    
+                    blockHandler.handleCollision((Mario)mario, block, side,game);
                 }
-                
             }
             foreach (IEnemyObject enemy in enemiesList)
             {
@@ -108,22 +104,6 @@ namespace Sprint2
                 pipeHandler.handleCollision((Mario)mario, enviromental, side);
             }
             ((Mario)mario).State = state;
-        }
-
-        public bool CheckFloorAgainstBlocks(Rectangle source)
-        {
-            ICollision side;
-            source.Y--;
-            CollisionDetector collisionDetector = new CollisionDetector();
-            foreach (IBlock block in blocksList)
-            {
-                if (block.checkForCollisionTestFlag())
-                {
-                    side = collisionDetector.getCollision(source, block.returnCollisionRectange());
-                    if ((side.returnCollisionSide().Equals(CollisionSide.Top))) return true;
-                }
-            }
-            return false;
         }
     }
 }

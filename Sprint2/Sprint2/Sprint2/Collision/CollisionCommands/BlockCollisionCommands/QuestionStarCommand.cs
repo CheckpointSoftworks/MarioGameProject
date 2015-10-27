@@ -5,21 +5,21 @@ using System.Text;
 
 namespace Sprint2
 {
-    public class MarioHiddenBlockCollisionCommand:ICommand
+    public class QuestionStarCommand:ICommand
     {
         private IBlock block;
         private Game1 game;
-        public MarioHiddenBlockCollisionCommand(IBlock block,Game1 game)
+        public QuestionStarCommand(IBlock block, Game1 game)
         {
             this.block = block;
             this.game = game;
         }
         public void Execute()
         {
-            ((HiddenBlock)block).useHiddenBlock();
+            ((QuestionStarBlock)block).bounceBlock();
             block.Update();
-            IItemObjects oneUp = ((HiddenBlock)block).spawnOneUp();
-            game.levelStore.staticObjectsList.Add(oneUp);
+            IItemObjects superStar = ((QuestionStarBlock)block).spawnStar();
+            game.levelStore.staticObjectsList.Add(superStar);
         }
     }
 }

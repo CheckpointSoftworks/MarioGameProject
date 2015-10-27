@@ -10,9 +10,14 @@ namespace Sprint2
     class SuperMushroomSprite : ISprite
     {
         private Texture2D superMushroomSpriteSheet;
-        private Vector2 location;
         private AnimatedSprite superMushroomSprite;
         private Rectangle collisionRectangle;
+        private Vector2 location;
+        public Vector2 Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
         public SuperMushroomSprite(Vector2 location)
         {
             superMushroomSpriteSheet = ItemSpriteTextureStorage.CreateSuperMushroomSprite();
