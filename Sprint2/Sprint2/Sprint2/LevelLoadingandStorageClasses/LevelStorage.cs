@@ -28,7 +28,7 @@ namespace Sprint2
             blocksList = new ArrayList();
             enviromentalObjectsList = new ArrayList();
         }
-        public void Update(IPlayer mario)
+        public void Update(IPlayer mario,Game1 game)
         {            
             foreach (IItemObjects item in staticObjectsList)
             {
@@ -38,7 +38,7 @@ namespace Sprint2
             {
                 enemy.Update();
             }
-            handleCollision((Mario)mario);
+            handleCollision((Mario)mario,game);
         }
 
         public void Draw(IPlayer player,SpriteBatch spriteBatch)
@@ -61,9 +61,13 @@ namespace Sprint2
             {
                 enviromental.Draw(spriteBatch);
             }
+            foreach (IBlock block in blocksList)
+            {
+                block.Update();
+            }
         }
 
-        private void handleCollision(IPlayer mario)
+        private void handleCollision(IPlayer mario,Game1 game)
         {
             IMarioState state = ((Mario)mario).State;
             ((Mario)mario).State.Still();
@@ -78,7 +82,7 @@ namespace Sprint2
                 if (block.checkForCollisionTestFlag())
                 {
                     side = collisionDetector.getCollision(mario.returnCollisionRectangle(), block.returnCollisionRectange());
-                    blockHandler.handleCollision((Mario)mario, block, side);
+                    blockHandler.handleCollision((Mario)mario, block, side,game);
                 }
             }
             foreach (IEnemyObject enemy in enemiesList)

@@ -92,6 +92,14 @@ namespace Sprint2
 
         public Rectangle returnCollisionRectangle()
         {
+            if (!isDamaged)
+            {
+                collisionRectangle = goombaSprite.returnCollisionRectangle();
+            }
+            else
+            {
+                collisionRectangle = new Rectangle(0, 0, 0, 0);
+            }
             return collisionRectangle;
         }
 
@@ -100,6 +108,16 @@ namespace Sprint2
             isDamaged = true;
             goombaSprite = EnemySpriteFactory.CreateGoombaDamangedSprite(location);
             collisionRectangle = new Rectangle(0, 0, 0, 0);
+        }
+
+        public void updateLocation(Vector2 newLocation)
+        {
+            this.location = newLocation;
+        }
+
+        public Vector2 returnLocation()
+        {
+           return location;
         }
     }
 }
