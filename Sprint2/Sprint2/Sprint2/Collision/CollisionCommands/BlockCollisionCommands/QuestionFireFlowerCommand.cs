@@ -18,8 +18,11 @@ namespace Sprint2
         {
             ((QuestionSuperMushroomFireFlower)block).bounceBlock();
             block.Update();
-            IItemObjects fireFlower = ((QuestionSuperMushroomFireFlower)block).spawnFireFlower();
-            game.levelStore.staticObjectsList.Add(fireFlower);
+            if (((QuestionSuperMushroomFireFlower)block).dispenseItem())
+            {
+                IItemObjects fireFlower = ((QuestionSuperMushroomFireFlower)block).spawnFireFlower();
+                game.levelStore.staticObjectsList.Add(fireFlower);
+            }
         }
     }
 }

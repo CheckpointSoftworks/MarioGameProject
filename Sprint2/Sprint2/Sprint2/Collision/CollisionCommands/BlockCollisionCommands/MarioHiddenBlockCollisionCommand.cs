@@ -18,8 +18,11 @@ namespace Sprint2
         {
             ((HiddenBlock)block).useHiddenBlock();
             block.Update();
-            IItemObjects oneUp = ((HiddenBlock)block).spawnOneUp();
-            game.levelStore.staticObjectsList.Add(oneUp);
+            if (((HiddenBlock)block).dispenseItem())
+            {
+                IItemObjects oneUp = ((HiddenBlock)block).spawnOneUp();
+                game.levelStore.staticObjectsList.Add(oneUp);
+            }
         }
     }
 }

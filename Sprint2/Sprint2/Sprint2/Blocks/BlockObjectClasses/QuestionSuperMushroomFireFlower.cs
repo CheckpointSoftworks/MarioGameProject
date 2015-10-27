@@ -13,13 +13,16 @@ namespace Sprint2
         private BlockType type;
         private bool testForCollision;
         private bool noLongerSpecialized;
+        private bool dispenseItemFlag;
         private Vector2 location;
+
         public QuestionSuperMushroomFireFlower(int locX, int locY, BlockType type)
         {
             location = new Vector2(locX, locY);
             sprite = new QuestionBlockSprite(location);
             this.type = type;
             testForCollision = true;
+            dispenseItemFlag = true;
             noLongerSpecialized = false;
         }
 
@@ -69,7 +72,13 @@ namespace Sprint2
 
         public IItemObjects spawnFireFlower()
         {
+            dispenseItemFlag = false;
             return new FireFlower((int)location.X, (int)location.Y - 16);
+        }
+
+        public bool dispenseItem()
+        {
+            return dispenseItemFlag;
         }
     }
 }

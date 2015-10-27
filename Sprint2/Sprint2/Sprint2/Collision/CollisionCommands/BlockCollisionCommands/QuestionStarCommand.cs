@@ -18,8 +18,11 @@ namespace Sprint2
         {
             ((QuestionStarBlock)block).bounceBlock();
             block.Update();
-            IItemObjects superStar = ((QuestionStarBlock)block).spawnStar();
-            game.levelStore.staticObjectsList.Add(superStar);
+            if (((QuestionStarBlock)block).dispenseItem())
+            {
+                IItemObjects superStar = ((QuestionStarBlock)block).spawnStar();
+                game.levelStore.staticObjectsList.Add(superStar);
+            }
         }
     }
 }

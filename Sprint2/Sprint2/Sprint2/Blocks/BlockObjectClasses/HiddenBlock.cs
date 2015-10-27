@@ -13,6 +13,7 @@ namespace Sprint2
         private BlockType type;
         private bool testForCollision;
         private bool noLongerSpecialized;
+        private bool dispenseItemFlag;
         private Vector2 location;
         
         public HiddenBlock(int locX,int locY,BlockType type)
@@ -22,6 +23,7 @@ namespace Sprint2
             this.type = type;
             testForCollision=true;
             noLongerSpecialized = false;
+            dispenseItemFlag = true;
         }
         public void Update()
         {
@@ -64,7 +66,13 @@ namespace Sprint2
         }
         public IItemObjects spawnOneUp()
         {
+            dispenseItemFlag = false;
             return new OneUpMushroom((int)location.X, (int)location.Y - 16);
+        }
+
+        public bool dispenseItem()
+        {
+            return dispenseItemFlag;
         }
     }
 }

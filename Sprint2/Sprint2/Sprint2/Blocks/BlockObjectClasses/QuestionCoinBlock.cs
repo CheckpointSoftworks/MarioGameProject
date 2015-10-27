@@ -14,7 +14,7 @@ namespace Sprint2
         private bool testForCollision;
         private bool noLongerSpecialized;
         private Vector2 location;
-        
+        private bool dispenseItemFlag;
         public QuestionCoinBlock(int locX,int locY,BlockType type)
         {
             location = new Vector2(locX, locY);            
@@ -22,6 +22,7 @@ namespace Sprint2
             this.type = type;
             testForCollision=true;
             noLongerSpecialized = false;
+            dispenseItemFlag = true;
         }
 
         public void Update()
@@ -65,7 +66,13 @@ namespace Sprint2
 
         public IItemObjects spawnCoin()
         {
+            dispenseItemFlag = false;
             return new BoxCoin((int)location.X, (int)location.Y-16);
+        }
+
+        public bool dispenseItem()
+        {
+            return dispenseItemFlag;
         }
     }
 }
