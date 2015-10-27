@@ -73,17 +73,26 @@ namespace Sprint2
             ((Mario)mario).State.Still();
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side;
+            Rectangle floorCheck;
+            floorCheck = mario.returnCollisionRectangle();
+            floorCheck.Y++;
             MarioBlockCollisionHandler blockHandler = new MarioBlockCollisionHandler();
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
             MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
             MarioPipeCollisionHandler pipeHandler = new MarioPipeCollisionHandler();
+            ((Mario)mario).rigidbody.Floored = false;
             foreach (IBlock block in blocksList)
             {
                 if (block.checkForCollisionTestFlag())
                 {
                     side = collisionDetector.getCollision(mario.returnCollisionRectangle(), block.returnCollisionRectange());
                     blockHandler.handleCollision((Mario)mario, block, side,game);
+                    if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectange()).returnCollisionSide().Equals(CollisionSide.Top))
+                    {
+                        ((Mario)mario).rigidbody.Floored = true;
+                    }
                 }
+
             }
             foreach (IEnemyObject enemy in enemiesList)
             {

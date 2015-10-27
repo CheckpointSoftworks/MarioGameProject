@@ -126,7 +126,6 @@ namespace Sprint2
             if (Math.Abs(rigidbody.Velocity.Y) > 0) { state.Jump(); }
             else if (rigidbody.Floored)
             {
-                Console.WriteLine(rigidbody.Velocity.X);
                 if (Math.Abs(rigidbody.Velocity.X) > 0)
                 {
                     state.Running();
