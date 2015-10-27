@@ -70,7 +70,7 @@ namespace Sprint2
             }
             else if (type.Equals(BlockType.Brick)&&((!mario.Small)||(mario.Star)))
             {
-                command = new BigMarioBrickBlockCollisionCommand(block);
+                command = new BigMarioBrickBlockCollisionCommand(block,game);
                 command.Execute();
             }
 

@@ -73,6 +73,8 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\BrickPieces.cs" />
+    <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\BrickPiecesSprite.cs" />
     <Compile Include="PhysicsClasses\AutonomousPhysicsObject.cs" />
     <Compile Include="Blocks\BlockObjectClasses\Blocks.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BrickBlock.cs" />

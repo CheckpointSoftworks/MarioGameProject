@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,11 @@ namespace Sprint2
         private BlockType type;
         private bool testForCollision;
         private bool noLongerSpecialized;
+        private Vector2 location;
         
         public BrickBlock(int locX,int locY,BlockType type)
         {
-            Vector2 location = new Vector2(locX, locY);
+            location = new Vector2(locX, locY);
             sprite = new BrickBlockSprite(location);
             this.type = type;
             testForCollision=true;
@@ -60,6 +62,18 @@ namespace Sprint2
         public void smashBlock()
         {
             ((BrickBlockSprite)sprite).hasSmashed();
+        }
+
+        public void becomeSmashed(ArrayList enviromentalList)
+        {
+            IEnviromental firstPiece = new BrickPieces((int)location.X-1, (int)location.Y-5,true);
+            IEnviromental secondPiece = new BrickPieces((int)location.X+1, (int)location.Y-5,false);
+            IEnviromental thirdPiece = new BrickPieces((int)location.X-3, (int)location.Y+5, true);
+            IEnviromental fourthPiece = new BrickPieces((int)location.X + 3, (int)location.Y + 5, false);
+            enviromentalList.Add(firstPiece);
+            enviromentalList.Add(secondPiece);
+            enviromentalList.Add(thirdPiece);
+            enviromentalList.Add(fourthPiece);
         }
     }
 }

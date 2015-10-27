@@ -31,5 +31,10 @@ namespace Sprint2
         {
             return pipeSprite.returnCollisionRectangle();
         }
+
+        public bool testForCollision()
+        {
+            return true;
+        }
     }
 }

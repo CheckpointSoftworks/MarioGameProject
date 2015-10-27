@@ -29,7 +29,11 @@ namespace Sprint2
             enviromentalObjectsList = new ArrayList();
         }
         public void Update(IPlayer mario,Game1 game)
-        {            
+        {
+            foreach (IBlock block in blocksList)
+            {
+                block.Update();
+            }
             foreach (IItemObjects item in staticObjectsList)
             {
                 item.Update();
@@ -37,6 +41,10 @@ namespace Sprint2
             foreach (IEnemyObject enemy in enemiesList)
             {
                 enemy.Update();
+            }
+            foreach (IEnviromental enviromental in enviromentalObjectsList)
+            {
+                enviromental.Update();
             }
             handleMarioCollision((Mario)mario,game);
             foreach (IEnemyObject enemy in enemiesList)

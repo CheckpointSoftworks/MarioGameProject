@@ -23,8 +23,9 @@ namespace Sprint2
         {
             this.LevelName = levelname;
         }
-        public void LoadLevel(LevelStorage storage)
+        public LevelStorage LoadLevel()
         {
+            LevelStorage storage = new LevelStorage();
             using (var levelfile = TitleContainer.OpenStream(@"Content\" + LevelName))
             {
                 using (var sr = new StreamReader(levelfile))
@@ -335,6 +336,7 @@ namespace Sprint2
                     }
                 }
             }
+            return storage;
         }
     }
 }

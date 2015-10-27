@@ -62,7 +62,7 @@ namespace Sprint2
             background = Content.Load<Texture2D>("Background");
 
             LoadKeyBoardCommands(); 
-            loader.LoadLevel(levelStore);
+            levelStore=loader.LoadLevel();
             levelStore.enemiesList.Add(new Goomba(205, 383));
             mario = levelStore.player;
         }

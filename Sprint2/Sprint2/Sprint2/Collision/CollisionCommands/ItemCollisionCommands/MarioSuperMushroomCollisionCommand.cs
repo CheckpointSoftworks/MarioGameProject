@@ -20,7 +20,6 @@ namespace Sprint2
         {
             superMushroom.setCollisionRectangle(new Rectangle(0, 0, 0, 0));
             ((Mario)mario).Small = false;
-            ((Mario)mario).Fire = false;
         }
     }
 }
