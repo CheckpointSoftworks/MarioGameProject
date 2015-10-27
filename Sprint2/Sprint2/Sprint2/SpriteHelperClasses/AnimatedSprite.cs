@@ -75,7 +75,7 @@ namespace Sprint2
             {
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, color, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
             }
-
+            collisionRectangle = new Rectangle((int)loc.X, (int)loc.Y, frameWidth, frameHeight);
             spriteBatch.End();
         }
 

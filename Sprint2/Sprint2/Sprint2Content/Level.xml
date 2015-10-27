@@ -36,12 +36,12 @@
     <y>440</y>
   </SuperStar>
   <Koopa>
-    <x>196</x>
-    <y>0</y>
+    <x>232</x>
+    <y>160</y>
   </Koopa>  
   <Goomba>
-    <x>220</x>
-    <y>0</y>
+    <x>252</x>
+    <y>160</y>
   </Goomba>
   <BrickBlock>
     <x>144</x>
