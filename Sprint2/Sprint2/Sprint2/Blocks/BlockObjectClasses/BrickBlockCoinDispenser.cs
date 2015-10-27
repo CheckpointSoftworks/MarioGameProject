@@ -7,36 +7,19 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class Blocks:IBlock
+    public class BrickBlockCoinDispenser:IBlock
     {
         private ISprite sprite;
         private BlockType type;
         private bool testForCollision;
         private bool noLongerSpecialized;
+        private int coinCount = 15;
+        private Vector2 location;
         
-        public Blocks(int locX,int locY,BlockType type)
+        public BrickBlockCoinDispenser(int locX,int locY,BlockType type)
         {
-            Vector2 location = new Vector2(locX, locY);
-            if(type.Equals(BlockType.Brick)){
-                sprite = new BrickBlockSprite(location);
-            }
-            else if(type.Equals(BlockType.Ground))
-            {
-                sprite = new GroundBlockSprite(location);
-            }
-            else if (type.Equals(BlockType.Hidden))
-            {
-                sprite = new HiddenBlockSprite(location);
-            }
-            else if (type.Equals(BlockType.Platforming))
-            {
-                sprite = new PlatformingBlockSprite(location);
-            }
-            else if (type.Equals(BlockType.Question))
-            {
-                sprite = new QuestionBlockSprite(location);
-            }
-
+            location = new Vector2(locX, locY);
+            sprite = new BrickBlockCoinDispenserSprite(location);
             this.type = type;
             testForCollision=true;
             noLongerSpecialized = false;
@@ -74,6 +57,26 @@ namespace Sprint2
         public bool checkForSpecalizedSideCollision()
         {
             return noLongerSpecialized;
+        }
+
+        public bool coinCounting()
+        {
+            bool dispenseCoin = false;
+            if (coinCount > 0)
+            {
+                dispenseCoin=true;
+                coinCount--;
+            }
+            else
+            {
+                ((BrickBlockCoinDispenserSprite)sprite).outOfCoins();
+            }
+            return dispenseCoin;
+        }
+
+        public IItemObjects dispenseCoin()
+        {
+            return new BoxCoin((int)location.X, (int)location.Y);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Sprint2
 
         public void Execute()
         {
+            ((BrickBlock)block).smashBlock();
             block.Update();
             block.removeFromTestingCollision();
         }

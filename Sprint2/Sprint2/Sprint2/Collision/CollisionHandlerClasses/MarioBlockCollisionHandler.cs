@@ -61,7 +61,12 @@ namespace Sprint2
             }
             else if (type.Equals(BlockType.Hidden))
             {
-                command = new MarioHiddenBlockCollisionCommand(block);
+                command = new MarioHiddenBlockCollisionCommand(block,game);
+                command.Execute();
+            }
+            else if (type.Equals(BlockType.BrickCoin))
+            {
+                command = new BrickBlockDispenserCommand(block, game);
                 command.Execute();
             }
             else if (type.Equals(BlockType.Brick)&&((!mario.Small)||(mario.Star)))

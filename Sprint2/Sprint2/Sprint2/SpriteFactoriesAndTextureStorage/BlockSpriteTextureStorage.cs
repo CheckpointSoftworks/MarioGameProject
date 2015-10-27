@@ -15,6 +15,7 @@ namespace Sprint2
         private static Texture2D questionBlockSpriteSheet;
         private static Texture2D groundBlockSpriteSheet;
         private static Texture2D platformingBlockSpriteSheet;
+        private static Texture2D brickBlockCoinDispenserSpriteSheet;
 
         public static void Load(ContentManager content){
             hiddenBlockSpritesheet = content.Load<Texture2D>("HiddenBlockSpriteSheet");
@@ -22,6 +23,7 @@ namespace Sprint2
             questionBlockSpriteSheet = content.Load<Texture2D>("QuestionBlockSpriteSheet");
             groundBlockSpriteSheet = content.Load<Texture2D>("GroundBlockSpriteSheet");
             platformingBlockSpriteSheet = content.Load<Texture2D>("PlatformingBlockSpriteSheet");
+            brickBlockCoinDispenserSpriteSheet = content.Load<Texture2D>("BrickBlockCoinDispenser");
         }
 
         public static Texture2D CreateHiddenBlockSprite()
@@ -43,6 +45,10 @@ namespace Sprint2
         public static Texture2D CreatePlatformingBlockSprite()
         {
             return platformingBlockSpriteSheet;
+        }
+        public static Texture2D CreateBrickBlockCoinDispenserSprite()
+        {
+            return brickBlockCoinDispenserSpriteSheet;
         }
     }
 }

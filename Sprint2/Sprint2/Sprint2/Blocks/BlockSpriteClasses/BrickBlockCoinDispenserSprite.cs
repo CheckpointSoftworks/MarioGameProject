@@ -7,31 +7,30 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class BrickBlockSprite : ISprite
+    public class BrickBlockCoinDispenserSprite:ISprite
     {
         private Texture2D brickBlockSpriteSheet;
         private Vector2 location;
-        private bool smashed;
+        private bool used;
         private Rectangle collisionRectangle;
         private int frame;
         private int spriteSheetSpriteSize = 16;
         private int totalFrames;
 
-        public BrickBlockSprite(Vector2 location)
+        public BrickBlockCoinDispenserSprite(Vector2 location)
         {
-            brickBlockSpriteSheet = BlockSpriteTextureStorage.CreateBrickBlockSprite();
+            brickBlockSpriteSheet = BlockSpriteTextureStorage.CreateBrickBlockCoinDispenserSprite();
             this.location = location;
             frame = 0;
             totalFrames = 1;
-            smashed = false;
+            used = false;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
         public void Update()
         {
-            if (smashed&&frame<totalFrames)
+            if (used&&frame<totalFrames)
             {
                 frame++;
-                collisionRectangle = new Rectangle(0, 0, 0, 0);
             }
         }
 
@@ -50,9 +49,9 @@ namespace Sprint2
             return collisionRectangle;
         }
 
-        public void hasSmashed()
+        public void outOfCoins()
         {
-            smashed = true;
+            used = true;
         }
     }
 }

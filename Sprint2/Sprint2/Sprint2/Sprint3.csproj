@@ -74,9 +74,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blocks\BlockObjectClasses\Blocks.cs" />
+    <Compile Include="Blocks\BlockObjectClasses\BrickBlock.cs" />
+    <Compile Include="Blocks\BlockObjectClasses\BrickBlockCoinDispenser.cs" />
+    <Compile Include="Blocks\BlockSpriteClasses\BrickBlockCoinDispenserSprite.cs" />
+    <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\BrickBlockDispenserCommand.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\EnemyBlockCollisionHandler.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\EnemyEnemyCollisionHandler.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\EnemyEnviromentalCollisionHandler.cs" />
+    <Compile Include="Blocks\BlockObjectClasses\HiddenBlock.cs" />
     <Compile Include="LevelLoadingandStorageClasses\LevelStorage.cs" />
     <Compile Include="Blocks\BlockObjectClasses\QuestionCoinBlock.cs" />
     <Compile Include="Blocks\BlockObjectClasses\QuestionSuperMushroomFireFlower.cs" />
