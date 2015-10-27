@@ -63,6 +63,7 @@ namespace Sprint2
 
             LoadKeyBoardCommands(); 
             loader.LoadLevel(levelStore);
+            levelStore.enemiesList.Add(new Goomba(205, 383));
             mario = levelStore.player;
         }
 
