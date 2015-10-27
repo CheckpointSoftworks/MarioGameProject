@@ -65,6 +65,7 @@ namespace Sprint2
 
             Rectangle sourceRectangle = new Rectangle(frameWidth * frameColumn, frameHeight * frameRow, frameWidth, frameHeight);
             Rectangle destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, frameWidth, frameHeight);
+            collisionRectangle = destinationRectangle;
             spriteBatch.Begin();
             if (facingRight)
             {

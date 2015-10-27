@@ -96,6 +96,7 @@ namespace Sprint2
             }
         }
         private int timer = 600;
+        public ControllablePhysicsObject rigidbody;
         public Mario(int locX, int locY)
         {
             small = true;
@@ -105,10 +106,35 @@ namespace Sprint2
             isDying = false;
             location = new Vector2(locX, locY);
             state = new MarioStill(this);
+            rigidbody = new ControllablePhysicsObject();
+            LoadPhysicsProperties();
         }
 
+        private void LoadPhysicsProperties()
+        {
+            rigidbody.AirFriction = 0.1f;
+            rigidbody.GroundFriction = 0.7f;
+            rigidbody.maxVelocityX = 20;
+            rigidbody.maxVelocityY = 10;
+            rigidbody.GroundSpeed = 1;
+            rigidbody.JumpSpeed = -500;
+            rigidbody.JumpDuration = 1;
+            rigidbody.IsEnabled = true;
+        }
         public void Update()
         {
+            if (Math.Abs(rigidbody.Velocity.Y) > 0) { state.Jump(); }
+            else if (rigidbody.Floored)
+            {
+                if (Math.Abs(rigidbody.Velocity.X) > 0)
+                {
+                    state.Running();
+                }
+                else
+                {
+                    state.Still();
+                }
+            }
             if (!star)
             {
                 state.Update();
@@ -122,7 +148,10 @@ namespace Sprint2
                 }
 
                 state.Update();
+                
             }
+            rigidbody.UpdatePhysics();
+            location += rigidbody.Velocity;
         }
         public void Draw(SpriteBatch spriteBatch)
         {

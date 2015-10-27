@@ -16,7 +16,6 @@ namespace Sprint2
 
         public void handleCollision(Mario mario, IBlock block, ICollision side,Game1 game)
         {
-            
             if (!(side.returnCollisionSide().Equals(CollisionSide.None))&&!(block.returnBlockType().Equals(BlockType.Hidden)))
             {
                 handleMarioMovement(mario, block, side);
@@ -83,30 +82,34 @@ namespace Sprint2
             Rectangle marioRectangle = mario.returnCollisionRectangle();
             Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, blockRectangle);
             int locationDiffToChange = 0;
-
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
             {
                 locationDiffToChange = intersectionRectangle.Width;
                 int newMarioX = (int)mario.Location.X - locationDiffToChange;
                 mario.Location = new Vector2(newMarioX, mario.Location.Y);
+                mario.rigidbody.HorizontalCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Right))
             {
                 locationDiffToChange = intersectionRectangle.Width;
                 int newMarioX = (int)mario.Location.X + locationDiffToChange;
                 mario.Location = new Vector2(newMarioX, mario.Location.Y);
+                mario.rigidbody.HorizontalCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y - locationDiffToChange;
                 mario.Location = new Vector2(mario.Location.X, newMarioY);
+                //mario.State.Still();
+                mario.rigidbody.BottomCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y + locationDiffToChange;
                 mario.Location = new Vector2(mario.Location.X, newMarioY);
+                mario.rigidbody.TopCollision();
             }
         }
 

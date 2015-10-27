@@ -17,7 +17,9 @@ namespace Sprint2
         public void Execute()
         {
             ((Mario)Game.mario).FacingRight = false;
-            ((Mario)Game.mario).State.JumpRun();
+//            ((Mario)Game.mario).State.JumpRun();
+            ((Mario)Game.mario).rigidbody.Jump();
+            ((Mario)Game.mario).rigidbody.MoveLeft();
         }
     }
 }
