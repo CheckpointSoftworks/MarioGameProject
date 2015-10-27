@@ -14,7 +14,7 @@ namespace Sprint2
         private Rectangle collisionRectangle;
         private Vector2 velocity;
         private float walkSpeed;
-        private float fallSpeed;
+        private Vector2 gravity;
         private float decayRate;
         private bool isFalling;
         private bool isDamaged;
@@ -24,7 +24,11 @@ namespace Sprint2
             get { return directionLeft; }
             set { directionLeft = value; }
         }
-
+        public Vector2 Gravity
+        {
+            get { return gravity; }
+            set { gravity = value; }
+        }
         public Goomba(int locX, int locY)
         {
             location = new Vector2(locX, locY);
@@ -32,8 +36,9 @@ namespace Sprint2
             collisionRectangle = goombaSprite.returnCollisionRectangle();
             isDamaged = false;
             walkSpeed = 0.7f;
-            fallSpeed = 6.0f;
-            decayRate = 0.98f;
+            gravity.X = 0;
+            gravity.Y = 6.0f;
+            decayRate = 0.90f;
             FallLeft();
         }
 
@@ -41,34 +46,31 @@ namespace Sprint2
         {
             isFalling = false;
             velocity.X = -walkSpeed;
-            velocity.Y = 0;
         }
         public void MoveRight()
         {
             isFalling = false;
             velocity.X = walkSpeed;
-            velocity.Y = 0;
         }
         public void FallLeft()
         {
             isFalling = true;
             velocity.X = -walkSpeed;
-            velocity.Y = fallSpeed;
         }
         public void FallRight()
         {
             isFalling = true;
             velocity.X = walkSpeed;
-            velocity.Y = fallSpeed;
         }
         public void StopMoving()
         {
             isFalling = false;
             velocity.X = 0;
-            velocity.Y = 0;
         }
         public void Update()
         {
+            velocity.Y = 0;
+            velocity += gravity;
             location += velocity;
             if (isFalling)
             {

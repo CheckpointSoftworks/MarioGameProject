@@ -15,7 +15,7 @@ namespace Sprint2
         private Vector2 velocity;
         private float walkSpeed;
         private float shellSlideSpeed;
-        private float fallSpeed;
+        private Vector2 gravity;
         private float decayRate;
         private bool isFalling;
         private bool isDamaged;
@@ -24,6 +24,11 @@ namespace Sprint2
         {
             get { return directionLeft; }
             set { directionLeft = value; }
+        }
+        public Vector2 Gravity
+        {
+            get { return gravity; }
+            set { gravity = value; }
         }
 
         public Koopa(int locX, int locY)
@@ -34,8 +39,9 @@ namespace Sprint2
             isDamaged = false;
             walkSpeed = 0.7f;
             shellSlideSpeed = 1.4f;
-            fallSpeed = 6.0f;
-            decayRate = 0.98f;
+            gravity.X = 0;
+            gravity.Y = 6.0f;
+            decayRate = 0.90f;
             FallLeft();
         }
         public void MoveLeft()
@@ -50,7 +56,6 @@ namespace Sprint2
                 velocity.X = -walkSpeed;
                 ((KoopaSprite)koopaSprite).FacingRight = false;
             }
-            velocity.Y = 0;
         }
         public void MoveRight()
         {
@@ -64,7 +69,6 @@ namespace Sprint2
                 velocity.X = walkSpeed;
                 ((KoopaSprite)koopaSprite).FacingRight = true;
             }
-            velocity.Y = 0;
         }
         public void FallLeft()
         {
@@ -78,7 +82,6 @@ namespace Sprint2
                 ((KoopaSprite)koopaSprite).FacingRight = false;
             }
             velocity.X = -walkSpeed;
-            velocity.Y = fallSpeed;
         }
         public void FallRight()
         {
@@ -92,16 +95,16 @@ namespace Sprint2
                 velocity.X = walkSpeed;
                 ((KoopaSprite)koopaSprite).FacingRight = true;
             }
-            velocity.Y = fallSpeed;
         }
         public void StopMoving()
         {
             isFalling = false;
             velocity.X = 0;
-            velocity.Y = 0;
         }
         public void Update()
         {
+            velocity.Y = 0;
+            velocity += gravity;
             location += velocity;
             if (isFalling)
             {
