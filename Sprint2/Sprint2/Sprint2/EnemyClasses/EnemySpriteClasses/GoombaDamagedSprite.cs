@@ -39,7 +39,7 @@ namespace Sprint2
 
         public Rectangle returnCollisionRectangle()
         {
-            return AnimatedDamGoomba.returnCollisionRectangle();
+            return new Rectangle(0, 0, 0, 0);
         }
     }
 }

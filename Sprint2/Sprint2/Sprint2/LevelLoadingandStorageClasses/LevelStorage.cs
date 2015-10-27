@@ -38,7 +38,11 @@ namespace Sprint2
             {
                 enemy.Update();
             }
-            handleCollision((Mario)mario,game);
+            handleMarioCollision((Mario)mario,game);
+            foreach (IEnemyObject enemy in enemiesList)
+            {
+                handleEnemyCollision(enemy);
+            }
         }
 
         public void Draw(IPlayer player,SpriteBatch spriteBatch)
@@ -67,7 +71,7 @@ namespace Sprint2
             }
         }
 
-        private void handleCollision(IPlayer mario,Game1 game)
+        private void handleMarioCollision(IPlayer mario,Game1 game)
         {
             IMarioState state = ((Mario)mario).State;
             ((Mario)mario).State.Still();
@@ -104,6 +108,37 @@ namespace Sprint2
                 pipeHandler.handleCollision((Mario)mario, enviromental, side);
             }
             ((Mario)mario).State = state;
+        }
+
+        private void handleEnemyCollision(IEnemyObject enemy)
+        {
+            CollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side;
+            EnemyBlockCollisionHandler enemyBlockHandler = new EnemyBlockCollisionHandler();
+            EnemyEnviromentalCollisionHandler enemyEnviroHandler = new EnemyEnviromentalCollisionHandler();
+            EnemyEnemyCollisionHandler enemyEnemyHandler = new EnemyEnemyCollisionHandler();
+
+            foreach (IBlock block in blocksList)
+            {
+                if (block.checkForCollisionTestFlag())
+                {
+                    side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), block.returnCollisionRectange());
+                    enemyBlockHandler.handleCollision(enemy, block, side);
+                }
+            }
+            foreach (IEnviromental enviromental in enviromentalObjectsList)
+            {
+                side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
+                enemyEnviroHandler.handleCollision(enemy, enviromental, side);
+            }
+            foreach (IEnemyObject secondEnemy in enemiesList)
+            {
+                if (!enemy.Equals(secondEnemy))
+                {
+                    side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), secondEnemy.returnCollisionRectangle());
+                    enemyEnemyHandler.handleCollision(enemy, secondEnemy, side);
+                }
+            }
         }
     }
 }
