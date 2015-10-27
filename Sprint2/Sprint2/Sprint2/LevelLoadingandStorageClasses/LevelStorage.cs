@@ -73,6 +73,7 @@ namespace Sprint2
             MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
             MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
             MarioPipeCollisionHandler pipeHandler = new MarioPipeCollisionHandler();
+            ((Mario)mario).rigidbody.Floored = false;
             foreach (IBlock block in blocksList)
             {
                 if (block.checkForCollisionTestFlag())
@@ -81,6 +82,7 @@ namespace Sprint2
                     blockHandler.handleCollision((Mario)mario, block, side);
                 }
             }
+            ((Mario)mario).rigidbody.ResetGravityCheck();
             foreach (IEnemyObject enemy in enemiesList)
             {
                 side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());

@@ -92,8 +92,8 @@ namespace Sprint2
             keyboard.Update();
             gamepad.Update();
             keyboardNotPressed.Execute();
-            mario.Update();
             levelStore.Update(mario);
+            mario.Update();
             base.Update(gameTime);
         }
 

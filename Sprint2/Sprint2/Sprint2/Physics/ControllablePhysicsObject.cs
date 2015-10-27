@@ -93,7 +93,14 @@ public class ControllablePhysicsObject
 
     private float elasticity;
 
+    private bool floored;
+    public bool Floored
+    {
+        get { return floored; }
+        set { floored = value; }
+    }
     private static Vector2 g;
+    private static Vector2 gOrigin;
     public static Vector2 Gravity
     {
         set
@@ -107,6 +114,7 @@ public class ControllablePhysicsObject
         velocity = new Vector2(0, 0);
         elasticity = 0;
         g = new Vector2(0, 30f);
+        gOrigin = new Vector2(0, 30f);
     }
 
     public ControllablePhysicsObject(Vector2 gravity)
@@ -115,6 +123,7 @@ public class ControllablePhysicsObject
         velocity = new Vector2(0, 0);
         elasticity = 0;
         g = gravity;
+        gOrigin = gravity;
     }
 
     public void UpdatePhysics()
@@ -161,19 +170,29 @@ public class ControllablePhysicsObject
         }
     }
 
+    public void ResetGravityCheck()
+    {
+        if (!floored) g = gOrigin;
+       // if (!floored) g = -g;
+    }
+
+
     public void HorizontalCollision()
     {
-        velocity.X = 0;
+        //velocity.X = 0;
+        floored = false;
     }
 
     public void TopCollision()
     {
         velocity.Y = 0;
+        floored = false;
     }
 
     public void BottomCollision()
     {
-        Console.WriteLine("Bottom collision");
+        floored = true;
+        g = new Vector2(0,0);
         velocity.Y = 0;
         airTime = 0;
     }

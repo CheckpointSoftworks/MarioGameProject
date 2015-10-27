@@ -62,7 +62,6 @@ namespace Sprint2
             Rectangle marioRectangle = mario.returnCollisionRectangle();
             Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, blockRectangle);
             int locationDiffToChange = 0;
-            
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
             {
                 locationDiffToChange = intersectionRectangle.Width;
@@ -80,7 +79,6 @@ namespace Sprint2
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y - locationDiffToChange;
                 mario.Location = new Vector2(mario.Location.X, newMarioY);
-                Console.WriteLine("Bottom collision");
                 mario.rigidbody.BottomCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
