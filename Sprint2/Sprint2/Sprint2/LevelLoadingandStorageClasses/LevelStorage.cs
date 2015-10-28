@@ -131,16 +131,23 @@ namespace Sprint2
         {
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side;
+            Rectangle floorCheck;
+            floorCheck = enemy.returnCollisionRectangle();
+            floorCheck.Y++;
             EnemyBlockCollisionHandler enemyBlockHandler = new EnemyBlockCollisionHandler();
             EnemyEnviromentalCollisionHandler enemyEnviroHandler = new EnemyEnviromentalCollisionHandler();
             EnemyEnemyCollisionHandler enemyEnemyHandler = new EnemyEnemyCollisionHandler();
-
+            enemy.GetRigidBody().Floored = false;
             foreach (IBlock block in blocksList)
             {
                 if (block.checkForCollisionTestFlag())
                 {
                     side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), block.returnCollisionRectange());
                     enemyBlockHandler.handleCollision(enemy, block, side);
+                }
+                if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectange()).returnCollisionSide().Equals(CollisionSide.Top))
+                {
+                    enemy.GetRigidBody().Floored = true;
                 }
             }
             foreach (IEnviromental enviromental in enviromentalObjectsList)

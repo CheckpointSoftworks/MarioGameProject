@@ -5,11 +5,16 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-class AutonomousPhysicsObject
+public class AutonomousPhysicsObject
 {
     // An autonomous physics object is a physics object which has a set velocity that never changes. This is for enemies, projectiles, etc.
     // Physics should be updated before collision handling. That said, physics should be included in collision handling so velocites can be reset. 
 
+    // This is the time since the last update. It can stay as 0.1 or we can use the actual GameTime.DeltaTime if it exists. 
+    // This is used to make sure physics is fully accurate. I can't go into here, but check the slides to see why this value exists. 
+    private float deltaTime = 0.1f;
+
+    // Will the object use physics? Set enable to false if it shouldn't move.
     private bool enabled;
     public bool IsEnabled
     {
@@ -22,6 +27,8 @@ class AutonomousPhysicsObject
             enabled = value;
         }
     }
+    
+    //Velocity refers to the displacement of the object 
     private Vector2 velocity;
     public Vector2 Velocity
     {
@@ -31,22 +38,17 @@ class AutonomousPhysicsObject
         }
     }
 
-    private Vector2 maxVelocity;
-    public float maxVelocityX
+    // Terminal velocity of the object, adding gravity passed this point won't make it go faster
+    private float maxFallSpeed;
+    public float MaxFallSpeed
     {
         set
         {
-            maxVelocity.X = value;
-        }
-    }
-    public float maxVelocityY
-    {
-        set
-        {
-            maxVelocity.Y = value;
+            maxFallSpeed = value;
         }
     }
 
+    // The velocity this object moves. Can only be inverted by a collision. Ground acceleration is also 0, so ground velocity is fixed.
     private float groundSpeed;
     public float GroundSpeed
     {
@@ -56,30 +58,13 @@ class AutonomousPhysicsObject
         }
     }
 
+    //Friction will eventually slow the object down. It's multiplied by velocity to dampen velocity. 
     private Vector2 friction;
     public float GroundFriction
     {
         set
         {
             friction.X = Clamp(value, 0, 1);
-        }
-    }
-
-    private float jumpDuration;
-    private float airTime;
-    public float JumpDuration
-    {
-        set
-        {
-            jumpDuration = value;
-        }
-    }
-    private float jumpSpeed;
-    public float JumpSpeed
-    {
-        set
-        {
-            value = jumpSpeed;
         }
     }
 
@@ -91,11 +76,14 @@ class AutonomousPhysicsObject
         }
     }
 
+    //Acceleration is the rate of change of velocity. Because it's a rate, velocity equals acceleration (rise) multiplied by delta time (1/run)
+    private Vector2 acceleration;
+
+    //Elasticity is the amount of momentum retained after a collision. 0 would be like a car hitting an immovable object, 1 would be like dropping a bouncy ball and having it bounce forever. 
+    //The extrema are physically impossible in the real world, but for the game's sake, they're allowed. The Star has an elasticity of 1 for example. 
     private float elasticity;
     public float Elasticity
     {
-        //Elasticity is the amount of momentum retained after a collision. 0 would be like a car hitting an immovable object, 1 would be like dropping a bouncy ball and having it bounce forever. 
-        //The extrema are physically impossible in the real world, but for the game's sake, they're allowed. The Star has an elasticity of 1 for example. 
         get
         {
             return elasticity;
@@ -106,6 +94,7 @@ class AutonomousPhysicsObject
         }
     }
 
+    // Gravity is that thing that makes massive objects pull towards each other. It's actually significantly more complicated than that, but for our purposes assume that the ground is fixed in space.
     private static Vector2 g;
     public static Vector2 Gravity
     {
@@ -113,13 +102,26 @@ class AutonomousPhysicsObject
         {
             g = value;
         }
+        get
+        {
+            return g;
+        }
+    }
+
+    // Has the object hit the floor this frame? If so, gravity won't be applied to make collisions less glitchy
+    private bool floored;
+    public bool Floored
+    {
+        get { return floored; }
+        set { floored = value; }
     }
 
     public AutonomousPhysicsObject()
     {
         velocity = new Vector2(0, 0);
         elasticity = 0;
-        g = new Vector2(0, 98f);
+        g = new Vector2(0, 5f);
+        acceleration = new Vector2(0, 0);
     }
 
     public AutonomousPhysicsObject(Vector2 gravity)
@@ -128,14 +130,17 @@ class AutonomousPhysicsObject
         velocity = new Vector2(0, 0);
         elasticity = 0;
         g = gravity;
+        acceleration = new Vector2(0, 0);
     }
 
     public void UpdatePhysics()
     {
+        //Console.WriteLine("At start of physics update, vel is " + velocity);
         if (enabled)
         {
-            velocity += g * 0.2f;
-            //MAGIC NUMBER
+            if (!floored) { acceleration += g; }
+            velocity = acceleration * deltaTime;
+            velocity.X += groundSpeed;
             DampenVelocity();
             ClampVelocity();
         }
@@ -149,17 +154,58 @@ class AutonomousPhysicsObject
 
     private void ClampVelocity()
     {
-        velocity = Clamp(velocity, -maxVelocity.X, maxVelocity.X, -maxVelocity.Y, maxVelocity.Y);
+        velocity = Clamp(velocity, -Math.Abs(groundSpeed), Math.Abs(groundSpeed), -maxFallSpeed, maxFallSpeed);
+        if (Math.Abs(velocity.X) <= 0.4) velocity.X = 0;
+        if (Math.Abs(velocity.Y) <= 0.4) velocity.Y = 0;
     }
 
-    public void HorizontalCollision()
+    private void ClampAcceleration()
     {
-        velocity.X *= -1;
+        acceleration = Clamp(acceleration, -Math.Abs(acceleration.X), Math.Abs(acceleration.X), -maxFallSpeed*g.Y*(1/deltaTime), maxFallSpeed*g.Y*(1/deltaTime));
+        if (Math.Abs(acceleration.Y) <= g.Y*(g.Y*elasticity)) acceleration.Y = 0;
     }
 
-    public void VerticalCollision()
+    public void RightCollision()
     {
-        velocity.Y *= -1 * elasticity;
+        //Console.WriteLine("hor velocity was " + velocity);
+        if (velocity.X > 0)
+        {
+            velocity.X = 0;
+            groundSpeed *= -1;
+        }
+        //Console.WriteLine("hor velocity is now" + velocity);
+    }
+
+    public void LeftCollision()
+    {
+        if (velocity.X < 0)
+        {
+            velocity.X = 0;
+            groundSpeed *= -1;
+        }
+        //Console.WriteLine("hor velocity is now" + velocity);
+    }
+
+    public void TopCollision()
+    {
+        velocity.Y = 0;
+        floored = false;
+    }
+
+    public void BottomCollision()
+    {
+        if (!floored)
+        {
+            floored = true;
+            if (true)
+            {
+                //Console.WriteLine("Accel is " + acceleration);
+                if(acceleration.Y > 0) acceleration.Y *= -1 * elasticity;
+                ClampAcceleration();
+                //Console.WriteLine("Accel is now " + acceleration);
+                //velocity.Y = 0;                
+            }
+        }
     }
 
     private float Clamp(float value, float min, float max)
@@ -167,7 +213,6 @@ class AutonomousPhysicsObject
         //I'm pretty sure this function exists in the XNA, but I can't seem to find it. Feel free to cut this and replace the calls with the already written function if you can find it. 
         if (value < min || value > max)
         {
-            Console.WriteLine(value + " is greater than " + max + " or less than " + min);
             return value < min ? min : max;
         }
         else

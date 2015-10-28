@@ -24,22 +24,22 @@ namespace Sprint2
 
 		}
 		
-		public static ISprite CreateGoombaSprite(Vector2 location)
+		public static Texture2D CreateGoombaSprite()
 		{
-			return new GoombaSprite(goombaSpritesheet,location);
+			return goombaSpritesheet;
 		}
-        public static ISprite CreateGoombaDamangedSprite(Vector2 location)
+        public static Texture2D CreateGoombaDamangedSprite()
         {
-            return new GoombaDamagedSprite(goombaDamagedSpritesheet, location);
+            return goombaDamagedSpritesheet;
         }
 		
-		public static ISprite CreateGreenKoopaSprite(Vector2 location)
+		public static Texture2D CreateKoopaSprite()
 		{
-			return new KoopaSprite(koopaSpritesheet,location);
+			return koopaSpritesheet;
 		}
-        public static ISprite CreateGreenKoopaShellSprite(Vector2 location)
+        public static Texture2D CreateKoopaDamagedSprite()
         {
-            return new KoopaShellSprite(koopaShellSpritesheet, location);
+            return koopaShellSpritesheet;
         }
 
         
