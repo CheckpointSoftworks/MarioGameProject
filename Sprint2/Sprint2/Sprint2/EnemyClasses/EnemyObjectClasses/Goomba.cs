@@ -39,7 +39,7 @@ namespace Sprint2
             rigidbody.GroundFriction = 1f;
             rigidbody.GroundSpeed =1.5f;
             rigidbody.MaxFallSpeed = 3f;
-            rigidbody.Elasticity = 0.5f;
+            rigidbody.Elasticity = 0.0f;
             rigidbody.IsEnabled = true;
         }
 

@@ -20,7 +20,7 @@ namespace Sprint2
         {
             if (!((Mario)mario).Star)
             {
-                ((Mario)mario).State.Dying();
+                mario.TakeDamage();
             }
             else
             {
