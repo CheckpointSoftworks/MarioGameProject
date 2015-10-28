@@ -204,6 +204,7 @@ public class ControllablePhysicsObject
     {
         airTime = 100;
         velocity.Y = 0;
+        acceleration.Y = 0;
         floored = false;
     }
 

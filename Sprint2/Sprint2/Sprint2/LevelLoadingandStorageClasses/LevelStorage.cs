@@ -125,6 +125,10 @@ namespace Sprint2
             {
                 side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
                 pipeHandler.handleCollision((Mario)mario, enviromental, side);
+                if (collisionDetector.getCollision(floorCheck, enviromental.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
+                {
+                    ((Mario)mario).rigidbody.Floored = true;
+                }
             }
             ((Mario)mario).State = state;
         }
