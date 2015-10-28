@@ -40,7 +40,7 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (bounceTimer >= 10 &&bounce)
+            if (bounceTimer > 10 &&bounce)
             {
                 int newY = (int)location.Y;
                 newY--;
