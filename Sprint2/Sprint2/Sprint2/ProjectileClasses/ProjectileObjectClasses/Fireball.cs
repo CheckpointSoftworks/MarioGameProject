@@ -74,6 +74,11 @@ namespace Sprint2
             return collisionRectangle;
         }
 
+        public void updateLocation(Vector2 newLocation)
+        {
+            this.location = newLocation;
+        }
+
         public Vector2 returnLocation()
         {
             return location;

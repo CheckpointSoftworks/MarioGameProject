@@ -42,7 +42,7 @@ namespace Sprint2
             return type;
         }
 
-        public Rectangle returnCollisionRectange()
+        public Rectangle returnCollisionRectangle()
         {
             return sprite.returnCollisionRectangle();
         }

@@ -23,7 +23,7 @@ namespace Sprint2
 
         private void handleEnemyMovement(IEnemyObject enemy,IBlock block,ICollision side)
         {
-            Rectangle blockRectangle = block.returnCollisionRectange();
+            Rectangle blockRectangle = block.returnCollisionRectangle();
             Rectangle enemyRectangle = enemy.returnCollisionRectangle();
             Rectangle intersectionRectangle = Rectangle.Intersect(enemyRectangle, blockRectangle);
             Vector2 enemyLocation = enemy.returnLocation();

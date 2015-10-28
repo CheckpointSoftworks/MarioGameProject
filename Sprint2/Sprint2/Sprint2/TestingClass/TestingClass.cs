@@ -73,7 +73,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock question = new Blocks(400, 385,BlockType.Question);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 Console.WriteLine("QuestionBlockTestBottom Passed");
@@ -91,7 +91,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IBlock question = new Blocks(400, 400,BlockType.Question);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
                 Console.WriteLine("QuestionBlockTestLeft Passed");
@@ -110,7 +110,7 @@ namespace Sprint2
             IPlayer mario = new Mario(410, 400);
             IBlock question = new Blocks(400, 400,BlockType.Question);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
             {
                 Console.WriteLine("QuestionBlockTestRight Passed");
@@ -129,7 +129,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock question = new Blocks(400, 415,BlockType.Question);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), question.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
             {
                 Console.WriteLine("QuestionBlockTestTop Passed");
@@ -148,7 +148,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock platform = new Blocks(400, 385,BlockType.Platforming);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 Console.WriteLine("PlatformBlockBottom Test Passed");
@@ -167,7 +167,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IBlock platform = new Blocks(400, 400,BlockType.Platforming);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
                 Console.WriteLine("PlatformBlockLeft Test Passed");
@@ -186,7 +186,7 @@ namespace Sprint2
             IPlayer mario = new Mario(410, 400);
             IBlock platform = new Blocks(400, 400,BlockType.Platforming);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
             {
                 Console.WriteLine("PlatformBlockRight Test Passed");
@@ -205,7 +205,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock platform = new Blocks(400, 415,BlockType.Platforming);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), platform.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
             {
                 Console.WriteLine("PlatformBlockTop Test Passed");
@@ -224,7 +224,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock ground = new Blocks(400, 385,BlockType.Ground);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 Console.WriteLine("GroundBlockBottom Test Passed");
@@ -243,7 +243,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IBlock ground = new Blocks(400, 400,BlockType.Ground);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
                 Console.WriteLine("GroundBlockLeft Test Passed");
@@ -262,7 +262,7 @@ namespace Sprint2
             IPlayer mario = new Mario(410, 400);
             IBlock ground = new Blocks(400, 400,BlockType.Ground);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
             {
                 Console.WriteLine("GroundBlockRight Test Passed");
@@ -281,7 +281,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock ground = new Blocks(400, 415,BlockType.Ground);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), ground.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
             {
                 Console.WriteLine("GroundBlockTop Test Passed");
@@ -300,7 +300,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock hidden = new Blocks(400, 385,BlockType.Hidden);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 Console.WriteLine("HiddenBlockBottom Test Passed");
@@ -319,7 +319,7 @@ namespace Sprint2
             IPlayer mario = new Mario(390, 400);
             IBlock hidden = new Blocks(400, 400,BlockType.Hidden);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Left))
             {
                 Console.WriteLine("HiddenBlockLeft Test Passed");
@@ -338,7 +338,7 @@ namespace Sprint2
             IPlayer mario = new Mario(410, 400);
             IBlock hidden = new Blocks(400, 400,BlockType.Hidden);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Right))
             {
                 Console.WriteLine("HiddenBlockRight Test Passed");
@@ -357,7 +357,7 @@ namespace Sprint2
             IPlayer mario = new Mario(400, 400);
             IBlock hidden = new Blocks(400, 415,BlockType.Hidden);
             CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectange());
+            ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), hidden.returnCollisionRectangle());
             if (passed && side.returnCollisionSide().Equals(CollisionSide.Top))
             {
                 Console.WriteLine("HiddenBlockTop Test Passed");

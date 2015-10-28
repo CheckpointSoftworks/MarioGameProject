@@ -78,7 +78,7 @@ namespace Sprint2
 
         private static void handleMarioMovement(Mario mario, IBlock block, ICollision side)
         {
-            Rectangle blockRectangle = block.returnCollisionRectange();
+            Rectangle blockRectangle = block.returnCollisionRectangle();
             Rectangle marioRectangle = mario.returnCollisionRectangle();
             Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, blockRectangle);
             int locationDiffToChange = 0;

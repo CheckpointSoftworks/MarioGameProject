@@ -18,6 +18,8 @@ namespace Sprint2
         void TopCollision();
         void BottomCollision();
 
+        void updateLocation(Vector2 location);
+
         Rectangle returnCollisionRectangle();
         Vector2 returnLocation();
 

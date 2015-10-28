@@ -99,9 +99,9 @@ namespace Sprint2
             {
                 if (block.checkForCollisionTestFlag())
                 {
-                    side = collisionDetector.getCollision(mario.returnCollisionRectangle(), block.returnCollisionRectange());
+                    side = collisionDetector.getCollision(mario.returnCollisionRectangle(), block.returnCollisionRectangle());
                     blockHandler.handleCollision((Mario)mario, block, side,game);
-                    if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectange()).returnCollisionSide().Equals(CollisionSide.Top))
+                    if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
                     {
                         ((Mario)mario).rigidbody.Floored = true;
                     }
@@ -144,10 +144,10 @@ namespace Sprint2
             {
                 if (block.checkForCollisionTestFlag())
                 {
-                    side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), block.returnCollisionRectange());
+                    side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), block.returnCollisionRectangle());
                     enemyBlockHandler.handleCollision(enemy, block, side);
                 }
-                if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectange()).returnCollisionSide().Equals(CollisionSide.Top))
+                if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
                 {
                     enemy.GetRigidBody().Floored = true;
                 }

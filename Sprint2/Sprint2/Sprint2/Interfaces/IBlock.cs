@@ -15,7 +15,7 @@ namespace Sprint2
 
         BlockType returnBlockType();
 
-        Rectangle returnCollisionRectange();
+        Rectangle returnCollisionRectangle();
 
         bool checkForCollisionTestFlag();
 
