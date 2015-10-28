@@ -95,7 +95,7 @@ namespace Sprint2
                 state = value;
             }
         }
-        private int timer = 600;
+        private int timer = 500;
         public ControllablePhysicsObject rigidbody;
         public Mario(int locX, int locY)
         {
@@ -140,6 +140,7 @@ namespace Sprint2
             location += rigidbody.Velocity;
             if (!star)
             {
+                star = false;
                 state.Update();
             }
             else
@@ -149,9 +150,7 @@ namespace Sprint2
                 {
                     star = false;
                 }
-
-                state.Update();
-                
+                state.Update();                
             }
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)

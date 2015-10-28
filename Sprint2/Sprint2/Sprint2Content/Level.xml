@@ -15,10 +15,10 @@
     <x>48</x>
     <y>440</y>
   </FireFlower>
-  <QuestionStarBlock>
+  <QuestionCoinBlock>
     <x>64</x>
     <y>400</y>
-  </QuestionStarBlock>
+  </QuestionCoinBlock>
   <SuperMushroom>
     <x>80</x>
     <y>440</y>
@@ -2337,6 +2337,7 @@
     <x>3376</x>
     <y>456</y>
   </GroundBlock>
+
 
 
 </Level>
