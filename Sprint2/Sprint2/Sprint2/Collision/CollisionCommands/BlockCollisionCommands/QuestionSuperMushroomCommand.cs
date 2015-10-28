@@ -21,7 +21,7 @@ namespace Sprint2
             if (((QuestionSuperMushroomFireFlower)block).dispenseItem())
             {
                 IItemObjects superMushroom = ((QuestionSuperMushroomFireFlower)block).spawnSuperMushroom();
-                game.levelStore.staticObjectsList.Add(superMushroom);
+                game.levelStore.itemList.Add(superMushroom);
             }
         }
     }

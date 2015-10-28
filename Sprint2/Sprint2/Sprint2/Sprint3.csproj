@@ -84,7 +84,8 @@
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\BrickPiecesSprite.cs" />
     <Compile Include="Interfaces\IEnemyState.cs" />
     <Compile Include="Interfaces\IProjectile.cs" />
-    <Compile Include="Collision\CollisionHandlerClasses\ItemBlockCollisionHandler.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\Items\ItemBlockCollisionHandler.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\Items\ItemEnvriomentalCollisionHandler.cs" />
     <Compile Include="PhysicsClasses\AutonomousPhysicsObject.cs" />
     <Compile Include="Blocks\BlockObjectClasses\Blocks.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BrickBlock.cs" />
@@ -103,9 +104,10 @@
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionFireFlowerCommand.cs" />
     <Compile Include="Blocks\BlockObjectClasses\QuestionStarBlock.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionStarCommand.cs" />
-    <Compile Include="Collision\CollisionHandlerClasses\ProjectileBlockCollisionHandler.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\Projectiles\ProjectileBlockCollisionHandler.cs" />
     <Compile Include="ProjectileClasses\ProjectileObjectClasses\Fireball.cs" />
     <Compile Include="ProjectileClasses\ProjectileSpriteClasses\FireballSprite.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\Projectiles\ProjectileEnviromentalCollisionHandler.cs" />
     <Compile Include="ResetLevelCommand.cs" />
     <Compile Include="SpriteHelperClasses\AnimatedSprite.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\BigMarioBrickBlockCollisionCommand.cs" />

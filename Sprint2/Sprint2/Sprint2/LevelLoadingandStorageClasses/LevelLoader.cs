@@ -73,7 +73,7 @@ namespace Sprint2
 
                             IItemObjects GameObject;
                             GameObject = new BoxCoin(XVal, YVal);
-                            storage.staticObjectsList.Add(GameObject);
+                            storage.itemList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -94,7 +94,7 @@ namespace Sprint2
 
                             IItemObjects GameObject;
                             GameObject = new FireFlower(XVal, YVal);
-                            storage.staticObjectsList.Add(GameObject);
+                            storage.itemList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -220,7 +220,7 @@ namespace Sprint2
 
                             IItemObjects GameObject;
                             GameObject = new OneUpMushroom(XVal, YVal);
-                            storage.staticObjectsList.Add(GameObject);
+                            storage.itemList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -346,7 +346,7 @@ namespace Sprint2
 
                             IItemObjects GameObject;
                             GameObject = new SuperMushroom(XVal, YVal);
-                            storage.staticObjectsList.Add(GameObject);
+                            storage.itemList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
@@ -367,7 +367,7 @@ namespace Sprint2
 
                             IItemObjects GameObject;
                             GameObject = new SuperStar(XVal, YVal);
-                            storage.staticObjectsList.Add(GameObject);
+                            storage.itemList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();

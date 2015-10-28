@@ -106,5 +106,9 @@ namespace Sprint2
         {
             return testForCollision;
         }
+        public void updateLocation(Vector2 location)
+        {
+            this.location = location;
+        }
     }
 }

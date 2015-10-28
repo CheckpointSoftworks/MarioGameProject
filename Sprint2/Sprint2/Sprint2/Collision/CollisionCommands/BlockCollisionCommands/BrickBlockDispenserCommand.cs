@@ -20,7 +20,7 @@ namespace Sprint2
             if (dispenseCoin)
             {
                 IItemObjects coin = ((BrickBlockCoinDispenser)block).dispenseCoin();
-                game.levelStore.staticObjectsList.Add(coin);
+                game.levelStore.itemList.Add(coin);
             }
         }
     }

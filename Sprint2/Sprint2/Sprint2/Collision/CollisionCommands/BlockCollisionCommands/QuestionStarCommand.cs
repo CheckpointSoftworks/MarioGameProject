@@ -21,7 +21,7 @@ namespace Sprint2
             if (((QuestionStarBlock)block).dispenseItem())
             {
                 IItemObjects superStar = ((QuestionStarBlock)block).spawnStar();
-                game.levelStore.staticObjectsList.Add(superStar);
+                game.levelStore.itemList.Add(superStar);
             }
         }
     }
