@@ -67,6 +67,7 @@ namespace Sprint2
         {
             dispenseItemFlag = false;
             return new SuperStar((int)location.X, (int)location.Y-16);
+            //Needs to add star to level storage
         }
 
         public bool dispenseItem()
