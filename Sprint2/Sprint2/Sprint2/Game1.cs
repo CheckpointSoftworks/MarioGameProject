@@ -24,13 +24,13 @@ namespace Sprint2
         public LevelStorage levelStore { get; set; }
         public LevelLoader loader { get; set; }
         public Camera camera { get; set; }
+        public CameraController cameraController { get; set; }
 
         private ICommand keyboardNotPressed;
         private Texture2D background;
         private Texture2D background2;
         private Rectangle mainframe;
         private TestingClass tester;
-        private CameraController cameraController;
         private ICommand resetCommand;
 
         public Game1()
@@ -106,7 +106,6 @@ namespace Sprint2
             if (((Mario)mario).IsDying)
             {
                 resetCommand.Execute();
-                mario = levelStore.player;
             }
             base.Update(gameTime);
         }

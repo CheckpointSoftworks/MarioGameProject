@@ -26,16 +26,13 @@ namespace Sprint2
             boxCoinSprite = new BoxCoinSprite(location);
             type = ItemType.Coin;
             collisonRectangle = boxCoinSprite.returnCollisionRectangle();
-            testForCollision = true;
+            testForCollision =true;
             moveSpeed = -4.25f;
             decayRate = 0.32f;
             animate = true;
             timer = 30;
         }
-        public void StartAnimation()
-        {
-            animate = true;
-        }
+
         public void Update()
         {
             if (animate)
@@ -81,6 +78,10 @@ namespace Sprint2
         public bool checkForCollisionTestFlag()
         {
             return testForCollision;
+        }
+        public Vector2 returnLocation()
+        {
+            return location;
         }
     }
 }

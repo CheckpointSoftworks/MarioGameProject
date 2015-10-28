@@ -120,5 +120,11 @@ namespace Sprint2
         {
             return testForCollision;
         }
+
+
+        public Vector2 returnLocation()
+        {
+            return location;
+        }
     }
 }
