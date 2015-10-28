@@ -35,8 +35,6 @@ namespace Sprint2
                 int newEnemyX = (int)enemyLocation.X - locationDiffToChange;
                 enemy.updateLocation(new Vector2((newEnemyX), enemyLocation.Y));
                 enemy.RightCollision();
-                ICommand command = new EnemyChangeDirectionCommand(enemy);
-                command.Execute();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Right))
             {
@@ -44,8 +42,6 @@ namespace Sprint2
                 int newEnemyX = (int)enemyLocation.X + locationDiffToChange;
                 enemy.updateLocation(new Vector2((newEnemyX), enemyLocation.Y));
                 enemy.LeftCollision();
-                ICommand command = new EnemyChangeDirectionCommand(enemy);
-                command.Execute();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
