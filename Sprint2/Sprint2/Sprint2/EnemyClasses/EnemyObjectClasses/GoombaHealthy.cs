@@ -29,7 +29,7 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, goomba.returnLocation(), true);
+            sprite.Draw(spriteBatch, goomba.returnLocation(), goomba.DirectionLeft);
         }
         public Rectangle returnStateCollisionRectangle()
         {           

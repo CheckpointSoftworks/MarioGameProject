@@ -19,7 +19,6 @@ namespace Sprint2
             {
                 handleEnemyMovement(firstEnemy, secondEnemy, side);
             }
-            //flip one of the enemies
         }
 
         private void handleEnemyMovement(IEnemyObject firstEnemy, IEnemyObject secondEnemy, ICollision side)

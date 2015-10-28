@@ -17,7 +17,7 @@ namespace Sprint2
         {
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
-                handleEnemyMovement(enemy, enviromental,side);
+                handleEnemyMovement(enemy, enviromental, side);
             }
         }
 
