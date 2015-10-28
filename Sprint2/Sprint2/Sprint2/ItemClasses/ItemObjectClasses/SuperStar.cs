@@ -70,7 +70,10 @@ namespace Sprint2
         {
             rigidbody.UpdatePhysics();
             location += rigidbody.Velocity;
-            ((SuperStarSprite)(sprite)).Update(location);
+            if (testForCollision)
+            {
+                ((SuperStarSprite)(sprite)).Update(location);
+            }
             
         }
 
