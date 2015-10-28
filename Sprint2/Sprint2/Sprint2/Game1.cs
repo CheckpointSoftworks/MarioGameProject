@@ -109,7 +109,9 @@ namespace Sprint2
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            spriteBatch.Draw(background, mainframe, Color.White);
+            Rectangle sourceRectangle = new Rectangle((int)camera.GetPosition().X, (int)camera.GetPosition().Y, 800, 480);
+            Rectangle destinationRectangle = new Rectangle(0, 0, 800, 480);
+            spriteBatch.Draw(background, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 
             levelStore.Draw(mario, spriteBatch);

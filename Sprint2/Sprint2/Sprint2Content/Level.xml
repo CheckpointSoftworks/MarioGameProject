@@ -54,10 +54,10 @@
     <x>336</x>
     <y>384</y>
   </BrickBlock>
-  <QuestionCoinBlock>
+  <QuestionSuperMushroomFireFlowerBlock>
     <x>352</x>
     <y>384</y>
-  </QuestionCoinBlock>
+  </QuestionSuperMushroomFireFlowerBlock>
   <QuestionCoinBlock>
     <x>368</x>
     <y>320</y>
@@ -102,10 +102,10 @@
     <x>912</x>
     <y>424</y>
   </Pipe>
-  <QuestionCoinBlock>
+  <QuestionSuperMushroomFireFlowerBlock>
     <x>1024</x>
     <y>384</y>
-  </QuestionCoinBlock>  
+  </QuestionSuperMushroomFireFlowerBlock>  
   <!-- Ground blocks: -->
   <GroundBlock>
     <x>0</x>
@@ -674,10 +674,10 @@
     <x>1248</x>
     <y>384</y>
   </BrickBlock>
-  <QuestionCoinBlock>
+  <QuestionSuperMushroomFireFlowerBlock>
     <x>1264</x>
     <y>384</y>
-  </QuestionCoinBlock>
+  </QuestionSuperMushroomFireFlowerBlock>
   <BrickBlock>
     <x>1280</x>
     <y>384</y>
@@ -882,10 +882,10 @@
     <x>1616</x>
     <y>384</y>
   </BrickBlock>
-  <QuestionCoinBlock>
+  <QuestionStarBlock>
     <x>1632</x>
     <y>384</y>
-  </QuestionCoinBlock>
+  </QuestionStarBlock>
   <Koopa>
     <x>1640</x>
     <y>160</y>
@@ -898,10 +898,10 @@
     <x>1760</x>
     <y>384</y>
   </QuestionCoinBlock>
-  <QuestionCoinBlock>
+  <QuestionSuperMushroomFireFlowerBlock>
     <x>1760</x>
     <y>320</y>
-  </QuestionCoinBlock>
+  </QuestionSuperMushroomFireFlowerBlock>
   <QuestionCoinBlock>
     <x>1808</x>
     <y>384</y>
@@ -946,6 +946,24 @@
     <x>2128</x>
     <y>320</y>
   </BrickBlock>
+
+  <Goomba>
+    <x>2080</x>
+    <y>200</y>
+  </Goomba>
+  <Goomba>
+    <x>2096</x>
+    <y>200</y>
+  </Goomba>
+  <Goomba>
+    <x>2112</x>
+    <y>200</y>
+  </Goomba>
+  <Goomba>
+    <x>2128</x>
+    <y>200</y>
+  </Goomba>
+
   
   <PlatformingBlock>
     <x>2192</x>
@@ -1086,6 +1104,10 @@
     <y>392</y>
   </PlatformingBlock>
   <!-- Ground blocks: -->
+  <GroundBlock>
+    <x>1440</x>
+    <y>440</y>
+  </GroundBlock>
   <GroundBlock>
     <x>1440</x>
     <y>456</y>
@@ -1681,6 +1703,15 @@
     <y>384</y>
   </BrickBlock>
 
+  <Goomba>
+    <x>2800</x>
+    <y>200</y>
+  </Goomba>
+  <Goomba>
+    <x>2816</x>
+    <y>200</y>
+  </Goomba>
+  
   <Pipe>
     <x>2912</x>
     <y>424</y>
@@ -2305,6 +2336,7 @@
     <x>3376</x>
     <y>456</y>
   </GroundBlock>
+
 
 </Level>
 <!-- END -->

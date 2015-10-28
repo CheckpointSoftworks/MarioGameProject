@@ -9,29 +9,84 @@ namespace Sprint2
 {
     public class SuperStar : IItemObjects
     {
-        private ISprite superStarSprite;
-        private ItemType type;
+        private ISprite sprite;
+
         private Rectangle collisionRectangle;
+        private ItemType type;
         private bool testForCollision;
         private Vector2 location;
+        private bool directionLeft;
+        private AutonomousPhysicsObject rigidbody;
 
-        public SuperStar(int locX,int locY)
+        public SuperStar(int locX, int locY)
         {
             location = new Vector2(locX, locY);
-            superStarSprite = new SuperStarSprite(location);
+            sprite = new SuperStarSprite(location);
             type = ItemType.Star;
-            collisionRectangle = superStarSprite.returnCollisionRectangle();
-            testForCollision=true;
+            collisionRectangle = sprite.returnCollisionRectangle();
+            testForCollision = true;
+            rigidbody = new AutonomousPhysicsObject();
+            LoadRigidBodyProperties();
         }
+
+        public bool DirectionLeft
+        {
+            get { return directionLeft; }
+            set { directionLeft = value; }
+        }
+        private void LoadRigidBodyProperties()
+        {
+            rigidbody.AirFriction = 0.8f;
+            rigidbody.GroundFriction = 1f;
+            rigidbody.GroundSpeed = 1f;
+            rigidbody.MaxFallSpeed = 3f;
+            rigidbody.Elasticity = 1f;
+            rigidbody.IsEnabled = true;
+        }
+
+        public void LeftCollision()
+        {
+            rigidbody.LeftCollision();
+        }
+        public void RightCollision()
+        {
+            rigidbody.RightCollision();
+        }
+        public void TopCollision()
+        {
+            rigidbody.TopCollision();
+        }
+        public void BottomCollision()
+        {
+            rigidbody.BottomCollision();
+        }
+        public AutonomousPhysicsObject GetRigidBody()
+        {
+            return rigidbody;
+        }
+
+
         public void Update()
         {
-            superStarSprite.Update();
+            Console.WriteLine("Velocity: " + rigidbody.Velocity);
+            rigidbody.UpdatePhysics();
+            Console.WriteLine("Velocity: " + rigidbody.Velocity + ", location: " + location);
+            location += rigidbody.Velocity;
+            ((SuperStarSprite)(sprite)).Update(location);
+            
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            superStarSprite.Draw(spriteBatch, cameraLoc);
+
+            sprite.Draw(spriteBatch, cameraLoc);
         }
+
+        public Vector2 returnLocation()
+        {
+            return location;
+        }
+
         public ItemType returnItemType()
         {
             return type;
@@ -44,8 +99,8 @@ namespace Sprint2
         public void setCollisionRectangle(Rectangle sentCollisionRectangle)
         {
             collisionRectangle = sentCollisionRectangle;
-            testForCollision=false;
-            superStarSprite = new UsedItemSprite(location);
+            testForCollision = false;
+            sprite = new UsedItemSprite(location);
         }
         public bool checkForCollisionTestFlag()
         {
