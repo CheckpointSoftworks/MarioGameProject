@@ -10,6 +10,7 @@ public class ControllablePhysicsObject
     // A controllable physics object is a physics object which has Commands to move in every direction but down. 
     // Physics should be updated before collision handling. That said, physics should be included in collision handling so velocites can be reset. 
 
+    private float deltaTime = 0.1f;
     private bool enabled;
     public bool IsEnabled
     {
@@ -91,13 +92,30 @@ public class ControllablePhysicsObject
         }
     }
 
+    private Vector2 acceleration;
+
     private float elasticity;
+    public float Elasticity
+    {
+        //Elasticity is the amount of momentum retained after a collision. 0 would be like a car hitting an immovable object, 1 would be like dropping a bouncy ball and having it bounce forever. 
+        //The extrema are physically impossible in the real world, but for the game's sake, they're allowed. The Star has an elasticity of 1 for example. 
+        get
+        {
+            return elasticity;
+        }
+        set
+        {
+            elasticity = Clamp(value, 0, 1);
+        }
+    }
 
     private bool floored;
     public bool Floored
     {
         get { return floored; }
-        set { floored = value; }
+        set { floored = value;
+        airTime = floored ? 0 : airTime;
+        }
     }    
     private static Vector2 g;
     private static Vector2 gOrigin;
@@ -113,7 +131,7 @@ public class ControllablePhysicsObject
     {
         velocity = new Vector2(0, 0);
         elasticity = 0;
-        g = new Vector2(0, 60f);
+        g = new Vector2(0, 5f);
         gOrigin = new Vector2(0, 30f);
     }
 
@@ -130,7 +148,8 @@ public class ControllablePhysicsObject
     {
         if (enabled)
         {
-            if (!floored) velocity += g;
+            if (!floored) { acceleration += g; }
+            velocity = acceleration * deltaTime;
             DampenVelocity();
             ClampVelocity();
         }
@@ -139,7 +158,7 @@ public class ControllablePhysicsObject
 
     private void DampenVelocity()
     {
-        velocity = new Vector2(velocity.X * friction.X, velocity.Y * friction.Y);
+        acceleration = new Vector2(acceleration.X * friction.X, acceleration.Y * friction.Y);
     }
 
     private void ClampVelocity()
@@ -148,16 +167,21 @@ public class ControllablePhysicsObject
         if (Math.Abs(velocity.X) < 0.1) velocity.X = 0;
         if (Math.Abs(velocity.Y) < 0.1) velocity.Y = 0;
     }
+    private void ClampAcceleration()
+    {
+        acceleration = Clamp(acceleration, -Math.Abs(acceleration.X), Math.Abs(acceleration.X), -maxVelocity.Y * g.Y * (1 / deltaTime), maxVelocity.Y * g.Y * (1 / deltaTime));
+        if (Math.Abs(acceleration.Y) <= g.Y * (g.Y * elasticity)) acceleration.Y = 0;
+    }
 
     public void MoveRight()
     {
-        velocity.X += groundSpeed;
+        acceleration.X += groundSpeed;
         Clamp(Velocity.X, 0, maxVelocity.X);
     }
 
     public void MoveLeft()
     {
-        velocity.X -= groundSpeed;
+        acceleration.X -= groundSpeed;
         Clamp(Velocity.X, 0, maxVelocity.X);
     }
 
@@ -165,7 +189,7 @@ public class ControllablePhysicsObject
     {
         if (airTime < jumpDuration)
         {
-            velocity.Y = jumpSpeed;
+            acceleration.Y = jumpSpeed;
             airTime += 0.1f;
             //MAGIC NUMBER! This should be set to the frame rate, whether it's dynamically set or determined
         }
@@ -185,9 +209,19 @@ public class ControllablePhysicsObject
 
     public void BottomCollision()
     {
-        floored = true;
-        //g = new Vector2(0,0);
-        velocity.Y = 0;
+        if (!floored)
+        {
+            floored = true;
+            if (true)
+            {
+                //Console.WriteLine("Accel is " + acceleration);
+                if (acceleration.Y > 0) acceleration.Y *= -1 * elasticity;
+                ClampAcceleration();
+                //Console.WriteLine("Accel is now " + acceleration);
+                //velocity.Y = 0;                
+            }
+            
+        }
         airTime = 0;
     }
     

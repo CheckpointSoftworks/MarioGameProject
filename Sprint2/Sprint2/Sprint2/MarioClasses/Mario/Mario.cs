@@ -112,12 +112,12 @@ namespace Sprint2
 
         private void LoadPhysicsProperties()
         {
-            rigidbody.AirFriction = 0.1f;
+            rigidbody.AirFriction = 1f;
             rigidbody.GroundFriction = 0.7f;
             rigidbody.maxVelocityX = 20;
             rigidbody.maxVelocityY = 10;
-            rigidbody.GroundSpeed = 1;
-            rigidbody.JumpSpeed = -500;
+            rigidbody.GroundSpeed = 10;
+            rigidbody.JumpSpeed = -100;
             rigidbody.JumpDuration = 1;
             rigidbody.IsEnabled = true;
         }
@@ -185,6 +185,17 @@ namespace Sprint2
             }
         }
 
+        public void TakeDamage()
+        {
+            if (small)
+            {
+                state = new MarioDying(this);
+            }
+            else
+            {
+                small = true;
+            }
+        }
         public Rectangle returnCollisionRectangle()
         {
             return state.returnStateCollisionRectangle();

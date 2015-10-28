@@ -35,32 +35,28 @@ namespace Sprint2
 
         private void LoadRigidBodyProperties()
         {
-            rigidbody.AirFriction = 1f;
+            rigidbody.AirFriction = 0.8f;
             rigidbody.GroundFriction = 1f;
-            rigidbody.GroundSpeed = 1f;
+            rigidbody.GroundSpeed =1.5f;
             rigidbody.MaxFallSpeed = 3f;
-            rigidbody.Elasticity = 0.5f;
+            rigidbody.Elasticity = 0.1f;
             rigidbody.IsEnabled = true;
         }
 
         public void LeftCollision()
         {
-            Console.WriteLine("Left");
             rigidbody.LeftCollision();
         }
         public void RightCollision()
         {
-            Console.WriteLine("Right: Velocity is " + rigidbody.Velocity);
             rigidbody.RightCollision();
         }
         public void TopCollision()
         {
-            Console.WriteLine("Top");
             rigidbody.TopCollision();
         }
         public void BottomCollision()
         {
-            Console.WriteLine("Bottom");
             rigidbody.BottomCollision();
         }
         public AutonomousPhysicsObject GetRigidBody()

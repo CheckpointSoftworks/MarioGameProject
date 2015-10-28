@@ -10,6 +10,7 @@ public class AutonomousPhysicsObject
     // An autonomous physics object is a physics object which has a set velocity that never changes. This is for enemies, projectiles, etc.
     // Physics should be updated before collision handling. That said, physics should be included in collision handling so velocites can be reset. 
 
+    private float deltaTime = 0.1f;
     private bool enabled;
     public bool IsEnabled
     {
@@ -64,6 +65,8 @@ public class AutonomousPhysicsObject
         }
     }
 
+    private Vector2 acceleration;
+
     private float elasticity;
     public float Elasticity
     {
@@ -102,7 +105,8 @@ public class AutonomousPhysicsObject
     {
         velocity = new Vector2(0, 0);
         elasticity = 0;
-        g = new Vector2(0, 4f);
+        g = new Vector2(0, 5f);
+        acceleration = new Vector2(0, 0);
     }
 
     public AutonomousPhysicsObject(Vector2 gravity)
@@ -111,6 +115,7 @@ public class AutonomousPhysicsObject
         velocity = new Vector2(0, 0);
         elasticity = 0;
         g = gravity;
+        acceleration = new Vector2(0, 0);
     }
 
     public void UpdatePhysics()
@@ -118,14 +123,13 @@ public class AutonomousPhysicsObject
         //Console.WriteLine("At start of physics update, vel is " + velocity);
         if (enabled)
         {
-            if (!floored) { velocity += g; }
+            if (!floored) { acceleration += g; }
+            velocity = acceleration * deltaTime;
             velocity.X += groundSpeed;
-            //MAGIC NUMBER
             DampenVelocity();
             ClampVelocity();
         }
         else { Console.WriteLine("Physics object not enabled."); }
-        //Console.WriteLine("At end of physics update, vel is " + velocity);
     }
 
     private void DampenVelocity()
@@ -136,6 +140,14 @@ public class AutonomousPhysicsObject
     private void ClampVelocity()
     {
         velocity = Clamp(velocity, -Math.Abs(groundSpeed), Math.Abs(groundSpeed), -maxFallSpeed, maxFallSpeed);
+        if (Math.Abs(velocity.X) <= 0.4) velocity.X = 0;
+        if (Math.Abs(velocity.Y) <= 0.4) velocity.Y = 0;
+    }
+
+    private void ClampAcceleration()
+    {
+        acceleration = Clamp(acceleration, -Math.Abs(acceleration.X), Math.Abs(acceleration.X), -maxFallSpeed*g.Y*(1/deltaTime), maxFallSpeed*g.Y*(1/deltaTime));
+        if (Math.Abs(acceleration.Y) <= g.Y*(g.Y*elasticity)) acceleration.Y = 0;
     }
 
     public void RightCollision()
@@ -167,8 +179,18 @@ public class AutonomousPhysicsObject
 
     public void BottomCollision()
     {
-        floored = true;
-        velocity.Y = 0;
+        if (!floored)
+        {
+            floored = true;
+            if (true)
+            {
+                //Console.WriteLine("Accel is " + acceleration);
+                if(acceleration.Y > 0) acceleration.Y *= -1 * elasticity;
+                ClampAcceleration();
+                //Console.WriteLine("Accel is now " + acceleration);
+                //velocity.Y = 0;                
+            }
+        }
     }
 
     private float Clamp(float value, float min, float max)
