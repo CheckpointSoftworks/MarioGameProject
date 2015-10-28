@@ -65,11 +65,7 @@ namespace Sprint2
         }
         public void Jump()
         {
-            mario.State = new MarioJumpRun(mario);   
-        }
-        public void JumpRun()
-        {
-            mario.State = new MarioJumpRun(mario);
+            mario.State = new MarioJump(mario);   
         }
         public void ShootFireball()
         {
@@ -78,11 +74,11 @@ namespace Sprint2
         }
         public void Duck()
         {
-            mario.State = new MarioDuckRun(mario);
+            mario.State = new MarioDuck(mario);
         }
-        public void DuckRun()
+        public void TakeDamage()
         {
-            mario.State = new MarioDuckRun(mario);
+
         }
         public void Dying()
         {

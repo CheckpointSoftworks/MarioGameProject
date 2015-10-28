@@ -57,6 +57,10 @@ namespace Sprint2
         {
             
         }
+        public void TakeDamage()
+        {
+
+        }
         public void Dying()
         {
             

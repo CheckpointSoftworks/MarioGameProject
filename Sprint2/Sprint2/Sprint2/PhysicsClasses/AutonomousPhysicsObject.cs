@@ -58,6 +58,15 @@ public class AutonomousPhysicsObject
         }
     }
 
+    private float initialAirSpeed;
+    public float InitialAirSpeed
+    {
+        set
+        {
+            initialAirSpeed = value;
+        }
+    }
+
     //Friction will eventually slow the object down. It's multiplied by velocity to dampen velocity. 
     private Vector2 friction;
     public float GroundFriction
@@ -121,7 +130,7 @@ public class AutonomousPhysicsObject
         velocity = new Vector2(0, 0);
         elasticity = 0;
         g = new Vector2(0, 5f);
-        acceleration = new Vector2(0, 0);
+        acceleration = new Vector2(0, initialAirSpeed);
     }
 
     public AutonomousPhysicsObject(Vector2 gravity)
@@ -130,7 +139,7 @@ public class AutonomousPhysicsObject
         velocity = new Vector2(0, 0);
         elasticity = 0;
         g = gravity;
-        acceleration = new Vector2(0, 0);
+        acceleration = new Vector2(0, initialAirSpeed);
     }
 
     public void UpdatePhysics()

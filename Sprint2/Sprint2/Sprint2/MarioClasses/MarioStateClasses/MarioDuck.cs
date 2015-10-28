@@ -11,8 +11,7 @@ namespace Sprint2
     {
         private AnimatedSprite sprite;
         private Mario mario;
-        private float duckSpeed;
-        private float runSpeed;
+        
         public MarioDuck(Mario mario)
         {
             this.mario = mario;
@@ -43,7 +42,7 @@ namespace Sprint2
         }
         public void Running()
         {
-            mario.State = new MarioDuckRun(mario);
+            mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {
@@ -53,10 +52,7 @@ namespace Sprint2
         {
             mario.State = new MarioStill(mario);
         }
-        public void JumpRun()
-        {
-            mario.State = new MarioJumpRun(mario);
-        }
+
         public void ShootFireball()
         {
             if (mario.Fire)
@@ -66,9 +62,9 @@ namespace Sprint2
         {
             
         }
-        public void DuckRun()
+        public void TakeDamage()
         {
-            mario.State = new MarioDuckRun(mario);
+
         }
         public void Dying()
         {

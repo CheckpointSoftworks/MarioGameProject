@@ -10,7 +10,11 @@ namespace Sprint2
     public class Mario : IPlayer
     {
 
-
+        private float transitionDuration = 3f;
+        public float TransitionToBigTime = 10;
+        public float TransitionToFireTime = 10;
+        public float TransitionToSmallTime = 10;
+        private bool transitioning;
         private bool facingRight;
         public bool FacingRight
         {
@@ -95,6 +99,12 @@ namespace Sprint2
                 state = value;
             }
         }
+        private IMarioState previousState;
+        private IMarioState transitionState;
+        public IMarioState TransitionToState
+        {
+            set { transitionState = value; }
+        }
         private int timer = 600;
         public ControllablePhysicsObject rigidbody;
         public Mario(int locX, int locY)
@@ -104,6 +114,7 @@ namespace Sprint2
             facingRight = true;
             star = false;
             isDying = false;
+            transitioning = false;
             location = new Vector2(locX, locY);
             state = new MarioStill(this);
             rigidbody = new ControllablePhysicsObject();
@@ -136,8 +147,12 @@ namespace Sprint2
                     state.Still();
                 }
             }
-            rigidbody.UpdatePhysics();
-            location += rigidbody.Velocity;
+            if (!transitioning)
+            {
+                rigidbody.UpdatePhysics();
+                location += rigidbody.Velocity;
+            }
+            
             if (!star)
             {
                 state.Update();
@@ -154,10 +169,78 @@ namespace Sprint2
                 
             }
         }
+        public void BecomeBig()
+        {
+            TransitionToBigTime = 0;
+        }
+        public void BecomeFire()
+        {
+            TransitionToFireTime = 0;
+        }
+        public void BecomeSmall()
+        {
+            TransitionToSmallTime = 0;
+        }
+        public void TakeDamage()
+        {
+            if (small & !star)
+            {
+                state = new MarioDying(this);
+            }
+            else
+            {
+                if (fire)
+                {
+                    BecomeBig();
+                }
+                else
+                {
+                    BecomeSmall();
+                }
+            }
+        }
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             if (!star)
             {
+                if (TransitionToBigTime < transitionDuration)
+                {
+                    Console.WriteLine("Big!");
+                    TransitionToBigTime += 0.1f;
+                    if ((TransitionToBigTime * 10) % 5 < 1) small = !small;
+                    transitioning = (TransitionToBigTime < transitionDuration);
+                    if (!transitioning) 
+                    {
+                        Console.WriteLine("Not big!");
+                        fire = false;
+                        small = false;
+                    }
+                }
+                if (TransitionToSmallTime < transitionDuration)
+                {
+                    Console.WriteLine("Small!");
+                    TransitionToSmallTime += 0.1f;
+                    if ((TransitionToSmallTime * 10) % 5 < 1) small = !small;
+                    transitioning = (TransitionToSmallTime < transitionDuration);
+                    if (!transitioning)
+                    {
+                        Console.WriteLine("Not small!");
+                        fire = false;
+                        small = true;
+                    }
+                }
+                if (TransitionToFireTime < transitionDuration)
+                {
+                    TransitionToFireTime += 0.1f;
+                    Console.WriteLine("Transition time: " + (TransitionToFireTime*10)%3);
+                    if ((TransitionToFireTime * 10) % 5 < 1) { Console.WriteLine("SWitch"); fire = !fire; }
+                    transitioning = (TransitionToFireTime < transitionDuration);
+                    if (!transitioning)
+                    {
+                        small = false;
+                        fire = true;
+                    }
+                }
                 state.setDrawColor(Color.White);
                 state.Draw(spriteBatch, cameraLoc);
             }
@@ -186,24 +269,7 @@ namespace Sprint2
             }
         }
 
-        public void TakeDamage()
-        {
-            if (small)
-            {
-                state = new MarioDying(this);
-            }
-            else
-            {
-                if (fire)
-                {
-                    fire = false;
-                }
-                else
-                {
-                    small = true;
-                }
-            }
-        }
+
         public Rectangle returnCollisionRectangle()
         {
             return state.returnStateCollisionRectangle();

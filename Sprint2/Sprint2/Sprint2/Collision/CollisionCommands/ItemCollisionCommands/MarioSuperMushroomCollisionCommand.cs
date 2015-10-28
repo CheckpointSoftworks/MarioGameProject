@@ -19,7 +19,7 @@ namespace Sprint2
         public void Execute()
         {
             superMushroom.setCollisionRectangle(new Rectangle(0, 0, 0, 0));
-            ((Mario)mario).Small = false;
+            ((Mario)mario).BecomeBig();
         }
     }
 }
