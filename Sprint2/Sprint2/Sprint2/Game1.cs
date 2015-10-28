@@ -26,6 +26,7 @@ namespace Sprint2
         private ICommand keyboardNotPressed;
         private LevelLoader loader;
         private Texture2D background;
+        private Texture2D background2;
         private Rectangle mainframe;
         private TestingClass tester;
         private Camera camera;
@@ -63,6 +64,7 @@ namespace Sprint2
             MiscGameObjectTextureStorage.Load(this.Content);
             MarioSpriteFactory.Load(this.Content);
             background = Content.Load<Texture2D>("Background");
+            background2 = Content.Load<Texture2D>("Background2");
 
             LoadKeyBoardCommands(); 
             levelStore=loader.LoadLevel();
@@ -111,7 +113,12 @@ namespace Sprint2
             spriteBatch.Begin();
             Rectangle sourceRectangle = new Rectangle((int)camera.GetPosition().X, (int)camera.GetPosition().Y, 800, 480);
             Rectangle destinationRectangle = new Rectangle(0, 0, 800, 480);
-            spriteBatch.Draw(background, destinationRectangle, sourceRectangle, Color.White);
+            if ((int)camera.GetPosition().X  < 1500) { spriteBatch.Draw(background, destinationRectangle, sourceRectangle, Color.White); }
+            else 
+            {
+                sourceRectangle = new Rectangle((int)camera.GetPosition().X - 1500, (int)camera.GetPosition().Y, 800, 480);
+                spriteBatch.Draw(background2, destinationRectangle, sourceRectangle, Color.White); 
+            }
             spriteBatch.End();
 
             levelStore.Draw(mario, spriteBatch);
