@@ -112,6 +112,7 @@ namespace Sprint2
 
         private void LoadPhysicsProperties()
         {
+            rigidbody.Elasticity = 0.5f;
             rigidbody.AirFriction = 1f;
             rigidbody.GroundFriction = 0.7f;
             rigidbody.maxVelocityX = 20;

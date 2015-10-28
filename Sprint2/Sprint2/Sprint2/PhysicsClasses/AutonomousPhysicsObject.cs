@@ -10,7 +10,11 @@ public class AutonomousPhysicsObject
     // An autonomous physics object is a physics object which has a set velocity that never changes. This is for enemies, projectiles, etc.
     // Physics should be updated before collision handling. That said, physics should be included in collision handling so velocites can be reset. 
 
+    // This is the time since the last update. It can stay as 0.1 or we can use the actual GameTime.DeltaTime if it exists. 
+    // This is used to make sure physics is fully accurate. I can't go into here, but check the slides to see why this value exists. 
     private float deltaTime = 0.1f;
+
+    // Will the object use physics? Set enable to false if it shouldn't move.
     private bool enabled;
     public bool IsEnabled
     {
@@ -23,6 +27,8 @@ public class AutonomousPhysicsObject
             enabled = value;
         }
     }
+    
+    //Velocity refers to the displacement of the object 
     private Vector2 velocity;
     public Vector2 Velocity
     {
@@ -32,6 +38,7 @@ public class AutonomousPhysicsObject
         }
     }
 
+    // Terminal velocity of the object, adding gravity passed this point won't make it go faster
     private float maxFallSpeed;
     public float MaxFallSpeed
     {
@@ -40,6 +47,8 @@ public class AutonomousPhysicsObject
             maxFallSpeed = value;
         }
     }
+
+    // The velocity this object moves. Can only be inverted by a collision. Ground acceleration is also 0, so ground velocity is fixed.
     private float groundSpeed;
     public float GroundSpeed
     {
@@ -48,6 +57,8 @@ public class AutonomousPhysicsObject
             groundSpeed = value;
         }
     }
+
+    //Friction will eventually slow the object down. It's multiplied by velocity to dampen velocity. 
     private Vector2 friction;
     public float GroundFriction
     {
@@ -65,13 +76,14 @@ public class AutonomousPhysicsObject
         }
     }
 
+    //Acceleration is the rate of change of velocity. Because it's a rate, velocity equals acceleration (rise) multiplied by delta time (1/run)
     private Vector2 acceleration;
 
+    //Elasticity is the amount of momentum retained after a collision. 0 would be like a car hitting an immovable object, 1 would be like dropping a bouncy ball and having it bounce forever. 
+    //The extrema are physically impossible in the real world, but for the game's sake, they're allowed. The Star has an elasticity of 1 for example. 
     private float elasticity;
     public float Elasticity
     {
-        //Elasticity is the amount of momentum retained after a collision. 0 would be like a car hitting an immovable object, 1 would be like dropping a bouncy ball and having it bounce forever. 
-        //The extrema are physically impossible in the real world, but for the game's sake, they're allowed. The Star has an elasticity of 1 for example. 
         get
         {
             return elasticity;
@@ -82,6 +94,7 @@ public class AutonomousPhysicsObject
         }
     }
 
+    // Gravity is that thing that makes massive objects pull towards each other. It's actually significantly more complicated than that, but for our purposes assume that the ground is fixed in space.
     private static Vector2 g;
     public static Vector2 Gravity
     {
@@ -94,6 +107,8 @@ public class AutonomousPhysicsObject
             return g;
         }
     }
+
+    // Has the object hit the floor this frame? If so, gravity won't be applied to make collisions less glitchy
     private bool floored;
     public bool Floored
     {
