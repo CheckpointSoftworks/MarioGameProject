@@ -35,19 +35,19 @@ namespace Sprint2
                 big.Update();
             }
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             if (mario.Small)
             {
-                small.Draw(spriteBatch, mario.Location, mario.FacingRight);
+                small.Draw(spriteBatch, mario.Location, cameraLoc, mario.FacingRight);
             }
             else if (mario.Fire)
             {
-                fire.Draw(spriteBatch, mario.Location, mario.FacingRight);
+                fire.Draw(spriteBatch, mario.Location, cameraLoc, mario.FacingRight);
             }
             else
             {
-                big.Draw(spriteBatch, mario.Location, mario.FacingRight);
+                big.Draw(spriteBatch, mario.Location, cameraLoc, mario.FacingRight);
             }
         }
         public void Still()

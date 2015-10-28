@@ -28,14 +28,14 @@ namespace Sprint2
             AnimatedGoomba.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 loc)
+        public void Draw(SpriteBatch spriteBatch, Vector2 loc, Vector2 cameraLoc)
         {
-            AnimatedGoomba.Draw(spriteBatch, loc, FacingRight);
+            AnimatedGoomba.Draw(spriteBatch, loc, cameraLoc, FacingRight);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            AnimatedGoomba.Draw(spriteBatch, location, FacingRight);
+            AnimatedGoomba.Draw(spriteBatch, location, cameraLoc, FacingRight);
         }
 
         public Rectangle returnCollisionRectangle()

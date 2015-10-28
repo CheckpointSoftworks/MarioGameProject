@@ -31,9 +31,9 @@ namespace Sprint2
             fireFlowerSprite.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            fireFlowerSprite.Draw(spriteBatch, location, true);
+            fireFlowerSprite.Draw(spriteBatch, location, cameraLoc, true);
         }
 
         public Rectangle returnCollisionRectangle()

@@ -73,6 +73,8 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CameraClasses\Camera.cs" />
+    <Compile Include="CameraClasses\CameraController.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\GoombaDamaged.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\GoombaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaHealthy.cs" />

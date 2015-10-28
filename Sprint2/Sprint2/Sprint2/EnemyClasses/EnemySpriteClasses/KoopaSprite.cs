@@ -33,9 +33,9 @@ namespace Sprint2
             AnimatedKoopa.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            AnimatedKoopa.Draw(spriteBatch, location, facingRight);
+            AnimatedKoopa.Draw(spriteBatch, location, cameraLoc, facingRight);
         }
 
         public Rectangle returnCollisionRectangle()

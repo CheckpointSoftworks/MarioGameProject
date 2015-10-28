@@ -20,9 +20,11 @@ namespace Sprint2
         public ArrayList enemiesList;
         public ArrayList blocksList;
         public ArrayList enviromentalObjectsList;
+        public Camera camera;
 
-        public LevelStorage()
+        public LevelStorage(Camera camera)
         {
+            this.camera = camera;
             staticObjectsList = new ArrayList();
             enemiesList = new ArrayList();
             blocksList = new ArrayList();
@@ -55,23 +57,23 @@ namespace Sprint2
 
         public void Draw(IPlayer player,SpriteBatch spriteBatch)
         {
-            player.Draw(spriteBatch);
+            player.Draw(spriteBatch, camera.GetPosition());
 
             foreach (IItemObjects item in staticObjectsList)
             {
-                item.Draw(spriteBatch);
+                item.Draw(spriteBatch, camera.GetPosition());
             }
             foreach (IEnemyObject enemy in enemiesList)
             {
-                enemy.Draw(spriteBatch);
+                enemy.Draw(spriteBatch, camera.GetPosition());
             }
             foreach (IBlock block in blocksList)
             {
-                block.Draw(spriteBatch);
+                block.Draw(spriteBatch, camera.GetPosition());
             }
             foreach (IEnviromental enviromental in enviromentalObjectsList)
             {
-                enviromental.Draw(spriteBatch);
+                enviromental.Draw(spriteBatch, camera.GetPosition());
             }
             foreach (IBlock block in blocksList)
             {

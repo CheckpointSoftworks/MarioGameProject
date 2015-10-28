@@ -154,34 +154,34 @@ namespace Sprint2
                 
             }
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             if (!star)
             {
                 state.setDrawColor(Color.White);
-                state.Draw(spriteBatch);
+                state.Draw(spriteBatch, cameraLoc);
             }
             else
             {
                 if (timer % 7 == 0)
                 {
                     state.setDrawColor(Color.Purple);
-                    state.Draw(spriteBatch);
+                    state.Draw(spriteBatch, cameraLoc);
                 }
                 else if (timer % 5 == 0)
                 {
                     state.setDrawColor(Color.Blue);
-                    state.Draw(spriteBatch);
+                    state.Draw(spriteBatch, cameraLoc);
                 }
                 else if (timer % 4 == 0)
                 {
                     state.setDrawColor(Color.Red);
-                    state.Draw(spriteBatch);
+                    state.Draw(spriteBatch, cameraLoc);
                 }
                 else
                 {
                     state.setDrawColor(Color.Gold);
-                    state.Draw(spriteBatch);
+                    state.Draw(spriteBatch, cameraLoc);
                 }
             }
         }
@@ -207,6 +207,10 @@ namespace Sprint2
         public Rectangle returnCollisionRectangle()
         {
             return state.returnStateCollisionRectangle();
+        }
+        public Vector2 returnLocation()
+        {
+            return location;
         }
     }
 }

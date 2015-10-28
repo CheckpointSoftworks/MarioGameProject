@@ -27,10 +27,10 @@ namespace Sprint2
         {
             superStarSprite.Update();
         }
-       
-        public void Draw(SpriteBatch spriteBatch)
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            superStarSprite.Draw(spriteBatch);
+            superStarSprite.Draw(spriteBatch, cameraLoc);
         }
         public ItemType returnItemType()
         {

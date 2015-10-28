@@ -22,9 +22,9 @@ namespace Sprint2
             pipeSprite.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            pipeSprite.Draw(spriteBatch);
+            pipeSprite.Draw(spriteBatch, cameraLoc);
         }
 
         public Rectangle returnCollisionRectangle()

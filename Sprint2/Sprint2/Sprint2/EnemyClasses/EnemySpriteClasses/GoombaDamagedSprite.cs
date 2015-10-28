@@ -31,9 +31,9 @@ namespace Sprint2
 
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            AnimatedDamGoomba.Draw(spriteBatch, location, FacingRight);
+            AnimatedDamGoomba.Draw(spriteBatch, location, cameraLoc, FacingRight);
 
         }
 

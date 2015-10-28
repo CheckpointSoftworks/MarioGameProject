@@ -27,9 +27,9 @@ namespace Sprint2
             koopa.State = new KoopaDamaged(koopa);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            sprite.Draw(spriteBatch, koopa.returnLocation(), koopa.DirectionLeft);
+            sprite.Draw(spriteBatch, koopa.returnLocation(), cameraLoc, koopa.DirectionLeft);
         }
         public Rectangle returnStateCollisionRectangle()
         {

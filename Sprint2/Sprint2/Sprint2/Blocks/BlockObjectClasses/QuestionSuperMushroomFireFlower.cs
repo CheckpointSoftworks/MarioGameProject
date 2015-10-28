@@ -32,9 +32,9 @@ namespace Sprint2
             noLongerSpecialized = true;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            sprite.Draw(spriteBatch);
+            sprite.Draw(spriteBatch, cameraLoc);
         }
 
         public BlockType returnBlockType()

@@ -31,9 +31,9 @@ namespace Sprint2
             boxCoinSprite.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            boxCoinSprite.Draw(spriteBatch, location, true);
+            boxCoinSprite.Draw(spriteBatch, location, cameraLoc, true);
         }
 
         public Rectangle returnCollisionRectangle()

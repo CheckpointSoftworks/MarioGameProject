@@ -18,7 +18,7 @@ namespace Sprint2
         AutonomousPhysicsObject GetRigidBody();
         void Update();
 
-        void Draw(SpriteBatch spriteBatch);
+        void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc);
                 
         Rectangle returnCollisionRectangle();
 

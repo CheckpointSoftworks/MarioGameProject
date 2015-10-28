@@ -30,9 +30,9 @@ namespace Sprint2
             
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            usedItemSprite.Draw(spriteBatch, location, true);
+            usedItemSprite.Draw(spriteBatch, location, cameraLoc, true);
         }
 
         public Rectangle returnCollisionRectangle()

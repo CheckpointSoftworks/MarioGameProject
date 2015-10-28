@@ -72,9 +72,9 @@ namespace Sprint2
             state.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            state.Draw(spriteBatch);
+            state.Draw(spriteBatch, cameraLoc);
         }
 
         public Rectangle returnCollisionRectangle()

@@ -19,13 +19,15 @@ namespace Sprint2
     {
 
         public string LevelName { get; set; }
-        public LevelLoader(string levelname)
+        public Camera camera;
+        public LevelLoader(string levelname, Camera camera)
         {
             this.LevelName = levelname;
+            this.camera = camera;
         }
         public LevelStorage LoadLevel()
         {
-            LevelStorage storage = new LevelStorage();
+            LevelStorage storage = new LevelStorage(camera);
             using (var levelfile = TitleContainer.OpenStream(@"Content\" + LevelName))
             {
                 using (var sr = new StreamReader(levelfile))
@@ -281,6 +283,27 @@ namespace Sprint2
 
                             IBlock GameObject;
                             GameObject = new QuestionCoinBlock(XVal, YVal, BlockType.QuestionCoin);
+                            storage.blocksList.Add(GameObject);
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
+                        else if (ObjectType == "<QuestionSuperMushroomFireFlowerBlock>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            IBlock GameObject;
+                            GameObject = new QuestionSuperMushroomFireFlower(XVal, YVal, BlockType.QuestionSuperMushroomFireFlower);
                             storage.blocksList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
