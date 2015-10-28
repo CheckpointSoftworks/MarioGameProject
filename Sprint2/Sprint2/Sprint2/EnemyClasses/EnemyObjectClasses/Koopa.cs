@@ -36,6 +36,7 @@ namespace Sprint2
             state = new KoopaHealthy(this);
             rigidbody = new AutonomousPhysicsObject();
             LoadRigidBodyProperties();
+            directionLeft = false;
         }
 
         private void LoadRigidBodyProperties()
@@ -50,10 +51,12 @@ namespace Sprint2
 
         public void LeftCollision()
         {
+            directionLeft = true;
             rigidbody.LeftCollision();
         }
         public void RightCollision()
         {
+            directionLeft = false;
            rigidbody.RightCollision();
         }
         public void TopCollision()

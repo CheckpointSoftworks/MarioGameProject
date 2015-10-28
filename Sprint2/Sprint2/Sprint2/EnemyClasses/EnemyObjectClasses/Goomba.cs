@@ -30,6 +30,7 @@ namespace Sprint2
             location = new Vector2(locX, locY);
             state = new GoombaHealthy(this);
             rigidbody = new AutonomousPhysicsObject();
+            directionLeft = false;
             LoadRigidBodyProperties();
         }
 
@@ -46,11 +47,13 @@ namespace Sprint2
         public void LeftCollision()
         {
             Console.WriteLine("Left");
+            directionLeft = true;
             rigidbody.LeftCollision();
         }
         public void RightCollision()
         {
             Console.WriteLine("Right: Velocity is " + rigidbody.Velocity);
+            directionLeft = false;
             rigidbody.RightCollision();
         }
         public void TopCollision()

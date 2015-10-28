@@ -19,7 +19,6 @@ namespace Sprint2
             {
                 handleEnemyMovement(firstEnemy, secondEnemy, side);
             }
-            //flip one of the enemies
         }
 
         private void handleEnemyMovement(IEnemyObject firstEnemy, IEnemyObject secondEnemy, ICollision side)
@@ -36,6 +35,8 @@ namespace Sprint2
                 int newEnemyX = (int)enemyLocation.X - locationDiffToChange;
                 firstEnemy.updateLocation(new Vector2((newEnemyX), enemyLocation.Y));
                 firstEnemy.RightCollision();
+                ICommand flipEnemyDir = new EnemyChangeDirectionCommand(firstEnemy);
+                flipEnemyDir.Execute();
                 //secondEnemy.RightCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Right))
@@ -44,6 +45,8 @@ namespace Sprint2
                 int newEnemyX = (int)enemyLocation.X + locationDiffToChange;
                 firstEnemy.updateLocation(new Vector2((newEnemyX), enemyLocation.Y));
                 firstEnemy.LeftCollision();
+                ICommand flipEnemyDir = new EnemyChangeDirectionCommand(firstEnemy);
+                flipEnemyDir.Execute();
                 //secondEnemy.LeftCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Top))
