@@ -27,8 +27,9 @@ namespace Sprint2
             type = ItemType.Coin;
             collisonRectangle = boxCoinSprite.returnCollisionRectangle();
             testForCollision = true;
-            moveSpeed = -6.25f;
+            moveSpeed = -4.25f;
             decayRate = 0.32f;
+            animate = true;
             timer = 30;
         }
         public void StartAnimation()
@@ -43,7 +44,7 @@ namespace Sprint2
                 {
                     moveSpeed += decayRate;
                     velocity.Y = moveSpeed;
-                    location += velocity;
+                    location = new Vector2(location.X, location.Y + velocity.Y);
                     timer--;
                 }
                 else
