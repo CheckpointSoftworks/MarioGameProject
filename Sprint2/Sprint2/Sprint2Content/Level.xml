@@ -31,14 +31,15 @@
     <x>112</x>
     <y>400</y>
   </PlatformingBlock>  
-  <SuperStar>
+  <GroundBlock>
     <x>128</x>
     <y>440</y>
-  </SuperStar>
-  <Koopa>
+  </GroundBlock>
+ <Koopa>
     <x>232</x>
     <y>160</y>
-  </Koopa>  
+  </Koopa>
+ 
   <Goomba>
     <x>252</x>
     <y>160</y>
@@ -276,6 +277,10 @@
   <GroundBlock>
     <x>448</x>
     <y>472</y>
+  </GroundBlock>
+  <GroundBlock>
+    <x>448</x>
+    <y>440</y>
   </GroundBlock>
   <GroundBlock>
     <x>448</x>

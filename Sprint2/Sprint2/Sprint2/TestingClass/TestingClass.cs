@@ -52,8 +52,8 @@ namespace Sprint2
 
             GoombaTestLeft();
             GoombaTestRight();
-            GoombaTestTop();
             GoombaTestBottom();
+            GoombaTestTop();
 
             KoopaTestLeft();
             KoopaTestRight();

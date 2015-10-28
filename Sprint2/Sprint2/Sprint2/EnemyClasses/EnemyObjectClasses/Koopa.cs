@@ -7,135 +7,87 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class Koopa: IEnemyObject
+    public class Koopa: IEnemyObject
     {
-        private ISprite koopaSprite;
         private Vector2 location;
-        private Rectangle collisionRectangle;
-        private Vector2 velocity;
-        private float walkSpeed;
-        private float shellSlideSpeed;
-        private Vector2 gravity;
-        private float decayRate;
-        private bool isFalling;
-        private bool isDamaged;
         private bool directionLeft;
+        private AutonomousPhysicsObject rigidbody;
+        private IEnemyState state;
+        public IEnemyState State
+        {
+            get
+            {
+                return state;
+            }
+            set
+            {
+                state = value;
+            }
+        }
         public bool DirectionLeft
         {
             get { return directionLeft; }
             set { directionLeft = value; }
         }
-        public Vector2 Gravity
-        {
-            get { return gravity; }
-            set { gravity = value; }
-        }
 
         public Koopa(int locX, int locY)
         {
             location = new Vector2(locX, locY);
-            koopaSprite = EnemySpriteFactory.CreateGreenKoopaSprite(location);
-            collisionRectangle = koopaSprite.returnCollisionRectangle();
-            isDamaged = false;
-            walkSpeed = 0.7f;
-            shellSlideSpeed = 1.4f;
-            gravity.X = 0;
-            gravity.Y = 6.0f;
-            decayRate = 0.90f;
-            FallLeft();
+            state = new KoopaHealthy(this);
+            rigidbody = new AutonomousPhysicsObject();
+            LoadRigidBodyProperties();
         }
-        public void MoveLeft()
+
+        private void LoadRigidBodyProperties()
         {
-            isFalling = false;
-            if (isDamaged)
-            {
-                velocity.X = -shellSlideSpeed;
-            }
-            else
-            {
-                velocity.X = -walkSpeed;
-                ((KoopaSprite)koopaSprite).FacingRight = false;
-            }
+            rigidbody.AirFriction = 1f;
+            rigidbody.GroundFriction = 1f;
+            rigidbody.GroundSpeed = -1f;
+            rigidbody.MaxFallSpeed = 3f;
+            rigidbody.Elasticity = 0f;
+            rigidbody.IsEnabled = true;
         }
-        public void MoveRight()
+
+        public void LeftCollision()
         {
-            isFalling = false;
-            if (isDamaged)
-            {
-                velocity.X = shellSlideSpeed;
-            }
-            else
-            {
-                velocity.X = walkSpeed;
-                ((KoopaSprite)koopaSprite).FacingRight = true;
-            }
+            rigidbody.LeftCollision();
         }
-        public void FallLeft()
+        public void RightCollision()
         {
-            isFalling = true;
-            if (isDamaged) {
-                velocity.X = -shellSlideSpeed;
-            }
-            else
-            {
-                velocity.X = -walkSpeed;
-                ((KoopaSprite)koopaSprite).FacingRight = false;
-            }
-            velocity.X = -walkSpeed;
+           rigidbody.RightCollision();
         }
-        public void FallRight()
+        public void TopCollision()
         {
-            isFalling = true;
-            if (isDamaged)
-            {
-                velocity.X = shellSlideSpeed;
-            }
-            else
-            {
-                velocity.X = walkSpeed;
-                ((KoopaSprite)koopaSprite).FacingRight = true;
-            }
+           rigidbody.TopCollision();
         }
-        public void StopMoving()
+        public void BottomCollision()
         {
-            isFalling = false;
-            velocity.X = 0;
+           rigidbody.BottomCollision();
+        }
+        public AutonomousPhysicsObject GetRigidBody()
+        {
+            return rigidbody;
         }
         public void Update()
         {
-            velocity.Y = 0;
-            velocity += gravity;
-            location += velocity;
-            if (isFalling)
-            {
-                velocity.X *= decayRate;
-            }
-            if (isDamaged)
-            {
-                ((KoopaShellSprite)koopaSprite).Location = location;
-            }
-            else
-            {
-                ((KoopaSprite)koopaSprite).Location = location;
-            }
-            koopaSprite.Update();
+            rigidbody.UpdatePhysics();
+            location += rigidbody.Velocity;
+            state.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            koopaSprite.Draw(spriteBatch);
+            state.Draw(spriteBatch);
         }
 
         public Rectangle returnCollisionRectangle()
         {
-            return collisionRectangle;
+            return state.returnStateCollisionRectangle();
         }
 
         public void TakeDamage()
         {
-            isDamaged = true;
-            koopaSprite = EnemySpriteFactory.CreateGreenKoopaShellSprite(location);
-            collisionRectangle = new Rectangle(0, 0, 0, 0);
+            state.TakeDamage();
         }
 
         public void updateLocation(Vector2 newLocation)

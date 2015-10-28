@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-class AutonomousPhysicsObject
+public class AutonomousPhysicsObject
 {
     // An autonomous physics object is a physics object which has a set velocity that never changes. This is for enemies, projectiles, etc.
     // Physics should be updated before collision handling. That said, physics should be included in collision handling so velocites can be reset. 
@@ -31,22 +31,14 @@ class AutonomousPhysicsObject
         }
     }
 
-    private Vector2 maxVelocity;
-    public float maxVelocityX
+    private float maxFallSpeed;
+    public float MaxFallSpeed
     {
         set
         {
-            maxVelocity.X = value;
+            maxFallSpeed = value;
         }
     }
-    public float maxVelocityY
-    {
-        set
-        {
-            maxVelocity.Y = value;
-        }
-    }
-
     private float groundSpeed;
     public float GroundSpeed
     {
@@ -55,31 +47,12 @@ class AutonomousPhysicsObject
             groundSpeed = value;
         }
     }
-
     private Vector2 friction;
     public float GroundFriction
     {
         set
         {
             friction.X = Clamp(value, 0, 1);
-        }
-    }
-
-    private float jumpDuration;
-    private float airTime;
-    public float JumpDuration
-    {
-        set
-        {
-            jumpDuration = value;
-        }
-    }
-    private float jumpSpeed;
-    public float JumpSpeed
-    {
-        set
-        {
-            value = jumpSpeed;
         }
     }
 
@@ -113,13 +86,23 @@ class AutonomousPhysicsObject
         {
             g = value;
         }
+        get
+        {
+            return g;
+        }
+    }
+    private bool floored;
+    public bool Floored
+    {
+        get { return floored; }
+        set { floored = value; }
     }
 
     public AutonomousPhysicsObject()
     {
         velocity = new Vector2(0, 0);
         elasticity = 0;
-        g = new Vector2(0, 98f);
+        g = new Vector2(0, 4f);
     }
 
     public AutonomousPhysicsObject(Vector2 gravity)
@@ -132,14 +115,17 @@ class AutonomousPhysicsObject
 
     public void UpdatePhysics()
     {
+        //Console.WriteLine("At start of physics update, vel is " + velocity);
         if (enabled)
         {
-            velocity += g * 0.2f;
+            if (!floored) { velocity += g; }
+            velocity.X += groundSpeed;
             //MAGIC NUMBER
             DampenVelocity();
             ClampVelocity();
         }
         else { Console.WriteLine("Physics object not enabled."); }
+        //Console.WriteLine("At end of physics update, vel is " + velocity);
     }
 
     private void DampenVelocity()
@@ -149,17 +135,40 @@ class AutonomousPhysicsObject
 
     private void ClampVelocity()
     {
-        velocity = Clamp(velocity, -maxVelocity.X, maxVelocity.X, -maxVelocity.Y, maxVelocity.Y);
+        velocity = Clamp(velocity, -Math.Abs(groundSpeed), Math.Abs(groundSpeed), -maxFallSpeed, maxFallSpeed);
     }
 
-    public void HorizontalCollision()
+    public void RightCollision()
     {
-        velocity.X *= -1;
+        //Console.WriteLine("hor velocity was " + velocity);
+        if (velocity.X > 0)
+        {
+            velocity.X = 0;
+            groundSpeed *= -1;
+        }
+        //Console.WriteLine("hor velocity is now" + velocity);
     }
 
-    public void VerticalCollision()
+    public void LeftCollision()
     {
-        velocity.Y *= -1 * elasticity;
+        if (velocity.X < 0)
+        {
+            velocity.X = 0;
+            groundSpeed *= -1;
+        }
+        //Console.WriteLine("hor velocity is now" + velocity);
+    }
+
+    public void TopCollision()
+    {
+        velocity.Y = 0;
+        floored = false;
+    }
+
+    public void BottomCollision()
+    {
+        floored = true;
+        velocity.Y = 0;
     }
 
     private float Clamp(float value, float min, float max)
@@ -167,7 +176,6 @@ class AutonomousPhysicsObject
         //I'm pretty sure this function exists in the XNA, but I can't seem to find it. Feel free to cut this and replace the calls with the already written function if you can find it. 
         if (value < min || value > max)
         {
-            Console.WriteLine(value + " is greater than " + max + " or less than " + min);
             return value < min ? min : max;
         }
         else

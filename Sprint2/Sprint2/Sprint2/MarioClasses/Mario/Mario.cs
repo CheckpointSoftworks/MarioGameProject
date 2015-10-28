@@ -135,6 +135,8 @@ namespace Sprint2
                     state.Still();
                 }
             }
+            rigidbody.UpdatePhysics();
+            location += rigidbody.Velocity;
             if (!star)
             {
                 state.Update();
@@ -150,8 +152,6 @@ namespace Sprint2
                 state.Update();
                 
             }
-            rigidbody.UpdatePhysics();
-            location += rigidbody.Velocity;
         }
         public void Draw(SpriteBatch spriteBatch)
         {

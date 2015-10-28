@@ -28,6 +28,11 @@ namespace Sprint2
             AnimatedGoomba.Update();
         }
 
+        public void Draw(SpriteBatch spriteBatch, Vector2 loc)
+        {
+            AnimatedGoomba.Draw(spriteBatch, loc, FacingRight);
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             AnimatedGoomba.Draw(spriteBatch, location, FacingRight);

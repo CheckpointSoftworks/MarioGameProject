@@ -11,13 +11,11 @@ namespace Sprint2
     {
         bool DirectionLeft
         { get; set; }
-        Vector2 Gravity
-        { get; set; }
-        void MoveLeft();
-        void MoveRight();
-        void FallLeft();
-        void FallRight();
-        void StopMoving();
+        void LeftCollision();
+        void RightCollision();
+        void TopCollision();
+        void BottomCollision();
+        AutonomousPhysicsObject GetRigidBody();
         void Update();
 
         void Draw(SpriteBatch spriteBatch);

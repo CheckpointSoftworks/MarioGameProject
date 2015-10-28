@@ -7,109 +7,88 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class Goomba: IEnemyObject
+    public class Goomba: IEnemyObject
     {
-        private ISprite goombaSprite;
+//        private AnimatedSprite goombaSprite;
         private Vector2 location;
-        private Rectangle collisionRectangle;
-        private Vector2 velocity;
-        private float walkSpeed;
-        private Vector2 gravity;
-        private float decayRate;
-        private bool isFalling;
-        private bool isDamaged;
         private bool directionLeft;
+        private IEnemyState state;
+        public IEnemyState State
+        {
+            get { return state; }
+            set { state = value; }
+        }
+
+        private AutonomousPhysicsObject rigidbody;
         public bool DirectionLeft
         {
             get { return directionLeft; }
             set { directionLeft = value; }
         }
-        public Vector2 Gravity
-        {
-            get { return gravity; }
-            set { gravity = value; }
-        }
         public Goomba(int locX, int locY)
         {
             location = new Vector2(locX, locY);
-            goombaSprite = EnemySpriteFactory.CreateGoombaSprite(location);
-            collisionRectangle = goombaSprite.returnCollisionRectangle();
-            isDamaged = false;
-            walkSpeed = 0.7f;
-            gravity.X = 0;
-            gravity.Y = 6.0f;
-            decayRate = 0.90f;
-            FallLeft();
+            state = new GoombaHealthy(this);
+            rigidbody = new AutonomousPhysicsObject();
+            LoadRigidBodyProperties();
         }
 
-        public void MoveLeft()
+        private void LoadRigidBodyProperties()
         {
-            isFalling = false;
-            velocity.X = -walkSpeed;
+            rigidbody.AirFriction = 1f;
+            rigidbody.GroundFriction = 1f;
+            rigidbody.GroundSpeed = 1f;
+            rigidbody.MaxFallSpeed = 3f;
+            rigidbody.Elasticity = 0.5f;
+            rigidbody.IsEnabled = true;
         }
-        public void MoveRight()
+
+        public void LeftCollision()
         {
-            isFalling = false;
-            velocity.X = walkSpeed;
+            Console.WriteLine("Left");
+            rigidbody.LeftCollision();
         }
-        public void FallLeft()
+        public void RightCollision()
         {
-            isFalling = true;
-            velocity.X = -walkSpeed;
+            Console.WriteLine("Right: Velocity is " + rigidbody.Velocity);
+            rigidbody.RightCollision();
         }
-        public void FallRight()
+        public void TopCollision()
         {
-            isFalling = true;
-            velocity.X = walkSpeed;
+            Console.WriteLine("Top");
+            rigidbody.TopCollision();
         }
-        public void StopMoving()
+        public void BottomCollision()
         {
-            isFalling = false;
-            velocity.X = 0;
+            Console.WriteLine("Bottom");
+            rigidbody.BottomCollision();
         }
+        public AutonomousPhysicsObject GetRigidBody()
+        {
+            return rigidbody;
+        }
+
+        
         public void Update()
         {
-            velocity.Y = 0;
-            velocity += gravity;
-            location += velocity;
-            if (isFalling)
-            {
-                velocity.X *= decayRate;
-            }
-            if (isDamaged)
-            {
-                ((GoombaDamagedSprite)goombaSprite).Location = location;
-            }
-            else
-            {
-                ((GoombaSprite)goombaSprite).Location = location;
-            }
-            goombaSprite.Update();
+            rigidbody.UpdatePhysics();
+            location += rigidbody.Velocity;
+            state.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            goombaSprite.Draw(spriteBatch);
+            state.Draw(spriteBatch);
         }
 
         public Rectangle returnCollisionRectangle()
         {
-            if (!isDamaged)
-            {
-                collisionRectangle = goombaSprite.returnCollisionRectangle();
-            }
-            else
-            {
-                collisionRectangle = new Rectangle(0, 0, 0, 0);
-            }
-            return collisionRectangle;
+            return state.returnStateCollisionRectangle();
         }
 
         public void TakeDamage()
         {
-            isDamaged = true;
-            goombaSprite = EnemySpriteFactory.CreateGoombaDamangedSprite(location);
-            collisionRectangle = new Rectangle(0, 0, 0, 0);
+            state.TakeDamage();
         }
 
         public void updateLocation(Vector2 newLocation)

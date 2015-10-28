@@ -98,11 +98,7 @@ public class ControllablePhysicsObject
     {
         get { return floored; }
         set { floored = value; }
-    }
-    public void WasFloored()
-    {
-        floored = true;
-    }
+    }    
     private static Vector2 g;
     private static Vector2 gOrigin;
     public static Vector2 Gravity
@@ -117,7 +113,7 @@ public class ControllablePhysicsObject
     {
         velocity = new Vector2(0, 0);
         elasticity = 0;
-        g = new Vector2(0, 30f);
+        g = new Vector2(0, 60f);
         gOrigin = new Vector2(0, 30f);
     }
 
