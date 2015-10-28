@@ -144,7 +144,6 @@ public class AutonomousPhysicsObject
             DampenVelocity();
             ClampVelocity();
         }
-        else { Console.WriteLine("Physics object not enabled."); }
     }
 
     private void DampenVelocity()

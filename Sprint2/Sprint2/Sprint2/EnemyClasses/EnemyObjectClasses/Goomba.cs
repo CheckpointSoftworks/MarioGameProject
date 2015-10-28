@@ -40,7 +40,7 @@ namespace Sprint2
             rigidbody.GroundSpeed =1.5f;
             rigidbody.MaxFallSpeed = 3f;
             rigidbody.Elasticity = 0f;
-            rigidbody.IsEnabled = true;
+            rigidbody.IsEnabled = false;
         }
 
         public void LeftCollision()
