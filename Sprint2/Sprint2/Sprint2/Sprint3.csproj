@@ -80,6 +80,7 @@
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\BrickPieces.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\BrickPiecesSprite.cs" />
     <Compile Include="Interfaces\IEnemyState.cs" />
+    <Compile Include="Interfaces\IProjectile.cs" />
     <Compile Include="PhysicsClasses\AutonomousPhysicsObject.cs" />
     <Compile Include="Blocks\BlockObjectClasses\Blocks.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BrickBlock.cs" />
@@ -98,6 +99,8 @@
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionFireFlowerCommand.cs" />
     <Compile Include="Blocks\BlockObjectClasses\QuestionStarBlock.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionStarCommand.cs" />
+    <Compile Include="ProjectileClasses\ProjectileObjectClasses\Fireball.cs" />
+    <Compile Include="ProjectileClasses\ProjectileSpriteClasses\FireballSprite.cs" />
     <Compile Include="SpriteHelperClasses\AnimatedSprite.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\BigMarioBrickBlockCollisionCommand.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\BlockSpriteTextureStorage.cs" />
