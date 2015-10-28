@@ -18,8 +18,11 @@ namespace Sprint2
         {
             ((QuestionCoinBlock)block).bounceBlock();
             block.Update();
-            IItemObjects coin=((QuestionCoinBlock)block).spawnCoin();
-            game.levelStore.staticObjectsList.Add(coin);
+            if (((QuestionCoinBlock)block).dispenseItem())
+            {
+                IItemObjects coin = ((QuestionCoinBlock)block).spawnCoin();
+                game.levelStore.staticObjectsList.Add(coin);
+            }
         }
     }
 }
