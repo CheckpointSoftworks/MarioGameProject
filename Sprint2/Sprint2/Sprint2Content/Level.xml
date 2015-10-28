@@ -35,9 +35,9 @@
     <x>128</x>
     <y>440</y>
   </GroundBlock>
- <!--<Koopa>
-    <x>232</x>
-    <y>160</y>
+  <Koopa>
+    <x>250</x>
+    <y>200</y>
   </Koopa>-->
  
   <Goomba>

@@ -194,7 +194,14 @@ namespace Sprint2
             }
             else
             {
-                small = true;
+                if (fire)
+                {
+                    fire = false;
+                }
+                else
+                {
+                    small = true;
+                }
             }
         }
         public Rectangle returnCollisionRectangle()
