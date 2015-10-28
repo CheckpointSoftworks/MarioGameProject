@@ -23,7 +23,7 @@ namespace Sprint2
 
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
-                ICommand command = new MarioHitsEnemyCollision(enemy);
+                ICommand command = new ProjectileHitsEnemyCollision(enemy);
                 command.Execute();
             }
         }

@@ -8,12 +8,16 @@ namespace Sprint2
     public class MarioHitsEnemyCollision:ICommand
     {
         private IEnemyObject enemy;
-        public MarioHitsEnemyCollision(IEnemyObject hitEnemy){
+        private IPlayer mario;
+        public MarioHitsEnemyCollision(IEnemyObject hitEnemy, IPlayer mario){
             enemy = hitEnemy;
+            this.mario = mario;
         }
 
         public void Execute(){
             enemy.TakeDamage();
+            ((Mario)mario).rigidbody.Jump();
+            
         }
     }
 }

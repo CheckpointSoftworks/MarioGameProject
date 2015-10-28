@@ -13,10 +13,9 @@ namespace Sprint2
         void Running();
         void ChangeDirection();
         void Jump();
-        void JumpRun();
         void ShootFireball();
         void Duck();
-        void DuckRun();
+        void TakeDamage();
         void Dying();
         void Update();
         void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc);

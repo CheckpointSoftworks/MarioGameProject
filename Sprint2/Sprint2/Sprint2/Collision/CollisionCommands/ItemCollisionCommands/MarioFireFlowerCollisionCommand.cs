@@ -19,8 +19,7 @@ namespace Sprint2
         public void Execute()
         {
             fireFlower.setCollisionRectangle(new Microsoft.Xna.Framework.Rectangle(0, 0, 0, 0));
-            ((Mario)mario).Fire = true;
-            ((Mario)mario).Small = false;
+            ((Mario)mario).BecomeFire();
         }
     }
 }

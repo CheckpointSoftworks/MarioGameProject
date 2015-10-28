@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="CameraClasses\Camera.cs" />
     <Compile Include="CameraClasses\CameraController.cs" />
+    <Compile Include="Collision\CollisionCommands\EnemyCollisonCommands\ProjectileHitsEnemy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\GoombaDamaged.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\GoombaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaHealthy.cs" />
@@ -159,7 +160,6 @@
     <Compile Include="MarioClasses\MarioStateClasses\MarioChangeDirection.cs" />
     <Compile Include="Collision\CollisionCommands\ItemCollisionCommands\MarioCoinCollisionCommand.cs" />
     <Compile Include="MarioClasses\MarioStateClasses\MarioDuck.cs" />
-    <Compile Include="MarioClasses\MarioStateClasses\MarioDuckRun.cs" />
     <Compile Include="MarioClasses\MarioStateClasses\MarioDying.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\MarioCollisionHandlers\MarioEnemyCollisionHandler.cs" />
     <Compile Include="Collision\CollisionCommands\ItemCollisionCommands\MarioFireFlowerCollisionCommand.cs" />
@@ -167,7 +167,6 @@
     <Compile Include="Collision\CollisionCommands\EnemyCollisonCommands\MarioHitsEnemyCollision.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\MarioCollisionHandlers\MarioItemCollisionHandler.cs" />
     <Compile Include="MarioClasses\MarioStateClasses\MarioJump.cs" />
-    <Compile Include="MarioClasses\MarioStateClasses\MarioJumpRun.cs" />
     <Compile Include="Collision\CollisionCommands\ItemCollisionCommands\MarioOneUpMushroomCollisionCommand.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\MarioCollisionHandlers\MarioPipeCollisionHandler.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\MarioQuestionCoinBlockCollisionCommand.cs" />
