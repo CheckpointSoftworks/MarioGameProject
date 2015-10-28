@@ -79,7 +79,7 @@ namespace Sprint2
 
         public IItemObjects dispenseCoin()
         {
-            return new BoxCoin((int)location.X, (int)location.Y);
+            return new BoxCoin((int)location.X, (int)location.Y-16);
         }
     }
 }

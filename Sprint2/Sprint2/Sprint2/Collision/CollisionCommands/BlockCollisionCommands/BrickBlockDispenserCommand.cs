@@ -17,7 +17,6 @@ namespace Sprint2
         public void Execute()
         {
             bool dispenseCoin=((BrickBlockCoinDispenser)block).coinCounting();
-            block.Update();
             if (dispenseCoin)
             {
                 IItemObjects coin = ((BrickBlockCoinDispenser)block).dispenseCoin();
