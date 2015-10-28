@@ -22,15 +22,16 @@ namespace Sprint2
         public IController gamepad{get;set;}
         public IPlayer mario { get; set; }
         public LevelStorage levelStore { get; set; }
+        public LevelLoader loader { get; set; }
+        public Camera camera { get; set; }
 
         private ICommand keyboardNotPressed;
-        private LevelLoader loader;
         private Texture2D background;
         private Texture2D background2;
         private Rectangle mainframe;
         private TestingClass tester;
-        private Camera camera;
         private CameraController cameraController;
+        private ICommand resetCommand;
 
         public Game1()
         {
@@ -70,6 +71,7 @@ namespace Sprint2
             levelStore=loader.LoadLevel();
             mario = levelStore.player;
             cameraController = new CameraController(camera, mario);
+            resetCommand = new ResetLevelCommand(this);
         }
 
         private void LoadKeyBoardCommands()
@@ -101,6 +103,11 @@ namespace Sprint2
             mario.Update();
             levelStore.Update(mario,this);
             cameraController.Update();
+            if (((Mario)mario).IsDying)
+            {
+                resetCommand.Execute();
+                mario = levelStore.player;
+            }
             base.Update(gameTime);
         }
 

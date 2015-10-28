@@ -105,6 +105,7 @@
     <Compile Include="Collision\CollisionHandlerClasses\ProjectileBlockCollisionHandler.cs" />
     <Compile Include="ProjectileClasses\ProjectileObjectClasses\Fireball.cs" />
     <Compile Include="ProjectileClasses\ProjectileSpriteClasses\FireballSprite.cs" />
+    <Compile Include="ResetLevelCommand.cs" />
     <Compile Include="SpriteHelperClasses\AnimatedSprite.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\BigMarioBrickBlockCollisionCommand.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\BlockSpriteTextureStorage.cs" />

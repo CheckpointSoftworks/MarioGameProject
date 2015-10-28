@@ -67,6 +67,7 @@ namespace Sprint2
 
         public IItemObjects spawnSuperMushroom()
         {
+            dispenseItemFlag = false;
             return new SuperMushroom((int)location.X, (int)location.Y-16);
         }
 
