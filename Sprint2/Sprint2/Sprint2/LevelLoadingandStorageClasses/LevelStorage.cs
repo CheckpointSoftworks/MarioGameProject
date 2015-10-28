@@ -20,6 +20,7 @@ namespace Sprint2
         public ArrayList enemiesList;
         public ArrayList blocksList;
         public ArrayList enviromentalObjectsList;
+        public ArrayList projectileList;
         public Camera camera;
 
         public LevelStorage(Camera camera)
@@ -29,6 +30,7 @@ namespace Sprint2
             enemiesList = new ArrayList();
             blocksList = new ArrayList();
             enviromentalObjectsList = new ArrayList();
+            projectileList = new ArrayList();
         }
         public void Update(IPlayer mario,Game1 game)
         {
@@ -150,6 +152,7 @@ namespace Sprint2
             EnemyBlockCollisionHandler enemyBlockHandler = new EnemyBlockCollisionHandler();
             EnemyEnviromentalCollisionHandler enemyEnviroHandler = new EnemyEnviromentalCollisionHandler();
             EnemyEnemyCollisionHandler enemyEnemyHandler = new EnemyEnemyCollisionHandler();
+            EnemyProjectileCollisionHandler enemyProjHandler = new EnemyProjectileCollisionHandler();
             enemy.GetRigidBody().Floored = false;
             foreach (IBlock block in blocksList)
             {
@@ -176,6 +179,11 @@ namespace Sprint2
                     enemyEnemyHandler.handleCollision(enemy, secondEnemy, side);
                 }
             }
+            foreach (IProjectile projectile in projectileList)
+            {
+                side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), projectile.returnCollisionRectangle());
+                enemyProjHandler.handleCollision(enemy, projectile, side);
+            }
         }
         private void handleItemCollision(IItemObjects item)
         {
@@ -185,6 +193,7 @@ namespace Sprint2
             floorCheck = item.returnCollisionRectangle();
             floorCheck.Y++;
             ItemBlockCollisionHandler itemBlockHandler = new ItemBlockCollisionHandler();
+            ItemEnvriomentalCollisionHandler itemEnviroHandler = new ItemEnvriomentalCollisionHandler();
             foreach (IBlock block in blocksList)
             {
                 if (block.checkForCollisionTestFlag())
@@ -199,8 +208,8 @@ namespace Sprint2
             }
             foreach (IEnviromental enviromental in enviromentalObjectsList)
             {
-                //side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
-                //enemyEnviroHandler.handleCollision(enemy, enviromental, side);
+                side = collisionDetector.getCollision(item.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
+                itemEnviroHandler.handleCollision(item, enviromental, side);
             }
         }
     }

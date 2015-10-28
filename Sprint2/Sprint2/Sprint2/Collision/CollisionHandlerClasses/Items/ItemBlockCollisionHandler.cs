@@ -13,8 +13,14 @@ namespace Sprint2
         {
 
         }
+        public void handleCollision(IItemObjects item, IBlock block, ICollision side){
+            if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
+            {
+                handleItemMovement(item, block, side);
+            }
+        }
 
-        public void handleCollision(IItemObjects item, IBlock block, ICollision side)
+        private void handleItemMovement(IItemObjects item, IBlock block, ICollision side)
         {
             Rectangle blockRectangle = block.returnCollisionRectangle();
             Rectangle itemRectangle = item.returnCollisionRectangle();
