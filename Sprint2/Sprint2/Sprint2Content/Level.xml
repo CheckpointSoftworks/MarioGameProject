@@ -7,14 +7,6 @@
   </Mario>
   
   <!-- Testing stuff at left edge of level (to be removed later!) -->
-  <PlatformingBlock>
-    <x>200</x>
-    <y>440</y>
-  </PlatformingBlock>
-  <PlatformingBlock>
-    <x>200</x>
-    <y>424</y>
-  </PlatformingBlock>
   <BoxCoin>
     <x>32</x>
     <y>400</y>
@@ -39,27 +31,18 @@
     <x>112</x>
     <y>400</y>
   </PlatformingBlock>  
-  <GroundBlock>
-    <x>128</x>
+    <PlatformingBlock>
+    <x>112</x>
     <y>440</y>
-  </GroundBlock>
+  </PlatformingBlock>  
   <Koopa>
     <x>250</x>
     <y>200</y>
-  </Koopa>-->
- 
+  </Koopa>
   <Goomba>
-    <x>252</x>
-    <y>160</y>
+    <x>270</x>
+    <y>200</y>
   </Goomba>
-  <BrickBlock>
-    <x>144</x>
-    <y>400</y>
-  </BrickBlock>
-  <QuestionCoinBlock>
-    <x>160</x>
-    <y>400</y>
-  </QuestionCoinBlock>
   
   <!-- Everything from left edge to first hole in Level 1-1 -->
   <!-- Enemies, pipes and special blocks: -->
@@ -351,10 +334,6 @@
   <GroundBlock>
     <x>448</x>
     <y>472</y>
-  </GroundBlock>
-  <GroundBlock>
-    <x>448</x>
-    <y>440</y>
   </GroundBlock>
   <GroundBlock>
     <x>448</x>
