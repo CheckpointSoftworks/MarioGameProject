@@ -37,11 +37,11 @@
   </PlatformingBlock>  
   <Koopa>
     <x>250</x>
-    <y>200</y>
+    <y>400</y>
   </Koopa>
   <Goomba>
     <x>270</x>
-    <y>200</y>
+    <y>400</y>
   </Goomba>
   
   <!-- Everything from left edge to first hole in Level 1-1 -->
@@ -84,7 +84,7 @@
   </Pipe>
   <Goomba>
     <x>672</x>
-    <y>160</y>
+    <y>400</y>
   </Goomba>
   <Pipe>
     <x>752</x>
@@ -92,11 +92,11 @@
   </Pipe>
   <Goomba>
     <x>864</x>
-    <y>160</y>
+    <y>400</y>
   </Goomba>
   <Goomba>
     <x>880</x>
-    <y>160</y>
+    <y>400</y>
   </Goomba>
   <Pipe>
     <x>912</x>
@@ -684,7 +684,7 @@
   </BrickBlock>
   <Goomba>
     <x>1280</x>
-    <y>88</y>
+    <y>400</y>
   </Goomba>
   <BrickBlock>
     <x>1296</x>
@@ -692,7 +692,7 @@
   </BrickBlock>
   <Goomba>
     <x>1312</x>
-    <y>24</y>
+    <y>400</y>
   </Goomba>
   <BrickBlock>
     <x>1312</x>
@@ -872,11 +872,11 @@
   </BrickBlock>
   <Goomba>
     <x>1536</x>
-    <y>160</y>
+    <y>400</y>
   </Goomba>
   <Goomba>
     <x>1552</x>
-    <y>160</y>
+    <y>400</y>
   </Goomba>
   <BrickBlock>
     <x>1616</x>
@@ -888,7 +888,7 @@
   </QuestionStarBlock>
   <Koopa>
     <x>1640</x>
-    <y>160</y>
+    <y>400</y>
   </Koopa>
   <QuestionCoinBlock>
     <x>1712</x>
@@ -949,19 +949,19 @@
 
   <Goomba>
     <x>2080</x>
-    <y>200</y>
+    <y>400</y>
   </Goomba>
   <Goomba>
     <x>2096</x>
-    <y>200</y>
+    <y>400</y>
   </Goomba>
   <Goomba>
     <x>2112</x>
-    <y>200</y>
+    <y>400</y>
   </Goomba>
   <Goomba>
     <x>2128</x>
-    <y>200</y>
+    <y>400</y>
   </Goomba>
 
   
@@ -1705,11 +1705,11 @@
 
   <Goomba>
     <x>2800</x>
-    <y>200</y>
+    <y>400</y>
   </Goomba>
   <Goomba>
     <x>2816</x>
-    <y>200</y>
+    <y>400</y>
   </Goomba>
   
   <Pipe>
