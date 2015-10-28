@@ -98,9 +98,9 @@ namespace Sprint2
             }
             oneUpMushroomSprite.Update();
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            oneUpMushroomSprite.Draw(spriteBatch);
+            oneUpMushroomSprite.Draw(spriteBatch, cameraLoc);
         }
         public ItemType returnItemType()
         {

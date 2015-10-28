@@ -19,7 +19,7 @@ namespace Sprint2
         void DuckRun();
         void Dying();
         void Update();
-        void Draw(SpriteBatch spriteBatch);
+        void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc);
         void setDrawColor(Color color);
 
         Rectangle returnStateCollisionRectangle();

@@ -9,7 +9,7 @@ namespace Sprint2
 {
     public interface IEnemyState
     {
-        void Draw(SpriteBatch spritebatch);
+        void Draw(SpriteBatch spritebatch, Vector2 cameraLoc);
         void Update();
         void TakeDamage();
         Rectangle returnStateCollisionRectangle();

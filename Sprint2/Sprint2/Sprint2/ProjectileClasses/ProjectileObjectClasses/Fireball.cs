@@ -42,9 +42,9 @@ namespace Sprint2
             fireballSprite.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            fireballSprite.Draw(spriteBatch);
+            fireballSprite.Draw(spriteBatch, cameraLoc);
 
         }
 

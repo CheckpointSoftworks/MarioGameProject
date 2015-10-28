@@ -27,9 +27,9 @@ namespace Sprint2
             //
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            sprite.Draw(spriteBatch, koopa.returnLocation(), true);
+            sprite.Draw(spriteBatch, koopa.returnLocation(), cameraLoc, true);
         }
         public Rectangle returnStateCollisionRectangle()
         {

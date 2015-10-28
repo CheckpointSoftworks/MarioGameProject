@@ -31,9 +31,9 @@ namespace Sprint2
             
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            superMushroomSprite.Draw(spriteBatch, location, true);
+            superMushroomSprite.Draw(spriteBatch, location, cameraLoc, true);
         }
 
         public Rectangle returnCollisionRectangle()

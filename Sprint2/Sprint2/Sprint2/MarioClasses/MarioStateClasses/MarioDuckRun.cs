@@ -33,9 +33,9 @@ namespace Sprint2
         {
             sprite.Update();
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            sprite.Draw(spriteBatch, mario.Location, mario.FacingRight);
+            sprite.Draw(spriteBatch, mario.Location, cameraLoc, mario.FacingRight);
         }
         public void Still()
         {

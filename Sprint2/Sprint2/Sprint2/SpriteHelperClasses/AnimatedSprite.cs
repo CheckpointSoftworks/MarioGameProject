@@ -58,13 +58,13 @@ namespace Sprint2
         }
         
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 loc, bool facingRight)
+        public void Draw(SpriteBatch spriteBatch, Vector2 loc, Vector2 cameraLoc, bool facingRight)
         {
             int frameRow = (int)((float)currentFrame / (float)columns);
             int frameColumn = currentFrame % columns;
 
             Rectangle sourceRectangle = new Rectangle(frameWidth * frameColumn, frameHeight * frameRow, frameWidth, frameHeight);
-            Rectangle destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, frameWidth, frameHeight);
+            Rectangle destinationRectangle = new Rectangle((int)loc.X - (int)cameraLoc.X, (int)loc.Y - (int)cameraLoc.Y, frameWidth, frameHeight);
             collisionRectangle = destinationRectangle;
             spriteBatch.Begin();
             if (facingRight)

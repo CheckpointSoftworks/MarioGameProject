@@ -18,7 +18,7 @@ namespace Sprint2
         {
             
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             
         }

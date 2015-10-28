@@ -25,9 +25,9 @@ namespace Sprint2
 
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            pipeSprite.Draw(spriteBatch, location, true);
+            pipeSprite.Draw(spriteBatch, location, cameraLoc, true);
         }
 
         public Rectangle returnCollisionRectangle()

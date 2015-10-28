@@ -26,9 +26,9 @@ namespace Sprint2
             superStarSprite.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            superStarSprite.Draw(spriteBatch, location, true);
+            superStarSprite.Draw(spriteBatch, location, cameraLoc, true);
         }
 
         public Rectangle returnCollisionRectangle()

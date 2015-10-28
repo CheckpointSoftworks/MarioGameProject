@@ -28,6 +28,8 @@ namespace Sprint2
         private Texture2D background;
         private Rectangle mainframe;
         private TestingClass tester;
+        private Camera camera;
+        private CameraController cameraController;
 
         public Game1()
         {
@@ -40,10 +42,11 @@ namespace Sprint2
             tester = new TestingClass(this);
             keyboard = new KeyboardController();
             gamepad = new GamepadController(this);
-            keyboardNotPressed = new KeyNotPressed(this); 
-            loader= new LevelLoader("Level.xml");
+            keyboardNotPressed = new KeyNotPressed(this);
+            camera = new Camera(480, 800, new Vector2(0, 0));
+            loader= new LevelLoader("Level.xml", camera);
             mainframe = new Rectangle(0, 0, 2000, 600);
-            levelStore = new LevelStorage();
+            levelStore = new LevelStorage(camera);
 
             base.Initialize();
             tester.runTests();
@@ -64,6 +67,7 @@ namespace Sprint2
             LoadKeyBoardCommands(); 
             levelStore=loader.LoadLevel();
             mario = levelStore.player;
+            cameraController = new CameraController(camera, mario);
         }
 
         private void LoadKeyBoardCommands()
@@ -94,6 +98,7 @@ namespace Sprint2
             keyboardNotPressed.Execute();
             mario.Update();
             levelStore.Update(mario,this);
+            cameraController.Update();
             base.Update(gameTime);
         }
 

@@ -19,13 +19,15 @@ namespace Sprint2
     {
 
         public string LevelName { get; set; }
-        public LevelLoader(string levelname)
+        public Camera camera;
+        public LevelLoader(string levelname, Camera camera)
         {
             this.LevelName = levelname;
+            this.camera = camera;
         }
         public LevelStorage LoadLevel()
         {
-            LevelStorage storage = new LevelStorage();
+            LevelStorage storage = new LevelStorage(camera);
             using (var levelfile = TitleContainer.OpenStream(@"Content\" + LevelName))
             {
                 using (var sr = new StreamReader(levelfile))

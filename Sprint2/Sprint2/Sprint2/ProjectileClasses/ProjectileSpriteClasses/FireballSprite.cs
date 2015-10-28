@@ -30,9 +30,9 @@ namespace Sprint2
                 AnimatedFireball.Update();
             }
 
-            public void Draw(SpriteBatch spriteBatch)
+            public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
             {
-                AnimatedFireball.Draw(spriteBatch, fireball.returnLocation(), FacingRight);
+                AnimatedFireball.Draw(spriteBatch, fireball.returnLocation(), cameraLoc, FacingRight);
             }
 
             public Rectangle returnCollisionRectangle()

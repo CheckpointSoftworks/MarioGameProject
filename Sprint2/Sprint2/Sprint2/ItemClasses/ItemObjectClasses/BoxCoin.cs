@@ -65,9 +65,9 @@ namespace Sprint2
         {
             return collisonRectangle;
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            boxCoinSprite.Draw(spriteBatch);
+            boxCoinSprite.Draw(spriteBatch, cameraLoc);
         }
 
         public void setCollisionRectangle(Rectangle collisionRectangle)
