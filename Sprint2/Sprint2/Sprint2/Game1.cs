@@ -42,7 +42,7 @@ namespace Sprint2
             gamepad = new GamepadController(this);
             keyboardNotPressed = new KeyNotPressed(this); 
             loader= new LevelLoader("Level.xml");
-            mainframe = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+            mainframe = new Rectangle(0, 0, 2000, 600);
             levelStore = new LevelStorage();
 
             base.Initialize();
