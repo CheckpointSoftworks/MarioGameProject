@@ -102,10 +102,11 @@
     <x>912</x>
     <y>424</y>
   </Pipe>
-  <QuestionSuperMushroomFireFlowerBlock>
+  <HiddenBlock>
     <x>1024</x>
     <y>384</y>
-  </QuestionSuperMushroomFireFlowerBlock>  
+  </HiddenBlock>  
+  
   <!-- Ground blocks: -->
   <GroundBlock>
     <x>0</x>
@@ -866,10 +867,10 @@
     <x>1520</x>
     <y>320</y>
   </QuestionCoinBlock>
-  <BrickBlock>
+  <CoinDispenserBlock>
     <x>1520</x>
     <y>384</y>
-  </BrickBlock>
+  </CoinDispenserBlock>
   <Goomba>
     <x>1536</x>
     <y>400</y>
