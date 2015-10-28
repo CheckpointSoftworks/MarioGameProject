@@ -177,7 +177,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
 
                             IBlock GameObject;
-                            GameObject = new HiddenBlock(XVal, YVal, BlockType.BrickCoin);
+                            GameObject = new BrickBlockCoinDispenser(XVal, YVal, BlockType.BrickCoin);
                             storage.blocksList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
