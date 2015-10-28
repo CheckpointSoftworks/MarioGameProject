@@ -33,7 +33,7 @@ namespace Sprint2
         }
         public Rectangle returnStateCollisionRectangle()
         {
-            return new Rectangle(0, 0, 0, 0);
+            return sprite.returnCollisionRectangle();
         }
     }
 }
