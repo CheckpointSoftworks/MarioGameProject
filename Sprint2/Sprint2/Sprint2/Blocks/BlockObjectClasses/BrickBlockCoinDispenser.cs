@@ -13,6 +13,7 @@ namespace Sprint2
         private BlockType type;
         private bool testForCollision;
         private bool noLongerSpecialized;
+        private bool dispenseCoinFlag;
         private int coinCount = 15;
         private Vector2 location;
         
@@ -21,9 +22,11 @@ namespace Sprint2
             location = new Vector2(locX, locY);
             sprite = new BrickBlockCoinDispenserSprite(location);
             this.type = type;
+            dispenseCoinFlag=true;
             testForCollision=true;
             noLongerSpecialized = false;
         }
+
         public void Update()
         {
             sprite.Update();
@@ -61,17 +64,17 @@ namespace Sprint2
 
         public bool coinCounting()
         {
-            bool dispenseCoin = false;
             if (coinCount > 0)
             {
-                dispenseCoin=true;
+                dispenseCoinFlag=true;
                 coinCount--;
             }
             else
             {
                 ((BrickBlockCoinDispenserSprite)sprite).outOfCoins();
+                dispenseCoinFlag = false;
             }
-            return dispenseCoin;
+            return dispenseCoinFlag;
         }
 
         public IItemObjects dispenseCoin()

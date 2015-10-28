@@ -107,6 +107,10 @@ namespace Sprint2
             {
                 resetCommand.Execute();
             }
+            if (((int)(((Mario)mario).Location.Y ))> camera.GetHeight())
+            {
+                resetCommand.Execute();
+            }
             base.Update(gameTime);
         }
 
