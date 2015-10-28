@@ -77,6 +77,7 @@
     <Compile Include="EnemyClasses\EnemyObjectClasses\GoombaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaDamaged.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\EnemyProjectileCollisionHandler.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\BrickPieces.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\BrickPiecesSprite.cs" />
     <Compile Include="Interfaces\IEnemyState.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionFireFlowerCommand.cs" />
     <Compile Include="Blocks\BlockObjectClasses\QuestionStarBlock.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionStarCommand.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\ProjectileBlockCollisionHandler.cs" />
     <Compile Include="ProjectileClasses\ProjectileObjectClasses\Fireball.cs" />
     <Compile Include="ProjectileClasses\ProjectileSpriteClasses\FireballSprite.cs" />
     <Compile Include="SpriteHelperClasses\AnimatedSprite.cs" />

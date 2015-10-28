@@ -118,7 +118,7 @@ namespace Sprint2
             rigidbody.maxVelocityX = 20;
             rigidbody.maxVelocityY = 10;
             rigidbody.GroundSpeed = 10;
-            rigidbody.JumpSpeed = -100;
+            rigidbody.JumpSpeed = -65;
             rigidbody.JumpDuration = 1;
             rigidbody.IsEnabled = true;
         }
