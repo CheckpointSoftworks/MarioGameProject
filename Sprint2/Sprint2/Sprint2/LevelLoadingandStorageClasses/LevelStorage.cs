@@ -42,6 +42,13 @@ namespace Sprint2
             }
             foreach (IEnemyObject enemy in enemiesList)
             {
+                if (!enemy.GetRigidBody().IsEnabled)
+                {
+                    if ((int)enemy.returnLocation().X - ((int)camera.GetPosition().X + camera.GetWidth()) <= 10)
+                    {
+                        enemy.GetRigidBody().IsEnabled = true;
+                    }
+                }
                 enemy.Update();
             }
             foreach (IEnviromental enviromental in enviromentalObjectsList)
