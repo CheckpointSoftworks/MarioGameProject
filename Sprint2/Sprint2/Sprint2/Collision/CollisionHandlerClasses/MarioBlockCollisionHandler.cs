@@ -103,7 +103,6 @@ namespace Sprint2
                 mario.Location = new Vector2(mario.Location.X, newMarioY);
                 //mario.State.Still();
                 mario.rigidbody.BottomCollision();
-                Console.WriteLine("Bottom");
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {

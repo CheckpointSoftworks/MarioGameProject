@@ -28,7 +28,6 @@ namespace Sprint2
             Rectangle intersectionRectangle = Rectangle.Intersect(secondEnemyRectangle, firstEnemyRectangle);
             Vector2 enemyLocation = firstEnemy.returnLocation();
             int locationDiffToChange = 0;
-            Console.WriteLine("Enemy-" + firstEnemy + "-enemy -" + secondEnemy + " collision: " + side);
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
             {
                 locationDiffToChange = intersectionRectangle.Width;
