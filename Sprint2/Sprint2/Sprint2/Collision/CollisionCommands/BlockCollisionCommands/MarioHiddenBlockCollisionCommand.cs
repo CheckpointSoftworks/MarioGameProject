@@ -21,7 +21,7 @@ namespace Sprint2
             if (((HiddenBlock)block).dispenseItem())
             {
                 IItemObjects oneUp = ((HiddenBlock)block).spawnOneUp();
-                game.levelStore.staticObjectsList.Add(oneUp);
+                game.levelStore.itemList.Add(oneUp);
             }
         }
     }

@@ -7,16 +7,23 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class ItemBlockCollisionHandler
+    public class ItemEnvriomentalCollisionHandler
     {
-        public ItemBlockCollisionHandler()
+        public ItemEnvriomentalCollisionHandler()
         {
 
         }
-
-        public void handleCollision(IItemObjects item, IBlock block, ICollision side)
+        public void handleCollision(IItemObjects item, IEnviromental enviro, ICollision side)
         {
-            Rectangle blockRectangle = block.returnCollisionRectangle();
+            if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
+            {
+                handleItemMovement(item, enviro, side);
+            }
+        }
+
+        private void handleItemMovement(IItemObjects item, IEnviromental enviro, ICollision side)
+        {
+            Rectangle blockRectangle = enviro.returnCollisionRectangle();
             Rectangle itemRectangle = item.returnCollisionRectangle();
             Rectangle intersectionRectangle = Rectangle.Intersect(itemRectangle, blockRectangle);
             Vector2 itemLocation = item.returnLocation();
@@ -26,29 +33,25 @@ namespace Sprint2
             {
                 locationDiffToChange = intersectionRectangle.Width;
                 int newItemX = (int)itemLocation.X - locationDiffToChange;
-                //item.updateLocation(new Vector2((newItemX), itemLocation.Y));
-                //enemy.RightCollision();
+                item.updateLocation(new Vector2((newItemX), itemLocation.Y));
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Right))
             {
                 locationDiffToChange = intersectionRectangle.Width;
-                int newEnemyX = (int)itemLocation.X + locationDiffToChange;
-                //enemy.updateLocation(new Vector2((newEnemyX), itemLocation.Y));
-                //enemy.LeftCollision();
+                int newItemX = (int)itemLocation.X + locationDiffToChange;
+                item.updateLocation(new Vector2((newItemX), itemLocation.Y));
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
                 locationDiffToChange = intersectionRectangle.Height;
-                int newEnemyY = (int)itemLocation.Y - locationDiffToChange;
-                //enemy.updateLocation(new Vector2(itemLocation.X, newEnemyY));
-                //enemy.BottomCollision();
+                int newItemY = (int)itemLocation.Y - locationDiffToChange;
+                item.updateLocation(new Vector2(itemLocation.X, newItemY));
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 locationDiffToChange = intersectionRectangle.Height;
-                int newEnemyY = (int)itemLocation.Y + locationDiffToChange;
-                //enemy.updateLocation(new Vector2(itemLocation.X, newEnemyY));
-               // enemy.TopCollision();
+                int newItemY = (int)itemLocation.Y + locationDiffToChange;
+                item.updateLocation(new Vector2(itemLocation.X, newItemY));
             }
         }
     }

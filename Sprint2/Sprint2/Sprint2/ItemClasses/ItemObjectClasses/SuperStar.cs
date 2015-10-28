@@ -69,11 +69,12 @@ namespace Sprint2
 
         public void Update()
         {
-            Console.WriteLine("Velocity: " + rigidbody.Velocity);
             rigidbody.UpdatePhysics();
-            Console.WriteLine("Velocity: " + rigidbody.Velocity + ", location: " + location);
             location += rigidbody.Velocity;
-            ((SuperStarSprite)(sprite)).Update(location);
+            if (testForCollision)
+            {
+                ((SuperStarSprite)(sprite)).Update(location);
+            }
             
         }
 
@@ -106,6 +107,10 @@ namespace Sprint2
         public bool checkForCollisionTestFlag()
         {
             return testForCollision;
+        }
+        public void updateLocation(Vector2 location)
+        {
+            this.location = location;
         }
     }
 }

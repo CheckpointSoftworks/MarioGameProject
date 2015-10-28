@@ -85,7 +85,8 @@
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\BrickPiecesSprite.cs" />
     <Compile Include="Interfaces\IEnemyState.cs" />
     <Compile Include="Interfaces\IProjectile.cs" />
-    <Compile Include="Collision\CollisionHandlerClasses\ItemBlockCollisionHandler.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\Items\ItemBlockCollisionHandler.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\Items\ItemEnvriomentalCollisionHandler.cs" />
     <Compile Include="PhysicsClasses\AutonomousPhysicsObject.cs" />
     <Compile Include="Blocks\BlockObjectClasses\Blocks.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BrickBlock.cs" />
@@ -104,9 +105,10 @@
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionFireFlowerCommand.cs" />
     <Compile Include="Blocks\BlockObjectClasses\QuestionStarBlock.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionStarCommand.cs" />
-    <Compile Include="Collision\CollisionHandlerClasses\ProjectileBlockCollisionHandler.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\Projectiles\ProjectileBlockCollisionHandler.cs" />
     <Compile Include="ProjectileClasses\ProjectileObjectClasses\Fireball.cs" />
     <Compile Include="ProjectileClasses\ProjectileSpriteClasses\FireballSprite.cs" />
+    <Compile Include="Collision\CollisionHandlerClasses\Projectiles\ProjectileEnviromentalCollisionHandler.cs" />
     <Compile Include="ResetLevelCommand.cs" />
     <Compile Include="SpriteHelperClasses\AnimatedSprite.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\BigMarioBrickBlockCollisionCommand.cs" />
@@ -199,21 +201,16 @@
     <Compile Include="ItemClasses\ItemSpriteClasses\UsedItemSprite.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CodeReviewFolder\IanWeberMaintainabilityReviewSprint3.txt" />
     <Content Include="CodeReviewFolder\IanWeberReadabilityReview.txt" />
-    <Content Include="CodeReviewFolder\JonathanMillerCodeQualityReviewSprint3.txt" />
     <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReviewSprint3.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
-    <Content Include="CodeReviewFolder\MattMohrMaintainabilityReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrReadabilityReviewSprint3.txt" />
-    <Content Include="CodeReviewFolder\ScottWeddendorfCodeQualityReview.txt" />
     <Content Include="CodeReviewFolder\ScottWeddendorfReadabilityReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
     <Content Include="README.txt" />
-    <Content Include="CodeReviewFolder\KrisWengerCodeQualityReview.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sprint2Content\Sprint3Content.contentproj">

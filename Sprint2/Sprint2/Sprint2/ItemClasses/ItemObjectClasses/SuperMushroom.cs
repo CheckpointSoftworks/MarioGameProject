@@ -126,5 +126,9 @@ namespace Sprint2
         {
             return location;
         }
+        public void updateLocation(Vector2 location)
+        {
+            this.location = location;
+        }
     }
 }

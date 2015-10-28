@@ -21,7 +21,7 @@ namespace Sprint2
             if (((QuestionCoinBlock)block).dispenseItem())
             {
                 IItemObjects coin = ((QuestionCoinBlock)block).spawnCoin();
-                game.levelStore.staticObjectsList.Add(coin);
+                game.levelStore.itemList.Add(coin);
             }
         }
     }

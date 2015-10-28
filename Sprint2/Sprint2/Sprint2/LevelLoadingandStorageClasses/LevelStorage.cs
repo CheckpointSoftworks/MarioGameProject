@@ -16,19 +16,21 @@ namespace Sprint2
     public class LevelStorage
     {
         public IPlayer player { get; set; }
-        public ArrayList staticObjectsList;
+        public ArrayList itemList;
         public ArrayList enemiesList;
         public ArrayList blocksList;
         public ArrayList enviromentalObjectsList;
+        public ArrayList projectileList;
         public Camera camera;
 
         public LevelStorage(Camera camera)
         {
             this.camera = camera;
-            staticObjectsList = new ArrayList();
+            itemList = new ArrayList();
             enemiesList = new ArrayList();
             blocksList = new ArrayList();
             enviromentalObjectsList = new ArrayList();
+            projectileList = new ArrayList();
         }
         public void Update(IPlayer mario,Game1 game)
         {
@@ -36,7 +38,7 @@ namespace Sprint2
             {
                 block.Update();
             }
-            foreach (IItemObjects item in staticObjectsList)
+            foreach (IItemObjects item in itemList)
             {
                 item.Update();
             }
@@ -60,13 +62,17 @@ namespace Sprint2
             {
                 handleEnemyCollision(enemy);
             }
+            foreach (IItemObjects item in itemList)
+            {
+                handleItemCollision(item);
+            }
         }
 
         public void Draw(IPlayer player,SpriteBatch spriteBatch)
         {
             player.Draw(spriteBatch, camera.GetPosition());
 
-            foreach (IItemObjects item in staticObjectsList)
+            foreach (IItemObjects item in itemList)
             {
                 item.Draw(spriteBatch, camera.GetPosition());
             }
@@ -81,10 +87,6 @@ namespace Sprint2
             foreach (IEnviromental enviromental in enviromentalObjectsList)
             {
                 enviromental.Draw(spriteBatch, camera.GetPosition());
-            }
-            foreach (IBlock block in blocksList)
-            {
-                block.Update();
             }
         }
 
@@ -120,7 +122,7 @@ namespace Sprint2
                 side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
                 enemyHandler.handleCollision((Mario)mario, enemy, side);
             }
-            foreach (IItemObjects item in staticObjectsList)
+            foreach (IItemObjects item in itemList)
             {
                 if (item.checkForCollisionTestFlag())
                 {
@@ -150,6 +152,7 @@ namespace Sprint2
             EnemyBlockCollisionHandler enemyBlockHandler = new EnemyBlockCollisionHandler();
             EnemyEnviromentalCollisionHandler enemyEnviroHandler = new EnemyEnviromentalCollisionHandler();
             EnemyEnemyCollisionHandler enemyEnemyHandler = new EnemyEnemyCollisionHandler();
+            EnemyProjectileCollisionHandler enemyProjHandler = new EnemyProjectileCollisionHandler();
             enemy.GetRigidBody().Floored = false;
             foreach (IBlock block in blocksList)
             {
@@ -175,6 +178,38 @@ namespace Sprint2
                     side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), secondEnemy.returnCollisionRectangle());
                     enemyEnemyHandler.handleCollision(enemy, secondEnemy, side);
                 }
+            }
+            foreach (IProjectile projectile in projectileList)
+            {
+                side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), projectile.returnCollisionRectangle());
+                enemyProjHandler.handleCollision(enemy, projectile, side);
+            }
+        }
+        private void handleItemCollision(IItemObjects item)
+        {
+            CollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side;
+            Rectangle floorCheck;
+            floorCheck = item.returnCollisionRectangle();
+            floorCheck.Y++;
+            ItemBlockCollisionHandler itemBlockHandler = new ItemBlockCollisionHandler();
+            ItemEnvriomentalCollisionHandler itemEnviroHandler = new ItemEnvriomentalCollisionHandler();
+            foreach (IBlock block in blocksList)
+            {
+                if (block.checkForCollisionTestFlag())
+                {
+                    side = collisionDetector.getCollision(item.returnCollisionRectangle(), block.returnCollisionRectangle());
+                    itemBlockHandler.handleCollision(item, block, side);
+                }
+                if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
+                {
+                    //item.GetRigidBody().Floored = true;
+                }
+            }
+            foreach (IEnviromental enviromental in enviromentalObjectsList)
+            {
+                side = collisionDetector.getCollision(item.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
+                itemEnviroHandler.handleCollision(item, enviromental, side);
             }
         }
     }

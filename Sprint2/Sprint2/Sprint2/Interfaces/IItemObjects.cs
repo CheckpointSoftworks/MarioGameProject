@@ -22,5 +22,7 @@ namespace Sprint2
         bool checkForCollisionTestFlag();
 
         Vector2 returnLocation();
+
+        void updateLocation(Vector2 location);
     }
 }
