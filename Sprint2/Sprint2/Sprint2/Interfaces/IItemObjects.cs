@@ -20,5 +20,7 @@ namespace Sprint2
         void setCollisionRectangle(Rectangle collisionRectangle);
 
         bool checkForCollisionTestFlag();
+
+        Vector2 returnLocation();
     }
 }
