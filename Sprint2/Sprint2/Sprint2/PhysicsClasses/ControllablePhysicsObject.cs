@@ -215,11 +215,8 @@ public class ControllablePhysicsObject
             floored = true;
             if (true)
             {
-                //Console.WriteLine("Accel is " + acceleration);
                 if (acceleration.Y > 0) acceleration.Y *= -1 * elasticity;
-                ClampAcceleration();
-                //Console.WriteLine("Accel is now " + acceleration);
-                //velocity.Y = 0;                
+                ClampAcceleration();                
             }
             
         }

@@ -25,6 +25,11 @@ namespace Sprint2
         {
             superStarSprite.Update();
         }
+        public void Update(Vector2 loc)
+        {
+            location = loc;
+            superStarSprite.Update();
+        }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
