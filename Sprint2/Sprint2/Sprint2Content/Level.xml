@@ -7,6 +7,14 @@
   </Mario>
   
   <!-- Testing stuff at left edge of level (to be removed later!) -->
+  <PlatformingBlock>
+    <x>200</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>200</x>
+    <y>424</y>
+  </PlatformingBlock>
   <BoxCoin>
     <x>32</x>
     <y>400</y>
@@ -15,10 +23,10 @@
     <x>48</x>
     <y>440</y>
   </FireFlower>
-  <QuestionBlock>
+  <QuestionStarBlock>
     <x>64</x>
     <y>400</y>
-  </QuestionBlock>
+  </QuestionStarBlock>
   <SuperMushroom>
     <x>80</x>
     <y>440</y>
@@ -47,8 +55,74 @@
     <x>144</x>
     <y>400</y>
   </BrickBlock>
+  <QuestionCoinBlock>
+    <x>160</x>
+    <y>400</y>
+  </QuestionCoinBlock>
   
   <!-- Everything from left edge to first hole in Level 1-1 -->
+  <!-- Enemies, pipes and special blocks: -->
+  <QuestionCoinBlock>
+    <x>272</x>
+    <y>384</y>
+  </QuestionCoinBlock>
+  <BrickBlock>
+    <x>336</x>
+    <y>384</y>
+  </BrickBlock>
+  <QuestionCoinBlock>
+    <x>352</x>
+    <y>384</y>
+  </QuestionCoinBlock>
+  <QuestionCoinBlock>
+    <x>368</x>
+    <y>320</y>
+  </QuestionCoinBlock>
+  <BrickBlock>
+    <x>368</x>
+    <y>384</y>
+  </BrickBlock>
+  <QuestionCoinBlock>
+    <x>384</x>
+    <y>384</y>
+  </QuestionCoinBlock>
+  <BrickBlock>
+    <x>400</x>
+    <y>384</y>
+  </BrickBlock>
+  <Pipe>
+    <x>464</x>
+    <y>424</y>
+  </Pipe>
+  <Pipe>
+    <x>624</x>
+    <y>424</y>
+  </Pipe>
+  <Goomba>
+    <x>672</x>
+    <y>160</y>
+  </Goomba>
+  <Pipe>
+    <x>752</x>
+    <y>424</y>
+  </Pipe>
+  <Goomba>
+    <x>864</x>
+    <y>160</y>
+  </Goomba>
+  <Goomba>
+    <x>880</x>
+    <y>160</y>
+  </Goomba>
+  <Pipe>
+    <x>912</x>
+    <y>424</y>
+  </Pipe>
+  <QuestionCoinBlock>
+    <x>1024</x>
+    <y>384</y>
+  </QuestionCoinBlock>  
+  <!-- Ground blocks: -->
   <GroundBlock>
     <x>0</x>
     <y>472</y>
@@ -615,6 +689,64 @@
   </GroundBlock>
 
   <!-- Everything from second hole to third hole in Level 1-1 -->
+  <!-- Special blocks, enemies: -->
+  <BrickBlock>
+    <x>1248</x>
+    <y>384</y>
+  </BrickBlock>
+  <QuestionCoinBlock>
+    <x>1264</x>
+    <y>384</y>
+  </QuestionCoinBlock>
+  <BrickBlock>
+    <x>1280</x>
+    <y>384</y>
+  </BrickBlock>
+  <Goomba>
+    <x>1280</x>
+    <y>88</y>
+  </Goomba>
+  <BrickBlock>
+    <x>1296</x>
+    <y>320</y>
+  </BrickBlock>
+  <Goomba>
+    <x>1312</x>
+    <y>24</y>
+  </Goomba>
+  <BrickBlock>
+    <x>1312</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1328</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1344</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1360</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1376</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1392</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1408</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1424</x>
+    <y>320</y>
+  </BrickBlock>
+  <!-- Ground Blocks: -->
   <GroundBlock>
     <x>1152</x>
     <y>456</y>
@@ -737,6 +869,243 @@
   </GroundBlock>
 
   <!--Everything from third hole to fourth hole -->
+  <!-- Enemies and special blocks: -->
+  <BrickBlock>
+    <x>1472</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1488</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1504</x>
+    <y>320</y>
+  </BrickBlock>
+  <QuestionCoinBlock>
+    <x>1520</x>
+    <y>320</y>
+  </QuestionCoinBlock>
+  <BrickBlock>
+    <x>1520</x>
+    <y>384</y>
+  </BrickBlock>
+  <Goomba>
+    <x>1536</x>
+    <y>160</y>
+  </Goomba>
+  <Goomba>
+    <x>1552</x>
+    <y>160</y>
+  </Goomba>
+  <BrickBlock>
+    <x>1616</x>
+    <y>384</y>
+  </BrickBlock>
+  <QuestionCoinBlock>
+    <x>1632</x>
+    <y>384</y>
+  </QuestionCoinBlock>
+  <Koopa>
+    <x>1640</x>
+    <y>160</y>
+  </Koopa>
+  <QuestionCoinBlock>
+    <x>1712</x>
+    <y>384</y>
+  </QuestionCoinBlock>
+  <QuestionCoinBlock>
+    <x>1760</x>
+    <y>384</y>
+  </QuestionCoinBlock>
+  <QuestionCoinBlock>
+    <x>1760</x>
+    <y>320</y>
+  </QuestionCoinBlock>
+  <QuestionCoinBlock>
+    <x>1808</x>
+    <y>384</y>
+  </QuestionCoinBlock>
+  <BrickBlock>
+    <x>1904</x>
+    <y>384</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1952</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1968</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>1984</x>
+    <y>320</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>2080</x>
+    <y>320</y>
+  </BrickBlock>
+  <QuestionCoinBlock>
+    <x>2096</x>
+    <y>320</y>    
+  </QuestionCoinBlock>
+  <QuestionCoinBlock>
+    <x>2112</x>
+    <y>320</y>
+  </QuestionCoinBlock>
+  <BrickBlock>
+    <x>2096</x>
+    <y>384</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>2112</x>
+    <y>384</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>2128</x>
+    <y>320</y>
+  </BrickBlock>
+  
+  <PlatformingBlock>
+    <x>2192</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2208</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2208</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2224</x>
+    <y>408</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2224</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2224</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2240</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2240</x>
+    <y>408</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2240</x>
+    <y>392</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2240</x>
+    <y>440</y>
+  </PlatformingBlock>
+
+  <PlatformingBlock>
+    <x>2288</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2288</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2288</x>
+    <y>408</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2288</x>
+    <y>392</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2304</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2304</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2304</x>
+    <y>408</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2320</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2320</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2336</x>
+    <y>440</y>
+  </PlatformingBlock>
+
+  <PlatformingBlock>
+    <x>2416</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2432</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2432</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2448</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2448</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2448</x>
+    <y>408</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2464</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2464</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2464</x>
+    <y>408</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2464</x>
+    <y>392</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2480</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2480</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2480</x>
+    <y>408</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2480</x>
+    <y>392</y>
+  </PlatformingBlock>
+  <!-- Ground blocks: -->
   <GroundBlock>
     <x>1440</x>
     <y>456</y>
@@ -1251,6 +1620,81 @@
   </GroundBlock>
 
   <!--Everything from fourth hole to the end.  -->
+  <!-- All enemies, special blocks, pipes, flag: -->
+  <PlatformingBlock>
+    <x>2528</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2528</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2528</x>
+    <y>408</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2528</x>
+    <y>392</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2544</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2544</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2544</x>
+    <y>408</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2560</x>
+    <y>440</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2560</x>
+    <y>424</y>
+  </PlatformingBlock>
+  <PlatformingBlock>
+    <x>2576</x>
+    <y>440</y>
+  </PlatformingBlock>
+
+  <Pipe>
+    <x>2656</x>
+    <y>424</y>
+  </Pipe>
+
+  <BrickBlock>
+    <x>2736</x>
+    <y>384</y>
+  </BrickBlock>
+  <BrickBlock>
+    <x>2752</x>
+    <y>384</y>
+  </BrickBlock>
+  <QuestionCoinBlock>
+    <x>2768</x>
+    <y>384</y>
+  </QuestionCoinBlock>
+  <BrickBlock>
+    <x>2784</x>
+    <y>384</y>
+  </BrickBlock>
+
+  <Pipe>
+    <x>2912</x>
+    <y>424</y>
+  </Pipe>
+
+  <PlatformingBlock>
+    <x>2944</x>
+    <y>440</y>
+  </PlatformingBlock>
+
+  <!-- Brick blocks: -->
   <GroundBlock>
     <x>2496</x>
     <y>456</y>
