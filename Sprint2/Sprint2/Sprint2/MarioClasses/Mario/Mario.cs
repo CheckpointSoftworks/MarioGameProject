@@ -205,26 +205,26 @@ namespace Sprint2
             {
                 if (TransitionToBigTime < transitionDuration)
                 {
-                    Console.WriteLine("Big!");
+                   // Console.WriteLine("Big!");
                     TransitionToBigTime += 0.1f;
                     if ((TransitionToBigTime * 10) % 5 < 1) small = !small;
                     transitioning = (TransitionToBigTime < transitionDuration);
                     if (!transitioning) 
                     {
-                        Console.WriteLine("Not big!");
+                        //Console.WriteLine("Not big!");
                         fire = false;
                         small = false;
                     }
                 }
                 if (TransitionToSmallTime < transitionDuration)
                 {
-                    Console.WriteLine("Small!");
+                    //Console.WriteLine("Small!");
                     TransitionToSmallTime += 0.1f;
                     if ((TransitionToSmallTime * 10) % 5 < 1) small = !small;
                     transitioning = (TransitionToSmallTime < transitionDuration);
                     if (!transitioning)
                     {
-                        Console.WriteLine("Not small!");
+                        //Console.WriteLine("Not small!");
                         fire = false;
                         small = true;
                     }
@@ -232,7 +232,7 @@ namespace Sprint2
                 if (TransitionToFireTime < transitionDuration)
                 {
                     TransitionToFireTime += 0.1f;
-                    Console.WriteLine("Transition time: " + (TransitionToFireTime*10)%3);
+                    //Console.WriteLine("Transition time: " + (TransitionToFireTime*10)%3);
                     if ((TransitionToFireTime * 10) % 5 < 1) { Console.WriteLine("SWitch"); fire = !fire; }
                     transitioning = (TransitionToFireTime < transitionDuration);
                     if (!transitioning)
@@ -272,7 +272,14 @@ namespace Sprint2
 
         public Rectangle returnCollisionRectangle()
         {
-            return state.returnStateCollisionRectangle();
+            if (transitioning)
+            {
+                return new Rectangle(0, 0, 0, 0);
+            }
+            else
+            {
+                return state.returnStateCollisionRectangle();
+            }
         }
         public Vector2 returnLocation()
         {
