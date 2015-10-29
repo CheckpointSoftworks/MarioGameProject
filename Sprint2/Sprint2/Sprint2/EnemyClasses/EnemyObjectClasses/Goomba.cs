@@ -9,7 +9,6 @@ namespace Sprint2
 {
     public class Goomba: IEnemyObject
     {
-//        private AnimatedSprite goombaSprite;
         private Vector2 location;
         private bool directionLeft;
         private IEnemyState state;
@@ -63,7 +62,6 @@ namespace Sprint2
         {
             return rigidbody;
         }
-
         
         public void Update()
         {
