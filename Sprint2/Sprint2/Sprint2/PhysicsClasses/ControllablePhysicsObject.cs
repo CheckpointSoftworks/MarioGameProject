@@ -175,8 +175,9 @@ public class ControllablePhysicsObject
 
     public void MoveRight()
     {
+        //Console.WriteLine("Move right: " + acceleration.X);
         acceleration.X += groundSpeed;
-        Clamp(Velocity.X, 0, maxVelocity.X);
+        //Clamp(Velocity.X, 0, maxVelocity.X);
     }
 
     public void MoveLeft()
@@ -190,8 +191,7 @@ public class ControllablePhysicsObject
         if (airTime < jumpDuration)
         {
             acceleration.Y = jumpSpeed;
-            airTime += 0.1f;
-            //MAGIC NUMBER! This should be set to the frame rate, whether it's dynamically set or determined
+            airTime += deltaTime;
         }
     }
 

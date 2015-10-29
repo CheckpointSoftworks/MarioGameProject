@@ -1,0 +1,11 @@
+﻿Author of the code review: Matt Mohr
+Date of the code review: 10/28/15
+Sprint number: 4
+Name of the .cs file being reviewed: Goomba.cs
+Author of the .cs file being reviewed:  Johnathan Miller
+Number of minutes taken to complete the review: 30 minutes.
+Details:
+
+Goomba now uses an autonomous physics object class to handle of its motion, which is new. It also uses a state-based system instead of handling its sprite by itself.
+Readibility is pretty high as well. The only weird numbers come from the physics object, but those are all physical properties of Goomba. 
+At just under 100 lines, this is a very readable class. 

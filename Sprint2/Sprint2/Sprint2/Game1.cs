@@ -15,6 +15,7 @@ namespace Sprint2
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+
         public GraphicsDeviceManager graphics{get;set;}
         public SpriteBatch spriteBatch{get;set;}
 
@@ -76,16 +77,12 @@ namespace Sprint2
 
         private void LoadKeyBoardCommands()
         {
-
-            ((KeyboardController)keyboard).RegisterCommand(Keys.W, new UpCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.Up, new UpCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.S, new DownCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.Z, new UpCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Down, new DownCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.A, new LeftCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Left, new LeftCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.D, new RightCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Right, new RightCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.X, new FireballCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.R, new ResetLevelCommand(this));
             ((KeyboardController)keyboard).RegisterDiagonalCommands(this);
         }
 

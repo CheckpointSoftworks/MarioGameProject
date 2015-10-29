@@ -142,11 +142,8 @@ namespace Sprint2
                 {
                     state.Running();
                 }
-                else
-                {
-                    state.Still();
-                }
             }
+            if ((facingRight && rigidbody.Velocity.X < 0) || (!facingRight && rigidbody.Velocity.X > 0)) facingRight = !facingRight;
             if (!transitioning)
             {
                 rigidbody.UpdatePhysics();
@@ -199,6 +196,7 @@ namespace Sprint2
                 }
             }
         }
+
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             if (!star)
@@ -228,6 +226,7 @@ namespace Sprint2
                 if (TransitionToFireTime < transitionDuration)
                 {
                     TransitionToFireTime += 0.1f;
+
                     if ((TransitionToFireTime * 10) % 5 < 1)
                     {
                         fire = !fire;
