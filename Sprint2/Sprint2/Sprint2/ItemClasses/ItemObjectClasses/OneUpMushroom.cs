@@ -99,5 +99,10 @@ namespace Sprint2
         {
             this.location = location;
         }
+
+        public AutonomousPhysicsObject RigidBody()
+        {
+            return rigidbody;
+        }
     }
 }
