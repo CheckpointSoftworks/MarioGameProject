@@ -57,6 +57,15 @@ namespace Sprint2
             }
             boxCoinSprite.Update();
         }
+
+        public void LeftCollision() { }
+        public void RightCollision() { }
+        public void TopCollision() { }
+        public void BottomCollision() { }
+        public AutonomousPhysicsObject GetRigidBody()
+        {
+            return rigidbody;
+        }
         public ItemType returnItemType()
         {
             return type;

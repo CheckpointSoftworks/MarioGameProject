@@ -9,43 +9,38 @@ namespace Sprint2
 {
     class Fireball: IProjectile
     {
-        ISprite fireballSprite;
-        Texture2D fireballSpriteSheet;
-        public Vector2 location;
-        public AutonomousPhysicsObject rigidbody;
+
+        private ISprite sprite;
+
         private Rectangle collisionRectangle;
+        private bool testForCollision;
+        private Vector2 location;
+        private bool directionLeft;
+        private AutonomousPhysicsObject rigidbody;
 
         public Fireball(int x, int y)
         {
             location = new Vector2(x, y);
-            fireballSpriteSheet = MiscGameObjectTextureStorage.CreateFireballSprite();
-            fireballSprite = new FireballSprite(fireballSpriteSheet, location, this);
-            collisionRectangle = fireballSprite.returnCollisionRectangle();
+            sprite = new FireballSprite(location);
+            collisionRectangle = sprite.returnCollisionRectangle();
+            testForCollision = true;
             rigidbody = new AutonomousPhysicsObject();
-            LoadPhysicsProperties();
+            LoadRigidBodyProperties();
         }
 
-        private void LoadPhysicsProperties()
+        public bool DirectionLeft
         {
-            rigidbody.AirFriction = 1f;
+            get { return directionLeft; }
+            set { directionLeft = value; }
+        }
+        private void LoadRigidBodyProperties()
+        {
+            rigidbody.AirFriction = 0.8f;
             rigidbody.GroundFriction = 1f;
-            rigidbody.GroundSpeed = 1f;
+            rigidbody.GroundSpeed = 1.5f;
             rigidbody.MaxFallSpeed = 3f;
-            rigidbody.Elasticity = 0.6f;
+            rigidbody.Elasticity = 0f;
             rigidbody.IsEnabled = true;
-        }
-
-        public void Update()
-        {
-            rigidbody.UpdatePhysics();
-            location += rigidbody.Velocity;
-            fireballSprite.Update();
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
-        {
-            fireballSprite.Draw(spriteBatch, cameraLoc);
-
         }
 
         public void LeftCollision()
@@ -64,25 +59,43 @@ namespace Sprint2
         {
             rigidbody.BottomCollision();
         }
-        public AutonomousPhysicsObject GetRigidBody()
+        public void Update()
         {
-            return rigidbody;
+            if (testForCollision)
+            {
+                rigidbody.UpdatePhysics();
+                location += rigidbody.Velocity;
+                ((FireballSprite)(sprite)).Update(location);
+            }
         }
 
-        public Rectangle returnCollisionRectangle()
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            collisionRectangle = fireballSprite.returnCollisionRectangle();
-            return collisionRectangle;
-        }
-
-        public void updateLocation(Vector2 newLocation)
-        {
-            this.location = newLocation;
+            sprite.Draw(spriteBatch, cameraLoc);
         }
 
         public Vector2 returnLocation()
         {
             return location;
+        }
+
+        public Rectangle returnCollisionRectangle()
+        {
+            return sprite.returnCollisionRectangle();
+        }
+
+        public bool checkForCollisionTestFlag()
+        {
+            return testForCollision;
+        }
+        public void updateLocation(Vector2 location)
+        {
+            this.location = location;
+            ((FireballSprite)(sprite)).Update(location);
+        }
+        public AutonomousPhysicsObject RigidBody()
+        {
+            return rigidbody;
         }
     }
 }

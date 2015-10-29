@@ -20,6 +20,7 @@ namespace Sprint2
         private ICommand leftDownCommand;
         private ICommand rightUpCommand;
         private ICommand rightDownCommand;
+        private ICommand shootFireballCommand;
         private float deadZone;
 
         public GamepadController (Game1 game)
@@ -34,6 +35,7 @@ namespace Sprint2
             leftDownCommand = new LeftDownCommand(game);
             rightUpCommand = new RightUpCommand(game);
             rightDownCommand = new RightDownCommand(game);
+            shootFireballCommand = new FireballCommand(game);
             deadZone = 0.5f;
         }
 
@@ -84,6 +86,10 @@ namespace Sprint2
                 if (leftThumbPosition.X > deadZone && leftThumbPosition.Y < -deadZone)
                 {
                     rightDownCommand.Execute();
+                }
+                if (padState1.Buttons.X == ButtonState.Pressed)
+                {
+                    shootFireballCommand.Execute();
                 }
             }
         }

@@ -10,22 +10,17 @@ namespace Sprint2
     public class BrickPieces:IEnviromental
     {
         private ISprite sprite;
-        private BlockType type;
         private bool testForCollisionFlag;
-        private bool noLongerSpecialized;
         
         public BrickPieces(int locX,int locY,bool moveDirection)
         {
             Vector2 location = new Vector2(locX, locY);
             sprite = new BrickPiecesSprite(location,moveDirection);
-            this.type = BlockType.Brick;
             testForCollisionFlag=false;
-            noLongerSpecialized = false;
         }
         public void Update()
         {
             sprite.Update();
-            noLongerSpecialized = true;
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)

@@ -34,26 +34,26 @@ namespace Sprint2
                 locationDiffToChange = intersectionRectangle.Width;
                 int newProjectileX = (int)projectileLocation.X - locationDiffToChange;
                 projectile.updateLocation(new Vector2(newProjectileX, projectileLocation.Y));
-                projectile.RightCollision();
+                projectile.RigidBody().RightCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Right))
             {
                 locationDiffToChange = intersectionRectangle.Width;
                 int newProjectileX = (int)projectileLocation.X + locationDiffToChange;
                 projectile.updateLocation(new Vector2(newProjectileX, projectileLocation.Y));
-                projectile.LeftCollision();
+                projectile.RigidBody().LeftCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newProjectileY = (int)projectileLocation.Y - locationDiffToChange;
-                projectile.BottomCollision();
+                projectile.RigidBody().BottomCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newProjectileY = (int)projectileLocation.Y + locationDiffToChange;
-                projectile.TopCollision();
+                projectile.RigidBody().TopCollision();
             }
         }
     }

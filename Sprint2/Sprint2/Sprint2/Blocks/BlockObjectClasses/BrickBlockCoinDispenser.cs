@@ -81,5 +81,10 @@ namespace Sprint2
         {
             return new BoxCoin((int)location.X, (int)location.Y-16);
         }
+
+        public void bounceBlock()
+        {
+            ((BrickBlockCoinDispenserSprite)sprite).bounceSprite();
+        }
     }
 }

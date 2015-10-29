@@ -28,6 +28,14 @@ namespace Sprint2
             riseSpeed = 0.4f;
             rigidbody = new AutonomousPhysicsObject();
         }
+        public void LeftCollision() { }
+        public void RightCollision() { }
+        public void TopCollision() { }
+        public void BottomCollision() { }
+        public AutonomousPhysicsObject GetRigidBody()
+        {
+            return rigidbody;
+        }
         public ItemType returnItemType()
         {
             return type;

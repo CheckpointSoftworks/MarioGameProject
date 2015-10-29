@@ -13,15 +13,16 @@ namespace Sprint2
 
         void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc);
 
-        void LeftCollision();
-        void RightCollision();
-        void TopCollision();
-        void BottomCollision();
+
+        Rectangle returnCollisionRectangle();
+
+
+        bool checkForCollisionTestFlag();
+
+        Vector2 returnLocation();
 
         void updateLocation(Vector2 location);
 
-        Rectangle returnCollisionRectangle();
-        Vector2 returnLocation();
-
+        AutonomousPhysicsObject RigidBody();
     }
 }
