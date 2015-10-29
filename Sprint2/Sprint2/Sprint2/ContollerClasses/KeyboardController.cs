@@ -10,45 +10,77 @@ namespace Sprint2
 {
     public class KeyboardController : IController
     {
-        private Dictionary<Keys, ICommand> controllerMappings;
-        private ICommand upRight;
-        private ICommand upLeft;
-        private ICommand downRight;
-        private ICommand downLeft;
+        private ICommand left;
+        private ICommand right;
+        private ICommand up;
+        private ICommand down;
+        private ICommand leftDown;
+        private ICommand rightDown;
+        private ICommand leftUp;
+        private ICommand rightUp;
+        private ICommand fireball;
+        private ICommand reset;
+        private ICommand sprint;
+        private ICommand restoreRigidbody;
+        KeyboardState keyState;
 
-        public KeyboardController()
+        public KeyboardController(Game1 game)
         {
-            controllerMappings = new Dictionary<Keys, ICommand>();
-        }
-
-        public void RegisterCommand(Keys key, ICommand command)
-        {
-            controllerMappings.Add(key, command);
-        }
-
-        public void RegisterDiagonalCommands(Game1 game)
-        {
-            upRight = new RightUpCommand(game);
-            upLeft = new LeftUpCommand(game);
-            downRight = new RightDownCommand(game);
-            downLeft = new LeftDownCommand(game);
+            left = new LeftCommand(game);
+            right = new RightCommand(game);
+            up = new UpCommand(game);
+            down = new DownCommand(game);
+            leftDown = new LeftDownCommand(game);
+            rightDown = new RightDownCommand(game);
+            fireball = new FireballCommand(game);
+            sprint = new SprintCommand(game);
+            restoreRigidbody = new RestoreMarioRigidbodyCommand(game);
+            reset = new ResetLevelCommand(game);
         }
 
         public void Update()
         {
-            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-            ArrayList keyList = new ArrayList();
+            keyState = Keyboard.GetState();
 
-            foreach (Keys key in pressedKeys)
+            if (keyState.IsKeyDown(Keys.Left) && keyState.IsKeyUp(Keys.Down))
             {
-                if (controllerMappings.ContainsKey(key))
-                {
-                    keyList.Add(key);
-                }
+                left.Execute();
             }
-            foreach (Keys key in keyList)
+            if (keyState.IsKeyDown(Keys.Right) && keyState.IsKeyUp(Keys.Down))
             {
-                controllerMappings[key].Execute();
+                right.Execute();
+            }
+            if (keyState.IsKeyDown(Keys.Z))
+            {
+                up.Execute();
+            }
+            if (keyState.IsKeyDown(Keys.Down))
+            {
+                down.Execute();
+            }
+            if (keyState.IsKeyDown(Keys.Left) && keyState.IsKeyDown(Keys.Down))
+            {
+                leftDown.Execute();
+            }
+            if (keyState.IsKeyDown(Keys.Right) && keyState.IsKeyDown(Keys.Down))
+            {
+                rightDown.Execute();
+            }
+            if (keyState.IsKeyDown(Keys.X))
+            {
+                fireball.Execute();
+            }
+            if (keyState.IsKeyDown(Keys.A))
+            {
+                sprint.Execute();
+            }
+            if (keyState.IsKeyUp(Keys.A) && GamePad.GetState(PlayerIndex.One).IsButtonUp(Buttons.A))
+            {
+                restoreRigidbody.Execute();
+            }
+            if (keyState.IsKeyDown(Keys.R))
+            {
+                reset.Execute();
             }
         }
     }

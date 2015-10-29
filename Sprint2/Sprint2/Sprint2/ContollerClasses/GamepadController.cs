@@ -12,35 +12,32 @@ namespace Sprint2
     {
         private GamePadState padState1;
         private Vector2 leftThumbPosition;
-        private ICommand rightOnlyCommand;
-        private ICommand leftOnlyCommand;
-        private ICommand upOnlyCommand;
-        private ICommand downOnlyCommand;
-        private ICommand leftUpCommand;
-        private ICommand leftDownCommand;
-        private ICommand rightUpCommand;
-        private ICommand rightDownCommand;
-        private ICommand shootFireballCommand;
-        private ICommand sprintCommand;
-        private ICommand restoreMarioRigidbodyCommand;
+        private ICommand left;
+        private ICommand right;
+        private ICommand up;
+        private ICommand down;
+        private ICommand leftDown;
+        private ICommand rightDown;
+        private ICommand fireball;
+        private ICommand sprint;
+        private ICommand restoreRigidbody;
         private float deadZone;
 
         public GamepadController (Game1 game)
         {
             leftThumbPosition.X = 0;
             leftThumbPosition.Y = 0;
-            rightOnlyCommand = new RightCommand(game);
-            leftOnlyCommand = new LeftCommand(game);
-            upOnlyCommand = new UpCommand(game);
-            downOnlyCommand = new DownCommand(game);
-            leftUpCommand = new LeftUpCommand(game);
-            leftDownCommand = new LeftDownCommand(game);
-            rightUpCommand = new RightUpCommand(game);
-            rightDownCommand = new RightDownCommand(game);
-            shootFireballCommand = new FireballCommand(game);
-            sprintCommand = new SprintCommand(game);
-            restoreMarioRigidbodyCommand = new RestoreMarioRigidbodyCommand(game);
             deadZone = 0.5f;
+
+            left = new LeftCommand(game);
+            right = new RightCommand(game);
+            up = new UpCommand(game);
+            down = new DownCommand(game);
+            leftDown = new LeftDownCommand(game);
+            rightDown = new RightDownCommand(game);
+            fireball = new FireballCommand(game);
+            sprint = new SprintCommand(game);
+            restoreRigidbody = new RestoreMarioRigidbodyCommand(game);
         }
 
         public void Update()
@@ -52,56 +49,41 @@ namespace Sprint2
                 leftThumbPosition.X = padState1.ThumbSticks.Left.X;
                 leftThumbPosition.Y = padState1.ThumbSticks.Left.Y;
 
-                if (leftThumbPosition.X > deadZone && (leftThumbPosition.Y < deadZone && leftThumbPosition.Y > -deadZone))
-                {
-                    rightOnlyCommand.Execute();
-                }
-
                 if (leftThumbPosition.X < -deadZone && (leftThumbPosition.Y < deadZone && leftThumbPosition.Y > -deadZone))
                 {
-                    leftOnlyCommand.Execute();
+                    left.Execute();
                 }
-
+                if (leftThumbPosition.X > deadZone && (leftThumbPosition.Y < deadZone && leftThumbPosition.Y > -deadZone))
+                {
+                    right.Execute();
+                }
                 if (leftThumbPosition.Y > deadZone && (leftThumbPosition.X < deadZone && leftThumbPosition.X > -deadZone))
                 {
-                    upOnlyCommand.Execute();
+                    up.Execute();
                 }
-
                 if (leftThumbPosition.Y < -deadZone && (leftThumbPosition.X < deadZone && leftThumbPosition.X > -deadZone))
                 {
-                    downOnlyCommand.Execute();
+                    down.Execute();
                 }
-
-                if (leftThumbPosition.X < -deadZone && leftThumbPosition.Y > deadZone)
-                {
-                    leftUpCommand.Execute();
-                }
-
                 if (leftThumbPosition.X < -deadZone && leftThumbPosition.Y < -deadZone)
                 {
-                    leftDownCommand.Execute();
+                    leftDown.Execute();
                 }
-
-                if (leftThumbPosition.X > deadZone && leftThumbPosition.Y > deadZone)
-                {
-                    rightUpCommand.Execute();
-                }
-
                 if (leftThumbPosition.X > deadZone && leftThumbPosition.Y < -deadZone)
                 {
-                    rightDownCommand.Execute();
+                    rightDown.Execute();
                 }
                 if (padState1.Buttons.X == ButtonState.Pressed)
                 {
-                    shootFireballCommand.Execute();
+                    fireball.Execute();
                 }
                 if (padState1.Buttons.A == ButtonState.Pressed)
                 {
-                    sprintCommand.Execute();
+                    sprint.Execute();
                 }
-                else if (padState1.Buttons.A == ButtonState.Released)
+                else if (padState1.Buttons.A == ButtonState.Released && Keyboard.GetState().IsKeyUp(Keys.A))
                 {
-                    restoreMarioRigidbodyCommand.Execute();
+                    restoreRigidbody.Execute();
                 }
             }
         }
