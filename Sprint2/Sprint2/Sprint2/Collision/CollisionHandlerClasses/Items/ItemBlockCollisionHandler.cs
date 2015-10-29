@@ -33,24 +33,29 @@ namespace Sprint2
                 locationDiffToChange = intersectionRectangle.Width;
                 int newItemX = (int)itemLocation.X - locationDiffToChange;
                 item.updateLocation(new Vector2((newItemX), itemLocation.Y));
+                item.RigidBody().RightCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Right))
             {
                 locationDiffToChange = intersectionRectangle.Width;
                 int newItemX = (int)itemLocation.X + locationDiffToChange;
                 item.updateLocation(new Vector2((newItemX), itemLocation.Y));
+                item.RigidBody().LeftCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newItemY = (int)itemLocation.Y - locationDiffToChange;
                 item.updateLocation(new Vector2(itemLocation.X, newItemY));
+                if (item.returnItemType().Equals(ItemType.Star)) Console.WriteLine(item + " bottom collision. Accel is " + item.RigidBody().acceleration + " vel is " + item.RigidBody().Velocity + "Floored? " + item.RigidBody().Floored);
+                item.RigidBody().BottomCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
                 locationDiffToChange = intersectionRectangle.Height;
                 int newItemY = (int)itemLocation.Y + locationDiffToChange;
                 item.updateLocation(new Vector2(itemLocation.X, newItemY));
+                item.RigidBody().TopCollision();
             }
         }
     }

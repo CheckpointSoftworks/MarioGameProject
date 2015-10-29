@@ -16,6 +16,7 @@ namespace Sprint2
         private Vector2 velocity;
         private float riseSpeed;
         private bool testForCollision;
+        private AutonomousPhysicsObject rigidbody;
 
         public FireFlower(int locX, int locY)
         {
@@ -25,6 +26,7 @@ namespace Sprint2
             collisonRectangle = fireFlowerSprite.returnCollisionRectangle();
             testForCollision = true;
             riseSpeed = 0.4f;
+            rigidbody = new AutonomousPhysicsObject();
         }
         public ItemType returnItemType()
         {
@@ -74,6 +76,10 @@ namespace Sprint2
         public void updateLocation(Vector2 location)
         {
             this.location = location;
+        }
+        public AutonomousPhysicsObject RigidBody()
+        {
+            return rigidbody;
         }
     }
 }

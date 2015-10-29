@@ -22,7 +22,9 @@ namespace Sprint2
         private bool isFalling;
         private bool applyGravity;
         private bool directionLeft;
+        private AutonomousPhysicsObject rigidbody;
         public bool DirectionLeft
+
         {
             get { return directionLeft; }
             set { directionLeft = value; }
@@ -45,6 +47,7 @@ namespace Sprint2
             gravity.X = 0;
             gravity.Y = 6.0f;
             decayRate = 0.90f;
+            rigidbody = new AutonomousPhysicsObject();
         }
         public void RiseUp()
         {
@@ -130,6 +133,10 @@ namespace Sprint2
         public void updateLocation(Vector2 location)
         {
             this.location = location;
+        }
+        public AutonomousPhysicsObject RigidBody()
+        {
+            return rigidbody;
         }
     }
 }

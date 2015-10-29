@@ -39,48 +39,48 @@ namespace Sprint2
             rigidbody.AirFriction = 0.8f;
             rigidbody.GroundFriction = 1f;
             rigidbody.GroundSpeed = 1f;
-            rigidbody.InitialAirSpeed = 3f;
+            rigidbody.InitialAirSpeed = 0f;
             rigidbody.MaxFallSpeed = 3f;
             rigidbody.Elasticity = 1f;
             rigidbody.IsEnabled = true;
+            
+
         }
 
         public void LeftCollision()
         {
+            Console.WriteLine("Left Collision");
             rigidbody.LeftCollision();
         }
         public void RightCollision()
         {
+            Console.WriteLine("Right Collision");
             rigidbody.RightCollision();
         }
         public void TopCollision()
         {
+            Console.WriteLine("Top collision");
             rigidbody.TopCollision();
         }
         public void BottomCollision()
         {
+            Console.WriteLine("Bottom from star. Accel at beginning: " + rigidbody.Velocity);
             rigidbody.BottomCollision();
+            Console.WriteLine("Accel at end " + rigidbody.Velocity);
         }
-        public AutonomousPhysicsObject GetRigidBody()
-        {
-            return rigidbody;
-        }
-
-
         public void Update()
         {
-            rigidbody.UpdatePhysics();
-            location += rigidbody.Velocity;
+            Console.WriteLine("Star acceleration: " + rigidbody.acceleration);
             if (testForCollision)
             {
-                ((SuperStarSprite)(sprite)).Update(location);
-            }
-            
+                rigidbody.UpdatePhysics();
+                location += rigidbody.Velocity;
+                ((SuperStarSprite)(sprite)).Update(location);            
+            }            
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-
             sprite.Draw(spriteBatch, cameraLoc);
         }
 
@@ -95,7 +95,7 @@ namespace Sprint2
         }
         public Rectangle returnCollisionRectangle()
         {
-            return collisionRectangle;
+            return sprite.returnCollisionRectangle();
         }
 
         public void setCollisionRectangle(Rectangle sentCollisionRectangle)
@@ -111,6 +111,10 @@ namespace Sprint2
         public void updateLocation(Vector2 location)
         {
             this.location = location;
+        }
+        public AutonomousPhysicsObject RigidBody()
+        {
+            return rigidbody;
         }
     }
 }

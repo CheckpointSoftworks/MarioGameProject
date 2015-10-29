@@ -7,10 +7,14 @@
   </Mario>
   
   <!-- Testing stuff at left edge of level (to be removed later!) -->
-  <BoxCoin>
+  <QuestionStarBlock>
     <x>32</x>
     <y>400</y>
-  </BoxCoin>
+    </QuestionStarBlock>
+  <SuperStar>
+    <x>32</x>
+    <y>100</y>
+  </SuperStar>
   <FireFlower>
     <x>48</x>
     <y>440</y>

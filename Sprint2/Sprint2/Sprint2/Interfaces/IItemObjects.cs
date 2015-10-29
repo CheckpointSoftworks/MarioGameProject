@@ -24,5 +24,7 @@ namespace Sprint2
         Vector2 returnLocation();
 
         void updateLocation(Vector2 location);
+
+        AutonomousPhysicsObject RigidBody();
     }
 }

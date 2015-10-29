@@ -19,6 +19,7 @@ namespace Sprint2
         private int timer;
         private bool animate;
         private bool testForCollision;
+        private AutonomousPhysicsObject rigidbody;
 
         public BoxCoin(int locX, int locY)
         {
@@ -30,7 +31,7 @@ namespace Sprint2
             moveSpeed = -4.25f;
             decayRate = 0.32f;
             animate = true;
-            timer = 30;
+            timer = 30;            
         }
 
         public void Update()
@@ -86,6 +87,11 @@ namespace Sprint2
         public void updateLocation(Vector2 location)
         {
             this.location = location;
+        }
+
+        public AutonomousPhysicsObject RigidBody()
+        {
+            return rigidbody;
         }
     }
 }

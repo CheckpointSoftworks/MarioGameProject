@@ -99,12 +99,6 @@ namespace Sprint2
                 state = value;
             }
         }
-        private IMarioState previousState;
-        private IMarioState transitionState;
-        public IMarioState TransitionToState
-        {
-            set { transitionState = value; }
-        }
         private int timer = 600;
         public ControllablePhysicsObject rigidbody;
         public Mario(int locX, int locY)
@@ -205,26 +199,22 @@ namespace Sprint2
             {
                 if (TransitionToBigTime < transitionDuration)
                 {
-                    Console.WriteLine("Big!");
                     TransitionToBigTime += 0.1f;
                     if ((TransitionToBigTime * 10) % 5 < 1) small = !small;
                     transitioning = (TransitionToBigTime < transitionDuration);
                     if (!transitioning) 
                     {
-                        Console.WriteLine("Not big!");
                         fire = false;
                         small = false;
                     }
                 }
                 if (TransitionToSmallTime < transitionDuration)
                 {
-                    Console.WriteLine("Small!");
                     TransitionToSmallTime += 0.1f;
                     if ((TransitionToSmallTime * 10) % 5 < 1) small = !small;
                     transitioning = (TransitionToSmallTime < transitionDuration);
                     if (!transitioning)
                     {
-                        Console.WriteLine("Not small!");
                         fire = false;
                         small = true;
                     }
@@ -232,8 +222,6 @@ namespace Sprint2
                 if (TransitionToFireTime < transitionDuration)
                 {
                     TransitionToFireTime += 0.1f;
-                    Console.WriteLine("Transition time: " + (TransitionToFireTime*10)%3);
-                    if ((TransitionToFireTime * 10) % 5 < 1) { Console.WriteLine("SWitch"); fire = !fire; }
                     transitioning = (TransitionToFireTime < transitionDuration);
                     if (!transitioning)
                     {
