@@ -19,7 +19,7 @@ namespace Sprint2
             if (((Mario)game.mario).Fire)
             {
                 Vector2 marioLoc = game.mario.returnLocation();
-                game.levelStore.projectileList.Add(new Fireball((int)marioLoc.X + 3, (int)marioLoc.Y + 3));
+                game.levelStore.projectileList.Add(new Fireball((int)marioLoc.X + 3, (int)marioLoc.Y + 8));
             }
         }
     }

@@ -71,6 +71,7 @@ namespace Sprint2
 
         public Rectangle returnCollisionRectangle()
         {
+            collisionRectangle = fireballSprite.returnCollisionRectangle();
             return collisionRectangle;
         }
 

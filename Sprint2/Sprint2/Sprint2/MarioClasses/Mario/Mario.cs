@@ -233,7 +233,10 @@ namespace Sprint2
                 {
                     TransitionToFireTime += 0.1f;
                     //Console.WriteLine("Transition time: " + (TransitionToFireTime*10)%3);
-                    if ((TransitionToFireTime * 10) % 5 < 1) { Console.WriteLine("SWitch"); fire = !fire; }
+                    if ((TransitionToFireTime * 10) % 5 < 1) { 
+                        //Console.WriteLine("SWitch");
+                        fire = !fire; 
+                    }
                     transitioning = (TransitionToFireTime < transitionDuration);
                     if (!transitioning)
                     {
