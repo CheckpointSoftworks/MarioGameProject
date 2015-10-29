@@ -76,14 +76,9 @@ namespace Sprint2
 
         private void LoadKeyBoardCommands()
         {
-
-            ((KeyboardController)keyboard).RegisterCommand(Keys.W, new UpCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.Up, new UpCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.S, new DownCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.Z, new UpCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Down, new DownCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.A, new LeftCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Left, new LeftCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.D, new RightCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Right, new RightCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.X, new FireballCommand(this));
             ((KeyboardController)keyboard).RegisterDiagonalCommands(this);
