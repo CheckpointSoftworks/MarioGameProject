@@ -32,7 +32,7 @@ namespace Sprint2
         public void Update()
         {
             marioCameraPosition = (int)(marioPosition.X - cameraPosition.X);
-            if (marioCameraPosition > screenCenter)
+            if (marioCameraPosition > screenCenter && (camera.GetPosition().X + 800) < 3500)
             {
                 camera.MoveRight(marioCameraPosition - screenCenter);
             }
