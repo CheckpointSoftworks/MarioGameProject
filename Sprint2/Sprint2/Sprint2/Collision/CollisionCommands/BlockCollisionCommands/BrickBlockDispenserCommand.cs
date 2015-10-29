@@ -16,6 +16,7 @@ namespace Sprint2
         }
         public void Execute()
         {
+            ((BrickBlockCoinDispenser)block).bounceBlock();
             bool dispenseCoin=((BrickBlockCoinDispenser)block).coinCounting();
             if (dispenseCoin)
             {
