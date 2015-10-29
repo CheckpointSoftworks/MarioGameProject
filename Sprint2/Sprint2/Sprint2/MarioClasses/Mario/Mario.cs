@@ -123,14 +123,14 @@ namespace Sprint2
 
         private void LoadPhysicsProperties()
         {
-            rigidbody.Elasticity = 0f;
-            rigidbody.AirFriction = 1f;
+            rigidbody.Elasticity = 0.0f;
+            rigidbody.AirFriction = 0.95f;
             rigidbody.GroundFriction = 0.7f;
-            rigidbody.maxVelocityX = 20;
-            rigidbody.maxVelocityY = 10;
-            rigidbody.GroundSpeed = 10;
-            rigidbody.JumpSpeed = -65;
-            rigidbody.JumpDuration = 1;
+            rigidbody.maxVelocityX = 12.0f;
+            rigidbody.maxVelocityY = 6.0f;
+            rigidbody.GroundSpeed = 6.0f;
+            rigidbody.JumpSpeed = -48.0f;
+            rigidbody.JumpDuration = 1.6f;
             rigidbody.IsEnabled = true;
         }
         public void Update()
