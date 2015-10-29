@@ -22,7 +22,6 @@ namespace Sprint2
         private ICommand rightDown;
         private ICommand fireball;
         private ICommand sprint;
-        private ICommand restoreRigidbody;
         private float deadZone;
 
         public GamepadController (Game1 game)
@@ -41,7 +40,6 @@ namespace Sprint2
             rightDown = new RightDownCommand(game);
             fireball = new FireballCommand(game);
             sprint = new SprintCommand(game);
-            restoreRigidbody = new RestoreMarioRigidbodyCommand(game);
         }
 
         public void Update()
@@ -92,10 +90,6 @@ namespace Sprint2
                 if (padState1.Buttons.A == ButtonState.Pressed)
                 {
                     sprint.Execute();
-                }
-                else if (padState1.Buttons.A == ButtonState.Released && Keyboard.GetState().IsKeyUp(Keys.S))
-                {
-                    restoreRigidbody.Execute();
                 }
             }
         }

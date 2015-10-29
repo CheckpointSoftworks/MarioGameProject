@@ -19,7 +19,6 @@ namespace Sprint2
         private ICommand fireball;
         private ICommand reset;
         private ICommand sprint;
-        private ICommand restoreRigidbody;
         KeyboardState keyState;
 
         public KeyboardController(Game1 game)
@@ -32,7 +31,6 @@ namespace Sprint2
             rightDown = new RightDownCommand(game);
             fireball = new FireballCommand(game);
             sprint = new SprintCommand(game);
-            restoreRigidbody = new RestoreMarioRigidbodyCommand(game);
             reset = new ResetLevelCommand(game);
         }
 
@@ -71,10 +69,6 @@ namespace Sprint2
             if (keyState.IsKeyDown(Keys.S))
             {
                 sprint.Execute();
-            }
-            if (keyState.IsKeyUp(Keys.S) && GamePad.GetState(PlayerIndex.One).IsButtonUp(Buttons.A))
-            {
-                restoreRigidbody.Execute();
             }
             if (keyState.IsKeyDown(Keys.R))
             {
