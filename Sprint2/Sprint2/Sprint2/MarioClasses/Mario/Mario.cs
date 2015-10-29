@@ -238,7 +238,6 @@ namespace Sprint2
                         fire = true;
                     }
                 }
-                Console.WriteLine("Draw mario " + state.ToString());
                 state.setDrawColor(Color.White);
                 state.Draw(spriteBatch, cameraLoc);
             }
