@@ -47,7 +47,7 @@ namespace Sprint2
                 location = new Vector2(location.X, newY);
                 bounceTimer--;
             }
-            else if (bounce && bounceTimer>=0)
+            else if (bounce && bounceTimer > 0)
             {
                 int newY = (int)location.Y;
                 newY++;
