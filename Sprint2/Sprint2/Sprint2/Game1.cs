@@ -15,6 +15,7 @@ namespace Sprint2
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+
         public GraphicsDeviceManager graphics{get;set;}
         public SpriteBatch spriteBatch{get;set;}
 

@@ -73,6 +73,10 @@ namespace Sprint2
                     handleItemCollision(item);
                 }
             }
+            foreach (IProjectile projectile in projectileList)
+            {
+                handleProjectileCollision(projectile);
+            }
         }
 
         public void Draw(IPlayer player,SpriteBatch spriteBatch)
@@ -235,10 +239,12 @@ namespace Sprint2
             floorCheck.Y++;
             ProjectileBlockCollisionHandler projBlockHandler = new ProjectileBlockCollisionHandler();
             ProjectileEnviromentalCollisionHandler projEnviroHandler = new ProjectileEnviromentalCollisionHandler();
+            projectile.RigidBody().Floored = false;
             foreach (IBlock block in blocksList)
             {
                 if (block.checkForCollisionTestFlag())
                 {
+                    
                     side = collisionDetector.getCollision(projectile.returnCollisionRectangle(), block.returnCollisionRectangle());
                     projBlockHandler.handleCollision(projectile, block, side);
                 }
@@ -251,6 +257,10 @@ namespace Sprint2
             {
                 side = collisionDetector.getCollision(projectile.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
                 projEnviroHandler.handleCollision(projectile, enviromental, side);
+                if (collisionDetector.getCollision(floorCheck, enviromental.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
+                {
+                    projectile.RigidBody().Floored = true;
+                }
             }
         }
     }

@@ -48,32 +48,7 @@ namespace Sprint2
             }
             foreach (Keys key in keyList)
             {
-                if ((keyList.Contains(Keys.W) && (keyList.Contains(Keys.D) || keyList.Contains(Keys.A)))||(keyList.Contains(Keys.Up)&&(keyList.Contains(Keys.Right)||keyList.Contains(Keys.Left))))
-                {
-                    if (keyList.Contains(Keys.D)||keyList.Contains(Keys.Right))
-                    {
-                        upRight.Execute();
-                    }
-                    else
-                    {
-                        upLeft.Execute();
-                    }                    
-                }
-                else if ((keyList.Contains(Keys.S) && (keyList.Contains(Keys.D) || keyList.Contains(Keys.A))) || (keyList.Contains(Keys.Down) && (keyList.Contains(Keys.Right) || keyList.Contains(Keys.Left))))
-                {
-                    if (keyList.Contains(Keys.D)||keyList.Contains(Keys.Right))
-                    {
-                        downRight.Execute();
-                    }
-                    else
-                    {
-                        downLeft.Execute();
-                    }
-                }
-                else
-                {
-                    controllerMappings[key].Execute();
-                }
+                controllerMappings[key].Execute();
             }
         }
     }
