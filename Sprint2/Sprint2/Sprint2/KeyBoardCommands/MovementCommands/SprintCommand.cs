@@ -16,11 +16,14 @@ namespace Sprint2
 
         public void Execute()
         {
-            ((Mario)Game.mario).rigidbody.maxVelocityX = 20;
-            ((Mario)Game.mario).rigidbody.maxVelocityY = 10;
-            ((Mario)Game.mario).rigidbody.GroundSpeed = 20;
-            ((Mario)Game.mario).rigidbody.JumpSpeed = -65;
-            ((Mario)Game.mario).rigidbody.JumpDuration = 1;
+            ((Mario)Game.mario).rigidbody.Elasticity = 0f;
+            ((Mario)Game.mario).rigidbody.AirFriction = 1f;
+            ((Mario)Game.mario).rigidbody.GroundFriction = 0.7f;
+            ((Mario)Game.mario).rigidbody.maxVelocityX = 25;
+            ((Mario)Game.mario).rigidbody.maxVelocityY = 15;
+            ((Mario)Game.mario).rigidbody.GroundSpeed = 15;
+            ((Mario)Game.mario).rigidbody.JumpSpeed = -70;
+            ((Mario)Game.mario).rigidbody.JumpDuration = 2;
         }
     }
 }

@@ -89,7 +89,7 @@
     <Compile Include="Collision\CollisionHandlerClasses\Items\ItemBlockCollisionHandler.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\Items\ItemEnvriomentalCollisionHandler.cs" />
     <Compile Include="KeyBoardCommands\MovementCommands\SprintCommand.cs" />
-    <Compile Include="KeyBoardCommands\MovementCommands\WalkCommand.cs" />
+    <Compile Include="KeyBoardCommands\MovementCommands\RestoreMarioRigidbodyCommand.cs" />
     <Compile Include="PhysicsClasses\AutonomousPhysicsObject.cs" />
     <Compile Include="Blocks\BlockObjectClasses\Blocks.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BrickBlock.cs" />

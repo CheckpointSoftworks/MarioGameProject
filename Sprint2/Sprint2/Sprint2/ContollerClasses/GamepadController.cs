@@ -22,7 +22,7 @@ namespace Sprint2
         private ICommand rightDownCommand;
         private ICommand shootFireballCommand;
         private ICommand sprintCommand;
-        private ICommand walkCommand;
+        private ICommand restoreMarioRigidbodyCommand;
         private float deadZone;
 
         public GamepadController (Game1 game)
@@ -39,7 +39,7 @@ namespace Sprint2
             rightDownCommand = new RightDownCommand(game);
             shootFireballCommand = new FireballCommand(game);
             sprintCommand = new SprintCommand(game);
-            walkCommand = new WalkCommand(game);
+            restoreMarioRigidbodyCommand = new RestoreMarioRigidbodyCommand(game);
             deadZone = 0.5f;
         }
 
@@ -95,13 +95,13 @@ namespace Sprint2
                 {
                     shootFireballCommand.Execute();
                 }
-                if (padState1.Buttons.X == ButtonState.Pressed)
+                if (padState1.Buttons.A == ButtonState.Pressed)
                 {
                     sprintCommand.Execute();
                 }
-                else
+                else if (padState1.Buttons.A == ButtonState.Released)
                 {
-                    walkCommand.Execute();
+                    restoreMarioRigidbodyCommand.Execute();
                 }
             }
         }
