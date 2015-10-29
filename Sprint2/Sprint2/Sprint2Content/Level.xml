@@ -7,16 +7,20 @@
   </Mario>
   
   <!-- Testing stuff at left edge of level (to be removed later!) -->
+  <HiddenBlock>
+    <x>0</x>
+    <y>400</y>
+  </HiddenBlock>
+  <CoinDispenserBlock>
+    <x>16</x>
+    <y>400</y>
+  </CoinDispenserBlock>
   <QuestionStarBlock>
     <x>32</x>
     <y>400</y>
-    </QuestionStarBlock>
-  <SuperStar>
-    <x>32</x>
-    <y>100</y>
-  </SuperStar>
+  </QuestionStarBlock>
   <FireFlower>
-    <x>48</x>
+    <x>80</x>
     <y>440</y>
   </FireFlower>
   <QuestionCoinBlock>
@@ -24,12 +28,12 @@
     <y>400</y>
   </QuestionCoinBlock>
   <SuperMushroom>
-    <x>80</x>
-    <y>440</y>
+    <x>128</x>
+    <y>352</y>
   </SuperMushroom>  
   <OneUpMushroom>
-    <x>96</x>
-    <y>440</y>
+    <x>192</x>
+    <y>352</y>
   </OneUpMushroom>
   <PlatformingBlock>
     <x>112</x>

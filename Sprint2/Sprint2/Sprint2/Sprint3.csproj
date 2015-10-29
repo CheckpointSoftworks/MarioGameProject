@@ -83,6 +83,7 @@
     <Compile Include="Collision\CollisionHandlerClasses\EnemyCollisionHandlers\EnemyProjectileCollisionHandler.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\BrickPieces.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\BrickPiecesSprite.cs" />
+    <Compile Include="FireballCommand.cs" />
     <Compile Include="Interfaces\IEnemyState.cs" />
     <Compile Include="Interfaces\IProjectile.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\Items\ItemBlockCollisionHandler.cs" />

@@ -10,133 +10,94 @@ namespace Sprint2
     public class OneUpMushroom : IItemObjects
     {
         private ISprite oneUpMushroomSprite;
-        private ItemType type;
         private Rectangle collisionRectangle;
-        private Vector2 location;
-        private Vector2 velocity;
-        private float riseSpeed;
-        private float slideSpeed;
-        private Vector2 gravity;
-        private float decayRate;
+        private ItemType type;
         private bool testForCollision;
-        private bool isFalling;
-        private bool applyGravity;
+        private Vector2 location;
         private bool directionLeft;
         private AutonomousPhysicsObject rigidbody;
-        public bool DirectionLeft
-
-        {
-            get { return directionLeft; }
-            set { directionLeft = value; }
-        }
-        public Vector2 Gravity
-        {
-            get { return gravity; }
-            set { gravity = value; }
-        }
         public OneUpMushroom(int locX, int locY)
         {
             location = new Vector2(locX, locY);
             oneUpMushroomSprite = new OneUpMushroomSprite(location);
             type = ItemType.OneUpMushroom;
             collisionRectangle = oneUpMushroomSprite.returnCollisionRectangle();
-            testForCollision=true;
-            applyGravity = false;
-            riseSpeed = 0.5f;
-            slideSpeed = 1.0f;
-            gravity.X = 0;
-            gravity.Y = 6.0f;
-            decayRate = 0.90f;
+            testForCollision = true;
             rigidbody = new AutonomousPhysicsObject();
+            LoadRigidBodyProperties();
         }
-        public void RiseUp()
+        public bool DirectionLeft
         {
-            applyGravity = false;
-            velocity.X = 0;
-            velocity.Y = -riseSpeed;
+            get { return directionLeft; }
+            set { directionLeft = value; }
         }
-        public void MoveLeft()
+        private void LoadRigidBodyProperties()
         {
-            applyGravity = true;
-            isFalling = false;
-            velocity.X = -slideSpeed;
+            rigidbody.AirFriction = 0.8f;
+            rigidbody.GroundFriction = 1f;
+            rigidbody.GroundSpeed = 2.0f;
+            rigidbody.MaxFallSpeed = 3f;
+            rigidbody.Elasticity = 0f;
+            rigidbody.IsEnabled = true;
         }
-        public void MoveRight()
+        public void LeftCollision()
         {
-            applyGravity = true;
-            isFalling = false;
-            velocity.X = slideSpeed;
+            rigidbody.LeftCollision();
         }
-        public void FallLeft()
+        public void RightCollision()
         {
-            applyGravity = true;
-            isFalling = true;
-            velocity.X = -slideSpeed;
+            rigidbody.RightCollision();
         }
-        public void FallRight()
+        public void TopCollision()
         {
-            applyGravity = true;
-            isFalling = true;
-            velocity.X = slideSpeed;
+            rigidbody.TopCollision();
         }
-        public void StopMoving()
+        public void BottomCollision()
         {
-            applyGravity = false;
-            isFalling = false;
-            velocity.X = 0;
-            velocity.Y = 0;
+            rigidbody.BottomCollision();
+        }
+        public AutonomousPhysicsObject GetRigidBody()
+        {
+            return rigidbody;
         }
         public void Update()
         {
-            if (applyGravity) 
-            {
-                velocity.Y = 0;
-                velocity += gravity; 
-            }
-            location += velocity;
-            if (isFalling) { velocity.X *= decayRate; }
+            rigidbody.UpdatePhysics();
+            location += rigidbody.Velocity;
             if (testForCollision)
             {
-                ((OneUpMushroomSprite)oneUpMushroomSprite).Location = location;
+                ((OneUpMushroomSprite)oneUpMushroomSprite).Update(location);
             }
-            oneUpMushroomSprite.Update();
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             oneUpMushroomSprite.Draw(spriteBatch, cameraLoc);
         }
+        public Vector2 returnLocation()
+        {
+            return location;
+        }
         public ItemType returnItemType()
         {
             return type;
-        }
-        public void setCollisionRectangle(Rectangle sentCollisionRectangle)
-        {
-            collisionRectangle = sentCollisionRectangle;
-            testForCollision=false;
-            oneUpMushroomSprite =new UsedItemSprite(location);
         }
         public Rectangle returnCollisionRectangle()
         {
             return collisionRectangle;
         }
+        public void setCollisionRectangle(Rectangle sentCollisionRectangle)
+        {
+            collisionRectangle = sentCollisionRectangle;
+            testForCollision = false;
+            oneUpMushroomSprite = new UsedItemSprite(location);
+        }
         public bool checkForCollisionTestFlag()
         {
             return testForCollision;
         }
-
-
-        public Vector2 returnLocation()
-        {
-            return location;
-        }
-
         public void updateLocation(Vector2 location)
         {
             this.location = location;
-        }
-        public AutonomousPhysicsObject RigidBody()
-        {
-            return rigidbody;
         }
     }
 }

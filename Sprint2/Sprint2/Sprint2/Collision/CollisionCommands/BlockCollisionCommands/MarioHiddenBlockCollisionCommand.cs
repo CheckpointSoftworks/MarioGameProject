@@ -17,7 +17,7 @@ namespace Sprint2
         public void Execute()
         {
             ((HiddenBlock)block).useHiddenBlock();
-            block.Update();
+            ((HiddenBlock)block).unSpeaclize();
             if (((HiddenBlock)block).dispenseItem())
             {
                 IItemObjects oneUp = ((HiddenBlock)block).spawnOneUp();
