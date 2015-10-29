@@ -88,8 +88,8 @@
     <Compile Include="Interfaces\IProjectile.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\Items\ItemBlockCollisionHandler.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\Items\ItemEnvriomentalCollisionHandler.cs" />
-    <Compile Include="KeyBoardCommands\MovementCommands\SprintCommand.cs" />
-    <Compile Include="KeyBoardCommands\MovementCommands\RestoreMarioRigidbodyCommand.cs" />
+    <Compile Include="ControllerCommands\MovementCommands\SprintCommand.cs" />
+    <Compile Include="ControllerCommands\MovementCommands\RestoreMarioRigidbodyCommand.cs" />
     <Compile Include="PhysicsClasses\AutonomousPhysicsObject.cs" />
     <Compile Include="Blocks\BlockObjectClasses\Blocks.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BrickBlock.cs" />
@@ -123,7 +123,7 @@
     <Compile Include="Blocks\BlockSpriteClasses\BrickBlockSprite.cs" />
     <Compile Include="Enumerators\CollisionSideEnum.cs" />
     <Compile Include="Collision\CollisionDetectorClass\CollisionDetector.cs" />
-    <Compile Include="KeyBoardCommands\MovementCommands\DownCommand.cs" />
+    <Compile Include="ControllerCommands\MovementCommands\DownCommand.cs" />
     <Compile Include="Collision\CollisionCommands\EnemyCollisonCommands\EnemyHitsMarioCollision.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\EnemySpriteFactory.cs" />
     <Compile Include="ItemClasses\ItemObjectClasses\FireFlower.cs" />
@@ -149,14 +149,14 @@
     <Compile Include="Enumerators\ItemTypeEnum.cs" />
     <Compile Include="ContollerClasses\KeyboardController.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />
-    <Compile Include="KeyBoardCommands\SpecialCommands\KeyNotPressed.cs" />
+    <Compile Include="ControllerCommands\SpecialCommands\KeyNotPressed.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\Koopa.cs" />
     <Compile Include="EnemyClasses\EnemySpriteClasses\KoopaShellSprite.cs" />
     <Compile Include="EnemyClasses\EnemySpriteClasses\KoopaSprite.cs" />
     <Compile Include="Collision\CollisionClasses\LeftCollision.cs" />
-    <Compile Include="KeyBoardCommands\MovementCommands\LeftCommand.cs" />
-    <Compile Include="KeyBoardCommands\MovementCommands\LeftDownCommand.cs" />
-    <Compile Include="KeyBoardCommands\MovementCommands\LeftUpCommand.cs" />
+    <Compile Include="ControllerCommands\MovementCommands\LeftCommand.cs" />
+    <Compile Include="ControllerCommands\MovementCommands\LeftDownCommand.cs" />
+    <Compile Include="ControllerCommands\MovementCommands\LeftUpCommand.cs" />
     <Compile Include="LevelLoadingandStorageClasses\LevelLoader.cs" />
     <Compile Include="MarioClasses\Mario\Mario.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\MarioCollisionHandlers\MarioBlockCollisionHandler.cs" />
@@ -186,9 +186,9 @@
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\Pipe.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\PipeSprite.cs" />
     <Compile Include="Collision\CollisionClasses\RightCollision.cs" />
-    <Compile Include="KeyBoardCommands\MovementCommands\RightCommand.cs" />
-    <Compile Include="KeyBoardCommands\MovementCommands\RightDownCommand.cs" />
-    <Compile Include="KeyBoardCommands\MovementCommands\RightUpCommand.cs" />
+    <Compile Include="ControllerCommands\MovementCommands\RightCommand.cs" />
+    <Compile Include="ControllerCommands\MovementCommands\RightDownCommand.cs" />
+    <Compile Include="ControllerCommands\MovementCommands\RightUpCommand.cs" />
     <Compile Include="Blocks\BlockSpriteClasses\PlatformingBlockSprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
@@ -200,7 +200,7 @@
     <Compile Include="ItemClasses\ItemSpriteClasses\SuperStarSprite.cs" />
     <Compile Include="TestingClass\TestingClass.cs" />
     <Compile Include="Collision\CollisionClasses\TopCollision.cs" />
-    <Compile Include="KeyBoardCommands\MovementCommands\UpCommand.cs" />
+    <Compile Include="ControllerCommands\MovementCommands\UpCommand.cs" />
     <Compile Include="ItemClasses\ItemSpriteClasses\UsedItemSprite.cs" />
   </ItemGroup>
   <ItemGroup>
