@@ -9,35 +9,36 @@ namespace Sprint2
 {
         class FireballSprite : ISprite
         {
-            private AnimatedSprite AnimatedFireball;
-            private bool FacingRight = true;
-            private Vector2 location;
-            private Fireball fireball;
-            public Vector2 Location
-            {
-                get { return location; }
-                set { location = value; }
-            }
+           private Texture2D spriteSheet;
+        private AnimatedSprite sprite;
+        private Rectangle collisionRectangle;
+        private Vector2 location;
+        public FireballSprite(Vector2 location)
+        {
+            spriteSheet = MiscGameObjectTextureStorage.CreateFireballSprite();
+            this.location = location;
+            sprite = new AnimatedSprite(spriteSheet, 1, 1, location, 1);
+            collisionRectangle = sprite.returnCollisionRectangle();
+        }
 
-            public FireballSprite(Texture2D FireballSpritesheet, Vector2 location, Fireball fireball)
-            {
-                this.location = location;
-                this.fireball = fireball;
-                AnimatedFireball = new AnimatedSprite(FireballSpritesheet, 1, 4, location, 4);
-            }
-            public void Update()
-            {
-                AnimatedFireball.Update();
-            }
+        public void Update()
+        {
+            sprite.Update();
+        }
+        public void Update(Vector2 loc)
+        {
+            location = loc;
+            sprite.Update();
+        }
 
-            public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
-            {
-                AnimatedFireball.Draw(spriteBatch, fireball.returnLocation(), cameraLoc, FacingRight);
-            }
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
+        {
+            sprite.Draw(spriteBatch, location, cameraLoc, true);
+        }
 
-            public Rectangle returnCollisionRectangle()
-            {
-                return AnimatedFireball.returnCollisionRectangle();
-            }
+        public Rectangle returnCollisionRectangle()
+        {
+            return sprite.returnCollisionRectangle();
+        }
         }
 }

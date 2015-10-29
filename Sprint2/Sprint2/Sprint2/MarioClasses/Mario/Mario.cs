@@ -99,6 +99,12 @@ namespace Sprint2
                 state = value;
             }
         }
+
+        private IMarioState transitionState;
+        public IMarioState TransitionToState
+        {
+            set { transitionState = value; }
+        }
         private int timer = 600;
         public ControllablePhysicsObject rigidbody;
         public Mario(int locX, int locY)
@@ -146,7 +152,7 @@ namespace Sprint2
                 rigidbody.UpdatePhysics();
                 location += rigidbody.Velocity;
             }
-            
+
             if (!star)
             {
                 state.Update();
@@ -160,7 +166,7 @@ namespace Sprint2
                 }
 
                 state.Update();
-                
+
             }
         }
         public void BecomeBig()
@@ -202,7 +208,7 @@ namespace Sprint2
                     TransitionToBigTime += 0.1f;
                     if ((TransitionToBigTime * 10) % 5 < 1) small = !small;
                     transitioning = (TransitionToBigTime < transitionDuration);
-                    if (!transitioning) 
+                    if (!transitioning)
                     {
                         fire = false;
                         small = false;
@@ -222,6 +228,10 @@ namespace Sprint2
                 if (TransitionToFireTime < transitionDuration)
                 {
                     TransitionToFireTime += 0.1f;
+                    if ((TransitionToFireTime * 10) % 5 < 1)
+                    {
+                        fire = !fire;
+                    }
                     transitioning = (TransitionToFireTime < transitionDuration);
                     if (!transitioning)
                     {
@@ -260,7 +270,14 @@ namespace Sprint2
 
         public Rectangle returnCollisionRectangle()
         {
-            return state.returnStateCollisionRectangle();
+            if (transitioning)
+            {
+                return new Rectangle(0, 0, 0, 0);
+            }
+            else
+            {
+                return state.returnStateCollisionRectangle();
+            }
         }
         public Vector2 returnLocation()
         {

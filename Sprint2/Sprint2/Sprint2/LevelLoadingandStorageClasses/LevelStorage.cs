@@ -244,7 +244,7 @@ namespace Sprint2
                 }
                 if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
                 {
-                    //item.GetRigidBody().Floored = true;
+                    projectile.RigidBody().Floored = true;
                 }
             }
             foreach (IEnviromental enviromental in enviromentalObjectsList)

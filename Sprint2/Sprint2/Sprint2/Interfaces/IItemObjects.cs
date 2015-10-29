@@ -11,12 +11,6 @@ namespace Sprint2
     {
         void Update();
 
-        void LeftCollision();
-        void RightCollision();
-        void TopCollision();
-        void BottomCollision();
-        AutonomousPhysicsObject GetRigidBody();
-
         void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc);
 
         ItemType returnItemType();

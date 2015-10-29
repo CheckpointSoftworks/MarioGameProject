@@ -29,7 +29,7 @@ namespace Sprint2
             totalFrames = 1;
             used = false;
             bounce = false;
-            maxHeight = (int)location.Y - 20;
+            maxHeight = (int)location.Y - 10;
             minHeight = (int)location.Y;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
