@@ -28,7 +28,6 @@ namespace Sprint2
         public void Update()
         {
             sprite.Update();
-            noLongerSpecialized = true;
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
@@ -73,6 +72,10 @@ namespace Sprint2
         public bool dispenseItem()
         {
             return dispenseItemFlag;
+        }
+        public void unSpeaclize()
+        {
+            noLongerSpecialized = true;
         }
     }
 }

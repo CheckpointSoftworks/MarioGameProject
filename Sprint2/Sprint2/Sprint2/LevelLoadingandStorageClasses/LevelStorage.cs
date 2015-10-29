@@ -53,6 +53,10 @@ namespace Sprint2
                 }
                 enemy.Update();
             }
+            foreach (IProjectile projectile in projectileList)
+            {
+                projectile.Update();
+            }
             foreach (IEnviromental enviromental in enviromentalObjectsList)
             {
                 enviromental.Update();
@@ -87,6 +91,10 @@ namespace Sprint2
             foreach (IEnviromental enviromental in enviromentalObjectsList)
             {
                 enviromental.Draw(spriteBatch, camera.GetPosition());
+            }
+            foreach (IProjectile projectile in projectileList)
+            {
+                projectile.Draw(spriteBatch, camera.GetPosition());
             }
         }
 
@@ -210,6 +218,34 @@ namespace Sprint2
             {
                 side = collisionDetector.getCollision(item.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
                 itemEnviroHandler.handleCollision(item, enviromental, side);
+            }
+        }
+
+        private void handleProjectileCollision(IProjectile projectile)
+        {
+            CollisionDetector collisionDetector = new CollisionDetector();
+            ICollision side;
+            Rectangle floorCheck;
+            floorCheck = projectile.returnCollisionRectangle();
+            floorCheck.Y++;
+            ProjectileBlockCollisionHandler projBlockHandler = new ProjectileBlockCollisionHandler();
+            ProjectileEnviromentalCollisionHandler projEnviroHandler = new ProjectileEnviromentalCollisionHandler();
+            foreach (IBlock block in blocksList)
+            {
+                if (block.checkForCollisionTestFlag())
+                {
+                    side = collisionDetector.getCollision(projectile.returnCollisionRectangle(), block.returnCollisionRectangle());
+                    projBlockHandler.handleCollision(projectile, block, side);
+                }
+                if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
+                {
+                    //item.GetRigidBody().Floored = true;
+                }
+            }
+            foreach (IEnviromental enviromental in enviromentalObjectsList)
+            {
+                side = collisionDetector.getCollision(projectile.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
+                projEnviroHandler.handleCollision(projectile, enviromental, side);
             }
         }
     }

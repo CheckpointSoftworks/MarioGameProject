@@ -20,7 +20,7 @@
     <y>400</y>
   </QuestionStarBlock>
   <FireFlower>
-    <x>48</x>
+    <x>80</x>
     <y>440</y>
   </FireFlower>
   <QuestionCoinBlock>
@@ -28,7 +28,7 @@
     <y>400</y>
   </QuestionCoinBlock>
   <SuperMushroom>
-    <x>80</x>
+    <x>48</x>
     <y>440</y>
   </SuperMushroom>  
   <OneUpMushroom>
