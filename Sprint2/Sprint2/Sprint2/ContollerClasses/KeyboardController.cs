@@ -16,8 +16,6 @@ namespace Sprint2
         private ICommand down;
         private ICommand leftDown;
         private ICommand rightDown;
-        private ICommand leftUp;
-        private ICommand rightUp;
         private ICommand fireball;
         private ICommand reset;
         private ICommand sprint;
@@ -50,7 +48,7 @@ namespace Sprint2
             {
                 right.Execute();
             }
-            if (keyState.IsKeyDown(Keys.Z))
+            if (keyState.IsKeyDown(Keys.D))
             {
                 up.Execute();
             }
@@ -66,15 +64,15 @@ namespace Sprint2
             {
                 rightDown.Execute();
             }
-            if (keyState.IsKeyDown(Keys.X))
+            if (keyState.IsKeyDown(Keys.A))
             {
                 fireball.Execute();
             }
-            if (keyState.IsKeyDown(Keys.A))
+            if (keyState.IsKeyDown(Keys.S))
             {
                 sprint.Execute();
             }
-            if (keyState.IsKeyUp(Keys.A) && GamePad.GetState(PlayerIndex.One).IsButtonUp(Buttons.A))
+            if (keyState.IsKeyUp(Keys.S) && GamePad.GetState(PlayerIndex.One).IsButtonUp(Buttons.A))
             {
                 restoreRigidbody.Execute();
             }
