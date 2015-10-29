@@ -142,10 +142,6 @@ namespace Sprint2
                 {
                     state.Running();
                 }
-                else
-                {
-                    state.Still();
-                }
             }
             if ((facingRight && rigidbody.Velocity.X < 0) || (!facingRight && rigidbody.Velocity.X > 0)) facingRight = !facingRight;
             if (!transitioning)
@@ -242,6 +238,7 @@ namespace Sprint2
                         fire = true;
                     }
                 }
+                Console.WriteLine("Draw mario " + state.ToString());
                 state.setDrawColor(Color.White);
                 state.Draw(spriteBatch, cameraLoc);
             }
