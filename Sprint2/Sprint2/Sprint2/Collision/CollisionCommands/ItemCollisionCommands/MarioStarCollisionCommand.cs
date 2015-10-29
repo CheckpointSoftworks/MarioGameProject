@@ -20,6 +20,7 @@ namespace Sprint2
         {
             star.setCollisionRectangle(new Rectangle(0, 0, 0, 0));
             ((Mario)mario).Star = true;
+
         }
     }
 }

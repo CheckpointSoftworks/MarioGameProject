@@ -36,6 +36,10 @@ public class AutonomousPhysicsObject
         {
             return velocity;
         }
+        set
+        {
+            velocity = value;
+        }
     }
 
     // Terminal velocity of the object, adding gravity passed this point won't make it go faster
@@ -86,7 +90,7 @@ public class AutonomousPhysicsObject
     }
 
     //Acceleration is the rate of change of velocity. Because it's a rate, velocity equals acceleration (rise) multiplied by delta time (1/run)
-    private Vector2 acceleration;
+    public Vector2 acceleration;
 
     //Elasticity is the amount of momentum retained after a collision. 0 would be like a car hitting an immovable object, 1 would be like dropping a bouncy ball and having it bounce forever. 
     //The extrema are physically impossible in the real world, but for the game's sake, they're allowed. The Star has an elasticity of 1 for example. 
@@ -130,7 +134,7 @@ public class AutonomousPhysicsObject
         velocity = new Vector2(0, 0);
         elasticity = 0;
         g = new Vector2(0, 5f);
-        acceleration = new Vector2(0, initialAirSpeed);
+        acceleration = new Vector2(0, initialAirSpeed/deltaTime);
     }
 
     public AutonomousPhysicsObject(Vector2 gravity)
@@ -139,12 +143,11 @@ public class AutonomousPhysicsObject
         velocity = new Vector2(0, 0);
         elasticity = 0;
         g = gravity;
-        acceleration = new Vector2(0, initialAirSpeed);
+        acceleration = new Vector2(0, initialAirSpeed/deltaTime);
     }
 
     public void UpdatePhysics()
     {
-        //Console.WriteLine("At start of physics update, vel is " + velocity);
         if (enabled)
         {
             if (!floored) { acceleration += g; }
@@ -170,7 +173,7 @@ public class AutonomousPhysicsObject
     private void ClampAcceleration()
     {
         acceleration = Clamp(acceleration, -Math.Abs(acceleration.X), Math.Abs(acceleration.X), -maxFallSpeed*g.Y*(1/deltaTime), maxFallSpeed*g.Y*(1/deltaTime));
-        if (Math.Abs(acceleration.Y) <= g.Y*(g.Y*elasticity)) acceleration.Y = 0;
+        if (Math.Abs(acceleration.Y) < g.Y*(g.Y*elasticity)) acceleration.Y = 0;
     }
 
     public void RightCollision()
@@ -197,11 +200,15 @@ public class AutonomousPhysicsObject
     public void TopCollision()
     {
         velocity.Y = 0;
+        if (acceleration.Y < 0) acceleration.Y *= -1 * elasticity;
+        if (acceleration.Y != 0) Console.WriteLine("Acceleration after bounce " + acceleration);
+        ClampAcceleration();
         floored = false;
     }
 
     public void BottomCollision()
     {
+        //Console.WriteLine("Bottom from rb, floored? " + floored);
         if (!floored)
         {
             floored = true;
@@ -209,6 +216,7 @@ public class AutonomousPhysicsObject
             {
                 //Console.WriteLine("Accel is " + acceleration);
                 if(acceleration.Y > 0) acceleration.Y *= -1 * elasticity;
+                if (acceleration.Y != 0) Console.WriteLine("Acceleration after bounce " + acceleration);
                 ClampAcceleration();
                 //Console.WriteLine("Accel is now " + acceleration);
                 //velocity.Y = 0;                

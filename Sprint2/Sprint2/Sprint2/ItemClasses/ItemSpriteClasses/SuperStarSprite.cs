@@ -27,6 +27,7 @@ namespace Sprint2
         }
         public void Update(Vector2 loc)
         {
+            
             location = loc;
             superStarSprite.Update();
         }
@@ -38,7 +39,7 @@ namespace Sprint2
 
         public Rectangle returnCollisionRectangle()
         {
-            return collisionRectangle;
+            return superStarSprite.returnCollisionRectangle();
         }
     }
 }
