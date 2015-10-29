@@ -49,28 +49,22 @@ namespace Sprint2
 
         public void LeftCollision()
         {
-            Console.WriteLine("Left Collision");
             rigidbody.LeftCollision();
         }
         public void RightCollision()
         {
-            Console.WriteLine("Right Collision");
             rigidbody.RightCollision();
         }
         public void TopCollision()
         {
-            Console.WriteLine("Top collision");
             rigidbody.TopCollision();
         }
         public void BottomCollision()
         {
-            Console.WriteLine("Bottom from star. Accel at beginning: " + rigidbody.Velocity);
             rigidbody.BottomCollision();
-            Console.WriteLine("Accel at end " + rigidbody.Velocity);
         }
         public void Update()
         {
-            Console.WriteLine("Star acceleration: " + rigidbody.acceleration);
             if (testForCollision)
             {
                 rigidbody.UpdatePhysics();

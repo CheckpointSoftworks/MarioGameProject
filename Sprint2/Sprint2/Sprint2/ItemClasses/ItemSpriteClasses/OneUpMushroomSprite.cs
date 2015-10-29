@@ -9,41 +9,36 @@ namespace Sprint2
 {
     class OneUpMushroomSprite : ISprite
     {
-        private Texture2D oneUpMushroomSpriteSheet;
-        private AnimatedSprite oneUpMushroomSprite;
+        private Texture2D spriteSheet;
+        private AnimatedSprite sprite;
         private Rectangle collisionRectangle;
         private Vector2 location;
-        public Vector2 Location
-        {
-            get { return location; }
-            set { location = value; }
-        }
         public OneUpMushroomSprite(Vector2 location)
         {
-            oneUpMushroomSpriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSprite();
+            spriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSprite();
             this.location = location;
-            oneUpMushroomSprite = new AnimatedSprite(oneUpMushroomSpriteSheet, 1, 1, location, 1);
-            collisionRectangle = oneUpMushroomSprite.returnCollisionRectangle();
+            sprite = new AnimatedSprite(spriteSheet, 1, 1, location, 1);
+            collisionRectangle = sprite.returnCollisionRectangle();
         }
 
         public void Update()
         {
-            oneUpMushroomSprite.Update();
+            sprite.Update();
         }
         public void Update(Vector2 loc)
         {
             location = loc;
-            oneUpMushroomSprite.Update();
+            sprite.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            oneUpMushroomSprite.Draw(spriteBatch, location, cameraLoc, true);
+            sprite.Draw(spriteBatch, location, cameraLoc, true);
         }
 
         public Rectangle returnCollisionRectangle()
         {
-            return collisionRectangle;
+            return sprite.returnCollisionRectangle();
         }
     }
 }

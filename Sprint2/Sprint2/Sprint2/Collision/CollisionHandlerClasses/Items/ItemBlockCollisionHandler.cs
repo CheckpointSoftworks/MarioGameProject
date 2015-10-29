@@ -27,9 +27,9 @@ namespace Sprint2
             Rectangle intersectionRectangle = Rectangle.Intersect(itemRectangle, blockRectangle);
             Vector2 itemLocation = item.returnLocation();
             int locationDiffToChange = 0;
-
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
             {
+
                 locationDiffToChange = intersectionRectangle.Width;
                 int newItemX = (int)itemLocation.X - locationDiffToChange;
                 item.updateLocation(new Vector2((newItemX), itemLocation.Y));
@@ -47,7 +47,6 @@ namespace Sprint2
                 locationDiffToChange = intersectionRectangle.Height;
                 int newItemY = (int)itemLocation.Y - locationDiffToChange;
                 item.updateLocation(new Vector2(itemLocation.X, newItemY));
-                if (item.returnItemType().Equals(ItemType.Star)) Console.WriteLine(item + " bottom collision. Accel is " + item.RigidBody().acceleration + " vel is " + item.RigidBody().Velocity + "Floored? " + item.RigidBody().Floored);
                 item.RigidBody().BottomCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))

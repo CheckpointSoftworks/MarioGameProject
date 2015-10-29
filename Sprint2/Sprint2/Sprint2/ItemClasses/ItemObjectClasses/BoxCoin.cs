@@ -31,7 +31,8 @@ namespace Sprint2
             moveSpeed = -4.25f;
             decayRate = 0.32f;
             animate = true;
-            timer = 30;            
+            timer = 30;
+            rigidbody = new AutonomousPhysicsObject();
         }
 
         public void Update()

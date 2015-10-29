@@ -205,7 +205,7 @@ namespace Sprint2
             floorCheck.Y++;
             ItemBlockCollisionHandler itemBlockHandler = new ItemBlockCollisionHandler();
             ItemEnvriomentalCollisionHandler itemEnviroHandler = new ItemEnvriomentalCollisionHandler();
-            item.RigidBody().Floored = false;
+            item.RigidBody().Floored = false; 
             foreach (IBlock block in blocksList)
             {
 
@@ -216,7 +216,6 @@ namespace Sprint2
                 }
                 if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
                 {
-                    if (item.returnItemType().Equals(ItemType.Star)) Console.WriteLine("Star floored. Accel: " + item.RigidBody().acceleration + " vel: " + item.RigidBody().Velocity);
                    item.RigidBody().Floored = true;
                 }
             }

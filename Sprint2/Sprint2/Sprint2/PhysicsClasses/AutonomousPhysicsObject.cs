@@ -178,13 +178,11 @@ public class AutonomousPhysicsObject
 
     public void RightCollision()
     {
-        //Console.WriteLine("hor velocity was " + velocity);
         if (velocity.X > 0)
         {
             velocity.X = 0;
             groundSpeed *= -1;
         }
-        //Console.WriteLine("hor velocity is now" + velocity);
     }
 
     public void LeftCollision()
@@ -194,14 +192,12 @@ public class AutonomousPhysicsObject
             velocity.X = 0;
             groundSpeed *= -1;
         }
-        //Console.WriteLine("hor velocity is now" + velocity);
     }
 
     public void TopCollision()
     {
         velocity.Y = 0;
         if (acceleration.Y < 0) acceleration.Y *= -1 * elasticity;
-        if (acceleration.Y != 0) Console.WriteLine("Acceleration after bounce " + acceleration);
         ClampAcceleration();
         floored = false;
     }
@@ -214,11 +210,8 @@ public class AutonomousPhysicsObject
             floored = true;
             if (true)
             {
-                //Console.WriteLine("Accel is " + acceleration);
                 if(acceleration.Y > 0) acceleration.Y *= -1 * elasticity;
-                if (acceleration.Y != 0) Console.WriteLine("Acceleration after bounce " + acceleration);
                 ClampAcceleration();
-                //Console.WriteLine("Accel is now " + acceleration);
                 //velocity.Y = 0;                
             }
         }
