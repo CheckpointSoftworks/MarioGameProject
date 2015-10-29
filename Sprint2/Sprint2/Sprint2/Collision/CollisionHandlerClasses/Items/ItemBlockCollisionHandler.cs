@@ -13,10 +13,11 @@ namespace Sprint2
         {
 
         }
-        public void handleCollision(IItemObjects item, IBlock block, ICollision side){
+        public void handleCollision(IItemObjects item, IBlock block, ICollision side)
+        {
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
-                handleItemMovement(item, block, side);
+                handleItemMovement(item, block, side);                
             }
         }
 
@@ -33,12 +34,14 @@ namespace Sprint2
                 locationDiffToChange = intersectionRectangle.Width;
                 int newItemX = (int)itemLocation.X - locationDiffToChange;
                 item.updateLocation(new Vector2((newItemX), itemLocation.Y));
+                item.RightCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Right))
             {
                 locationDiffToChange = intersectionRectangle.Width;
                 int newItemX = (int)itemLocation.X + locationDiffToChange;
                 item.updateLocation(new Vector2((newItemX), itemLocation.Y));
+                item.LeftCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
@@ -51,6 +54,7 @@ namespace Sprint2
                 locationDiffToChange = intersectionRectangle.Height;
                 int newItemY = (int)itemLocation.Y + locationDiffToChange;
                 item.updateLocation(new Vector2(itemLocation.X, newItemY));
+                item.BottomCollision();
             }
         }
     }

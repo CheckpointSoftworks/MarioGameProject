@@ -19,6 +19,7 @@ namespace Sprint2
         private int timer;
         private bool animate;
         private bool testForCollision;
+        private AutonomousPhysicsObject rigidbody;
 
         public BoxCoin(int locX, int locY)
         {
@@ -54,6 +55,15 @@ namespace Sprint2
                 ((BoxCoinSprite)boxCoinSprite).Location = location;
             }
             boxCoinSprite.Update();
+        }
+
+        public void LeftCollision() { }
+        public void RightCollision() { }
+        public void TopCollision() { }
+        public void BottomCollision() { }
+        public AutonomousPhysicsObject GetRigidBody()
+        {
+            return rigidbody;
         }
         public ItemType returnItemType()
         {
