@@ -68,7 +68,10 @@ namespace Sprint2
             }
             foreach (IItemObjects item in itemList)
             {
-                handleItemCollision(item);
+                if (!item.returnItemType().Equals(ItemType.Coin) && !item.returnItemType().Equals(ItemType.FireFlower))
+                {
+                    handleItemCollision(item);
+                }
             }
         }
 

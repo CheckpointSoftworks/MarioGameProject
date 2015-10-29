@@ -108,5 +108,10 @@ namespace Sprint2
         {
             return rigidbody;
         }
+
+        public AutonomousPhysicsObject RigidBody()
+        {
+            return rigidbody;
+        }
     }
 }
