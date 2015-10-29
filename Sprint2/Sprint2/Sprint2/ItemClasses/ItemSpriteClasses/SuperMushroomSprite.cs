@@ -9,8 +9,8 @@ namespace Sprint2
 {
     class SuperMushroomSprite : ISprite
     {
-        private Texture2D superMushroomSpriteSheet;
-        private AnimatedSprite superMushroomSprite;
+        private Texture2D spriteSheet;
+        private AnimatedSprite sprite;
         private Rectangle collisionRectangle;
         private Vector2 location;
         public Vector2 Location
@@ -20,30 +20,30 @@ namespace Sprint2
         }
         public SuperMushroomSprite(Vector2 location)
         {
-            superMushroomSpriteSheet = ItemSpriteTextureStorage.CreateSuperMushroomSprite();
+            spriteSheet = ItemSpriteTextureStorage.CreateSuperMushroomSprite();
             this.location = location;
-            superMushroomSprite = new AnimatedSprite(superMushroomSpriteSheet, 1, 1, location, 1);
-            collisionRectangle = superMushroomSprite.returnCollisionRectangle();
+            sprite = new AnimatedSprite(spriteSheet, 1, 1, location, 1);
+            collisionRectangle = sprite.returnCollisionRectangle();
         }
 
         public void Update()
         {
-            superMushroomSprite.Update();
+            sprite.Update();
         }
         public void Update(Vector2 loc)
         {
             location = loc;
-            superMushroomSprite.Update();
+            sprite.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            superMushroomSprite.Draw(spriteBatch, location, cameraLoc, true);
+            sprite.Draw(spriteBatch, location, cameraLoc, true);
         }
 
         public Rectangle returnCollisionRectangle()
         {
-            return collisionRectangle;
+            return sprite.returnCollisionRectangle();
         }
     }
 }

@@ -9,23 +9,26 @@ namespace Sprint2
 {
     public class OneUpMushroom : IItemObjects
     {
-        private ISprite oneUpMushroomSprite;
+        private ISprite sprite;
+
         private Rectangle collisionRectangle;
         private ItemType type;
         private bool testForCollision;
         private Vector2 location;
         private bool directionLeft;
         private AutonomousPhysicsObject rigidbody;
+
         public OneUpMushroom(int locX, int locY)
         {
             location = new Vector2(locX, locY);
-            oneUpMushroomSprite = new OneUpMushroomSprite(location);
+            sprite = new OneUpMushroomSprite(location);
             type = ItemType.OneUpMushroom;
-            collisionRectangle = oneUpMushroomSprite.returnCollisionRectangle();
+            collisionRectangle = sprite.returnCollisionRectangle();
             testForCollision = true;
             rigidbody = new AutonomousPhysicsObject();
             LoadRigidBodyProperties();
         }
+
         public bool DirectionLeft
         {
             get { return directionLeft; }
@@ -35,11 +38,12 @@ namespace Sprint2
         {
             rigidbody.AirFriction = 0.8f;
             rigidbody.GroundFriction = 1f;
-            rigidbody.GroundSpeed = 2.0f;
+            rigidbody.GroundSpeed = 1.5f;
             rigidbody.MaxFallSpeed = 3f;
             rigidbody.Elasticity = 0f;
             rigidbody.IsEnabled = true;
         }
+
         public void LeftCollision()
         {
             rigidbody.LeftCollision();
@@ -56,40 +60,40 @@ namespace Sprint2
         {
             rigidbody.BottomCollision();
         }
-        public AutonomousPhysicsObject GetRigidBody()
-        {
-            return rigidbody;
-        }
         public void Update()
         {
-            rigidbody.UpdatePhysics();
-            location += rigidbody.Velocity;
             if (testForCollision)
             {
-                ((OneUpMushroomSprite)oneUpMushroomSprite).Update(location);
+                rigidbody.UpdatePhysics();
+                location += rigidbody.Velocity;
+                ((OneUpMushroomSprite)(sprite)).Update(location);
             }
         }
+
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            oneUpMushroomSprite.Draw(spriteBatch, cameraLoc);
+            sprite.Draw(spriteBatch, cameraLoc);
         }
+
         public Vector2 returnLocation()
         {
             return location;
         }
+
         public ItemType returnItemType()
         {
             return type;
         }
         public Rectangle returnCollisionRectangle()
         {
-            return collisionRectangle;
+            return sprite.returnCollisionRectangle();
         }
+
         public void setCollisionRectangle(Rectangle sentCollisionRectangle)
         {
             collisionRectangle = sentCollisionRectangle;
             testForCollision = false;
-            oneUpMushroomSprite = new UsedItemSprite(location);
+            sprite = new UsedItemSprite(location);
         }
         public bool checkForCollisionTestFlag()
         {
@@ -98,6 +102,11 @@ namespace Sprint2
         public void updateLocation(Vector2 location)
         {
             this.location = location;
+            ((OneUpMushroomSprite)(sprite)).Update(location);
+        }
+        public AutonomousPhysicsObject RigidBody()
+        {
+            return rigidbody;
         }
     }
 }
