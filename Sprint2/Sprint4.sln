@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint4", "Sprint2\Sprint2\Sprint4.csproj", "{68840923-6557-4A6F-8E73-5968349DAE30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint4Content", "Sprint2\Sprint2Content\Sprint4Content.contentproj", "{07F1E1DE-0710-428D-9B96-9AD2F42262CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68840923-6557-4A6F-8E73-5968349DAE30}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{68840923-6557-4A6F-8E73-5968349DAE30}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{68840923-6557-4A6F-8E73-5968349DAE30}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{68840923-6557-4A6F-8E73-5968349DAE30}.Debug|x86.ActiveCfg = Debug|x86
+		{68840923-6557-4A6F-8E73-5968349DAE30}.Debug|x86.Build.0 = Debug|x86
+		{68840923-6557-4A6F-8E73-5968349DAE30}.Release|Any CPU.ActiveCfg = Release|x86
+		{68840923-6557-4A6F-8E73-5968349DAE30}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{68840923-6557-4A6F-8E73-5968349DAE30}.Release|Mixed Platforms.Build.0 = Release|x86
+		{68840923-6557-4A6F-8E73-5968349DAE30}.Release|x86.ActiveCfg = Release|x86
+		{68840923-6557-4A6F-8E73-5968349DAE30}.Release|x86.Build.0 = Release|x86
+		{07F1E1DE-0710-428D-9B96-9AD2F42262CA}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{07F1E1DE-0710-428D-9B96-9AD2F42262CA}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{07F1E1DE-0710-428D-9B96-9AD2F42262CA}.Debug|x86.ActiveCfg = Debug|x86
+		{07F1E1DE-0710-428D-9B96-9AD2F42262CA}.Release|Any CPU.ActiveCfg = Release|x86
+		{07F1E1DE-0710-428D-9B96-9AD2F42262CA}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{07F1E1DE-0710-428D-9B96-9AD2F42262CA}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
