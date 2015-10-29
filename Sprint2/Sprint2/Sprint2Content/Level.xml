@@ -28,12 +28,12 @@
     <y>400</y>
   </QuestionCoinBlock>
   <SuperMushroom>
-    <x>48</x>
-    <y>440</y>
+    <x>128</x>
+    <y>352</y>
   </SuperMushroom>  
   <OneUpMushroom>
-    <x>96</x>
-    <y>440</y>
+    <x>192</x>
+    <y>352</y>
   </OneUpMushroom>
   <PlatformingBlock>
     <x>112</x>

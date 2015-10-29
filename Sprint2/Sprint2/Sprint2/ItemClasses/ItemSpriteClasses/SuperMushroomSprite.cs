@@ -28,7 +28,12 @@ namespace Sprint2
 
         public void Update()
         {
-            
+            superMushroomSprite.Update();
+        }
+        public void Update(Vector2 loc)
+        {
+            location = loc;
+            superMushroomSprite.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
