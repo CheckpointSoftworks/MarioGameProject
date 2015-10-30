@@ -22,6 +22,7 @@ namespace Sprint2
         private ICommand rightDown;
         private ICommand fireball;
         private ICommand sprint;
+        private bool alreadyShot;
         private float deadZone;
 
         public GamepadController (Game1 game)
@@ -85,7 +86,15 @@ namespace Sprint2
                 }
                 if (padState1.Buttons.X == ButtonState.Pressed)
                 {
-                    fireball.Execute();
+                    if (!alreadyShot)
+                    {
+                        fireball.Execute();
+                    }
+                    alreadyShot = true;
+                }
+                else
+                {
+                    alreadyShot = false;
                 }
                 if (padState1.Buttons.A == ButtonState.Pressed)
                 {
