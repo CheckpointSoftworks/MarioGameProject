@@ -19,6 +19,7 @@ namespace Sprint2
         private ICommand fireball;
         private ICommand reset;
         private ICommand sprint;
+        private bool alreadyShot;
         KeyboardState keyState;
 
         public KeyboardController(Game1 game)
@@ -64,7 +65,15 @@ namespace Sprint2
             }
             if (keyState.IsKeyDown(Keys.A))
             {
-                fireball.Execute();
+                if (!alreadyShot)
+                {
+                    fireball.Execute();
+                }
+                alreadyShot = true;
+            }
+            else 
+            { 
+                alreadyShot = false; 
             }
             if (keyState.IsKeyDown(Keys.S))
             {
