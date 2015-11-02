@@ -61,26 +61,7 @@ namespace Sprint2
             {
                 enviromental.Update();
             }
-            handleMarioCollision((Mario)mario,game);
-            foreach (IEnemyObject enemy in enemiesList)
-            {
-                handleEnemyCollision(enemy);
-            }
-            foreach (IItemObjects item in itemList)
-            {
-                if (!item.returnItemType().Equals(ItemType.Coin) && !item.returnItemType().Equals(ItemType.FireFlower))
-                {
-                    handleItemCollision(item);
-                }
-            }
-            foreach (IProjectile projectile in projectileList)
-            {
-                handleProjectileCollision(projectile);
-                if (((Fireball)projectile).DoneFireBall()&&game.fireBallCount<2&&projectile.checkForCollisionTestFlag())
-                {
-                    game.fireBallCount++;
-                }
-            }
+            handleCollision(mario, game);
         }
 
         public void Draw(IPlayer player,SpriteBatch spriteBatch)
@@ -109,163 +90,47 @@ namespace Sprint2
             }
         }
 
-        private void handleMarioCollision(IPlayer mario,Game1 game)
+        private void handleCollision(IPlayer mario, Game1 game)
         {
-            IMarioState state = ((Mario)mario).State;
-            ((Mario)mario).State.Still();
-            CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side;
-            Rectangle floorCheck;
-            floorCheck = mario.returnCollisionRectangle();
-            floorCheck.Y++;
-            MarioBlockCollisionHandler blockHandler = new MarioBlockCollisionHandler();
-            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            MarioPipeCollisionHandler pipeHandler = new MarioPipeCollisionHandler();
-            ((Mario)mario).rigidbody.Floored = false;
-            foreach (IBlock block in blocksList)
-            {
-                if (block.checkForCollisionTestFlag())
-                {
-                    side = collisionDetector.getCollision(mario.returnCollisionRectangle(), block.returnCollisionRectangle());
-                    blockHandler.handleCollision((Mario)mario, block, side,game);
-                    if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
-                    {
-                        ((Mario)mario).rigidbody.Floored = true;
-                    }
-                }
-
-            }
+            handleMarioCollision((Mario)mario, game);
             foreach (IEnemyObject enemy in enemiesList)
             {
-                side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
-                enemyHandler.handleCollision((Mario)mario, enemy, side);
+                handleEnemyCollision(enemy);
             }
             foreach (IItemObjects item in itemList)
             {
-                if (item.checkForCollisionTestFlag())
+                if (!item.returnItemType().Equals(ItemType.Coin) && !item.returnItemType().Equals(ItemType.FireFlower))
                 {
-                    side = collisionDetector.getCollision(mario.returnCollisionRectangle(), item.returnCollisionRectangle());
-                    itemHandler.handleCollision((Mario)mario, item, side);
-                }
-            }
-            foreach (IEnviromental enviromental in enviromentalObjectsList)
-            {
-                side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
-                pipeHandler.handleCollision((Mario)mario, enviromental, side);
-                if (collisionDetector.getCollision(floorCheck, enviromental.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
-                {
-                    ((Mario)mario).rigidbody.Floored = true;
-                }
-            }
-            ((Mario)mario).State = state;
-        }
-
-        private void handleEnemyCollision(IEnemyObject enemy)
-        {
-            CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side;
-            Rectangle floorCheck;
-            floorCheck = enemy.returnCollisionRectangle();
-            floorCheck.Y++;
-            EnemyBlockCollisionHandler enemyBlockHandler = new EnemyBlockCollisionHandler();
-            EnemyEnviromentalCollisionHandler enemyEnviroHandler = new EnemyEnviromentalCollisionHandler();
-            EnemyEnemyCollisionHandler enemyEnemyHandler = new EnemyEnemyCollisionHandler();
-            EnemyProjectileCollisionHandler enemyProjHandler = new EnemyProjectileCollisionHandler();
-            enemy.GetRigidBody().Floored = false;
-            foreach (IBlock block in blocksList)
-            {
-                if (block.checkForCollisionTestFlag())
-                {
-                    side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), block.returnCollisionRectangle());
-                    enemyBlockHandler.handleCollision(enemy, block, side);
-                }
-                if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
-                {
-                    enemy.GetRigidBody().Floored = true;
-                }
-            }
-            foreach (IEnviromental enviromental in enviromentalObjectsList)
-            {
-                side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
-                enemyEnviroHandler.handleCollision(enemy, enviromental, side);
-            }
-            foreach (IEnemyObject secondEnemy in enemiesList)
-            {
-                if (!enemy.Equals(secondEnemy))
-                {
-                    side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), secondEnemy.returnCollisionRectangle());
-                    enemyEnemyHandler.handleCollision(enemy, secondEnemy, side);
+                    handleItemCollision(item);
                 }
             }
             foreach (IProjectile projectile in projectileList)
             {
-                side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), projectile.returnCollisionRectangle());
-                enemyProjHandler.handleCollision(enemy, projectile, side);
+                handleProjectileCollision(projectile);
+                if (((Fireball)projectile).DoneFireBall() && game.fireBallCount < 2 && projectile.checkForCollisionTestFlag())
+                {
+                    game.fireBallCount++;
+                }
             }
+        }
+
+        private void handleMarioCollision(IPlayer mario,Game1 game)
+        {
+            LevelCollisionHandlerHelper.handleMarioCollision(mario, game, this);
+        }
+
+        private void handleEnemyCollision(IEnemyObject enemy)
+        {
+            LevelCollisionHandlerHelper.handleEnemyCollision(enemy, this);
         }
         private void handleItemCollision(IItemObjects item)
         {
-            CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side;
-            Rectangle floorCheck;
-            floorCheck = item.returnCollisionRectangle();
-            floorCheck.Y++;
-            ItemBlockCollisionHandler itemBlockHandler = new ItemBlockCollisionHandler();
-            ItemEnvriomentalCollisionHandler itemEnviroHandler = new ItemEnvriomentalCollisionHandler();
-            item.RigidBody().Floored = false; 
-            foreach (IBlock block in blocksList)
-            {
-
-                if (block.checkForCollisionTestFlag())
-                {
-                    side = collisionDetector.getCollision(item.returnCollisionRectangle(), block.returnCollisionRectangle());
-                    itemBlockHandler.handleCollision(item, block, side);
-                }
-                if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
-                {
-                   item.RigidBody().Floored = true;
-                }
-            }
-            foreach (IEnviromental enviromental in enviromentalObjectsList)
-            {
-                side = collisionDetector.getCollision(item.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
-                itemEnviroHandler.handleCollision(item, enviromental, side);
-            }
+            LevelCollisionHandlerHelper.handleItemCollision(item, this);
         }
 
         private void handleProjectileCollision(IProjectile projectile)
         {
-            CollisionDetector collisionDetector = new CollisionDetector();
-            ICollision side;
-            Rectangle floorCheck;
-            floorCheck = projectile.returnCollisionRectangle();
-            floorCheck.Y++;
-            ProjectileBlockCollisionHandler projBlockHandler = new ProjectileBlockCollisionHandler();
-            ProjectileEnviromentalCollisionHandler projEnviroHandler = new ProjectileEnviromentalCollisionHandler();
-            projectile.RigidBody().Floored = false;
-            foreach (IBlock block in blocksList)
-            {
-                if (block.checkForCollisionTestFlag())
-                {
-                    
-                    side = collisionDetector.getCollision(projectile.returnCollisionRectangle(), block.returnCollisionRectangle());
-                    projBlockHandler.handleCollision(projectile, block, side);
-                }
-                if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
-                {
-                    projectile.RigidBody().Floored = true;
-                }
-            }
-            foreach (IEnviromental enviromental in enviromentalObjectsList)
-            {
-                side = collisionDetector.getCollision(projectile.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
-                projEnviroHandler.handleCollision(projectile, enviromental, side);
-                if (collisionDetector.getCollision(floorCheck, enviromental.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
-                {
-                    projectile.RigidBody().Floored = true;
-                }
-            }
+            LevelCollisionHandlerHelper.handleProjectileCollision(projectile, this);
         }
     }
 }

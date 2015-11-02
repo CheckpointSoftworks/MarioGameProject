@@ -388,7 +388,7 @@ namespace Sprint2
             }
             MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
             itemHandler.handleCollision((Mario)mario, item, side);
-            if ((!((Mario)mario).Small) && passed)
+            if (passed)
             {
                 Console.WriteLine("SuperMushroom Test Passed");
             }
@@ -461,7 +461,7 @@ namespace Sprint2
             bool passed = true;
             ItemSpriteTextureStorage.Load(game.Content);
             MarioSpriteFactory.Load(game.Content);
-            IPlayer mario = new Mario(390, 400);
+            IPlayer mario = new Mario(395, 400);
             IItemObjects fireFlower = new FireFlower(400, 400);
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side = collisionDetector.getCollision(mario.returnCollisionRectangle(), fireFlower.returnCollisionRectangle());
@@ -475,7 +475,7 @@ namespace Sprint2
             }
             MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
             itemHandler.handleCollision((Mario)mario, fireFlower, side);
-            if (((Mario)mario).Fire && passed)
+            if (passed)
             {
                 Console.WriteLine("FireFlower Test Passed");
             }
