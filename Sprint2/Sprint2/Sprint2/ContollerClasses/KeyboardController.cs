@@ -11,10 +11,6 @@ namespace Sprint2
     public class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> controllerMappings;
-        private ICommand upRight;
-        private ICommand upLeft;
-        private ICommand downRight;
-        private ICommand downLeft;
         private bool alreadyShot;
 
         public KeyboardController()
@@ -26,14 +22,6 @@ namespace Sprint2
         public void RegisterCommand(Keys key, ICommand command)
         {
             controllerMappings.Add(key, command);
-        }
-
-        public void RegisterDiagonalCommands(Game1 game)
-        {
-            upRight = new RightUpCommand(game);
-            upLeft = new LeftUpCommand(game);
-            downRight = new RightDownCommand(game);
-            downLeft = new LeftDownCommand(game);
         }
 
         public void Update()
