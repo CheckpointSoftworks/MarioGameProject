@@ -18,10 +18,11 @@ namespace Sprint2
         public void Execute()
         {
             facingRight = ((Mario)game.mario).FacingRight;
-            if (((Mario)game.mario).Fire)
+            if (((Mario)game.mario).Fire&&game.fireBallCount>0)
             {
                 Vector2 marioLoc = game.mario.returnLocation();
                 game.levelStore.projectileList.Add(new Fireball((int)marioLoc.X + 3, (int)marioLoc.Y + 8, facingRight));
+                game.fireBallCount--;
             }
         }
     }

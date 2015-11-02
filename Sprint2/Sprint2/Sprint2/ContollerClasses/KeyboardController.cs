@@ -10,78 +10,59 @@ namespace Sprint2
 {
     public class KeyboardController : IController
     {
-        private ICommand left;
-        private ICommand right;
-        private ICommand up;
-        private ICommand down;
-        private ICommand leftDown;
-        private ICommand rightDown;
-        private ICommand fireball;
-        private ICommand reset;
-        private ICommand sprint;
+        private Dictionary<Keys, ICommand> controllerMappings;
+        private ICommand upRight;
+        private ICommand upLeft;
+        private ICommand downRight;
+        private ICommand downLeft;
         private bool alreadyShot;
-        KeyboardState keyState;
 
-        public KeyboardController(Game1 game)
+        public KeyboardController()
         {
-            left = new LeftCommand(game);
-            right = new RightCommand(game);
-            up = new UpCommand(game);
-            down = new DownCommand(game);
-            leftDown = new LeftDownCommand(game);
-            rightDown = new RightDownCommand(game);
-            fireball = new FireballCommand(game);
-            sprint = new SprintCommand(game);
-            reset = new ResetLevelCommand(game);
+            controllerMappings = new Dictionary<Keys, ICommand>();
+            alreadyShot=false;
+        }
+
+        public void RegisterCommand(Keys key, ICommand command)
+        {
+            controllerMappings.Add(key, command);
+        }
+
+        public void RegisterDiagonalCommands(Game1 game)
+        {
+            upRight = new RightUpCommand(game);
+            upLeft = new LeftUpCommand(game);
+            downRight = new RightDownCommand(game);
+            downLeft = new LeftDownCommand(game);
         }
 
         public void Update()
         {
-            keyState = Keyboard.GetState();
+            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+            ArrayList keyList = new ArrayList();
 
-            if (keyState.IsKeyDown(Keys.Left) && keyState.IsKeyUp(Keys.Down))
+            foreach (Keys key in pressedKeys)
             {
-                left.Execute();
-            }
-            if (keyState.IsKeyDown(Keys.Right) && keyState.IsKeyUp(Keys.Down))
-            {
-                right.Execute();
-            }
-            if (keyState.IsKeyDown(Keys.D))
-            {
-                up.Execute();
-            }
-            if (keyState.IsKeyDown(Keys.Down))
-            {
-                down.Execute();
-            }
-            if (keyState.IsKeyDown(Keys.Left) && keyState.IsKeyDown(Keys.Down))
-            {
-                leftDown.Execute();
-            }
-            if (keyState.IsKeyDown(Keys.Right) && keyState.IsKeyDown(Keys.Down))
-            {
-                rightDown.Execute();
-            }
-            if (keyState.IsKeyDown(Keys.A))
-            {
-                if (!alreadyShot)
+                if (controllerMappings.ContainsKey(key))
                 {
-                    fireball.Execute();
+                    keyList.Add(key);
                 }
-                alreadyShot = true;
             }
-            else 
-            { 
-                alreadyShot = false; 
-            }
-            if (keyState.IsKeyDown(Keys.S))
+            foreach (Keys key in keyList)
             {
-                sprint.Execute();
-            }
-            if (keyState.IsKeyDown(Keys.R))
-            {
-                reset.Execute();
+                if (controllerMappings[key].Equals(Keys.X))
+                {
+                    if (!alreadyShot)
+                    {
+                        controllerMappings[key].Execute();
+                        alreadyShot = true;
+                    }
+                }
+                else if (!controllerMappings[key].Equals(Keys.X))
+                {
+                    controllerMappings[key].Execute();
+                    alreadyShot = false;
+                }
             }
         }
     }

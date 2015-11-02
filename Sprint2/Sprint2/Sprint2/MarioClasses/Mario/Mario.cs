@@ -16,6 +16,7 @@ namespace Sprint2
         public float TransitionToSmallTime = 10;
         private bool transitioning;
         private bool facingRight;
+        private bool moveMario;
         public bool FacingRight
         {
             get
@@ -117,6 +118,7 @@ namespace Sprint2
             transitioning = false;
             location = new Vector2(locX, locY);
             state = new MarioStill(this);
+            moveMario = true;
             rigidbody = new ControllablePhysicsObject();
             LoadPhysicsProperties();
         }
@@ -237,6 +239,15 @@ namespace Sprint2
                         small = false;
                         fire = true;
                     }
+                }
+                if (transitioning&&moveMario)
+                {
+                    location = new Vector2(location.X, location.Y - 16);
+                    moveMario = false;
+                }
+                else if (!transitioning)
+                {
+                    moveMario = true;
                 }
                 state.setDrawColor(Color.White);
                 state.Draw(spriteBatch, cameraLoc);

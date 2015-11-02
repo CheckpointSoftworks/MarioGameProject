@@ -76,6 +76,10 @@ namespace Sprint2
             foreach (IProjectile projectile in projectileList)
             {
                 handleProjectileCollision(projectile);
+                if (((Fireball)projectile).DoneFireBall()&&game.fireBallCount<2&&projectile.checkForCollisionTestFlag())
+                {
+                    game.fireBallCount++;
+                }
             }
         }
 

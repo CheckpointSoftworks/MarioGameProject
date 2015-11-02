@@ -16,7 +16,8 @@ namespace Sprint2
         private bool testForCollision;
         private Vector2 location;
         private AutonomousPhysicsObject rigidbody;
-        bool facingRight;
+        private bool facingRight;
+        private int timer;
 
         public Fireball(int x, int y, bool facingRight)
         {
@@ -24,6 +25,7 @@ namespace Sprint2
             sprite = new FireballSprite(location);
             collisionRectangle = sprite.returnCollisionRectangle();
             testForCollision = true;
+            timer = 200;
             rigidbody = new AutonomousPhysicsObject();
             this.facingRight = facingRight;
             LoadRigidBodyProperties();
@@ -57,11 +59,17 @@ namespace Sprint2
         }
         public void Update()
         {
-            if (testForCollision)
+            if (testForCollision&&timer>0)
             {
                 rigidbody.UpdatePhysics();
                 location += rigidbody.Velocity;
                 ((FireballSprite)(sprite)).Update(location);
+                timer--;
+            }
+            else
+            {
+                sprite = new UsedItemSprite(location);
+                testForCollision = false;
             }
         }
 
@@ -92,6 +100,16 @@ namespace Sprint2
         public AutonomousPhysicsObject RigidBody()
         {
             return rigidbody;
+        }
+
+        public bool DoneFireBall()
+        {
+            bool complete = false;
+            if (timer == 0)
+            {
+                complete = true;
+            }
+            return complete;
         }
     }
 }
