@@ -161,6 +161,7 @@ namespace Sprint2
                 if (timer == 0)
                 {
                     star = false;
+                    timer = 600;
                 }
 
                 state.Update();
@@ -273,6 +274,7 @@ namespace Sprint2
                     state.setDrawColor(Color.Gold);
                     state.Draw(spriteBatch, cameraLoc);
                 }
+
             }
         }
 
