@@ -37,7 +37,8 @@ namespace Sprint2
 
             if (marioCameraPosition < 0)
             {
-                camera.MoveRight(marioCameraPosition);
+                int newMarioX = (int)marioPosition.X - marioCameraPosition;
+                ((Mario)mario).Location = new Vector2(newMarioX, mario.returnLocation().Y);
             }
             cameraPosition = camera.GetPosition();
             marioPosition = mario.returnLocation();
