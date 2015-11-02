@@ -15,31 +15,27 @@ namespace Sprint2
         private Rectangle collisionRectangle;
         private bool testForCollision;
         private Vector2 location;
-        private bool directionLeft;
         private AutonomousPhysicsObject rigidbody;
+        bool facingRight;
 
-        public Fireball(int x, int y)
+        public Fireball(int x, int y, bool facingRight)
         {
             location = new Vector2(x, y);
             sprite = new FireballSprite(location);
             collisionRectangle = sprite.returnCollisionRectangle();
             testForCollision = true;
             rigidbody = new AutonomousPhysicsObject();
+            this.facingRight = facingRight;
             LoadRigidBodyProperties();
-        }
-
-        public bool DirectionLeft
-        {
-            get { return directionLeft; }
-            set { directionLeft = value; }
         }
         private void LoadRigidBodyProperties()
         {
             rigidbody.AirFriction = 0.8f;
             rigidbody.GroundFriction = 1f;
-            rigidbody.GroundSpeed = 1.5f;
             rigidbody.MaxFallSpeed = 1.5f;
             rigidbody.Elasticity = 1f;
+            if (facingRight) { rigidbody.GroundSpeed = 1.5f; }
+            else{ rigidbody.GroundSpeed = -1.5f; }
             rigidbody.IsEnabled = true;
         }
 

@@ -83,6 +83,10 @@ namespace Sprint2
         {
             player.Draw(spriteBatch, camera.GetPosition());
 
+            foreach (IEnviromental enviromental in enviromentalObjectsList)
+            {
+                enviromental.Draw(spriteBatch, camera.GetPosition());
+            }
             foreach (IItemObjects item in itemList)
             {
                 item.Draw(spriteBatch, camera.GetPosition());
@@ -94,10 +98,6 @@ namespace Sprint2
             foreach (IBlock block in blocksList)
             {
                 block.Draw(spriteBatch, camera.GetPosition());
-            }
-            foreach (IEnviromental enviromental in enviromentalObjectsList)
-            {
-                enviromental.Draw(spriteBatch, camera.GetPosition());
             }
             foreach (IProjectile projectile in projectileList)
             {

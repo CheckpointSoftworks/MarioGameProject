@@ -88,7 +88,7 @@
   </Pipe>
   <Pipe>
     <x>624</x>
-    <y>424</y>
+    <y>408</y>
   </Pipe>
   <Goomba>
     <x>672</x>
@@ -96,7 +96,7 @@
   </Goomba>
   <Pipe>
     <x>752</x>
-    <y>424</y>
+    <y>392</y>
   </Pipe>
   <Goomba>
     <x>864</x>
@@ -107,8 +107,8 @@
     <y>400</y>
   </Goomba>
   <Pipe>
-    <x>912</x>
-    <y>424</y>
+    <x>928</x>
+    <y>392</y>
   </Pipe>
   <HiddenBlock>
     <x>1024</x>
@@ -729,10 +729,6 @@
   </BrickBlock>
   <BrickBlock>
     <x>1408</x>
-    <y>320</y>
-  </BrickBlock>
-  <BrickBlock>
-    <x>1424</x>
     <y>320</y>
   </BrickBlock>
   <!-- Ground Blocks: -->
@@ -2345,7 +2341,62 @@
     <x>3376</x>
     <y>456</y>
   </GroundBlock>
-
+  <GroundBlock>
+    <x>3392</x>
+    <y>472</y>
+  </GroundBlock>
+  <GroundBlock>
+    <x>3392</x>
+    <y>456</y>
+  </GroundBlock>
+  <GroundBlock>
+    <x>3408</x>
+    <y>472</y>
+  </GroundBlock>
+  <GroundBlock>
+    <x>3408</x>
+    <y>456</y>
+  </GroundBlock>
+    <GroundBlock>
+    <x>3424</x>
+    <y>472</y>
+  </GroundBlock>
+  <GroundBlock>
+    <x>3424</x>
+    <y>456</y>
+  </GroundBlock>
+   <GroundBlock>
+    <x>3440</x>
+    <y>472</y>
+  </GroundBlock>
+  <GroundBlock>
+    <x>3440</x>
+    <y>456</y>
+  </GroundBlock>
+    <GroundBlock>
+    <x>3456</x>
+    <y>472</y>
+  </GroundBlock>
+  <GroundBlock>
+    <x>3456</x>
+    <y>456</y>
+  </GroundBlock>
+   <GroundBlock>
+    <x>3472</x>
+    <y>472</y>
+  </GroundBlock>
+  <GroundBlock>
+    <x>3472</x>
+    <y>456</y>
+  </GroundBlock>
+   <GroundBlock>
+    <x>3488</x>
+    <y>472</y>
+  </GroundBlock>
+  <GroundBlock>
+    <x>3488</x>
+    <y>456</y>
+  </GroundBlock>
 
 
 </Level>

@@ -12,11 +12,12 @@ Automated testing is done in the testing class and prints to the console if it p
 Controls:
 Mario:
 arrow keys for left/right/crouch movement
-z key for jumping
-x key for running and fireballs
+d key for jumping
+a key for fireballs
+s key for sprinting
 
-Suggested GamePad Mappings
+GamePad Mappings
 
-left joystick for left/right/crouch movement
-a key for jumping
-b key for running and fireballs
+left joystick for left/right/crouch/jump movement
+a key for sprinting
+x key for fireballs

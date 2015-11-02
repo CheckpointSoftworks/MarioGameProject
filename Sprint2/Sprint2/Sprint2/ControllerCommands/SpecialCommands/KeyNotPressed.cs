@@ -14,20 +14,20 @@ namespace Sprint2
         private Vector2 leftThumbPosition;
         private KeyboardState keyState;
         private GamePadState padState1;
+        private ICommand restoreRigidbody;
         private float deadZone;
 
-        public KeyNotPressed(Game1 gameInstance)
+        public KeyNotPressed(Game1 game)
         {
-            game = gameInstance;
+            this.game = game;
             leftThumbPosition.X = 0;
             leftThumbPosition.Y = 0;
             deadZone = 0.5f;
+            restoreRigidbody = new RestoreMarioRigidbodyCommand(game);
         }
 
         public bool MovementKeysReleased()
         {
-           keyState = Keyboard.GetState();
-
             return keyState.IsKeyUp(Keys.W) && keyState.IsKeyUp(Keys.S)
                 && keyState.IsKeyUp(Keys.A) && keyState.IsKeyUp(Keys.D)
                 && keyState.IsKeyUp(Keys.Up) && keyState.IsKeyUp(Keys.Down)
@@ -36,24 +36,30 @@ namespace Sprint2
 
         public bool LeftStickInDeadzone()
         {
-            padState1 = GamePad.GetState(PlayerIndex.One);
             leftThumbPosition.X = padState1.ThumbSticks.Left.X;
             leftThumbPosition.Y = padState1.ThumbSticks.Left.Y;
 
-            if (padState1.IsConnected)
-            {
-                return (leftThumbPosition.X < deadZone && leftThumbPosition.X > -deadZone)
-                    && (leftThumbPosition.Y < deadZone && leftThumbPosition.Y > -deadZone);
-            }
-            else
-            {
-                return true;
-            }
+            return (leftThumbPosition.X < deadZone && leftThumbPosition.X > -deadZone)
+                && (leftThumbPosition.Y < deadZone && leftThumbPosition.Y > -deadZone);
+            
+        }
 
+        public bool SprintKeyReleased()
+        {
+            return padState1.Buttons.A == ButtonState.Released && keyState.IsKeyUp(Keys.S)
+                && keyState.IsKeyUp(Keys.S) && padState1.IsButtonUp(Buttons.A);
         }
 
         public void Execute()
         {
+            padState1 = GamePad.GetState(PlayerIndex.One);
+            keyState = Keyboard.GetState();
+
+            if (SprintKeyReleased())
+            {
+                restoreRigidbody.Execute();
+            }
+
             if (MovementKeysReleased() && LeftStickInDeadzone())
             {
                 if (!((Mario)game.mario).IsDying)

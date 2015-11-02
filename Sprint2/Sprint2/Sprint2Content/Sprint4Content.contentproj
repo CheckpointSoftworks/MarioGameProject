@@ -125,13 +125,6 @@
     <Folder Include="Mario\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PipeSprite.png">
-      <Name>PipeSprite</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="MarioFireChangeDirection.png">
       <Name>MarioFireChangeDirection</Name>
       <Importer>TextureImporter</Importer>
@@ -319,6 +312,13 @@
   <ItemGroup>
     <Compile Include="Background2.png">
       <Name>Background2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PipeSprite.png">
+      <Name>PipeSprite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
