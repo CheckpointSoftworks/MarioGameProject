@@ -13,6 +13,8 @@ namespace Sprint2
         private bool directionLeft;
         private AutonomousPhysicsObject rigidbody;
         private IEnemyState state;
+        private bool shellForm;
+
         public IEnemyState State
         {
             get
@@ -37,6 +39,7 @@ namespace Sprint2
             rigidbody = new AutonomousPhysicsObject();
             LoadRigidBodyProperties();
             directionLeft = false;
+            shellForm = false;
         }
 
         private void LoadRigidBodyProperties()
@@ -57,7 +60,7 @@ namespace Sprint2
         public void RightCollision()
         {
             directionLeft = false;
-           rigidbody.RightCollision();
+            rigidbody.RightCollision();
         }
         public void TopCollision()
         {
@@ -91,6 +94,7 @@ namespace Sprint2
         public void TakeDamage()
         {
             state.TakeDamage();
+            shellForm = true;
         }
 
         public void updateLocation(Vector2 newLocation)
@@ -101,6 +105,10 @@ namespace Sprint2
         public Vector2 returnLocation()
         {
             return location;
+        }
+        public bool canHurtOtherEnemies()
+        {
+            return shellForm;
         }
     }
 }

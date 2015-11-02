@@ -27,6 +27,8 @@ namespace Sprint2
         void updateLocation(Vector2 location);
 
         Vector2 returnLocation();
+
+        bool canHurtOtherEnemies();
     
     }
 }

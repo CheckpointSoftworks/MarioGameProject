@@ -15,6 +15,14 @@ namespace Sprint2
             {
                 handleEnemyMovement(firstEnemy, secondEnemy, side);
             }
+            if (firstEnemy.canHurtOtherEnemies() && !(side.returnCollisionSide().Equals(CollisionSide.None)))
+            {
+                secondEnemy.TakeDamage();
+            }
+            else if (secondEnemy.canHurtOtherEnemies() && !(side.returnCollisionSide().Equals(CollisionSide.None)))
+            {
+                firstEnemy.TakeDamage();
+            }
         }
 
         private static void handleEnemyMovement(IEnemyObject firstEnemy, IEnemyObject secondEnemy, ICollision side)

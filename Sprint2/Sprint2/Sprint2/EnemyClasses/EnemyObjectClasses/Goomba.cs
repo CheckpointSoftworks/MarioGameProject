@@ -94,5 +94,10 @@ namespace Sprint2
         {
            return location;
         }
+
+        public bool canHurtOtherEnemies()
+        {
+            return false;
+        }
     }
 }
