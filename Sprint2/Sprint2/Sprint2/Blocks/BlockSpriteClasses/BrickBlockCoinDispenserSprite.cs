@@ -43,26 +43,7 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            if (bounceTimer > 10 && bounce)
-            {
-                int newY = (int)location.Y;
-                newY--;
-                if (newY > maxHeight)
-                {
-                    location = new Vector2(location.X, newY);
-                }
-                bounceTimer--;
-            }
-            else if(bounce && bounceTimer >= 0)
-            {
-                int newY = (int)location.Y;
-                newY++;
-                if (newY < minHeight)
-                {
-                    location = new Vector2(location.X, newY);
-                }
-                bounceTimer--;
-            }
+            dispenserBouncing();
             Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize*frame), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
             Rectangle destinationRectangle = new Rectangle((int)location.X - (int)cameraLoc.X, (int)location.Y - (int)cameraLoc.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
@@ -87,6 +68,35 @@ namespace Sprint2
             {
                 bounce = true;
                 bounceTimer = 20;
+            }
+        }
+
+        private void dispenserBouncing()
+        {
+
+            if (bounceTimer > 10 && bounce)
+            {
+                int newY = (int)location.Y;
+                newY--;
+                if (newY > maxHeight)
+                {
+                    location = new Vector2(location.X, newY);
+                }
+                bounceTimer--;
+            }
+            else if (bounce && bounceTimer >= 0)
+            {
+                int newY = (int)location.Y;
+                newY++;
+                if (newY < minHeight)
+                {
+                    location = new Vector2(location.X, newY);
+                }
+                bounceTimer--;
+            }
+            if (used)
+            {
+                location = new Vector2(location.X, minHeight);
             }
         }
     }

@@ -18,6 +18,7 @@ namespace Sprint2
         private int totalFrames;
         private int bounceTimer = 20;
         private bool bounce;
+        private int minY;
 
         public QuestionBlockSprite(Vector2 location)
         {
@@ -27,6 +28,7 @@ namespace Sprint2
             used = false;
             bounce = false;
             totalFrames=1;
+            minY = (int)location.Y;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
 
@@ -40,23 +42,7 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            if (bounceTimer > 10 &&bounce)
-            {
-                int newY = (int)location.Y;
-                newY--;
-                location = new Vector2(location.X, newY);
-                bounceTimer--;
-            }
-            else if (bounce && bounceTimer > 0)
-            {
-                int newY = (int)location.Y;
-                newY++;
-                location = new Vector2(location.X, newY);
-                bounceTimer--;
-            }
-            if(bounceTimer==0){
-                used = true;
-            }
+            bounceTheBlock();
             Rectangle sourceRectangle = new Rectangle((spriteSheetSpriteSize * frame), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
             Rectangle destinationRectangle = new Rectangle((int)location.X - (int)cameraLoc.X, (int)location.Y - (int)cameraLoc.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
@@ -78,6 +64,29 @@ namespace Sprint2
         public void switchToUsed()
         {
             used = true;
+        }
+
+        private void bounceTheBlock()
+        {
+            if (bounceTimer > 10 && bounce)
+            {
+                int newY = (int)location.Y;
+                newY--;
+                location = new Vector2(location.X, newY);
+                bounceTimer--;
+            }
+            else if (bounce && bounceTimer > 0)
+            {
+                int newY = (int)location.Y;
+                newY++;
+                location = new Vector2(location.X, newY);
+                bounceTimer--;
+            }
+            if (bounceTimer == 0)
+            {
+                used = true;
+                location = new Vector2(location.X, minY);
+            }
         }
     }
 }
