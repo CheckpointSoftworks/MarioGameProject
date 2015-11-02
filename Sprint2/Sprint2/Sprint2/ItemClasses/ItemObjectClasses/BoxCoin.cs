@@ -58,14 +58,6 @@ namespace Sprint2
             boxCoinSprite.Update();
         }
 
-        public void LeftCollision() { }
-        public void RightCollision() { }
-        public void TopCollision() { }
-        public void BottomCollision() { }
-        public AutonomousPhysicsObject GetRigidBody()
-        {
-            return rigidbody;
-        }
         public ItemType returnItemType()
         {
             return type;
@@ -94,9 +86,9 @@ namespace Sprint2
         {
             return location;
         }
-        public void updateLocation(Vector2 location)
+        public void updateLocation(Vector2 sentLocation)
         {
-            this.location = location;
+            location = sentLocation;
         }
 
         public AutonomousPhysicsObject RigidBody()

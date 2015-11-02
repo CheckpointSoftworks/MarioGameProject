@@ -7,20 +7,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class ItemBlockCollisionHandler
+    public static class ItemBlockCollisionHandler
     {
-        public ItemBlockCollisionHandler()
-        {
-
-        }
-        public void handleCollision(IItemObjects item, IBlock block, ICollision side){
+        public static void handleCollision(IItemObjects item, IBlock block, ICollision side){
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
                 handleItemMovement(item, block, side);
             }
         }
 
-        private void handleItemMovement(IItemObjects item, IBlock block, ICollision side)
+        private static void handleItemMovement(IItemObjects item, IBlock block, ICollision side)
         {
             Rectangle blockRectangle = block.returnCollisionRectangle();
             Rectangle itemRectangle = item.returnCollisionRectangle();

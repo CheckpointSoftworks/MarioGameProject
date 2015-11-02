@@ -11,14 +11,12 @@ namespace Sprint2
     {
         private Texture2D spriteSheet;
         private AnimatedSprite sprite;
-        private Rectangle collisionRectangle;
         private Vector2 location;
         public OneUpMushroomSprite(Vector2 location)
         {
             spriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSprite();
             this.location = location;
             sprite = new AnimatedSprite(spriteSheet, 1, 1, location, 1);
-            collisionRectangle = sprite.returnCollisionRectangle();
         }
 
         public void Update()

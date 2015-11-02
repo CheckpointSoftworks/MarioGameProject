@@ -7,13 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class ProjectileEnviromentalCollisionHandler
+    public static class ProjectileEnviromentalCollisionHandler
     {
-        public ProjectileEnviromentalCollisionHandler()
-        {
-
-        }
-        public void handleCollision(IProjectile projectile,IEnviromental enviromental,ICollision side)
+        public static void handleCollision(IProjectile projectile,IEnviromental enviromental,ICollision side)
         {
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
@@ -21,7 +17,7 @@ namespace Sprint2
             }
         }
 
-        private void handleMovement(IProjectile projectile, IEnviromental enviromental, ICollision side)
+        private static void handleMovement(IProjectile projectile, IEnviromental enviromental, ICollision side)
         {
             Rectangle projectileRectangle = projectile.returnCollisionRectangle();
             Rectangle enviroRectangle = enviromental.returnCollisionRectangle();
@@ -45,14 +41,10 @@ namespace Sprint2
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
-                locationDiffToChange = intersectionRectangle.Height;
-                int newProjectileY = (int)projectileLocation.Y - locationDiffToChange;
                 projectile.RigidBody().BottomCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
-                locationDiffToChange = intersectionRectangle.Height;
-                int newProjectileY = (int)projectileLocation.Y + locationDiffToChange;
                 projectile.RigidBody().TopCollision();
             }
         }

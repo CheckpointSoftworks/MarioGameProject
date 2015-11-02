@@ -12,13 +12,12 @@ namespace Sprint2
         private Texture2D superStarSpriteSheet;
         private Vector2 location;
         private AnimatedSprite superStarSprite;
-        private Rectangle collisionRectangle;
+
         public SuperStarSprite(Vector2 location)
         {
             superStarSpriteSheet = ItemSpriteTextureStorage.CreateSuperStarSprite();
             this.location = location;
             superStarSprite = new AnimatedSprite(superStarSpriteSheet, 1, 4, location, 1);
-            collisionRectangle = superStarSprite.returnCollisionRectangle();
         }
 
         public void Update()

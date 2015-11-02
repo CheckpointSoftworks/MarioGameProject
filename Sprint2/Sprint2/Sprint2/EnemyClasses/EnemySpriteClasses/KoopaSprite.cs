@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class KoopaSprite : ISprite
+    public class KoopaSprite : ISprite
     {
         private AnimatedSprite AnimatedKoopa;
         private bool facingRight = false;

@@ -41,10 +41,7 @@ namespace Sprint2
         {
             
         }
-        public void JumpRun()
-        {
-          
-        }
+
         public void ShootFireball()
         {
             
@@ -53,10 +50,7 @@ namespace Sprint2
         {
             
         }
-        public void DuckRun()
-        {
-            
-        }
+
         public void TakeDamage()
         {
 

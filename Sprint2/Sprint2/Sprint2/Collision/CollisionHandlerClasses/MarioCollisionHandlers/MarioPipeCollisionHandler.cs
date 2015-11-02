@@ -7,13 +7,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-   public class MarioPipeCollisionHandler{
-        public MarioPipeCollisionHandler()
-        {
+   public static class MarioPipeCollisionHandler
+   {
 
-        }
-
-        public void handleCollision(Mario mario, IEnviromental enviromental, ICollision side)
+        public static void handleCollision(Mario mario, IEnviromental enviromental, ICollision side)
         {
 
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))

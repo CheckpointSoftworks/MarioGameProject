@@ -11,19 +11,12 @@ namespace Sprint2
     {
         private Texture2D spriteSheet;
         private AnimatedSprite sprite;
-        private Rectangle collisionRectangle;
-        private Vector2 location;
-        public Vector2 Location
-        {
-            get { return location; }
-            set { location = value; }
-        }
+        private Vector2 location { get; set; }
         public SuperMushroomSprite(Vector2 location)
         {
             spriteSheet = ItemSpriteTextureStorage.CreateSuperMushroomSprite();
             this.location = location;
             sprite = new AnimatedSprite(spriteSheet, 1, 1, location, 1);
-            collisionRectangle = sprite.returnCollisionRectangle();
         }
 
         public void Update()

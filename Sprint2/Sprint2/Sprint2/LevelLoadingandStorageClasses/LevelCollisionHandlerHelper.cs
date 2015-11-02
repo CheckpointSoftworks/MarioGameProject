@@ -18,17 +18,13 @@ namespace Sprint2
             Rectangle floorCheck;
             floorCheck = mario.returnCollisionRectangle();
             floorCheck.Y++;
-            MarioBlockCollisionHandler blockHandler = new MarioBlockCollisionHandler();
-            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            MarioPipeCollisionHandler pipeHandler = new MarioPipeCollisionHandler();
             ((Mario)mario).rigidbody.Floored = false;
             foreach (IBlock block in storage.blocksList)
             {
                 if (block.checkForCollisionTestFlag())
                 {
                     side = collisionDetector.getCollision(mario.returnCollisionRectangle(), block.returnCollisionRectangle());
-                    blockHandler.handleCollision((Mario)mario, block, side, game);
+                    MarioBlockCollisionHandler.handleCollision((Mario)mario, block, side, game);
                     if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
                     {
                         ((Mario)mario).rigidbody.Floored = true;
@@ -39,20 +35,20 @@ namespace Sprint2
             foreach (IEnemyObject enemy in storage.enemiesList)
             {
                 side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
-                enemyHandler.handleCollision((Mario)mario, enemy, side);
+                MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
             }
             foreach (IItemObjects item in storage.itemList)
             {
                 if (item.checkForCollisionTestFlag())
                 {
                     side = collisionDetector.getCollision(mario.returnCollisionRectangle(), item.returnCollisionRectangle());
-                    itemHandler.handleCollision((Mario)mario, item, side);
+                    MarioItemCollisionHandler.handleCollision((Mario)mario, item, side);
                 }
             }
             foreach (IEnviromental enviromental in storage.enviromentalObjectsList)
             {
                 side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
-                pipeHandler.handleCollision((Mario)mario, enviromental, side);
+                MarioPipeCollisionHandler.handleCollision((Mario)mario, enviromental, side);
                 if (collisionDetector.getCollision(floorCheck, enviromental.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
                 {
                     ((Mario)mario).rigidbody.Floored = true;
@@ -68,17 +64,13 @@ namespace Sprint2
             Rectangle floorCheck;
             floorCheck = enemy.returnCollisionRectangle();
             floorCheck.Y++;
-            EnemyBlockCollisionHandler enemyBlockHandler = new EnemyBlockCollisionHandler();
-            EnemyEnviromentalCollisionHandler enemyEnviroHandler = new EnemyEnviromentalCollisionHandler();
-            EnemyEnemyCollisionHandler enemyEnemyHandler = new EnemyEnemyCollisionHandler();
-            EnemyProjectileCollisionHandler enemyProjHandler = new EnemyProjectileCollisionHandler();
             enemy.GetRigidBody().Floored = false;
             foreach (IBlock block in storage.blocksList)
             {
                 if (block.checkForCollisionTestFlag())
                 {
                     side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), block.returnCollisionRectangle());
-                    enemyBlockHandler.handleCollision(enemy, block, side);
+                    EnemyBlockCollisionHandler.handleCollision(enemy, block, side);
                 }
                 if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
                 {
@@ -88,20 +80,20 @@ namespace Sprint2
             foreach (IEnviromental enviromental in storage.enviromentalObjectsList)
             {
                 side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
-                enemyEnviroHandler.handleCollision(enemy, enviromental, side);
+                EnemyEnviromentalCollisionHandler.handleCollision(enemy, enviromental, side);
             }
             foreach (IEnemyObject secondEnemy in storage.enemiesList)
             {
                 if (!enemy.Equals(secondEnemy))
                 {
                     side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), secondEnemy.returnCollisionRectangle());
-                    enemyEnemyHandler.handleCollision(enemy, secondEnemy, side);
+                    EnemyEnemyCollisionHandler.handleCollision(enemy, secondEnemy, side);
                 }
             }
             foreach (IProjectile projectile in storage.projectileList)
             {
                 side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), projectile.returnCollisionRectangle());
-                enemyProjHandler.handleCollision(enemy, projectile, side);
+                EnemyProjectileCollisionHandler.handleCollision(enemy, projectile, side);
             }
         }
 
@@ -112,8 +104,6 @@ namespace Sprint2
             Rectangle floorCheck;
             floorCheck = item.returnCollisionRectangle();
             floorCheck.Y++;
-            ItemBlockCollisionHandler itemBlockHandler = new ItemBlockCollisionHandler();
-            ItemEnvriomentalCollisionHandler itemEnviroHandler = new ItemEnvriomentalCollisionHandler();
             item.RigidBody().Floored = false;
             foreach (IBlock block in storage.blocksList)
             {
@@ -121,7 +111,7 @@ namespace Sprint2
                 if (block.checkForCollisionTestFlag())
                 {
                     side = collisionDetector.getCollision(item.returnCollisionRectangle(), block.returnCollisionRectangle());
-                    itemBlockHandler.handleCollision(item, block, side);
+                    ItemBlockCollisionHandler.handleCollision(item, block, side);
                 }
                 if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
                 {
@@ -131,7 +121,7 @@ namespace Sprint2
             foreach (IEnviromental enviromental in storage.enviromentalObjectsList)
             {
                 side = collisionDetector.getCollision(item.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
-                itemEnviroHandler.handleCollision(item, enviromental, side);
+                ItemEnvriomentalCollisionHandler.handleCollision(item, enviromental, side);
             }
         }
 
@@ -142,8 +132,6 @@ namespace Sprint2
             Rectangle floorCheck;
             floorCheck = projectile.returnCollisionRectangle();
             floorCheck.Y++;
-            ProjectileBlockCollisionHandler projBlockHandler = new ProjectileBlockCollisionHandler();
-            ProjectileEnviromentalCollisionHandler projEnviroHandler = new ProjectileEnviromentalCollisionHandler();
             projectile.RigidBody().Floored = false;
             foreach (IBlock block in storage.blocksList)
             {
@@ -151,7 +139,7 @@ namespace Sprint2
                 {
                     
                     side = collisionDetector.getCollision(projectile.returnCollisionRectangle(), block.returnCollisionRectangle());
-                    projBlockHandler.handleCollision(projectile, block, side);
+                    ProjectileBlockCollisionHandler.handleCollision(projectile, block, side);
                 }
                 if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
                 {
@@ -161,7 +149,7 @@ namespace Sprint2
             foreach (IEnviromental enviromental in storage.enviromentalObjectsList)
             {
                 side = collisionDetector.getCollision(projectile.returnCollisionRectangle(), enviromental.returnCollisionRectangle());
-                projEnviroHandler.handleCollision(projectile, enviromental, side);
+                ProjectileEnviromentalCollisionHandler.handleCollision(projectile, enviromental, side);
                 if (collisionDetector.getCollision(floorCheck, enviromental.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
                 {
                     projectile.RigidBody().Floored = true;

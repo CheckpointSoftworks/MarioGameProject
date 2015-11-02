@@ -89,7 +89,11 @@ namespace Sprint2
         }
         public Rectangle returnCollisionRectangle()
         {
-            return sprite.returnCollisionRectangle();
+            if (testForCollision)
+            {
+                collisionRectangle = sprite.returnCollisionRectangle();
+            }
+            return collisionRectangle;
         }
 
         public void setCollisionRectangle(Rectangle sentCollisionRectangle)
@@ -102,9 +106,9 @@ namespace Sprint2
         {
             return testForCollision;
         }
-        public void updateLocation(Vector2 location)
+        public void updateLocation(Vector2 sentLocation)
         {
-            this.location = location;
+            location = sentLocation;
         }
         public AutonomousPhysicsObject RigidBody()
         {

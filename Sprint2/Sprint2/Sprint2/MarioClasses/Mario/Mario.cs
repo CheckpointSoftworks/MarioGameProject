@@ -10,10 +10,10 @@ namespace Sprint2
     public class Mario : IPlayer
     {
 
-        private float transitionDuration = 3f;
-        public float TransitionToBigTime = 10;
-        public float TransitionToFireTime = 10;
-        public float TransitionToSmallTime = 10;
+        private float transitionDuration;
+        private float TransitionToBigTime;
+        private float TransitionToFireTime;
+        private float TransitionToSmallTime;
         private bool transitioning;
         private bool facingRight;
         private bool moveMario;
@@ -101,13 +101,8 @@ namespace Sprint2
             }
         }
 
-        private IMarioState transitionState;
-        public IMarioState TransitionToState
-        {
-            set { transitionState = value; }
-        }
         private int timer = 600;
-        public ControllablePhysicsObject rigidbody;
+        public ControllablePhysicsObject rigidbody { get; set; }
         public Mario(int locX, int locY)
         {
             small = true;
@@ -121,6 +116,10 @@ namespace Sprint2
             moveMario = true;
             rigidbody = new ControllablePhysicsObject();
             LoadPhysicsProperties();
+            transitionDuration = 3f;
+            TransitionToBigTime = 10;
+            TransitionToFireTime = 10;
+            TransitionToSmallTime = 10;
         }
 
         private void LoadPhysicsProperties()

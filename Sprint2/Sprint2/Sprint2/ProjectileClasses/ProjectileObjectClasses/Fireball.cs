@@ -11,8 +11,6 @@ namespace Sprint2
     {
 
         private ISprite sprite;
-
-        private Rectangle collisionRectangle;
         private bool testForCollision;
         private Vector2 location;
         private AutonomousPhysicsObject rigidbody;
@@ -23,7 +21,6 @@ namespace Sprint2
         {
             location = new Vector2(x, y);
             sprite = new FireballSprite(location);
-            collisionRectangle = sprite.returnCollisionRectangle();
             testForCollision = true;
             timer = 200;
             rigidbody = new AutonomousPhysicsObject();
@@ -41,22 +38,6 @@ namespace Sprint2
             rigidbody.IsEnabled = true;
         }
 
-        public void LeftCollision()
-        {
-            rigidbody.LeftCollision();
-        }
-        public void RightCollision()
-        {
-            rigidbody.RightCollision();
-        }
-        public void TopCollision()
-        {
-            rigidbody.TopCollision();
-        }
-        public void BottomCollision()
-        {
-            rigidbody.BottomCollision();
-        }
         public void Update()
         {
             if (testForCollision&&timer>0)
@@ -92,9 +73,9 @@ namespace Sprint2
         {
             return testForCollision;
         }
-        public void updateLocation(Vector2 location)
+        public void updateLocation(Vector2 sentLocation)
         {
-            this.location = location;
+            location = sentLocation;
             ((FireballSprite)(sprite)).Update(location);
         }
         public AutonomousPhysicsObject RigidBody()

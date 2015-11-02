@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class GoombaSprite : ISprite
+    public class GoombaSprite : ISprite
     {
         private AnimatedSprite AnimatedGoomba;
         private bool FacingRight = true;

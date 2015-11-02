@@ -7,13 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class MarioEnemyCollisionHandler
+    public static class MarioEnemyCollisionHandler
     {
-        public MarioEnemyCollisionHandler()
-        {
-
-        }
-        public void handleCollision(Mario mario, IEnemyObject enemy, ICollision side)
+        public static void handleCollision(Mario mario, IEnemyObject enemy, ICollision side)
         {
             ICommand command;
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))

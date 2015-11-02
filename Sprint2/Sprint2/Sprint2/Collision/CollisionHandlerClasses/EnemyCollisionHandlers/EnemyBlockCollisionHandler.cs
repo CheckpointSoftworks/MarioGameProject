@@ -7,13 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class EnemyBlockCollisionHandler
+    public static class EnemyBlockCollisionHandler
     {
-        public EnemyBlockCollisionHandler()
-        {
-
-        }
-        public void handleCollision(IEnemyObject enemy, IBlock block, ICollision side)
+        public static void handleCollision(IEnemyObject enemy, IBlock block, ICollision side)
         {
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
             {
@@ -21,7 +17,7 @@ namespace Sprint2
             }
         }
 
-        private void handleEnemyMovement(IEnemyObject enemy,IBlock block,ICollision side)
+        private static void handleEnemyMovement(IEnemyObject enemy,IBlock block,ICollision side)
         {
             Rectangle blockRectangle = block.returnCollisionRectangle();
             Rectangle enemyRectangle = enemy.returnCollisionRectangle();

@@ -15,7 +15,6 @@ namespace Sprint2
         private Vector2 location;
         public Vector2 Location
         {
-            get { return location; }
             set { location = value; }
         }
         public FireFlowerSprite(Vector2 location)

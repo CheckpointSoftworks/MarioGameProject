@@ -9,7 +9,6 @@ namespace Sprint2
     public class CameraController
     {
         private int cameraWidth;
-        private int cameraHeight;
         private Camera camera;
         private IPlayer mario;
         private Vector2 marioPosition;
@@ -22,7 +21,6 @@ namespace Sprint2
         {
             this.camera = camera;
             cameraWidth = camera.GetWidth();
-            cameraHeight = camera.GetHeight();
             cameraPosition = camera.GetPosition();
             this.mario = mario;
             marioPosition = mario.returnLocation();
@@ -37,7 +35,6 @@ namespace Sprint2
                 camera.MoveRight(marioCameraPosition - screenCenter);
             }
 
-            //FOR TESTING PURPOSES
             if (marioCameraPosition < 0)
             {
                 camera.MoveRight(marioCameraPosition);

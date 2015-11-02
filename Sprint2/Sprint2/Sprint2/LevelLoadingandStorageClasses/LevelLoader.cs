@@ -19,7 +19,7 @@ namespace Sprint2
     {
 
         public string LevelName { get; set; }
-        public Camera camera;
+        public Camera camera { get; set; }
         public LevelLoader(string levelname, Camera camera)
         {
             this.LevelName = levelname;

@@ -143,7 +143,6 @@
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IItemObjects.cs" />
-    <Compile Include="Interfaces\IKeyboard.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\ItemSpriteTextureStorage.cs" />

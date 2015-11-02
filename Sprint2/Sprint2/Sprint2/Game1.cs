@@ -26,7 +26,6 @@ namespace Sprint2
         public int fireBallCount { get; set; }
         private Texture2D background;
         private Texture2D background2;
-        private Rectangle mainframe;
         private TestingClass tester;
         private ICommand resetCommand;
         private ICommand keyNotPressed;
@@ -45,7 +44,6 @@ namespace Sprint2
             gamepad = new GamepadController(this);
             camera = new Camera(480, 800, new Vector2(0, 0));
             loader = new LevelLoader("Level.xml", camera);
-            mainframe = new Rectangle(0, 0, 2000, 600);
             levelStore = new LevelStorage(camera);
             keyNotPressed = new KeyNotPressed(this);
             fireBallCount = 2;

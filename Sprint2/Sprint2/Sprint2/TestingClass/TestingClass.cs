@@ -386,8 +386,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            itemHandler.handleCollision((Mario)mario, item, side);
+            MarioItemCollisionHandler.handleCollision((Mario)mario, item, side);
             if (passed)
             {
                 Console.WriteLine("SuperMushroom Test Passed");
@@ -415,8 +414,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            itemHandler.handleCollision((Mario)mario, item, side);
+            MarioItemCollisionHandler.handleCollision((Mario)mario, item, side);
             if (passed)
             {
                 Console.WriteLine("OneUpMushroom Test Passed");
@@ -444,8 +442,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            itemHandler.handleCollision((Mario)mario, coin, side);
+            MarioItemCollisionHandler.handleCollision((Mario)mario, coin, side);
             if (passed)
             {
                 Console.WriteLine("Coin Test Passed");
@@ -473,8 +470,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            itemHandler.handleCollision((Mario)mario, fireFlower, side);
+            MarioItemCollisionHandler.handleCollision((Mario)mario, fireFlower, side);
             if (passed)
             {
                 Console.WriteLine("FireFlower Test Passed");
@@ -501,8 +497,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioItemCollisionHandler itemHandler = new MarioItemCollisionHandler();
-            itemHandler.handleCollision((Mario)mario, star, side);
+            MarioItemCollisionHandler.handleCollision((Mario)mario, star, side);
             if (((Mario)mario).Star && passed)
             {
                 Console.WriteLine("Star Test Passed");
@@ -529,8 +524,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Goomba Left Test Passed");
@@ -558,8 +552,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Goomba Right Test Passed");
@@ -587,8 +580,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
             if (passed)
             {
                 Console.WriteLine("Goomba Top Test Passed");
@@ -616,8 +608,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Goomba Bottom Test Passed");
@@ -645,8 +636,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Koopa Left Test Passed");
@@ -674,8 +664,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Koopa Right Test Passed");
@@ -703,8 +692,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
             if (passed)
             {
                 Console.WriteLine("Koopa Top Test Passed");
@@ -732,8 +720,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler enemyHandler = new MarioEnemyCollisionHandler();
-            enemyHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
             if ((((Mario)mario).IsDying) && passed)
             {
                 Console.WriteLine("Koopa Bottom Test Passed");

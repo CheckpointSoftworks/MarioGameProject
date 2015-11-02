@@ -7,14 +7,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class MarioBlockCollisionHandler
+    public static class MarioBlockCollisionHandler
     {
-        public MarioBlockCollisionHandler()
-        {
 
-        }
-
-        public void handleCollision(Mario mario, IBlock block, ICollision side,Game1 game)
+        public static void handleCollision(Mario mario, IBlock block, ICollision side,Game1 game)
         {
             if (!(side.returnCollisionSide().Equals(CollisionSide.None))&&!(block.returnBlockType().Equals(BlockType.Hidden)))
             {
@@ -101,7 +97,6 @@ namespace Sprint2
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y - locationDiffToChange;
                 mario.Location = new Vector2(mario.Location.X, newMarioY);
-                //mario.State.Still();
                 mario.rigidbody.BottomCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))

@@ -15,13 +15,13 @@ namespace Sprint2
 {
     public class LevelStorage
     {
+        public Camera camera { get; set; }
         public IPlayer player { get; set; }
         public ArrayList itemList;
         public ArrayList enemiesList;
         public ArrayList blocksList;
         public ArrayList enviromentalObjectsList;
         public ArrayList projectileList;
-        public Camera camera;
 
         public LevelStorage(Camera camera)
         {

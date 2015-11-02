@@ -7,18 +7,16 @@ using System.Text;
 
 namespace Sprint2
 {
-        class FireballSprite : ISprite
+     public class FireballSprite : ISprite
         {
            private Texture2D spriteSheet;
         private AnimatedSprite sprite;
-        private Rectangle collisionRectangle;
         private Vector2 location;
         public FireballSprite(Vector2 location)
         {
             spriteSheet = MiscGameObjectTextureStorage.CreateFireballSprite();
             this.location = location;
             sprite = new AnimatedSprite(spriteSheet, 1, 4, location, 1);
-            collisionRectangle = sprite.returnCollisionRectangle();
         }
 
         public void Update()
