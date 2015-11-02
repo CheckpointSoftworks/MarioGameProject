@@ -21,7 +21,7 @@ namespace Sprint2
         private bool alreadyShot;
         private float deadZone;
 
-        public GamepadController (Game1 game)
+        public GamepadController(Game1 game)
         {
             leftThumbPosition.X = 0;
             leftThumbPosition.Y = 0;
