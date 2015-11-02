@@ -81,7 +81,7 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterCommand(Keys.Right, new RightCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.X, new FireballCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.R, new ResetLevelCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.C, new SprintCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.S, new SprintCommand(this));
             ((KeyboardController)keyboard).RegisterDiagonalCommands(this);
         }
         protected override void UnloadContent() { }
