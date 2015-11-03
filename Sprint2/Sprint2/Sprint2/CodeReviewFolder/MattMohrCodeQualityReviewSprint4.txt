@@ -1,0 +1,10 @@
+﻿Author of the code review: Matt Mohr
+Date of the code review: 10/28/15
+Sprint number: 4
+Name of the .cs file being reviewed: Goomba.cs
+Author of the .cs file being reviewed:  Johnathan Miller
+Number of minutes taken to complete the review: 30 minutes.
+Comments:
+Cohesion is excellent with sprites being handled by a state pattern, physics handled by a rigidbody component, collisions are received and sent to the rigidbody. Collision events are available in Goomba if a state change needs to occur besides TakeDamage
+Feature:
+A potential feature to add would be to make LoadRigidBodyProperties a helper class. Maybe Ridibody could be a factory that loads the properties of enemies instead of having to hardcode the values into each enemy. 

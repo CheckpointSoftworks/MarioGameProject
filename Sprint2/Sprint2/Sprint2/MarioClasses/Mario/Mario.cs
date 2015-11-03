@@ -17,6 +17,7 @@ namespace Sprint2
         private bool transitioning;
         private bool facingRight;
         private bool moveMario;
+        private bool canFire;
         public bool FacingRight
         {
             get
@@ -100,6 +101,11 @@ namespace Sprint2
                 state = value;
             }
         }
+        public bool CanFire
+        {
+            get { return canFire && fire; }
+            set { canFire = value && fire; }
+        }
 
         private int timer = 600;
         public ControllablePhysicsObject rigidbody { get; set; }
@@ -110,6 +116,7 @@ namespace Sprint2
             facingRight = true;
             star = false;
             isDying = false;
+            canFire = true;
             transitioning = false;
             location = new Vector2(locX, locY);
             state = new MarioStill(this);
@@ -161,6 +168,7 @@ namespace Sprint2
                 if (timer == 0)
                 {
                     star = false;
+                    timer = 600;
                 }
 
                 state.Update();
@@ -169,11 +177,11 @@ namespace Sprint2
         }
         public void BecomeBig()
         {
-            TransitionToBigTime = 0;
+            if (!fire) TransitionToBigTime = 0;
         }
         public void BecomeFire()
         {
-            TransitionToFireTime = 0;
+           if (!fire) TransitionToFireTime = 0;
         }
         public void BecomeSmall()
         {
@@ -273,6 +281,7 @@ namespace Sprint2
                     state.setDrawColor(Color.Gold);
                     state.Draw(spriteBatch, cameraLoc);
                 }
+
             }
         }
 

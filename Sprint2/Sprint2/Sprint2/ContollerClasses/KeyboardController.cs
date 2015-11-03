@@ -11,17 +11,25 @@ namespace Sprint2
     public class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> controllerMappings;
+        private Dictionary<Keys, ICommand> releasedControllerMappings;
+        private ICommand noJump;
         private bool alreadyShot;
 
         public KeyboardController()
         {
             controllerMappings = new Dictionary<Keys, ICommand>();
+            releasedControllerMappings = new Dictionary<Keys, ICommand>();
             alreadyShot=false;
         }
 
         public void RegisterCommand(Keys key, ICommand command)
         {
             controllerMappings.Add(key, command);
+        }
+
+        public void RegisterReleasedCommand(Keys key, ICommand command)
+        {
+            releasedControllerMappings.Add(key, command);
         }
 
         public void Update()
@@ -40,17 +48,20 @@ namespace Sprint2
             {
                 if (controllerMappings[key].Equals(Keys.X))
                 {
-                    if (!alreadyShot)
-                    {
                         controllerMappings[key].Execute();
-                        alreadyShot = true;
-                    }
                 }
                 else if (!controllerMappings[key].Equals(Keys.X))
                 {
                     controllerMappings[key].Execute();
-                    alreadyShot = false;
                 }
+            }
+            if (!keyList.Contains(Keys.Z))
+            {
+                releasedControllerMappings[Keys.Z].Execute();
+            }
+            if (!keyList.Contains(Keys.X))
+            {
+                releasedControllerMappings[Keys.X].Execute();
             }
         }
     }
