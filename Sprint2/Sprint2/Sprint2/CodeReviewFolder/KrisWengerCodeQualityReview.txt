@@ -1,0 +1,17 @@
+﻿Author of the code review: Kris Wenger
+Date of the code review: 11/2/15
+Sprint number: 4
+Name of the .cs file being reviewed: CameraController
+Author of the .cs file being reviewed: Scott Weddendorf
+Specific comments on code quality:
+	The class is quite percise in its variable naming conventions.  In terms of maintainability,
+	adjusting the camera to follow a different player character other than Mario seems easy
+	enough, just in the constructor send a different IPlayer to the controller.  This is the
+	same with have the controller control a different player.  So in theory, on could have a camera
+	centered around a Mario player and another camera centered around a Luigi player.  In terms of
+	dependencies the controller is only really dependent on an IPlayer and a camera, both of which make
+	sense since you need the camera to control and the player to know when to move the camera.
+	In terms of cohesion the camera controller I would say has high cohesion becuase it is perfroming
+	only one task.  It is updating the camera through method calls.  In terms of coupling as stated above
+	the class has very few dependencies, so I would also say that the camera contoller has loose coupling.
+	Overall, I believe this class has high cohesion and loose coupling.

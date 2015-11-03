@@ -94,7 +94,10 @@ namespace Sprint2
         {
            return location;
         }
-
+        public bool canHurtMario()
+        {
+            return true;
+        }
         public bool canHurtOtherEnemies()
         {
             return false;
