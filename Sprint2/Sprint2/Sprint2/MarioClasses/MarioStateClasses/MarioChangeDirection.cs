@@ -17,10 +17,10 @@ namespace Sprint2
         public MarioChangeDirection(Mario mario)
         {
             this.mario = mario;
-            mario.FacingRight = !mario.FacingRight;
-            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(), 1, 1, mario.Location, 4);
-            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1, mario.Location, 4);
-            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigJumpingSprite(), 1, 1, mario.Location, 4);
+            //mario.FacingRight = !mario.FacingRight;
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigChangeDirectionSprite(), 1, 1, mario.Location, 4);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallChangeDirectionSprite(), 1, 1, mario.Location, 4);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireChangeDirectionSprite(), 1, 1, mario.Location, 4);
         }
         public void Update()
         {
