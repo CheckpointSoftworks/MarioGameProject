@@ -14,6 +14,7 @@ namespace Sprint2
         private AutonomousPhysicsObject rigidbody;
         private IEnemyState state;
         private bool shellForm;
+        private bool hurtMario;
 
         public IEnemyState State
         {
@@ -40,6 +41,7 @@ namespace Sprint2
             LoadRigidBodyProperties();
             directionLeft = false;
             shellForm = false;
+            hurtMario = true;
         }
 
         private void LoadRigidBodyProperties()
@@ -95,6 +97,8 @@ namespace Sprint2
         {
             state.TakeDamage();
             shellForm = true;
+            rigidbody.GroundSpeed = 0f;
+            hurtMario = false;
         }
 
         public void updateLocation(Vector2 newLocation)
@@ -109,6 +113,23 @@ namespace Sprint2
         public bool canHurtOtherEnemies()
         {
             return shellForm;
+        }
+
+        public bool canHurtMario()
+        {
+            return hurtMario;
+        }
+
+        public void shellLeftHit()
+        {
+            rigidbody.GroundSpeed=1f;
+            hurtMario = true;
+        }
+
+        public void shellRightHit()
+        {
+            rigidbody.GroundSpeed = -1f;
+            hurtMario = true;
         }
     }
 }

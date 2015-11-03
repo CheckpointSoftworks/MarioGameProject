@@ -28,6 +28,8 @@ namespace Sprint2
 
         Vector2 returnLocation();
 
+        bool canHurtMario();
+
         bool canHurtOtherEnemies();
     
     }

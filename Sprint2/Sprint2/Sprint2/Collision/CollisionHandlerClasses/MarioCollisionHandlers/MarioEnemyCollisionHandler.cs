@@ -17,15 +17,20 @@ namespace Sprint2
                 handleMarioMovement(mario, enemy, side);
             }
 
-            if (side.returnCollisionSide().Equals(CollisionSide.Top))
+            if (side.returnCollisionSide().Equals(CollisionSide.Top)&&enemy.canHurtMario())
             {
                 command = new MarioHitsEnemyCollision(enemy, mario);
                 command.Execute();
             }
-            else if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
+            else if (!(side.returnCollisionSide().Equals(CollisionSide.None))&&enemy.canHurtMario())
             {
                 command = new EnemyHitsMarioCollision(mario,enemy);
                 command.Execute();
+            }
+            if (enemy.canHurtOtherEnemies()&&!(side.returnCollisionSide().Equals(CollisionSide.None))&&!enemy.canHurtMario())
+            {
+                handleMarioMovement(mario, enemy, side);
+                handleEnemtMovement(enemy,side);
             }
         }
 
@@ -59,6 +64,22 @@ namespace Sprint2
                 locationDiffToChange = intersectionRectangle.Height;
                 int newMarioY = (int)mario.Location.Y + locationDiffToChange;
                 mario.Location = new Vector2(mario.Location.X, newMarioY);
+            }
+        }
+
+        private static void handleEnemtMovement(IEnemyObject enemy,ICollision side)
+        {
+            if (side.returnCollisionSide().Equals(CollisionSide.Left))
+            {
+                ((Koopa)enemy).shellLeftHit();
+            }
+            else if (side.returnCollisionSide().Equals(CollisionSide.Right))
+            {
+                ((Koopa)enemy).shellRightHit();
+            }
+            else if (side.returnCollisionSide().Equals(CollisionSide.Top))
+            {
+                ((Koopa)enemy).shellLeftHit();
             }
         }
     }
