@@ -9,6 +9,7 @@ namespace Sprint2
 {
     public interface IMarioState
     {
+        MarioState State();
         void Still();
         void Running();
         void ChangeDirection();

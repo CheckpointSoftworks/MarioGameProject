@@ -16,7 +16,7 @@ namespace Sprint2
 
         public void Execute(){
             enemy.TakeDamage();
-            ((Mario)mario).rigidbody.Jump();
+            ((Mario)mario).BounceOff();
             
         }
     }

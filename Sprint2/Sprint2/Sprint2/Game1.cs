@@ -93,7 +93,7 @@ namespace Sprint2
             mario.Update();
             levelStore.Update(mario, this);
             cameraController.Update();
-            if (((Mario)mario).IsDying)
+            if (((Mario)mario).StateStatus().Equals(MarioState.Die))
             {
                 resetCommand.Execute();
             }

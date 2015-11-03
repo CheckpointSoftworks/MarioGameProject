@@ -12,11 +12,13 @@ namespace Sprint2
     {
         private Dictionary<Keys, ICommand> controllerMappings;
         private Dictionary<Keys, ICommand> releasedControllerMappings;
+        private List<Keys> checkReleasedKeyList;        
 
         public KeyboardController()
         {
             controllerMappings = new Dictionary<Keys, ICommand>();
             releasedControllerMappings = new Dictionary<Keys, ICommand>();
+            checkReleasedKeyList = new List<Keys>();
         }
 
         public void RegisterCommand(Keys key, ICommand command)
@@ -27,6 +29,7 @@ namespace Sprint2
         public void RegisterReleasedCommand(Keys key, ICommand command)
         {
             releasedControllerMappings.Add(key, command);
+            checkReleasedKeyList.Add(key);
         }
 
         public void Update()
@@ -43,23 +46,18 @@ namespace Sprint2
             }
             foreach (Keys key in keyList)
             {
-                if (controllerMappings[key].Equals(Keys.X))
-                {
-                        controllerMappings[key].Execute();
-                }
-                else if (!controllerMappings[key].Equals(Keys.X))
-                {
-                    controllerMappings[key].Execute();
-                }
+                controllerMappings[key].Execute(); 
             }
-            if (!keyList.Contains(Keys.Z))
+
+            foreach (Keys k in checkReleasedKeyList.ToArray())
             {
-                releasedControllerMappings[Keys.Z].Execute();
+                if (!keyList.Contains(k))
+                {
+                    releasedControllerMappings[k].Execute();
+                }
             }
-            if (!keyList.Contains(Keys.X))
-            {
-                releasedControllerMappings[Keys.X].Execute();
-            }
+        
+            
         }
     }
 }
