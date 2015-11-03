@@ -16,7 +16,7 @@ namespace Sprint2
 
             public void Execute()
             {
-                ((Mario)Game.mario).rigidbody.MoveLeft();
+                ((Mario)Game.mario).MoveLeft();
             }
     }
 }

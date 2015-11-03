@@ -14,7 +14,6 @@ namespace Sprint2
         public MarioDying(Mario mario)
         {
             this.mario = mario;
-            mario.IsDying = true;
             sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDyingSprite(), 1, 1, mario.Location, 4);
         }
         public void Update()
@@ -24,6 +23,10 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             sprite.Draw(spriteBatch, mario.Location, cameraLoc, mario.FacingRight);
+        }
+        public MarioState State()
+        {
+            return MarioState.Die;
         }
         public void Still()
         {

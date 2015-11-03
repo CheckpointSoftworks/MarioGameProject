@@ -83,6 +83,7 @@
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaDamaged.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\EnemyCollisionHandlers\EnemyProjectileCollisionHandler.cs" />
+    <Compile Include="Enumerators\MarioStateEnum.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\BrickPieces.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\BrickPiecesSprite.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\FireballCommand.cs" />

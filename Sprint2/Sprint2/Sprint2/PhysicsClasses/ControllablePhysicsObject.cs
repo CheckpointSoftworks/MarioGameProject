@@ -210,6 +210,10 @@ namespace Sprint2
             acceleration.X -= groundSpeed;
             Clamp(Velocity.X, 0, maxVelocity.X);
         }
+        public void ResetJump()
+        {
+            airTime = 0;
+        }
 
         public void Jump()
         {
@@ -250,7 +254,7 @@ namespace Sprint2
                 }
 
             }
-            airTime = 0;
+            ResetJump();
         }
 
         private static float Clamp(float value, float min, float max)

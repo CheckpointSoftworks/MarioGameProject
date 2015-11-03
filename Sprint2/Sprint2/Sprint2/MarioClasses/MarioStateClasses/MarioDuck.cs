@@ -36,6 +36,10 @@ namespace Sprint2
         {
             sprite.Draw(spriteBatch, mario.Location, cameraLoc, mario.FacingRight);
         }
+        public MarioState State()
+        {
+            return MarioState.Duck;
+        }
         public void Still()
         {
             mario.State = new MarioStill(mario);

@@ -22,6 +22,10 @@ namespace Sprint2
         {
             
         }
+        public MarioState State()
+        {
+            return MarioState.Shoot;
+        }
         public void Still()
         {
             mario.State = new MarioStill(mario);

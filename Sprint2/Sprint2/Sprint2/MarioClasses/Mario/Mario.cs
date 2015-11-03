@@ -66,18 +66,6 @@ namespace Sprint2
                 star = value;
             }
         }
-        private bool isDying;
-        public bool IsDying
-        {
-            get
-            {
-                return isDying;
-            }
-            set
-            {
-                isDying = value;
-            }
-        }
         private Vector2 location;
         public Vector2 Location
         {
@@ -102,6 +90,10 @@ namespace Sprint2
                 state = value;
             }
         }
+        public MarioState StateStatus()
+        {
+            return state.State();
+        }
         public bool CanFire
         {
             get { return canFire && fire; }
@@ -116,7 +108,6 @@ namespace Sprint2
             fire = false;
             facingRight = true;
             star = false;
-            isDying = false;
             canFire = true;
             transitioning = false;
             location = new Vector2(locX, locY);
@@ -179,6 +170,39 @@ namespace Sprint2
                 state.Update();
 
             }
+        }
+
+        public void MoveRight()
+        {
+            if (!state.State().Equals(MarioState.Duck))
+            {
+                rigidbody.MoveRight();
+            }
+            else
+            {
+                facingRight = true;
+            }
+
+        }
+
+        public void MoveLeft()
+        {
+            if (!state.State().Equals(MarioState.Duck)) 
+            {
+                rigidbody.MoveLeft();
+            }
+            else
+            {
+                facingRight = false;
+            }
+        }
+        /// <summary>
+        /// Special case jump that can only be called by enemies or bouncy objects
+        /// </summary>
+        public void BounceOff()
+        {
+            rigidbody.ResetJump();
+            rigidbody.Jump();
         }
 
         private void ChangeDirection()
@@ -261,7 +285,7 @@ namespace Sprint2
                 }
                 if (TransitionToDifferentDirection < transitionDuration)
                 {
-                    TransitionToDifferentDirection += 0.3f;
+                    TransitionToDifferentDirection += 0.4f;
                     state.ChangeDirection();
                     transitioning = (TransitionToFireTime < transitionDuration);
                 }

@@ -28,11 +28,6 @@ namespace Sprint2
                     if (collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide().Equals(CollisionSide.Top))
                     {
                         ((Mario)mario).rigidbody.Floored = true;
-                        floorCheck.Y++;
-                    }
-                    if (!side.returnCollisionSide().Equals(CollisionSide.None))
-                    {
-                        Console.WriteLine("Collision: " + collisionDetector.getCollision(floorCheck, block.returnCollisionRectangle()).returnCollisionSide());
                     }
                 }
 

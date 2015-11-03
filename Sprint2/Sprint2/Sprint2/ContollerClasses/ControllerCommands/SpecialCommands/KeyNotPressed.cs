@@ -62,7 +62,7 @@ namespace Sprint2
 
             if (MovementKeysReleased() && LeftStickInDeadzone())
             {
-                if (!((Mario)game.mario).IsDying)
+                if (!((Mario)game.mario).State.Equals(MarioState.Die))
                 {
                     ((Mario)game.mario).State.Still();
                 }

@@ -46,6 +46,10 @@ namespace Sprint2
                 big.Draw(spriteBatch, mario.Location, cameraLoc, mario.FacingRight);
 
         }
+        public MarioState State()
+        {
+            return MarioState.Jump;
+        }
         public void Still()
         {
             mario.State = new MarioStill(mario);
