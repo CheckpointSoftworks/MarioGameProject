@@ -211,6 +211,7 @@
     <Content Include="CodeReviewFolder\KrisWengerCodeQualityReview.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\MohrMattCodeReadabilityReviewSprint4.txt" />
+    <Content Include="CodeReviewFolder\ScottWeddendorfCodeQualityReview.txt" />
     <Content Include="CodeReviewFolder\ScottWeddendorfReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\MattMohrCodeQualityReviewSprint4.txt" />
     <Content Include="Game.ico" />

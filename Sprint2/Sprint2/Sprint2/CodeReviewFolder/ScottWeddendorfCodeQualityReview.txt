@@ -1,0 +1,17 @@
+Author: Scott Weddendorf
+Date: November 2, 2015
+Sprint: 4
+Name of File: BrickBlockCoinDispenser.cs
+Author of File: Kris Wenger
+Minutes: 15
+Comments on Quality:
+	The class has is very organized with clear variable names and method names and has good
+	cohesion.  All of the methods are very specific and relate closely to the block type.
+	The methods only deal with keeping track of various variables and states for the coin 
+	dispenser and one method creates the box coin needed within the dispenser.  There is very
+	little to no coupling.  The only dependency is the corresponding sprite class which is 
+	obviously necessary.  One potential change would be to allow the number of coins in the 
+	box to be set to different values or for the box to stay active for a certain amount of 
+	time after it has been hit the first time.  Overall, because of high cohesion and low
+	coupling the class has good maintainablity and functionality.
+	
