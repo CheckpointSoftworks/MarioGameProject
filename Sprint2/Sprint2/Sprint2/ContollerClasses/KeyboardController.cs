@@ -12,14 +12,11 @@ namespace Sprint2
     {
         private Dictionary<Keys, ICommand> controllerMappings;
         private Dictionary<Keys, ICommand> releasedControllerMappings;
-        private ICommand noJump;
-        private bool alreadyShot;
 
         public KeyboardController()
         {
             controllerMappings = new Dictionary<Keys, ICommand>();
             releasedControllerMappings = new Dictionary<Keys, ICommand>();
-            alreadyShot=false;
         }
 
         public void RegisterCommand(Keys key, ICommand command)
