@@ -14,6 +14,7 @@ namespace Sprint2
         private float TransitionToBigTime;
         private float TransitionToFireTime;
         private float TransitionToSmallTime;
+        private float TransitionToDifferentDirection;
         private bool transitioning;
         private bool facingRight;
         private bool moveMario;
@@ -151,7 +152,11 @@ namespace Sprint2
                     state.Running();
                 }
             }
-            if ((facingRight && rigidbody.Velocity.X < 0) || (!facingRight && rigidbody.Velocity.X > 0)) facingRight = !facingRight;
+            if ((facingRight && rigidbody.Velocity.X < 0) || (!facingRight && rigidbody.Velocity.X > 0))
+            {
+                facingRight = !facingRight;
+                ChangeDirection();
+            }
             if (!transitioning)
             {
                 rigidbody.UpdatePhysics();
@@ -175,6 +180,11 @@ namespace Sprint2
 
             }
         }
+
+        private void ChangeDirection()
+        {
+            TransitionToDifferentDirection = 0;
+        }
         public void BecomeBig()
         {
             if (!fire) TransitionToBigTime = 0;
@@ -197,10 +207,12 @@ namespace Sprint2
             {
                 if (fire)
                 {
+                    fire = false;
                     BecomeBig();
                 }
                 else
                 {
+                    small = true;
                     BecomeSmall();
                 }
             }
@@ -246,6 +258,12 @@ namespace Sprint2
                         small = false;
                         fire = true;
                     }
+                }
+                if (TransitionToDifferentDirection < transitionDuration)
+                {
+                    TransitionToDifferentDirection += 0.3f;
+                    state.ChangeDirection();
+                    transitioning = (TransitionToFireTime < transitionDuration);
                 }
                 if (transitioning&&moveMario)
                 {
