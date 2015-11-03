@@ -39,6 +39,7 @@ arrow keys for left/right/crouch movement
 z key for jumping
 x key for fireballs
 s key for sprinting
+r key for resetting level
 
 GamePad Mappings
 
