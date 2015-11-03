@@ -220,6 +220,11 @@ namespace Sprint2
             }
         }
 
+        public void NoJump()
+        {
+            airTime = jumpDuration;
+        }
+
         public void HorizontalCollision()
         {
             velocity.X = 0;

@@ -46,7 +46,7 @@ namespace Sprint2
             loader = new LevelLoader("Level.xml", camera);
             levelStore = new LevelStorage(camera);
             keyNotPressed = new KeyNotPressed(this);
-            fireBallCount = 2;
+            fireBallCount = 10;
             base.Initialize();
             tester.runTests();
         }
@@ -80,6 +80,8 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterCommand(Keys.X, new FireballCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.R, new ResetLevelCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.S, new SprintCommand(this));
+            ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.Z,new NoJumpCommand(this));
+            ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.X, new NoFireCommand(this));
         }
         protected override void UnloadContent() { }
 
