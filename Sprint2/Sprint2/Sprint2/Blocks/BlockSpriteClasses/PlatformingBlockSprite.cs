@@ -12,12 +12,13 @@ namespace Sprint2
         private Texture2D platformingBlockSpriteSheet;
         private Vector2 location; 
         private Rectangle collisionRectangle;
-        private int spriteSheetSpriteSize = 16;
+        private int spriteSheetSpriteSize;
 
         public PlatformingBlockSprite(Vector2 location)
         {
             platformingBlockSpriteSheet = BlockSpriteTextureStorage.CreatePlatformingBlockSprite();
             this.location = location;
+            spriteSheetSpriteSize = platformingBlockSpriteSheet.Width;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
 

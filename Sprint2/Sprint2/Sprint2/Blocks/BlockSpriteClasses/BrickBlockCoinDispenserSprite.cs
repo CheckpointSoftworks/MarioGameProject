@@ -14,9 +14,9 @@ namespace Sprint2
         private bool used;
         private Rectangle collisionRectangle;
         private int frame;
-        private int spriteSheetSpriteSize = 16;
+        private int spriteSheetSpriteSize;
         private int totalFrames;
-        private int bounceTimer = 20;
+        private int bounceTimer;
         private int maxHeight;
         private int minHeight;
         private bool bounce;
@@ -29,7 +29,9 @@ namespace Sprint2
             totalFrames = 1;
             used = false;
             bounce = false;
-            maxHeight = (int)location.Y - 10;
+            spriteSheetSpriteSize = brickBlockSpriteSheet.Width / UtilityClass.two;
+            bounceTimer = UtilityClass.BlockBounceTimer;
+            maxHeight = (int)location.Y - UtilityClass.ten;
             minHeight = (int)location.Y;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
@@ -67,14 +69,14 @@ namespace Sprint2
             if (!used)
             {
                 bounce = true;
-                bounceTimer = 20;
+                bounceTimer = UtilityClass.BlockBounceTimer;
             }
         }
 
         private void dispenserBouncing()
         {
 
-            if (bounceTimer > 10 && bounce)
+            if (bounceTimer > (UtilityClass.BlockBounceTimer/UtilityClass.two) && bounce)
             {
                 int newY = (int)location.Y;
                 newY--;

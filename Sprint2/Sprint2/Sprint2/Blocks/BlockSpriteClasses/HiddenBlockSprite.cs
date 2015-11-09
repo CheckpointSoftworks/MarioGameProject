@@ -14,7 +14,7 @@ namespace Sprint2
         private Vector2 location; 
         private Rectangle collisionRectangle;
         private int frame;
-        private int spriteSheetSpriteSize = 16;
+        private int spriteSheetSpriteSize;
         private int totalFrames;
 
 
@@ -25,6 +25,7 @@ namespace Sprint2
             frame = 0;
             used = false;
             totalFrames = 1;
+            spriteSheetSpriteSize = hiddenBlockSpriteSheet.Width / UtilityClass.two;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
 

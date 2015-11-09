@@ -14,7 +14,7 @@ namespace Sprint2
         private bool smashed;
         private Rectangle collisionRectangle;
         private int frame;
-        private int spriteSheetSpriteSize = 16;
+        private int spriteSheetSpriteSize;
         private int totalFrames;
 
         public BrickBlockSprite(Vector2 location)
@@ -24,6 +24,7 @@ namespace Sprint2
             frame = 0;
             totalFrames = 1;
             smashed = false;
+            spriteSheetSpriteSize = brickBlockSpriteSheet.Width / UtilityClass.two;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
         public void Update()

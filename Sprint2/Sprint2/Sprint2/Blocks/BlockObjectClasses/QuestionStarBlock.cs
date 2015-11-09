@@ -66,7 +66,7 @@ namespace Sprint2
         public IItemObjects spawnStar()
         {
             dispenseItemFlag = false;
-            return new SuperStar((int)location.X, (int)location.Y-16);
+            return new SuperStar((int)location.X, (int)location.Y-UtilityClass.sixteen);
         }
 
         public bool dispenseItem()

@@ -66,7 +66,7 @@ namespace Sprint2
         public IItemObjects spawnOneUp()
         {
             dispenseItemFlag = false;
-            return new OneUpMushroom((int)location.X, (int)location.Y - 16);
+            return new OneUpMushroom((int)location.X, (int)location.Y - UtilityClass.sixteen);
         }
 
         public bool dispenseItem()

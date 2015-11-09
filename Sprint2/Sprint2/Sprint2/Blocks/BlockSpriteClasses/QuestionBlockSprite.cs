@@ -14,9 +14,9 @@ namespace Sprint2
         private Vector2 location;
         private Rectangle collisionRectangle;
         private int frame;
-        private int spriteSheetSpriteSize = 16;
+        private int spriteSheetSpriteSize;
         private int totalFrames;
-        private int bounceTimer = 20;
+        private int bounceTimer;
         private bool bounce;
         private int minY;
 
@@ -28,6 +28,8 @@ namespace Sprint2
             used = false;
             bounce = false;
             totalFrames=1;
+            bounceTimer = UtilityClass.BlockBounceTimer;
+            spriteSheetSpriteSize = questionBlockSpriteSheet.Width / UtilityClass.two;
             minY = (int)location.Y;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
@@ -68,7 +70,7 @@ namespace Sprint2
 
         private void bounceTheBlock()
         {
-            if (bounceTimer > 10 && bounce)
+            if (bounceTimer > (UtilityClass.BlockBounceTimer/UtilityClass.two) && bounce)
             {
                 int newY = (int)location.Y;
                 newY--;
