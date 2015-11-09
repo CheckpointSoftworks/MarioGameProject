@@ -22,6 +22,7 @@ namespace Sprint2
         public ArrayList blocksList;
         public ArrayList enviromentalObjectsList;
         public ArrayList projectileList;
+        private bool pause;
 
         public LevelStorage(Camera camera)
         {
@@ -31,37 +32,41 @@ namespace Sprint2
             blocksList = new ArrayList();
             enviromentalObjectsList = new ArrayList();
             projectileList = new ArrayList();
+            pause = false;
         }
         public void Update(IPlayer mario,Game1 game)
         {
-            foreach (IBlock block in blocksList)
+            if (!pause)
             {
-                block.Update();
-            }
-            foreach (IItemObjects item in itemList)
-            {
-                item.Update();
-            }
-            foreach (IEnemyObject enemy in enemiesList)
-            {
-                if (!enemy.GetRigidBody().IsEnabled)
+                foreach (IBlock block in blocksList)
                 {
-                    if ((int)enemy.returnLocation().X - ((int)camera.GetPosition().X + camera.GetWidth()) <= 10)
-                    {
-                        enemy.GetRigidBody().IsEnabled = true;
-                    }
+                    block.Update();
                 }
-                enemy.Update();
+                foreach (IItemObjects item in itemList)
+                {
+                    item.Update();
+                }
+                foreach (IEnemyObject enemy in enemiesList)
+                {
+                    if (!enemy.GetRigidBody().IsEnabled)
+                    {
+                        if ((int)enemy.returnLocation().X - ((int)camera.GetPosition().X + camera.GetWidth()) <= 10)
+                        {
+                            enemy.GetRigidBody().IsEnabled = true;
+                        }
+                    }
+                    enemy.Update();
+                }
+                foreach (IProjectile projectile in projectileList)
+                {
+                    projectile.Update();
+                }
+                foreach (IEnviromental enviromental in enviromentalObjectsList)
+                {
+                    enviromental.Update();
+                }
+                handleCollision(mario, game);
             }
-            foreach (IProjectile projectile in projectileList)
-            {
-                projectile.Update();
-            }
-            foreach (IEnviromental enviromental in enviromentalObjectsList)
-            {
-                enviromental.Update();
-            }
-            handleCollision(mario, game);
         }
 
         public void Draw(IPlayer player,SpriteBatch spriteBatch)
@@ -87,6 +92,18 @@ namespace Sprint2
             foreach (IProjectile projectile in projectileList)
             {
                 projectile.Draw(spriteBatch, camera.GetPosition());
+            }
+        }
+
+        public void pauseGame()
+        {
+            if (pause)
+            {
+                pause = false;
+            }
+            else
+            {
+                pause = true;
             }
         }
 
