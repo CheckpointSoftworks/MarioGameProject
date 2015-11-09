@@ -19,6 +19,7 @@ namespace Sprint2
         public static int BrickPieceXAdjustmentBig = 3;
         public static int CoinDispenserLimit = 15;
         public static int BlockBounceTimer = 20;
+        public static int Sixteen2 = 16;
         //Camera Magic Numbers
 
         //Collision Magic Numbers
