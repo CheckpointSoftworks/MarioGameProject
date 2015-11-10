@@ -393,6 +393,48 @@ namespace Sprint2
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
                         }
+                        else if (ObjectType == "<BlueBrickBlock>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            IBlock GameObject;
+                            GameObject = new BlueBrickBlock(XVal, YVal, BlockType.BlueBrick);
+                            storage.blocksList.Add(GameObject);
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
+                        else if (ObjectType == "<BlueGroundBlock>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            IBlock GameObject;
+                            GameObject = new BlueGroundBlock(XVal, YVal, BlockType.BlueGround);
+                            storage.blocksList.Add(GameObject);
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
                         else
                         {
                             ObjectType = sr.ReadLine();
