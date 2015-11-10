@@ -9,6 +9,7 @@ namespace Sprint2
 {
     public class OneUpMushroom : IItemObjects
     {
+        private NonPlayerScoreItem score;
         private ISprite sprite;
 
         private Rectangle collisionRectangle;
@@ -20,6 +21,7 @@ namespace Sprint2
 
         public OneUpMushroom(int locX, int locY)
         {
+            score = new NonPlayerScoreItem(1000, false);
             location = new Vector2(locX, locY);
             sprite = new OneUpMushroomSprite(location);
             type = ItemType.OneUpMushroom;
@@ -27,6 +29,10 @@ namespace Sprint2
             testForCollision = true;
             rigidbody = new AutonomousPhysicsObject();
             LoadRigidBodyProperties();
+        }
+        public NonPlayerScoreItem ScoreData()
+        {
+            return score;
         }
 
         public bool DirectionLeft

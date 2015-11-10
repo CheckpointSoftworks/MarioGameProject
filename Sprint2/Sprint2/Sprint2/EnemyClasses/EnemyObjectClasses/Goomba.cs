@@ -9,6 +9,7 @@ namespace Sprint2
 {
     public class Goomba: IEnemyObject
     {
+        private NonPlayerScoreItem score;
         private Vector2 location;
         private bool directionLeft;
         private IEnemyState state;
@@ -26,6 +27,7 @@ namespace Sprint2
         }
         public Goomba(int locX, int locY)
         {
+            score = new NonPlayerScoreItem(100, true);
             location = new Vector2(locX, locY);
             state = new GoombaHealthy(this);
             rigidbody = new AutonomousPhysicsObject();
@@ -40,6 +42,14 @@ namespace Sprint2
             rigidbody.MaxFallSpeed = 3f;
             rigidbody.Elasticity = 0f;
             rigidbody.IsEnabled = false;
+        }
+        public NonPlayerScoreItem ScoreData()
+        {
+            return score;
+        }
+        public void ZeroScoreValue()
+        {
+            score.ScoreValue = 0;
         }
 
         public void LeftCollision()
@@ -83,6 +93,7 @@ namespace Sprint2
         public void TakeDamage()
         {
             state.TakeDamage();
+            ZeroScoreValue();
         }
 
         public void updateLocation(Vector2 newLocation)

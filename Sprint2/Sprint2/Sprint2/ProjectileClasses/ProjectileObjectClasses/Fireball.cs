@@ -9,7 +9,7 @@ namespace Sprint2
 {
     class Fireball: IProjectile
     {
-
+        private IPlayer mario;
         private ISprite sprite;
         private bool testForCollision;
         private Vector2 location;
@@ -17,7 +17,7 @@ namespace Sprint2
         private bool facingRight;
         private int timer;
 
-        public Fireball(int x, int y, bool facingRight)
+        public Fireball(int x, int y, bool facingRight, IPlayer mario)
         {
             location = new Vector2(x, y);
             sprite = new FireballSprite(location);
@@ -25,6 +25,7 @@ namespace Sprint2
             timer = 200;
             rigidbody = new AutonomousPhysicsObject();
             this.facingRight = facingRight;
+            this.mario = mario;
             LoadRigidBodyProperties();
         }
         private void LoadRigidBodyProperties()
@@ -52,6 +53,15 @@ namespace Sprint2
                 sprite = new UsedItemSprite(location);
                 testForCollision = false;
             }
+        }
+
+        public IPlayer GetOwner()
+        {
+            return mario;
+        }
+        public void Kill()
+        {
+            timer = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)

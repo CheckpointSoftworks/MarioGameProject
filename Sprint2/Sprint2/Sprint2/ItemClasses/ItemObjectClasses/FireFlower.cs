@@ -9,6 +9,7 @@ namespace Sprint2
 {
     public class FireFlower : IItemObjects
     {
+        private NonPlayerScoreItem score;
         private ISprite fireFlowerSprite;
         private ItemType type;
         private Rectangle collisonRectangle;
@@ -20,6 +21,7 @@ namespace Sprint2
 
         public FireFlower(int locX, int locY)
         {
+            score = new NonPlayerScoreItem(1000, false);
             location = new Vector2(locX, locY);
             fireFlowerSprite = new FireFlowerSprite(location);
             type = ItemType.FireFlower;
@@ -28,7 +30,10 @@ namespace Sprint2
             riseSpeed = 0.4f;
             rigidbody = new AutonomousPhysicsObject();
         }
-
+        public NonPlayerScoreItem ScoreData()
+        {
+            return score;
+        }
         public ItemType returnItemType()
         {
             return type;

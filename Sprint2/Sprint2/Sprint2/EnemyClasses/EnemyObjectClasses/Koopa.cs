@@ -9,6 +9,7 @@ namespace Sprint2
 {
     public class Koopa: IEnemyObject
     {
+        private NonPlayerScoreItem score;
         private Vector2 location;
         private bool directionLeft;
         private AutonomousPhysicsObject rigidbody;
@@ -33,8 +34,14 @@ namespace Sprint2
             set { directionLeft = value; }
         }
 
+        public void ZeroScoreValue()
+        {
+            score.ScoreValue = 0;
+        }
+
         public Koopa(int locX, int locY)
         {
+            score = new NonPlayerScoreItem(100, true);
             location = new Vector2(locX, locY);
             state = new KoopaHealthy(this);
             rigidbody = new AutonomousPhysicsObject();
@@ -54,6 +61,10 @@ namespace Sprint2
             rigidbody.IsEnabled = false;
         }
 
+        public NonPlayerScoreItem ScoreData()
+        {
+            return score;
+        }
         public void LeftCollision()
         {
             directionLeft = true;
@@ -99,6 +110,7 @@ namespace Sprint2
             shellForm = true;
             rigidbody.GroundSpeed = 0f;
             hurtMario = false;
+            ZeroScoreValue();
         }
 
         public void updateLocation(Vector2 newLocation)

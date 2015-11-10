@@ -9,6 +9,7 @@ namespace Sprint2
 {
     public interface IEnemyObject
     {
+        NonPlayerScoreItem ScoreData();    
         bool DirectionLeft
         { get; set; }
         void LeftCollision();

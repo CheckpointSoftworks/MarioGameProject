@@ -9,6 +9,7 @@ namespace Sprint2
 {
     public class BoxCoin : IItemObjects
     {
+        private NonPlayerScoreItem score;
         private ISprite boxCoinSprite;
         private ItemType type;
         private Rectangle collisonRectangle;
@@ -23,6 +24,7 @@ namespace Sprint2
 
         public BoxCoin(int locX, int locY)
         {
+            score = new NonPlayerScoreItem(200, false);
             location = new Vector2(locX, locY);
             boxCoinSprite = new BoxCoinSprite(location);
             type = ItemType.Coin;
@@ -58,6 +60,10 @@ namespace Sprint2
             boxCoinSprite.Update();
         }
 
+        public NonPlayerScoreItem ScoreData()
+        {
+            return score;
+        }
         public ItemType returnItemType()
         {
             return type;

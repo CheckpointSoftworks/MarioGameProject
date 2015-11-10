@@ -10,6 +10,7 @@ namespace Sprint2
 {
     public class BrickBlock:IBlock
     {
+        private NonPlayerScoreItem score;
         private ISprite sprite;
         private BlockType type;
         private bool testForCollision;
@@ -23,6 +24,11 @@ namespace Sprint2
             this.type = type;
             testForCollision=true;
             noLongerSpecialized = false;
+            score = new NonPlayerScoreItem(50, false);
+        }
+        public NonPlayerScoreItem ScoreData()
+        {
+            return score;
         }
         public void Update()
         {

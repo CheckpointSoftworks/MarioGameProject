@@ -17,6 +17,7 @@ namespace Sprint2
                 handleMarioMovement(mario, item, side);
                 command = chooseCorrectCommand(item,mario);
                 command.Execute();
+                mario.ScoreEvent(item.ScoreData());
             }
 
 
@@ -26,14 +27,14 @@ namespace Sprint2
             ICommand command;
             if (item.returnItemType().Equals(ItemType.Coin))
             {
-                command = new MarioCoinCollisionCommand(item);
+                command = new MarioCoinCollisionCommand(mario, item);
             }
             else if (item.returnItemType().Equals(ItemType.FireFlower))
             {
                 command = new MarioFireFlowerCollisionCommand(mario, item);
             }else if(item.returnItemType().Equals(ItemType.OneUpMushroom))
             {
-                command = new MarioOneUpMushroomCollisionCommand(item);
+                command = new MarioOneUpMushroomCollisionCommand(mario, item);
             }else if(item.returnItemType().Equals(ItemType.Star))
             {
                 command = new MarioStarCollisionCommand(mario, item);

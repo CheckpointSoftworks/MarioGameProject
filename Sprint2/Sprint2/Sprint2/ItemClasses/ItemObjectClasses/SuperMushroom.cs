@@ -9,6 +9,7 @@ namespace Sprint2
 {
     public class SuperMushroom : IItemObjects
     {
+        private NonPlayerScoreItem score;
         private ISprite sprite;
         private Rectangle collisionRectangle;
         private ItemType type;
@@ -19,6 +20,7 @@ namespace Sprint2
 
         public SuperMushroom(int locX, int locY)
         {
+            score = new NonPlayerScoreItem(1000, false);
             location = new Vector2(locX, locY);
             sprite = new SuperMushroomSprite(location);
             type = ItemType.SuperMushroom;
@@ -26,6 +28,10 @@ namespace Sprint2
             testForCollision = true;
             rigidbody = new AutonomousPhysicsObject();
             LoadRigidBodyProperties();
+        }
+        public NonPlayerScoreItem ScoreData()
+        {
+            return score;
         }
 
         public bool DirectionLeft

@@ -9,6 +9,7 @@ namespace Sprint2
 {
     public interface IItemObjects
     {
+        NonPlayerScoreItem ScoreData();
         void Update();
 
         void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc);

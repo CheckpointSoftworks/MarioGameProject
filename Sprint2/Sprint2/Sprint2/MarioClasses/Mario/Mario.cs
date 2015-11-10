@@ -9,7 +9,9 @@ namespace Sprint2
 {
     public class Mario : IPlayer
     {
-
+        private PlayerScoreItem lives;
+        private PlayerScoreItem points;
+        private PlayerScoreItem coins;
         private float transitionDuration;
         private float TransitionToBigTime;
         private float TransitionToFireTime;
@@ -119,6 +121,9 @@ namespace Sprint2
             TransitionToBigTime = 10;
             TransitionToFireTime = 10;
             TransitionToSmallTime = 10;
+            lives = new PlayerScoreItem("Lives:", 3);
+            points = new PlayerScoreItem("MARIO ", 0);
+            coins = new PlayerScoreItem("Coins: ", 0);
         }
 
         private void LoadPhysicsProperties()
@@ -157,6 +162,8 @@ namespace Sprint2
             if (!star)
             {
                 state.Update();
+                if (rigidbody.Floored) points.ResetChain();
+
             }
             else
             {
@@ -204,6 +211,47 @@ namespace Sprint2
             rigidbody.ResetJump();
             rigidbody.Jump();
         }
+        public String PointsToString()
+        {
+            return points.ToString();
+        }
+        public String LivesToString()
+        {
+            return lives.ToString();
+        }
+        public String CoinsToString()
+        {
+            return coins.ToString();
+        }
+
+        public void ScoreEvent(NonPlayerScoreItem target)
+        {
+            points.UpdateScore(target.ScoreValue);
+            if (target.Chainable)
+            {
+                if (points.ComboValue() < 10) points.ChainHit();
+                else lives.UpdateScore(1);
+            }
+        }
+        public void AddCoin()
+        {
+            coins.UpdateScore(1);
+            if (coins.ScoreValue == 100)
+            {
+                coins.ScoreValue = 0;
+                lives.UpdateScore(1);
+            }
+        }
+
+        public void OneUp()
+        {
+            lives.UpdateScore(1);
+        }
+
+        public void ProjectileScoreEvent(NonPlayerScoreItem target)
+        {
+            points.UpdateScoreNoChain(target.ScoreValue);
+        }
 
         private void ChangeDirection()
         {
@@ -226,6 +274,7 @@ namespace Sprint2
             if (small & !star)
             {
                 state = new MarioDying(this);
+                lives.UpdateScore(-1);
             }
             else
             {
@@ -240,6 +289,7 @@ namespace Sprint2
                     BecomeSmall();
                 }
             }
+            points.ResetChain();
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)

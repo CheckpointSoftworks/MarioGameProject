@@ -9,18 +9,20 @@ namespace Sprint2
     {
         private IBlock block;
         private Game1 game;
-        public BrickBlockDispenserCommand(IBlock block, Game1 game)
+        private IPlayer mario;
+        public BrickBlockDispenserCommand(IPlayer mario, IBlock block, Game1 game)
         {
+            this.mario = mario;
             this.block = block;
             this.game = game;
         }
         public void Execute()
         {
             ((BrickBlockCoinDispenser)block).bounceBlock();
-            bool dispenseCoin=((BrickBlockCoinDispenser)block).coinCounting();
-            if (dispenseCoin)
+            if (((BrickBlockCoinDispenser)block).coinCounting())
             {
                 IItemObjects coin = ((BrickBlockCoinDispenser)block).dispenseCoin();
+                ((Mario)mario).AddCoin();
                 game.levelStore.itemList.Add(coin);
             }
         }

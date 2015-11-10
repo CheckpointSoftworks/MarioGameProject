@@ -7,13 +7,15 @@ namespace Sprint2
 {
     public class BigMarioBrickBlockCollisionCommand : ICommand
     {
+        private IPlayer mario;
         private IBlock block;
         private Game1 game;
 
-        public BigMarioBrickBlockCollisionCommand(IBlock block,Game1 game)
+        public BigMarioBrickBlockCollisionCommand(IPlayer mario, IBlock block,Game1 game)
         {
             this.block = block;
             this.game = game;
+            this.mario = mario;
         }
 
         public void Execute()
@@ -22,6 +24,7 @@ namespace Sprint2
             ((BrickBlock)block).becomeSmashed(game.levelStore.enviromentalObjectsList);
             block.Update();
             block.removeFromTestingCollision();
+            ((Mario)mario).ScoreEvent(((BrickBlock)block).ScoreData());
         }
     }
 }

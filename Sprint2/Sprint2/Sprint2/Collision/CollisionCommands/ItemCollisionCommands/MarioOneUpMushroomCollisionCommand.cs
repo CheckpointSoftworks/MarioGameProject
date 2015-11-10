@@ -10,13 +10,16 @@ namespace Sprint2
     public class MarioOneUpMushroomCollisionCommand:ICommand
     {
         private IItemObjects oneUpMushroom;
-        public MarioOneUpMushroomCollisionCommand(IItemObjects oneUpMushroom)
+        private IPlayer player;
+        public MarioOneUpMushroomCollisionCommand(IPlayer mario, IItemObjects oneUpMushroom)
         {
+            player = mario;
             this.oneUpMushroom = oneUpMushroom;
         }
         public void Execute()
         {
             oneUpMushroom.setCollisionRectangle(new Rectangle(0, 0, 0, 0));
+            ((Mario)player).OneUp();
         }
     }
 }

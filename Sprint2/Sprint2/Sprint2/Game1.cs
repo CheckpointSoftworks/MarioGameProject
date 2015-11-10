@@ -29,7 +29,8 @@ namespace Sprint2
         private TestingClass tester;
         private ICommand resetCommand;
         private ICommand keyNotPressed;
-        
+        private SpriteFont font;
+        private double time;
 
         public Game1()
         {
@@ -49,13 +50,14 @@ namespace Sprint2
             fireBallCount = 10;
             base.Initialize();
             tester.runTests();
+            time = 500;
         }
 
         protected override void LoadContent()
         {
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            font = Content.Load<SpriteFont>("Fonts/Font");
             BlockSpriteTextureStorage.Load(this.Content);
             ItemSpriteTextureStorage.Load(this.Content);
             EnemySpriteFactory.Load(this.Content);
@@ -96,11 +98,14 @@ namespace Sprint2
             if (((Mario)mario).StateStatus().Equals(MarioState.Die))
             {
                 resetCommand.Execute();
+                ResetTime();
             }
             if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
             {
                 resetCommand.Execute();
+                ResetTime();
             }
+            UpdateTime(gameTime);
             base.Update(gameTime);
         }
 
@@ -116,9 +121,33 @@ namespace Sprint2
                 sourceRectangle = new Rectangle((int)camera.GetPosition().X - 1500, (int)camera.GetPosition().Y, 800, 480);
                 spriteBatch.Draw(background2, destinationRectangle, sourceRectangle, Color.White);
             }
+            spriteBatch.DrawString(font, ((Mario)mario).PointsToString(), new Vector2(10, 10), Color.White);
+            spriteBatch.DrawString(font, ((Mario)mario).CoinsToString(), new Vector2(100, 10), Color.White);
+            //spriteBatch.DrawString(font, ((Mario)mario).LivesToString(), new Vector2(740, 10), Color.White);
+            spriteBatch.DrawString(font, "TIME\n" + FormattedTime(), new Vector2(740, 10), Color.White);
             spriteBatch.End();
             levelStore.Draw(mario, spriteBatch);
             base.Draw(gameTime);
+        }
+
+        protected void UpdateTime(GameTime gameTime)
+        {
+            time -= gameTime.ElapsedGameTime.TotalSeconds*2.5d;
+            if (time <= 0)
+            {
+                resetCommand.Execute();
+                ResetTime();
+            }
+        }
+
+        private void ResetTime()
+        {
+            time = 500;
+        }
+
+        private String FormattedTime()
+        {
+            return Math.Round(time, 0).ToString();
         }
     }
 }
