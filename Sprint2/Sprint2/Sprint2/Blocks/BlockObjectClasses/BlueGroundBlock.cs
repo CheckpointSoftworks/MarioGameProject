@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,44 +8,17 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class Blocks:IBlock
+    public class BlueGroundBlock:IBlock
     {
         private ISprite sprite;
         private BlockType type;
         private bool testForCollision;
         private bool noLongerSpecialized;
-        
-        public Blocks(int locX,int locY,BlockType type)
+        private Vector2 location;
+        public BlueGroundBlock(int locX,int locY,BlockType type)
         {
-            Vector2 location = new Vector2(locX, locY);
-            if(type.Equals(BlockType.Brick)){
-                sprite = new BrickBlockSprite(location);
-            }
-            else if(type.Equals(BlockType.Ground))
-            {
-                sprite = new GroundBlockSprite(location);
-            }
-            else if (type.Equals(BlockType.Hidden))
-            {
-                sprite = new HiddenBlockSprite(location);
-            }
-            else if (type.Equals(BlockType.Platforming))
-            {
-                sprite = new PlatformingBlockSprite(location);
-            }
-            else if (type.Equals(BlockType.Question))
-            {
-                sprite = new QuestionBlockSprite(location);
-            }
-            else if (type.Equals(BlockType.BlueBrick))
-            {
-                sprite = new BlueBrickBlockSprite(location);
-            }
-            else if (type.Equals(BlockType.BlueGround))
-            {
-                sprite = new BlueGroundBlockSprite(location);
-            }
-
+            location = new Vector2(locX, locY);
+            sprite = new BlueGroundBlockSprite(location);
             this.type = type;
             testForCollision=true;
             noLongerSpecialized = false;
@@ -54,17 +28,14 @@ namespace Sprint2
             sprite.Update();
             noLongerSpecialized = true;
         }
-
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             sprite.Draw(spriteBatch, cameraLoc);
         }
-
         public BlockType returnBlockType()
         {
             return type;
         }
-
         public Rectangle returnCollisionRectangle()
         {
             return sprite.returnCollisionRectangle();
