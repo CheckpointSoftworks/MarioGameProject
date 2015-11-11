@@ -50,7 +50,7 @@ namespace Sprint2
                 {
                     if (!enemy.GetRigidBody().IsEnabled)
                     {
-                        if ((int)enemy.returnLocation().X - ((int)camera.GetPosition().X + camera.GetWidth()) <= 10)
+                        if ((int)enemy.returnLocation().X - ((int)camera.GetPosition().X + camera.GetWidth()) <= UtilityClass.enableEnemyPixelWidth)
                         {
                             enemy.GetRigidBody().IsEnabled = true;
                         }
@@ -124,7 +124,7 @@ namespace Sprint2
             foreach (IProjectile projectile in projectileList)
             {
                 handleProjectileCollision(projectile);
-                if (((Fireball)projectile).DoneFireBall() && game.fireBallCount < 10 && projectile.checkForCollisionTestFlag())
+                if (((Fireball)projectile).DoneFireBall() && game.fireBallCount < UtilityClass.fireballLimit && projectile.checkForCollisionTestFlag())
                 {
                     game.fireBallCount++;
                 }

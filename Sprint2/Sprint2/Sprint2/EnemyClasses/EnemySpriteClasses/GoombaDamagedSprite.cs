@@ -21,7 +21,7 @@ namespace Sprint2
         public GoombaDamagedSprite(Texture2D goombaDamSpritesheet,Vector2 location)
         {
             this.location = location; 
-            AnimatedDamGoomba = new AnimatedSprite(goombaDamSpritesheet, 1, 2, location, 8);
+            AnimatedDamGoomba = new AnimatedSprite(goombaDamSpritesheet, UtilityClass.one, UtilityClass.two, location, UtilityClass.eight);
 
 
         }
@@ -39,7 +39,7 @@ namespace Sprint2
 
         public Rectangle returnCollisionRectangle()
         {
-            return new Rectangle(0, 0, 0, 0);
+            return new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero);
         }
     }
 }

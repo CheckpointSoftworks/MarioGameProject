@@ -80,7 +80,7 @@ namespace Sprint2
 
         public IItemObjects dispenseCoin()
         {
-            return new BoxCoin((int)location.X, (int)location.Y-UtilityClass.sixteen);
+            return new BoxCoin((int)location.X, (int)location.Y-UtilityClass.itemOffSet);
         }
 
         public void bounceBlock()

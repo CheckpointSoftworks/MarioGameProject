@@ -16,7 +16,7 @@ namespace Sprint2
         }
         public void Execute()
         {
-            oneUpMushroom.setCollisionRectangle(new Rectangle(0, 0, 0, 0));
+            oneUpMushroom.setCollisionRectangle(new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero));
         }
     }
 }

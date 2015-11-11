@@ -21,8 +21,8 @@ namespace Sprint2
         {
             brickBlockSpriteSheet = BlockSpriteTextureStorage.CreateBrickBlockSprite();
             this.location = location;
-            frame = 0;
-            totalFrames = 1;
+            frame = UtilityClass.zero;
+            totalFrames = UtilityClass.one;
             smashed = false;
             spriteSheetSpriteSize = brickBlockSpriteSheet.Width / UtilityClass.two;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);

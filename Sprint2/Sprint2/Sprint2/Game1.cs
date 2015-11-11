@@ -46,7 +46,7 @@ namespace Sprint2
             loader = new LevelLoader("Level.xml", camera);
             levelStore = new LevelStorage(camera);
             keyNotPressed = new KeyNotPressed(this);
-            fireBallCount = 10;
+            fireBallCount = UtilityClass.fireballLimit;
             base.Initialize();
             tester.runTests();
         }

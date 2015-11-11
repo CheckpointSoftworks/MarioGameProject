@@ -17,7 +17,7 @@ namespace Sprint2
         }
         public void Execute()
         {
-            coin.setCollisionRectangle(new Rectangle(0, 0, 0, 0));
+            coin.setCollisionRectangle(new Rectangle(UtilityClass.zero,UtilityClass.zero, UtilityClass.zero, UtilityClass.zero));
         }
     }
 }

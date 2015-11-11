@@ -36,12 +36,12 @@ namespace Sprint2
         }
         private void LoadRigidBodyProperties()
         {
-            rigidbody.AirFriction = 0.8f;
-            rigidbody.GroundFriction = 1f;
-            rigidbody.GroundSpeed = 1f;
-            rigidbody.InitialAirSpeed = 0f;
-            rigidbody.MaxFallSpeed = 3f;
-            rigidbody.Elasticity = 1f;
+            rigidbody.AirFriction = UtilityClass.starAirFriction;
+            rigidbody.GroundFriction = UtilityClass.starGroundFriction;
+            rigidbody.GroundSpeed = UtilityClass.starGroundSpeed;
+            rigidbody.InitialAirSpeed = UtilityClass.starInitialAirSpeed;
+            rigidbody.MaxFallSpeed = UtilityClass.starMaxFallSpeed;
+            rigidbody.Elasticity = UtilityClass.starElasticity;
             rigidbody.IsEnabled = true;
             
 

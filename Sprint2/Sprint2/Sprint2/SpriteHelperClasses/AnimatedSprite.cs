@@ -27,7 +27,7 @@ namespace Sprint2
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 0;
+            currentFrame = UtilityClass.zero;
             totalFrames = rows * columns;
             frameWidth = texture.Width / columns;
             frameHeight = texture.Height / rows;
@@ -43,11 +43,11 @@ namespace Sprint2
             currentUpdate++;
             if (currentUpdate == updatesPerFrame)
             {
-                currentUpdate = 0;
+                currentUpdate = UtilityClass.zero;
                 currentFrame++;
                 if (currentFrame == totalFrames)
                 {
-                    currentFrame = 0;
+                    currentFrame = UtilityClass.zero;
                     finished = true;
                 }
                 else if (finished)
@@ -73,7 +73,7 @@ namespace Sprint2
             }
             else
             {
-                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, color, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, color, UtilityClass.zero, new Vector2(UtilityClass.zero, UtilityClass.zero), SpriteEffects.FlipHorizontally, UtilityClass.zero);
             }
             spriteBatch.End();
             collisionRectangle = new Rectangle((int)loc.X, (int)loc.Y, frameWidth, frameHeight);

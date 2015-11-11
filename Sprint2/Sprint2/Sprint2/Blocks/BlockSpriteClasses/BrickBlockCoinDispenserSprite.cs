@@ -25,8 +25,8 @@ namespace Sprint2
         {
             brickBlockSpriteSheet = BlockSpriteTextureStorage.CreateBrickBlockCoinDispenserSprite();
             this.location = location;
-            frame = 0;
-            totalFrames = 1;
+            frame = UtilityClass.zero;
+            totalFrames = UtilityClass.one;
             used = false;
             bounce = false;
             spriteSheetSpriteSize = brickBlockSpriteSheet.Width / UtilityClass.two;
@@ -46,7 +46,7 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             dispenserBouncing();
-            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize*frame), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
+            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize*frame), UtilityClass.zero, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
             Rectangle destinationRectangle = new Rectangle((int)location.X - (int)cameraLoc.X, (int)location.Y - (int)cameraLoc.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
             spriteBatch.Begin();
@@ -86,7 +86,7 @@ namespace Sprint2
                 }
                 bounceTimer--;
             }
-            else if (bounce && bounceTimer >= 0)
+            else if (bounce && bounceTimer >= UtilityClass.zero)
             {
                 int newY = (int)location.Y;
                 newY++;

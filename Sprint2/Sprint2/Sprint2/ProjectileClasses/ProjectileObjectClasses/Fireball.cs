@@ -22,25 +22,25 @@ namespace Sprint2
             location = new Vector2(x, y);
             sprite = new FireballSprite(location);
             testForCollision = true;
-            timer = 200;
+            timer = UtilityClass.fireballTimer;
             rigidbody = new AutonomousPhysicsObject();
             this.facingRight = facingRight;
             LoadRigidBodyProperties();
         }
         private void LoadRigidBodyProperties()
         {
-            rigidbody.AirFriction = 0.8f;
-            rigidbody.GroundFriction = 1f;
-            rigidbody.MaxFallSpeed = 1.5f;
-            rigidbody.Elasticity = 1f;
-            if (facingRight) { rigidbody.GroundSpeed = 1.5f; }
-            else{ rigidbody.GroundSpeed = -1.5f; }
+            rigidbody.AirFriction = UtilityClass.fireballAirFriction;
+            rigidbody.GroundFriction = UtilityClass.fireballGroundFriction;
+            rigidbody.MaxFallSpeed = UtilityClass.fireballMaxFallSpeed;
+            rigidbody.Elasticity = UtilityClass.fireballElasticity;
+            if (facingRight) { rigidbody.GroundSpeed = UtilityClass.fireballRightGroundSpeed; }
+            else{ rigidbody.GroundSpeed = UtilityClass.fireballLeftGroupSpeed; }
             rigidbody.IsEnabled = true;
         }
 
         public void Update()
         {
-            if (testForCollision&&timer>0)
+            if (testForCollision&&timer>UtilityClass.zero)
             {
                 rigidbody.UpdatePhysics();
                 location += rigidbody.Velocity;
@@ -86,7 +86,7 @@ namespace Sprint2
         public bool DoneFireBall()
         {
             bool complete = false;
-            if (timer == 0)
+            if (timer == UtilityClass.zero)
             {
                 complete = true;
             }

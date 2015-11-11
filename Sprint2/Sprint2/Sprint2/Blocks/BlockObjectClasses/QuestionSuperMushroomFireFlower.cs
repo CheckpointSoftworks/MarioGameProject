@@ -68,13 +68,13 @@ namespace Sprint2
         public IItemObjects spawnSuperMushroom()
         {
             dispenseItemFlag = false;
-            return new SuperMushroom((int)location.X, (int)location.Y-UtilityClass.sixteen);
+            return new SuperMushroom((int)location.X, (int)location.Y-UtilityClass.itemOffSet);
         }
 
         public IItemObjects spawnFireFlower()
         {
             dispenseItemFlag = false;
-            return new FireFlower((int)location.X, (int)location.Y - UtilityClass.sixteen);
+            return new FireFlower((int)location.X, (int)location.Y - UtilityClass.itemOffSet);
         }
 
         public bool dispenseItem()

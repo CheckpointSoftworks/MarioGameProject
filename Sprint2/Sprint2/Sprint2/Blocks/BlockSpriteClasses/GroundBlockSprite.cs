@@ -28,7 +28,7 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            Rectangle sourceRectangle = new Rectangle(spriteSheetSpriteSize*0, 0, spriteSheetSpriteSize, spriteSheetSpriteSize);
+            Rectangle sourceRectangle = new Rectangle(spriteSheetSpriteSize*UtilityClass.zero, UtilityClass.zero, spriteSheetSpriteSize, spriteSheetSpriteSize);
             Rectangle destinationRectangle = new Rectangle((int)location.X - (int)cameraLoc.X, (int)location.Y - (int)cameraLoc.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
             
             spriteBatch.Begin();

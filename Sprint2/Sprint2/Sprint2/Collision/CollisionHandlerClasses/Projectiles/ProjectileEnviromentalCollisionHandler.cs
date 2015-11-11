@@ -23,7 +23,7 @@ namespace Sprint2
             Rectangle enviroRectangle = enviromental.returnCollisionRectangle();
             Rectangle intersectionRectangle = Rectangle.Intersect(enviroRectangle, projectileRectangle);
             Vector2 projectileLocation = projectile.returnLocation();
-            int locationDiffToChange = 0;
+            int locationDiffToChange = UtilityClass.zero;
 
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
             {

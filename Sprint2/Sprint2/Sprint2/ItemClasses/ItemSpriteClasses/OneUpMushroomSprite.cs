@@ -16,7 +16,7 @@ namespace Sprint2
         {
             spriteSheet = ItemSpriteTextureStorage.CreateOneUpMushroomSprite();
             this.location = location;
-            sprite = new AnimatedSprite(spriteSheet, 1, 1, location, 1);
+            sprite = new AnimatedSprite(spriteSheet, UtilityClass.one, UtilityClass.one, location, UtilityClass.one);
         }
 
         public void Update()

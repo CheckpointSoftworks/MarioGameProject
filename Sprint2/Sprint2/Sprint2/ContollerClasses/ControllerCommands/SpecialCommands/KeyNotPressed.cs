@@ -20,9 +20,9 @@ namespace Sprint2
         public KeyNotPressed(Game1 game)
         {
             this.game = game;
-            leftThumbPosition.X = 0;
-            leftThumbPosition.Y = 0;
-            deadZone = 0.5f;
+            leftThumbPosition.X = UtilityClass.zero;
+            leftThumbPosition.Y = UtilityClass.zero;
+            deadZone = UtilityClass.deadZone;
             restoreRigidbody = new RestoreMarioRigidbodyCommand(game);
         }
 

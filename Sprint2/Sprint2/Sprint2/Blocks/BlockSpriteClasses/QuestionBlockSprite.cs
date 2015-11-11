@@ -24,10 +24,10 @@ namespace Sprint2
         {
             questionBlockSpriteSheet = BlockSpriteTextureStorage.CreateQuestionBlockSprite();
             this.location = location;
-            frame = 0;
+            frame = UtilityClass.zero;
             used = false;
             bounce = false;
-            totalFrames=1;
+            totalFrames=UtilityClass.one;
             bounceTimer = UtilityClass.BlockBounceTimer;
             spriteSheetSpriteSize = questionBlockSpriteSheet.Width / UtilityClass.two;
             minY = (int)location.Y;
@@ -45,7 +45,7 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             bounceTheBlock();
-            Rectangle sourceRectangle = new Rectangle((spriteSheetSpriteSize * frame), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
+            Rectangle sourceRectangle = new Rectangle((spriteSheetSpriteSize * frame), UtilityClass.zero, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
             Rectangle destinationRectangle = new Rectangle((int)location.X - (int)cameraLoc.X, (int)location.Y - (int)cameraLoc.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
             spriteBatch.Begin();

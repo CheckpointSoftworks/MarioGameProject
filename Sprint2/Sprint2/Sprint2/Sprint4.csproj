@@ -83,9 +83,8 @@
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaDamaged.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\EnemyCollisionHandlers\EnemyProjectileCollisionHandler.cs" />
-    <Compile Include="ILevelAlterationCommands.cs" />
-    <Compile Include="PauseCommand.cs" />
-    <Compile Include="UtilityClass.cs" />
+    <Compile Include="LevelStateAlterations\PauseCommand.cs" />
+    <Compile Include="UtilityClasses\UtilityClass\UtilityClass.cs" />
     <Compile Include="UtilityClasses\Enumerators\MarioStateEnum.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\BrickPieces.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\BrickPiecesSprite.cs" />
@@ -255,9 +254,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UtilityClasses\UtilityClass\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--
