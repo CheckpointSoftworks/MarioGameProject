@@ -30,7 +30,7 @@ namespace Sprint2
 
         public Rectangle returnCollisionRectangle()
         {
-            return new Rectangle(0,0,0,0);
+            return new Rectangle(UtilityClass.zero,UtilityClass.zero,UtilityClass.zero,UtilityClass.zero);
         }
         public bool testForCollision()
         {

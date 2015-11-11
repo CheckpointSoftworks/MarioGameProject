@@ -66,10 +66,10 @@ namespace Sprint2
 
         public void becomeSmashed(ArrayList enviromentalList)
         {
-            IEnviromental firstPiece = new BrickPieces((int)location.X-1, (int)location.Y-5,true);
-            IEnviromental secondPiece = new BrickPieces((int)location.X+1, (int)location.Y-5,false);
-            IEnviromental thirdPiece = new BrickPieces((int)location.X-3, (int)location.Y+5, true);
-            IEnviromental fourthPiece = new BrickPieces((int)location.X + 3, (int)location.Y + 5, false);
+            IEnviromental firstPiece = new BrickPieces((int)location.X-UtilityClass.BrickPieceXAdjustmentSmall, (int)location.Y-UtilityClass.BrickPieceYAdjustment,true);
+            IEnviromental secondPiece = new BrickPieces((int)location.X+UtilityClass.BrickPieceXAdjustmentSmall, (int)location.Y-UtilityClass.BrickPieceYAdjustment,false);
+            IEnviromental thirdPiece = new BrickPieces((int)location.X-UtilityClass.BrickPieceXAdjustmentBig, (int)location.Y+UtilityClass.BrickPieceYAdjustment, true);
+            IEnviromental fourthPiece = new BrickPieces((int)location.X + UtilityClass.BrickPieceXAdjustmentBig, (int)location.Y + UtilityClass.BrickPieceYAdjustment, false);
             enviromentalList.Add(firstPiece);
             enviromentalList.Add(secondPiece);
             enviromentalList.Add(thirdPiece);

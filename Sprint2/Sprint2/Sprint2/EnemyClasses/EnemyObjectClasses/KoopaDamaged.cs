@@ -14,7 +14,7 @@ namespace Sprint2
         public KoopaDamaged(Koopa Koopa)
         {
             this.koopa = Koopa;
-            sprite = new AnimatedSprite(EnemySpriteFactory.CreateKoopaDamagedSprite(), 1, 1, koopa.returnLocation(), 1);
+            sprite = new AnimatedSprite(EnemySpriteFactory.CreateKoopaDamagedSprite(), UtilityClass.one, UtilityClass.one, koopa.returnLocation(), UtilityClass.one);
         }
 
         public void Update()
@@ -24,7 +24,7 @@ namespace Sprint2
 
         public void TakeDamage()
         {
-            //
+            
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)

@@ -25,7 +25,7 @@ namespace Sprint2
             type = ItemType.FireFlower;
             collisonRectangle = fireFlowerSprite.returnCollisionRectangle();
             testForCollision = true;
-            riseSpeed = 0.4f;
+            riseSpeed = UtilityClass.fireFlowerRiseSpeed;
             rigidbody = new AutonomousPhysicsObject();
         }
 
@@ -39,13 +39,13 @@ namespace Sprint2
         }
         public void RiseUp()
         {
-            velocity.X = 0;
+            velocity.X = UtilityClass.zero;
             velocity.Y = -riseSpeed;
         }
         public void StopMoving()
         {
-            velocity.X = 0;
-            velocity.Y = 0;
+            velocity.X = UtilityClass.zero;
+            velocity.Y = UtilityClass.zero;
         }
         public void Update()
         {

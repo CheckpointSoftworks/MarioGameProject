@@ -21,7 +21,7 @@ namespace Sprint2
             int intersectionRectangleWidth = intersectionRectange.Width;
             int intersectionRectangleHeight = intersectionRectange.Height;
 
-            if (intersectionRectangleHeight == 0 && intersectionRectangleWidth == 0)
+            if (intersectionRectangleHeight == UtilityClass.zero && intersectionRectangleWidth == UtilityClass.zero)
             {
                 side = new NoneCollision();
             }
@@ -42,7 +42,7 @@ namespace Sprint2
             int firstObjectXCoordinate = firstObjectRectangle.X;
             int secondObjectXCoordinate = secondObjectRectangle.X;
 
-            if ((firstObjectXCoordinate - secondObjectXCoordinate) > 0)
+            if ((firstObjectXCoordinate - secondObjectXCoordinate) > UtilityClass.zero)
             {
                 collisionSide = new RightCollision();
             }
@@ -55,7 +55,7 @@ namespace Sprint2
             int firstObjectYCoordinate = firstObjectRectangle.Y;
             int secondObjectYCoordinate = secondObjectRectangle.Y;
 
-            if ((firstObjectYCoordinate - secondObjectYCoordinate) > 0)
+            if ((firstObjectYCoordinate - secondObjectYCoordinate) > UtilityClass.zero)
             {
                 collisionSide = new BottomCollision();
             }

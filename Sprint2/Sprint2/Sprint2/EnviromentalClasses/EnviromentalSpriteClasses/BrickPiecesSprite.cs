@@ -13,7 +13,8 @@ namespace Sprint2
         private Vector2 location;
         private Rectangle collisionRectangle;
         private int frame;
-        private int spriteSheetSpriteSize = 16;
+        private int totalFrames;
+        private int spriteSheetSpriteSize;
         private int raiseAndFall;
         private bool moveLeftOrRight;
 
@@ -21,14 +22,16 @@ namespace Sprint2
         {
             brickPiecesSpriteSheet = MiscGameObjectTextureStorage.CreateBrickPiecesSprite();
             this.location = location;
-            frame = 0;
-            raiseAndFall = 70;
+            frame = UtilityClass.zero;
+            totalFrames = UtilityClass.one;
+            spriteSheetSpriteSize = brickPiecesSpriteSheet.Width / UtilityClass.two;
+            raiseAndFall = UtilityClass.brickPiecesRise;
             moveLeftOrRight = moveDirection;
-            collisionRectangle = new Rectangle(0,0,0,0);
+            collisionRectangle = new Rectangle(UtilityClass.zero,UtilityClass.zero,UtilityClass.zero,UtilityClass.zero);
         }
         public void Update()
         {
-            if (raiseAndFall > 60)
+            if (raiseAndFall > UtilityClass.brickPiecesRise)
             {
                 int newY = (int)location.Y;
                 newY--;
@@ -44,7 +47,7 @@ namespace Sprint2
                 location = new Vector2(newX, newY);
                 raiseAndFall--;
             }
-            else if (raiseAndFall > 0)
+            else if (raiseAndFall > UtilityClass.zero)
             {
                 int newY = (int)location.Y;
                 newY++;
@@ -55,11 +58,19 @@ namespace Sprint2
             {
                 brickPiecesSpriteSheet = ItemSpriteTextureStorage.CreateUsedItemSprite();
             }
+            if (frame == totalFrames)
+            {
+                frame = UtilityClass.zero;
+            }
+            else
+            {
+                frame++;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize*frame), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
+            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize*frame), UtilityClass.zero, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
             Rectangle destinationRectangle = new Rectangle((int)location.X - (int)cameraLoc.X, (int)location.Y - (int)cameraLoc.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
             spriteBatch.Begin();

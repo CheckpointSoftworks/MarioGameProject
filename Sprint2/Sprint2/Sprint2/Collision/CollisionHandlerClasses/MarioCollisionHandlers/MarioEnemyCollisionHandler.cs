@@ -39,7 +39,7 @@ namespace Sprint2
             Rectangle enemyRectangle= enemy.returnCollisionRectangle();
             Rectangle marioRectangle = mario.returnCollisionRectangle();
             Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, enemyRectangle);
-            int locationDiffToChange = 0;
+            int locationDiffToChange = UtilityClass.zero;
 
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
             {

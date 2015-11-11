@@ -28,10 +28,10 @@ namespace Sprint2
             type = ItemType.Coin;
             collisonRectangle = boxCoinSprite.returnCollisionRectangle();
             testForCollision =true;
-            moveSpeed = -4.25f;
-            decayRate = 0.32f;
+            moveSpeed = UtilityClass.coinMoveSpeed;
+            decayRate = UtilityClass.coindecayRate;
             animate = true;
-            timer = 30;
+            timer = UtilityClass.CoinTimer;
             rigidbody = new AutonomousPhysicsObject();
         }
 
@@ -39,7 +39,7 @@ namespace Sprint2
         {
             if (animate)
             {
-                if (timer > 0)
+                if (timer > UtilityClass.zero)
                 {
                     moveSpeed += decayRate;
                     velocity.Y = moveSpeed;
@@ -48,7 +48,7 @@ namespace Sprint2
                 }
                 else
                 {
-                    setCollisionRectangle(new Rectangle(0, 0, 0, 0));
+                    setCollisionRectangle(new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero));
                 }
             }
             if (testForCollision)

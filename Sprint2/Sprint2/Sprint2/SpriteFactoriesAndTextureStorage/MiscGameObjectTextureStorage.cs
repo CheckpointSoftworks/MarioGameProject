@@ -16,9 +16,9 @@ namespace Sprint2
 
         public static void Load(ContentManager content)
         {
-            pipeSpriteSheet = content.Load<Texture2D>("PipeSprite");
-            brickPiecesSpriteSheet = content.Load<Texture2D>("BrickPieces");
-            fireballSpriteSheet = content.Load<Texture2D>("FireballSprite");
+            pipeSpriteSheet = content.Load<Texture2D>(UtilityClass.pipeSpriteSheet);
+            brickPiecesSpriteSheet = content.Load<Texture2D>(UtilityClass.brickPiecesSpriteSheet);
+            fireballSpriteSheet = content.Load<Texture2D>(UtilityClass.fireballSpriteSheet);
         }
 
         public static Texture2D CreatePipeSprite()

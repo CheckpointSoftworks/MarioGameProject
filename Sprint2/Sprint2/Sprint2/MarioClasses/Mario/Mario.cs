@@ -100,7 +100,7 @@ namespace Sprint2
             set { canFire = value && fire; }
         }
 
-        private int timer = 600;
+        private int timer = UtilityClass.marioStarTimer;
         public ControllablePhysicsObject rigidbody { get; set; }
         public Mario(int locX, int locY)
         {
@@ -115,35 +115,35 @@ namespace Sprint2
             moveMario = true;
             rigidbody = new ControllablePhysicsObject();
             LoadPhysicsProperties();
-            transitionDuration = 3f;
-            TransitionToBigTime = 10;
-            TransitionToFireTime = 10;
-            TransitionToSmallTime = 10;
+            transitionDuration = UtilityClass.marioTransitionDuration;
+            TransitionToBigTime = UtilityClass.marioTransitionToBigTime;
+            TransitionToFireTime = UtilityClass.marioTransitionToFireTime;
+            TransitionToSmallTime = UtilityClass.marioTransitionToSmallTime;
         }
 
         private void LoadPhysicsProperties()
         {
-            rigidbody.Elasticity = 0.0f;
-            rigidbody.AirFriction = 0.95f;
-            rigidbody.GroundFriction = 0.7f;
-            rigidbody.maxVelocityX = 12.0f;
-            rigidbody.maxVelocityY = 6.0f;
-            rigidbody.GroundSpeed = 6.0f;
-            rigidbody.JumpSpeed = -48.0f;
-            rigidbody.JumpDuration = 1.6f;
+            rigidbody.Elasticity = UtilityClass.marioElasticity;
+            rigidbody.AirFriction = UtilityClass.marioAirFriction;
+            rigidbody.GroundFriction = UtilityClass.marioGroundFriction;
+            rigidbody.maxVelocityX = UtilityClass.mariomaxVelocityX;
+            rigidbody.maxVelocityY = UtilityClass.mariomaxVelocityY;
+            rigidbody.GroundSpeed = UtilityClass.marioGroundSpeed;
+            rigidbody.JumpSpeed = UtilityClass.marioJumpSpeed;
+            rigidbody.JumpDuration = UtilityClass.marioJumpDuration;
             rigidbody.IsEnabled = true;
         }
         public void Update()
         {
-            if (Math.Abs(rigidbody.Velocity.Y) > 0) { state.Jump(); }
+            if (Math.Abs(rigidbody.Velocity.Y) > UtilityClass.zero) { state.Jump(); }
             else if (rigidbody.Floored)
             {
-                if (Math.Abs(rigidbody.Velocity.X) > 0)
+                if (Math.Abs(rigidbody.Velocity.X) > UtilityClass.zero)
                 {
                     state.Running();
                 }
             }
-            if ((facingRight && rigidbody.Velocity.X < 0) || (!facingRight && rigidbody.Velocity.X > 0))
+            if ((facingRight && rigidbody.Velocity.X < UtilityClass.zero) || (!facingRight && rigidbody.Velocity.X > UtilityClass.zero))
             {
                 facingRight = !facingRight;
                 ChangeDirection();
@@ -161,10 +161,10 @@ namespace Sprint2
             else
             {
                 timer--;
-                if (timer == 0)
+                if (timer == UtilityClass.zero)
                 {
                     star = false;
-                    timer = 600;
+                    timer = UtilityClass.marioStarTimer;
                 }
 
                 state.Update();
@@ -196,9 +196,7 @@ namespace Sprint2
                 facingRight = false;
             }
         }
-        /// <summary>
-        /// Special case jump that can only be called by enemies or bouncy objects
-        /// </summary>
+
         public void BounceOff()
         {
             rigidbody.ResetJump();
@@ -207,19 +205,19 @@ namespace Sprint2
 
         private void ChangeDirection()
         {
-            TransitionToDifferentDirection = 0;
+            TransitionToDifferentDirection = UtilityClass.zero;
         }
         public void BecomeBig()
         {
-            if (!fire) TransitionToBigTime = 0;
+            if (!fire) TransitionToBigTime = UtilityClass.zero;
         }
         public void BecomeFire()
         {
-           if (!fire) TransitionToFireTime = 0;
+           if (!fire) TransitionToFireTime = UtilityClass.zero;
         }
         public void BecomeSmall()
         {
-            TransitionToSmallTime = 0;
+            TransitionToSmallTime = UtilityClass.zero;
         }
         public void TakeDamage()
         {
@@ -248,8 +246,8 @@ namespace Sprint2
             {
                 if (TransitionToBigTime < transitionDuration)
                 {
-                    TransitionToBigTime += 0.1f;
-                    if ((TransitionToBigTime * 10) % 5 < 1) small = !small;
+                    TransitionToBigTime += UtilityClass.marioTransistionTimerCount;
+                    if ((TransitionToBigTime * UtilityClass.ten) % 5 < UtilityClass.one) small = !small;
                     transitioning = (TransitionToBigTime < transitionDuration);
                     if (!transitioning)
                     {
@@ -259,8 +257,8 @@ namespace Sprint2
                 }
                 if (TransitionToSmallTime < transitionDuration)
                 {
-                    TransitionToSmallTime += 0.1f;
-                    if ((TransitionToSmallTime * 10) % 5 < 1) small = !small;
+                    TransitionToSmallTime += UtilityClass.marioTransistionTimerCount;
+                    if ((TransitionToSmallTime * UtilityClass.ten) % 5 < UtilityClass.one) small = !small;
                     transitioning = (TransitionToSmallTime < transitionDuration);
                     if (!transitioning)
                     {
@@ -270,9 +268,9 @@ namespace Sprint2
                 }
                 if (TransitionToFireTime < transitionDuration)
                 {
-                    TransitionToFireTime += 0.1f;
+                    TransitionToFireTime += UtilityClass.marioTransistionTimerCount;
 
-                    if ((TransitionToFireTime * 10) % 5 < 1)
+                    if ((TransitionToFireTime * UtilityClass.ten) % 5 < UtilityClass.one)
                     {
                         fire = !fire;
                     }
@@ -285,13 +283,13 @@ namespace Sprint2
                 }
                 if (TransitionToDifferentDirection < transitionDuration)
                 {
-                    TransitionToDifferentDirection += 0.4f;
+                    TransitionToDifferentDirection += UtilityClass.marioTransitionDirection;
                     state.ChangeDirection();
                     transitioning = (TransitionToFireTime < transitionDuration);
                 }
                 if (transitioning&&moveMario)
                 {
-                    location = new Vector2(location.X, location.Y - 16);
+                    location = new Vector2(location.X, location.Y - UtilityClass.marioTransistionOffset);
                     moveMario = false;
                 }
                 else if (!transitioning)
@@ -303,17 +301,17 @@ namespace Sprint2
             }
             else
             {
-                if (timer % 7 == 0)
+                if (timer % 7 == UtilityClass.zero)
                 {
                     state.setDrawColor(Color.Purple);
                     state.Draw(spriteBatch, cameraLoc);
                 }
-                else if (timer % 5 == 0)
+                else if (timer % 5 == UtilityClass.zero)
                 {
                     state.setDrawColor(Color.Blue);
                     state.Draw(spriteBatch, cameraLoc);
                 }
-                else if (timer % 4 == 0)
+                else if (timer % 4 == UtilityClass.zero)
                 {
                     state.setDrawColor(Color.Red);
                     state.Draw(spriteBatch, cameraLoc);
@@ -332,7 +330,7 @@ namespace Sprint2
         {
             if (transitioning)
             {
-                return new Rectangle(0, 0, 0, 0);
+                return new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero);
             }
             else
             {

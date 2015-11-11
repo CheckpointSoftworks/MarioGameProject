@@ -61,7 +61,7 @@ namespace Sprint2
 
         public Rectangle returnStateCollisionRectangle()
         {
-            Rectangle collisionRectangle=new Rectangle(0,0,0,0);
+            Rectangle collisionRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero);
 
             
 

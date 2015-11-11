@@ -14,7 +14,7 @@ namespace Sprint2
         private bool testForCollision;
         private bool noLongerSpecialized;
         private bool dispenseCoinFlag;
-        private int coinCount = 15;
+        private int coinCount;
         private Vector2 location;
         
         public BrickBlockCoinDispenser(int locX,int locY,BlockType type)
@@ -25,6 +25,7 @@ namespace Sprint2
             dispenseCoinFlag=true;
             testForCollision=true;
             noLongerSpecialized = false;
+            coinCount = UtilityClass.CoinDispenserLimit;
         }
 
         public void Update()
@@ -79,7 +80,7 @@ namespace Sprint2
 
         public IItemObjects dispenseCoin()
         {
-            return new BoxCoin((int)location.X, (int)location.Y-16);
+            return new BoxCoin((int)location.X, (int)location.Y-UtilityClass.itemOffSet);
         }
 
         public void bounceBlock()

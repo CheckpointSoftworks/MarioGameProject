@@ -23,6 +23,7 @@ namespace Sprint2
         public LevelLoader loader { get; set; }
         public Camera camera { get; set; }
         public CameraController cameraController { get; set; }
+        public bool pause { get; set; }
         public int fireBallCount { get; set; }
         private Texture2D background;
         private Texture2D background2;
@@ -34,7 +35,7 @@ namespace Sprint2
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            Content.RootDirectory = UtilityClass.Content;
         }
 
         protected override void Initialize()
@@ -42,11 +43,12 @@ namespace Sprint2
             tester = new TestingClass(this);
             keyboard = new KeyboardController();
             gamepad = new GamepadController(this);
-            camera = new Camera(480, 800, new Vector2(0, 0));
-            loader = new LevelLoader("Level.xml", camera);
+            camera = new Camera(UtilityClass.cameraHeight, UtilityClass.cameraWidth, new Vector2(UtilityClass.zero, UtilityClass.zero));
+            loader = new LevelLoader(UtilityClass.levelFile, camera);
             levelStore = new LevelStorage(camera);
             keyNotPressed = new KeyNotPressed(this);
-            fireBallCount = 10;
+            fireBallCount = UtilityClass.fireballLimit;
+            pause = false;
             base.Initialize();
             tester.runTests();
         }
@@ -61,8 +63,8 @@ namespace Sprint2
             EnemySpriteFactory.Load(this.Content);
             MiscGameObjectTextureStorage.Load(this.Content);
             MarioSpriteFactory.Load(this.Content);
-            background = Content.Load<Texture2D>("Background");
-            background2 = Content.Load<Texture2D>("Background2");
+            background = Content.Load<Texture2D>(UtilityClass.background);
+            background2 = Content.Load<Texture2D>(UtilityClass.background2);
 
             LoadKeyBoardCommands();
             levelStore = loader.LoadLevel();
@@ -82,38 +84,43 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterCommand(Keys.S, new SprintCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.Z,new NoJumpCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.X, new NoFireCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.P, new PauseCommand(this));
         }
         protected override void UnloadContent() { }
 
         protected override void Update(GameTime gameTime)
         {
             keyboard.Update();
-            gamepad.Update();
-            keyNotPressed.Execute();
-            mario.Update();
-            levelStore.Update(mario, this);
-            cameraController.Update();
-            if (((Mario)mario).StateStatus().Equals(MarioState.Die))
+            if (!pause)
             {
-                resetCommand.Execute();
+                gamepad.Update();
+                keyNotPressed.Execute();
+                mario.Update();
+                levelStore.Update(mario);
+                levelStore.handleCollision(mario, this);
+                cameraController.Update();
+                if (((Mario)mario).StateStatus().Equals(MarioState.Die))
+                {
+                    resetCommand.Execute();
+                }
+                if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
+                {
+                    resetCommand.Execute();
+                }
+                base.Update(gameTime);
             }
-            if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
-            {
-                resetCommand.Execute();
-            }
-            base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            Rectangle sourceRectangle = new Rectangle((int)camera.GetPosition().X, (int)camera.GetPosition().Y, 800, 480);
-            Rectangle destinationRectangle = new Rectangle(0, 0, 800, 480);
+            Rectangle sourceRectangle = new Rectangle((int)camera.GetPosition().X, (int)camera.GetPosition().Y, UtilityClass.cameraWidth,UtilityClass.cameraHeight);
+            Rectangle destinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
             if ((int)camera.GetPosition().X < 1500) { spriteBatch.Draw(background, destinationRectangle, sourceRectangle, Color.White); }
             else
             {
-                sourceRectangle = new Rectangle((int)camera.GetPosition().X - 1500, (int)camera.GetPosition().Y, 800, 480);
+                sourceRectangle = new Rectangle((int)camera.GetPosition().X - UtilityClass.backgroundChange, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
                 spriteBatch.Draw(background2, destinationRectangle, sourceRectangle, Color.White);
             }
             spriteBatch.End();

@@ -18,7 +18,7 @@ namespace Sprint2
         }
         public void Execute()
         {
-            superMushroom.setCollisionRectangle(new Rectangle(0, 0, 0, 0));
+            superMushroom.setCollisionRectangle(new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero));
             ((Mario)mario).BecomeBig();
         }
     }

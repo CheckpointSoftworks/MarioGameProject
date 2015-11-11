@@ -27,9 +27,9 @@ namespace Sprint2
 
         public GamepadController(Game1 game)
         {
-            leftThumbPosition.X = 0;
-            leftThumbPosition.Y = 0;
-            deadZone = 0.5f;
+            leftThumbPosition.X = UtilityClass.zero;
+            leftThumbPosition.Y = UtilityClass.zero;
+            deadZone = UtilityClass.deadZone;
 
             left = new LeftCommand(game);
             right = new RightCommand(game);

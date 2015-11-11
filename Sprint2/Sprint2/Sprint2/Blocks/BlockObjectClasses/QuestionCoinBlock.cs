@@ -67,7 +67,7 @@ namespace Sprint2
         public IItemObjects spawnCoin()
         {
             dispenseItemFlag = false;
-            return new BoxCoin((int)location.X, (int)location.Y-16);
+            return new BoxCoin((int)location.X, (int)location.Y-UtilityClass.itemOffSet);
         }
 
         public bool dispenseItem()
