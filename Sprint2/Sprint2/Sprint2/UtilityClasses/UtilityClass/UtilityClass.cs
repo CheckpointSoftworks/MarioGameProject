@@ -14,6 +14,7 @@ namespace Sprint2
         public static int two = 2;
         public static int three = 3;
         public static int four = 4;
+        public static int five = 5;
         public static int eight = 8;
         public static int ten = 10;
         public static int OneHundred = 100;
@@ -152,6 +153,9 @@ namespace Sprint2
         public static string background = "Background";
         public static string background2 = "Background2";
         public static int backgroundChange = 1500;
+        public static int LevelStartTime = 500;
+        public static string GameTimeName = "TIME\n";
+        public static int[] ChainBonusMultiplier = { 1, 2, 4, 8, 10, 20, 40, 80 };
 
         //GUI stuff
         public static float DefaultSpriteWidth = 16;
@@ -159,7 +163,9 @@ namespace Sprint2
         public static Vector2 GUIMarioPosition = new Vector2(400, 240);
         public static Vector2 GUIMarioScorePosition = new Vector2(5,1);
         public static Vector2 GUIMarioCoinsPosition = new Vector2(100, 0);
-        public static String GUIMarioScoreName = "MARIO\n";
+        public static string GUIMarioScoreName = "MARIO\n";
+        public static string GUIMarioCoinName = "x";
+        public static string FontString = "Fonts/SMB";
         
 
 

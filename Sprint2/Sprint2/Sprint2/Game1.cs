@@ -30,6 +30,9 @@ namespace Sprint2
         private TestingClass tester;
         private ICommand resetCommand;
         private ICommand keyNotPressed;
+        private SpriteFont font;
+        private double time;
+        private GUI gui;
         
 
         public Game1()
@@ -49,6 +52,8 @@ namespace Sprint2
             keyNotPressed = new KeyNotPressed(this);
             fireBallCount = UtilityClass.fireballLimit;
             pause = false;
+            time = UtilityClass.LevelStartTime;
+            gui = new GUI();
             base.Initialize();
             tester.runTests();
         }
@@ -63,14 +68,18 @@ namespace Sprint2
             EnemySpriteFactory.Load(this.Content);
             MiscGameObjectTextureStorage.Load(this.Content);
             MarioSpriteFactory.Load(this.Content);
+            GUISpriteFactory.Load(this.Content);
             background = Content.Load<Texture2D>(UtilityClass.background);
             background2 = Content.Load<Texture2D>(UtilityClass.background2);
-
+            font = Content.Load<SpriteFont>(UtilityClass.FontString);
             LoadKeyBoardCommands();
             levelStore = loader.LoadLevel();
             mario = levelStore.player;
             cameraController = new CameraController(camera, mario);
             resetCommand = new ResetLevelCommand(this);
+            gui.Subscribe(((Mario)mario).GetPoints());
+            gui.Subscribe(((Mario)mario).GetLives());
+            gui.Subscribe(((Mario)mario).GetCoins());
         }
 
         private void LoadKeyBoardCommands()
@@ -106,7 +115,10 @@ namespace Sprint2
                 if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
                 {
                     resetCommand.Execute();
+                    ResetTime();
                 }
+                gui.Update();
+                UpdateTime(gameTime);
                 base.Update(gameTime);
             }
         }
@@ -123,9 +135,31 @@ namespace Sprint2
                 sourceRectangle = new Rectangle((int)camera.GetPosition().X - UtilityClass.backgroundChange, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
                 spriteBatch.Draw(background2, destinationRectangle, sourceRectangle, Color.White);
             }
-            spriteBatch.End();
+            spriteBatch.DrawString(font, UtilityClass.GameTimeName + FormattedTime(), new Vector2(740, 10), Color.White);
+            gui.DrawPlayGUI(spriteBatch, font);
             levelStore.Draw(mario, spriteBatch);
+            spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        protected void UpdateTime(GameTime gameTime)
+        {
+            time -= gameTime.ElapsedGameTime.TotalSeconds * 2.5d;
+            if (time <= 0)
+            {
+                resetCommand.Execute();
+                ResetTime();
+            }
+        }
+
+        private void ResetTime()
+        {
+            time = UtilityClass.LevelStartTime;
+        }
+
+        private String FormattedTime()
+        {
+            return Math.Round(time, UtilityClass.zero).ToString();
         }
     }
 }

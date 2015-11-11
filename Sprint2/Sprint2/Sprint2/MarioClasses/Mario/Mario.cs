@@ -119,7 +119,7 @@ namespace Sprint2
             LoadPhysicsProperties();
             lives = new PlayerScoreItem(PlayerScoreItem.GUIType.mario, UtilityClass.StartingLives, UtilityClass.GUIMarioPosition, false);
             points = new PlayerScoreItem(UtilityClass.GUIMarioScoreName, UtilityClass.zero, UtilityClass.GUIMarioScorePosition, true);
-            coins = new PlayerScoreItem(PlayerScoreItem.GUIType.coin, UtilityClass.zero, UtilityClass.GUIMarioScorePosition, true);
+            coins = new PlayerScoreItem(PlayerScoreItem.GUIType.coin, UtilityClass.zero, UtilityClass.GUIMarioCoinsPosition, true);
             transitionDuration = UtilityClass.marioTransitionDuration;
             TransitionToBigTime = UtilityClass.marioTransitionToBigTime;
             TransitionToFireTime = UtilityClass.marioTransitionToFireTime;
@@ -143,6 +143,7 @@ namespace Sprint2
             if (Math.Abs(rigidbody.Velocity.Y) > UtilityClass.zero) { state.Jump(); }
             else if (rigidbody.Floored)
             {
+                points.ResetChain();
                 if (Math.Abs(rigidbody.Velocity.X) > UtilityClass.zero)
                 {
                     state.Running();
@@ -324,7 +325,7 @@ namespace Sprint2
                 {
                     TransitionToFireTime += UtilityClass.marioTransistionTimerCount;
 
-                    if ((TransitionToFireTime * UtilityClass.ten) % 5 < UtilityClass.one)
+                    if ((TransitionToFireTime * UtilityClass.ten) % UtilityClass.five < UtilityClass.one)
                     {
                         fire = !fire;
                     }

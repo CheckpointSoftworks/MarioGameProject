@@ -69,7 +69,7 @@ namespace Sprint2
         }
         public void Jump()
         {
-            mario.State = new MarioChangeDirection(mario);
+            mario.State = new MarioJump(mario);
         }
         public void ShootFireball()
         {
