@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class PlayerScoreItem
+    public class PlayerScoreItem : IScoreItem
     {
+        public enum GUIType { coin, mario, text };
+        private GUIType type;
+        private ISprite sprite;
+        private Vector2 location;
         private int chainModifier;
-        
+        private bool drawEveryFrame;
         public int ScoreValue { get; set; }
         
         public String ScoreName { private get; set; }
 
         override public String ToString()
         {
-            return ScoreName.ToString() + "\n" + ScoreValue.ToString();
+            return ScoreName.ToString() + ScoreValue.ToString();
         }
 
         public PlayerScoreItem()
@@ -25,11 +31,42 @@ namespace Sprint2
             chainModifier = 1;
         }
 
-        public PlayerScoreItem(String name, int value)
+        public PlayerScoreItem(String name, int value, Vector2 loc,bool frame)
         {
+            type = GUIType.text;
+            location = loc;
             ScoreName = name;
             ScoreValue = value;
             chainModifier = 1;
+            drawEveryFrame = frame;
+        }
+        public PlayerScoreItem(GUIType type, int value, Vector2 loc,bool frame)
+        {
+            ScoreName = "";
+            this.type = type;
+            location = loc;
+            ScoreValue = value;
+            chainModifier = 1;
+            sprite = GetSprite();
+            drawEveryFrame = frame;
+        }
+        private ISprite GetSprite()
+        {
+            switch (type)
+            {
+                case (GUIType.coin) :
+                    {
+                        return new GUICoinSprite(location);                        
+                    }
+                case (GUIType.mario):
+                    {
+                        return new GUIMarioSprite(location);
+                    }
+                default:
+                    {
+                        return null;
+                    }
+            }
         }
 
         public int ComboValue()
@@ -45,7 +82,44 @@ namespace Sprint2
         {
             chainModifier = 1;
         }
-
+        public void Update()
+        {
+            if (!type.Equals(GUIType.text))
+            {
+                sprite.Update();
+            }
+        }
+        public void Draw(SpriteBatch spriteBatch, SpriteFont font, Vector2 cameraLoc)
+        {
+            switch(type)
+            { 
+                case(GUIType.text) :
+                {
+                    spriteBatch.DrawString(font, ToString(), location, Color.White);
+                    break;
+                }
+                case(GUIType.coin) :
+                {
+                    Vector2 adjustedLocation = location;
+                    adjustedLocation.X += 16;
+                    sprite.Draw(spriteBatch,cameraLoc);
+                    spriteBatch.DrawString(font, "x" + ToString(), adjustedLocation, Color.White);
+                    break;
+                }
+                default :
+                {
+                    Vector2 adjustedLocation = location;
+                    adjustedLocation.X += 16;
+                    sprite.Draw(spriteBatch, cameraLoc);
+                    spriteBatch.DrawString(font, ToString(), adjustedLocation, Color.White);
+                    break;
+                }
+            }
+        }
+        public bool DrawEveryFrame()
+        {
+            return drawEveryFrame;
+        }
         public void UpdateScore(int val)
         {
             ScoreValue += val * Chain();

@@ -30,6 +30,7 @@ namespace Sprint2
         private ICommand resetCommand;
         private ICommand keyNotPressed;
         private SpriteFont font;
+        private GUI gui;
         private double time;
 
         public Game1()
@@ -47,6 +48,7 @@ namespace Sprint2
             loader = new LevelLoader("Level.xml", camera);
             levelStore = new LevelStorage(camera);
             keyNotPressed = new KeyNotPressed(this);
+            gui = new GUI();
             fireBallCount = 10;
             base.Initialize();
             tester.runTests();
@@ -55,14 +57,14 @@ namespace Sprint2
 
         protected override void LoadContent()
         {
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = Content.Load<SpriteFont>("Fonts/Font");
+            font = Content.Load<SpriteFont>("Fonts/SMB");
             BlockSpriteTextureStorage.Load(this.Content);
             ItemSpriteTextureStorage.Load(this.Content);
             EnemySpriteFactory.Load(this.Content);
             MiscGameObjectTextureStorage.Load(this.Content);
             MarioSpriteFactory.Load(this.Content);
+            GUISpriteFactory.Load(this.Content);
             background = Content.Load<Texture2D>("Background");
             background2 = Content.Load<Texture2D>("Background2");
 
@@ -71,6 +73,10 @@ namespace Sprint2
             mario = levelStore.player;
             cameraController = new CameraController(camera, mario);
             resetCommand = new ResetLevelCommand(this);
+
+            gui.Subscribe(((Mario)mario).GetPoints());
+            gui.Subscribe(((Mario)mario).GetLives());
+            gui.Subscribe(((Mario)mario).GetCoins());
         }
 
         private void LoadKeyBoardCommands()
@@ -106,6 +112,7 @@ namespace Sprint2
                 ResetTime();
             }
             UpdateTime(gameTime);
+            gui.Update();
             base.Update(gameTime);
         }
 
@@ -121,12 +128,11 @@ namespace Sprint2
                 sourceRectangle = new Rectangle((int)camera.GetPosition().X - 1500, (int)camera.GetPosition().Y, 800, 480);
                 spriteBatch.Draw(background2, destinationRectangle, sourceRectangle, Color.White);
             }
-            spriteBatch.DrawString(font, ((Mario)mario).PointsToString(), new Vector2(10, 10), Color.White);
-            spriteBatch.DrawString(font, ((Mario)mario).CoinsToString(), new Vector2(100, 10), Color.White);
-            //spriteBatch.DrawString(font, ((Mario)mario).LivesToString(), new Vector2(740, 10), Color.White);
             spriteBatch.DrawString(font, "TIME\n" + FormattedTime(), new Vector2(740, 10), Color.White);
-            spriteBatch.End();
+            
             levelStore.Draw(mario, spriteBatch);
+            gui.DrawPlayGUI(spriteBatch, font);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
 

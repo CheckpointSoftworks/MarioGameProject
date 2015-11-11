@@ -87,12 +87,16 @@
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\BrickPieces.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\BrickPiecesSprite.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\FireballCommand.cs" />
+    <Compile Include="GUI\GUI.cs" />
+    <Compile Include="GUI\GUISprites\GUICoinSprite.cs" />
+    <Compile Include="GUI\GUISprites\GUIMarioSprite.cs" />
     <Compile Include="Interfaces\IEnemyState.cs" />
     <Compile Include="Interfaces\IProjectile.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\Items\ItemBlockCollisionHandler.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\Items\ItemEnvriomentalCollisionHandler.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\MovementCommands\SprintCommand.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\MovementCommands\RestoreMarioRigidbodyCommand.cs" />
+    <Compile Include="Interfaces\IScoreItem.cs" />
     <Compile Include="LevelLoadingandStorageClasses\LevelCollisionHandlerHelper.cs" />
     <Compile Include="PhysicsClasses\AutonomousPhysicsObject.cs" />
     <Compile Include="Blocks\BlockObjectClasses\Blocks.cs" />
@@ -119,6 +123,7 @@
     <Compile Include="LevelStateAlterations\ResetLevelCommand.cs" />
     <Compile Include="Scoring\NonPlayerScoreItem.cs" />
     <Compile Include="Scoring\PlayerScoreItem.cs" />
+    <Compile Include="SpriteFactoriesAndTextureStorage\GUISpriteFactory.cs" />
     <Compile Include="SpriteHelperClasses\AnimatedSprite.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\BigMarioBrickBlockCollisionCommand.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\BlockSpriteTextureStorage.cs" />

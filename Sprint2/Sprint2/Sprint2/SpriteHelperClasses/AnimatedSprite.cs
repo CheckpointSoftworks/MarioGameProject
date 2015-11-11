@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    public class AnimatedSprite 
+    public class AnimatedSprite : ISprite
     {
         private int rows;
         private int columns;
@@ -55,8 +55,7 @@ namespace Sprint2
                     finished = false;
                 }
             }
-        }
-        
+        }        
 
         public void Draw(SpriteBatch spriteBatch, Vector2 loc, Vector2 cameraLoc, bool facingRight)
         {
@@ -66,7 +65,7 @@ namespace Sprint2
             Rectangle sourceRectangle = new Rectangle(frameWidth * frameColumn, frameHeight * frameRow, frameWidth, frameHeight);
             Rectangle destinationRectangle = new Rectangle((int)loc.X - (int)cameraLoc.X, (int)loc.Y - (int)cameraLoc.Y, frameWidth, frameHeight);
             collisionRectangle = destinationRectangle;
-            spriteBatch.Begin();
+
             if (facingRight)
             {
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, color);
@@ -75,15 +74,21 @@ namespace Sprint2
             {
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, color, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
             }
-            spriteBatch.End();
+
             collisionRectangle = new Rectangle((int)loc.X, (int)loc.Y, frameWidth, frameHeight);
         }
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
+        { }
 
         public bool isFinished()
         {
             return finished;
         }
 
+        public int Width()
+        {
+            return frameWidth;
+        }
 
         public Rectangle returnCollisionRectangle()
         {

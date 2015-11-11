@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class NonPlayerScoreItem
+    public class NonPlayerScoreItem 
     {
         public bool Chainable { get; private set; }
         public int ScoreValue{ get; set; }
@@ -14,7 +16,7 @@ namespace Sprint2
             ScoreValue = value;
             Chainable = chain;
         }
-
+        
         public NonPlayerScoreItem GetScoreData()
         {
             return new NonPlayerScoreItem(ScoreValue, Chainable);

@@ -121,9 +121,9 @@ namespace Sprint2
             TransitionToBigTime = 10;
             TransitionToFireTime = 10;
             TransitionToSmallTime = 10;
-            lives = new PlayerScoreItem("Lives:", 3);
-            points = new PlayerScoreItem("MARIO ", 0);
-            coins = new PlayerScoreItem("Coins: ", 0);
+            lives = new PlayerScoreItem(PlayerScoreItem.GUIType.mario, 3,new Vector2(400,240),false);
+            points = new PlayerScoreItem("MARIO\n", 0, new Vector2(5, 1),true);
+            coins = new PlayerScoreItem(PlayerScoreItem.GUIType.coin, 0, new Vector2(100, 0),true);
         }
 
         private void LoadPhysicsProperties()
@@ -211,17 +211,25 @@ namespace Sprint2
             rigidbody.ResetJump();
             rigidbody.Jump();
         }
+        public PlayerScoreItem GetPoints()
+        {
+            return points;
+        }
+        public PlayerScoreItem GetLives()
+        {
+            return lives;
+        }
+        public PlayerScoreItem GetCoins()
+        {
+            return coins;
+        }
         public String PointsToString()
         {
             return points.ToString();
         }
-        public String LivesToString()
+        public float CurrentGroundSpeed()
         {
-            return lives.ToString();
-        }
-        public String CoinsToString()
-        {
-            return coins.ToString();
+            return rigidbody.Velocity.X;
         }
 
         public void ScoreEvent(NonPlayerScoreItem target)

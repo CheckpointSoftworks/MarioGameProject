@@ -14,12 +14,14 @@ namespace Sprint2
         private bool testForCollision;
         private Vector2 location;
         private AutonomousPhysicsObject rigidbody;
+        private float groundSpeed;
         private bool facingRight;
         private int timer;
 
-        public Fireball(int x, int y, bool facingRight, IPlayer mario)
+        public Fireball(int x, int y, bool facingRight, IPlayer mario, float groundSpeed)
         {
             location = new Vector2(x, y);
+            this.groundSpeed = groundSpeed;
             sprite = new FireballSprite(location);
             testForCollision = true;
             timer = 200;
@@ -34,8 +36,9 @@ namespace Sprint2
             rigidbody.GroundFriction = 1f;
             rigidbody.MaxFallSpeed = 1.5f;
             rigidbody.Elasticity = 1f;
-            if (facingRight) { rigidbody.GroundSpeed = 1.5f; }
-            else{ rigidbody.GroundSpeed = -1.5f; }
+            rigidbody.GroundSpeed = groundSpeed;
+            if (facingRight) { rigidbody.GroundSpeed += 1.5f; }
+            else{ rigidbody.GroundSpeed += -1.5f; }
             rigidbody.IsEnabled = true;
         }
 

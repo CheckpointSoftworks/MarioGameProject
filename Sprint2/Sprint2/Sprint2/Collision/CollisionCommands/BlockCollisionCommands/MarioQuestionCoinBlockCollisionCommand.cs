@@ -22,6 +22,7 @@ namespace Sprint2
             {
                 IItemObjects coin = ((QuestionCoinBlock)block).spawnCoin();
                 game.levelStore.itemList.Add(coin);
+                ((Mario)game.mario).AddCoin();
             }
         }
     }
