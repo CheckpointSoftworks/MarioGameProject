@@ -34,7 +34,7 @@ namespace Sprint2
             projectileList = new ArrayList();
             pause = false;
         }
-        public void Update(IPlayer mario,Game1 game)
+        public void Update(IPlayer mario)
         {
             if (!pause)
             {
@@ -65,7 +65,6 @@ namespace Sprint2
                 {
                     enviromental.Update();
                 }
-                handleCollision(mario, game);
             }
         }
 
@@ -97,17 +96,10 @@ namespace Sprint2
 
         public void pauseGame()
         {
-            if (pause)
-            {
-                pause = false;
-            }
-            else
-            {
-                pause = true;
-            }
+            pause = true;
         }
 
-        private void handleCollision(IPlayer mario, Game1 game)
+        public void handleCollision(IPlayer mario, Game1 game)
         {
             handleMarioCollision((Mario)mario, game);
             foreach (IEnemyObject enemy in enemiesList)

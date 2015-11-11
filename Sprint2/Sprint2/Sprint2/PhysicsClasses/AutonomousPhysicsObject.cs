@@ -11,14 +11,14 @@ namespace Sprint2
     {
         public AutonomousPhysicsObject()
         {
-            velocity = new Vector2(0, 0);
-            elasticity = 0;
-            grav = new Vector2(0, 5f);
-            acceleration = new Vector2(0, initialAirSpeed / deltaTime);
+            velocity = new Vector2(UtilityClass.zero, UtilityClass.zero);
+            elasticity = UtilityClass.zero;
+            grav = new Vector2(UtilityClass.zero, UtilityClass.gravY);
+            acceleration = new Vector2(UtilityClass.zero, initialAirSpeed / deltaTime);
 
         }
 
-        private float deltaTime = 0.1f;
+        private float deltaTime = UtilityClass.deltaTime;
 
         private bool enabled;
         public bool IsEnabled
@@ -94,7 +94,7 @@ namespace Sprint2
             }
             set
             {
-                friction.X = Clamp(value, 0, 1);
+                friction.X = Clamp(value, UtilityClass.zero, UtilityClass.one);
             }
         }
 
@@ -106,7 +106,7 @@ namespace Sprint2
             }
             set
             {
-                friction.Y = Clamp(value, 0, 1);
+                friction.Y = Clamp(value, UtilityClass.zero, UtilityClass.one);
             }
         }
 
@@ -121,7 +121,7 @@ namespace Sprint2
             }
             set
             {
-                elasticity = Clamp(value, 0, 1);
+                elasticity = Clamp(value, UtilityClass.zero, UtilityClass.one);
             }
         }
 
@@ -165,38 +165,38 @@ namespace Sprint2
         private void ClampVelocity()
         {
             velocity = Clamp(velocity, -Math.Abs(groundSpeed), Math.Abs(groundSpeed), -maxFallSpeed, maxFallSpeed);
-            if (Math.Abs(velocity.X) <= 0.4) velocity.X = 0;
-            if (Math.Abs(velocity.Y) <= 0.4) velocity.Y = 0;
+            if (Math.Abs(velocity.X) <= UtilityClass.pointFour) velocity.X = UtilityClass.zero;
+            if (Math.Abs(velocity.Y) <= UtilityClass.pointFour) velocity.Y = UtilityClass.zero;
         }
 
         private void ClampAcceleration()
         {
-            acceleration = Clamp(acceleration, -Math.Abs(acceleration.X), Math.Abs(acceleration.X), -maxFallSpeed * grav.Y * (1 / deltaTime), maxFallSpeed * grav.Y * (1 / deltaTime));
-            if (Math.Abs(acceleration.Y) < grav.Y * (grav.Y * elasticity)) acceleration.Y = 0;
+            acceleration = Clamp(acceleration, -Math.Abs(acceleration.X), Math.Abs(acceleration.X), -maxFallSpeed * grav.Y * (UtilityClass.one / deltaTime), maxFallSpeed * grav.Y * (UtilityClass.one / deltaTime));
+            if (Math.Abs(acceleration.Y) < grav.Y * (grav.Y * elasticity)) acceleration.Y = UtilityClass.zero;
         }
 
         public void RightCollision()
         {
-            if (velocity.X > 0)
+            if (velocity.X > UtilityClass.zero)
             {
-                velocity.X = 0;
-                groundSpeed *= -1;
+                velocity.X = UtilityClass.zero;
+                groundSpeed *= -UtilityClass.one;
             }
         }
 
         public void LeftCollision()
         {
-            if (velocity.X < 0)
+            if (velocity.X < UtilityClass.zero)
             {
-                velocity.X = 0;
-                groundSpeed *= -1;
+                velocity.X = UtilityClass.zero;
+                groundSpeed *= -UtilityClass.one;
             }
         }
 
         public void TopCollision()
         {
-            velocity.Y = 0;
-            if (acceleration.Y < 0) acceleration.Y *= -1 * elasticity;
+            velocity.Y = UtilityClass.zero;
+            if (acceleration.Y < UtilityClass.zero) acceleration.Y *= -UtilityClass.one * elasticity;
             ClampAcceleration();
             floored = false;
         }
@@ -208,7 +208,7 @@ namespace Sprint2
                 floored = true;
                 if (true)
                 {
-                    if (acceleration.Y > 0) acceleration.Y *= -1 * elasticity;
+                    if (acceleration.Y > UtilityClass.zero) acceleration.Y *= -UtilityClass.one * elasticity;
                     ClampAcceleration();
                 }
             }

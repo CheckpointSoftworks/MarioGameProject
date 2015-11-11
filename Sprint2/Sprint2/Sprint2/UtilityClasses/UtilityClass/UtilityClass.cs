@@ -105,6 +105,11 @@ namespace Sprint2
         public static int marioTransistionOffset = 16;
 
         //Physics Magic Numbers
+        public static float gravY=5f;
+        public static float deltaTime = 0.1f;
+        public static float pointFour = 0.4f;
+        public static int airTime = 100;
+        public static float pointOne = 0.1f;
 
         //Projectile Magic Numbers
         public static int fireballTimer = 200;
@@ -137,6 +142,13 @@ namespace Sprint2
         public static string brickPiecesSpriteSheet="BrickPieces";
         public static string fireballSpriteSheet="FireballSprite";
 
-        //Animated Sprite Helper Magic Numbers
+        //Game Magic Stuff
+        public static string Content = "Content";
+        public static string levelFile = "Level.xml";
+        public static int cameraHeight = 480;
+        public static int cameraWidth = 800;
+        public static string background = "Background";
+        public static string background2 = "Background2";
+        public static int backgroundChange = 1500;
     }
 }

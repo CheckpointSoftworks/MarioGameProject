@@ -7,14 +7,15 @@ namespace Sprint2
 {
     public class PauseCommand:ICommand
     {
-        public PauseCommand()
+        private LevelStorage level;
+        public PauseCommand(LevelStorage level)
         {
-
+            this.level = level;
         }
 
         public void Execute()
         {
-
+            level.pauseGame();
         }
     }
 }
