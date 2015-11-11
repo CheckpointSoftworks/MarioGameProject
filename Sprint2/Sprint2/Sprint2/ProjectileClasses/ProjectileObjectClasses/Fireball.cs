@@ -16,8 +16,9 @@ namespace Sprint2
         private AutonomousPhysicsObject rigidbody;
         private bool facingRight;
         private int timer;
+        private IPlayer owner;
 
-        public Fireball(int x, int y, bool facingRight)
+        public Fireball(int x, int y, bool facingRight, IPlayer shooter)
         {
             location = new Vector2(x, y);
             sprite = new FireballSprite(location);
@@ -25,6 +26,7 @@ namespace Sprint2
             timer = UtilityClass.fireballTimer;
             rigidbody = new AutonomousPhysicsObject();
             this.facingRight = facingRight;
+            owner = shooter;
             LoadRigidBodyProperties();
         }
         private void LoadRigidBodyProperties()
@@ -91,6 +93,14 @@ namespace Sprint2
                 complete = true;
             }
             return complete;
+        }
+        public IPlayer GetOwner()
+        {
+            return owner;
+        }
+        public void Kill()
+        {
+            timer = UtilityClass.zero;
         }
     }
 }

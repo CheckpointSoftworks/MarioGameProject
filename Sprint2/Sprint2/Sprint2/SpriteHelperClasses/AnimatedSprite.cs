@@ -22,13 +22,15 @@ namespace Sprint2
         private int currentUpdate;
         private int updatesPerFrame;
 
-        public AnimatedSprite(Texture2D texture, int rows, int columns, Vector2 location, int updatesPerFrame)
+        public AnimatedSprite(Texture2D inTexture, int rows, int columns, Vector2 location, int updatesPerFrame)
         {
-            this.texture = texture;
+            Console.WriteLine("In texture: " + inTexture);
+            texture = inTexture;
             this.rows = rows;
             this.columns = columns;
             currentFrame = UtilityClass.zero;
             totalFrames = rows * columns;
+            Console.WriteLine("Texture: " + texture.ToString());
             frameWidth = texture.Width / columns;
             frameHeight = texture.Height / rows;
             int width = texture.Width / this.columns;

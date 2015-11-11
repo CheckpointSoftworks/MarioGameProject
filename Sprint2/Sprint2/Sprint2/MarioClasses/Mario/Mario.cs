@@ -9,7 +9,9 @@ namespace Sprint2
 {
     public class Mario : IPlayer
     {
-
+        private PlayerScoreItem lives;
+        private PlayerScoreItem points;
+        private PlayerScoreItem coins;
         private float transitionDuration;
         private float TransitionToBigTime;
         private float TransitionToFireTime;
@@ -115,6 +117,9 @@ namespace Sprint2
             moveMario = true;
             rigidbody = new ControllablePhysicsObject();
             LoadPhysicsProperties();
+            lives = new PlayerScoreItem(PlayerScoreItem.GUIType.mario, UtilityClass.StartingLives, UtilityClass.GUIMarioPosition, false);
+            points = new PlayerScoreItem(UtilityClass.GUIMarioScoreName, UtilityClass.zero, UtilityClass.GUIMarioScorePosition, true);
+            coins = new PlayerScoreItem(PlayerScoreItem.GUIType.coin, UtilityClass.zero, UtilityClass.GUIMarioScorePosition, true);
             transitionDuration = UtilityClass.marioTransitionDuration;
             TransitionToBigTime = UtilityClass.marioTransitionToBigTime;
             TransitionToFireTime = UtilityClass.marioTransitionToFireTime;
@@ -201,6 +206,55 @@ namespace Sprint2
         {
             rigidbody.ResetJump();
             rigidbody.Jump();
+        }
+        public PlayerScoreItem GetPoints()
+        {
+            return points;
+        }
+        public PlayerScoreItem GetLives()
+        {
+            return lives;
+        }
+        public PlayerScoreItem GetCoins()
+        {
+            return coins;
+        }
+        public String PointsToString()
+        {
+            return points.ToString();
+        }
+        public float CurrentGroundSpeed()
+        {
+            return rigidbody.Velocity.X;
+        }
+
+        public void ScoreEvent(NonPlayerScoreItem target)
+        {
+            points.UpdateScore(target.ScoreValue);
+            if (target.Chainable)
+            {
+                if (points.ComboValue() < 10) points.ChainHit();
+                else lives.UpdateScore(1);
+            }
+        }
+        public void AddCoin()
+        {
+            coins.UpdateScore(UtilityClass.one);
+            if (coins.ScoreValue == UtilityClass.OneHundred)
+            {
+                coins.ScoreValue = UtilityClass.zero;
+                lives.UpdateScore(UtilityClass.one);
+            }
+        }
+
+        public void OneUp()
+        {
+            lives.UpdateScore(UtilityClass.one);
+        }
+
+        public void ProjectileScoreEvent(NonPlayerScoreItem target)
+        {
+            points.UpdateScoreNoChain(target.ScoreValue);
         }
 
         private void ChangeDirection()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
@@ -15,6 +16,7 @@ namespace Sprint2
         public static int four = 4;
         public static int eight = 8;
         public static int ten = 10;
+        public static int OneHundred = 100;
         //Block Magic Numbers
         public static int BrickPieceYAdjustment = 5;
         public static int itemOffSet = 16;
@@ -150,5 +152,16 @@ namespace Sprint2
         public static string background = "Background";
         public static string background2 = "Background2";
         public static int backgroundChange = 1500;
+
+        //GUI stuff
+        public static float DefaultSpriteWidth = 16;
+        public static int StartingLives = 3;
+        public static Vector2 GUIMarioPosition = new Vector2(400, 240);
+        public static Vector2 GUIMarioScorePosition = new Vector2(5,1);
+        public static Vector2 GUIMarioCoinsPosition = new Vector2(100, 0);
+        public static String GUIMarioScoreName = "MARIO\n";
+        
+
+
     }
 }
