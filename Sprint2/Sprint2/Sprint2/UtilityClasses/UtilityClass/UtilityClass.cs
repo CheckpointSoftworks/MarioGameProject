@@ -18,6 +18,9 @@ namespace Sprint2
         public static int eight = 8;
         public static int ten = 10;
         public static int OneHundred = 100;
+        public static Vector2 deathtextloc = new Vector2(350, 200);
+        public static Vector2 deathmarioloc = new Vector2(350, 225);
+
         //Block Magic Numbers
         public static int BrickPieceYAdjustment = 5;
         public static int itemOffSet = 16;
@@ -145,6 +148,7 @@ namespace Sprint2
         public static string brickPiecesSpriteSheet="BrickPieces";
         public static string fireballSpriteSheet="FireballSprite";
 
+
         //Game Magic Stuff
         public static string Content = "Content";
         public static string levelFile = "Level.xml";
@@ -152,6 +156,7 @@ namespace Sprint2
         public static int cameraWidth = 800;
         public static string background = "Background";
         public static string background2 = "Background2";
+        public static string deathbackground = "Deathbackground";
         public static int backgroundChange = 1500;
         public static int LevelStartTime = 500;
         public static string GameTimeName = "TIME\n";
@@ -166,8 +171,6 @@ namespace Sprint2
         public static string GUIMarioScoreName = "MARIO\n";
         public static string GUIMarioCoinName = "x";
         public static string FontString = "Fonts/SMB";
-        
-
-
+        public static string BasicArialFontString = "Fonts/BasicArial";
     }
 }

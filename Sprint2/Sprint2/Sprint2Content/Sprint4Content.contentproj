@@ -229,6 +229,11 @@
       <Processor>FontDescriptionProcessor</Processor>
       <SubType>Designer</SubType>
     </Compile>
+    <Compile Include="Fonts\BasicArial.spritefont">
+      <Name>BasicArial</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <None Include="Level.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level</Name>
@@ -344,6 +349,13 @@
   <ItemGroup>
     <Compile Include="BlueBrickBlockSpriteSheet.png">
       <Name>BlueBrickBlockSpriteSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Deathbackground.png">
+      <Name>Deathbackground</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
