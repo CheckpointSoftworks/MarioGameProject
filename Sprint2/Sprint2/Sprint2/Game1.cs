@@ -90,9 +90,9 @@ namespace Sprint2
 
         protected override void Update(GameTime gameTime)
         {
+            keyboard.Update();
             if (!pause)
             {
-                keyboard.Update();
                 gamepad.Update();
                 keyNotPressed.Execute();
                 mario.Update();
