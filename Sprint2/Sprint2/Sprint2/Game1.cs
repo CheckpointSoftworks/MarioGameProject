@@ -23,6 +23,7 @@ namespace Sprint2
         public LevelLoader loader { get; set; }
         public Camera camera { get; set; }
         public CameraController cameraController { get; set; }
+        public bool pause { get; set; }
         public int fireBallCount { get; set; }
         private Texture2D background;
         private Texture2D background2;
@@ -47,6 +48,7 @@ namespace Sprint2
             levelStore = new LevelStorage(camera);
             keyNotPressed = new KeyNotPressed(this);
             fireBallCount = UtilityClass.fireballLimit;
+            pause = false;
             base.Initialize();
             tester.runTests();
         }
@@ -82,28 +84,31 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterCommand(Keys.S, new SprintCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.Z,new NoJumpCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.X, new NoFireCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.P, new PauseCommand(levelStore));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.P, new PauseCommand(this));
         }
         protected override void UnloadContent() { }
 
         protected override void Update(GameTime gameTime)
         {
-            keyboard.Update();
-            gamepad.Update();
-            keyNotPressed.Execute();
-            mario.Update();
-            levelStore.Update(mario);
-            levelStore.handleCollision(mario, this);
-            cameraController.Update();
-            if (((Mario)mario).StateStatus().Equals(MarioState.Die))
+            if (!pause)
             {
-                resetCommand.Execute();
+                keyboard.Update();
+                gamepad.Update();
+                keyNotPressed.Execute();
+                mario.Update();
+                levelStore.Update(mario);
+                levelStore.handleCollision(mario, this);
+                cameraController.Update();
+                if (((Mario)mario).StateStatus().Equals(MarioState.Die))
+                {
+                    resetCommand.Execute();
+                }
+                if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
+                {
+                    resetCommand.Execute();
+                }
+                base.Update(gameTime);
             }
-            if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
-            {
-                resetCommand.Execute();
-            }
-            base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)

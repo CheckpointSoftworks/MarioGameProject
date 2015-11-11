@@ -22,7 +22,6 @@ namespace Sprint2
         public ArrayList blocksList;
         public ArrayList enviromentalObjectsList;
         public ArrayList projectileList;
-        private bool pause;
 
         public LevelStorage(Camera camera)
         {
@@ -32,12 +31,9 @@ namespace Sprint2
             blocksList = new ArrayList();
             enviromentalObjectsList = new ArrayList();
             projectileList = new ArrayList();
-            pause = false;
         }
         public void Update(IPlayer mario)
         {
-            if (!pause)
-            {
                 foreach (IBlock block in blocksList)
                 {
                     block.Update();
@@ -65,7 +61,6 @@ namespace Sprint2
                 {
                     enviromental.Update();
                 }
-            }
         }
 
         public void Draw(IPlayer player,SpriteBatch spriteBatch)
@@ -94,10 +89,6 @@ namespace Sprint2
             }
         }
 
-        public void pauseGame()
-        {
-            pause = true;
-        }
 
         public void handleCollision(IPlayer mario, Game1 game)
         {

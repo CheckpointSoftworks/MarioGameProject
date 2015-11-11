@@ -23,6 +23,7 @@ namespace Sprint2
             game.levelStore = game.loader.LoadLevel();
             game.mario = game.levelStore.player;
             game.cameraController = new CameraController(game.camera, game.mario);
+            game.pause = false;
         }
     }
 }
