@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,24 +8,22 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class QuestionCoinBlock:IBlock
+    public class BlueBrickBlock:IBlock
     {
         private ISprite sprite;
         private BlockType type;
         private bool testForCollision;
         private bool noLongerSpecialized;
         private Vector2 location;
-        private bool dispenseItemFlag;
-        public QuestionCoinBlock(int locX,int locY,BlockType type)
+
+        public BlueBrickBlock(int locX,int locY,BlockType type)
         {
-            location = new Vector2(locX, locY);            
-            sprite = new QuestionBlockSprite(location);
+            location = new Vector2(locX, locY);
+            sprite = new BlueBrickBlockSprite(location);
             this.type = type;
             testForCollision=true;
             noLongerSpecialized = false;
-            dispenseItemFlag = true;
         }
-
         public void Update()
         {
             sprite.Update();
@@ -59,20 +58,6 @@ namespace Sprint2
         {
             return noLongerSpecialized;
         }
-        public void bounceBlock()
-        {
-            ((QuestionBlockSprite)sprite).bounceSprite();
-        }
 
-        public IItemObjects spawnCoin()
-        {
-            dispenseItemFlag = false;
-            return new BoxCoin((int)location.X, (int)location.Y-UtilityClass.itemOffSet);
-        }
-
-        public bool dispenseItem()
-        {
-            return dispenseItemFlag;
-        }
     }
 }

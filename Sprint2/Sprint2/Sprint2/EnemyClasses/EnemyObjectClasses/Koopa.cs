@@ -53,11 +53,11 @@ namespace Sprint2
 
         private void LoadRigidBodyProperties()
         {
-            rigidbody.AirFriction = 1f;
-            rigidbody.GroundFriction = 1f;
-            rigidbody.GroundSpeed = -1f;
-            rigidbody.MaxFallSpeed = 3f;
-            rigidbody.Elasticity = 0f;
+            rigidbody.AirFriction = UtilityClass.koopaAirFriction;
+            rigidbody.GroundFriction = UtilityClass.koopaGroundFriction;
+            rigidbody.GroundSpeed = UtilityClass.koopaGroundSpeed;
+            rigidbody.MaxFallSpeed = UtilityClass.koopaMaxFallSpeed;
+            rigidbody.Elasticity = UtilityClass.koopaElasticity;
             rigidbody.IsEnabled = false;
         }
 
@@ -108,7 +108,7 @@ namespace Sprint2
         {
             state.TakeDamage();
             shellForm = true;
-            rigidbody.GroundSpeed = 0f;
+            rigidbody.GroundSpeed = UtilityClass.noMovement;
             hurtMario = false;
             ZeroScoreValue();
         }
@@ -134,13 +134,13 @@ namespace Sprint2
 
         public void shellLeftHit()
         {
-            rigidbody.GroundSpeed=1f;
+            rigidbody.GroundSpeed = UtilityClass.koopShellLeftMovement;
             hurtMario = true;
         }
 
         public void shellRightHit()
         {
-            rigidbody.GroundSpeed = -1f;
+            rigidbody.GroundSpeed = UtilityClass.koopaGroundSpeed;
             hurtMario = true;
         }
     }

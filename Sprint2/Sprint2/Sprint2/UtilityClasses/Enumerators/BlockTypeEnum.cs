@@ -7,6 +7,6 @@ namespace Sprint2
 {
     public enum BlockType
     {
-        Brick, Hidden, Ground, Platforming, Question,QuestionCoin,QuestionSuperMushroomFireFlower,QuestionStar,BrickCoin
+        Brick, Hidden, Ground, Platforming, Question,QuestionCoin,QuestionSuperMushroomFireFlower,QuestionStar,BrickCoin,BlueBrick,BlueGround
     }
 }

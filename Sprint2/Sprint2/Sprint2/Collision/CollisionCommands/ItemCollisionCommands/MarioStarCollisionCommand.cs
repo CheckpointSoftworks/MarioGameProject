@@ -18,7 +18,7 @@ namespace Sprint2
         }
         public void Execute()
         {
-            star.setCollisionRectangle(new Rectangle(0, 0, 0, 0));
+            star.setCollisionRectangle(new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero));
             ((Mario)mario).Star = true;
 
         }

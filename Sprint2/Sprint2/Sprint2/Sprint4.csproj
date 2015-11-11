@@ -73,6 +73,10 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blocks\BlockObjectClasses\BlueBrickBlock.cs" />
+    <Compile Include="Blocks\BlockObjectClasses\BlueGroundBlock.cs" />
+    <Compile Include="Blocks\BlockSpriteClasses\BlueBrickBlockSprite.cs" />
+    <Compile Include="Blocks\BlockSpriteClasses\BlueGroundBlockSprite.cs" />
     <Compile Include="CameraClasses\Camera.cs" />
     <Compile Include="CameraClasses\CameraController.cs" />
     <Compile Include="Collision\CollisionCommands\EnemyCollisonCommands\ProjectileHitsEnemy.cs" />
@@ -83,7 +87,9 @@
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaDamaged.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\EnemyCollisionHandlers\EnemyProjectileCollisionHandler.cs" />
-    <Compile Include="Enumerators\MarioStateEnum.cs" />
+    <Compile Include="LevelStateAlterations\PauseCommand.cs" />
+    <Compile Include="UtilityClasses\UtilityClass\UtilityClass.cs" />
+    <Compile Include="UtilityClasses\Enumerators\MarioStateEnum.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\BrickPieces.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\BrickPiecesSprite.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\FireballCommand.cs" />
@@ -127,12 +133,12 @@
     <Compile Include="SpriteHelperClasses\AnimatedSprite.cs" />
     <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\BigMarioBrickBlockCollisionCommand.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\BlockSpriteTextureStorage.cs" />
-    <Compile Include="Enumerators\BlockTypeEnum.cs" />
+    <Compile Include="UtilityClasses\Enumerators\BlockTypeEnum.cs" />
     <Compile Include="Collision\CollisionClasses\BottomCollision.cs" />
     <Compile Include="ItemClasses\ItemObjectClasses\BoxCoin.cs" />
     <Compile Include="ItemClasses\ItemSpriteClasses\BoxCoinSprite.cs" />
     <Compile Include="Blocks\BlockSpriteClasses\BrickBlockSprite.cs" />
-    <Compile Include="Enumerators\CollisionSideEnum.cs" />
+    <Compile Include="UtilityClasses\Enumerators\CollisionSideEnum.cs" />
     <Compile Include="Collision\CollisionDetectorClass\CollisionDetector.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\MovementCommands\DownCommand.cs" />
     <Compile Include="Collision\CollisionCommands\EnemyCollisonCommands\EnemyHitsMarioCollision.cs" />
@@ -156,7 +162,7 @@
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="SpriteFactoriesAndTextureStorage\ItemSpriteTextureStorage.cs" />
-    <Compile Include="Enumerators\ItemTypeEnum.cs" />
+    <Compile Include="UtilityClasses\Enumerators\ItemTypeEnum.cs" />
     <Compile Include="ContollerClasses\KeyboardController.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\KeyNotPressed.cs" />

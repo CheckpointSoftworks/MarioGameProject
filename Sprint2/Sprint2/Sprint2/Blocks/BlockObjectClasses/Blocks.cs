@@ -36,6 +36,14 @@ namespace Sprint2
             {
                 sprite = new QuestionBlockSprite(location);
             }
+            else if (type.Equals(BlockType.BlueBrick))
+            {
+                sprite = new BlueBrickBlockSprite(location);
+            }
+            else if (type.Equals(BlockType.BlueGround))
+            {
+                sprite = new BlueGroundBlockSprite(location);
+            }
 
             this.type = type;
             testForCollision=true;

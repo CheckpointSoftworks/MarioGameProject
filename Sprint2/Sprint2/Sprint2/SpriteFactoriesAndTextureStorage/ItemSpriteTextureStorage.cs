@@ -19,12 +19,12 @@ namespace Sprint2
 
         public static void Load(ContentManager content)
         {
-            oneUpMushroomSpriteSheet = content.Load<Texture2D>("OneUpMushroom");
-            superMushroomSpriteSheet = content.Load<Texture2D>("SuperMushroom");
-            fireFlowerSpriteSheet = content.Load<Texture2D>("FireFlower");
-            superStarSpriteSheet = content.Load<Texture2D>("SuperStar");
-            boxCoinSpriteSheet = content.Load<Texture2D>("BoxCoin");
-            usedItemSpriteSheet = content.Load<Texture2D>("UsedItemSprite");
+            oneUpMushroomSpriteSheet = content.Load<Texture2D>(UtilityClass.oneUpSpriteSheet);
+            superMushroomSpriteSheet = content.Load<Texture2D>(UtilityClass.supMushroomSpriteSheet);
+            fireFlowerSpriteSheet = content.Load<Texture2D>(UtilityClass.fireFlowerSpriteSheet);
+            superStarSpriteSheet = content.Load<Texture2D>(UtilityClass.starSpriteSheet);
+            boxCoinSpriteSheet = content.Load<Texture2D>(UtilityClass.boxCoinSpriteSheet);
+            usedItemSpriteSheet = content.Load<Texture2D>(UtilityClass.usedItemSpriteSheet);
         }
 
         public static Texture2D CreateOneUpMushroomSprite()

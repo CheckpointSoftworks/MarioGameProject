@@ -9,42 +9,38 @@ namespace Sprint2
 {
     class Fireball: IProjectile
     {
-        private IPlayer mario;
+
         private ISprite sprite;
         private bool testForCollision;
         private Vector2 location;
         private AutonomousPhysicsObject rigidbody;
-        private float groundSpeed;
         private bool facingRight;
         private int timer;
 
-        public Fireball(int x, int y, bool facingRight, IPlayer mario, float groundSpeed)
+        public Fireball(int x, int y, bool facingRight)
         {
             location = new Vector2(x, y);
-            this.groundSpeed = groundSpeed;
             sprite = new FireballSprite(location);
             testForCollision = true;
-            timer = 200;
+            timer = UtilityClass.fireballTimer;
             rigidbody = new AutonomousPhysicsObject();
             this.facingRight = facingRight;
-            this.mario = mario;
             LoadRigidBodyProperties();
         }
         private void LoadRigidBodyProperties()
         {
-            rigidbody.AirFriction = 0.8f;
-            rigidbody.GroundFriction = 1f;
-            rigidbody.MaxFallSpeed = 1.5f;
-            rigidbody.Elasticity = 1f;
-            rigidbody.GroundSpeed = groundSpeed;
-            if (facingRight) { rigidbody.GroundSpeed += 1.5f; }
-            else{ rigidbody.GroundSpeed += -1.5f; }
+            rigidbody.AirFriction = UtilityClass.fireballAirFriction;
+            rigidbody.GroundFriction = UtilityClass.fireballGroundFriction;
+            rigidbody.MaxFallSpeed = UtilityClass.fireballMaxFallSpeed;
+            rigidbody.Elasticity = UtilityClass.fireballElasticity;
+            if (facingRight) { rigidbody.GroundSpeed = UtilityClass.fireballRightGroundSpeed; }
+            else{ rigidbody.GroundSpeed = UtilityClass.fireballLeftGroupSpeed; }
             rigidbody.IsEnabled = true;
         }
 
         public void Update()
         {
-            if (testForCollision&&timer>0)
+            if (testForCollision&&timer>UtilityClass.zero)
             {
                 rigidbody.UpdatePhysics();
                 location += rigidbody.Velocity;
@@ -56,15 +52,6 @@ namespace Sprint2
                 sprite = new UsedItemSprite(location);
                 testForCollision = false;
             }
-        }
-
-        public IPlayer GetOwner()
-        {
-            return mario;
-        }
-        public void Kill()
-        {
-            timer = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
@@ -99,7 +86,7 @@ namespace Sprint2
         public bool DoneFireBall()
         {
             bool complete = false;
-            if (timer == 0)
+            if (timer == UtilityClass.zero)
             {
                 complete = true;
             }

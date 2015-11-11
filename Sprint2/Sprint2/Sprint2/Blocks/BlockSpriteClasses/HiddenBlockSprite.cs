@@ -14,7 +14,7 @@ namespace Sprint2
         private Vector2 location; 
         private Rectangle collisionRectangle;
         private int frame;
-        private int spriteSheetSpriteSize = 16;
+        private int spriteSheetSpriteSize;
         private int totalFrames;
 
 
@@ -22,9 +22,10 @@ namespace Sprint2
         {
             hiddenBlockSpriteSheet = BlockSpriteTextureStorage.CreateHiddenBlockSprite();
             this.location = location;
-            frame = 0;
+            frame = UtilityClass.zero;
             used = false;
-            totalFrames = 1;
+            totalFrames = UtilityClass.one;
+            spriteSheetSpriteSize = hiddenBlockSpriteSheet.Width / UtilityClass.two;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
 
@@ -38,7 +39,7 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize * frame), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
+            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize * frame), UtilityClass.zero, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
             Rectangle destinationRectangle = new Rectangle((int)location.X - (int)cameraLoc.X, (int)location.Y - (int)cameraLoc.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
             

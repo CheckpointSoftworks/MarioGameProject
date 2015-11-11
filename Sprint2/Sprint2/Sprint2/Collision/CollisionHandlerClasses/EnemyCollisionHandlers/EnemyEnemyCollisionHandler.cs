@@ -31,14 +31,13 @@ namespace Sprint2
             Rectangle secondEnemyRectangle = secondEnemy.returnCollisionRectangle();
             Rectangle intersectionRectangle = Rectangle.Intersect(secondEnemyRectangle, firstEnemyRectangle);
             Vector2 enemyLocation = firstEnemy.returnLocation();
-            int locationDiffToChange = 0;
+            int locationDiffToChange = UtilityClass.zero;
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
             {
                 locationDiffToChange = intersectionRectangle.Width;
                 int newEnemyX = (int)enemyLocation.X - locationDiffToChange;
                 firstEnemy.updateLocation(new Vector2((newEnemyX), enemyLocation.Y));
                 firstEnemy.RightCollision();
-                //secondEnemy.RightCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Right))
             {
@@ -46,7 +45,6 @@ namespace Sprint2
                 int newEnemyX = (int)enemyLocation.X + locationDiffToChange;
                 firstEnemy.updateLocation(new Vector2((newEnemyX), enemyLocation.Y));
                 firstEnemy.LeftCollision();
-                //secondEnemy.LeftCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
@@ -54,7 +52,6 @@ namespace Sprint2
                 int newEnemyY = (int)enemyLocation.Y - locationDiffToChange;
                 firstEnemy.updateLocation(new Vector2(enemyLocation.X, newEnemyY));
                 firstEnemy.TopCollision();
-              //  secondEnemy.TopCollision();
             }
             else if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
@@ -62,7 +59,6 @@ namespace Sprint2
                 int newEnemyY = (int)enemyLocation.Y + locationDiffToChange;
                 firstEnemy.updateLocation(new Vector2(enemyLocation.X, newEnemyY));
                 firstEnemy.BottomCollision();
-               // secondEnemy.BottomCollision();
             }
         }
     }

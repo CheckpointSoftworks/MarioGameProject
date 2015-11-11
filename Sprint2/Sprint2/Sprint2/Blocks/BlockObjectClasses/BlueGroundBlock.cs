@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,40 +8,34 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class QuestionCoinBlock:IBlock
+    public class BlueGroundBlock:IBlock
     {
         private ISprite sprite;
         private BlockType type;
         private bool testForCollision;
         private bool noLongerSpecialized;
         private Vector2 location;
-        private bool dispenseItemFlag;
-        public QuestionCoinBlock(int locX,int locY,BlockType type)
+        public BlueGroundBlock(int locX,int locY,BlockType type)
         {
-            location = new Vector2(locX, locY);            
-            sprite = new QuestionBlockSprite(location);
+            location = new Vector2(locX, locY);
+            sprite = new BlueGroundBlockSprite(location);
             this.type = type;
             testForCollision=true;
             noLongerSpecialized = false;
-            dispenseItemFlag = true;
         }
-
         public void Update()
         {
             sprite.Update();
             noLongerSpecialized = true;
         }
-
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             sprite.Draw(spriteBatch, cameraLoc);
         }
-
         public BlockType returnBlockType()
         {
             return type;
         }
-
         public Rectangle returnCollisionRectangle()
         {
             return sprite.returnCollisionRectangle();
@@ -58,21 +53,6 @@ namespace Sprint2
         public bool checkForSpecalizedSideCollision()
         {
             return noLongerSpecialized;
-        }
-        public void bounceBlock()
-        {
-            ((QuestionBlockSprite)sprite).bounceSprite();
-        }
-
-        public IItemObjects spawnCoin()
-        {
-            dispenseItemFlag = false;
-            return new BoxCoin((int)location.X, (int)location.Y-UtilityClass.itemOffSet);
-        }
-
-        public bool dispenseItem()
-        {
-            return dispenseItemFlag;
         }
     }
 }

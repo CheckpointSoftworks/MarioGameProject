@@ -17,15 +17,15 @@ namespace Sprint2
             this.mario = mario;
             if (mario.Fire)
             {
-                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireDuckSprite(), 1, 1,mario.Location, 4);
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireDuckSprite(), UtilityClass.one, UtilityClass.one,mario.Location, UtilityClass.four);
             }
             else if (mario.Small)
             {
-                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), 1, 1, mario.Location, 4);
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.four);
             }
             else
             {
-                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(), 1, 1,mario.Location, 4);
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDuckSprite(), UtilityClass.one, UtilityClass.one,mario.Location, UtilityClass.four);
             }
         }
         public void Update()

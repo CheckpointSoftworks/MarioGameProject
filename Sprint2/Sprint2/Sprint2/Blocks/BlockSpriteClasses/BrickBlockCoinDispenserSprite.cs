@@ -14,9 +14,9 @@ namespace Sprint2
         private bool used;
         private Rectangle collisionRectangle;
         private int frame;
-        private int spriteSheetSpriteSize = 16;
+        private int spriteSheetSpriteSize;
         private int totalFrames;
-        private int bounceTimer = 20;
+        private int bounceTimer;
         private int maxHeight;
         private int minHeight;
         private bool bounce;
@@ -25,11 +25,13 @@ namespace Sprint2
         {
             brickBlockSpriteSheet = BlockSpriteTextureStorage.CreateBrickBlockCoinDispenserSprite();
             this.location = location;
-            frame = 0;
-            totalFrames = 1;
+            frame = UtilityClass.zero;
+            totalFrames = UtilityClass.one;
             used = false;
             bounce = false;
-            maxHeight = (int)location.Y - 10;
+            spriteSheetSpriteSize = brickBlockSpriteSheet.Width / UtilityClass.two;
+            bounceTimer = UtilityClass.BlockBounceTimer;
+            maxHeight = (int)location.Y - UtilityClass.ten;
             minHeight = (int)location.Y;
             collisionRectangle = new Rectangle((int)location.X, (int)location.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
         }
@@ -44,7 +46,7 @@ namespace Sprint2
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             dispenserBouncing();
-            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize*frame), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
+            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize*frame), UtilityClass.zero, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
             Rectangle destinationRectangle = new Rectangle((int)location.X - (int)cameraLoc.X, (int)location.Y - (int)cameraLoc.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
             
@@ -67,14 +69,14 @@ namespace Sprint2
             if (!used)
             {
                 bounce = true;
-                bounceTimer = 20;
+                bounceTimer = UtilityClass.BlockBounceTimer;
             }
         }
 
         private void dispenserBouncing()
         {
 
-            if (bounceTimer > 10 && bounce)
+            if (bounceTimer > (UtilityClass.BlockBounceTimer/UtilityClass.two) && bounce)
             {
                 int newY = (int)location.Y;
                 newY--;
@@ -84,7 +86,7 @@ namespace Sprint2
                 }
                 bounceTimer--;
             }
-            else if (bounce && bounceTimer >= 0)
+            else if (bounce && bounceTimer >= UtilityClass.zero)
             {
                 int newY = (int)location.Y;
                 newY++;

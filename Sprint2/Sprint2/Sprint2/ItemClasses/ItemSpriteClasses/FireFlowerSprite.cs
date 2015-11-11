@@ -21,7 +21,7 @@ namespace Sprint2
         {
             fireFlowerSpriteSheet = ItemSpriteTextureStorage.CreateFireFlowerSprite();
             this.location = location;
-            fireFlowerSprite = new AnimatedSprite(fireFlowerSpriteSheet, 1, 4, location, 2);
+            fireFlowerSprite = new AnimatedSprite(fireFlowerSpriteSheet, UtilityClass.one, UtilityClass.four, location, UtilityClass.two);
             collisionRectangle = fireFlowerSprite.returnCollisionRectangle();
         }
 

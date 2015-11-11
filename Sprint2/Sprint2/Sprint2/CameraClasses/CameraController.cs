@@ -24,13 +24,13 @@ namespace Sprint2
             cameraPosition = camera.GetPosition();
             this.mario = mario;
             marioPosition = mario.returnLocation();
-            screenCenter = cameraWidth/2;
+            screenCenter = cameraWidth/UtilityClass.two;
         }
 
         public void Update()
         {
             marioCameraPosition = (int)(marioPosition.X - cameraPosition.X);
-            if (marioCameraPosition > screenCenter && (camera.GetPosition().X + 800) < 3500)
+            if (marioCameraPosition > screenCenter && (camera.GetPosition().X + UtilityClass.currentScreenMax) < UtilityClass.maxScroll)
             {
                 camera.MoveRight(marioCameraPosition - screenCenter);
             }

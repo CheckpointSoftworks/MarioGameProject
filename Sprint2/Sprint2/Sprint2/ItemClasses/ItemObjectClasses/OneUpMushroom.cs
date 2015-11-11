@@ -42,11 +42,11 @@ namespace Sprint2
         }
         private void LoadRigidBodyProperties()
         {
-            rigidbody.AirFriction = 0.8f;
-            rigidbody.GroundFriction = 1f;
-            rigidbody.GroundSpeed = 1.5f;
-            rigidbody.MaxFallSpeed = 3f;
-            rigidbody.Elasticity = 0f;
+            rigidbody.AirFriction = UtilityClass.mushroomAirFriction;
+            rigidbody.GroundFriction = UtilityClass.mushroomGroundFriction;
+            rigidbody.GroundSpeed = UtilityClass.mushroomGroundSpeed;
+            rigidbody.MaxFallSpeed = UtilityClass.mushroomMaxFallSpeed;
+            rigidbody.Elasticity = UtilityClass.mushroomElasticity;
             rigidbody.IsEnabled = true;
         }
 

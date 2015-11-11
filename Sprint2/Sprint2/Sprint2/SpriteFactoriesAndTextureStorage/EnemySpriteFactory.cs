@@ -17,10 +17,10 @@ namespace Sprint2
 
 		public static void Load(ContentManager content)
 		{
-			goombaSpritesheet = content.Load<Texture2D>("GoombaSpriteSheet");
-            goombaDamagedSpritesheet = content.Load<Texture2D>("GoombaDamagedSprite");
-            koopaSpritesheet = content.Load<Texture2D>("KoopaSpriteSheet"); 
-            koopaShellSpritesheet = content.Load<Texture2D>("KoopaShellSprite");
+			goombaSpritesheet = content.Load<Texture2D>(UtilityClass.goombaSpriteSheet);
+            goombaDamagedSpritesheet = content.Load<Texture2D>(UtilityClass.goombaDamagedSpriteSheet);
+            koopaSpritesheet = content.Load<Texture2D>(UtilityClass.koopaSpriteSheet); 
+            koopaShellSpritesheet = content.Load<Texture2D>(UtilityClass.koopaShellSpriteSheet);
 
 		}
 		

@@ -22,8 +22,8 @@ namespace Sprint2
         {
             usedItemSpriteSheet = ItemSpriteTextureStorage.CreateUsedItemSprite();
             this.location = location;
-            usedItemSprite = new AnimatedSprite(usedItemSpriteSheet, 1, 1, location, 1);
-            collisionRectangle = new Rectangle(0,0,0,0);
+            usedItemSprite = new AnimatedSprite(usedItemSpriteSheet, UtilityClass.one, UtilityClass.one, location, UtilityClass.one);
+            collisionRectangle = new Rectangle(UtilityClass.zero,UtilityClass.zero,UtilityClass.zero,UtilityClass.zero);
         }
         public void Update()
         {

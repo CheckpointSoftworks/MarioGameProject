@@ -17,12 +17,13 @@ namespace Sprint2
 
         public void Execute()
         {
-            game.camera = new Camera(480, 800, new Vector2(0, 0));
-            game.loader = new LevelLoader("Level.xml", game.camera);
+            game.camera = new Camera(UtilityClass.cameraHeight, UtilityClass.cameraWidth, new Vector2(UtilityClass.zero, UtilityClass.zero));
+            game.loader = new LevelLoader(UtilityClass.levelFile, game.camera);
             game.levelStore = new LevelStorage(game.camera);
             game.levelStore = game.loader.LoadLevel();
             game.mario = game.levelStore.player;
             game.cameraController = new CameraController(game.camera, game.mario);
+            game.pause = false;
         }
     }
 }

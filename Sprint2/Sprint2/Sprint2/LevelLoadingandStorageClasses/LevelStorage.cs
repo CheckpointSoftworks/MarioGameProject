@@ -32,36 +32,35 @@ namespace Sprint2
             enviromentalObjectsList = new ArrayList();
             projectileList = new ArrayList();
         }
-        public void Update(IPlayer mario,Game1 game)
+        public void Update(IPlayer mario)
         {
-            foreach (IBlock block in blocksList)
-            {
-                block.Update();
-            }
-            foreach (IItemObjects item in itemList)
-            {
-                item.Update();
-            }
-            foreach (IEnemyObject enemy in enemiesList)
-            {
-                if (!enemy.GetRigidBody().IsEnabled)
+                foreach (IBlock block in blocksList)
                 {
-                    if ((int)enemy.returnLocation().X - ((int)camera.GetPosition().X + camera.GetWidth()) <= 10)
-                    {
-                        enemy.GetRigidBody().IsEnabled = true;
-                    }
+                    block.Update();
                 }
-                enemy.Update();
-            }
-            foreach (IProjectile projectile in projectileList)
-            {
-                projectile.Update();
-            }
-            foreach (IEnviromental enviromental in enviromentalObjectsList)
-            {
-                enviromental.Update();
-            }
-            handleCollision(mario, game);
+                foreach (IItemObjects item in itemList)
+                {
+                    item.Update();
+                }
+                foreach (IEnemyObject enemy in enemiesList)
+                {
+                    if (!enemy.GetRigidBody().IsEnabled)
+                    {
+                        if ((int)enemy.returnLocation().X - ((int)camera.GetPosition().X + camera.GetWidth()) <= UtilityClass.enableEnemyPixelWidth)
+                        {
+                            enemy.GetRigidBody().IsEnabled = true;
+                        }
+                    }
+                    enemy.Update();
+                }
+                foreach (IProjectile projectile in projectileList)
+                {
+                    projectile.Update();
+                }
+                foreach (IEnviromental enviromental in enviromentalObjectsList)
+                {
+                    enviromental.Update();
+                }
         }
 
         public void Draw(IPlayer player,SpriteBatch spriteBatch)
@@ -90,7 +89,8 @@ namespace Sprint2
             }
         }
 
-        private void handleCollision(IPlayer mario, Game1 game)
+
+        public void handleCollision(IPlayer mario, Game1 game)
         {
             handleMarioCollision((Mario)mario, game);
             foreach (IEnemyObject enemy in enemiesList)
@@ -107,7 +107,7 @@ namespace Sprint2
             foreach (IProjectile projectile in projectileList)
             {
                 handleProjectileCollision(projectile);
-                if (((Fireball)projectile).DoneFireBall() && game.fireBallCount < 10 && projectile.checkForCollisionTestFlag())
+                if (((Fireball)projectile).DoneFireBall() && game.fireBallCount < UtilityClass.fireballLimit && projectile.checkForCollisionTestFlag())
                 {
                     game.fireBallCount++;
                 }

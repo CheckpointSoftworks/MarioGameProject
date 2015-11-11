@@ -17,7 +17,7 @@ namespace Sprint2
         {
             pipeSpriteSheet = MiscGameObjectTextureStorage.CreatePipeSprite();
             this.location = location;
-            pipeSprite = new AnimatedSprite(pipeSpriteSheet, 1, 1, location, 1);
+            pipeSprite = new AnimatedSprite(pipeSpriteSheet, UtilityClass.one, UtilityClass.one, location, UtilityClass.one);
             collisionRectangle = pipeSprite.returnCollisionRectangle();
         }
         public void Update()

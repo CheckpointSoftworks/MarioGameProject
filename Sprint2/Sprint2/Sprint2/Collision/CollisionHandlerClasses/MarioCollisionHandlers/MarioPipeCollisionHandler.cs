@@ -24,7 +24,7 @@ namespace Sprint2
             Rectangle enviromentalRectangle = enviromental.returnCollisionRectangle();
             Rectangle marioRectangle = mario.returnCollisionRectangle();
             Rectangle intersectionRectangle = Rectangle.Intersect(marioRectangle, enviromentalRectangle);
-            int locationDiffToChange = 0;
+            int locationDiffToChange = UtilityClass.zero;
 
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
             {
