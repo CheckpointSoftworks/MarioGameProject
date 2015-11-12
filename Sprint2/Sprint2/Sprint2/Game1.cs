@@ -120,9 +120,9 @@ namespace Sprint2
         protected override void Update(GameTime gameTime)
         {
             keyboard.Update();
+            gamepad.Update();
             if (!pause&&!marioPause)
             {
-                gamepad.Update();
                 keyNotPressed.Execute();
                 mario.Update();
                 levelStore.Update(mario);

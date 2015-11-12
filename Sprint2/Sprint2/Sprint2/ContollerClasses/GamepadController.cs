@@ -22,7 +22,9 @@ namespace Sprint2
         private ICommand rightDown;
         private ICommand fireball;
         private ICommand sprint;
+        private ICommand pause;
         private bool alreadyShot;
+        private bool alreadyPaused;
         private float deadZone;
 
         public GamepadController(Game1 game)
@@ -30,6 +32,7 @@ namespace Sprint2
             leftThumbPosition.X = UtilityClass.zero;
             leftThumbPosition.Y = UtilityClass.zero;
             deadZone = UtilityClass.deadZone;
+            alreadyPaused = false;
 
             left = new LeftCommand(game);
             right = new RightCommand(game);
@@ -41,6 +44,7 @@ namespace Sprint2
             rightDown = new RightDownCommand(game);
             fireball = new FireballCommand(game);
             sprint = new SprintCommand(game);
+            pause = new GamepadPause(game);
         }
 
         public void Update()
@@ -95,6 +99,18 @@ namespace Sprint2
                 else
                 {
                     alreadyShot = false;
+                } 
+                if (padState1.Buttons.Start == ButtonState.Pressed)
+                {
+                    if (!alreadyPaused)
+                    {
+                        pause.Execute();
+                    }
+                    alreadyPaused = true;
+                }
+                else
+                {
+                    alreadyPaused = false;
                 }
                 if (padState1.Buttons.A == ButtonState.Pressed)
                 {
