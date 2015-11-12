@@ -17,7 +17,7 @@ namespace Sprint2
                 handleMarioMovement(mario, item, side);
                 command = chooseCorrectCommand(item,mario);
                 command.Execute();
-                Console.WriteLine("Item score event: " + item.ScoreData().ScoreValue);
+                //Console.WriteLine("Item score event: " + item.ScoreData().ScoreValue);
                 mario.ScoreEvent(item.ScoreData());
             }
 
