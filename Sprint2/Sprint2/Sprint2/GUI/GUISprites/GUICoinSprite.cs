@@ -20,7 +20,7 @@ namespace Sprint2
         {
             coinSpriteSheet = GUISpriteFactory.CreateGUICoinSprite();
             this.location = location;
-            coinSprite = new AnimatedSprite(coinSpriteSheet, 1, 4, location, 2);
+            coinSprite = new AnimatedSprite(coinSpriteSheet, UtilityClass.one, UtilityClass.four, location, UtilityClass.two);
             collisionRectangle = coinSprite.returnCollisionRectangle();
         }
 

@@ -16,7 +16,7 @@ namespace Sprint2
 
         public static void Execute()
         {
-            game.stateTransistionPauseTimer = 30;
+            game.stateTransistionPauseTimer = UtilityClass.stateTransistionTimer;
             ICommand marioPause = new StateTransistionPause(game);
             marioPause.Execute();
         }

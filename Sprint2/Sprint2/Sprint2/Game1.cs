@@ -31,8 +31,8 @@ namespace Sprint2
         private Texture2D background;
         private Texture2D background2;
         private Texture2D deathbackground;
-        private float deathtime = 5;
-        private int remaininglives = 3;
+        private float deathtime;
+        private int remaininglives;
         private Boolean deathscreen = false;
         private TestingClass tester;
         private ICommand resetCommand;
@@ -62,8 +62,10 @@ namespace Sprint2
             pause = false;
             canPause = true;
             marioPause = false;
-            stateTransistionPauseTimer = 200;
+            stateTransistionPauseTimer = UtilityClass.stateTransistionTimer;
+            deathtime = UtilityClass.deathTimer;
             time = UtilityClass.LevelStartTime;
+            remaininglives = UtilityClass.three;
             gui = new GUI();
             StatePuaseAlterationCall.setGame(this);
             base.Initialize();
@@ -125,7 +127,7 @@ namespace Sprint2
                 cameraController.Update();
                 if (((Mario)mario).StateStatus().Equals(MarioState.Die))
                 {
-                    if (deathtime > 0)
+                    if (deathtime > UtilityClass.zero)
                     {
                         deathscreen = true;
                         deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -135,12 +137,12 @@ namespace Sprint2
                         deathscreen = false;
                         resetCommand.Execute();
                         ResetTime();
-                        deathtime = 5;
+                        deathtime = UtilityClass.deathTimer;
                     }
                 }
                 if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
                 {
-                    if (deathtime > 0)
+                    if (deathtime > UtilityClass.zero)
                     {
                         deathscreen = true;
                         deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -150,7 +152,7 @@ namespace Sprint2
                         deathscreen = false;
                         resetCommand.Execute();
                         ResetTime();
-                        deathtime = 5;
+                        deathtime = UtilityClass.deathTimer;
                     }
                 }
                 gui.Update();
@@ -163,7 +165,7 @@ namespace Sprint2
                 levelStore.handleCollision(mario, this);
                 stateTransistionPauseTimer--;
             }
-            if (stateTransistionPauseTimer == 0)
+            if (stateTransistionPauseTimer == UtilityClass.zero)
             {
                 StatePuaseAlterationCall.Execute();
             }
@@ -173,25 +175,25 @@ namespace Sprint2
         {
             if (deathscreen)
             {
-                Rectangle sourceRectangle = new Rectangle(0, 0, 12, 16);
-                Rectangle mariodestinationRectangle = new Rectangle(365, 230, 12, 16);
-                Rectangle backgrounddestinationRectangle = new Rectangle(0, 0, 800, 600);
+                Rectangle sourceRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.twelve, UtilityClass.sixteen);
+                Rectangle mariodestinationRectangle = new Rectangle(UtilityClass.deathMarioLocationX, UtilityClass.deathMarioLocationY, UtilityClass.twelve, UtilityClass.sixteen);
+                Rectangle backgrounddestinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.deathBackgroundX, UtilityClass.deathBackgroundY);
                 Texture2D deathmario = MarioSpriteFactory.CreateMarioSmallStillSprite();
                 spriteBatch.Begin();
                 spriteBatch.Draw(deathbackground, backgrounddestinationRectangle, sourceRectangle, Color.Black);
-                if (remaininglives > 0)
+                if (remaininglives > UtilityClass.zero)
                 {
                     
-                    spriteBatch.DrawString(basicarialfont, "WORLD 1-1",
+                    spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel,
                             UtilityClass.deathtextloc, Color.White);
-                    spriteBatch.DrawString(basicarialfont, "x",
+                    spriteBatch.DrawString(basicarialfont, UtilityClass.x,
                            UtilityClass.deathmarioloc, Color.White);
                     spriteBatch.Draw(deathmario, mariodestinationRectangle, sourceRectangle, Color.White);
                     gui.DrawPlayGUI(spriteBatch, font);
                 }
                 else
                 {
-                    spriteBatch.DrawString(basicarialfont, "GAME OVER",
+                    spriteBatch.DrawString(basicarialfont, UtilityClass.gameOver,
                             UtilityClass.deathtextloc, Color.White);
                     gui.DrawPlayGUI(spriteBatch, font);
                 }
@@ -203,13 +205,13 @@ namespace Sprint2
                 spriteBatch.Begin();
                 Rectangle sourceRectangle = new Rectangle((int)camera.GetPosition().X, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
                 Rectangle destinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
-                if ((int)camera.GetPosition().X < 1500) { spriteBatch.Draw(background, destinationRectangle, sourceRectangle, Color.White); }
+                if ((int)camera.GetPosition().X < UtilityClass.backgroundChange) { spriteBatch.Draw(background, destinationRectangle, sourceRectangle, Color.White); }
                 else
                 {
                     sourceRectangle = new Rectangle((int)camera.GetPosition().X - UtilityClass.backgroundChange, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
                     spriteBatch.Draw(background2, destinationRectangle, sourceRectangle, Color.White);
                 }
-                spriteBatch.DrawString(font, UtilityClass.GameTimeName + FormattedTime(), new Vector2(740, 10), Color.White);
+                spriteBatch.DrawString(font, UtilityClass.GameTimeName + FormattedTime(), new Vector2(UtilityClass.timeLocation, UtilityClass.ten), Color.White);
                 gui.DrawPlayGUI(spriteBatch, font);
                 levelStore.Draw(mario, spriteBatch);
                 spriteBatch.End();
@@ -219,8 +221,8 @@ namespace Sprint2
 
         protected void UpdateTime(GameTime gameTime)
         {
-            time -= gameTime.ElapsedGameTime.TotalSeconds * 2.5d;
-            if (time <= 0)
+            time -= gameTime.ElapsedGameTime.TotalSeconds * UtilityClass.timeAdjustment;
+            if (time <= UtilityClass.zero)
             {
                 resetCommand.Execute();
                 ResetTime();

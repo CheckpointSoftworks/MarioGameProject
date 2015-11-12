@@ -17,6 +17,8 @@ namespace Sprint2
         public static int five = 5;
         public static int eight = 8;
         public static int ten = 10;
+        public static int twelve = 12;
+        public static int sixteen = 16;
         public static int OneHundred = 100;
         public static Vector2 deathtextloc = new Vector2(350, 200);
         public static Vector2 deathmarioloc = new Vector2(387, 230);
@@ -91,6 +93,7 @@ namespace Sprint2
         //Level Magic Numbers and strings
         public static int enableEnemyPixelWidth = 10;
         public static int fireballLimit = 5;
+        public static int stateTransistionTimer = 20;
 
         //Mario Magic Numbers
         public static int marioStarTimer = 600;
@@ -147,6 +150,22 @@ namespace Sprint2
         public static string pipeSpriteSheet="PipeSprite";
         public static string brickPiecesSpriteSheet="BrickPieces";
         public static string fireballSpriteSheet="FireballSprite";
+        public static string marioSmallStillSpriteSheet = "MarioSmallStill";
+        public static string marioSmallRunningSpriteSheet = "MarioSmallRunning";
+        public static string marioSmallJumpingSpriteSheet = "MarioSmallJump";
+        public static string marioSmallChangeDirectionSpriteSheet = "MarioSmallChangeDirection";
+        public static string marioBigStillSpriteSheet = "MarioBigStill";
+        public static string marioBigRunningSpriteSheet = "MarioBigRunning";
+        public static string marioBigJumpingSpriteSheet = "MarioBigJump";
+        public static string marioBigFlagpoleSpriteSheet = "MarioBigFlagpole";
+        public static string marioBigChangeDirectionSpriteSheet = "MarioBigChangeDirection";
+        public static string marioFireStillSpriteSheet = "MarioFireStill";
+        public static string marioFireRunningSpriteSheet = "MarioFireRunning";
+        public static string marioFireJumpingSpriteSheet = "MarioFireJump";
+        public static string marioFireDuckSpriteSheet = "MarioFireDuck";
+        public static string marioFireChangeDirectionSpriteSheet = "MarioFireChangeDirection";
+        public static string marioDuckSpriteSheet = "MarioDuck";
+        public static string marioDyingSpriteSheet = "MarioDying";
 
 
         //Game Magic Stuff
@@ -160,7 +179,17 @@ namespace Sprint2
         public static int backgroundChange = 1500;
         public static int LevelStartTime = 500;
         public static string GameTimeName = "TIME\n";
+        public static string gameOver = "GAME OVER";
+        public static string worldLevel = "WORLD 1-1";
+        public static string x = "x";
         public static int[] ChainBonusMultiplier = { 1, 2, 4, 8, 10, 20, 40, 80 };
+        public static int deathTimer = 5;
+        public static double timeAdjustment = 2.5d;
+        public static int timeLocation = 740;
+        public static int deathBackgroundX = 800;
+        public static int deathBackgroundY = 600;
+        public static int deathMarioLocationX=365;
+        public static int deathMarioLocationY=230;
 
         //GUI stuff
         public static float DefaultSpriteWidth = 16;
@@ -172,5 +201,7 @@ namespace Sprint2
         public static string GUIMarioCoinName = "x";
         public static string FontString = "Fonts/SMB";
         public static string BasicArialFontString = "Fonts/BasicArial";
+        public static string score = "Score:";
+        public static string emptyString = "";
     }
 }

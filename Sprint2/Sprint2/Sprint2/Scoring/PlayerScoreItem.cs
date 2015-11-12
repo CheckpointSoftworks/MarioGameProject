@@ -26,9 +26,9 @@ namespace Sprint2
 
         public PlayerScoreItem()
         {
-            ScoreValue = 0;
-            ScoreName = "Score:";
-            chainModifier = 1;
+            ScoreValue = UtilityClass.zero;
+            ScoreName = UtilityClass.score;
+            chainModifier = UtilityClass.one;
         }
 
         public PlayerScoreItem(String name, int value, Vector2 loc,bool frame)
@@ -42,7 +42,7 @@ namespace Sprint2
         }
         public PlayerScoreItem(GUIType type, int value, Vector2 loc,bool frame)
         {
-            ScoreName = "";
+            ScoreName = UtilityClass.emptyString;
             this.type = type;
             location = loc;
             ScoreValue = value;
@@ -80,7 +80,7 @@ namespace Sprint2
 
         public void ResetChain()
         {
-            chainModifier = 1;
+            chainModifier = UtilityClass.one;
         }
         public void Update()
         {
@@ -101,7 +101,7 @@ namespace Sprint2
                 case(GUIType.coin) :
                 {
                     Vector2 adjustedLocation = location;
-                    adjustedLocation.X += 16;
+                    adjustedLocation.X += UtilityClass.sixteen;
                     sprite.Draw(spriteBatch,cameraLoc);
                     spriteBatch.DrawString(font, UtilityClass.GUIMarioCoinName + ToString(), adjustedLocation, Color.White);
                     break;

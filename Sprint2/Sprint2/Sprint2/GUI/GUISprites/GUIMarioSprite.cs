@@ -20,7 +20,7 @@ namespace Sprint2
         {
             guiMarioSpriteSheet = GUISpriteFactory.CreateGUIMarioSprite();
             this.location = location;
-            guiMarioSprite = new AnimatedSprite(guiMarioSpriteSheet, 1, 1, location, 2);
+            guiMarioSprite = new AnimatedSprite(guiMarioSpriteSheet, UtilityClass.one, UtilityClass.one, location, UtilityClass.two);
             collisionRectangle = guiMarioSprite.returnCollisionRectangle();
         }
 

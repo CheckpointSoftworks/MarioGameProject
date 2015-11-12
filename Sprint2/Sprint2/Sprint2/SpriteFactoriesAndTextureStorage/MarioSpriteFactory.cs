@@ -32,26 +32,26 @@ namespace Sprint2
 
         public static void Load(ContentManager content)
         {
-            marioSmallStill = content.Load<Texture2D>("MarioSmallStill");
-            marioSmallRunning = content.Load<Texture2D>("MarioSmallRunning");
-            marioSmallJumping = content.Load<Texture2D>("MarioSmallJump");
-            marioSmallChangeDirection = content.Load<Texture2D>("MarioSmallChangeDirection");
+            marioSmallStill = content.Load<Texture2D>(UtilityClass.marioSmallStillSpriteSheet);
+            marioSmallRunning = content.Load<Texture2D>(UtilityClass.marioSmallRunningSpriteSheet);
+            marioSmallJumping = content.Load<Texture2D>(UtilityClass.marioSmallJumpingSpriteSheet);
+            marioSmallChangeDirection = content.Load<Texture2D>(UtilityClass.marioSmallChangeDirectionSpriteSheet);
 
-            marioBigStill = content.Load<Texture2D>("MarioBigStill");
-            marioBigRunning = content.Load<Texture2D>("MarioBigRunning");
-            marioBigJumping = content.Load<Texture2D>("MarioBigJump");
-            marioBigFlagpole = content.Load<Texture2D>("MarioBigFlagpole");
-            marioBigChangeDirection = content.Load<Texture2D>("MarioBigChangeDirection");
+            marioBigStill = content.Load<Texture2D>(UtilityClass.marioBigStillSpriteSheet);
+            marioBigRunning = content.Load<Texture2D>(UtilityClass.marioBigRunningSpriteSheet);
+            marioBigJumping = content.Load<Texture2D>(UtilityClass.marioBigJumpingSpriteSheet);
+            marioBigFlagpole = content.Load<Texture2D>(UtilityClass.marioBigFlagpoleSpriteSheet);
+            marioBigChangeDirection = content.Load<Texture2D>(UtilityClass.marioBigChangeDirectionSpriteSheet);
 
-            marioFireStill = content.Load<Texture2D>("MarioFireStill");
+            marioFireStill = content.Load<Texture2D>(UtilityClass.marioFireStillSpriteSheet);
 
-            marioFireRunning = content.Load<Texture2D>("MarioFireRunning");
-            marioFireJumping = content.Load<Texture2D>("MarioFireJump");
-            marioFireDuck = content.Load<Texture2D>("MarioFireDuck");
-            marioFireChangeDirection = content.Load<Texture2D>("MarioFireChangeDirection");
+            marioFireRunning = content.Load<Texture2D>(UtilityClass.marioFireRunningSpriteSheet);
+            marioFireJumping = content.Load<Texture2D>(UtilityClass.marioFireJumpingSpriteSheet);
+            marioFireDuck = content.Load<Texture2D>(UtilityClass.marioFireDuckSpriteSheet);
+            marioFireChangeDirection = content.Load<Texture2D>(UtilityClass.marioFireChangeDirectionSpriteSheet);
 
-            marioDuck = content.Load<Texture2D>("MarioDuck");
-            marioDying = content.Load<Texture2D>("MarioDying");
+            marioDuck = content.Load<Texture2D>(UtilityClass.marioDuckSpriteSheet);
+            marioDying = content.Load<Texture2D>(UtilityClass.marioDyingSpriteSheet);
 
         }
 
