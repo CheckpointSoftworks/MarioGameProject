@@ -15,8 +15,17 @@ namespace Sprint2
 
         public void Execute()
         {
-            if (!game.pause) { game.pause = true; }
-            else { game.pause = false; }
+            if (game.canPause)
+            {
+                if (!game.pause) { 
+                    game.pause = true;
+                    game.canPause = false;
+                }
+                else { 
+                    game.pause = false;
+                    game.canPause = false;
+                }
+            }
         }
     }
 }

@@ -80,14 +80,15 @@
     <Compile Include="CameraClasses\Camera.cs" />
     <Compile Include="CameraClasses\CameraController.cs" />
     <Compile Include="Collision\CollisionCommands\EnemyCollisonCommands\ProjectileHitsEnemy.cs" />
-    <Compile Include="ContollerClasses\ControllerCommands\MovementCommands\NoFireCommand.cs" />
-    <Compile Include="ContollerClasses\ControllerCommands\MovementCommands\NoJumpCommand.cs" />
+    <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\NoFireCommand.cs" />
+    <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\NoJumpCommand.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\GoombaDamaged.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\GoombaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaDamaged.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\EnemyCollisionHandlers\EnemyProjectileCollisionHandler.cs" />
     <Compile Include="LevelStateAlterations\PauseCommand.cs" />
+    <Compile Include="NoPauseCommand.cs" />
     <Compile Include="UtilityClasses\UtilityClass\UtilityClass.cs" />
     <Compile Include="UtilityClasses\Enumerators\MarioStateEnum.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\BrickPieces.cs" />
