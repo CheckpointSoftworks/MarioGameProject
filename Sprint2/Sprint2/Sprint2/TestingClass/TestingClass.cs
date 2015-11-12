@@ -20,6 +20,7 @@ namespace Sprint2
         public TestingClass(Game1 game)
         {
             this.game = game;
+            StatePuaseAlterationCall.setGame(game);
         }
 
         public void runTests()

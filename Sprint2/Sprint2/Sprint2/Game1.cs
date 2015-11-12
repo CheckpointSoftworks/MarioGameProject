@@ -25,7 +25,9 @@ namespace Sprint2
         public CameraController cameraController { get; set; }
         public bool pause { get; set; }
         public bool canPause { get; set; }
+        public bool marioPause { get; set; }
         public int fireBallCount { get; set; }
+        public int stateTransistionPauseTimer { get; set; }
         private Texture2D background;
         private Texture2D background2;
         private Texture2D deathbackground;
@@ -59,8 +61,11 @@ namespace Sprint2
             fireBallCount = UtilityClass.fireballLimit;
             pause = false;
             canPause = true;
+            marioPause = false;
+            stateTransistionPauseTimer = 200;
             time = UtilityClass.LevelStartTime;
             gui = new GUI();
+            StatePuaseAlterationCall.setGame(this);
             base.Initialize();
             tester.runTests();
         }
@@ -110,7 +115,7 @@ namespace Sprint2
         protected override void Update(GameTime gameTime)
         {
             keyboard.Update();
-            if (!pause)
+            if (!pause&&!marioPause)
             {
                 gamepad.Update();
                 keyNotPressed.Execute();
@@ -151,6 +156,16 @@ namespace Sprint2
                 gui.Update();
                 UpdateTime(gameTime);
                 base.Update(gameTime);
+            }
+            else if (marioPause&&!pause)
+            {
+                mario.Update();
+                levelStore.handleCollision(mario, this);
+                stateTransistionPauseTimer--;
+            }
+            if (stateTransistionPauseTimer == 0)
+            {
+                StatePuaseAlterationCall.Execute();
             }
         }
 
