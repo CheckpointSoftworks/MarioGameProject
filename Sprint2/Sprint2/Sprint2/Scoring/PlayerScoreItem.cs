@@ -37,7 +37,7 @@ namespace Sprint2
             location = loc;
             ScoreName = name;
             ScoreValue = value;
-            chainModifier = 1;
+            chainModifier =UtilityClass.one;
             drawEveryFrame = frame;
         }
         public PlayerScoreItem(GUIType type, int value, Vector2 loc,bool frame)
@@ -46,7 +46,7 @@ namespace Sprint2
             this.type = type;
             location = loc;
             ScoreValue = value;
-            chainModifier = 1;
+            chainModifier = UtilityClass.one;
             sprite = GetSprite();
             drawEveryFrame = frame;
         }
