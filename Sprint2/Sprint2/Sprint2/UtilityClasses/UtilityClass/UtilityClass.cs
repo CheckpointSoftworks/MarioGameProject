@@ -22,6 +22,7 @@ namespace Sprint2
         public static int OneHundred = 100;
         public static Vector2 deathtextloc = new Vector2(350, 200);
         public static Vector2 deathmarioloc = new Vector2(387, 230);
+        public static Vector2 remaininglivesloc = new Vector2(405, 230);
 
         //Block Magic Numbers
         public static int BrickPieceYAdjustment = 5;
