@@ -2440,18 +2440,10 @@
     <x>4000</x>
     <y>296</y>
   </BlueBrickBlock>
-  
   <!--Plateau in middle -->
-  <BlueBrickBlock>
-    <x></x>
-    <y></y>
-  </BlueBrickBlock>
-  <!--Roof -->
-  
+  <!--Roof --> 
   <!-- Coins -->
-  
-  <!--Right facing pipe-->
-  
+  <!--Right facing pipe--> 
   <!-- Floor -->
   <BlueGroundBlock>
     <x>4000</x>
