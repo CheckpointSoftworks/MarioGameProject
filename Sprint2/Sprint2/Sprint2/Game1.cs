@@ -32,7 +32,6 @@ namespace Sprint2
         private Texture2D background2;
         private Texture2D deathbackground;
         private float deathtime;
-        private int remaininglives;
         private Boolean deathscreen = false;
         private TestingClass tester;
         private ICommand resetCommand;
@@ -65,7 +64,6 @@ namespace Sprint2
             stateTransistionPauseTimer = UtilityClass.stateTransistionTimer;
             deathtime = UtilityClass.deathTimer;
             time = UtilityClass.LevelStartTime;
-            remaininglives = UtilityClass.three;
             gui = new GUI();
             StatePuaseAlterationCall.setGame(this);
             base.Initialize();
@@ -181,7 +179,7 @@ namespace Sprint2
                 Texture2D deathmario = MarioSpriteFactory.CreateMarioSmallStillSprite();
                 spriteBatch.Begin();
                 spriteBatch.Draw(deathbackground, backgrounddestinationRectangle, sourceRectangle, Color.Black);
-                if (remaininglives > UtilityClass.zero)
+                if (((Mario)mario).GetLives().ScoreValue > UtilityClass.zero)
                 {
                     
                     spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel,
