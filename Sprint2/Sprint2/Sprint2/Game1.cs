@@ -24,6 +24,7 @@ namespace Sprint2
         public Camera camera { get; set; }
         public CameraController cameraController { get; set; }
         public bool pause { get; set; }
+        public bool canPause { get; set; }
         public int fireBallCount { get; set; }
         private Texture2D background;
         private Texture2D background2;
@@ -57,6 +58,7 @@ namespace Sprint2
             keyNotPressed = new KeyNotPressed(this);
             fireBallCount = UtilityClass.fireballLimit;
             pause = false;
+            canPause = true;
             time = UtilityClass.LevelStartTime;
             gui = new GUI();
             base.Initialize();
@@ -98,9 +100,10 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterCommand(Keys.X, new FireballCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.R, new ResetLevelCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.S, new SprintCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.P, new PauseCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.Z,new NoJumpCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.X, new NoFireCommand(this));
-            ((KeyboardController)keyboard).RegisterCommand(Keys.P, new PauseCommand(this));
+            ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.P,new NoPauseCommand(this));
         }
         protected override void UnloadContent() { }
 
