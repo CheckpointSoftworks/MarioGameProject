@@ -163,11 +163,14 @@ namespace Sprint2
                 {
                     spriteBatch.DrawString(basicarialfont, "WORLD 1-1",
                             UtilityClass.deathtextloc, Color.White);
+                    gui.DrawPlayGUI(spriteBatch, font);
                 }
                 else
                 {
                     spriteBatch.DrawString(basicarialfont, "GAME OVER",
                             UtilityClass.deathtextloc, Color.White);
+
+                    gui.DrawPlayGUI(spriteBatch, font);
                 }
                 spriteBatch.End();
             }
