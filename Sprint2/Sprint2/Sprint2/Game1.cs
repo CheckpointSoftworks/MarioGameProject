@@ -84,8 +84,8 @@ namespace Sprint2
             MiscGameObjectTextureStorage.Load(this.Content);
             MarioSpriteFactory.Load(this.Content);
             GUISpriteFactory.Load(this.Content);
-            //SoundEffectFactory.Load(this.Content);
-            //MusicFactory.Load(this.Content);
+            SoundEffectFactory.Load(this.Content);
+            MusicFactory.Load(this.Content);
             background = Content.Load<Texture2D>(UtilityClass.background);
             background2 = Content.Load<Texture2D>(UtilityClass.background2);
             deathbackground = Content.Load<Texture2D>(UtilityClass.deathbackground);

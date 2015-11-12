@@ -36,6 +36,7 @@ namespace Sprint2
                 StatePuaseAlterationCall.Execute();
             }else if(item.returnItemType().Equals(ItemType.OneUpMushroom))
             {
+                
                 command = new MarioOneUpMushroomCollisionCommand(mario, item);
             }else if(item.returnItemType().Equals(ItemType.Star))
             {

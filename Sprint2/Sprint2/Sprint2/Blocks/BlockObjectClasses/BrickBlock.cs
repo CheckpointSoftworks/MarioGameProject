@@ -67,6 +67,7 @@ namespace Sprint2
 
         public void smashBlock()
         {
+            SoundEffectFactory.BrickBreak();
             ((BrickBlockSprite)sprite).hasSmashed();
         }
 

@@ -80,6 +80,7 @@ namespace Sprint2
 
         public IItemObjects dispenseCoin()
         {
+            SoundEffectFactory.Coin();
             return new BoxCoin((int)location.X, (int)location.Y-UtilityClass.itemOffSet);
         }
 

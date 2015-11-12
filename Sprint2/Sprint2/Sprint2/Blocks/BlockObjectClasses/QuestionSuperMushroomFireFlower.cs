@@ -67,12 +67,14 @@ namespace Sprint2
 
         public IItemObjects spawnSuperMushroom()
         {
+            SoundEffectFactory.Item();
             dispenseItemFlag = false;
             return new SuperMushroom((int)location.X, (int)location.Y-UtilityClass.itemOffSet);
         }
 
         public IItemObjects spawnFireFlower()
         {
+            SoundEffectFactory.Item();
             dispenseItemFlag = false;
             return new FireFlower((int)location.X, (int)location.Y - UtilityClass.itemOffSet);
         }

@@ -65,6 +65,7 @@ namespace Sprint2
         }
         public IItemObjects spawnOneUp()
         {
+            SoundEffectFactory.Item();
             dispenseItemFlag = false;
             return new OneUpMushroom((int)location.X, (int)location.Y - UtilityClass.itemOffSet);
         }

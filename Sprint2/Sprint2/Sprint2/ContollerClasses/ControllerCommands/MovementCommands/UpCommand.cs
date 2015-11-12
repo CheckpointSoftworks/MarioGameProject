@@ -16,6 +16,16 @@ namespace Sprint2
 
             public void Execute()
             {
+                if (((Mario)Game.mario).rigidbody.Floored) { 
+                    if (((Mario)Game.mario).Small)
+                    {
+                        SoundEffectFactory.JumpSmall();
+                    }
+                    else
+                    {
+                        SoundEffectFactory.JumpBig();
+                    }
+                }
                 ((Mario)Game.mario).State.Jump();
                 ((Mario)Game.mario).rigidbody.Jump();
             }

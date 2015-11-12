@@ -283,6 +283,7 @@ namespace Sprint2
             }
             else
             {
+                SoundEffectFactory.TransitionSmall();
                 if (fire)
                 {
                     fire = false;

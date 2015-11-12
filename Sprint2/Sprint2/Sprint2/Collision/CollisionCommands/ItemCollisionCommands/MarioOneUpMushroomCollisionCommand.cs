@@ -13,6 +13,7 @@ namespace Sprint2
         private IPlayer player;
         public MarioOneUpMushroomCollisionCommand(IPlayer mario, IItemObjects oneUpMushroom)
         {
+            SoundEffectFactory.OneUp();
             player = mario;
             this.oneUpMushroom = oneUpMushroom;
         }
