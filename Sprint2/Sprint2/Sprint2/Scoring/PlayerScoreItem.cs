@@ -28,7 +28,7 @@ namespace Sprint2
         {
             ScoreValue = UtilityClass.zero;
             ScoreName = UtilityClass.score;
-            chainModifier = UtilityClass.one;
+            chainModifier = UtilityClass.zero;
         }
 
         public PlayerScoreItem(String name, int value, Vector2 loc,bool frame)
@@ -37,7 +37,7 @@ namespace Sprint2
             location = loc;
             ScoreName = name;
             ScoreValue = value;
-            chainModifier =UtilityClass.one;
+            chainModifier =UtilityClass.zero;
             drawEveryFrame = frame;
         }
         public PlayerScoreItem(GUIType type, int value, Vector2 loc,bool frame)
@@ -46,7 +46,7 @@ namespace Sprint2
             this.type = type;
             location = loc;
             ScoreValue = value;
-            chainModifier = UtilityClass.one;
+            chainModifier = UtilityClass.zero;
             sprite = GetSprite();
             drawEveryFrame = frame;
         }
@@ -80,7 +80,7 @@ namespace Sprint2
 
         public void ResetChain()
         {
-            chainModifier = UtilityClass.one;
+            chainModifier = UtilityClass.zero;
         }
         public void Update()
         {
