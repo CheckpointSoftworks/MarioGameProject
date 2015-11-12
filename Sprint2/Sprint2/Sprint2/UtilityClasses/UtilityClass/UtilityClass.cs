@@ -147,6 +147,7 @@ namespace Sprint2
         public static string fireFlowerSpriteSheet="FireFlower";
         public static string starSpriteSheet="SuperStar";
         public static string boxCoinSpriteSheet="BoxCoin";
+        public static string staticCoinSpriteSheet = "StaticCoin";
         public static string usedItemSpriteSheet="UsedItemSprite";
         public static string pipeSpriteSheet="PipeSprite";
         public static string brickPiecesSpriteSheet="BrickPieces";
