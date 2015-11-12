@@ -87,6 +87,10 @@
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaDamaged.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\EnemyCollisionHandlers\EnemyProjectileCollisionHandler.cs" />
+    <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\RightFacingPipe.cs" />
+    <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\RightFacingPipeEdge.cs" />
+    <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\RightFacingPipeEdgeSprite.cs" />
+    <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\RightFacingPipeSprite.cs" />
     <Compile Include="LevelStateAlterations\PauseCommand.cs" />
     <Compile Include="LevelStateAlterations\NoPauseCommand.cs" />
     <Compile Include="LevelStateAlterations\StatePuaseAlterationCall.cs" />

@@ -198,8 +198,7 @@ namespace Sprint2
                 spriteBatch.Begin();
                 spriteBatch.Draw(deathbackground, backgrounddestinationRectangle, sourceRectangle, Color.Black);
                 if (remaininglives > UtilityClass.zero)
-                {
-                    
+                {    
                     spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel, UtilityClass.deathtextloc, Color.White);
                     spriteBatch.DrawString(basicarialfont, UtilityClass.x, UtilityClass.deathmarioloc, Color.White);
                     spriteBatch.DrawString(basicarialfont, remaininglives.ToString(), UtilityClass.remaininglivesloc, Color.White);
@@ -218,7 +217,7 @@ namespace Sprint2
                 spriteBatch.Begin();
                 Rectangle sourceRectangle = new Rectangle((int)camera.GetPosition().X, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
                 Rectangle destinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
-                if ((int)camera.GetPosition().X > UtilityClass.deathbackgroundChange)
+                if (mario.returnLocation().X > UtilityClass.deathbackgroundChange)
                 {
                     spriteBatch.Draw(deathbackground, destinationRectangle, sourceRectangle, Color.White);
                 }
