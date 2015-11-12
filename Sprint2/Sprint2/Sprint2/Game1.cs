@@ -181,7 +181,7 @@ namespace Sprint2
                 spriteBatch.Draw(deathbackground, backgrounddestinationRectangle, sourceRectangle, Color.Black);
                 if (((Mario)mario).GetLives().ScoreValue > UtilityClass.zero)
                 {
-                    
+                    Console.WriteLine(((Mario)mario).GetLives().ScoreValue);                    
                     spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel,
                             UtilityClass.deathtextloc, Color.White);
                     spriteBatch.DrawString(basicarialfont, UtilityClass.x,
