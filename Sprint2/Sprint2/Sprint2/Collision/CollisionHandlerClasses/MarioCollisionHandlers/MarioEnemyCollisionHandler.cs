@@ -26,11 +26,12 @@ namespace Sprint2
             {
                 command = new EnemyHitsMarioCollision(mario,enemy);
                 command.Execute();
+                StatePuaseAlterationCall.Execute();
             }
             if (enemy.canHurtOtherEnemies()&&!(side.returnCollisionSide().Equals(CollisionSide.None))&&!enemy.canHurtMario())
             {
                 handleMarioMovement(mario, enemy, side);
-                handleEnemtMovement(enemy,side);
+                handleEnemyMovement(enemy,side);
             }
         }
 
@@ -67,7 +68,7 @@ namespace Sprint2
             }
         }
 
-        private static void handleEnemtMovement(IEnemyObject enemy,ICollision side)
+        private static void handleEnemyMovement(IEnemyObject enemy,ICollision side)
         {
             if (side.returnCollisionSide().Equals(CollisionSide.Left))
             {

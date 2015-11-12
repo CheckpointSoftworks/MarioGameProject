@@ -89,6 +89,8 @@
     <Compile Include="Collision\CollisionHandlerClasses\EnemyCollisionHandlers\EnemyProjectileCollisionHandler.cs" />
     <Compile Include="LevelStateAlterations\PauseCommand.cs" />
     <Compile Include="LevelStateAlterations\NoPauseCommand.cs" />
+    <Compile Include="LevelStateAlterations\StatePuaseAlterationCall.cs" />
+    <Compile Include="LevelStateAlterations\StateTransistionPause.cs" />
     <Compile Include="UtilityClasses\UtilityClass\UtilityClass.cs" />
     <Compile Include="UtilityClasses\Enumerators\MarioStateEnum.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\BrickPieces.cs" />
