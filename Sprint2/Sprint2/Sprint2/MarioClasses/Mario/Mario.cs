@@ -240,12 +240,13 @@ namespace Sprint2
         }
         public void AddCoin()
         {
-            coins.UpdateScore(UtilityClass.one);
+            coins.UpdateScoreNoChain(UtilityClass.one);
             if (coins.ScoreValue == UtilityClass.OneHundred)
             {
                 coins.ScoreValue = UtilityClass.zero;
-                lives.UpdateScore(UtilityClass.one);
+                lives.UpdateScoreNoChain(UtilityClass.one);
             }
+            points.UpdateScoreNoChain(UtilityClass.CoinScoreValue);
         }
 
         public void OneUp()
@@ -282,6 +283,7 @@ namespace Sprint2
             }
             else
             {
+                SoundEffectFactory.TransitionSmall();
                 if (fire)
                 {
                     fire = false;

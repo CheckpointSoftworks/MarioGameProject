@@ -18,6 +18,7 @@ namespace Sprint2
         }
         public void Execute()
         {
+            SoundEffectFactory.PowerUp();
             fireFlower.setCollisionRectangle(new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero));
             ((Mario)mario).BecomeFire();
         }

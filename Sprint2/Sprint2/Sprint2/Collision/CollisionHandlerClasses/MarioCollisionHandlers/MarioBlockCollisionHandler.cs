@@ -26,6 +26,7 @@ namespace Sprint2
 
             if (side.returnCollisionSide().Equals(CollisionSide.Bottom))
             {
+                SoundEffectFactory.Bump();
                 executeCollisionCommand(mario, block,game);
             }
         }

@@ -17,6 +17,7 @@ namespace Sprint2
                 handleMarioMovement(mario, item, side);
                 command = chooseCorrectCommand(item,mario);
                 command.Execute();
+                Console.WriteLine("Item score event: " + item.ScoreData().ScoreValue);
                 mario.ScoreEvent(item.ScoreData());
             }
 
@@ -35,6 +36,7 @@ namespace Sprint2
                 StatePuaseAlterationCall.Execute();
             }else if(item.returnItemType().Equals(ItemType.OneUpMushroom))
             {
+                
                 command = new MarioOneUpMushroomCollisionCommand(mario, item);
             }else if(item.returnItemType().Equals(ItemType.Star))
             {

@@ -22,6 +22,7 @@ namespace Sprint2
         public static int OneHundred = 100;
         public static Vector2 deathtextloc = new Vector2(350, 200);
         public static Vector2 deathmarioloc = new Vector2(387, 230);
+        public static Vector2 remaininglivesloc = new Vector2(405, 230);
 
         //Block Magic Numbers
         public static int BrickPieceYAdjustment = 5;
@@ -146,6 +147,7 @@ namespace Sprint2
         public static string fireFlowerSpriteSheet="FireFlower";
         public static string starSpriteSheet="SuperStar";
         public static string boxCoinSpriteSheet="BoxCoin";
+        public static string staticCoinSpriteSheet = "StaticCoin";
         public static string usedItemSpriteSheet="UsedItemSprite";
         public static string pipeSpriteSheet="PipeSprite";
         public static string brickPiecesSpriteSheet="BrickPieces";
@@ -177,6 +179,7 @@ namespace Sprint2
         public static string background2 = "Background2";
         public static string deathbackground = "Deathbackground";
         public static int backgroundChange = 1500;
+        public static int deathbackgroundChange = 4000;
         public static int LevelStartTime = 500;
         public static string GameTimeName = "TIME\n";
         public static string gameOver = "GAME OVER";
@@ -203,5 +206,8 @@ namespace Sprint2
         public static string BasicArialFontString = "Fonts/BasicArial";
         public static string score = "Score:";
         public static string emptyString = "";
+
+        //Scores
+        public static int CoinScoreValue = 200;
     }
 }

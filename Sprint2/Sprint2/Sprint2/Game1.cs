@@ -32,6 +32,8 @@ namespace Sprint2
         private Texture2D background2;
         private Texture2D deathbackground;
         private float deathtime;
+        private int remaininglives = 3;
+        public bool remaininglivesupdated = false;
         private Boolean deathscreen = false;
         private TestingClass tester;
         private ICommand resetCommand;
@@ -64,6 +66,7 @@ namespace Sprint2
             stateTransistionPauseTimer = UtilityClass.stateTransistionTimer;
             deathtime = UtilityClass.deathTimer;
             time = UtilityClass.LevelStartTime;
+            remaininglives = UtilityClass.three;
             gui = new GUI();
             StatePuaseAlterationCall.setGame(this);
             base.Initialize();
@@ -81,6 +84,8 @@ namespace Sprint2
             MiscGameObjectTextureStorage.Load(this.Content);
             MarioSpriteFactory.Load(this.Content);
             GUISpriteFactory.Load(this.Content);
+            SoundEffectFactory.Load(this.Content);
+            MusicFactory.Load(this.Content);
             background = Content.Load<Texture2D>(UtilityClass.background);
             background2 = Content.Load<Texture2D>(UtilityClass.background2);
             deathbackground = Content.Load<Texture2D>(UtilityClass.deathbackground);
@@ -125,6 +130,11 @@ namespace Sprint2
                 cameraController.Update();
                 if (((Mario)mario).StateStatus().Equals(MarioState.Die))
                 {
+                    if(!remaininglivesupdated)
+                    {
+                        remaininglives -= 1;
+                        remaininglivesupdated = true;
+                    }
                     if (deathtime > UtilityClass.zero)
                     {
                         deathscreen = true;
@@ -134,12 +144,18 @@ namespace Sprint2
                     {
                         deathscreen = false;
                         resetCommand.Execute();
+                        remaininglivesupdated = false;
                         ResetTime();
                         deathtime = UtilityClass.deathTimer;
                     }
                 }
                 if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
                 {
+                    if (!remaininglivesupdated)
+                    {
+                        remaininglives -= 1;
+                        remaininglivesupdated = true;
+                    }
                     if (deathtime > UtilityClass.zero)
                     {
                         deathscreen = true;
@@ -149,6 +165,7 @@ namespace Sprint2
                     {
                         deathscreen = false;
                         resetCommand.Execute();
+                        remaininglivesupdated = false;
                         ResetTime();
                         deathtime = UtilityClass.deathTimer;
                     }
@@ -175,25 +192,22 @@ namespace Sprint2
             {
                 Rectangle sourceRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.twelve, UtilityClass.sixteen);
                 Rectangle mariodestinationRectangle = new Rectangle(UtilityClass.deathMarioLocationX, UtilityClass.deathMarioLocationY, UtilityClass.twelve, UtilityClass.sixteen);
+                Rectangle remaininglivesdestinationRectangle = new Rectangle(UtilityClass.deathMarioLocationX+UtilityClass.ten, UtilityClass.deathMarioLocationY, UtilityClass.twelve, UtilityClass.sixteen);
                 Rectangle backgrounddestinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.deathBackgroundX, UtilityClass.deathBackgroundY);
                 Texture2D deathmario = MarioSpriteFactory.CreateMarioSmallStillSprite();
                 spriteBatch.Begin();
                 spriteBatch.Draw(deathbackground, backgrounddestinationRectangle, sourceRectangle, Color.Black);
-                if (((Mario)mario).GetLives().ScoreValue > UtilityClass.zero)
-                {
-                    Console.WriteLine(((Mario)mario).GetLives().ScoreValue);                    
-                    spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel,
-                            UtilityClass.deathtextloc, Color.White);
-                    spriteBatch.DrawString(basicarialfont, UtilityClass.x,
-                           UtilityClass.deathmarioloc, Color.White);
+                if (remaininglives > UtilityClass.zero)
+                {    
+                    spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel, UtilityClass.deathtextloc, Color.White);
+                    spriteBatch.DrawString(basicarialfont, UtilityClass.x, UtilityClass.deathmarioloc, Color.White);
+                    spriteBatch.DrawString(basicarialfont, remaininglives.ToString(), UtilityClass.remaininglivesloc, Color.White);
                     spriteBatch.Draw(deathmario, mariodestinationRectangle, sourceRectangle, Color.White);
-                    gui.DrawPlayGUI(spriteBatch, font);
                 }
                 else
                 {
                     spriteBatch.DrawString(basicarialfont, UtilityClass.gameOver,
                             UtilityClass.deathtextloc, Color.White);
-                    gui.DrawPlayGUI(spriteBatch, font);
                 }
                 spriteBatch.End();
             }
@@ -203,7 +217,11 @@ namespace Sprint2
                 spriteBatch.Begin();
                 Rectangle sourceRectangle = new Rectangle((int)camera.GetPosition().X, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
                 Rectangle destinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
-                if ((int)camera.GetPosition().X < UtilityClass.backgroundChange) { spriteBatch.Draw(background, destinationRectangle, sourceRectangle, Color.White); }
+                if (mario.returnLocation().X > UtilityClass.deathbackgroundChange)
+                {
+                    spriteBatch.Draw(deathbackground, destinationRectangle, sourceRectangle, Color.White);
+                }
+                else if ((int)camera.GetPosition().X < UtilityClass.backgroundChange) { spriteBatch.Draw(background, destinationRectangle, sourceRectangle, Color.White); }
                 else
                 {
                     sourceRectangle = new Rectangle((int)camera.GetPosition().X - UtilityClass.backgroundChange, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);

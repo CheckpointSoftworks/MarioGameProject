@@ -7,14 +7,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class Pipe : IEnviromental
+    public class RightFacingPipeEdge : IEnviromental
     {
         private ISprite pipeSprite;
-        public bool sendunderground = false;
-        public Pipe(int locX, int locY)
+        public RightFacingPipeEdge(int locX, int locY)
         {
             Vector2 location = new Vector2(locX, locY);
-            pipeSprite = new PipeSprite(location);
+            pipeSprite = new RightFacingPipeEdgeSprite(location);
         }
 
         public void Update()

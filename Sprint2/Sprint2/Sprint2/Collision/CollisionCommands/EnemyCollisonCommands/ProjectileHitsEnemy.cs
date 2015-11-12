@@ -17,6 +17,7 @@ namespace Sprint2
 
         public void Execute()
         {
+            SoundEffectFactory.Kick();
             ((Mario)((Fireball)projectile).GetOwner()).ProjectileScoreEvent(enemy.ScoreData());
             enemy.TakeDamage();
             Console.WriteLine("Fireball kill: " + ((Mario)((Fireball)projectile).GetOwner()).PointsToString());

@@ -28,6 +28,7 @@ namespace Sprint2
             this.facingRight = facingRight;
             owner = shooter;
             LoadRigidBodyProperties();
+            SoundEffectFactory.Fireball();
         }
         private void LoadRigidBodyProperties()
         {
