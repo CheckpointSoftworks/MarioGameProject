@@ -158,21 +158,26 @@ namespace Sprint2
         {
             if (deathscreen)
             {
-                Rectangle sourceRectangle = new Rectangle((int)camera.GetPosition().X, (int)camera.GetPosition().Y, 800, 480);
-                Rectangle destinationRectangle = new Rectangle(0, 0, 800, 480);
+                Rectangle sourceRectangle = new Rectangle(0, 0, 12, 16);
+                Rectangle mariodestinationRectangle = new Rectangle(365, 230, 12, 16);
+                Rectangle backgrounddestinationRectangle = new Rectangle(0, 0, 800, 600);
+                Texture2D deathmario = MarioSpriteFactory.CreateMarioSmallStillSprite();
                 spriteBatch.Begin();
-                spriteBatch.Draw(deathbackground, destinationRectangle, sourceRectangle, Color.Black);
+                spriteBatch.Draw(deathbackground, backgrounddestinationRectangle, sourceRectangle, Color.Black);
                 if (remaininglives > 0)
                 {
+                    
                     spriteBatch.DrawString(basicarialfont, "WORLD 1-1",
                             UtilityClass.deathtextloc, Color.White);
+                    spriteBatch.DrawString(basicarialfont, "x",
+                           UtilityClass.deathmarioloc, Color.White);
+                    spriteBatch.Draw(deathmario, mariodestinationRectangle, sourceRectangle, Color.White);
                     gui.DrawPlayGUI(spriteBatch, font);
                 }
                 else
                 {
                     spriteBatch.DrawString(basicarialfont, "GAME OVER",
                             UtilityClass.deathtextloc, Color.White);
-
                     gui.DrawPlayGUI(spriteBatch, font);
                 }
                 spriteBatch.End();
