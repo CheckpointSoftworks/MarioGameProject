@@ -234,8 +234,8 @@ namespace Sprint2
             points.UpdateScore(target.ScoreValue);
             if (target.Chainable)
             {
-                if (points.ComboValue() < 10) points.ChainHit();
-                else lives.UpdateScore(1);
+                if (points.ComboValue() < UtilityClass.ten) points.ChainHit();
+                else lives.UpdateScore(UtilityClass.one);
             }
         }
         public void AddCoin()
