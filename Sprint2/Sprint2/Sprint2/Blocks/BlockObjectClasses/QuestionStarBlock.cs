@@ -65,6 +65,7 @@ namespace Sprint2
         }
         public IItemObjects spawnStar()
         {
+            SoundEffectFactory.Item();
             dispenseItemFlag = false;
             return new SuperStar((int)location.X, (int)location.Y-UtilityClass.itemOffSet);
         }

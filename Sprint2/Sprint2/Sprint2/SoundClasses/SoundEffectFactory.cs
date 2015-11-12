@@ -16,7 +16,8 @@ namespace Sprint2
         private static SoundEffect oneUp;
         private static SoundEffect jumpSmall;
         private static SoundEffect jumpBig;
-        private static SoundEffect transitionBig;
+        private static SoundEffect stomp;
+        private static SoundEffect powerUp;
         private static SoundEffect transitionSmall;
         private static SoundEffect fireball;
         private static SoundEffect kick;
@@ -31,7 +32,8 @@ namespace Sprint2
             oneUp = content.Load<SoundEffect>("Sound Effects/1up");
             jumpSmall = content.Load<SoundEffect>("Sound Effects/jumpsmall");
             jumpBig = content.Load<SoundEffect>("Sound Effects/jumpbig");
-            transitionBig = content.Load<SoundEffect>("Sound Effects/powerup");
+            stomp = content.Load<SoundEffect>("Sound Effects/stomp");
+            powerUp = content.Load<SoundEffect>("Sound Effects/powerup");
             transitionSmall = content.Load<SoundEffect>("Sound Effects/pipe");
             fireball = content.Load<SoundEffect>("Sound Effects/fireball");
             kick = content.Load<SoundEffect>("Sound Effects/kick");
@@ -60,13 +62,17 @@ namespace Sprint2
         {
             jumpSmall.Play();
         }
+        public static void Stomp()
+        {
+            stomp.Play();
+        }
         public static void JumpBig()
         {
             jumpBig.Play();
         }
-        public static void TransitionBig()
+        public static void PowerUp()
         {
-            transitionBig.Play();
+            powerUp.Play();
         }
         public static void TransitionSmall()
         {
