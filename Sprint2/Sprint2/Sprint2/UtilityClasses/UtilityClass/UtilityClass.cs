@@ -205,5 +205,8 @@ namespace Sprint2
         public static string BasicArialFontString = "Fonts/BasicArial";
         public static string score = "Score:";
         public static string emptyString = "";
+
+        //Scores
+        public static int CoinScoreValue = 200;
     }
 }
