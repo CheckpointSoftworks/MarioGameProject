@@ -191,13 +191,13 @@ namespace Sprint2
                     spriteBatch.DrawString(basicarialfont, UtilityClass.x,
                            UtilityClass.deathmarioloc, Color.White);
                     spriteBatch.Draw(deathmario, mariodestinationRectangle, sourceRectangle, Color.White);
-                    gui.DrawPlayGUI(spriteBatch, font);
+                    //gui.DrawPlayGUI(spriteBatch, font);
                 }
                 else
                 {
                     spriteBatch.DrawString(basicarialfont, UtilityClass.gameOver,
                             UtilityClass.deathtextloc, Color.White);
-                    gui.DrawPlayGUI(spriteBatch, font);
+                    //gui.DrawPlayGUI(spriteBatch, font);
                 }
                 spriteBatch.End();
             }
