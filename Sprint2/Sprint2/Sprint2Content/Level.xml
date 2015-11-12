@@ -2398,7 +2398,190 @@
     <y>456</y>
   </GroundBlock>
 
-  <!-- Underground portion -->
-
+  <!-- Underground portion of level 1-1 -->
+  <!-- Left wall -->
+  <BlueBrickBlock>
+    <x>4000</x>
+    <y>440</y>
+  </BlueBrickBlock>
+  <BlueBrickBlock>
+    <x>4000</x>
+    <y>424</y>
+  </BlueBrickBlock>
+  <BlueBrickBlock>
+    <x>4000</x>
+    <y>408</y>
+  </BlueBrickBlock>
+  <BlueBrickBlock>
+    <x>4000</x>
+    <y>392</y>
+  </BlueBrickBlock>
+  <BlueBrickBlock>
+    <x>4000</x>
+    <y>376</y>
+  </BlueBrickBlock>
+  <BlueBrickBlock>
+    <x>4000</x>
+    <y>360</y>
+  </BlueBrickBlock>
+  <BlueBrickBlock>
+    <x>4000</x>
+    <y>344</y>
+  </BlueBrickBlock>
+  <BlueBrickBlock>
+    <x>4000</x>
+    <y>328</y>
+  </BlueBrickBlock>
+  <BlueBrickBlock>
+    <x>4000</x>
+    <y>312</y>
+  </BlueBrickBlock>
+  <BlueBrickBlock>
+    <x>4000</x>
+    <y>296</y>
+  </BlueBrickBlock>
+  
+  <!--Plateau in middle -->
+  <BlueBrickBlock>
+    <x></x>
+    <y></y>
+  </BlueBrickBlock>
+  <!--Roof -->
+  
+  <!-- Coins -->
+  
+  <!--Right facing pipe-->
+  
+  <!-- Floor -->
+  <BlueGroundBlock>
+    <x>4000</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4000</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4016</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4016</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4032</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4032</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4048</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4048</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4064</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4064</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4080</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4080</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4096</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4096</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4112</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4112</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4128</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4128</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4144</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4144</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4160</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4160</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4176</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4176</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4192</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4192</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4208</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4208</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4224</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4224</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4240</x>
+    <y>472</y>
+  </BlueGroundBlock>
+  <BlueGroundBlock>
+    <x>4240</x>
+    <y>456</y>
+  </BlueGroundBlock>
+  
+  
 </Level>
 <!-- END -->

@@ -178,6 +178,7 @@ namespace Sprint2
         public static string background2 = "Background2";
         public static string deathbackground = "Deathbackground";
         public static int backgroundChange = 1500;
+        public static int deathbackgroundChange = 4000;
         public static int LevelStartTime = 500;
         public static string GameTimeName = "TIME\n";
         public static string gameOver = "GAME OVER";
