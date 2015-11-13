@@ -1,0 +1,12 @@
+﻿Author of the code review: Jonathan Miller
+Date of the code review: 11/12/2015
+Sprint number: 5
+Name of the .cs file being reviewed: BlueBrickBlock.cs
+Author of the .cs file being reviewed: Ian Weber
+Number of minutes taken to complete the review: 10
+
+Comments:
+
+This class is well organized. It's very readable. The method and variable names are named appropriately. The methods are 
+simple and easy to read; they are straightforward. All of the methods don't follow the same naming convention though. It 
+would be preferable if they all were using Pascal Case. Overall, it's a very readable class.
