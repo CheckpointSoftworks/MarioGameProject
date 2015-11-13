@@ -26,7 +26,7 @@ namespace Sprint2
             this.smallMario = smallMario;
             this.fireMario = fireMario;
             atFlagpoleBottom = false;
-            slideSpeed = 2.0f;
+            slideSpeed = UtilityClass.slideSpeed;
             bigFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigFlagpoleSprite(), UtilityClass.one, UtilityClass.two, location, UtilityClass.eight);
             smallFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallFlagpoleSprite(), UtilityClass.one, UtilityClass.two, location, UtilityClass.eight);
             fireFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireFlagpoleSprite(), UtilityClass.one, UtilityClass.two, location, UtilityClass.eight);
@@ -39,30 +39,30 @@ namespace Sprint2
         {
             if (smallMario)
             {
-                if (location.Y < 424)
+                if (location.Y < UtilityClass.smallMarioBottomFlagLocY)
                 {
                     location.Y += slideSpeed;
                 }
                 else
                 {
                     atFlagpoleBottom = true;
-                    location.X = 3224;
+                    location.X = UtilityClass.flipMarioBottomFlagLocX;
                 }
             }
             else
             {
-                if (location.Y < 408)
+                if (location.Y < UtilityClass.bigMarioBottomFlagLocY)
                 {
                     location.Y += slideSpeed;
                 }
                 else
                 {
                     atFlagpoleBottom = true;
-                    location.X = 3224;
+                    location.X = UtilityClass.flipMarioBottomFlagLocX;
                 }
             }
         }
-        private void Walk()
+        private void WalkToCastle()
         {
 
         }
@@ -78,41 +78,24 @@ namespace Sprint2
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            if (smallMario)
+            if (!atFlagpoleBottom)
             {
-                if (!atFlagpoleBottom)
-                {
-                    SlideAnimation();
-                    smallFlagpole.Draw(spriteBatch, location, cameraLoc, true);
-                }
+                SlideAnimation();
+                if (fireMario)
+                { fireFlagpole.Draw(spriteBatch, location, cameraLoc, true); }
+                else if (smallMario)
+                { smallFlagpole.Draw(spriteBatch, location, cameraLoc, true); }
                 else
-                {
-                    smallFlagpole.Draw(spriteBatch, location, cameraLoc, false);
-                }
+                { bigFlagpole.Draw(spriteBatch, location, cameraLoc, true); }
             }
-            else if (!smallMario)
+            else
             {
-                if (!atFlagpoleBottom)
-                {
-                    SlideAnimation();
-                    bigFlagpole.Draw(spriteBatch, location, cameraLoc, true);
-                }
+                if (fireMario)
+                { fireFlagpole.Draw(spriteBatch, location, cameraLoc, false); }
+                else if (smallMario)
+                { smallFlagpole.Draw(spriteBatch, location, cameraLoc, false); }
                 else
-                {
-                    bigFlagpole.Draw(spriteBatch, location, cameraLoc, false);
-                }
-            }
-            else if (fireMario)
-            {
-                if (!atFlagpoleBottom)
-                {
-                    SlideAnimation();
-                    fireFlagpole.Draw(spriteBatch, location, cameraLoc, true);
-                }
-                else
-                {
-                    fireFlagpole.Draw(spriteBatch, location, cameraLoc, false);
-                }
+                { bigFlagpole.Draw(spriteBatch, location, cameraLoc, false); }
             }
         }
     }

@@ -139,6 +139,12 @@ namespace Sprint2
         public static float marioTransitionDirection = 0.4f;
         public static int marioTransistionOffset = 16;
 
+        //Mario Ending Sequence magic numbers
+        public static float slideSpeed = 2.0f;
+        public static float smallMarioBottomFlagLocY = 424;
+        public static float bigMarioBottomFlagLocY = 408;
+        public static float flipMarioBottomFlagLocX = 3224;
+
         //Physics Magic Numbers
         public static float gravY=5f;
         public static float deltaTime = 0.1f;
