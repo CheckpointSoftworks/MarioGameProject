@@ -60,7 +60,7 @@ namespace Sprint2
             loader = new LevelLoader(UtilityClass.levelFile, camera);
             levelStore = new LevelStorage(camera);
             keyNotPressed = new KeyNotPressed(this);
-            fireBallCount = UtilityClass.OneHundred;
+            fireBallCount = UtilityClass.fireballLimit;
             pause = false;
             canPause = true;
             marioPause = false;
@@ -152,7 +152,7 @@ namespace Sprint2
                 if (((Mario)mario).StateStatus().Equals(MarioState.Die))
                 {
                     if(!remaininglivesupdated) {
-                        remaininglives -= 1;
+                        remaininglives = ((Mario)mario).GetLives().ScoreValue;
                         MusicFactory.Dead();
                         while (MediaPlayer.State != MediaState.Stopped)
                         {
