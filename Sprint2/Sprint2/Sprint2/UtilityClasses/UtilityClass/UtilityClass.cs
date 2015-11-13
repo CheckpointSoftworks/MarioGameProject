@@ -162,7 +162,9 @@ namespace Sprint2
         public static string marioBigFlagpoleSpriteSheet = "MarioBigFlagpole";
         public static string marioBigChangeDirectionSpriteSheet = "MarioBigChangeDirection";
         public static string marioFireStillSpriteSheet = "MarioFireStill";
+        public static string marioFireStillShootSpriteSheet = "MarioFireShootingStill";
         public static string marioFireRunningSpriteSheet = "MarioFireRunning";
+        public static string marioFireRunningShootSpriteSheet = "MarioFireShootingRunning";
         public static string marioFireJumpingSpriteSheet = "MarioFireJump";
         public static string marioFireDuckSpriteSheet = "MarioFireDuck";
         public static string marioFireChangeDirectionSpriteSheet = "MarioFireChangeDirection";

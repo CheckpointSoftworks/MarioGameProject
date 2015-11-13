@@ -10,17 +10,19 @@ namespace Sprint2
     class MarioShootFireball: IMarioState
     {
         private Mario mario;
+        private AnimatedSprite sprite;
         public MarioShootFireball(Mario mario)
         {
             this.mario = mario;
+            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireStillShootSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.four);
         }
         public void Update()
         {
-            
+            sprite.Update();   
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            
+            sprite.Draw(spriteBatch, mario.Location, cameraLoc, mario.FacingRight);
         }
         public MarioState State()
         {
@@ -28,11 +30,11 @@ namespace Sprint2
         }
         public void Still()
         {
-            mario.State = new MarioStill(mario);
+            
         }
         public void Running()
         {
-            mario.State = new MarioRunning(mario);
+            //mario.State = new MarioRunning(mario);
         }
         public void ChangeDirection()
         {

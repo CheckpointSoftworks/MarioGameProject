@@ -60,7 +60,7 @@ namespace Sprint2
             loader = new LevelLoader(UtilityClass.levelFile, camera);
             levelStore = new LevelStorage(camera);
             keyNotPressed = new KeyNotPressed(this);
-            fireBallCount = UtilityClass.fireballLimit;
+            fireBallCount = UtilityClass.OneHundred;
             pause = false;
             canPause = true;
             marioPause = false;
