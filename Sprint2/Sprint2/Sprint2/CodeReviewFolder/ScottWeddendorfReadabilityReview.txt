@@ -1,15 +1,12 @@
 Author: Scott Weddendorf
-Date: October 28, 2015
-Sprint: 4
-Name of File: BrickBlockCoinDispenser.cs
+Date: November 12, 2015
+Sprint: 5
+Name of File: PauseCommand.cs
 Author of File: Kris Wenger
 Minutes: 10
 Comments on Readability:
-	The class roughly follows the same pattern used in the other blocks in the project which
-	helps keep readability consistent.  Variable names are very discriptive and easy to 
-	figure out what they are used for.  The only confusion comes from the noLongerSpecialized
-	variable.  It is difficult to see what it is used for from the code and a negative in the
-	variable name for a boolean can create some confusion.  Two methods are added that are not
-	used for other block types.  The methods names, coinCounting and dispenseCoin, fully 
-	describe the functions and the logic is very clear.  Overall, a well orgainized class that
-	follows patterns established earlier in the project which makes readability very consistent.
+	The set of classes dealing with game pausing is very simple.  There are two variables that
+	are clearly named such that they are named exactly what they do.  The class follows the
+	same organization found in other command classes.  Also, the only two variables are bools
+	so there is no confusion on what their values are set to.  Overall this class is very
+	readable because there are a very few number of variables and lines of code.
