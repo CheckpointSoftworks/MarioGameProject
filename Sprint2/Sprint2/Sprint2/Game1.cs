@@ -166,7 +166,7 @@ namespace Sprint2
                 if (((Mario)mario).StateStatus().Equals(MarioState.Die))
                 {
                     if(!remaininglivesupdated) {
-                        remaininglives -= 1;
+                        remaininglives = ((Mario)mario).GetLives().ScoreValue;
                         MusicFactory.Dead();
                         while (MediaPlayer.State != MediaState.Stopped)
                         {
@@ -243,11 +243,11 @@ namespace Sprint2
                 if (remaininglives > UtilityClass.zero)
                 {    
                     spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel, UtilityClass.deathtextloc, Color.White);
-                    spriteBatch.DrawString(basicarialfont, UtilityClass.x, UtilityClass.deathmarioloc, Color.White);
-                    spriteBatch.DrawString(basicarialfont, remaininglives.ToString(), UtilityClass.remaininglivesloc, Color.White);
+                    spriteBatch.DrawString(font, UtilityClass.x, UtilityClass.deathmarioloc, Color.White);
+                    spriteBatch.DrawString(font, remaininglives.ToString(), UtilityClass.remaininglivesloc, Color.White);
                     spriteBatch.Draw(deathmario, mariodestinationRectangle, sourceRectangle, Color.White);
                 }
-                else { spriteBatch.DrawString(basicarialfont, UtilityClass.gameOver, UtilityClass.deathtextloc, Color.White); }
+                else { spriteBatch.DrawString(font, UtilityClass.gameOver, UtilityClass.deathtextloc, Color.White); }
                 spriteBatch.End();
             }
             else
@@ -267,6 +267,7 @@ namespace Sprint2
                     spriteBatch.Draw(background2, destinationRectangle, sourceRectangle, Color.White);
                 }
                 spriteBatch.DrawString(font, UtilityClass.GameTimeName + FormattedTime(), new Vector2(UtilityClass.timeLocation, UtilityClass.ten), Color.White);
+                spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel, UtilityClass.GUILevelPosition, Color.White);
                 gui.DrawPlayGUI(spriteBatch, font);
                 levelStore.Draw(mario, spriteBatch);
                 spriteBatch.End();
@@ -284,9 +285,13 @@ namespace Sprint2
             }
         }
 
-        private void ResetTime()
+        public void ResetTime()
         {
             time = UtilityClass.LevelStartTime;
+        }
+        public void resetLives()
+        {
+            remaininglives = UtilityClass.StartingLives;
         }
 
         private String FormattedTime()

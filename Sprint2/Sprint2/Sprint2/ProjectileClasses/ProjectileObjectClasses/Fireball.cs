@@ -17,9 +17,12 @@ namespace Sprint2
         private bool facingRight;
         private int timer;
         private IPlayer owner;
+        private float spawnGroundSpeed;
 
-        public Fireball(int x, int y, bool facingRight, IPlayer shooter)
+        public Fireball(int x, int y, float spawnSpeed, bool facingRight, IPlayer shooter)
         {
+            spawnGroundSpeed = spawnSpeed;
+            spawnGroundSpeed += facingRight ? 1 : -1;
             location = new Vector2(x, y);
             sprite = new FireballSprite(location);
             testForCollision = true;
@@ -36,8 +39,8 @@ namespace Sprint2
             rigidbody.GroundFriction = UtilityClass.fireballGroundFriction;
             rigidbody.MaxFallSpeed = UtilityClass.fireballMaxFallSpeed;
             rigidbody.Elasticity = UtilityClass.fireballElasticity;
-            if (facingRight) { rigidbody.GroundSpeed = UtilityClass.fireballRightGroundSpeed; }
-            else{ rigidbody.GroundSpeed = UtilityClass.fireballLeftGroupSpeed; }
+            rigidbody.GroundSpeed = Math.Abs(spawnGroundSpeed) > Math.Abs(UtilityClass.fireballRightGroundSpeed) ? spawnGroundSpeed : UtilityClass.fireballRightGroundSpeed;
+            //rigidbody.GroundSpeed *= facingRight ? 1 : -1;
             rigidbody.IsEnabled = true;
         }
 

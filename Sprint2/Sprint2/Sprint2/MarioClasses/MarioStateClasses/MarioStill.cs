@@ -72,8 +72,7 @@ namespace Sprint2
         }
         public void ShootFireball()
         {
-            if (mario.Fire)
-                mario.State = new MarioShootFireball(mario);
+            mario.State = new MarioShootFireball(mario);
         }
         public void Duck()
         {
