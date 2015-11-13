@@ -148,7 +148,7 @@ namespace Sprint2
                 {
                     state.Running();
                 }
-                else
+                else if (!StateStatus().Equals(MarioState.Duck))
                 {
                     state.Still();
                 }
