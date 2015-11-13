@@ -25,22 +25,23 @@ namespace Sprint2
         private static SoundEffect bump;
         private static SoundEffect pipe;
         private static SoundEffect pause;
-           
-        public static void Load(ContentManager content){
-            coin = content.Load<SoundEffect>("Sound Effects/coin");
-            item = content.Load<SoundEffect>("Sound Effects/item");
-            oneUp = content.Load<SoundEffect>("Sound Effects/1up");
-            jumpSmall = content.Load<SoundEffect>("Sound Effects/jumpsmall");
-            jumpBig = content.Load<SoundEffect>("Sound Effects/jumpbig");
-            stomp = content.Load<SoundEffect>("Sound Effects/stomp");
-            powerUp = content.Load<SoundEffect>("Sound Effects/powerup");
-            transitionSmall = content.Load<SoundEffect>("Sound Effects/pipe");
-            fireball = content.Load<SoundEffect>("Sound Effects/fireball");
-            kick = content.Load<SoundEffect>("Sound Effects/kick");
-            brickbreak = content.Load<SoundEffect>("Sound Effects/breakblock");
-            bump = content.Load<SoundEffect>("Sound Effects/bump");
-            pipe = content.Load<SoundEffect>("Sound Effects/pipe");
-            pause = content.Load<SoundEffect>("Sound Effects/pause");
+
+        public static void Load(ContentManager content)
+        {
+            coin = content.Load<SoundEffect>(UtilityClass.coinEffect);
+            item = content.Load<SoundEffect>(UtilityClass.itemEffect);
+            oneUp = content.Load<SoundEffect>(UtilityClass.oneUpEffect);
+            jumpSmall = content.Load<SoundEffect>(UtilityClass.jumpSmallEffect);
+            jumpBig = content.Load<SoundEffect>(UtilityClass.jumpBigEffect);
+            stomp = content.Load<SoundEffect>(UtilityClass.stompEffect);
+            powerUp = content.Load<SoundEffect>(UtilityClass.powerUpEffect);
+            transitionSmall = content.Load<SoundEffect>(UtilityClass.transitionSmallEffect);
+            fireball = content.Load<SoundEffect>(UtilityClass.fireballEffect);
+            kick = content.Load<SoundEffect>(UtilityClass.kickEffect);
+            brickbreak = content.Load<SoundEffect>(UtilityClass.brickbreakEffect);
+            bump = content.Load<SoundEffect>(UtilityClass.bumpEffect);
+            pipe = content.Load<SoundEffect>(UtilityClass.pipeEffect);
+            pause = content.Load<SoundEffect>(UtilityClass.pauseEffect);
 
 
             

@@ -1,17 +1,13 @@
 ﻿Author of the code review: Kris Wenger
-Date of the code review: 10/28/15
-Sprint number: 4
-Name of the .cs file being reviewed: CameraController
-Author of the .cs file being reviewed: Scott Weddendorf
-Number of minutes taken to complete the review: 10 mins to write all the review, only 2 or 3 to read the code.
+Date of the code review: 11/12/15
+Sprint number: 5
+Name of the .cs file being reviewed: GUI.cs
+Author of the .cs file being reviewed: Matthew Mohr
+Number of minutes taken to complete the review: 13 mins to write all the review, only 2 or 3 to read the code.
 Specific comments on what is readable and what is not:
-	Almost all of the naming of the variables are easy to understand what they, stand for and what they should do.
-	However, there are two variables like camera and mario, which I believe would be better suited to be named
-	becuase they match the sent variables to the constructor and that could get confusing.  This could be fixed when initalizing by not calling
-	the sent mario and sent camera,	just mario and camera but rather something differnt like sentMario/sentCamera. The calls to outside 
-	classes also are readable because the method names, and class names make sense, such as calling	the 
-	camera.MoveRight(marioCameraPosistion), makes sense what it should do.  This is true even not knowing what the called methods are,
-	the call itself implies what it should it do. It moves the camera right based on Mario. However for the
-	part the Camera Controller class seems readable, the Update method is straight foward, the code is not overly long, and
-	the method is very short and straight to the point. 
-	Overall I believe the class' code is very Readable.
+	The naming of the variables are easy to understand what they, stand for and what they should do.
+	However, the use of i as a looping variable could be confusing because it is short and non-descriptive.
+	This could be fixed by calling i something like item or something that matches the items List. The calls to outside 
+	classes also are readable because the method names, such as i.Update(), makes sense what it should do. 
+	However the use of signle line if statements without the curly braces makes it harder to read.  But the class does not
+	have any long methods or methods which are overly complicated. Overall I believe the class' code is very Readable.

@@ -19,10 +19,10 @@ namespace Sprint2
 
            
         public static void Load(ContentManager content){
-            mainTheme = content.Load<Song>("Music/maintheme");
-            starMan = content.Load<Song>("Music/starman");
-            dead = content.Load<Song>("Music/dead");
-            gameOver = content.Load<Song>("Music/gameover");
+            mainTheme = content.Load<Song>(UtilityClass.mainTheme);
+            starMan = content.Load<Song>(UtilityClass.starManTheme);
+            dead = content.Load<Song>(UtilityClass.deadTheme);
+            gameOver = content.Load<Song>(UtilityClass.gameOverTheme);
 
             
         }

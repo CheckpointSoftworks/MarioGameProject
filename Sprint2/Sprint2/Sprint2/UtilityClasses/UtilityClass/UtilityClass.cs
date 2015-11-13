@@ -209,5 +209,27 @@ namespace Sprint2
 
         //Scores
         public static int CoinScoreValue = 200;
+
+
+        public static string mainTheme = "Music/maintheme";
+        public static string starManTheme = "Music/starman";
+        public static string deadTheme = "Music/dead";
+        public static string gameOverTheme = "Music/gameover";
+
+        
+        public static string coinEffect = "Sound Effects/coin";
+        public static string itemEffect = "Sound Effects/item";
+        public static string oneUpEffect = "Sound Effects/1up";
+        public static string jumpSmallEffect = "Sound Effects/jumpsmall";
+        public static string jumpBigEffect = "Sound Effects/jumpbig";
+        public static string stompEffect = "Sound Effects/stomp";
+        public static string powerUpEffect = "Sound Effects/powerup";
+        public static string transitionSmallEffect = "Sound Effects/pipe";
+        public static string fireballEffect = "Sound Effects/fireball";
+        public static string kickEffect = "Sound Effects/kick";
+        public static string brickbreakEffect = "Sound Effects/breakblock";
+        public static string bumpEffect = "Sound Effects/bump";
+        public static string pipeEffect = "Sound Effects/pipe";
+        public static string pauseEffect = "Sound Effects/pause";
     }
 }
