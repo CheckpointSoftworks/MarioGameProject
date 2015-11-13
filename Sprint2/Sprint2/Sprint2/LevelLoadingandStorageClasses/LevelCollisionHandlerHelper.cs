@@ -11,8 +11,6 @@ namespace Sprint2
     {
         public static void handleMarioCollision(IPlayer mario,Game1 game,LevelStorage storage)
         {
-            IMarioState state = ((Mario)mario).State;
-            ((Mario)mario).State.Still();
             CollisionDetector collisionDetector = new CollisionDetector();
             ICollision side;
             Rectangle floorCheck;
@@ -54,7 +52,6 @@ namespace Sprint2
                     ((Mario)mario).rigidbody.Floored = true;
                 }
             }
-            ((Mario)mario).State = state;
         }
 
         public static void handleEnemyCollision(IEnemyObject enemy, LevelStorage storage)

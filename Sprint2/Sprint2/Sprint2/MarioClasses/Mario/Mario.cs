@@ -144,9 +144,13 @@ namespace Sprint2
             else if (rigidbody.Floored)
             {
                 points.ResetChain();
-                if (Math.Abs(rigidbody.Velocity.X) > UtilityClass.zero)
+                if (Math.Abs(rigidbody.Velocity.X) > 0.1f)
                 {
                     state.Running();
+                }
+                else
+                {
+                    state.Still();
                 }
             }
             if ((facingRight && rigidbody.Velocity.X < UtilityClass.zero) || (!facingRight && rigidbody.Velocity.X > UtilityClass.zero))
@@ -279,7 +283,7 @@ namespace Sprint2
         {
             if (small & !star)
             {
-                state = new MarioDying(this);
+                state.Dying();
             }
             else
             {
