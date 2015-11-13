@@ -308,8 +308,7 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            if (!star)
-            {
+            
                 if (TransitionToBigTime < transitionDuration)
                 {
                     TransitionToBigTime += UtilityClass.marioTransistionTimerCount;
@@ -364,8 +363,8 @@ namespace Sprint2
                 }
                 state.setDrawColor(Color.White);
                 state.Draw(spriteBatch, cameraLoc);
-            }
-            else
+            
+            if (star)
             {
                 if (timer % 7 == UtilityClass.zero)
                 {
