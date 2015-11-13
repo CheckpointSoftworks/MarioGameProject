@@ -59,7 +59,6 @@ namespace Sprint2
             {
                 restoreRigidbody.Execute();
             }
-            /*
             if (MovementKeysReleased() && LeftStickInDeadzone())
             {
                 if (!((Mario)game.mario).State.Equals(MarioState.Die))
@@ -70,7 +69,7 @@ namespace Sprint2
                 {
                     ((Mario)game.mario).State.Dying();
                 }
-            }*/
+            }
         }
     }
 }
