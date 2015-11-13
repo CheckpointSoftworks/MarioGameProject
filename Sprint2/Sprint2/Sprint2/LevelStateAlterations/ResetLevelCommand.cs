@@ -26,6 +26,8 @@ namespace Sprint2
             game.pause = false;
             game.remaininglivesupdated = true;
             MusicFactory.MainTheme();
+            game.resetLives();
+            game.ResetTime();
         }
     }
 }
