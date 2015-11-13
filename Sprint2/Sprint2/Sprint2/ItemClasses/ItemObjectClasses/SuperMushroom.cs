@@ -20,7 +20,7 @@ namespace Sprint2
 
         public SuperMushroom(int locX, int locY)
         {
-            score = new NonPlayerScoreItem(1000, false);
+            score = new NonPlayerScoreItem(UtilityClass.itemScore, false);
             location = new Vector2(locX, locY);
             sprite = new SuperMushroomSprite(location);
             type = ItemType.SuperMushroom;

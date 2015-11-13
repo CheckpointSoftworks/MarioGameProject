@@ -20,7 +20,7 @@ namespace Sprint2
         public void Execute()
         {
             SoundEffectFactory.Coin();
-            coin.setCollisionRectangle(new Rectangle(0, 0, 0, 0));
+            coin.setCollisionRectangle(new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero));
             ((Mario)player).AddCoin();
         }
     }

@@ -21,7 +21,7 @@ namespace Sprint2
 
         public OneUpMushroom(int locX, int locY)
         {
-            score = new NonPlayerScoreItem(1000, false);
+            score = new NonPlayerScoreItem(UtilityClass.itemScore, false);
             location = new Vector2(locX, locY);
             sprite = new OneUpMushroomSprite(location);
             type = ItemType.OneUpMushroom;

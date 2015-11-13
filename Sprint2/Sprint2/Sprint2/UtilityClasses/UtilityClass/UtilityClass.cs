@@ -88,6 +88,8 @@ namespace Sprint2
         public static float starInitialAirSpeed = 0f;
         public static float starMaxFallSpeed = 3f;
         public static float starElasticity = 1f;
+        public static int coinScore = 200;
+        public static int itemScore = 1000;
 
         //Level Magic Numbers and strings
         public static int enableEnemyPixelWidth = 10;
