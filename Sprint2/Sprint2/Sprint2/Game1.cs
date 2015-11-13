@@ -44,6 +44,8 @@ namespace Sprint2
         private SpriteFont basicarialfont;
         private double time;
         private GUI gui;
+        public EndingSequenceMario endMario;
+        public bool hitFlagpole;
 
         public Game1()
         {
@@ -73,6 +75,7 @@ namespace Sprint2
             StatePuaseAlterationCall.setGame(this);
             base.Initialize();
             tester.runTests();
+            hitFlagpole = false;
         }
 
         protected override void LoadContent()
@@ -238,6 +241,15 @@ namespace Sprint2
             {
                 StatePuaseAlterationCall.Execute();
             }
+            if (mario.returnLocation().X >= UtilityClass.flagpoleLocation && mario.returnLocation().X < UtilityClass.aboveGroundEndLocation)
+            {
+                if (!hitFlagpole)
+                {
+                    endMario = new EndingSequenceMario(mario.returnLocation(), ((Mario)mario).Small, ((Mario)mario).Fire);
+                    hitFlagpole = true;
+                }
+                endMario.Update();
+            }
         }
 
         protected override void Draw(GameTime gameTime)
@@ -280,7 +292,11 @@ namespace Sprint2
                 spriteBatch.DrawString(font, UtilityClass.GameTimeName + FormattedTime(), new Vector2(UtilityClass.timeLocation, UtilityClass.ten), Color.White);
                 spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel, UtilityClass.GUILevelPosition, Color.White);
                 gui.DrawPlayGUI(spriteBatch, font);
-                levelStore.Draw(mario, spriteBatch);
+                levelStore.Draw(mario, spriteBatch, hitFlagpole);
+                if (mario.returnLocation().X >= UtilityClass.flagpoleLocation && mario.returnLocation().X < UtilityClass.aboveGroundEndLocation)
+                {
+                    endMario.Draw(spriteBatch, camera.GetPosition());
+                }
                 spriteBatch.End();
                 base.Draw(gameTime);
             }

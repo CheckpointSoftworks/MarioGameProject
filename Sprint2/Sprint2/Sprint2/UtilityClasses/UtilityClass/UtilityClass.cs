@@ -94,6 +94,8 @@ namespace Sprint2
         //Enviromental Magic Numbers
         public static int brickPiecesRiseAndFall = 70;
         public static int brickPiecesRise = 60;
+        public static int flagpoleLocation = 3208;
+        public static int aboveGroundEndLocation = 4000;
 
         //Item Magic Numbers
         public static int CoinTimer = 30;        
@@ -182,7 +184,6 @@ namespace Sprint2
         public static string marioBigStillSpriteSheet = "MarioBigStill";
         public static string marioBigRunningSpriteSheet = "MarioBigRunning";
         public static string marioBigJumpingSpriteSheet = "MarioBigJump";
-        public static string marioBigFlagpoleSpriteSheet = "MarioBigFlagpole";
         public static string marioBigChangeDirectionSpriteSheet = "MarioBigChangeDirection";
         public static string marioFireStillSpriteSheet = "MarioFireStill";
         public static string marioFireStillShootSpriteSheet = "MarioFireShootingStill";
@@ -197,8 +198,9 @@ namespace Sprint2
         public static string rightFacingEdgePipeSpritesheet = "RightFacingPipeTallEdge";
         public static string blueBrickBlockSpriteSheet = "BlueBrickBlockSpriteSheet";
         public static string blueGroundBlockSpriteSheet ="BlueGroundBlockSpriteSheet";
-
-
+        public static string marioBigFlagpoleSpriteSheet = "MarioBigFlagpole";
+        public static string marioSmallFlagpoleSpriteSheet = "MarioSmallFlagpole";
+        public static string marioFireFlagpoleSpriteSheet = "MarioFireFlagpole";
 
         //Game Magic Stuff
         public static string Content = "Content";

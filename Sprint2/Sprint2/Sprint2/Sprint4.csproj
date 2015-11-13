@@ -98,6 +98,7 @@
     <Compile Include="LevelStateAlterations\NoPauseCommand.cs" />
     <Compile Include="LevelStateAlterations\StatePuaseAlterationCall.cs" />
     <Compile Include="LevelStateAlterations\StateTransistionPause.cs" />
+    <Compile Include="MarioClasses\Mario\EndingSequenceMario.cs" />
     <Compile Include="QuitCommand.cs" />
     <Compile Include="SoundClasses\MusicFactory.cs" />
     <Compile Include="SoundClasses\SoundEffectFactory.cs" />

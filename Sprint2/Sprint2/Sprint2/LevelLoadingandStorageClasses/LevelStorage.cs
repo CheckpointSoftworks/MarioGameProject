@@ -63,9 +63,12 @@ namespace Sprint2
                 }
         }
 
-        public void Draw(IPlayer player,SpriteBatch spriteBatch)
+        public void Draw(IPlayer player,SpriteBatch spriteBatch,bool hitFlagpole)
         {
-            player.Draw(spriteBatch, camera.GetPosition());
+            if (!hitFlagpole)
+            {
+                player.Draw(spriteBatch, camera.GetPosition());
+            }
 
             foreach (IEnviromental enviromental in enviromentalObjectsList)
             {
