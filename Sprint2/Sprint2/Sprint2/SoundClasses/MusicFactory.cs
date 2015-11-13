@@ -36,26 +36,23 @@ namespace Sprint2
         public static void StarMan()
         {
             MediaPlayer.Play(starMan);
-            MediaPlayer.IsRepeating = false;
+            MediaPlayer.IsRepeating = true;
         }
         public static void Dead()
         {
             MediaPlayer.Play(dead);
             MediaPlayer.IsRepeating = false;
-            while (!MediaPlayer.State.Equals(MediaState.Stopped))
+            /*while (!MediaPlayer.State.Equals(MediaState.Stopped))
             {
 
-            }
+            }*/
            
         }
         public static void GameOver()
         {
             MediaPlayer.Play(gameOver);
             MediaPlayer.IsRepeating = false;
-            while (!MediaPlayer.State.Equals(MediaState.Stopped))
-            {
 
-            }
         }
         
     }

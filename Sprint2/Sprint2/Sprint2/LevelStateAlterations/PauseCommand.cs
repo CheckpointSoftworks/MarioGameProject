@@ -17,7 +17,8 @@ namespace Sprint2
         {
             if (game.canPause)
             {
-                if (!game.pause) { 
+                if (!game.pause) {
+                    SoundEffectFactory.Pause();
                     game.pause = true;
                     game.canPause = false;
                 }
