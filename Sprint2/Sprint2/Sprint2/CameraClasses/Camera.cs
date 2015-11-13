@@ -23,6 +23,11 @@ namespace Sprint2
             position.X = position.X + distance;
         }
 
+        public void MoveLeft(int distance)
+        {
+            position.X = position.X - distance;
+        }
+
         public int GetWidth()
         {
             return width;
