@@ -106,10 +106,10 @@
     <x>880</x>
     <y>400</y>
   </Goomba>
-  <Pipe>
+  <UndergroundPipe>
     <x>928</x>
     <y>392</y>
-  </Pipe>
+  </UndergroundPipe>
   <HiddenBlock>
     <x>1024</x>
     <y>384</y>

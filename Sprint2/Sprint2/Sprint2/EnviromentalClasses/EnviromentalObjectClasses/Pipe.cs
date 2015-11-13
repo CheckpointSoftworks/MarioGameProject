@@ -14,7 +14,14 @@ namespace Sprint2
         public Pipe(int locX, int locY)
         {
             Vector2 location = new Vector2(locX, locY);
-            pipeSprite = new PipeSprite(location);
+            if(sendunderground==false)
+            {
+                pipeSprite = new PipeSprite(location);
+            }
+            else
+            {
+                pipeSprite = new PipeSprite(location, sendunderground);
+            }
         }
 
         public void Update()
