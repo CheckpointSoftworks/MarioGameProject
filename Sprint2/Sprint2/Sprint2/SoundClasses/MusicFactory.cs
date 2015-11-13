@@ -48,12 +48,7 @@ namespace Sprint2
         public static void Dead()
         {
             MediaPlayer.Play(dead);
-            MediaPlayer.IsRepeating = false;
-            /*while (!MediaPlayer.State.Equals(MediaState.Stopped))
-            {
-
-            }*/
-           
+            MediaPlayer.IsRepeating = false;           
         }
         public static void GameOver()
         {
