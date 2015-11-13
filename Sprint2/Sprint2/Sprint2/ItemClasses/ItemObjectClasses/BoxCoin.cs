@@ -70,7 +70,7 @@ namespace Sprint2
         }
         public Rectangle returnCollisionRectangle()
         {
-            return collisonRectangle;
+            return new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero);
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
