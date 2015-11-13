@@ -42,9 +42,6 @@ namespace Sprint2
             bump = content.Load<SoundEffect>(UtilityClass.bumpEffect);
             pipe = content.Load<SoundEffect>(UtilityClass.pipeEffect);
             pause = content.Load<SoundEffect>(UtilityClass.pauseEffect);
-
-
-            
         }
 
         public static void Coin()

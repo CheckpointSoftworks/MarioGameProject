@@ -253,6 +253,7 @@ namespace Sprint2
                     spriteBatch.Draw(background2, destinationRectangle, sourceRectangle, Color.White);
                 }
                 spriteBatch.DrawString(font, UtilityClass.GameTimeName + FormattedTime(), new Vector2(UtilityClass.timeLocation, UtilityClass.ten), Color.White);
+                spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel, UtilityClass.GUILevelPosition, Color.White);
                 gui.DrawPlayGUI(spriteBatch, font);
                 levelStore.Draw(mario, spriteBatch);
                 spriteBatch.End();

@@ -1,0 +1,9 @@
+﻿Author of the code review: Matt Mohr
+Date of the code review: 11/12/15
+Sprint number: 5
+Name of the .cs file being reviewed: SoundEffectFactory.cs
+Author of the .cs file being reviewed:  Scott Weddendorf
+Number of minutes taken to complete the review: 3 minutes.
+Details:
+Prefectly readable and straight forward, SoundEffectFactory is a factory pattern class that it used throughout the game to play sound effects. 
+Its variables and methods are static, everything is reasonably named, so there's not much that can be improved.

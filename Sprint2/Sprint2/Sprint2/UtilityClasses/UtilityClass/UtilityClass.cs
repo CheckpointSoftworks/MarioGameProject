@@ -20,9 +20,7 @@ namespace Sprint2
         public static int twelve = 12;
         public static int sixteen = 16;
         public static int OneHundred = 100;
-        public static Vector2 deathtextloc = new Vector2(350, 200);
-        public static Vector2 deathmarioloc = new Vector2(387, 230);
-        public static Vector2 remaininglivesloc = new Vector2(405, 230);
+
 
         //Block Magic Numbers
         public static int BrickPieceYAdjustment = 5;
@@ -200,9 +198,13 @@ namespace Sprint2
         //GUI stuff
         public static float DefaultSpriteWidth = 16;
         public static int StartingLives = 3;
+        public static Vector2 deathtextloc = new Vector2(350, 200);
+        public static Vector2 deathmarioloc = new Vector2(387, 230);
+        public static Vector2 remaininglivesloc = new Vector2(405, 230);
         public static Vector2 GUIMarioPosition = new Vector2(400, 240);
         public static Vector2 GUIMarioScorePosition = new Vector2(5,1);
         public static Vector2 GUIMarioCoinsPosition = new Vector2(100, 0);
+        public static Vector2 GUILevelPosition = new Vector2(500, 0);
         public static string GUIMarioScoreName = "MARIO\n";
         public static string GUIMarioCoinName = "x";
         public static string FontString = "Fonts/SMB";
