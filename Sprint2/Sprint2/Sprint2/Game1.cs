@@ -32,7 +32,9 @@ namespace Sprint2
         private Texture2D background2;
         private Texture2D deathbackground;
         private float deathtime;
-        private int remaininglives = 3;
+        private float transitiontime;
+        private int remaininglives = UtilityClass.three;
+        private bool hasducked = false;
         public bool remaininglivesupdated = false;
         private Boolean deathscreen = false;
         private TestingClass tester;
@@ -42,7 +44,6 @@ namespace Sprint2
         private SpriteFont basicarialfont;
         private double time;
         private GUI gui;
-        
 
         public Game1()
         {
@@ -65,6 +66,7 @@ namespace Sprint2
             marioPause = false;
             stateTransistionPauseTimer = UtilityClass.stateTransistionTimer;
             deathtime = UtilityClass.deathTimer;
+            transitiontime = UtilityClass.two;
             time = UtilityClass.LevelStartTime;
             remaininglives = UtilityClass.three;
             gui = new GUI();
@@ -128,18 +130,28 @@ namespace Sprint2
                 levelStore.Update(mario);
                 levelStore.handleCollision(mario, this);
                 cameraController.Update();
+                if (((Mario)mario).returnLocation().X > 928 && ((Mario)mario).returnLocation().X < 960)
+                {
+                    if(((Mario)mario).StateStatus().Equals(MarioState.Duck) || hasducked == true)
+                    {
+                        if (hasducked == false) { SoundEffectFactory.Pipe(); }
+                        hasducked = true;
+                        if (transitiontime > 0) 
+                        {
+                            if (transitiontime < 2 && transitiontime > 1.5) { ((Mario)mario).Location = new Vector2(938, 360); }
+                            if (transitiontime < 1.5 && transitiontime > 1) { ((Mario)mario).Location = new Vector2(938, 370); }
+                            if (transitiontime < 1 && transitiontime > .5) { ((Mario)mario).Location = new Vector2(938, 380); }
+                            if (transitiontime < .5 && transitiontime > 0) { ((Mario)mario).Location = new Vector2(938, 390); }
+                            transitiontime = transitiontime - (float)gameTime.ElapsedGameTime.TotalSeconds; 
+                        }
+                        else { ((Mario)mario).Location = new Vector2(4032, 300); transitiontime = UtilityClass.two; hasducked = false; }
+                    }
+                }
+
                 if (((Mario)mario).StateStatus().Equals(MarioState.Die))
                 {
-                    if(!remaininglivesupdated)
-                    {
-                        remaininglives -= 1;
-                        remaininglivesupdated = true;
-                    }
-                    if (deathtime > UtilityClass.zero)
-                    {
-                        deathscreen = true;
-                        deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    }
+                    if(!remaininglivesupdated) { remaininglives -= 1; remaininglivesupdated = true; }
+                    if (deathtime > UtilityClass.zero) { deathscreen = true; deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds; }
                     else
                     {
                         deathscreen = false;
@@ -151,16 +163,8 @@ namespace Sprint2
                 }
                 if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
                 {
-                    if (!remaininglivesupdated)
-                    {
-                        remaininglives -= 1;
-                        remaininglivesupdated = true;
-                    }
-                    if (deathtime > UtilityClass.zero)
-                    {
-                        deathscreen = true;
-                        deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    }
+                    if (!remaininglivesupdated) { remaininglives -= 1; remaininglivesupdated = true; }
+                    if (deathtime > UtilityClass.zero) { deathscreen = true; deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds; }
                     else
                     {
                         deathscreen = false;
@@ -204,11 +208,7 @@ namespace Sprint2
                     spriteBatch.DrawString(basicarialfont, remaininglives.ToString(), UtilityClass.remaininglivesloc, Color.White);
                     spriteBatch.Draw(deathmario, mariodestinationRectangle, sourceRectangle, Color.White);
                 }
-                else
-                {
-                    spriteBatch.DrawString(basicarialfont, UtilityClass.gameOver,
-                            UtilityClass.deathtextloc, Color.White);
-                }
+                else { spriteBatch.DrawString(basicarialfont, UtilityClass.gameOver, UtilityClass.deathtextloc, Color.White); }
                 spriteBatch.End();
             }
             else
