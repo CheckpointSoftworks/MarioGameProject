@@ -3,9 +3,7 @@
   <!-- Mario's starting location -->
   <Mario>
     <x>34</x>
-    <!--34 , 4032 -->
     <y>440</y>
-    <!-- 440 -->
   </Mario>
 
   <!-- Testing stuff at left edge of level (to be removed later!) -->
