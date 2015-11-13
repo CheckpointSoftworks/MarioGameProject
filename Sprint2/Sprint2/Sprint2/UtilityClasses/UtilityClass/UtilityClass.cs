@@ -162,7 +162,9 @@ namespace Sprint2
         public static string marioBigFlagpoleSpriteSheet = "MarioBigFlagpole";
         public static string marioBigChangeDirectionSpriteSheet = "MarioBigChangeDirection";
         public static string marioFireStillSpriteSheet = "MarioFireStill";
+        public static string marioFireStillShootSpriteSheet = "MarioFireShootingStill";
         public static string marioFireRunningSpriteSheet = "MarioFireRunning";
+        public static string marioFireRunningShootSpriteSheet = "MarioFireShootingRunning";
         public static string marioFireJumpingSpriteSheet = "MarioFireJump";
         public static string marioFireDuckSpriteSheet = "MarioFireDuck";
         public static string marioFireChangeDirectionSpriteSheet = "MarioFireChangeDirection";
@@ -186,6 +188,7 @@ namespace Sprint2
         public static string worldLevel = "WORLD 1-1";
         public static string x = "x";
         public static int[] ChainBonusMultiplier = { 1, 2, 4, 8, 10, 20, 40, 80 };
+        public static int MaximumChainBonusMultiplier = ChainBonusMultiplier.Length;
         public static int deathTimer = 5;
         public static double timeAdjustment = 2.5d;
         public static int timeLocation = 740;

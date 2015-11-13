@@ -21,9 +21,10 @@ namespace Sprint2
             if (((Mario)game.mario).CanFire && game.fireBallCount>0)
             {
                 Vector2 marioLoc = game.mario.returnLocation();
-                game.levelStore.projectileList.Add(new Fireball((int)marioLoc.X + UtilityClass.fireballSpawnXOffset, (int)marioLoc.Y + UtilityClass.fireballSpawnYOffset, facingRight, game.mario));
+                game.levelStore.projectileList.Add(new Fireball((int)marioLoc.X + UtilityClass.fireballSpawnXOffset, (int)marioLoc.Y + UtilityClass.fireballSpawnYOffset, ((Mario)game.mario).CurrentGroundSpeed(), facingRight, game.mario));
                 game.fireBallCount--;
                 ((Mario)game.mario).CanFire = false;
+                ((Mario)game.mario).State.ShootFireball();
             }
         }
     }

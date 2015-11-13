@@ -21,7 +21,9 @@ namespace Sprint2
         private static Texture2D marioBigFlagpole;
 
         private static Texture2D marioFireStill;
+        private static Texture2D marioFireStillShoot;
         private static Texture2D marioFireRunning;
+        private static Texture2D marioFireRunningShoot;
         private static Texture2D marioFireJumping;
         private static Texture2D marioFireDuck;
         private static Texture2D marioFireChangeDirection;
@@ -44,10 +46,12 @@ namespace Sprint2
             marioBigChangeDirection = content.Load<Texture2D>(UtilityClass.marioBigChangeDirectionSpriteSheet);
 
             marioFireStill = content.Load<Texture2D>(UtilityClass.marioFireStillSpriteSheet);
-
+            marioFireStillShoot = content.Load<Texture2D>(UtilityClass.marioFireStillSpriteSheet);
             marioFireRunning = content.Load<Texture2D>(UtilityClass.marioFireRunningSpriteSheet);
+            marioFireRunningShoot = content.Load<Texture2D>(UtilityClass.marioFireRunningSpriteSheet);
             marioFireJumping = content.Load<Texture2D>(UtilityClass.marioFireJumpingSpriteSheet);
             marioFireDuck = content.Load<Texture2D>(UtilityClass.marioFireDuckSpriteSheet);
+
             marioFireChangeDirection = content.Load<Texture2D>(UtilityClass.marioFireChangeDirectionSpriteSheet);
 
             marioDuck = content.Load<Texture2D>(UtilityClass.marioDuckSpriteSheet);
@@ -104,10 +108,20 @@ namespace Sprint2
 
             return marioFireStill;
         }
+        public static Texture2D CreateMarioFireStillShootSprite()
+        {
+
+            return marioFireStillShoot;
+        }
         public static Texture2D CreateMarioFireRunningSprite()
         {
 
             return marioFireRunning;
+        }
+        public static Texture2D CreateMarioFireRunningShootSprite()
+        {
+
+            return marioFireRunningShoot;
         }
         public static Texture2D CreateMarioFireChangeDirectionSprite()
         {
