@@ -148,6 +148,20 @@ namespace Sprint2
                         else { ((Mario)mario).Location = new Vector2(4032, 300); transitiontime = UtilityClass.two; hasducked = false; }
                     }
                 }
+                if (((Mario)mario).returnLocation().X > 4188)
+                {
+                        if (hasducked == false) { SoundEffectFactory.Pipe(); }
+                        hasducked = true;
+                        if (transitiontime > 0)
+                        {
+                            if (transitiontime < 2 && transitiontime > 1.5) { ((Mario)mario).Location = new Vector2(4200, 424); }
+                            if (transitiontime < 1.5 && transitiontime > 1) { ((Mario)mario).Location = new Vector2(4210, 424); }
+                            if (transitiontime < 1 && transitiontime > .5) { ((Mario)mario).Location = new Vector2(4220, 424); }
+                            if (transitiontime < .5 && transitiontime > 0) { ((Mario)mario).Location = new Vector2(4230, 424); }
+                            transitiontime = transitiontime - (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        }
+                        else { ((Mario)mario).Location = new Vector2(2664, 400); camera.MoveLeft(1516); transitiontime = UtilityClass.two; hasducked = false; }
+                }
 
                 if (((Mario)mario).StateStatus().Equals(MarioState.Die))
                 {
