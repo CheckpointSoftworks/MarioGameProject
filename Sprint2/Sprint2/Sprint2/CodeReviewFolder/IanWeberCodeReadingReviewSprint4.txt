@@ -1,16 +1,10 @@
 Author of the code review: Ian Weber
-Date of the code review: 10/28/15
-Sprint number: 4
-Name of the .cs file being reviewed: Mario (And corresponding classes as well)
-Author of the .cs file being reviewed:  Matthew Mohr
-Number of minutes taken to complete the review: 30 minutes.
+Date of the code review: 11/12/15
+Sprint number: 5
+Name of the .cs file being reviewed: Mario.cs and related state classes
+Author of the .cs file being reviewed:  Matt
+Number of minutes taken to complete the review: 5 minutes.
 Details:
-For this review, I will be taking a look at what has changed for Mario and related classes for sprint 4.  A lot has changed regarding his physics, state
-information and changes, and how he interacts with the environment around him (collision, death, etc).  First, let's take a look at how the physics engine
-for Mario has changed.  He now has a RigidBody ControllablePhyicsObject field which represents his momentum in any direction.  So, RigidBody contains values
-for air friction, ground friction, X and Y velocity, Jump speed, Jump duration, and movement speed.  All the variables which are going to be used for 
-physics in the Mario world.  In his Update method, the physics properties of this RigidBody are used to determine what Mario's state should be.  Furthermore,
-there is also a new boolean field for Mario called transitioning -- if Mario is not transitioning, then state properties can be updated, if he is,
-then the values are not updated.  There is a TransitionTime for the different states.  If Mario is not in star form, then he transitions based
-on the transitionTime for that state: if he is not "transitioning", which we can tell by comparing his transitionTime to transitionDuration, then his states are changed.  Otherwise, his states are not changed.  As we can tell, all of the variables are readable and this lets us understand how the class operates, otherwise
-it would be very hard to tell when he transitions and when he does not and how physics come into the picture.
+Everything that has been changed is readable and makes sense.  The collision stuff got a little bit out of control but appears to have been all
+fixed succinctly.  Not much more to say about this series of classes at this point.  We may update them a bit for sprint 6.  All of the code
+files are short and to the point.  All of the variables are necessary and no magic numbers or strategies are used.  
