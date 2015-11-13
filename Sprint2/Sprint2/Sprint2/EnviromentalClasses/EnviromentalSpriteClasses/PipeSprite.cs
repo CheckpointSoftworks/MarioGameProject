@@ -13,8 +13,17 @@ namespace Sprint2
         private Vector2 location;
         private AnimatedSprite pipeSprite;
         private Rectangle collisionRectangle;
+        private bool sendunderground;
         public PipeSprite(Vector2 location)
         {
+            pipeSpriteSheet = MiscGameObjectTextureStorage.CreatePipeSprite();
+            this.location = location;
+            pipeSprite = new AnimatedSprite(pipeSpriteSheet, UtilityClass.one, UtilityClass.one, location, UtilityClass.one);
+            collisionRectangle = pipeSprite.returnCollisionRectangle();
+        }
+        public PipeSprite(Vector2 location, bool underground)
+        {
+            sendunderground = underground;
             pipeSpriteSheet = MiscGameObjectTextureStorage.CreatePipeSprite();
             this.location = location;
             pipeSprite = new AnimatedSprite(pipeSpriteSheet, UtilityClass.one, UtilityClass.one, location, UtilityClass.one);

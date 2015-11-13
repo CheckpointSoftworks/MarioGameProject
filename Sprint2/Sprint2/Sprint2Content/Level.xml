@@ -2,10 +2,10 @@
 <Level>
   <!-- Mario's starting location -->
   <Mario>
-    <x>34</x> <!--34 , 4032 -->
-    <y>440</y> <!-- 440 -->
+    <x>34</x>
+    <y>440</y>
   </Mario>
-  
+
   <!-- Testing stuff at left edge of level (to be removed later!) -->
   <HiddenBlock>
     <x>0</x>
@@ -30,7 +30,7 @@
   <SuperMushroom>
     <x>128</x>
     <y>352</y>
-  </SuperMushroom>  
+  </SuperMushroom>
   <OneUpMushroom>
     <x>192</x>
     <y>352</y>
@@ -38,11 +38,11 @@
   <PlatformingBlock>
     <x>112</x>
     <y>400</y>
-  </PlatformingBlock>  
-    <PlatformingBlock>
+  </PlatformingBlock>
+  <PlatformingBlock>
     <x>112</x>
     <y>440</y>
-  </PlatformingBlock>  
+  </PlatformingBlock>
   <Koopa>
     <x>250</x>
     <y>400</y>
@@ -51,7 +51,7 @@
     <x>270</x>
     <y>400</y>
   </Goomba>
-  
+
   <!-- Everything from left edge to first hole in Level 1-1 -->
   <!-- Enemies, pipes and special blocks: -->
   <QuestionCoinBlock>
@@ -106,15 +106,15 @@
     <x>880</x>
     <y>400</y>
   </Goomba>
-  <Pipe>
+  <UndergroundPipe>
     <x>928</x>
     <y>392</y>
-  </Pipe>
+  </UndergroundPipe>
   <HiddenBlock>
     <x>1024</x>
     <y>384</y>
-  </HiddenBlock>  
-  
+  </HiddenBlock>
+
   <!-- Ground blocks: -->
   <GroundBlock>
     <x>0</x>
@@ -128,7 +128,7 @@
     <x>16</x>
     <y>456</y>
   </GroundBlock>
-    <GroundBlock>
+  <GroundBlock>
     <x>16</x>
     <y>472</y>
   </GroundBlock>
@@ -933,7 +933,7 @@
   </BrickBlock>
   <QuestionCoinBlock>
     <x>2096</x>
-    <y>320</y>    
+    <y>320</y>
   </QuestionCoinBlock>
   <QuestionCoinBlock>
     <x>2112</x>
@@ -969,7 +969,7 @@
     <y>400</y>
   </Goomba>
 
-  
+
   <PlatformingBlock>
     <x>2192</x>
     <y>440</y>
@@ -1716,7 +1716,7 @@
     <x>2816</x>
     <y>400</y>
   </Goomba>
-  
+
   <Pipe>
     <x>2912</x>
     <y>424</y>
@@ -2357,7 +2357,7 @@
     <x>3408</x>
     <y>456</y>
   </GroundBlock>
-    <GroundBlock>
+  <GroundBlock>
     <x>3424</x>
     <y>472</y>
   </GroundBlock>
@@ -2365,7 +2365,7 @@
     <x>3424</x>
     <y>456</y>
   </GroundBlock>
-   <GroundBlock>
+  <GroundBlock>
     <x>3440</x>
     <y>472</y>
   </GroundBlock>
@@ -2373,7 +2373,7 @@
     <x>3440</x>
     <y>456</y>
   </GroundBlock>
-    <GroundBlock>
+  <GroundBlock>
     <x>3456</x>
     <y>472</y>
   </GroundBlock>
@@ -2381,7 +2381,7 @@
     <x>3456</x>
     <y>456</y>
   </GroundBlock>
-   <GroundBlock>
+  <GroundBlock>
     <x>3472</x>
     <y>472</y>
   </GroundBlock>
@@ -2389,7 +2389,7 @@
     <x>3472</x>
     <y>456</y>
   </GroundBlock>
-   <GroundBlock>
+  <GroundBlock>
     <x>3488</x>
     <y>472</y>
   </GroundBlock>
@@ -2440,7 +2440,7 @@
     <x>4000</x>
     <y>296</y>
   </BlueBrickBlock>
-  
+
   <!--Plateau in middle -->
   <BlueBrickBlock>
     <x>4064</x>
@@ -2530,7 +2530,7 @@
     <x>4160</x>
     <y>408</y>
   </BlueBrickBlock>
-  
+
   <!--Roof -->
   <BlueBrickBlock>
     <x>4064</x>
@@ -2560,7 +2560,7 @@
     <x>4160</x>
     <y>296</y>
   </BlueBrickBlock>
-  
+
   <!-- Coins -->
   <StaticCoin>
     <x>4070</x>
@@ -2634,7 +2634,7 @@
     <x>4085</x>
     <y>393</y>
   </StaticCoin>
-  
+
   <StaticCoin>
     <x>4085</x>
     <y>353</y>
@@ -2664,7 +2664,7 @@
     <x>4241</x>
     <y>294</y>
   </RightFacingPipeEdge>
-  
+
   <!-- Floor -->
   <BlueGroundBlock>
     <x>4000</x>
@@ -2794,7 +2794,7 @@
     <x>4240</x>
     <y>456</y>
   </BlueGroundBlock>
-  
-  
+
+
 </Level>
 <!-- END -->

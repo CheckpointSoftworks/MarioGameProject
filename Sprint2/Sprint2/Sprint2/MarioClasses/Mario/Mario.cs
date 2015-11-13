@@ -144,9 +144,13 @@ namespace Sprint2
             else if (rigidbody.Floored)
             {
                 points.ResetChain();
-                if (Math.Abs(rigidbody.Velocity.X) > UtilityClass.zero)
+                if (Math.Abs(rigidbody.Velocity.X) > 0.1f)
                 {
                     state.Running();
+                }
+                else if (!StateStatus().Equals(MarioState.Duck))
+                {
+                    state.Still();
                 }
             }
             if ((facingRight && rigidbody.Velocity.X < UtilityClass.zero) || (!facingRight && rigidbody.Velocity.X > UtilityClass.zero))
@@ -166,12 +170,17 @@ namespace Sprint2
             }
             else
             {
-                timer--;
+                if (timer == UtilityClass.marioStarTimer)
+                {
+                    MusicFactory.StarMan();
+                }
                 if (timer == UtilityClass.zero)
                 {
                     star = false;
                     timer = UtilityClass.marioStarTimer;
+                    MusicFactory.MainTheme();
                 }
+                timer--;
 
                 state.Update();
 
@@ -279,7 +288,7 @@ namespace Sprint2
         {
             if (small & !star)
             {
-                state = new MarioDying(this);
+                state.Dying();
             }
             else
             {

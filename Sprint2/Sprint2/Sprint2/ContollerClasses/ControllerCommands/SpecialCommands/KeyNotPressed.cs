@@ -59,7 +59,6 @@ namespace Sprint2
             {
                 restoreRigidbody.Execute();
             }
-
             if (MovementKeysReleased() && LeftStickInDeadzone())
             {
                 if (!((Mario)game.mario).State.Equals(MarioState.Die))
