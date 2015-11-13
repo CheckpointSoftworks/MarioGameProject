@@ -270,9 +270,13 @@ namespace Sprint2
             }
         }
 
-        private void ResetTime()
+        public void ResetTime()
         {
             time = UtilityClass.LevelStartTime;
+        }
+        public void resetLives()
+        {
+            remaininglives = UtilityClass.StartingLives;
         }
 
         private String FormattedTime()
