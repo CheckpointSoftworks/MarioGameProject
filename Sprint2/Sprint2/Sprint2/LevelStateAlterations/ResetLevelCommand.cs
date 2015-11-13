@@ -25,6 +25,11 @@ namespace Sprint2
             game.cameraController = new CameraController(game.camera, game.mario);
             game.pause = false;
             game.remaininglivesupdated = true;
+            game.gui.Subscribe(((Mario)game.mario).GetPoints());
+            game.gui.Subscribe(((Mario)game.mario).GetLives());
+            game.gui.Subscribe(((Mario)game.mario).GetCoins());
+            game.ResetTime();
+            game.resetLives();
         }
     }
 }

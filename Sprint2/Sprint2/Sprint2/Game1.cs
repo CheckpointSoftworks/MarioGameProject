@@ -28,6 +28,7 @@ namespace Sprint2
         public bool marioPause { get; set; }
         public int fireBallCount { get; set; }
         public int stateTransistionPauseTimer { get; set; }
+        public GUI gui { get; set; }
         private Texture2D background;
         private Texture2D background2;
         private Texture2D deathbackground;
@@ -41,7 +42,6 @@ namespace Sprint2
         private SpriteFont font;
         private SpriteFont basicarialfont;
         private double time;
-        private GUI gui;
         
 
         public Game1()
@@ -245,9 +245,13 @@ namespace Sprint2
             }
         }
 
-        private void ResetTime()
+        public void ResetTime()
         {
             time = UtilityClass.LevelStartTime;
+        }
+        public void resetLives()
+        {
+            remaininglives = UtilityClass.StartingLives;
         }
 
         private String FormattedTime()
