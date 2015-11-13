@@ -144,6 +144,12 @@ namespace Sprint2
         public static float smallMarioBottomFlagLocY = 424;
         public static float bigMarioBottomFlagLocY = 408;
         public static float flipMarioBottomFlagLocX = 3224;
+        public static float endMarioWalkSpeed = 0.95f;
+        public static float endMarioDecayRate = 0.90f;
+        public static float smallMarioGroundLocY = 440;
+        public static float bigMarioGroundLocY = 424;
+        public static float castleDoorWayLocX = 3308;
+        public static int waitToLeaveFlagpole = 20;
 
         //Physics Magic Numbers
         public static float gravY=5f;
