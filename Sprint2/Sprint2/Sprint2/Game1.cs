@@ -145,7 +145,11 @@ namespace Sprint2
                             if (transitiontime < .5 && transitiontime > 0) { ((Mario)mario).Location = new Vector2(938, 390); }
                             transitiontime = transitiontime - (float)gameTime.ElapsedGameTime.TotalSeconds; 
                         }
-                        else { ((Mario)mario).Location = new Vector2(4032, 300); transitiontime = UtilityClass.two; hastransitioned = false; }
+                        else { ((Mario)mario).Location = new Vector2(4032, 300);
+                            transitiontime = UtilityClass.two;
+                            hastransitioned = false;
+                            MusicFactory.UnderworldTheme();
+                        }
                     }
                 }
                 if (((Mario)mario).returnLocation().X > 4188 && ((Mario)mario).returnLocation().Y > 408)
@@ -160,7 +164,13 @@ namespace Sprint2
                             if (transitiontime < .5 && transitiontime > 0) { ((Mario)mario).Location = new Vector2(4230, 424); }
                             transitiontime = transitiontime - (float)gameTime.ElapsedGameTime.TotalSeconds;
                         }
-                        else { ((Mario)mario).Location = new Vector2(2664, 400); camera.MoveLeft(1516); transitiontime = UtilityClass.two; hastransitioned = false; }
+                        else { 
+                            ((Mario)mario).Location = new Vector2(2664, 400);
+                            camera.MoveLeft(1516);
+                            transitiontime = UtilityClass.two; 
+                            hastransitioned = false;
+                            MusicFactory.MainTheme();
+                        }
                 }
 
                 if (((Mario)mario).StateStatus().Equals(MarioState.Die))

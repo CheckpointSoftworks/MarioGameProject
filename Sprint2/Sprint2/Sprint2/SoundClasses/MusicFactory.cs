@@ -13,6 +13,7 @@ namespace Sprint2
     public static class MusicFactory
     {
         private static Song mainTheme;
+        private static Song underworldTheme;
         private static Song starMan;
         private static Song dead;
         private static Song gameOver;
@@ -20,6 +21,7 @@ namespace Sprint2
            
         public static void Load(ContentManager content){
             mainTheme = content.Load<Song>(UtilityClass.mainTheme);
+            underworldTheme = content.Load<Song>(UtilityClass.underworldTheme);
             starMan = content.Load<Song>(UtilityClass.starManTheme);
             dead = content.Load<Song>(UtilityClass.deadTheme);
             gameOver = content.Load<Song>(UtilityClass.gameOverTheme);
@@ -30,6 +32,11 @@ namespace Sprint2
         public static void MainTheme()
         {
             MediaPlayer.Play(mainTheme);
+            MediaPlayer.IsRepeating = true;
+        }
+        public static void UnderworldTheme()
+        {
+            MediaPlayer.Play(underworldTheme);
             MediaPlayer.IsRepeating = true;
         }
 

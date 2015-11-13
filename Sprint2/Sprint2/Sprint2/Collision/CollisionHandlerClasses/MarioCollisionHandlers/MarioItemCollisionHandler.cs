@@ -34,8 +34,7 @@ namespace Sprint2
                 command = new MarioFireFlowerCollisionCommand(mario, item);
                 StatePuaseAlterationCall.Execute();
             }else if(item.returnItemType().Equals(ItemType.OneUpMushroom))
-            {
-                
+            {                
                 command = new MarioOneUpMushroomCollisionCommand(mario, item);
             }else if(item.returnItemType().Equals(ItemType.Star))
             {

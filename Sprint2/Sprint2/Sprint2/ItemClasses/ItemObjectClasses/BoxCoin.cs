@@ -24,10 +24,10 @@ namespace Sprint2
 
         public BoxCoin(int locX, int locY)
         {
-            score = new NonPlayerScoreItem(200, false);
+            score = new NonPlayerScoreItem(UtilityClass.coinScore, false);
             location = new Vector2(locX, locY);
             boxCoinSprite = new BoxCoinSprite(location);
-            type = ItemType.Coin;
+            type = ItemType.BoxCoin;
             collisonRectangle = boxCoinSprite.returnCollisionRectangle();
             testForCollision =true;
             moveSpeed = UtilityClass.coinMoveSpeed;

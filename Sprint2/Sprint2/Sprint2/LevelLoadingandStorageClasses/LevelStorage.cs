@@ -99,7 +99,7 @@ namespace Sprint2
             }
             foreach (IItemObjects item in itemList)
             {
-                if (!item.returnItemType().Equals(ItemType.Coin) && !item.returnItemType().Equals(ItemType.FireFlower))
+                if (!item.returnItemType().Equals(ItemType.BoxCoin) && !item.returnItemType().Equals(ItemType.FireFlower))
                 {
                     handleItemCollision(item);
                 }
