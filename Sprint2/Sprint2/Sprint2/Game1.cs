@@ -205,7 +205,7 @@ namespace Sprint2
                 if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
                 {
                     if (!remaininglivesupdated) {
-                        remaininglives -= 1;
+                        remaininglives -= UtilityClass.one;
                         MusicFactory.Dead();
                         while (MediaPlayer.State != MediaState.Stopped)
                         {

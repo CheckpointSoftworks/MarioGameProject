@@ -32,6 +32,7 @@ x key for fireballs
 s key for sprinting
 r key for resetting level
 p key for pausing
+q key for quiting
 
 GamePad Mappings
 
