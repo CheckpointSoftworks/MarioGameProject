@@ -25,6 +25,7 @@ namespace Sprint2
             game.cameraController = new CameraController(game.camera, game.mario);
             game.pause = false;
             game.remaininglivesupdated = true;
+            MusicFactory.MainTheme();
         }
     }
 }

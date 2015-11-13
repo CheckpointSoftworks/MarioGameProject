@@ -166,12 +166,17 @@ namespace Sprint2
             }
             else
             {
-                timer--;
+                if (timer == UtilityClass.marioStarTimer)
+                {
+                    MusicFactory.StarMan();
+                }
                 if (timer == UtilityClass.zero)
                 {
                     star = false;
                     timer = UtilityClass.marioStarTimer;
+                    MusicFactory.MainTheme();
                 }
+                timer--;
 
                 state.Update();
 

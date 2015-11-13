@@ -99,6 +99,7 @@ namespace Sprint2
             gui.Subscribe(((Mario)mario).GetPoints());
             gui.Subscribe(((Mario)mario).GetLives());
             gui.Subscribe(((Mario)mario).GetCoins());
+            MusicFactory.MainTheme();
         }
 
         private void LoadKeyBoardCommands()
@@ -137,6 +138,7 @@ namespace Sprint2
                     }
                     if (deathtime > UtilityClass.zero)
                     {
+                        MusicFactory.Dead();
                         deathscreen = true;
                         deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds;
                     }
@@ -153,6 +155,17 @@ namespace Sprint2
                 {
                     if (!remaininglivesupdated)
                     {
+                        MusicFactory.Dead();
+                        while (MediaPlayer.State != MediaState.Stopped)
+                        {
+
+                        }
+                        
+                        if (remaininglives == UtilityClass.zero)
+                        {
+                            MusicFactory.GameOver();
+                        }
+
                         remaininglives -= 1;
                         remaininglivesupdated = true;
                     }
