@@ -235,7 +235,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CodeReviewFolder\IanWeberCodeReadingReviewSprint4.txt" />
-    <Content Include="CodeReviewFolder\JonathanMillerReadabilityReviewSprint4.txt" />
+    <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReviewSprint5.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\MohrMattCodeReadabilityReviewSprint5.txt" />
     <Content Include="CodeReviewFolder\ScottWeddendorfReadabilityReview.txt" />
@@ -246,8 +246,8 @@
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sprint2Content\Sprint4Content.contentproj">
-      <Name>Sprint4Content</Name>
+    <ProjectReference Include="..\Sprint2Content\Sprint5Content.contentproj">
+      <Name>Sprint5Content</Name>
       <XnaReferenceType>Content</XnaReferenceType>
       <Project>{07F1E1DE-0710-428D-9B96-9AD2F42262CA}</Project>
     </ProjectReference>
