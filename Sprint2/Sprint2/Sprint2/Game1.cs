@@ -117,6 +117,7 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.Z,new NoJumpCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.X, new NoFireCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.P,new NoPauseCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.Q, new QuitCommand(this));
         }
         protected override void UnloadContent() { }
 
