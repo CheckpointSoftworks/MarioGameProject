@@ -186,7 +186,6 @@ namespace Sprint2
         public static string worldLevel = "WORLD 1-1";
         public static string x = "x";
         public static int[] ChainBonusMultiplier = { 1, 2, 4, 8, 10, 20, 40, 80 };
-        public static int MaximumChainBounsMultiplier = ChainBonusMultiplier.Length;
         public static int deathTimer = 5;
         public static double timeAdjustment = 2.5d;
         public static int timeLocation = 740;
