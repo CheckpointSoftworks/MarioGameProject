@@ -101,6 +101,7 @@ namespace Sprint2
             gui.Subscribe(((Mario)mario).GetPoints());
             gui.Subscribe(((Mario)mario).GetLives());
             gui.Subscribe(((Mario)mario).GetCoins());
+            MusicFactory.MainTheme();
         }
 
         private void LoadKeyBoardCommands()
@@ -150,7 +151,19 @@ namespace Sprint2
 
                 if (((Mario)mario).StateStatus().Equals(MarioState.Die))
                 {
-                    if(!remaininglivesupdated) { remaininglives -= 1; remaininglivesupdated = true; }
+                    if(!remaininglivesupdated) {
+                        remaininglives -= 1;
+                        MusicFactory.Dead();
+                        while (MediaPlayer.State != MediaState.Stopped)
+                        {
+
+                        }
+
+                        if (remaininglives == UtilityClass.zero)
+                        {
+                            MusicFactory.GameOver();
+                        } 
+                        remaininglivesupdated = true; }
                     if (deathtime > UtilityClass.zero) { deathscreen = true; deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds; }
                     else
                     {
@@ -163,7 +176,19 @@ namespace Sprint2
                 }
                 if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
                 {
-                    if (!remaininglivesupdated) { remaininglives -= 1; remaininglivesupdated = true; }
+                    if (!remaininglivesupdated) {
+                        remaininglives -= 1;
+                        MusicFactory.Dead();
+                        while (MediaPlayer.State != MediaState.Stopped)
+                        {
+
+                        }
+
+                        if (remaininglives == UtilityClass.zero)
+                        {
+                            MusicFactory.GameOver();
+                        }
+                        remaininglivesupdated = true; }
                     if (deathtime > UtilityClass.zero) { deathscreen = true; deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds; }
                     else
                     {
