@@ -34,7 +34,7 @@ namespace Sprint2
         private float deathtime;
         private float transitiontime;
         private int remaininglives = UtilityClass.three;
-        private bool hasducked = false;
+        private bool hastransitioned = false;
         public bool remaininglivesupdated = false;
         private Boolean deathscreen = false;
         private TestingClass tester;
@@ -133,10 +133,10 @@ namespace Sprint2
                 cameraController.Update();
                 if (((Mario)mario).returnLocation().X > 928 && ((Mario)mario).returnLocation().X < 960)
                 {
-                    if(((Mario)mario).StateStatus().Equals(MarioState.Duck) || hasducked == true)
+                    if(((Mario)mario).StateStatus().Equals(MarioState.Duck) || hastransitioned == true)
                     {
-                        if (hasducked == false) { SoundEffectFactory.Pipe(); }
-                        hasducked = true;
+                        if (hastransitioned == false) { SoundEffectFactory.Pipe(); }
+                        hastransitioned = true;
                         if (transitiontime > 0) 
                         {
                             if (transitiontime < 2 && transitiontime > 1.5) { ((Mario)mario).Location = new Vector2(938, 360); }
@@ -145,13 +145,13 @@ namespace Sprint2
                             if (transitiontime < .5 && transitiontime > 0) { ((Mario)mario).Location = new Vector2(938, 390); }
                             transitiontime = transitiontime - (float)gameTime.ElapsedGameTime.TotalSeconds; 
                         }
-                        else { ((Mario)mario).Location = new Vector2(4032, 300); transitiontime = UtilityClass.two; hasducked = false; }
+                        else { ((Mario)mario).Location = new Vector2(4032, 300); transitiontime = UtilityClass.two; hastransitioned = false; }
                     }
                 }
-                if (((Mario)mario).returnLocation().X > 4188)
+                if (((Mario)mario).returnLocation().X > 4188 && ((Mario)mario).returnLocation().Y > 408)
                 {
-                        if (hasducked == false) { SoundEffectFactory.Pipe(); }
-                        hasducked = true;
+                        if (hastransitioned == false) { SoundEffectFactory.Pipe(); }
+                        hastransitioned = true;
                         if (transitiontime > 0)
                         {
                             if (transitiontime < 2 && transitiontime > 1.5) { ((Mario)mario).Location = new Vector2(4200, 424); }
@@ -160,7 +160,7 @@ namespace Sprint2
                             if (transitiontime < .5 && transitiontime > 0) { ((Mario)mario).Location = new Vector2(4230, 424); }
                             transitiontime = transitiontime - (float)gameTime.ElapsedGameTime.TotalSeconds;
                         }
-                        else { ((Mario)mario).Location = new Vector2(2664, 400); camera.MoveLeft(1516); transitiontime = UtilityClass.two; hasducked = false; }
+                        else { ((Mario)mario).Location = new Vector2(2664, 400); camera.MoveLeft(1516); transitiontime = UtilityClass.two; hastransitioned = false; }
                 }
 
                 if (((Mario)mario).StateStatus().Equals(MarioState.Die))
