@@ -132,42 +132,42 @@ namespace Sprint2
                 levelStore.Update(mario);
                 levelStore.handleCollision(mario, this);
                 cameraController.Update();
-                if (((Mario)mario).returnLocation().X > 928 && ((Mario)mario).returnLocation().X < 960)
+                if (((Mario)mario).returnLocation().X > UtilityClass.nineTwentyEight && ((Mario)mario).returnLocation().X < UtilityClass.nineSixty)
                 {
                     if(((Mario)mario).StateStatus().Equals(MarioState.Duck) || hastransitioned == true)
                     {
                         if (hastransitioned == false) { SoundEffectFactory.Pipe(); }
                         hastransitioned = true;
-                        if (transitiontime > 0) 
+                        if (transitiontime > UtilityClass.zero) 
                         {
-                            if (transitiontime < 2 && transitiontime > 1.5) { ((Mario)mario).Location = new Vector2(938, 360); }
-                            if (transitiontime < 1.5 && transitiontime > 1) { ((Mario)mario).Location = new Vector2(938, 370); }
-                            if (transitiontime < 1 && transitiontime > .5) { ((Mario)mario).Location = new Vector2(938, 380); }
-                            if (transitiontime < .5 && transitiontime > 0) { ((Mario)mario).Location = new Vector2(938, 390); }
+                            if (transitiontime < UtilityClass.two && transitiontime > UtilityClass.onePointFive) { ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeSixty); }
+                            if (transitiontime < UtilityClass.onePointFive && transitiontime > UtilityClass.one) { ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeSeventy); }
+                            if (transitiontime < UtilityClass.one && transitiontime > UtilityClass.pointFive) { ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeEighty); }
+                            if (transitiontime < UtilityClass.pointFive && transitiontime > UtilityClass.zero ){ ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeNintey); }
                             transitiontime = transitiontime - (float)gameTime.ElapsedGameTime.TotalSeconds; 
                         }
-                        else { ((Mario)mario).Location = new Vector2(4032, 300);
+                        else { ((Mario)mario).Location = new Vector2(UtilityClass.fourOThirtyTwo, UtilityClass.threeHundred);
                             transitiontime = UtilityClass.two;
                             hastransitioned = false;
                             MusicFactory.UnderworldTheme();
                         }
                     }
                 }
-                if (((Mario)mario).returnLocation().X > 4188 && ((Mario)mario).returnLocation().Y > 408)
+                if (((Mario)mario).returnLocation().X > UtilityClass.fourtyOneHundredAndEightyEight && ((Mario)mario).returnLocation().Y > UtilityClass.fourOEight)
                 {
                         if (hastransitioned == false) { SoundEffectFactory.Pipe(); }
                         hastransitioned = true;
-                        if (transitiontime > 0)
+                        if (transitiontime > UtilityClass.zero)
                         {
-                            if (transitiontime < 2 && transitiontime > 1.5) { ((Mario)mario).Location = new Vector2(4200, 424); }
-                            if (transitiontime < 1.5 && transitiontime > 1) { ((Mario)mario).Location = new Vector2(4210, 424); }
-                            if (transitiontime < 1 && transitiontime > .5) { ((Mario)mario).Location = new Vector2(4220, 424); }
-                            if (transitiontime < .5 && transitiontime > 0) { ((Mario)mario).Location = new Vector2(4230, 424); }
+                            if (transitiontime < UtilityClass.two && transitiontime > UtilityClass.onePointFive) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundred, UtilityClass.fourTwentyFour); }
+                            if (transitiontime < UtilityClass.onePointFive && transitiontime > UtilityClass.one) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundredAndTen, UtilityClass.fourTwentyFour); }
+                            if (transitiontime < UtilityClass.one && transitiontime > UtilityClass.pointFive) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundredAndTwenty, UtilityClass.fourTwentyFour); }
+                            if (transitiontime < UtilityClass.pointFive && transitiontime > UtilityClass.zero) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundredAndThirty, UtilityClass.fourTwentyFour); }
                             transitiontime = transitiontime - (float)gameTime.ElapsedGameTime.TotalSeconds;
                         }
                         else { 
-                            ((Mario)mario).Location = new Vector2(2664, 400);
-                            camera.MoveLeft(1516);
+                            ((Mario)mario).Location = new Vector2(UtilityClass.twentySixHundrenAndSixtyFour, UtilityClass.fourHundred);
+                            camera.MoveLeft(UtilityClass.fiftenSixteen);
                             transitiontime = UtilityClass.two; 
                             hastransitioned = false;
                             MusicFactory.MainTheme();

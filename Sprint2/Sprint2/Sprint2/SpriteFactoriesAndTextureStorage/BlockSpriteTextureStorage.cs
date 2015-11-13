@@ -26,8 +26,8 @@ namespace Sprint2
             groundBlockSpriteSheet = content.Load<Texture2D>(UtilityClass.groundBlockSpriteSheet);
             platformingBlockSpriteSheet = content.Load<Texture2D>(UtilityClass.platformingBlockSpriteSheet);
             brickBlockCoinDispenserSpriteSheet = content.Load<Texture2D>(UtilityClass.brickBlockCoinDispenserSpriteSheet);
-            BlueBrickBlockSpriteSheet = content.Load<Texture2D>("BlueBrickBlockSpriteSheet");
-            BlueGroundBlockSpriteSheet = content.Load<Texture2D>("BlueGroundBlockSpriteSheet");
+            BlueBrickBlockSpriteSheet = content.Load<Texture2D>(UtilityClass.blueBrickBlockSpriteSheet);
+            BlueGroundBlockSpriteSheet = content.Load<Texture2D>(UtilityClass.blueGroundBlockSpriteSheet);
         }
 
         public static Texture2D CreateHiddenBlockSprite()

@@ -20,7 +20,7 @@ namespace Sprint2
 
         public StaticCoin(int locX, int locY)
         {
-            score = new NonPlayerScoreItem(200, false);
+            score = new NonPlayerScoreItem(UtilityClass.coinScore, false);
             location = new Vector2(locX, locY);
             sprite = new StaticCoinSprite(location);
             type = ItemType.Coin;

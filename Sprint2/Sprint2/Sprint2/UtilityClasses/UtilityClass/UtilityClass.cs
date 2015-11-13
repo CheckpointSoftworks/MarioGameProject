@@ -21,6 +21,29 @@ namespace Sprint2
         public static int sixteen = 16;
         public static int OneHundred = 100;
 
+        public static float pointFive = .5f;
+        public static float onePointFive = 1.5f;
+        public static int nineTwentyEight = 928;
+        public static int nineSixty = 960;
+        public static int fourTwentyFour = 424;
+        public static int threeHundred = 300;
+        public static int fourHundred = 400;
+        public static int fourOEight = 408;
+        public static int nineThrityEight = 938;
+        public static int threeSixty = 360;
+        public static int threeSeventy = 370;
+        public static int threeEighty = 380;
+        public static int threeNintey = 390;
+        public static int fourOThirtyTwo = 4032;
+        public static int fourtyTwoHundred = 4200;
+        public static int fourtyTwoHundredAndTen = 4210;
+        public static int fourtyTwoHundredAndTwenty = 4220;
+        public static int fourtyTwoHundredAndThirty = 4230;
+        public static int fiftenSixteen = 1516;
+        public static int twentySixHundrenAndSixtyFour = 2664;
+        public static int fourtyOneHundredAndEightyEight = 4188;
+
+
 
         //Block Magic Numbers
         public static int BrickPieceYAdjustment = 5;
@@ -170,6 +193,11 @@ namespace Sprint2
         public static string marioFireChangeDirectionSpriteSheet = "MarioFireChangeDirection";
         public static string marioDuckSpriteSheet = "MarioDuck";
         public static string marioDyingSpriteSheet = "MarioDying";
+        public static string rightFacingPipeSpritesheet = "RightFacingPipeSprite";
+        public static string rightFacingEdgePipeSpritesheet = "RightFacingPipeTallEdge";
+        public static string blueBrickBlockSpriteSheet = "BlueBrickBlockSpriteSheet";
+        public static string blueGroundBlockSpriteSheet ="BlueGroundBlockSpriteSheet";
+
 
 
         //Game Magic Stuff

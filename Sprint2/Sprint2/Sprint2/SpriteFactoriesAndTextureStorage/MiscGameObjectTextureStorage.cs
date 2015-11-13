@@ -20,8 +20,8 @@ namespace Sprint2
             pipeSpriteSheet = content.Load<Texture2D>(UtilityClass.pipeSpriteSheet);
             brickPiecesSpriteSheet = content.Load<Texture2D>(UtilityClass.brickPiecesSpriteSheet);
             fireballSpriteSheet = content.Load<Texture2D>(UtilityClass.fireballSpriteSheet);
-            rightfacingSpritesheet = content.Load<Texture2D>("RightFacingPipeSprite");
-            rightfacingedgeSpritesheet = content.Load<Texture2D>("RightFacingPipeTallEdge");
+            rightfacingSpritesheet = content.Load<Texture2D>(UtilityClass.rightFacingPipeSpritesheet);
+            rightfacingedgeSpritesheet = content.Load<Texture2D>(UtilityClass.rightFacingEdgePipeSpritesheet);
         }
 
         public static Texture2D CreatePipeSprite()

@@ -12,7 +12,7 @@ namespace Sprint2
         private Texture2D groundBlockSpriteSheet;
         private Vector2 location;
         private Rectangle collisionRectangle;
-        private int spriteSheetSpriteSize = 16;
+        private int spriteSheetSpriteSize = UtilityClass.sixteen;
 
         public BlueGroundBlockSprite(Vector2 location)
         {

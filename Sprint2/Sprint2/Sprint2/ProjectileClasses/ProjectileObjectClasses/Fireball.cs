@@ -22,7 +22,7 @@ namespace Sprint2
         public Fireball(int x, int y, float spawnSpeed, bool facingRight, IPlayer shooter)
         {
             spawnGroundSpeed = spawnSpeed;
-            spawnGroundSpeed += facingRight ? 1 : -1;
+            spawnGroundSpeed += facingRight ? UtilityClass.one : -UtilityClass.one;
             location = new Vector2(x, y);
             sprite = new FireballSprite(location);
             testForCollision = true;
