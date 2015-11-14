@@ -23,6 +23,7 @@ namespace Sprint2
         public LevelLoader loader { get; set; }
         public Camera camera { get; set; }
         public CameraController cameraController { get; set; }
+        public PipeTransition pipeTransition { get; set; }
         public bool pause { get; set; }
         public bool canPause { get; set; }
         public bool marioPause { get; set; }
@@ -34,7 +35,7 @@ namespace Sprint2
         private float deathtime;
         private float transitiontime;
         private int remaininglives = UtilityClass.three;
-        private bool hastransitioned = false;
+        private bool hasbeguntransition = false;
         public bool remaininglivesupdated = false;
         private Boolean deathscreen = false;
         private TestingClass tester;
@@ -59,6 +60,7 @@ namespace Sprint2
             keyboard = new KeyboardController();
             gamepad = new GamepadController(this);
             camera = new Camera(UtilityClass.cameraHeight, UtilityClass.cameraWidth, new Vector2(UtilityClass.zero, UtilityClass.zero));
+            pipeTransition = new PipeTransition();
             loader = new LevelLoader(UtilityClass.levelFile, camera);
             levelStore = new LevelStorage(camera);
             keyNotPressed = new KeyNotPressed(this);
@@ -80,9 +82,7 @@ namespace Sprint2
 
         protected override void LoadContent()
         {
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             BlockSpriteTextureStorage.Load(this.Content);
             ItemSpriteTextureStorage.Load(this.Content);
             EnemySpriteFactory.Load(this.Content);
@@ -128,6 +128,8 @@ namespace Sprint2
         {
             keyboard.Update();
             gamepad.Update();
+            float elapsedtime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             if (!pause&&!marioPause)
             {
                 keyNotPressed.Execute();
@@ -135,63 +137,17 @@ namespace Sprint2
                 levelStore.Update(mario);
                 levelStore.handleCollision(mario, this);
                 cameraController.Update();
-                if (((Mario)mario).returnLocation().X > UtilityClass.nineTwentyEight && ((Mario)mario).returnLocation().X < UtilityClass.nineSixty)
-                {
-                    if(((Mario)mario).StateStatus().Equals(MarioState.Duck) || hastransitioned == true)
-                    {
-                        if (hastransitioned == false) { SoundEffectFactory.Pipe(); }
-                        hastransitioned = true;
-                        if (transitiontime > UtilityClass.zero) 
-                        {
-                            if (transitiontime < UtilityClass.two && transitiontime > UtilityClass.onePointFive) { ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeSixty); }
-                            if (transitiontime < UtilityClass.onePointFive && transitiontime > UtilityClass.one) { ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeSeventy); }
-                            if (transitiontime < UtilityClass.one && transitiontime > UtilityClass.pointFive) { ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeEighty); }
-                            if (transitiontime < UtilityClass.pointFive && transitiontime > UtilityClass.zero ){ ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeNintey); }
-                            transitiontime = transitiontime - (float)gameTime.ElapsedGameTime.TotalSeconds; 
-                        }
-                        else { ((Mario)mario).Location = new Vector2(UtilityClass.fourOThirtyTwo, UtilityClass.threeHundred);
-                            transitiontime = UtilityClass.two;
-                            hastransitioned = false;
-                            MusicFactory.UnderworldTheme();
-                        }
-                    }
-                }
-                if (((Mario)mario).returnLocation().X > UtilityClass.fourtyOneHundredAndEightyEight && ((Mario)mario).returnLocation().Y > UtilityClass.fourOEight)
-                {
-                        if (hastransitioned == false) { SoundEffectFactory.Pipe(); }
-                        hastransitioned = true;
-                        if (transitiontime > UtilityClass.zero)
-                        {
-                            if (transitiontime < UtilityClass.two && transitiontime > UtilityClass.onePointFive) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundred, UtilityClass.fourTwentyFour); }
-                            if (transitiontime < UtilityClass.onePointFive && transitiontime > UtilityClass.one) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundredAndTen, UtilityClass.fourTwentyFour); }
-                            if (transitiontime < UtilityClass.one && transitiontime > UtilityClass.pointFive) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundredAndTwenty, UtilityClass.fourTwentyFour); }
-                            if (transitiontime < UtilityClass.pointFive && transitiontime > UtilityClass.zero) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundredAndThirty, UtilityClass.fourTwentyFour); }
-                            transitiontime = transitiontime - (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        }
-                        else { 
-                            ((Mario)mario).Location = new Vector2(UtilityClass.twentySixHundrenAndSixtyFour, UtilityClass.fourHundred);
-                            camera.MoveLeft(UtilityClass.fiftenSixteen);
-                            transitiontime = UtilityClass.two; 
-                            hastransitioned = false;
-                            MusicFactory.MainTheme();
-                        }
-                }
-
+                pipeTransition.Update((Mario)mario, elapsedtime, camera);
                 if (((Mario)mario).StateStatus().Equals(MarioState.Die))
                 {
-                    if(!remaininglivesupdated) {
+                    if(!remaininglivesupdated) 
+                    {
                         remaininglives = ((Mario)mario).GetLives().ScoreValue;
                         MusicFactory.Dead();
-                        while (MediaPlayer.State != MediaState.Stopped)
-                        {
-
-                        }
-
-                        if (remaininglives == UtilityClass.zero)
-                        {
-                            MusicFactory.GameOver();
-                        } 
-                        remaininglivesupdated = true; }
+                        while (MediaPlayer.State != MediaState.Stopped) { }
+                        if (remaininglives == UtilityClass.zero) { MusicFactory.GameOver(); } 
+                        remaininglivesupdated = true; 
+                    }
                     if (deathtime > UtilityClass.zero) { deathscreen = true; deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds; }
                     else
                     {
@@ -207,10 +163,7 @@ namespace Sprint2
                     if (!remaininglivesupdated) {
                         remaininglives -= UtilityClass.one;
                         MusicFactory.Dead();
-                        while (MediaPlayer.State != MediaState.Stopped)
-                        {
-
-                        }
+                        while (MediaPlayer.State != MediaState.Stopped) { }
 
                         if (remaininglives == UtilityClass.zero)
                         {
@@ -231,16 +184,14 @@ namespace Sprint2
                 UpdateTime(gameTime);
                 base.Update(gameTime);
             }
+
             else if (marioPause&&!pause)
             {
                 mario.Update();
                 levelStore.handleCollision(mario, this);
                 stateTransistionPauseTimer--;
             }
-            if (stateTransistionPauseTimer == UtilityClass.zero)
-            {
-                StatePuaseAlterationCall.Execute();
-            }
+            if (stateTransistionPauseTimer == UtilityClass.zero) { StatePuaseAlterationCall.Execute(); }
             if (mario.returnLocation().X >= UtilityClass.flagpoleLocation && mario.returnLocation().X < UtilityClass.aboveGroundEndLocation)
             {
                 if (!hitFlagpole)
