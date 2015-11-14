@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    public class EndingSequenceMario
+    public class EndingSequenceMario : IEndingSequenceMario
     {
         private Vector2 location;
         private bool smallMario;

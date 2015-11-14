@@ -44,7 +44,7 @@ namespace Sprint2
         private SpriteFont basicarialfont;
         private double time;
         private GUI gui;
-        public EndingSequenceMario endMario;
+        public IEndingSequenceMario endMario;
         public bool hitFlagpole;
 
         public Game1()

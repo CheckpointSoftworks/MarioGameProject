@@ -91,6 +91,7 @@
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\RightFacingPipeEdge.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\RightFacingPipeEdgeSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\RightFacingPipeSprite.cs" />
+    <Compile Include="Interfaces\IEndingSequenceMario.cs" />
     <Compile Include="LevelStateAlterations\GamepadPause.cs" />
     <Compile Include="ItemClasses\ItemObjectClasses\StaticCoin.cs" />
     <Compile Include="ItemClasses\ItemSpriteClasses\StaticCoinSprite.cs" />
