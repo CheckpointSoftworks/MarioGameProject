@@ -97,6 +97,7 @@
     <Compile Include="ItemClasses\ItemSpriteClasses\StaticCoinSprite.cs" />
     <Compile Include="LevelStateAlterations\PauseCommand.cs" />
     <Compile Include="LevelStateAlterations\NoPauseCommand.cs" />
+    <Compile Include="LevelStateAlterations\PipeTransition.cs" />
     <Compile Include="LevelStateAlterations\StatePuaseAlterationCall.cs" />
     <Compile Include="LevelStateAlterations\StateTransistionPause.cs" />
     <Compile Include="MarioClasses\Mario\EndingSequenceMario.cs" />
