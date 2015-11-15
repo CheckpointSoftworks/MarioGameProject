@@ -9,6 +9,8 @@ namespace Sprint2
 {
     public class EndingSequenceMario : IEndingSequenceMario
     {
+
+        private EndingSequenceMarioSprite endMarioSprite;
         private Vector2 location;
         private bool smallMario;
         private bool fireMario;
@@ -21,12 +23,6 @@ namespace Sprint2
         private float walkSpeed;
         private float decayRate;
         private int waitToLeaveFlagpole;
-        private AnimatedSprite bigFlagpole;
-        private AnimatedSprite smallFlagpole;
-        private AnimatedSprite fireFlagpole;
-        private AnimatedSprite bigWalking;
-        private AnimatedSprite smallWalking;
-        private AnimatedSprite fireWalking;
         private bool flagAtBottom;
         public bool FlagAtBottom
         {
@@ -53,12 +49,7 @@ namespace Sprint2
             walkSpeed = UtilityClass.endMarioWalkSpeed;
             decayRate = UtilityClass.endMarioDecayRate;
             waitToLeaveFlagpole = UtilityClass.waitToLeaveFlagpole;
-            bigFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigFlagpoleSprite(), 1, 2, location, 8);
-            smallFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallFlagpoleSprite(), 1, 2, location, 8);
-            fireFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireFlagpoleSprite(), 1, 2, location, 8);
-            bigWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(), 1, 3, location, 4);
-            smallWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(), 1, 3, location, 4);
-            fireWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireRunningSprite(), 1, 3, location, 4);
+            endMarioSprite = new EndingSequenceMarioSprite(location, smallMario, fireMario);
         }
 
         private void SlideDownPole()
@@ -109,44 +100,9 @@ namespace Sprint2
             location.X += walkSpeed;
         }
 
-        private void MarioFlagpoleDrawFacingRight(SpriteBatch spriteBatch, Vector2 cameraLoc)
-        {
-            if (fireMario)
-            { fireFlagpole.Draw(spriteBatch, location, cameraLoc, true); }
-            else if (smallMario)
-            { smallFlagpole.Draw(spriteBatch, location, cameraLoc, true); }
-            else
-            { bigFlagpole.Draw(spriteBatch, location, cameraLoc, true); }
-        }
-
-        private void MarioFlagpoleDrawFacingLeft(SpriteBatch spriteBatch, Vector2 cameraLoc)
-        {
-            if (fireMario)
-            { fireFlagpole.Draw(spriteBatch, location, cameraLoc, false); }
-            else if (smallMario)
-            { smallFlagpole.Draw(spriteBatch, location, cameraLoc, false); }
-            else
-            { bigFlagpole.Draw(spriteBatch, location, cameraLoc, false); }
-        }
-
-        private void MarioWalkingDraw(SpriteBatch spriteBatch, Vector2 cameraLoc)
-        {
-            if (fireMario)
-            { fireWalking.Draw(spriteBatch, location, cameraLoc, true); }
-            else if (smallMario)
-            { smallWalking.Draw(spriteBatch, location, cameraLoc, true); }
-            else
-            { bigWalking.Draw(spriteBatch, location, cameraLoc, true); }
-        }
-
         public void Update()
         {
-            bigFlagpole.Update();
-            smallFlagpole.Update();
-            fireFlagpole.Update();
-            bigWalking.Update();
-            smallWalking.Update();
-            fireWalking.Update();
+            endMarioSprite.Update();
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
@@ -155,16 +111,16 @@ namespace Sprint2
                 if (!atFlagpoleBottom)
                 {
                     SlideDownPole();
-                    MarioFlagpoleDrawFacingRight(spriteBatch, cameraLoc);
+                    endMarioSprite.MarioFlagpoleDrawFacingRight(location, spriteBatch, cameraLoc);
                 }
                 else
                 {
                     if (!flagAtBottom)
-                    { MarioFlagpoleDrawFacingRight(spriteBatch, cameraLoc); }
+                    { endMarioSprite.MarioFlagpoleDrawFacingRight(location, spriteBatch, cameraLoc); }
                     else 
                     {
                         location.X = UtilityClass.flipMarioBottomFlagLocX;
-                        MarioFlagpoleDrawFacingLeft(spriteBatch, cameraLoc);
+                        endMarioSprite.MarioFlagpoleDrawFacingLeft(location, spriteBatch, cameraLoc);
                         flagpoleAnimation = false;
                         fallOffBlockAnimation = true;
                     }
@@ -172,18 +128,18 @@ namespace Sprint2
             }
             if (fallOffBlockAnimation)
             {
-                MarioFlagpoleDrawFacingLeft(spriteBatch, cameraLoc);
+                endMarioSprite.MarioFlagpoleDrawFacingLeft(location, spriteBatch, cameraLoc);
                 waitToLeaveFlagpole--;
                 if (waitToLeaveFlagpole <= 0)
                 {
                     if (!offBlock)
                     {
                         FallOffBlock();
-                        MarioWalkingDraw(spriteBatch, cameraLoc);
+                        endMarioSprite.MarioWalkingDraw(location, spriteBatch, cameraLoc);
                     }
                     else
                     {
-                        MarioWalkingDraw(spriteBatch, cameraLoc);
+                        endMarioSprite.MarioWalkingDraw(location, spriteBatch, cameraLoc);
                         fallOffBlockAnimation = false;
                         walkingToCastle = true;
                     }
@@ -194,7 +150,7 @@ namespace Sprint2
                 if (location.X < UtilityClass.castleDoorWayLocX)
                 {
                     WalkToCastle();
-                    MarioWalkingDraw(spriteBatch, cameraLoc);
+                    endMarioSprite.MarioWalkingDraw(location, spriteBatch, cameraLoc);
                 }
                 else
                 { endSequenceFinished = true; }

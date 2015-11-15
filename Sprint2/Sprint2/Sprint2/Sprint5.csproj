@@ -95,6 +95,7 @@
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\PoleSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\RightFacingPipeEdgeSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\RightFacingPipeSprite.cs" />
+    <Compile Include="Interfaces\EndingSequenceMarioSprite.cs" />
     <Compile Include="Interfaces\IEndingSequenceMario.cs" />
     <Compile Include="Interfaces\IFlag.cs" />
     <Compile Include="Interfaces\IFlagSprite.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="LevelStateAlterations\StateTransistionPause.cs" />
     <Compile Include="MarioClasses\Mario\EndingSequenceMario.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\QuitCommand.cs" />
+    <Compile Include="MarioClasses\Mario\EndingSequenceMarioSprite.cs" />
     <Compile Include="SoundClasses\MusicFactory.cs" />
     <Compile Include="SoundClasses\SoundEffectFactory.cs" />
     <Compile Include="UtilityClasses\UtilityClass\UtilityClass.cs" />
