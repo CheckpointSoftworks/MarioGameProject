@@ -7,11 +7,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public interface IEndingSequenceMario
+    public interface IFlag
     {
         void Update();
         void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc);
-        bool FlagAtBottom { set; }
-        bool EndSequenceFinished { get; }
+        void MoveDown();
+        bool FlagAtBottom();
     }
 }

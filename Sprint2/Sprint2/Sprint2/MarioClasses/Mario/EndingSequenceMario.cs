@@ -27,12 +27,24 @@ namespace Sprint2
         private AnimatedSprite bigWalking;
         private AnimatedSprite smallWalking;
         private AnimatedSprite fireWalking;
+        private bool flagAtBottom;
+        public bool FlagAtBottom
+        {
+            set { flagAtBottom = value; }
+        }
+        bool endSequenceFinished;
+        public bool EndSequenceFinished
+        {
+            get { return endSequenceFinished; }
+        }
         public EndingSequenceMario(Vector2 location, bool smallMario, bool fireMario)
         {
             this.location = location;
             this.smallMario = smallMario;
             this.fireMario = fireMario;
+            endSequenceFinished = false;
             atFlagpoleBottom = false;
+            flagAtBottom = false;
             offBlock = false;
             flagpoleAnimation = true;
             fallOffBlockAnimation = false;
@@ -41,12 +53,12 @@ namespace Sprint2
             walkSpeed = UtilityClass.endMarioWalkSpeed;
             decayRate = UtilityClass.endMarioDecayRate;
             waitToLeaveFlagpole = UtilityClass.waitToLeaveFlagpole;
-            bigFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigFlagpoleSprite(), UtilityClass.one, UtilityClass.two, location, UtilityClass.eight);
-            smallFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallFlagpoleSprite(), UtilityClass.one, UtilityClass.two, location, UtilityClass.eight);
-            fireFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireFlagpoleSprite(), UtilityClass.one, UtilityClass.two, location, UtilityClass.eight);
-            bigWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(), UtilityClass.one, UtilityClass.three, location, UtilityClass.four);
-            smallWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(), UtilityClass.one, UtilityClass.three, location, UtilityClass.four);
-            fireWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireRunningSprite(), UtilityClass.one, UtilityClass.three, location, UtilityClass.four);
+            bigFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigFlagpoleSprite(), 1, 2, location, 8);
+            smallFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallFlagpoleSprite(), 1, 2, location, 8);
+            fireFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireFlagpoleSprite(), 1, 2, location, 8);
+            bigWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(), 1, 3, location, 4);
+            smallWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(), 1, 3, location, 4);
+            fireWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireRunningSprite(), 1, 3, location, 4);
         }
 
         private void SlideDownPole()
@@ -58,7 +70,6 @@ namespace Sprint2
                 else
                 {
                     atFlagpoleBottom = true;
-                    location.X = UtilityClass.flipMarioBottomFlagLocX;
                 }
             }
             else
@@ -68,7 +79,6 @@ namespace Sprint2
                 else
                 {
                     atFlagpoleBottom = true;
-                    location.X = UtilityClass.flipMarioBottomFlagLocX;
                 }
             }
         }
@@ -149,16 +159,22 @@ namespace Sprint2
                 }
                 else
                 {
-                    MarioFlagpoleDrawFacingLeft(spriteBatch, cameraLoc);
-                    flagpoleAnimation = false;
-                    fallOffBlockAnimation = true;
+                    if (!flagAtBottom)
+                    { MarioFlagpoleDrawFacingRight(spriteBatch, cameraLoc); }
+                    else 
+                    {
+                        location.X = UtilityClass.flipMarioBottomFlagLocX;
+                        MarioFlagpoleDrawFacingLeft(spriteBatch, cameraLoc);
+                        flagpoleAnimation = false;
+                        fallOffBlockAnimation = true;
+                    }
                 }
             }
             if (fallOffBlockAnimation)
             {
                 MarioFlagpoleDrawFacingLeft(spriteBatch, cameraLoc);
                 waitToLeaveFlagpole--;
-                if (waitToLeaveFlagpole <= UtilityClass.zero)
+                if (waitToLeaveFlagpole <= 0)
                 {
                     if (!offBlock)
                     {
@@ -180,6 +196,8 @@ namespace Sprint2
                     WalkToCastle();
                     MarioWalkingDraw(spriteBatch, cameraLoc);
                 }
+                else
+                { endSequenceFinished = true; }
             }
         }
     }

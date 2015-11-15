@@ -46,6 +46,8 @@ namespace Sprint2
         private double time;
         private GUI gui;
         public IEndingSequenceMario endMario;
+        public IPole pole;
+        public IFlag flag;
         public bool hitFlagpole;
 
         public Game1()
@@ -77,6 +79,8 @@ namespace Sprint2
             StatePuaseAlterationCall.setGame(this);
             base.Initialize();
             tester.runTests();
+            pole = new Pole();
+            flag = new Flag();
             hitFlagpole = false;
         }
 
@@ -126,8 +130,11 @@ namespace Sprint2
 
         protected override void Update(GameTime gameTime)
         {
-            keyboard.Update();
-            gamepad.Update();
+            if (!hitFlagpole)
+            {
+                keyboard.Update();
+                gamepad.Update();
+            }
             float elapsedtime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (!pause&&!marioPause)
@@ -192,6 +199,9 @@ namespace Sprint2
                 stateTransistionPauseTimer--;
             }
             if (stateTransistionPauseTimer == UtilityClass.zero) { StatePuaseAlterationCall.Execute(); }
+
+            pole.Update();
+            flag.Update();
             if (mario.returnLocation().X >= UtilityClass.flagpoleLocation && mario.returnLocation().X < UtilityClass.aboveGroundEndLocation)
             {
                 if (!hitFlagpole)
@@ -199,7 +209,13 @@ namespace Sprint2
                     endMario = new EndingSequenceMario(mario.returnLocation(), ((Mario)mario).Small, ((Mario)mario).Fire);
                     hitFlagpole = true;
                 }
+                flag.MoveDown();
+                endMario.FlagAtBottom = flag.FlagAtBottom();
                 endMario.Update();
+                if (endMario.EndSequenceFinished)
+                {
+                    resetCommand.Execute();
+                }
             }
         }
 
@@ -244,9 +260,12 @@ namespace Sprint2
                 spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel, UtilityClass.GUILevelPosition, Color.White);
                 gui.DrawPlayGUI(spriteBatch, font);
                 levelStore.Draw(mario, spriteBatch, hitFlagpole);
+
+                pole.Draw(spriteBatch, camera.GetPosition());
+                flag.Draw(spriteBatch, camera.GetPosition());
                 if (mario.returnLocation().X >= UtilityClass.flagpoleLocation && mario.returnLocation().X < UtilityClass.aboveGroundEndLocation)
                 {
-                    endMario.Draw(spriteBatch, camera.GetPosition());
+                   endMario.Draw(spriteBatch, camera.GetPosition());
                 }
                 spriteBatch.End();
                 base.Draw(gameTime);

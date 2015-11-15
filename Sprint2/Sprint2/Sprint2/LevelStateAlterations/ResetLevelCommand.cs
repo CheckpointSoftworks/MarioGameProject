@@ -28,6 +28,8 @@ namespace Sprint2
             MusicFactory.MainTheme();
             game.resetLives();
             game.ResetTime();
+            game.hitFlagpole = false;
+            game.flag = new Flag();
         }
     }
 }

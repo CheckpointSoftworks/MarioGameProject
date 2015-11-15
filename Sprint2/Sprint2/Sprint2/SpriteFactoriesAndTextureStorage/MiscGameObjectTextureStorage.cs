@@ -15,6 +15,8 @@ namespace Sprint2
         private static Texture2D fireballSpriteSheet;
         private static Texture2D rightfacingSpritesheet;
         private static Texture2D rightfacingedgeSpritesheet;
+        private static Texture2D poleSpriteSheet;
+        private static Texture2D flagSpriteSheet;
         public static void Load(ContentManager content)
         {
             pipeSpriteSheet = content.Load<Texture2D>(UtilityClass.pipeSpriteSheet);
@@ -22,6 +24,8 @@ namespace Sprint2
             fireballSpriteSheet = content.Load<Texture2D>(UtilityClass.fireballSpriteSheet);
             rightfacingSpritesheet = content.Load<Texture2D>(UtilityClass.rightFacingPipeSpritesheet);
             rightfacingedgeSpritesheet = content.Load<Texture2D>(UtilityClass.rightFacingEdgePipeSpritesheet);
+            poleSpriteSheet = content.Load<Texture2D>(UtilityClass.poleSpriteSheet);
+            flagSpriteSheet = content.Load<Texture2D>(UtilityClass.flagSpriteSheet);
         }
 
         public static Texture2D CreatePipeSprite()
@@ -45,6 +49,16 @@ namespace Sprint2
         public static Texture2D CreateRightFacingPipeEdgeSprite()
         {
             return rightfacingedgeSpritesheet;
+        }
+
+        public static Texture2D CreatePoleSprite()
+        {
+            return poleSpriteSheet;
+        }
+
+        public static Texture2D CreateFlagSprite()
+        {
+            return flagSpriteSheet;
         }
     }
 }

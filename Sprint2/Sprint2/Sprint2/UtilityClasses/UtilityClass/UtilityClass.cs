@@ -139,7 +139,7 @@ namespace Sprint2
         public static float marioTransitionDirection = 0.4f;
         public static int marioTransistionOffset = 16;
 
-        //Mario Ending Sequence magic numbers
+        //Mario Ending Sequence Magic Numbers
         public static float slideSpeed = 2.0f;
         public static float smallMarioBottomFlagLocY = 424;
         public static float bigMarioBottomFlagLocY = 408;
@@ -149,7 +149,15 @@ namespace Sprint2
         public static float smallMarioGroundLocY = 440;
         public static float bigMarioGroundLocY = 424;
         public static float castleDoorWayLocX = 3308;
-        public static int waitToLeaveFlagpole = 20;
+        public static int waitToLeaveFlagpole = 35;
+
+        //flagPole Magic Numbers
+        public static float flagLocationX = 3208;
+        public static float flagLocationY = 298;
+        public static float flagAtBottomLocationY = 420;
+        public static float flagMoveSpeed = 1.2f;
+        public static float poleLocationX = 3216;
+        public static float poleLocationY = 280;
 
         //Physics Magic Numbers
         public static float gravY=5f;
@@ -213,6 +221,8 @@ namespace Sprint2
         public static string marioBigFlagpoleSpriteSheet = "MarioBigFlagpole";
         public static string marioSmallFlagpoleSpriteSheet = "MarioSmallFlagpole";
         public static string marioFireFlagpoleSpriteSheet = "MarioFireFlagpole";
+        public static string poleSpriteSheet = "Pole";
+        public static string flagSpriteSheet = "Flag";
 
         //Game Magic Stuff
         public static string Content = "Content";
