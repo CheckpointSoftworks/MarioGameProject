@@ -11,7 +11,7 @@ namespace Sprint2
     {
         void Update();
         void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc);
-        bool FlagAtBottom { set; }
-        bool EndSequenceFinished { get; }
+        bool FlagAtBottom { get; set; }
+        bool EndSequenceFinished { get; set; }
     }
 }

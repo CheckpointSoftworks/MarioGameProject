@@ -88,6 +88,13 @@ namespace Sprint2
                 {
                     rightDown.Execute();
                 }
+                handleSpecialKeys();
+            }
+        }
+
+        private void handleSpecialKeys()
+        {
+            
                 if (padState1.Buttons.X == ButtonState.Pressed)
                 {
                     if (!alreadyShot)
@@ -116,7 +123,6 @@ namespace Sprint2
                 {
                     sprint.Execute();
                 }
-            }
         }
     }
 }

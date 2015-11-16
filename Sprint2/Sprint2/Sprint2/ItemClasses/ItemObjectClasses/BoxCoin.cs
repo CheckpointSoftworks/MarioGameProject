@@ -12,7 +12,6 @@ namespace Sprint2
         private NonPlayerScoreItem score;
         private ISprite boxCoinSprite;
         private ItemType type;
-        private Rectangle collisonRectangle;
         private Vector2 location;
         private Vector2 velocity;
         private float moveSpeed;
@@ -28,7 +27,6 @@ namespace Sprint2
             location = new Vector2(locX, locY);
             boxCoinSprite = new BoxCoinSprite(location);
             type = ItemType.BoxCoin;
-            collisonRectangle = boxCoinSprite.returnCollisionRectangle();
             testForCollision =true;
             moveSpeed = UtilityClass.coinMoveSpeed;
             decayRate = UtilityClass.coindecayRate;
@@ -79,7 +77,6 @@ namespace Sprint2
 
         public void setCollisionRectangle(Rectangle collisionRectangle)
         {
-            this.collisonRectangle = collisionRectangle;
             testForCollision = false;
             boxCoinSprite = new UsedItemSprite(location);
         }

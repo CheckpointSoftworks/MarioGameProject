@@ -15,12 +15,10 @@ namespace Sprint2
         private AnimatedSprite bigWalking;
         private AnimatedSprite smallWalking;
         private AnimatedSprite fireWalking;
-        private Vector2 location;
         private bool smallMario;
         private bool fireMario;
         public EndingSequenceMarioSprite(Vector2 location, bool smallMario, bool fireMario)
         {
-            this.location = location;
             this.smallMario = smallMario;
             this.fireMario = fireMario;
             bigFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigFlagpoleSprite(), 1, 2, location, 8);
@@ -40,34 +38,34 @@ namespace Sprint2
             fireWalking.Update();
         }
 
-        public void MarioFlagpoleDrawFacingRight(Vector2 location, SpriteBatch spriteBatch, Vector2 cameraLoc)
+        public void MarioFlagpoleDrawFacingRight(Vector2 sentLocation, SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             if (fireMario)
-            { fireFlagpole.Draw(spriteBatch, location, cameraLoc, true); }
+            { fireFlagpole.Draw(spriteBatch, sentLocation, cameraLoc, true); }
             else if (smallMario)
-            { smallFlagpole.Draw(spriteBatch, location, cameraLoc, true); }
+            { smallFlagpole.Draw(spriteBatch, sentLocation, cameraLoc, true); }
             else
-            { bigFlagpole.Draw(spriteBatch, location, cameraLoc, true); }
+            { bigFlagpole.Draw(spriteBatch, sentLocation, cameraLoc, true); }
         }
 
-        public void MarioFlagpoleDrawFacingLeft(Vector2 location, SpriteBatch spriteBatch, Vector2 cameraLoc)
+        public void MarioFlagpoleDrawFacingLeft(Vector2 sentLocation, SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             if (fireMario)
-            { fireFlagpole.Draw(spriteBatch, location, cameraLoc, false); }
+            { fireFlagpole.Draw(spriteBatch, sentLocation, cameraLoc, false); }
             else if (smallMario)
-            { smallFlagpole.Draw(spriteBatch, location, cameraLoc, false); }
+            { smallFlagpole.Draw(spriteBatch, sentLocation, cameraLoc, false); }
             else
-            { bigFlagpole.Draw(spriteBatch, location, cameraLoc, false); }
+            { bigFlagpole.Draw(spriteBatch, sentLocation, cameraLoc, false); }
         }
 
-        public void MarioWalkingDraw(Vector2 location, SpriteBatch spriteBatch, Vector2 cameraLoc)
+        public void MarioWalkingDraw(Vector2 sentLocation, SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             if (fireMario)
-            { fireWalking.Draw(spriteBatch, location, cameraLoc, true); }
+            { fireWalking.Draw(spriteBatch, sentLocation, cameraLoc, true); }
             else if (smallMario)
-            { smallWalking.Draw(spriteBatch, location, cameraLoc, true); }
+            { smallWalking.Draw(spriteBatch, sentLocation, cameraLoc, true); }
             else
-            { bigWalking.Draw(spriteBatch, location, cameraLoc, true); }
+            { bigWalking.Draw(spriteBatch, sentLocation, cameraLoc, true); }
         }
     }
 }

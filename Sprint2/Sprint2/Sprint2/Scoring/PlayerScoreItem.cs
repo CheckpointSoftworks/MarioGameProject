@@ -17,7 +17,7 @@ namespace Sprint2
         private bool drawEveryFrame;
         public int ScoreValue { get; set; }
         
-        public String ScoreName { private get; set; }
+        public String ScoreName { get; set; }
 
         override public String ToString()
         {

@@ -12,10 +12,6 @@ namespace Sprint2
         private AnimatedSprite guiMarioSprite;
         private Rectangle collisionRectangle;
         private Vector2 location;
-        public Vector2 Location
-        {
-            set { location = value; }
-        }
         public GUIMarioSprite(Vector2 location)
         {
             guiMarioSpriteSheet = GUISpriteFactory.CreateGUIMarioSprite();
@@ -37,10 +33,6 @@ namespace Sprint2
         public Rectangle returnCollisionRectangle()
         {
             return collisionRectangle;
-        }
-        public int Width()
-        {
-            return guiMarioSprite.Width();
         }
     }
 }

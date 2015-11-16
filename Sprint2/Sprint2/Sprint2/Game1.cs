@@ -33,9 +33,7 @@ namespace Sprint2
         private Texture2D background2;
         private Texture2D deathbackground;
         private float deathtime;
-        private float transitiontime;
         private int remaininglives = UtilityClass.three;
-        private bool hasbeguntransition = false;
         public bool remaininglivesupdated = false;
         private Boolean deathscreen = false;
         private TestingClass tester;
@@ -45,10 +43,10 @@ namespace Sprint2
         private SpriteFont basicarialfont;
         private double time;
         private GUI gui;
-        public IEndingSequenceMario endMario;
-        public IPole pole;
-        public IFlag flag;
-        public bool hitFlagpole;
+        public IEndingSequenceMario endMario { get; set; }
+        public IPole pole { get; set; }
+        public IFlag flag { get; set; }
+        public bool hitFlagpole { get; set; }
 
         public Game1()
         {
@@ -72,7 +70,6 @@ namespace Sprint2
             marioPause = false;
             stateTransistionPauseTimer = UtilityClass.stateTransistionTimer;
             deathtime = UtilityClass.deathTimer;
-            transitiontime = UtilityClass.two;
             time = UtilityClass.LevelStartTime;
             remaininglives = UtilityClass.three;
             gui = new GUI();
@@ -141,7 +138,7 @@ namespace Sprint2
             {
                 keyNotPressed.Execute();
                 mario.Update();
-                levelStore.Update(mario);
+                levelStore.Update();
                 levelStore.handleCollision(mario, this);
                 cameraController.Update();
                 pipeTransition.Update((Mario)mario, elapsedtime, camera);

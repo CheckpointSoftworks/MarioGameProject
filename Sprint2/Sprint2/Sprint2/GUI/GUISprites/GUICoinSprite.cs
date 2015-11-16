@@ -6,16 +6,13 @@ using System.Linq;
 using System.Text;
 namespace Sprint2
     {
-    class GUICoinSprite : ISprite
+    public class GUICoinSprite : ISprite
     {
         private Texture2D coinSpriteSheet;
         private AnimatedSprite coinSprite;
         private Rectangle collisionRectangle;
         private Vector2 location;
-        public Vector2 Location
-        {
-            set { location = value; }
-        }
+
         public GUICoinSprite(Vector2 location)
         {
             coinSpriteSheet = GUISpriteFactory.CreateGUICoinSprite();
@@ -37,10 +34,6 @@ namespace Sprint2
         public Rectangle returnCollisionRectangle()
         {
             return collisionRectangle;
-        }
-        public int Width()
-        {
-            return coinSprite.Width();
         }
     }
 }

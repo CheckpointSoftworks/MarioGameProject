@@ -63,21 +63,23 @@ namespace Sprint2
             }
         }
 
-        public Boolean IsWithinSendUndergroundPipeBoundary(Vector2 MarioLocation)
+        private static Boolean IsWithinSendUndergroundPipeBoundary(Vector2 MarioLocation)
         {
+            bool isWithinSendingField = false;
             if (MarioLocation.X > UtilityClass.undergroundpipeleftX && MarioLocation.X < UtilityClass.undergroudpiperightX)
             {
-                return true;
+                isWithinSendingField = true;
             }
-            return false;
+            return isWithinSendingField;
         }
-        public Boolean IsWithinReturnFromUndergroundPipeBoundary(Vector2 MarioLocation)
+        private static Boolean IsWithinReturnFromUndergroundPipeBoundary(Vector2 MarioLocation)
         {
+            bool isWithinReturnField = false;
             if (MarioLocation.X > UtilityClass.leftfacingundergroundpipeX && MarioLocation.Y > UtilityClass.leftfacingundergroundpipeY)
             {
-                return true;
+                isWithinReturnField=true;
             }
-            return false;
+            return isWithinReturnField;
         }
     }
 }

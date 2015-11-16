@@ -32,7 +32,7 @@ namespace Sprint2
             enviromentalObjectsList = new ArrayList();
             projectileList = new ArrayList();
         }
-        public void Update(IPlayer mario)
+        public void Update()
         {
                 foreach (IBlock block in blocksList)
                 {

@@ -14,7 +14,6 @@ namespace Sprint2
         private bool testForCollision;
         private Vector2 location;
         private AutonomousPhysicsObject rigidbody;
-        private bool facingRight;
         private int timer;
         private IPlayer owner;
         private float spawnGroundSpeed;
@@ -28,7 +27,6 @@ namespace Sprint2
             testForCollision = true;
             timer = UtilityClass.fireballTimer;
             rigidbody = new AutonomousPhysicsObject();
-            this.facingRight = facingRight;
             owner = shooter;
             LoadRigidBodyProperties();
             SoundEffectFactory.Fireball();
@@ -40,7 +38,6 @@ namespace Sprint2
             rigidbody.MaxFallSpeed = UtilityClass.fireballMaxFallSpeed;
             rigidbody.Elasticity = UtilityClass.fireballElasticity;
             rigidbody.GroundSpeed = Math.Abs(spawnGroundSpeed) > Math.Abs(UtilityClass.fireballRightGroundSpeed) ? spawnGroundSpeed : UtilityClass.fireballRightGroundSpeed;
-            //rigidbody.GroundSpeed *= facingRight ? 1 : -1;
             rigidbody.IsEnabled = true;
         }
 

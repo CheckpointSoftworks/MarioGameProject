@@ -39,15 +39,6 @@ namespace Sprint2
             get { return directionLeft; }
             set { directionLeft = value; }
         }
-        private void LoadRigidBodyProperties()
-        {
-            rigidbody.AirFriction = UtilityClass.mushroomAirFriction;
-            rigidbody.GroundFriction = UtilityClass.mushroomGroundFriction;
-            rigidbody.GroundSpeed = UtilityClass.mushroomGroundSpeed;
-            rigidbody.MaxFallSpeed = UtilityClass.mushroomMaxFallSpeed;
-            rigidbody.Elasticity = UtilityClass.mushroomElasticity;
-            rigidbody.IsEnabled = true;
-        }
         public void LeftCollision()
         {
             rigidbody.LeftCollision();

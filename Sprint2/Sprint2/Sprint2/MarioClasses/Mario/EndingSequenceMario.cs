@@ -13,7 +13,6 @@ namespace Sprint2
         private EndingSequenceMarioSprite endMarioSprite;
         private Vector2 location;
         private bool smallMario;
-        private bool fireMario;
         private bool flagpoleAnimation;
         private bool atFlagpoleBottom;
         private bool fallOffBlockAnimation;
@@ -26,18 +25,19 @@ namespace Sprint2
         private bool flagAtBottom;
         public bool FlagAtBottom
         {
+            get { return flagAtBottom; }
             set { flagAtBottom = value; }
         }
         bool endSequenceFinished;
         public bool EndSequenceFinished
         {
             get { return endSequenceFinished; }
+            set { endSequenceFinished = value; }
         }
         public EndingSequenceMario(Vector2 location, bool smallMario, bool fireMario)
         {
             this.location = location;
             this.smallMario = smallMario;
-            this.fireMario = fireMario;
             endSequenceFinished = false;
             atFlagpoleBottom = false;
             flagAtBottom = false;

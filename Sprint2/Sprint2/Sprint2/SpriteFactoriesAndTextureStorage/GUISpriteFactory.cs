@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint2
 {
-    class GUISpriteFactory
+    public class GUISpriteFactory
     {
         private static Texture2D guiMarioSprite;
         private static Texture2D guiCoinSprite;
