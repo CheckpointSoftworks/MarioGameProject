@@ -101,6 +101,7 @@
     <Compile Include="Interfaces\IFlagSprite.cs" />
     <Compile Include="Interfaces\IPole.cs" />
     <Compile Include="Interfaces\IPoleSprite.cs" />
+    <Compile Include="LevelStateAlterations\GameOver.cs" />
     <Compile Include="LevelStateAlterations\GamepadPause.cs" />
     <Compile Include="ItemClasses\ItemObjectClasses\StaticCoin.cs" />
     <Compile Include="ItemClasses\ItemSpriteClasses\StaticCoinSprite.cs" />

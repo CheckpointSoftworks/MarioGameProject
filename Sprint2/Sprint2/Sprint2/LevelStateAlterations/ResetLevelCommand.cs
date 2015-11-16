@@ -24,7 +24,6 @@ namespace Sprint2
             game.mario = game.levelStore.player;
             game.cameraController = new CameraController(game.camera, game.mario);
             game.pause = false;
-            game.remaininglivesupdated = true;
             MusicFactory.MainTheme();
             game.resetLives();
             game.ResetTime();

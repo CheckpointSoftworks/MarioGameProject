@@ -24,6 +24,7 @@ namespace Sprint2
         public Camera camera { get; set; }
         public CameraController cameraController { get; set; }
         public PipeTransition pipeTransition { get; set; }
+        public GameOver gameover { get; set; }
         public bool pause { get; set; }
         public bool canPause { get; set; }
         public bool marioPause { get; set; }
@@ -32,17 +33,13 @@ namespace Sprint2
         private Texture2D background;
         private Texture2D background2;
         private Texture2D deathbackground;
-        private float deathtime;
-        private int remaininglives = UtilityClass.three;
-        public bool remaininglivesupdated = false;
-        private Boolean deathscreen = false;
         private TestingClass tester;
-        private ICommand resetCommand;
+        public ICommand resetCommand;
         private ICommand keyNotPressed;
         private SpriteFont font;
         private SpriteFont basicarialfont;
         private double time;
-        private GUI gui;
+        public GUI gui;
         public IEndingSequenceMario endMario { get; set; }
         public IPole pole { get; set; }
         public IFlag flag { get; set; }
@@ -61,6 +58,7 @@ namespace Sprint2
             gamepad = new GamepadController(this);
             camera = new Camera(UtilityClass.cameraHeight, UtilityClass.cameraWidth, new Vector2(UtilityClass.zero, UtilityClass.zero));
             pipeTransition = new PipeTransition();
+            gameover = new GameOver(this);
             loader = new LevelLoader(UtilityClass.levelFile, camera);
             levelStore = new LevelStorage(camera);
             keyNotPressed = new KeyNotPressed(this);
@@ -69,9 +67,7 @@ namespace Sprint2
             canPause = true;
             marioPause = false;
             stateTransistionPauseTimer = UtilityClass.stateTransistionTimer;
-            deathtime = UtilityClass.deathTimer;
             time = UtilityClass.LevelStartTime;
-            remaininglives = UtilityClass.three;
             gui = new GUI();
             StatePuaseAlterationCall.setGame(this);
             base.Initialize();
@@ -132,6 +128,7 @@ namespace Sprint2
                 keyboard.Update();
                 gamepad.Update();
             }
+
             float elapsedtime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (!pause&&!marioPause)
@@ -142,48 +139,7 @@ namespace Sprint2
                 levelStore.handleCollision(mario, this);
                 cameraController.Update();
                 pipeTransition.Update((Mario)mario, elapsedtime, camera);
-                if (((Mario)mario).StateStatus().Equals(MarioState.Die))
-                {
-                    if(!remaininglivesupdated) 
-                    {
-                        remaininglives = ((Mario)mario).GetLives().ScoreValue;
-                        MusicFactory.Dead();
-                        while (MediaPlayer.State != MediaState.Stopped) { }
-                        if (remaininglives == UtilityClass.zero) { MusicFactory.GameOver(); } 
-                        remaininglivesupdated = true; 
-                    }
-                    if (deathtime > UtilityClass.zero) { deathscreen = true; deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds; }
-                    else
-                    {
-                        deathscreen = false;
-                        resetCommand.Execute();
-                        remaininglivesupdated = false;
-                        ResetTime();
-                        deathtime = UtilityClass.deathTimer;
-                    }
-                }
-                if (((int)(((Mario)mario).Location.Y)) > camera.GetHeight())
-                {
-                    if (!remaininglivesupdated) {
-                        remaininglives -= UtilityClass.one;
-                        MusicFactory.Dead();
-                        while (MediaPlayer.State != MediaState.Stopped) { }
-
-                        if (remaininglives == UtilityClass.zero)
-                        {
-                            MusicFactory.GameOver();
-                        }
-                        remaininglivesupdated = true; }
-                    if (deathtime > UtilityClass.zero) { deathscreen = true; deathtime = deathtime - (float)gameTime.ElapsedGameTime.TotalSeconds; }
-                    else
-                    {
-                        deathscreen = false;
-                        resetCommand.Execute();
-                        remaininglivesupdated = false;
-                        ResetTime();
-                        deathtime = UtilityClass.deathTimer;
-                    }
-                }
+                gameover.Update((Mario)mario, elapsedtime, this);
                 gui.Update();
                 UpdateTime(gameTime);
                 base.Update(gameTime);
@@ -195,6 +151,7 @@ namespace Sprint2
                 levelStore.handleCollision(mario, this);
                 stateTransistionPauseTimer--;
             }
+
             if (stateTransistionPauseTimer == UtilityClass.zero) { StatePuaseAlterationCall.Execute(); }
 
             pole.Update();
@@ -218,24 +175,9 @@ namespace Sprint2
 
         protected override void Draw(GameTime gameTime)
         {
-            if (deathscreen)
+            if (gameover.deathscreen)
             {
-                Rectangle sourceRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.twelve, UtilityClass.sixteen);
-                Rectangle mariodestinationRectangle = new Rectangle(UtilityClass.deathMarioLocationX, UtilityClass.deathMarioLocationY, UtilityClass.twelve, UtilityClass.sixteen);
-                Rectangle remaininglivesdestinationRectangle = new Rectangle(UtilityClass.deathMarioLocationX+UtilityClass.ten, UtilityClass.deathMarioLocationY, UtilityClass.twelve, UtilityClass.sixteen);
-                Rectangle backgrounddestinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.deathBackgroundX, UtilityClass.deathBackgroundY);
-                Texture2D deathmario = MarioSpriteFactory.CreateMarioSmallStillSprite();
-                spriteBatch.Begin();
-                spriteBatch.Draw(deathbackground, backgrounddestinationRectangle, sourceRectangle, Color.Black);
-                if (remaininglives > UtilityClass.zero)
-                {    
-                    spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel, UtilityClass.deathtextloc, Color.White);
-                    spriteBatch.DrawString(font, UtilityClass.x, UtilityClass.deathmarioloc, Color.White);
-                    spriteBatch.DrawString(font, remaininglives.ToString(), UtilityClass.remaininglivesloc, Color.White);
-                    spriteBatch.Draw(deathmario, mariodestinationRectangle, sourceRectangle, Color.White);
-                }
-                else { spriteBatch.DrawString(font, UtilityClass.gameOver, UtilityClass.deathtextloc, Color.White); }
-                spriteBatch.End();
+                gameover.Draw(this);
             }
             else
             {
@@ -262,7 +204,7 @@ namespace Sprint2
                 flag.Draw(spriteBatch, camera.GetPosition());
                 if (mario.returnLocation().X >= UtilityClass.flagpoleLocation && mario.returnLocation().X < UtilityClass.aboveGroundEndLocation)
                 {
-                   endMario.Draw(spriteBatch, camera.GetPosition());
+                    endMario.Draw(spriteBatch, camera.GetPosition());
                 }
                 spriteBatch.End();
                 base.Draw(gameTime);
@@ -285,7 +227,7 @@ namespace Sprint2
         }
         public void resetLives()
         {
-            remaininglives = UtilityClass.StartingLives;
+
         }
 
         private String FormattedTime()
