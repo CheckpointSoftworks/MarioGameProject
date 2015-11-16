@@ -21,11 +21,11 @@ namespace Sprint2
         public const int sixteen = 16;
         public const int OneHundred = 100;
 
-        public const float pointFive = .5f;
-        public const float onePointFive = 1.5f;
+        public const float pipeTransistionAnimationFourthFrameTime = .5f;
+        public const float pipeTransistionAnimationSecondFramTime = 1.5f;
         public const int undergroundpipeleftX = 928;
         public const int undergroudpiperightX = 960;
-        public const int fourTwentyFour = 424;
+        public const int sendAbovegroundYLocation = 424;
         public const int threeHundred = 300;
         public const int fourHundred = 400;
         public const int nineThrityEight = 938;
