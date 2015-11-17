@@ -1,17 +1,18 @@
 ﻿Author of the code review: Kris Wenger
-Date of the code review: 11/2/15
-Sprint number: 4
-Name of the .cs file being reviewed: CameraController
-Author of the .cs file being reviewed: Scott Weddendorf
+Date of the code review: 11/16/15
+Sprint number: 5
+Name of the .cs file being reviewed: GUI.cs
+Author of the .cs file being reviewed: Matthew Mohr
 Specific comments on code quality:
-	The class is quite percise in its variable naming conventions.  In terms of maintainability,
-	adjusting the camera to follow a different player character other than Mario seems easy
-	enough, just in the constructor send a different IPlayer to the controller.  This is the
-	same with have the controller control a different player.  So in theory, on could have a camera
-	centered around a Mario player and another camera centered around a Luigi player.  In terms of
-	dependencies the controller is only really dependent on an IPlayer and a camera, both of which make
-	sense since you need the camera to control and the player to know when to move the camera.
-	In terms of cohesion the camera controller I would say has high cohesion becuase it is perfroming
-	only one task.  It is updating the camera through method calls.  In terms of coupling as stated above
-	the class has very few dependencies, so I would also say that the camera contoller has loose coupling.
-	Overall, I believe this class has high cohesion and loose coupling.
+	The class is quite percise in its variable naming conventions, except for its use of i as a loop variable.
+	However it makes sense in the context it used.  In terms of maintainability,
+	the class seems to be able to easily take IScoreItems and display the GUI.  Adding a 
+	new type of item which has a score can be done easily based off this desgin of the GUI, simply create
+	a new IScoreItem and use the suscribe method in GUI on it.  In terms of
+	dependencies the gui is only really dependent on an List Object, which is a commong type, and IScoreItem,
+	which is a interface and thus less coupling than with multiple concrete classes.
+	In terms of cohesion the GUI I would say has high cohesion becuase it is perfroming
+	only three tasks, both relating to the GUI, updating it and drawing it, it also adds items to the List to display
+	but again that is a method relating to GUI.  It is updating the camera through method calls.  
+	In terms of coupling as stated above the class has almost no dependencies, so I would also say 
+	that the GUI has loose coupling.  Overall, I believe this class has high cohesion and loose coupling.
