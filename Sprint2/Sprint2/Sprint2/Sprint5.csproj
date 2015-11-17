@@ -247,9 +247,10 @@
     <Compile Include="ItemClasses\ItemSpriteClasses\UsedItemSprite.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CodeReviewFolder\IanWeberCodeReadingReviewSprint4.txt" />
+    <Content Include="CodeReviewFolder\IanWeberCodeReadingReviewSprint5.txt" />
     <Content Include="CodeReviewFolder\JonathanMillerCodeQualityReviewSprint5.txt" />
     <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReviewSprint5.txt" />
+    <Content Include="CodeReviewFolder\KrisWengerCodeQualityReveiw.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\MohrMattCodeReadabilityReviewSprint5.txt" />
     <Content Include="CodeReviewFolder\ScottWeddendorfReadabilityReview.txt" />
