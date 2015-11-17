@@ -18,6 +18,7 @@ namespace Sprint2
         private SpriteFont basicarialfont;
         private Texture2D deathbackground;
         private Boolean playmusic;
+        private bool offScreen;
         public GameOver(Game1 game)
         {
              deathscreen = false;
@@ -26,6 +27,7 @@ namespace Sprint2
              font = game.Content.Load<SpriteFont>(UtilityClass.FontString);
              basicarialfont = game.Content.Load<SpriteFont>(UtilityClass.BasicArialFontString);
              deathbackground = game.Content.Load<Texture2D>(UtilityClass.deathbackground);
+             offScreen = false;
         }
         public void Update(Mario mario, float elapsedtime, Game1 game)
         {
@@ -53,13 +55,21 @@ namespace Sprint2
                
             if (((int)(((Mario)mario).Location.Y)) > game.camera.GetHeight())
             {
+                offScreen = true;
+            }
+            else
+            {
+                offScreen = false;
+            }
+            if (offScreen)
+            {
                 remaininglives = ((Mario)mario).GetLives().ScoreValue;
                 if (playmusic)
                 {
                     MusicFactory.Dead();
                     while (MediaPlayer.State != MediaState.Stopped) { }
                     playmusic = false;
-                }               
+                }
                 if (remaininglives == UtilityClass.zero)
                 {
                     MusicFactory.GameOver();

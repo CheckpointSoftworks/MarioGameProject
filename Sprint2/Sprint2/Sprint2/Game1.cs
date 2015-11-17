@@ -38,7 +38,7 @@ namespace Sprint2
         private ICommand keyNotPressed;
         private SpriteFont font;
         private SpriteFont basicarialfont;
-        private double time;
+        public double time { get; set; }
         public GUI gui;
         public IEndingSequenceMario endMario { get; set; }
         public IPole pole { get; set; }
@@ -224,10 +224,6 @@ namespace Sprint2
         public void ResetTime()
         {
             time = UtilityClass.LevelStartTime;
-        }
-        public void resetLives()
-        {
-
         }
 
         private String FormattedTime()

@@ -10,7 +10,7 @@ namespace Sprint2
     public class Pipe : IEnviromental
     {
         private ISprite pipeSprite;
-        public bool sendunderground = false;
+        private bool sendunderground = false;
         public Pipe(int locX, int locY)
         {
             Vector2 location = new Vector2(locX, locY);
@@ -27,6 +27,10 @@ namespace Sprint2
         public void Update()
         {
             pipeSprite.Update();
+        }
+        public void setUnderground()
+        {
+            sendunderground = true;
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
