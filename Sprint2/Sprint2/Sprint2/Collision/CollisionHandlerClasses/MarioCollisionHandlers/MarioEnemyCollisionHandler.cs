@@ -26,7 +26,10 @@ namespace Sprint2
             {
                 command = new EnemyHitsMarioCollision(mario,enemy);
                 command.Execute();
-                StatePuaseAlterationCall.Execute();
+                if (!mario.Star)
+                {
+                    StatePuaseAlterationCall.Execute();
+                }
             }
             if (enemy.canHurtOtherEnemies()&&!(side.returnCollisionSide().Equals(CollisionSide.None))&&!enemy.canHurtMario())
             {
