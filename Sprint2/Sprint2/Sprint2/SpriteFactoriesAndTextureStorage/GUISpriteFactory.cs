@@ -13,8 +13,8 @@ namespace Sprint2
 
         public static void Load(ContentManager content)
         {
-            guiMarioSprite = content.Load<Texture2D>("MarioSmallStill");
-            guiCoinSprite = content.Load<Texture2D>("BoxCoin");
+            guiMarioSprite = content.Load<Texture2D>(UtilityClass.guiMarioSprite);
+            guiCoinSprite = content.Load<Texture2D>(UtilityClass.guiCoinSprite);
         }
 
         public static Texture2D CreateGUIMarioSprite()

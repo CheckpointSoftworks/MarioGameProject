@@ -14,7 +14,7 @@ namespace Sprint2
         public GoombaDamaged(Goomba goomba)
         {
             this.goomba = goomba;
-            sprite = new AnimatedSprite(EnemySpriteFactory.CreateGoombaDamangedSprite(), UtilityClass.one, UtilityClass.one, goomba.returnLocation(), UtilityClass.four);
+            sprite = new AnimatedSprite(EnemySpriteFactory.CreateGoombaDamangedSprite(), UtilityClass.one, UtilityClass.one, goomba.returnLocation(), UtilityClass.generalTotalFramesAndSpecializedRows);
         }
 
         public void Update()

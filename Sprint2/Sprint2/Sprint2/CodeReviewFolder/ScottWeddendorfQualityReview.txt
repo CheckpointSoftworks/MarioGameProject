@@ -1,0 +1,16 @@
+Author: Scott Weddendorf
+Date: November 16, 2015
+Sprint: 5
+Name of File: PauseCommand.cs
+Author of File: Kris Wenger
+Minutes: 10
+Comments:
+	The class has very low coupling which is good for maintainability.  The only dependency 
+	is Game1 which is typical for command classes.  The coupling is tight with the Game1 
+	class as calls are made to directly alter variables in the Game1 class.  However, this
+	is necessary for command classes.  The class is very simple and follows the guidlines 
+	and patterns that have been used for other command classes in the project which is good 
+	for readability of the code.  Overall, the class is of good quality as it is cohesive 
+	and has low coupling.  One possible improvement for the class would be to add a class
+	for a pause state that is called in the command so a pause menu could be added in the 
+	future.

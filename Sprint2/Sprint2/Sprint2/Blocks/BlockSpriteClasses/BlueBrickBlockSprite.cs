@@ -14,7 +14,7 @@ namespace Sprint2
         private bool smashed;
         private Rectangle collisionRectangle;
         private int frame;
-        private int spriteSheetSpriteSize = UtilityClass.sixteen;
+        private int spriteSheetSpriteSize = UtilityClass.generalSpriteHeightAndWidth;
         private int totalFrames;
 
         public BlueBrickBlockSprite(Vector2 location)

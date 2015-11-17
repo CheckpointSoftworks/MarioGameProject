@@ -130,7 +130,7 @@ namespace Sprint2
             {
                 endMarioSprite.MarioFlagpoleDrawFacingLeft(location, spriteBatch, cameraLoc);
                 waitToLeaveFlagpole--;
-                if (waitToLeaveFlagpole <= 0)
+                if (waitToLeaveFlagpole <= UtilityClass.zero)
                 {
                     if (!offBlock)
                     {

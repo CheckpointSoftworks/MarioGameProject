@@ -21,7 +21,7 @@ namespace Sprint2
         {
             boxCoinSpriteSheet = ItemSpriteTextureStorage.CreateBoxCoinSprite();
             this.location = location;
-            boxCoinSprite = new AnimatedSprite(boxCoinSpriteSheet, UtilityClass.one, UtilityClass.four, location, UtilityClass.three);
+            boxCoinSprite = new AnimatedSprite(boxCoinSpriteSheet, UtilityClass.one, UtilityClass.generalTotalFramesAndSpecializedRows, location, UtilityClass.specializedSpriteTotalFramesAndMarioRunningCols);
             collisionRectangle = boxCoinSprite.returnCollisionRectangle();
         }
 
