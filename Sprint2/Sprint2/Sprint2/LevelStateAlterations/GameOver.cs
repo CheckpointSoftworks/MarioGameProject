@@ -51,7 +51,7 @@ namespace Sprint2
                
             if (((int)(((Mario)mario).Location.Y)) > game.camera.GetHeight())
             {
-                ((Mario)mario).GetLives().ScoreValue = ((Mario)mario).GetLives().ScoreValue;
+                ((Mario)mario).DieImmediately();
                 if (playmusic)
                 {
                     MusicFactory.Dead();

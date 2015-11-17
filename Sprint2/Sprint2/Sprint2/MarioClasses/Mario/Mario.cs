@@ -257,6 +257,11 @@ namespace Sprint2
             return rigidbody.Velocity.X;
         }
 
+        public void DieImmediately()
+        {
+            state.Dying();
+        }
+
         public void ScoreEvent(NonPlayerScoreItem target)
         {
             points.UpdateScore(target.ScoreValue);
