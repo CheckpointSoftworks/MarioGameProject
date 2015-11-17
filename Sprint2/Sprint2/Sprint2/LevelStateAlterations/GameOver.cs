@@ -13,7 +13,6 @@ namespace Sprint2
     {
         public Boolean deathscreen;
         private float deathtime;
-        private int remaininglives;
         private SpriteFont font;
         private SpriteFont basicarialfont;
         private Texture2D deathbackground;
@@ -31,7 +30,6 @@ namespace Sprint2
         {
              if (((Mario)mario).StateStatus().Equals(MarioState.Die))
              {
-                remaininglives = ((Mario)mario).GetLives().ScoreValue;
                 if (playmusic)
                 {
                     MusicFactory.Dead();
@@ -39,7 +37,7 @@ namespace Sprint2
                     playmusic = false;
                 }  
                 while (MediaPlayer.State != MediaState.Stopped) { }
-                if (remaininglives == UtilityClass.zero) { MusicFactory.GameOver(); }
+                if (((Mario)mario).GetLives().ScoreValue < UtilityClass.zero) { MusicFactory.GameOver(); }
                 if (deathtime > UtilityClass.zero) { deathscreen = true;  deathtime = deathtime - elapsedtime; }
                 else
                 {
@@ -53,14 +51,14 @@ namespace Sprint2
                
             if (((int)(((Mario)mario).Location.Y)) > game.camera.GetHeight())
             {
-                remaininglives = ((Mario)mario).GetLives().ScoreValue;
+                ((Mario)mario).GetLives().ScoreValue = ((Mario)mario).GetLives().ScoreValue;
                 if (playmusic)
                 {
                     MusicFactory.Dead();
                     while (MediaPlayer.State != MediaState.Stopped) { }
                     playmusic = false;
                 }               
-                if (remaininglives == UtilityClass.zero)
+                if (((Mario)mario).GetLives().ScoreValue < UtilityClass.zero)
                 {
                     MusicFactory.GameOver();
                 }
@@ -80,17 +78,17 @@ namespace Sprint2
         {
             Rectangle sourceRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.gameOverScreenWidth, UtilityClass.generalSpriteHeightAndWidth);
             Rectangle mariodestinationRectangle = new Rectangle(UtilityClass.deathMarioLocationX, UtilityClass.deathMarioLocationY, UtilityClass.gameOverScreenWidth, UtilityClass.generalSpriteHeightAndWidth);
-            Rectangle remaininglivesdestinationRectangle = new Rectangle(UtilityClass.deathMarioLocationX + UtilityClass.ten, UtilityClass.deathMarioLocationY, UtilityClass.gameOverScreenWidth, UtilityClass.generalSpriteHeightAndWidth);
+            Rectangle marioLives = new Rectangle(UtilityClass.deathMarioLocationX + UtilityClass.ten, UtilityClass.deathMarioLocationY, UtilityClass.gameOverScreenWidth, UtilityClass.generalSpriteHeightAndWidth);
             Rectangle backgrounddestinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.deathBackgroundX, UtilityClass.deathBackgroundY);
             Texture2D deathmario = MarioSpriteFactory.CreateMarioSmallStillSprite();
             game.spriteBatch.Begin();
             game.spriteBatch.Draw(deathbackground, backgrounddestinationRectangle, sourceRectangle, Color.Black);
             game.gui.DrawPlayGUI(game.spriteBatch, font);
-            if (remaininglives > UtilityClass.zero)
+            if (((Mario)game.mario).GetLives().ScoreValue >= UtilityClass.zero)
             {
                 game.spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel, UtilityClass.deathtextloc, Color.White);
                 game.spriteBatch.DrawString(font, UtilityClass.x, UtilityClass.deathmarioloc, Color.White);
-                game.spriteBatch.DrawString(font, remaininglives.ToString(), UtilityClass.remaininglivesloc, Color.White);
+                game.spriteBatch.DrawString(font, ((Mario)game.mario).GetLives().ScoreValue.ToString(), UtilityClass.remaininglivesloc, Color.White);
                 game.spriteBatch.Draw(deathmario, mariodestinationRectangle, sourceRectangle, Color.White);
             }
             else { game.spriteBatch.DrawString(font, UtilityClass.gameOver, UtilityClass.deathtextloc, Color.White); }

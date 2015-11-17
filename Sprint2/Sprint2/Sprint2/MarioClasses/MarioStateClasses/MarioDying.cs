@@ -15,6 +15,7 @@ namespace Sprint2
         {
             this.mario = mario;
             sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioDyingSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
+            mario.LoseLife();
         }
         public void Update()
         {

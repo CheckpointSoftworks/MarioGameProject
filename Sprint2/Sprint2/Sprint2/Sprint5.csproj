@@ -256,6 +256,7 @@
     <Content Include="CodeReviewFolder\MohrMattCodeReadabilityReviewSprint5.txt" />
     <Content Include="CodeReviewFolder\ScottWeddendorfQualityReview.txt" />
     <Content Include="CodeReviewFolder\ScottWeddendorfReadabilityReview.txt" />
+    <Content Include="CodeReviewFolder\MohrMattCodeQualityReviewSprint6.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>

@@ -98,10 +98,15 @@ namespace Sprint2
             mario = levelStore.player;
             cameraController = new CameraController(camera, mario);
             resetCommand = new ResetLevelCommand(this);
+            MusicFactory.MainTheme();
+            ResetGui();
+        }
+
+        public void ResetGui()
+        {
             gui.Subscribe(((Mario)mario).GetPoints());
             gui.Subscribe(((Mario)mario).GetLives());
             gui.Subscribe(((Mario)mario).GetCoins());
-            MusicFactory.MainTheme();
         }
 
         private void LoadKeyBoardCommands()
@@ -225,14 +230,14 @@ namespace Sprint2
         {
             time = UtilityClass.LevelStartTime;
         }
-        public void resetLives()
-        {
-
-        }
-
         private String FormattedTime()
         {
             return Math.Round(time, UtilityClass.zero).ToString();
+        }
+
+        public double CurrentTime()
+        {
+            return time;
         }
     }
 }

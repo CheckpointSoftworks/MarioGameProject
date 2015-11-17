@@ -200,6 +200,25 @@ namespace Sprint2
 
         }
 
+        public void LoseLife()
+        {
+            lives.UpdateScoreNoChain(-1);
+        }
+
+        public PlayerScoreItem[] Scores 
+        {
+            get 
+            {
+                return new PlayerScoreItem[] { coins, lives, points };
+            }
+            set
+            {
+                coins = value[0];
+                lives = value[1];
+                points = value[2];
+            }
+        }
+
         public void MoveLeft()
         {
             if (!state.State().Equals(MarioState.Duck)) 

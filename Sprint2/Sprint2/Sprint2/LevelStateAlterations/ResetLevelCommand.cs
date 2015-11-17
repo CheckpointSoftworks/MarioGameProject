@@ -17,6 +17,7 @@ namespace Sprint2
 
         public void Execute()
         {
+            PlayerScoreItem[] oldScoreItems = ((Mario)game.mario).Scores; 
             game.camera = new Camera(UtilityClass.cameraHeight, UtilityClass.cameraWidth, new Vector2(UtilityClass.zero, UtilityClass.zero));
             game.loader = new LevelLoader(UtilityClass.levelFile, game.camera);
             game.levelStore = new LevelStorage(game.camera);
@@ -25,10 +26,12 @@ namespace Sprint2
             game.cameraController = new CameraController(game.camera, game.mario);
             game.pause = false;
             MusicFactory.MainTheme();
-            game.resetLives();
             game.ResetTime();
             game.hitFlagpole = false;
             game.flag = new Flag();
+            ((Mario)game.mario).Scores = oldScoreItems;
+            game.gui = new GUI();
+            game.ResetGui();
         }
     }
 }

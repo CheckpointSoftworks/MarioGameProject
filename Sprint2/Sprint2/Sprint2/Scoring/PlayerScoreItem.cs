@@ -10,6 +10,7 @@ namespace Sprint2
     public class PlayerScoreItem : IScoreItem
     {
         public enum GUIType { coin, mario, text };
+        private string scoreFormat = "000000";
         private GUIType type;
         private ISprite sprite;
         private Vector2 location;
@@ -21,7 +22,14 @@ namespace Sprint2
 
         override public String ToString()
         {
-            return ScoreName.ToString() + ScoreValue.ToString();
+            if (type.Equals(GUIType.text))
+            {
+                return ScoreName.ToString() + ScoreValue.ToString(scoreFormat);
+            }
+            else
+            {
+                return ScoreName.ToString() + ScoreValue.ToString();
+            }
         }
 
         public PlayerScoreItem()
