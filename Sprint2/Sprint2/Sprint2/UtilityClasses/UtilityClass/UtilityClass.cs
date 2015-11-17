@@ -8,44 +8,41 @@ namespace Sprint2
 {
     public static class UtilityClass
     {
-        //General Magic Numbers
         public const int zero = 0;
         public const int one = 1;
         public const int two = 2;
-        public const int three = 3;
-        public const int four = 4;
-        public const int five = 5;
-        public const int eight = 8;
         public const int ten = 10;
-        public const int twelve = 12;
-        public const int sixteen = 16;
-        public const int OneHundred = 100;
+
+        public const int specializedSpriteTotalFramesAndMarioRunningCols = 3;
+        public const int generalTotalFramesAndSpecializedRows = 4;
+        public const int marioTranstitionTimeModulus= 5;
+        public const int enemyTotalFramesAndMarioFlagpoleTotalFrames = 8;
+        public const int gameOverScreenWidth= 12;
+        public const int generalSpriteHeightAndWidth = 16;
+        public const int addCoinScore = 100;
 
         public const float pipeTransistionAnimationFourthFrameTime = .5f;
         public const float pipeTransistionAnimationSecondFramTime = 1.5f;
         public const int undergroundpipeleftX = 928;
         public const int undergroudpiperightX = 960;
         public const int sendAbovegroundYLocation = 424;
-        public const int threeHundred = 300;
-        public const int fourHundred = 400;
-        public const int nineThrityEight = 938;
-        public const int threeSixty = 360;
-        public const int threeSeventy = 370;
-        public const int threeEighty = 380;
-        public const int threeNintey = 390;
-        public const int fourOThirtyTwo = 4032;
-        public const int fourtyTwoHundred = 4200;
-        public const int fourtyTwoHundredAndTen = 4210;
-        public const int fourtyTwoHundredAndTwenty = 4220;
-        public const int fourtyTwoHundredAndThirty = 4230;
-        public const int fiftenSixteen = 1516;
-        public const int twentySixHundrenAndSixtyFour = 2664;
+        public const int pipeSendBelowMarioY = 300;
+        public const int pipeSendAboveGroundFinishedMarioLocationY = 400;
+        public const int pipeBelowGroundTransistionX = 938;
+        public const int pipeSendBelowGroundTransistionOneY = 360;
+        public const int pipeSendBelowGroundTransistionTwoY = 370;
+        public const int pipeSendBelowGroundTransistionThreeY = 380;
+        public const int pipeSendBelowGroundTransistionFourY = 390;
+        public const int pipeSendBelowMarioX = 4032;
+        public const int pipeSendAboveGroundTransistionOneX = 4200;
+        public const int pipeSendAboveGroundTransistionTwoX = 4210;
+        public const int pipeSendAboveGroundTransistionThreeX = 4220;
+        public const int pipeSendAboveGroundTransistionFourX = 4230;
+        public const int pipeSendAboveCameraAdjustment = 1516;
+        public const int pipeSendAboveGroundFinishedMarioLocationX = 2664;
         public const int leftfacingundergroundpipeX = 4188;
         public const int leftfacingundergroundpipeY = 408;
 
-
-
-        //Block Magic Numbers
         public const int BrickPieceYAdjustment = 5;
         public const int itemOffSet = 16;
         public const int BrickPieceXAdjustmentSmall = 1;
@@ -53,13 +50,9 @@ namespace Sprint2
         public const int CoinDispenserLimit = 15;
         public const int BlockBounceTimer = 20;
 
-        //Camera Magic Numbers
         public const int currentScreenMax = 800;
         public const int maxScroll = 3500;
 
-        //Collision Magic Numbers
-
-        //Controller Magic Numbers
         public const float restoreElasticity = 0.0f;
         public const float restoreAirFriction = 0.95f;
         public const float restoreGroundFriction = 0.7f;
@@ -77,7 +70,6 @@ namespace Sprint2
         public const int fireballSpawnYOffset = 8;
         public const float deadZone = 0.5f;
 
-        //Enemy Magic Numbers
         public const float goombaAirFriction = 0.8f;
         public const float goombaGroundFriction = 1f;
         public const float goombaGroundSpeed = 1.5f;
@@ -91,13 +83,11 @@ namespace Sprint2
         public const float noMovement = 0.0f;
         public const float koopShellLeftMovement = 1.0f;
 
-        //Enviromental Magic Numbers
         public const int brickPiecesRiseAndFall = 70;
         public const int brickPiecesRise = 60;
         public const int flagpoleLocation = 3208;
         public const int aboveGroundEndLocation = 4000;
 
-        //Item Magic Numbers
         public const int CoinTimer = 30;
         public const float coinMoveSpeed = -4.25f;
         public const float coindecayRate = 0.32f;
@@ -116,7 +106,6 @@ namespace Sprint2
         public const int coinScore = 200;
         public const int itemScore = 1000;
 
-        //Level Magic Numbers and strings
         public const int enableEnemyPixelWidth = 10;
         public const int fireballLimit = 5;
         public const int stateTransistionTimer = 20;
@@ -136,8 +125,12 @@ namespace Sprint2
         public const float marioJumpSpeed = -48.0f;
         public const float marioJumpDuration = 1.6f;
         public const float marioTransistionTimerCount = 0.1f;
+        public const float marioMinMovementSpeed = 0.1f;
         public const float marioTransitionDirection = 0.4f;
         public const int marioTransistionOffset = 16;
+        public const int marioStarColorOne = 7;
+        public const int marioStarColorTwo = 5;
+        public const int marioStarColorThree = 4;
 
         //Mario Ending Sequence Magic Numbers
         public const float slideSpeed = 2.0f;
@@ -265,8 +258,9 @@ namespace Sprint2
         public const string BasicArialFontString = "Fonts/BasicArial";
         public const string score = "Score:";
         public const string emptyString = "";
+        public const string guiMarioSprite = "MarioSmallStill";
+        public const string guiCoinSprite = "BoxCoin";
 
-        //Scores
         public const int CoinScoreValue = 200;
 
 

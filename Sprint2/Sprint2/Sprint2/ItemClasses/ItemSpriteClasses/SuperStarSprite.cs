@@ -17,7 +17,7 @@ namespace Sprint2
         {
             superStarSpriteSheet = ItemSpriteTextureStorage.CreateSuperStarSprite();
             this.location = location;
-            superStarSprite = new AnimatedSprite(superStarSpriteSheet, UtilityClass.one, UtilityClass.four, location, UtilityClass.one);
+            superStarSprite = new AnimatedSprite(superStarSpriteSheet, UtilityClass.one, UtilityClass.generalTotalFramesAndSpecializedRows, location, UtilityClass.one);
         }
 
         public void Update()

@@ -14,7 +14,7 @@ namespace Sprint2
         public KoopaHealthy(Koopa Koopa)
         {
             this.koopa = Koopa;
-            sprite = new AnimatedSprite(EnemySpriteFactory.CreateKoopaSprite(), UtilityClass.one, UtilityClass.two, koopa.returnLocation(), UtilityClass.four);
+            sprite = new AnimatedSprite(EnemySpriteFactory.CreateKoopaSprite(), UtilityClass.one, UtilityClass.two, koopa.returnLocation(), UtilityClass.generalTotalFramesAndSpecializedRows);
         }
 
         public void Update()

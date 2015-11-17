@@ -144,7 +144,7 @@ namespace Sprint2
             else if (rigidbody.Floored)
             {
                 points.ResetChain();
-                if (Math.Abs(rigidbody.Velocity.X) > 0.1f)
+                if (Math.Abs(rigidbody.Velocity.X) > UtilityClass.marioMinMovementSpeed)
                 {
                     state.Running();
                 }
@@ -250,7 +250,7 @@ namespace Sprint2
         public void AddCoin()
         {
             coins.UpdateScoreNoChain(UtilityClass.one);
-            if (coins.ScoreValue == UtilityClass.OneHundred)
+            if (coins.ScoreValue == UtilityClass.addCoinScore)
             {
                 coins.ScoreValue = UtilityClass.zero;
                 lives.UpdateScoreNoChain(UtilityClass.one);
@@ -312,7 +312,7 @@ namespace Sprint2
                 if (TransitionToBigTime < transitionDuration)
                 {
                     TransitionToBigTime += UtilityClass.marioTransistionTimerCount;
-                    if ((TransitionToBigTime * UtilityClass.ten) % 5 < UtilityClass.one) small = !small;
+                    if ((TransitionToBigTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one) small = !small;
                     transitioning = (TransitionToBigTime < transitionDuration);
                     if (!transitioning)
                     {
@@ -323,7 +323,7 @@ namespace Sprint2
                 if (TransitionToSmallTime < transitionDuration)
                 {
                     TransitionToSmallTime += UtilityClass.marioTransistionTimerCount;
-                    if ((TransitionToSmallTime * UtilityClass.ten) % 5 < UtilityClass.one) small = !small;
+                    if ((TransitionToSmallTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one) small = !small;
                     transitioning = (TransitionToSmallTime < transitionDuration);
                     if (!transitioning)
                     {
@@ -335,7 +335,7 @@ namespace Sprint2
                 {
                     TransitionToFireTime += UtilityClass.marioTransistionTimerCount;
 
-                    if ((TransitionToFireTime * UtilityClass.ten) % UtilityClass.five < UtilityClass.one)
+                    if ((TransitionToFireTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one)
                     {
                         fire = !fire;
                     }
@@ -366,17 +366,17 @@ namespace Sprint2
             
             if (star)
             {
-                if (timer % 7 == UtilityClass.zero)
+                if (timer % UtilityClass.marioStarColorOne == UtilityClass.zero)
                 {
                     state.setDrawColor(Color.Purple);
                     state.Draw(spriteBatch, cameraLoc);
                 }
-                else if (timer % 5 == UtilityClass.zero)
+                else if (timer % UtilityClass.marioStarColorTwo == UtilityClass.zero)
                 {
                     state.setDrawColor(Color.Blue);
                     state.Draw(spriteBatch, cameraLoc);
                 }
-                else if (timer % 4 == UtilityClass.zero)
+                else if (timer % UtilityClass.marioStarColorThree == UtilityClass.zero)
                 {
                     state.setDrawColor(Color.Red);
                     state.Draw(spriteBatch, cameraLoc);

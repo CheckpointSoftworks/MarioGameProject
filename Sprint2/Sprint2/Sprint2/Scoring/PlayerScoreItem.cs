@@ -101,7 +101,7 @@ namespace Sprint2
                 case(GUIType.coin) :
                 {
                     Vector2 adjustedLocation = location;
-                    adjustedLocation.X += UtilityClass.sixteen;
+                    adjustedLocation.X += UtilityClass.itemOffSet;
                     sprite.Draw(spriteBatch,cameraLoc);
                     spriteBatch.DrawString(font, UtilityClass.GUIMarioCoinName + ToString(), adjustedLocation, Color.White);
                     break;
