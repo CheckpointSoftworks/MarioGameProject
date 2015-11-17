@@ -63,15 +63,15 @@ namespace Sprint2
             
                 if (transitiontime > UtilityClass.zero)
                 {
-                    if (transitiontime < UtilityClass.two && transitiontime > UtilityClass.pipeTransistionAnimationSecondFramTime) { ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeSixty); }
-                    if (transitiontime < UtilityClass.pipeTransistionAnimationSecondFramTime && transitiontime > UtilityClass.one) { ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeSeventy); }
-                    if (transitiontime < UtilityClass.one && transitiontime > UtilityClass.pipeTransistionAnimationFourthFrameTime) { ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeEighty); }
-                    if (transitiontime < UtilityClass.pipeTransistionAnimationFourthFrameTime && transitiontime > UtilityClass.zero) { ((Mario)mario).Location = new Vector2(UtilityClass.nineThrityEight, UtilityClass.threeNintey); }
+                    if (transitiontime < UtilityClass.two && transitiontime > UtilityClass.pipeTransistionAnimationSecondFramTime) { ((Mario)mario).Location = new Vector2(UtilityClass.pipeBelowGroundTransistionX, UtilityClass.pipeSendBelowGroundTransistionOneY); }
+                    if (transitiontime < UtilityClass.pipeTransistionAnimationSecondFramTime && transitiontime > UtilityClass.one) { ((Mario)mario).Location = new Vector2(UtilityClass.pipeBelowGroundTransistionX, UtilityClass.pipeSendBelowGroundTransistionTwoY); }
+                    if (transitiontime < UtilityClass.one && transitiontime > UtilityClass.pipeTransistionAnimationFourthFrameTime) { ((Mario)mario).Location = new Vector2(UtilityClass.pipeBelowGroundTransistionX, UtilityClass.pipeSendBelowGroundTransistionThreeY); }
+                    if (transitiontime < UtilityClass.pipeTransistionAnimationFourthFrameTime && transitiontime > UtilityClass.zero) { ((Mario)mario).Location = new Vector2(UtilityClass.pipeBelowGroundTransistionX, UtilityClass.pipeSendBelowGroundTransistionFourY); }
                     transitiontime = transitiontime - elapsedtime;
                 }
                 else
                 {
-                    ((Mario)mario).Location = new Vector2(UtilityClass.fourOThirtyTwo, UtilityClass.threeHundred);
+                    ((Mario)mario).Location = new Vector2(UtilityClass.pipeSendBelowMarioX, UtilityClass.pipeSendBelowMarioY);
                     transitiontime = UtilityClass.two;
                     hasbeguntransition = false;
                     MusicFactory.UnderworldTheme();
@@ -87,16 +87,16 @@ namespace Sprint2
         {
             if (transitiontime > UtilityClass.zero)
             {
-                if (transitiontime < UtilityClass.two && transitiontime > UtilityClass.pipeTransistionAnimationSecondFramTime) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundred, UtilityClass.sendAbovegroundYLocation); }
-                if (transitiontime < UtilityClass.pipeTransistionAnimationSecondFramTime && transitiontime > UtilityClass.one) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundredAndTen, UtilityClass.sendAbovegroundYLocation); }
-                if (transitiontime < UtilityClass.one && transitiontime > UtilityClass.pipeTransistionAnimationFourthFrameTime) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundredAndTwenty, UtilityClass.sendAbovegroundYLocation); }
-                if (transitiontime < UtilityClass.pipeTransistionAnimationFourthFrameTime && transitiontime > UtilityClass.zero) { ((Mario)mario).Location = new Vector2(UtilityClass.fourtyTwoHundredAndThirty, UtilityClass.sendAbovegroundYLocation); }
+                if (transitiontime < UtilityClass.two && transitiontime > UtilityClass.pipeTransistionAnimationSecondFramTime) { ((Mario)mario).Location = new Vector2(UtilityClass.pipeSendAboveGroundTransistionOneX, UtilityClass.sendAbovegroundYLocation); }
+                if (transitiontime < UtilityClass.pipeTransistionAnimationSecondFramTime && transitiontime > UtilityClass.one) { ((Mario)mario).Location = new Vector2(UtilityClass.pipeSendAboveGroundTransistionTwoX, UtilityClass.sendAbovegroundYLocation); }
+                if (transitiontime < UtilityClass.one && transitiontime > UtilityClass.pipeTransistionAnimationFourthFrameTime) { ((Mario)mario).Location = new Vector2(UtilityClass.pipeSendAboveGroundTransistionThreeX, UtilityClass.sendAbovegroundYLocation); }
+                if (transitiontime < UtilityClass.pipeTransistionAnimationFourthFrameTime && transitiontime > UtilityClass.zero) { ((Mario)mario).Location = new Vector2(UtilityClass.pipeSendAboveGroundTransistionFourX, UtilityClass.sendAbovegroundYLocation); }
                 transitiontime = transitiontime - elapsedtime;
             }
             else
             {
-                ((Mario)mario).Location = new Vector2(UtilityClass.twentySixHundrenAndSixtyFour, UtilityClass.fourHundred);
-                camera.MoveLeft(UtilityClass.fiftenSixteen);
+                ((Mario)mario).Location = new Vector2(UtilityClass.pipeSendAboveGroundFinishedMarioLocationX, UtilityClass.pipeSendAboveGroundFinishedMarioLocationY);
+                camera.MoveLeft(UtilityClass.pipeSendAboveCameraAdjustment);
                 transitiontime = UtilityClass.two;
                 hasbeguntransitionout = false;
                 MusicFactory.MainTheme();

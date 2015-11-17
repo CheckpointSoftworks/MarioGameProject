@@ -16,7 +16,7 @@ namespace Sprint2
         {
             spriteSheet = MiscGameObjectTextureStorage.CreateFireballSprite();
             this.location = location;
-            sprite = new AnimatedSprite(spriteSheet, UtilityClass.one, UtilityClass.four, location, UtilityClass.one);
+            sprite = new AnimatedSprite(spriteSheet, UtilityClass.one, UtilityClass.generalTotalFramesAndSpecializedRows, location, UtilityClass.one);
         }
 
         public void Update()

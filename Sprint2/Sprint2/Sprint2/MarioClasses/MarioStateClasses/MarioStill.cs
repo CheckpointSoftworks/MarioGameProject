@@ -16,9 +16,9 @@ namespace Sprint2
         public MarioStill(Mario mario)
         {
             this.mario = mario;
-            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.four);
-            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.four);
-            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireStillSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.four);
+            big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigStillSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
+            small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
+            fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireStillSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
         }
         public void Update()
         {

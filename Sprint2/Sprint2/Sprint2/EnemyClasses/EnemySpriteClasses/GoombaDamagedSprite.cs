@@ -20,8 +20,8 @@ namespace Sprint2
 
         public GoombaDamagedSprite(Texture2D goombaDamSpritesheet,Vector2 location)
         {
-            this.location = location; 
-            AnimatedDamGoomba = new AnimatedSprite(goombaDamSpritesheet, UtilityClass.one, UtilityClass.two, location, UtilityClass.eight);
+            this.location = location;
+            AnimatedDamGoomba = new AnimatedSprite(goombaDamSpritesheet, UtilityClass.one, UtilityClass.two, location, UtilityClass.enemyTotalFramesAndMarioFlagpoleTotalFrames);
 
 
         }

@@ -14,7 +14,7 @@ namespace Sprint2
         public MarioShootFireball(Mario mario)
         {
             this.mario = mario;
-            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireStillShootSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.four);
+            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireStillShootSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
         }
         public void Update()
         {

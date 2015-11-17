@@ -78,9 +78,9 @@ namespace Sprint2
 
         public void Draw(Game1 game)
         {
-            Rectangle sourceRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.twelve, UtilityClass.sixteen);
-            Rectangle mariodestinationRectangle = new Rectangle(UtilityClass.deathMarioLocationX, UtilityClass.deathMarioLocationY, UtilityClass.twelve, UtilityClass.sixteen);
-            Rectangle remaininglivesdestinationRectangle = new Rectangle(UtilityClass.deathMarioLocationX + UtilityClass.ten, UtilityClass.deathMarioLocationY, UtilityClass.twelve, UtilityClass.sixteen);
+            Rectangle sourceRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.gameOverScreenWidth, UtilityClass.generalSpriteHeightAndWidth);
+            Rectangle mariodestinationRectangle = new Rectangle(UtilityClass.deathMarioLocationX, UtilityClass.deathMarioLocationY, UtilityClass.gameOverScreenWidth, UtilityClass.generalSpriteHeightAndWidth);
+            Rectangle remaininglivesdestinationRectangle = new Rectangle(UtilityClass.deathMarioLocationX + UtilityClass.ten, UtilityClass.deathMarioLocationY, UtilityClass.gameOverScreenWidth, UtilityClass.generalSpriteHeightAndWidth);
             Rectangle backgrounddestinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.deathBackgroundX, UtilityClass.deathBackgroundY);
             Texture2D deathmario = MarioSpriteFactory.CreateMarioSmallStillSprite();
             game.spriteBatch.Begin();

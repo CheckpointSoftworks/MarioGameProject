@@ -21,12 +21,12 @@ namespace Sprint2
         {
             this.smallMario = smallMario;
             this.fireMario = fireMario;
-            bigFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigFlagpoleSprite(), 1, 2, location, 8);
-            smallFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallFlagpoleSprite(), 1, 2, location, 8);
-            fireFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireFlagpoleSprite(), 1, 2, location, 8);
-            bigWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(), 1, 3, location, 4);
-            smallWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(), 1, 3, location, 4);
-            fireWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireRunningSprite(), 1, 3, location, 4);
+            bigFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigFlagpoleSprite(), UtilityClass.one, UtilityClass.two, location, UtilityClass.enemyTotalFramesAndMarioFlagpoleTotalFrames);
+            smallFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallFlagpoleSprite(), UtilityClass.one, UtilityClass.two, location, UtilityClass.enemyTotalFramesAndMarioFlagpoleTotalFrames);
+            fireFlagpole = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireFlagpoleSprite(), UtilityClass.one, UtilityClass.two, location, UtilityClass.enemyTotalFramesAndMarioFlagpoleTotalFrames);
+            bigWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigRunningSprite(), UtilityClass.one, UtilityClass.specializedSpriteTotalFramesAndMarioRunningCols, location, UtilityClass.generalTotalFramesAndSpecializedRows);
+            smallWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallRunningSprite(), UtilityClass.one, UtilityClass.specializedSpriteTotalFramesAndMarioRunningCols, location, UtilityClass.generalTotalFramesAndSpecializedRows);
+            fireWalking = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireRunningSprite(), UtilityClass.one, UtilityClass.specializedSpriteTotalFramesAndMarioRunningCols, location, UtilityClass.generalTotalFramesAndSpecializedRows);
         }
         public void Update()
         {
