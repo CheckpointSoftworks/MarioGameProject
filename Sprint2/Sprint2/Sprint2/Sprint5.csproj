@@ -248,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CodeReviewFolder\IanWeberCodeReadingReviewSprint4.txt" />
+    <Content Include="CodeReviewFolder\IanWeberSprint5CodeMaintainabilityReview.txt" />
     <Content Include="CodeReviewFolder\JonathanMillerCodeReadabilityReviewSprint5.txt" />
     <Content Include="CodeReviewFolder\KrisWengerCodeReadabilityReview.txt" />
     <Content Include="CodeReviewFolder\MohrMattCodeReadabilityReviewSprint5.txt" />
