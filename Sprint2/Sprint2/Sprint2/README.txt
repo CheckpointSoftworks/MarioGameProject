@@ -47,11 +47,17 @@ Notes:
 	The analyzer said to make all of camera's private fields and methods into properties, but in order to keep low coupling the
 	team decided to keep the fields private and have them accessed through methods instead.
 
+	Tha analyzer said to make some of mario's methods into properties instead but we believe that methods have lower coupling, so we
+	keep them as methods.
+
+	Tha anaylzer said to remove a boolean in the pipe class but it is used, it is set.
+
 	The Analyzer said to avoid excessive complexity for the levelLoader file, but since levelLoading is doing the parsing of our xml,
 	the team decided it was better to keep it all together.
 
 	The Analyzer said that non-constant fields should not be visible in the utility class, however, because those valuse never, change, but cannot
-	be declared as constants, the team decided to leave them as static fields instead, so that they can be accessed where they are needed.
+	be declared as constants becuase of their types, the team decided to leave them as static fields instead, so that they 
+	can be accessed where they are needed.
 
 Controls:
 Mario:

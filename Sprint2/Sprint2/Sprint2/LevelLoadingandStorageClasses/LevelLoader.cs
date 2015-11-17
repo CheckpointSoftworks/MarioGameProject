@@ -450,7 +450,7 @@ namespace Sprint2
                             int YVal = Int32.Parse(ysplit[1]);
 
                             Pipe GameObject = new Pipe(XVal, YVal);
-                            GameObject.sendunderground = true;
+                            ((Pipe)GameObject).setUnderground();
                             storage.enviromentalObjectsList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
