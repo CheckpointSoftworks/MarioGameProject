@@ -7,12 +7,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class StatItem
+    public class StatItemInt
     {
         private String statName;
         private int statValue;
         private int defaultValue = 0;
-        public String StatName
+        public virtual String StatName
         {
             get
             {
@@ -23,18 +23,18 @@ namespace Sprint2
                 statName = value;
             }
         }
-        public int StatValue
+        public virtual int StatValue
         {
             get { return statValue; }
             private set { statValue = value; }
         }
 
-        public StatItem(String name)
+        public StatItemInt(String name)
         {
             StatName = name;
             statValue = defaultValue;
         }
-        public StatItem(String name, int defaultValue)
+        public StatItemInt(String name, int defaultValue)
         {
             StatName = name;
             this.defaultValue = defaultValue;

@@ -9,13 +9,13 @@ namespace Sprint2
 {
     public class PlayerStatManager
     {
-        public CollectableStat CoinStats { get; private set; }
-        public CollectableStat SuperMushroomStats { get; private set; }
-        public CollectableStat FireFlowerStats { get; private set; }
-        public CollectableStat SuperStarStats { get; private set; }
-        public CollectableStat KoopaStats { get; private set; }
-        public CollectableStat GoombaStats { get; private set; }
-        public CollectableStat BrickBlockStats { get; private set; }
+        private CollectableStat CoinStats { get;  set; }
+        private CollectableStat SuperMushroomStats { get;  set; }
+        private CollectableStat FireFlowerStats { get;  set; }
+        private CollectableStat SuperStarStats { get;  set; }
+        private CollectableStat KoopaStats { get;  set; }
+        private CollectableStat GoombaStats { get;  set; }
+        private CollectableStat BrickBlockStats { get;  set; }
 
         public PlayerStatManager()
         {

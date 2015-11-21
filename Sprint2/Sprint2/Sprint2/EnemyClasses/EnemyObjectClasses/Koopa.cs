@@ -112,10 +112,14 @@ namespace Sprint2
             hurtMario = false;
             ZeroScoreValue();
         }
+
         public void TakeDamage(IPlayer mario)
         {
-            ((Mario)mario).stats.KilledKoopa();
+            if (!shellForm) ((Mario)mario).stats.KilledKoopa();
             state.TakeDamage();
+            shellForm = true;
+            rigidbody.GroundSpeed = UtilityClass.noMovement;
+            hurtMario = false;
             ZeroScoreValue();
         }
 

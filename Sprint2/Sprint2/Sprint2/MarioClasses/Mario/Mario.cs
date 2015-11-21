@@ -28,6 +28,7 @@ namespace Sprint2
         }
 
         public PlayerStatManager stats;
+        public PlayerActionStatManager actions;
 
         private float transitionDuration;
         private float TransitionToBigTime;
@@ -76,6 +77,7 @@ namespace Sprint2
             TransitionToFireTime = UtilityClass.marioTransitionToFireTime;
             TransitionToSmallTime = UtilityClass.marioTransitionToSmallTime;
             stats = new PlayerStatManager();
+            actions = new PlayerActionStatManager();
         }
 
         private void LoadPhysicsProperties()
@@ -163,6 +165,12 @@ namespace Sprint2
             {
                 FacingRight = false;
             }
+        }
+
+        public void Jump()
+        {
+            rigidbody.Jump();
+            actions.AddJump();
         }
 
         public void BounceOff()

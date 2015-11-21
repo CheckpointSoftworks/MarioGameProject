@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class CollectableStat : StatItem
+    public class CollectableStat : StatItemInt
     {
         public CollectableStat(string name) : base (name)
         {
