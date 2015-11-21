@@ -263,7 +263,7 @@ namespace Sprint2
         public const string emptyString = "";
         public const string guiMarioSprite = "MarioSmallStill";
         public const string guiCoinSprite = "BoxCoin";
-
+        public const string ScoreFormat = "000000";
         public const int CoinScoreValue = 200;
 
 
@@ -296,6 +296,16 @@ namespace Sprint2
         public const string KoopaName = "Koopa";
         public const string GoombaName = "Goomba";
         public const string BrickBlockName = "Brick Blocks";
+        public const string StatJumpName = "Jumps";
+        public const string StatAirtimeName = "Airtime";
+        public const string StatShotsFiredName = "Shots Fired";
+        public const string StatShotsHitName = "Shots Hit";
+        public const string StatTimesHitName = "Times Hit";
+        public const string StatStarDurationName = "Star Duration";
+        public const string StatFireDurationName = "Fire Duration";
+        public const string StatBigDurationName = "Big Duration";
+        public const string StatShotAccuracyName = "Shot Accuracy";
+        public const string StatSpacing = ":    ";
 
     }
 }

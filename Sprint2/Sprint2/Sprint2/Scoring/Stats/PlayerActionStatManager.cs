@@ -20,14 +20,14 @@ namespace Sprint2
 
         public PlayerActionStatManager()
         {
-            JumpCount = new StatItemInt("Jumps");
-            AirTime = new StatItemDouble("Airtime");
-            ShotsFired = new StatItemInt("Shots Fired");
-            ShotsHit = new StatItemInt("Shots Hit");
-            DamageTaken = new StatItemInt("Times hit");
-            TimeSpentInStar = new StatItemDouble("Star duration");
-            TimeSpentFire = new StatItemDouble("Fire duration");
-            TimeSpentBig = new StatItemDouble("Big duration");
+            JumpCount = new StatItemInt(UtilityClass.StatJumpName);
+            AirTime = new StatItemDouble(UtilityClass.StatAirtimeName);
+            ShotsFired = new StatItemInt(UtilityClass.StatShotsFiredName);
+            ShotsHit = new StatItemInt(UtilityClass.StatShotsHitName);
+            DamageTaken = new StatItemInt(UtilityClass.StatTimesHitName);
+            TimeSpentInStar = new StatItemDouble(UtilityClass.StatStarDurationName);
+            TimeSpentFire = new StatItemDouble(UtilityClass.StatFireDurationName);
+            TimeSpentBig = new StatItemDouble(UtilityClass.StatBigDurationName);
         }
 
         public void AddJump()
@@ -84,15 +84,16 @@ namespace Sprint2
         }
         public void DrawTotals(SpriteBatch spriteBatch, SpriteFont font, Vector2 loc)
         {
-            String totals = JumpCount.StatName + ":    " + JumpCount.StatValueInt + "\n" +
-             AirTime.StatName + ":    " + AirTime.StatValueDouble / 1000 +" seconds\n" +
-             ShotsFired.StatName + ":    " + ShotsFired.StatValueInt + "\n" +
-              ShotsHit.StatName + ":    " + ShotsHit.StatValueInt + "\n" +
-              "Shot accuracy: " + ":    " + ShotAccuracy() + "\n" +
-              DamageTaken.StatName + ":    " + DamageTaken.StatValueInt + "\n" +
-              TimeSpentInStar.StatName + ":    " + TimeSpentInStar.StatValueDouble / 1000 + " seconds\n" +
-              TimeSpentFire.StatName + ":    " + TimeSpentFire.StatValueDouble / 1000 + " seconds\n" +
-              TimeSpentBig.StatName + ":    " + TimeSpentBig.StatValueDouble / 1000 +" seconds";
+            string s = UtilityClass.StatSpacing;
+            String totals = JumpCount.StatName + s + JumpCount.StatValueInt + "\n" +
+             AirTime.StatName + s + AirTime.StatValueDouble / 1000 +" seconds\n" +
+             ShotsFired.StatName + s + ShotsFired.StatValueInt + "\n" +
+              ShotsHit.StatName + s + ShotsHit.StatValueInt + "\n" +
+              UtilityClass.StatShotAccuracyName + s + ShotAccuracy() + "\n" +
+              DamageTaken.StatName + s + DamageTaken.StatValueInt + "\n" +
+              TimeSpentInStar.StatName + s + TimeSpentInStar.StatValueDouble / 1000 + " seconds\n" +
+              TimeSpentFire.StatName + s + TimeSpentFire.StatValueDouble / 1000 + " seconds\n" +
+              TimeSpentBig.StatName + s + TimeSpentBig.StatValueDouble / 1000 +" seconds";
             spriteBatch.DrawString(font, totals, loc, Color.White);
 
         }
