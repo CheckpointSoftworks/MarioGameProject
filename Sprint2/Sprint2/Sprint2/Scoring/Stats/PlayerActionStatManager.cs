@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
@@ -62,17 +64,37 @@ namespace Sprint2
             TimeSpentBig.IncreaseValue(t);
         }
 
+        private float ShotAccuracy()
+        {
+            return (ShotsFired.StatValueInt > 0) ? ((float)ShotsHit.StatValueInt / (float)ShotsFired.StatValueInt) : 0;
+        }
+
         public void PrintAll()
         {
             Console.WriteLine("********** Player Input **********");
             Console.WriteLine(JumpCount.StatName + ": " + JumpCount.StatValueInt);
-            Console.WriteLine(AirTime.StatName + ": " + AirTime.StatValueDouble);
+            Console.WriteLine(AirTime.StatName + ": " + AirTime.StatValueDouble/1000);
             Console.WriteLine(ShotsFired.StatName + ": " + ShotsFired.StatValueInt);
             Console.WriteLine(ShotsHit.StatName + ": " + ShotsHit.StatValueInt);
+            Console.WriteLine("Shot accuracy: " + ": " + ShotAccuracy());
             Console.WriteLine(DamageTaken.StatName + ": " + DamageTaken.StatValueInt);
-            Console.WriteLine(TimeSpentInStar.StatName + ": " + TimeSpentInStar.StatValueDouble);
-            Console.WriteLine(TimeSpentFire.StatName + ": " + TimeSpentFire.StatValueDouble);
-            Console.WriteLine(TimeSpentBig.StatName + ": " + TimeSpentBig.StatValueDouble);
+            Console.WriteLine(TimeSpentInStar.StatName + ": " + TimeSpentInStar.StatValueDouble / 1000);
+            Console.WriteLine(TimeSpentFire.StatName + ": " + TimeSpentFire.StatValueDouble / 1000);
+            Console.WriteLine(TimeSpentBig.StatName + ": " + TimeSpentBig.StatValueDouble / 1000);
+        }
+        public void DrawTotals(SpriteBatch spriteBatch, SpriteFont font, Vector2 loc)
+        {
+            String totals = JumpCount.StatName + ":    " + JumpCount.StatValueInt + "\n" +
+             AirTime.StatName + ":    " + AirTime.StatValueDouble / 1000 +" seconds\n" +
+             ShotsFired.StatName + ":    " + ShotsFired.StatValueInt + "\n" +
+              ShotsHit.StatName + ":    " + ShotsHit.StatValueInt + "\n" +
+              "Shot accuracy: " + ":    " + ShotAccuracy() + "\n" +
+              DamageTaken.StatName + ":    " + DamageTaken.StatValueInt + "\n" +
+              TimeSpentInStar.StatName + ":    " + TimeSpentInStar.StatValueDouble / 1000 + " seconds\n" +
+              TimeSpentFire.StatName + ":    " + TimeSpentFire.StatValueDouble / 1000 + " seconds\n" +
+              TimeSpentBig.StatName + ":    " + TimeSpentBig.StatValueDouble / 1000 +" seconds";
+            spriteBatch.DrawString(font, totals, loc, Color.White);
+
         }
 
 

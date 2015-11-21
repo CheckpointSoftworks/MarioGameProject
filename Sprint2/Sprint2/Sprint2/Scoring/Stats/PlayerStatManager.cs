@@ -9,23 +9,23 @@ namespace Sprint2
 {
     public class PlayerStatManager
     {
-        private CollectableStat CoinStats { get;  set; }
-        private CollectableStat SuperMushroomStats { get;  set; }
-        private CollectableStat FireFlowerStats { get;  set; }
-        private CollectableStat SuperStarStats { get;  set; }
-        private CollectableStat KoopaStats { get;  set; }
-        private CollectableStat GoombaStats { get;  set; }
-        private CollectableStat BrickBlockStats { get;  set; }
+        private CoinStats CoinStats { get;  set; }
+        private SuperMushroomStats SuperMushroomStats { get;  set; }
+        private FireFlowerStats FireFlowerStats { get;  set; }
+        private SuperStarStats SuperStarStats { get;  set; }
+        private KoopaStats KoopaStats { get;  set; }
+        private GoombaStats GoombaStats { get;  set; }
+        private BreakableBlockStats BrickBlockStats { get;  set; }
 
         public PlayerStatManager()
         {
-            CoinStats = new CollectableStat(UtilityClass.CoinName);
-            SuperMushroomStats = new CollectableStat(UtilityClass.SuperMushroomName);
-            FireFlowerStats = new CollectableStat(UtilityClass.FireFlowerName);
-            SuperStarStats = new CollectableStat(UtilityClass.SuperStarName);
-            KoopaStats = new CollectableStat(UtilityClass.KoopaName);
-            GoombaStats = new CollectableStat(UtilityClass.GoombaName);
-            BrickBlockStats = new CollectableStat(UtilityClass.BrickBlockName);
+            CoinStats = new CoinStats(UtilityClass.CoinName);
+            SuperMushroomStats = new SuperMushroomStats(UtilityClass.SuperMushroomName);
+            FireFlowerStats = new FireFlowerStats(UtilityClass.FireFlowerName);
+            SuperStarStats = new SuperStarStats(UtilityClass.SuperStarName);
+            KoopaStats = new KoopaStats(UtilityClass.KoopaName);
+            GoombaStats = new GoombaStats(UtilityClass.GoombaName);
+            BrickBlockStats = new BreakableBlockStats(UtilityClass.BrickBlockName);
         }
         public void GotCoin()
         {
@@ -66,8 +66,8 @@ namespace Sprint2
           get { return new CollectableStat[] { KoopaStats, GoombaStats }; }
           private set
           {
-              KoopaStats = value[0];
-              GoombaStats = value[1];
+             // KoopaStats = value[0];
+             // GoombaStats = value[1];
           }
          }
         public CollectableStat[] collectibles
@@ -75,10 +75,10 @@ namespace Sprint2
             get { return new CollectableStat[] { CoinStats, SuperMushroomStats, FireFlowerStats, SuperMushroomStats }; }
             private set
             {
-                CoinStats = value[0];
-                SuperMushroomStats = value[1];
-                FireFlowerStats = value[2];
-                SuperStarStats = value[3];
+               // CoinStats = value[0];
+               // SuperMushroomStats = value[1];
+               // FireFlowerStats = value[2];
+                //SuperStarStats = value[3];
             }
         }
 
@@ -86,14 +86,24 @@ namespace Sprint2
         public void PrintAll()
         {
             Console.WriteLine("********** Player Stats **********");
-            foreach (CollectableStat s in collectibles)
-            {   
-                Console.WriteLine(s.StatName + ": " + s.StatValueInt);
-            }
-            foreach (CollectableStat s in enemyStats)
-            {
-                Console.WriteLine(s.StatName + ": " + s.StatValueInt);
-            }
+            Console.WriteLine("Koopas: " + KoopaStats.StatValueInt + "/" + KoopaStats.TotalAvailable);
+            Console.WriteLine("Goomba: " + GoombaStats.StatValueInt + "/" + GoombaStats.TotalAvailable);
+            Console.WriteLine("Coin: " + CoinStats.StatValueInt + "/" + CoinStats.TotalAvailable);
+            Console.WriteLine("SuperMushroom: " + SuperMushroomStats.StatValueInt + "/" + SuperMushroomStats.TotalAvailable);
+            Console.WriteLine("FireFlower: " + FireFlowerStats.StatValueInt + "/" + FireFlowerStats.TotalAvailable);
+            Console.WriteLine("SuperStar: " + SuperStarStats.StatValueInt + "/" + SuperStarStats.TotalAvailable);
+        }
+
+        public void DrawTotals(SpriteBatch spriteBatch, SpriteFont font, Vector2 loc)
+        {
+            String totals = "Koopas  " + KoopaStats.StatValueInt +" of " + KoopaStats.TotalAvailable + "\n" +
+                            "Goomba  " + GoombaStats.StatValueInt + " of " + GoombaStats.TotalAvailable + "\n" +
+                            "Coins  " + CoinStats.StatValueInt +" of " + CoinStats.TotalAvailable + "\n" +
+                            "SuperMushroom  " + SuperMushroomStats.StatValueInt + " of " + SuperMushroomStats.TotalAvailable + "\n" +
+                            "FireFlower  " + FireFlowerStats.StatValueInt + " of " + FireFlowerStats.TotalAvailable + "\n" +
+                            "SuperStar  " + SuperStarStats.StatValueInt + " of " + SuperStarStats.TotalAvailable + "\n";
+            spriteBatch.DrawString(font, totals, loc, Color.White);
+            
         }
     }
 }

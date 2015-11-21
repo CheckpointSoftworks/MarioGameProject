@@ -89,8 +89,11 @@ namespace Sprint2
             }
             foreach (IProjectile projectile in storage.projectileList)
             {
-                side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), projectile.returnCollisionRectangle());
-                EnemyProjectileCollisionHandler.handleCollision(enemy, projectile, side);
+                if (projectile.Active())
+                {
+                    side = collisionDetector.getCollision(enemy.returnCollisionRectangle(), projectile.returnCollisionRectangle());
+                    EnemyProjectileCollisionHandler.handleCollision(enemy, projectile, side);
+                }
             }
         }
 

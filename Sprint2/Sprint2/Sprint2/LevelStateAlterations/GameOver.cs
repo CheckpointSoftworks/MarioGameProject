@@ -90,6 +90,7 @@ namespace Sprint2
                 game.spriteBatch.DrawString(font, UtilityClass.x, UtilityClass.deathmarioloc, Color.White);
                 game.spriteBatch.DrawString(font, ((Mario)game.mario).GetLives().ScoreValue.ToString(), UtilityClass.remaininglivesloc, Color.White);
                 game.spriteBatch.Draw(deathmario, mariodestinationRectangle, sourceRectangle, Color.White);
+                ((Mario)game.mario).stats.DrawTotals(game.spriteBatch,font, new Vector2(UtilityClass.deathmarioloc.X-80,UtilityClass.deathmarioloc.Y+20));
             }
             else { game.spriteBatch.DrawString(font, UtilityClass.gameOver, UtilityClass.deathtextloc, Color.White); }
             game.spriteBatch.End();

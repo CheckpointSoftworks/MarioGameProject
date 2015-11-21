@@ -13,9 +13,7 @@ namespace Sprint2
 
         void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc);
 
-
         Rectangle returnCollisionRectangle();
-
 
         bool checkForCollisionTestFlag();
 
@@ -24,5 +22,6 @@ namespace Sprint2
         void updateLocation(Vector2 location);
 
         AutonomousPhysicsObject RigidBody();
+        bool Active();
     }
 }

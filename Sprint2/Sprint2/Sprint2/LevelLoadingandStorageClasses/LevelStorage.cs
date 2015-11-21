@@ -55,7 +55,7 @@ namespace Sprint2
                 }
                 foreach (IProjectile projectile in projectileList)
                 {
-                    projectile.Update();
+                    if (projectile.Active()) projectile.Update();
                 }
                 foreach (IEnviromental enviromental in enviromentalObjectsList)
                 {

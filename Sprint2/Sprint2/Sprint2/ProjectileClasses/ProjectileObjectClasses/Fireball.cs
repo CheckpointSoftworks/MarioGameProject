@@ -43,7 +43,7 @@ namespace Sprint2
 
         public void Update()
         {
-            if (testForCollision&&timer>UtilityClass.zero)
+            if (testForCollision && timer>UtilityClass.zero)
             {
                 rigidbody.UpdatePhysics();
                 location += rigidbody.Velocity;
@@ -55,6 +55,11 @@ namespace Sprint2
                 sprite = new UsedItemSprite(location);
                 testForCollision = false;
             }
+        }
+
+        public bool Active()
+        {
+            return testForCollision;
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)

@@ -23,6 +23,8 @@ namespace Sprint2
         private float decayRate;
         private int waitToLeaveFlagpole;
         private bool flagAtBottom;
+        private PlayerActionStatManager endActions;
+        private PlayerStatManager endStats;
         public bool FlagAtBottom
         {
             get { return flagAtBottom; }
@@ -34,9 +36,11 @@ namespace Sprint2
             get { return endSequenceFinished; }
             set { endSequenceFinished = value; }
         }
-        public EndingSequenceMario(Vector2 location, bool smallMario, bool fireMario)
+        public EndingSequenceMario(Mario mario, bool smallMario, bool fireMario)
         {
-            this.location = location;
+            this.location = mario.Location;
+            endActions = mario.actions;
+            endStats = mario.stats;
             this.smallMario = smallMario;
             endSequenceFinished = false;
             atFlagpoleBottom = false;
@@ -104,8 +108,10 @@ namespace Sprint2
         {
             endMarioSprite.Update();
         }
-        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc, SpriteFont font)
         {
+            endStats.DrawTotals(spriteBatch,font, UtilityClass.GUICollectableStatsPosition);
+            endActions.DrawTotals(spriteBatch, font, UtilityClass.GUIActionStatsPosition);
             if (flagpoleAnimation)
             {
                 if (!atFlagpoleBottom)

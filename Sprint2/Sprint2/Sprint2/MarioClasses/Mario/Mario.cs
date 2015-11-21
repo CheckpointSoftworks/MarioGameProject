@@ -148,7 +148,7 @@ namespace Sprint2
             if (Star) { actions.AddStarTime(time.ElapsedGameTime.Milliseconds); }
             if (Fire) { actions.AddFireTime(time.ElapsedGameTime.Milliseconds); }
             else if (!Small) { actions.AddBigTime(time.ElapsedGameTime.Milliseconds); }
-            if (StateStatus().Equals(MarioState.Jump)) { actions.AddAirTime(time.ElapsedGameTime.Milliseconds); }
+            if (Math.Abs(rigidbody.Velocity.Y)>0.1) { actions.AddAirTime(time.ElapsedGameTime.Milliseconds); }
         }
 
         public void MoveRight()
@@ -179,7 +179,7 @@ namespace Sprint2
 
         public void Jump()
         {
-            if (rigidbody.Floored) { actions.AddJump(); }
+            if (rigidbody.Floored && rigidbody.Velocity.Y < 0) actions.AddJump();
             State.Jump();
             rigidbody.Jump();
         }

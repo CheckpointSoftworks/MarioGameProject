@@ -139,7 +139,7 @@ namespace Sprint2
             if (!pause&&!marioPause)
             {
                 keyNotPressed.Execute();
-                mario.Update(gameTime);
+                if (!(mario.GetLocation().X >= UtilityClass.flagpoleLocation && mario.GetLocation().X < UtilityClass.aboveGroundEndLocation)) mario.Update(gameTime);
                 levelStore.Update();
                 levelStore.handleCollision(mario, this);
                 cameraController.Update();
@@ -152,7 +152,7 @@ namespace Sprint2
 
             else if (marioPause&&!pause)
             {
-                mario.Update(gameTime);
+                if (!(mario.GetLocation().X >= UtilityClass.flagpoleLocation && mario.GetLocation().X < UtilityClass.aboveGroundEndLocation)) mario.Update(gameTime);
                 levelStore.handleCollision(mario, this);
                 stateTransistionPauseTimer--;
             }
@@ -165,13 +165,13 @@ namespace Sprint2
             {
                 if (!hitFlagpole)
                 {
-                    endMario = new EndingSequenceMario(mario.GetLocation(), ((Mario)mario).Small, ((Mario)mario).Fire);
+                    endMario = new EndingSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire);
                     hitFlagpole = true;
                 }
                 flag.MoveDown();
                 endMario.FlagAtBottom = flag.FlagAtBottom();
                 endMario.Update();
-                if (endMario.EndSequenceFinished)
+                if (endMario.EndSequenceFinished && Keyboard.GetState().GetPressedKeys().Length > 0)
                 {
                     resetCommand.Execute();
                 }
@@ -187,7 +187,9 @@ namespace Sprint2
             else
             {
                 GraphicsDevice.Clear(Color.CornflowerBlue);
+
                 spriteBatch.Begin();
+
                 Rectangle sourceRectangle = new Rectangle((int)camera.GetPosition().X, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
                 Rectangle destinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
                 if (mario.GetLocation().X > UtilityClass.deathbackgroundChange)
@@ -209,7 +211,7 @@ namespace Sprint2
                 flag.Draw(spriteBatch, camera.GetPosition());
                 if (mario.GetLocation().X >= UtilityClass.flagpoleLocation && mario.GetLocation().X < UtilityClass.aboveGroundEndLocation)
                 {
-                    endMario.Draw(spriteBatch, camera.GetPosition());
+                    endMario.Draw(spriteBatch, camera.GetPosition(),font);
                 }
                 spriteBatch.End();
                 base.Draw(gameTime);

@@ -252,6 +252,8 @@ namespace Sprint2
         public static Vector2 GUIMarioScorePosition = new Vector2(5, 1);
         public static Vector2 GUIMarioCoinsPosition = new Vector2(100, 0);
         public static Vector2 GUILevelPosition = new Vector2(500, 0);
+        public static Vector2 GUICollectableStatsPosition = new Vector2(10, 40);
+        public static Vector2 GUIActionStatsPosition = new Vector2(10, 150);
         public const string GUIMarioScoreName = "MARIO\n";
         public const string GUIMarioCoinName = "x";
         public const string FontString = "Fonts/SMB";
