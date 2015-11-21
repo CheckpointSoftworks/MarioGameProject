@@ -99,6 +99,7 @@ namespace Sprint2
         public void TakeDamage(IPlayer mario)
         {
             ((Mario)mario).stats.KilledGoomba();
+            ((Mario)mario).ScoreEvent(score);
             state.TakeDamage();
             ZeroScoreValue();
         }

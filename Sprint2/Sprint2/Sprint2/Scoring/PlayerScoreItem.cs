@@ -83,7 +83,7 @@ namespace Sprint2
         }
         public void ChainHit()
         {
-            if (chainModifier < UtilityClass.MaximumChainBonusMultiplier) chainModifier++;
+            if (chainModifier < UtilityClass.MaximumChainBonusMultiplier-1) chainModifier++;
         }
 
         public void ResetChain()

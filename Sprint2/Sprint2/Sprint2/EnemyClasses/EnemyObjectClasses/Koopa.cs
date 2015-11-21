@@ -120,6 +120,7 @@ namespace Sprint2
             shellForm = true;
             rigidbody.GroundSpeed = UtilityClass.noMovement;
             hurtMario = false;
+            ((Mario)mario).ScoreEvent(score);
             ZeroScoreValue();
         }
 

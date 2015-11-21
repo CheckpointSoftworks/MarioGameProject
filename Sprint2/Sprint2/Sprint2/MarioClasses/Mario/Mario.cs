@@ -179,7 +179,12 @@ namespace Sprint2
 
         public void Jump()
         {
-            if (rigidbody.Floored && rigidbody.Velocity.Y < 0) actions.AddJump();
+            if (rigidbody.Floored && rigidbody.Velocity.Y < 0)
+            {
+                if (Small) SoundEffectFactory.JumpSmall();
+                else SoundEffectFactory.JumpBig();
+                actions.AddJump();
+            }
             State.Jump();
             rigidbody.Jump();
         }
