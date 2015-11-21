@@ -62,6 +62,19 @@ namespace Sprint2
             TimeSpentBig.IncreaseValue(t);
         }
 
+        public void PrintAll()
+        {
+            Console.WriteLine("********** Player Input **********");
+            Console.WriteLine(JumpCount.StatName + ": " + JumpCount.StatValueInt);
+            Console.WriteLine(AirTime.StatName + ": " + AirTime.StatValueDouble);
+            Console.WriteLine(ShotsFired.StatName + ": " + ShotsFired.StatValueInt);
+            Console.WriteLine(ShotsHit.StatName + ": " + ShotsHit.StatValueInt);
+            Console.WriteLine(DamageTaken.StatName + ": " + DamageTaken.StatValueInt);
+            Console.WriteLine(TimeSpentInStar.StatName + ": " + TimeSpentInStar.StatValueDouble);
+            Console.WriteLine(TimeSpentFire.StatName + ": " + TimeSpentFire.StatValueDouble);
+            Console.WriteLine(TimeSpentBig.StatName + ": " + TimeSpentBig.StatValueDouble);
+        }
+
 
     }
 }

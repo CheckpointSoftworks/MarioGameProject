@@ -9,11 +9,11 @@ namespace Sprint2
 {
     public interface IPlayer
     {
-        void Update();
+        void Update(GameTime time);
 
         void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc);
 
         Rectangle returnCollisionRectangle();
-        Vector2 returnLocation();
+        Vector2 GetLocation();
     }
 }

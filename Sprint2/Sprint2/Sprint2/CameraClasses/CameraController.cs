@@ -23,7 +23,7 @@ namespace Sprint2
             cameraWidth = camera.GetWidth();
             cameraPosition = camera.GetPosition();
             this.mario = mario;
-            marioPosition = mario.returnLocation();
+            marioPosition = mario.GetLocation();
             screenCenter = cameraWidth/UtilityClass.two;
         }
 
@@ -38,10 +38,10 @@ namespace Sprint2
             if (marioCameraPosition < 0)
             {
                 int newMarioX = (int)marioPosition.X - marioCameraPosition;
-                ((Mario)mario).Location = new Vector2(newMarioX, mario.returnLocation().Y);
+                ((Mario)mario).Location = new Vector2(newMarioX, mario.GetLocation().Y);
             }
             cameraPosition = camera.GetPosition();
-            marioPosition = mario.returnLocation();
+            marioPosition = mario.GetLocation();
         }
     }
 }

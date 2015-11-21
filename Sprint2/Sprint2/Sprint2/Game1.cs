@@ -139,7 +139,7 @@ namespace Sprint2
             if (!pause&&!marioPause)
             {
                 keyNotPressed.Execute();
-                mario.Update();
+                mario.Update(gameTime);
                 levelStore.Update();
                 levelStore.handleCollision(mario, this);
                 cameraController.Update();
@@ -152,7 +152,7 @@ namespace Sprint2
 
             else if (marioPause&&!pause)
             {
-                mario.Update();
+                mario.Update(gameTime);
                 levelStore.handleCollision(mario, this);
                 stateTransistionPauseTimer--;
             }
@@ -161,11 +161,11 @@ namespace Sprint2
 
             pole.Update();
             flag.Update();
-            if (mario.returnLocation().X >= UtilityClass.flagpoleLocation && mario.returnLocation().X < UtilityClass.aboveGroundEndLocation)
+            if (mario.GetLocation().X >= UtilityClass.flagpoleLocation && mario.GetLocation().X < UtilityClass.aboveGroundEndLocation)
             {
                 if (!hitFlagpole)
                 {
-                    endMario = new EndingSequenceMario(mario.returnLocation(), ((Mario)mario).Small, ((Mario)mario).Fire);
+                    endMario = new EndingSequenceMario(mario.GetLocation(), ((Mario)mario).Small, ((Mario)mario).Fire);
                     hitFlagpole = true;
                 }
                 flag.MoveDown();
@@ -190,7 +190,7 @@ namespace Sprint2
                 spriteBatch.Begin();
                 Rectangle sourceRectangle = new Rectangle((int)camera.GetPosition().X, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
                 Rectangle destinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
-                if (mario.returnLocation().X > UtilityClass.deathbackgroundChange)
+                if (mario.GetLocation().X > UtilityClass.deathbackgroundChange)
                 {
                     spriteBatch.Draw(deathbackground, destinationRectangle, sourceRectangle, Color.White);
                 }
@@ -207,7 +207,7 @@ namespace Sprint2
 
                 pole.Draw(spriteBatch, camera.GetPosition());
                 flag.Draw(spriteBatch, camera.GetPosition());
-                if (mario.returnLocation().X >= UtilityClass.flagpoleLocation && mario.returnLocation().X < UtilityClass.aboveGroundEndLocation)
+                if (mario.GetLocation().X >= UtilityClass.flagpoleLocation && mario.GetLocation().X < UtilityClass.aboveGroundEndLocation)
                 {
                     endMario.Draw(spriteBatch, camera.GetPosition());
                 }

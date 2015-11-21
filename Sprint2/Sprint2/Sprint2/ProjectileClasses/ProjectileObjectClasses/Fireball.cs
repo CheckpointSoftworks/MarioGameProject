@@ -99,8 +99,9 @@ namespace Sprint2
         {
             return owner;
         }
-        public void Kill()
+        public void Killed()
         {
+            ((Mario)owner).actions.ShotHit();
             timer = UtilityClass.zero;
         }
     }

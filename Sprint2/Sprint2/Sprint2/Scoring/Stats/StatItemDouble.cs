@@ -11,7 +11,7 @@ namespace Sprint2
     {
         private double statDoubleValue;
         private double defaultValue = 0;
-        public double StatDoubleValue
+        public double StatValueDouble
         {
             get { return statDoubleValue; }
             private set { statDoubleValue = value; }
@@ -26,16 +26,16 @@ namespace Sprint2
         {
             StatName = name;
             this.defaultValue = defaultValue;
-            StatDoubleValue = this.defaultValue;
+            StatValueDouble = this.defaultValue;
         }
         public void IncreaseValue(double val)
         {
-            StatDoubleValue += val;
+            StatValueDouble += val;
         }
 
         public void DecreaseValue(double val)
         {
-            StatDoubleValue -= val;
+            StatValueDouble -= val;
         }
     }
 }

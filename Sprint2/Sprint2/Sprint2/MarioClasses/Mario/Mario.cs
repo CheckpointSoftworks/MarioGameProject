@@ -17,6 +17,7 @@ namespace Sprint2
             get
             {
                 stats.PrintAll();
+                actions.PrintAll();
                 return new PlayerScoreItem[] { coins, lives, points };
             }
             set
@@ -92,8 +93,9 @@ namespace Sprint2
             rigidbody.JumpDuration = UtilityClass.marioJumpDuration;
             rigidbody.IsEnabled = true;
         }
-        public void Update()
+        public void Update(GameTime time)
         {
+            RegisterConditionTime(time);
             if (Math.Abs(rigidbody.Velocity.Y) > UtilityClass.zero) { State.Jump(); }
             else if (rigidbody.Floored)
             {
@@ -141,6 +143,14 @@ namespace Sprint2
             }
         }
 
+        private void RegisterConditionTime(GameTime time)
+        {
+            if (Star) { actions.AddStarTime(time.ElapsedGameTime.Milliseconds); }
+            if (Fire) { actions.AddFireTime(time.ElapsedGameTime.Milliseconds); }
+            else if (!Small) { actions.AddBigTime(time.ElapsedGameTime.Milliseconds); }
+            if (StateStatus().Equals(MarioState.Jump)) { actions.AddAirTime(time.ElapsedGameTime.Milliseconds); }
+        }
+
         public void MoveRight()
         {
             if (!State.State().Equals(MarioState.Duck))
@@ -169,8 +179,9 @@ namespace Sprint2
 
         public void Jump()
         {
+            if (rigidbody.Floored) { actions.AddJump(); }
+            State.Jump();
             rigidbody.Jump();
-            actions.AddJump();
         }
 
         public void BounceOff()
@@ -241,7 +252,10 @@ namespace Sprint2
         }
         public void BecomeBig()
         {
-            if (!Fire) TransitionToBigTime = UtilityClass.zero;
+            if (!Fire)
+            {
+                TransitionToBigTime = UtilityClass.zero;
+            }
         }
         public void BecomeFire()
         {
@@ -257,7 +271,7 @@ namespace Sprint2
             {
                 State.Dying();
             }
-            else
+            else if (!Star)
             {
                 SoundEffectFactory.TransitionSmall();
                 if (Fire)
@@ -270,6 +284,7 @@ namespace Sprint2
                     Small = true;
                     BecomeSmall();
                 }
+                actions.ReceivedDamage();
             }
         }
 
@@ -368,7 +383,8 @@ namespace Sprint2
                 return State.returnStateCollisionRectangle();
             }
         }
-        public Vector2 returnLocation()
+
+        public Vector2 GetLocation()
         {
             return Location;
         }

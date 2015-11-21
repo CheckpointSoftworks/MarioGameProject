@@ -20,7 +20,7 @@ namespace Sprint2
             facingRight = ((Mario)game.mario).FacingRight;
             if (((Mario)game.mario).CanFire && game.fireBallCount>0)
             {
-                Vector2 marioLoc = game.mario.returnLocation();
+                Vector2 marioLoc = game.mario.GetLocation();
                 game.levelStore.projectileList.Add(new Fireball((int)marioLoc.X + UtilityClass.fireballSpawnXOffset, (int)marioLoc.Y + UtilityClass.fireballSpawnYOffset, ((Mario)game.mario).CurrentGroundSpeed(), facingRight, game.mario));
                 game.fireBallCount--;
                 ((Mario)game.mario).CanFire = false;

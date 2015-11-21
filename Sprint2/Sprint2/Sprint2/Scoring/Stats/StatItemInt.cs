@@ -23,7 +23,7 @@ namespace Sprint2
                 statName = value;
             }
         }
-        public virtual int StatValue
+        public virtual int StatValueInt
         {
             get { return statValue; }
             private set { statValue = value; }
@@ -38,22 +38,22 @@ namespace Sprint2
         {
             StatName = name;
             this.defaultValue = defaultValue;
-            StatValue = this.defaultValue;
+            StatValueInt = this.defaultValue;
         }
 
         public void ResetStatValue()
         {
-            StatValue = defaultValue;
+            StatValueInt = defaultValue;
         }
 
         public void IncreaseValue(int val)
         {
-            StatValue += val;
+            StatValueInt += val;
         }
 
         public void DecreaseValue(int val)
         {
-            StatValue -= val;
+            StatValueInt -= val;
         }
     }
 }

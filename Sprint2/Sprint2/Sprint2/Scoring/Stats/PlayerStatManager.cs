@@ -85,14 +85,14 @@ namespace Sprint2
         //Temporary, please delete
         public void PrintAll()
         {
-            Console.WriteLine("**************");
+            Console.WriteLine("********** Player Stats **********");
             foreach (CollectableStat s in collectibles)
             {   
-                Console.WriteLine(s.StatName + ": " + s.StatValue);
+                Console.WriteLine(s.StatName + ": " + s.StatValueInt);
             }
             foreach (CollectableStat s in enemyStats)
             {
-                Console.WriteLine(s.StatName + ": " + s.StatValue);
+                Console.WriteLine(s.StatName + ": " + s.StatValueInt);
             }
         }
     }

@@ -26,8 +26,7 @@ namespace Sprint2
                         SoundEffectFactory.JumpBig();
                     }
                 }
-                ((Mario)Game.mario).State.Jump();
-                ((Mario)Game.mario).rigidbody.Jump();
+                ((Mario)Game.mario).Jump();
             }
     }
 }
