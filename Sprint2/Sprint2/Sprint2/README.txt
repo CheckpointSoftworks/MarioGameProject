@@ -75,3 +75,21 @@ left joystick for left/right/crouch/jump movement
 a key for sprinting
 x key for fireballs
 start for pausing
+
+FEATURES ADDED FOR SPRINT 6
+Statistics and end game scoring - MATT MOHR
+	Added all files found in the Stats subfolder of the Scoring and Stats folder.
+	Stats are dividied into four types: Collectable, Count-Int, Count-Double, and Time
+		Collectable stats are given a total possible values and keeps track of the total of that stat in a static value (TotalAvailable). Eg: CoinStats keeps track of all coins in the level and PlayerStatManager.CoinStats tracks how many coins the player has gotten
+		Count-Int and Count-Double keep track of events and timespans, respectively. They only tick up and may contain rations. Eg: PlayerActionStatManager.JumpCount keeps track of the number of times the player jumped and PlayerActionStatManager.AirTime keeps track of how much time the player was in the air
+		Time is a special kind of Count-Double that tracks death times and win times, displaying them at the end
+	Mario has a reference to PlayerStatManager and PlayerActionStatManager, arrays of listeners to the Stats listener-observer pattern. 
+		Eg: When Mario shoots a fireball, the PlayerActionStatManager is notified. When the fireball connects with an enemy, it is notified again. At the end, a shot accuracy is calculated.
+	When mario dies, a list of collectables is displayed so the player knows how many enemies and items are available and how many they got in the last session.
+	At the end of a level, stats are automatically generated on the string in the DrawTotals() method. 
+		PlayerStatManager and PlayerStatActionManager has a fixed number of stats because the enemies and collectables use static class properties.
+		TimeStat's information is automatically generated based on a list of death times and succesful level completion times.
+	The only coupling involved in the new stats are in the DrawTotals method, which require spritebatches and fonts to properly rend the strings they generate.
+	Cohesion is very high. Most methods in the new classes are single-line methods. The only exception, again, is DrawTotals, but for good reason.
+
+

@@ -16,10 +16,5 @@ namespace Sprint2
             ScoreValue = value;
             Chainable = chain;
         }
-        
-        public NonPlayerScoreItem GetScoreData()
-        {
-            return new NonPlayerScoreItem(ScoreValue, Chainable);
-        }
     }
 }

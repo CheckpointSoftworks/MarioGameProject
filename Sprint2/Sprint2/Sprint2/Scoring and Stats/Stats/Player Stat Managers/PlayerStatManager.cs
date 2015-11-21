@@ -61,27 +61,6 @@ namespace Sprint2
             KoopaStats.IncreaseValue(1);
         }
 
-        public CollectableStat[] enemyStats
-        {
-          get { return new CollectableStat[] { KoopaStats, GoombaStats }; }
-          private set
-          {
-             // KoopaStats = value[0];
-             // GoombaStats = value[1];
-          }
-         }
-        public CollectableStat[] collectibles
-        {
-            get { return new CollectableStat[] { CoinStats, SuperMushroomStats, FireFlowerStats, SuperMushroomStats }; }
-            private set
-            {
-               // CoinStats = value[0];
-               // SuperMushroomStats = value[1];
-               // FireFlowerStats = value[2];
-                //SuperStarStats = value[3];
-            }
-        }
-
         //Temporary, please delete
         public void PrintAll()
         {
