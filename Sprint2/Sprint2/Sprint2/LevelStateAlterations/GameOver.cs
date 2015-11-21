@@ -43,13 +43,12 @@ namespace Sprint2
                 {
                     deathscreen = false;
                     game.resetCommand.Execute();
-                    game.ResetTime();
                     playmusic = true;
                     deathtime = UtilityClass.deathTimer;
                 }
              }
                
-            if (((int)(((Mario)mario).Location.Y)) > game.camera.GetHeight())
+            else if (((int)(((Mario)mario).Location.Y)) > game.camera.GetHeight())
             {
                 ((Mario)mario).DieImmediately();
                 if (playmusic)
@@ -67,7 +66,6 @@ namespace Sprint2
                 {
                     deathscreen = false;
                     game.resetCommand.Execute();
-                    game.ResetTime();
                     playmusic = true;
                     deathtime = UtilityClass.deathTimer;
                 }

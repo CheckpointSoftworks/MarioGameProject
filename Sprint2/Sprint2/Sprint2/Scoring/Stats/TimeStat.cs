@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+
 
 namespace Sprint2
 {
-    class TimeStat
+    public class TimeStat
     {
         private double totalTime;
         private double sessionTime;
@@ -30,12 +32,15 @@ namespace Sprint2
             return false;
         }
 
-        public void ResetTime()
+        public void ResetTime(bool won)
         {
-            deathTimes.Add(totalTime);
-            foreach (double t in deathTimes)
+            if (!won)
             {
-                Console.WriteLine("Died at " + (t / 1000) + " seconds.");
+                deathTimes.Add(totalTime);
+                foreach (double t in deathTimes)
+                {
+                    Console.WriteLine("Died at " + (t / 1000) + " seconds.");
+                }
             }
             sessionTime = UtilityClass.LevelStartTime;
         }
@@ -45,7 +50,30 @@ namespace Sprint2
         }
         public void SaveTime()
         {
-            lapTimes.Add(sessionTime);
+            lapTimes.Add(UtilityClass.LevelStartTime - sessionTime);
+        }
+
+        public void DrawTotals(SpriteBatch spriteBatch, SpriteFont font, Vector2 pos)
+        {
+            string s = "";
+            lapTimes.Sort();
+            if (deathTimes.Count == 0)
+            {
+                s += "Never died!\n";
+            }
+            foreach (double t in deathTimes)
+            {
+                s += ("Died at " + (t / 1000) + " seconds\n");
+            }
+            if (lapTimes.Count == 0)
+            {
+                s += "Never won!";
+            }
+            foreach (double t in lapTimes)
+            {
+                s += "Won in " + Math.Round(t,2) + " seconds\n";
+            }
+            spriteBatch.DrawString(font, s, pos, Color.White);
         }
     }
 }

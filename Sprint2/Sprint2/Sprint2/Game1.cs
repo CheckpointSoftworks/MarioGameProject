@@ -44,7 +44,7 @@ namespace Sprint2
         public IPole pole { get; set; }
         public IFlag flag { get; set; }
         public bool hitFlagpole { get; set; }
-
+        private bool levelWon;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -75,6 +75,7 @@ namespace Sprint2
             pole = new Pole();
             flag = new Flag();
             hitFlagpole = false;
+            levelWon = false;
         }
 
         protected override void LoadContent()
@@ -136,10 +137,12 @@ namespace Sprint2
 
             float elapsedtime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+            levelWon = (mario.GetLocation().X >= UtilityClass.flagpoleLocation && mario.GetLocation().X < UtilityClass.aboveGroundEndLocation);
+
             if (!pause&&!marioPause)
             {
                 keyNotPressed.Execute();
-                if (!(mario.GetLocation().X >= UtilityClass.flagpoleLocation && mario.GetLocation().X < UtilityClass.aboveGroundEndLocation)) mario.Update(gameTime);
+                if (!levelWon) mario.Update(gameTime);
                 levelStore.Update();
                 levelStore.handleCollision(mario, this);
                 cameraController.Update();
@@ -152,7 +155,7 @@ namespace Sprint2
 
             else if (marioPause&&!pause)
             {
-                if (!(mario.GetLocation().X >= UtilityClass.flagpoleLocation && mario.GetLocation().X < UtilityClass.aboveGroundEndLocation)) mario.Update(gameTime);
+                if (!levelWon) mario.Update(gameTime);
                 levelStore.handleCollision(mario, this);
                 stateTransistionPauseTimer--;
             }
@@ -161,11 +164,11 @@ namespace Sprint2
 
             pole.Update();
             flag.Update();
-            if (mario.GetLocation().X >= UtilityClass.flagpoleLocation && mario.GetLocation().X < UtilityClass.aboveGroundEndLocation)
+            if (levelWon)
             {
                 if (!hitFlagpole)
                 {
-                    endMario = new EndingSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire);
+                    endMario = new EndingSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire, time);
                     hitFlagpole = true;
                 }
                 flag.MoveDown();
@@ -209,7 +212,7 @@ namespace Sprint2
 
                 pole.Draw(spriteBatch, camera.GetPosition());
                 flag.Draw(spriteBatch, camera.GetPosition());
-                if (mario.GetLocation().X >= UtilityClass.flagpoleLocation && mario.GetLocation().X < UtilityClass.aboveGroundEndLocation)
+                if (levelWon)
                 {
                     endMario.Draw(spriteBatch, camera.GetPosition(),font);
                 }
@@ -220,7 +223,7 @@ namespace Sprint2
 
         public void ResetTime()
         {
-            time.ResetTime();
+            time.ResetTime(levelWon);
         }
     }
 }

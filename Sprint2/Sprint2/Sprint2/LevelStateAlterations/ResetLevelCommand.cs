@@ -26,7 +26,7 @@ namespace Sprint2
             game.cameraController = new CameraController(game.camera, game.mario);
             game.pause = false;
             MusicFactory.MainTheme();
-            //game.ResetTime();
+            game.ResetTime();
             game.hitFlagpole = false;
             game.flag = new Flag();
             ((Mario)game.mario).Scores = oldScoreItems;

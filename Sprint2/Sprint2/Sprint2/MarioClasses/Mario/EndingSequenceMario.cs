@@ -25,6 +25,7 @@ namespace Sprint2
         private bool flagAtBottom;
         private PlayerActionStatManager endActions;
         private PlayerStatManager endStats;
+        private TimeStat timeStats;
         public bool FlagAtBottom
         {
             get { return flagAtBottom; }
@@ -36,11 +37,13 @@ namespace Sprint2
             get { return endSequenceFinished; }
             set { endSequenceFinished = value; }
         }
-        public EndingSequenceMario(Mario mario, bool smallMario, bool fireMario)
+        public EndingSequenceMario(Mario mario, bool smallMario, bool fireMario, TimeStat time)
         {
             this.location = mario.Location;
             endActions = mario.actions;
             endStats = mario.stats;
+            timeStats = time;
+            timeStats.SaveTime();
             this.smallMario = smallMario;
             endSequenceFinished = false;
             atFlagpoleBottom = false;
@@ -112,6 +115,7 @@ namespace Sprint2
         {
             endStats.DrawTotals(spriteBatch,font, UtilityClass.GUICollectableStatsPosition);
             endActions.DrawTotals(spriteBatch, font, UtilityClass.GUIActionStatsPosition);
+            timeStats.DrawTotals(spriteBatch, font, UtilityClass.TimeStatPosition);
             if (flagpoleAnimation)
             {
                 if (!atFlagpoleBottom)
