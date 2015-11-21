@@ -21,6 +21,7 @@ namespace Sprint2
             SoundEffectFactory.PowerUp();
             superMushroom.setCollisionRectangle(new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero));
             ((Mario)mario).BecomeBig();
+            ((Mario)mario).stats.GotSuperMushroom();
         }
     }
 }

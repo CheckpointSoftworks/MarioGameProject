@@ -21,6 +21,7 @@ namespace Sprint2
         {
             oneUpMushroom.setCollisionRectangle(new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero));
             ((Mario)player).OneUp();
+            
         }
     }
 }

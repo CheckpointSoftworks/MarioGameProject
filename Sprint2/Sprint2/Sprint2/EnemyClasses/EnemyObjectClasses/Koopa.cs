@@ -112,6 +112,12 @@ namespace Sprint2
             hurtMario = false;
             ZeroScoreValue();
         }
+        public void TakeDamage(IPlayer mario)
+        {
+            ((Mario)mario).stats.KilledKoopa();
+            state.TakeDamage();
+            ZeroScoreValue();
+        }
 
         public void updateLocation(Vector2 newLocation)
         {

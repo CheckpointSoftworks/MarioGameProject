@@ -113,6 +113,17 @@
     <Compile Include="MarioClasses\Mario\EndingSequenceMario.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\QuitCommand.cs" />
     <Compile Include="MarioClasses\Mario\EndingSequenceMarioSprite.cs" />
+    <Compile Include="Scoring\CollectableStat.cs" />
+    <Compile Include="Scoring\EnemyStats\GoombaStats.cs" />
+    <Compile Include="Scoring\EnemyStats\KoopaStats.cs" />
+    <Compile Include="Scoring\ItemStats\BreakableBlocks.cs" />
+    <Compile Include="Scoring\ItemStats\CoinStats.cs" />
+    <Compile Include="Scoring\ItemStats\FireFlowerStats.cs" />
+    <Compile Include="Scoring\ItemStats\SuperMushroomStats.cs" />
+    <Compile Include="Scoring\ItemStats\SuperStarStats.cs" />
+    <Compile Include="Scoring\PlayerStatManager.cs" />
+    <Compile Include="Scoring\StatItem.cs" />
+    <Compile Include="Scoring\TimeStat.cs" />
     <Compile Include="SoundClasses\MusicFactory.cs" />
     <Compile Include="SoundClasses\SoundEffectFactory.cs" />
     <Compile Include="UtilityClasses\UtilityClass\UtilityClass.cs" />

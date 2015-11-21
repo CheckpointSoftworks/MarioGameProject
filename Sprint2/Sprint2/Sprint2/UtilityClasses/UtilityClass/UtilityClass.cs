@@ -285,5 +285,14 @@ namespace Sprint2
         public const string bumpEffect = "Sound Effects/bump";
         public const string pipeEffect = "Sound Effects/pipe";
         public const string pauseEffect = "Sound Effects/pause";
+
+        public const string CoinName = "Coin";
+        public const string SuperMushroomName = "Super Mushroom";
+        public const string FireFlowerName = "Fire Flower";
+        public const string SuperStarName = "Super Star";
+        public const string KoopaName = "Koopa";
+        public const string GoombaName = "Goomba";
+        public const string BrickBlockName = "Brick Blocks";
+
     }
 }

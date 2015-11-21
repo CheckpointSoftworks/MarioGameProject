@@ -96,6 +96,13 @@ namespace Sprint2
             ZeroScoreValue();
         }
 
+        public void TakeDamage(IPlayer mario)
+        {
+            ((Mario)mario).stats.KilledGoomba();
+            state.TakeDamage();
+            ZeroScoreValue();
+        }
+
         public void updateLocation(Vector2 newLocation)
         {
             this.location = newLocation;

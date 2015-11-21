@@ -64,6 +64,13 @@ namespace Sprint2
             PipeTestLeft();
             PipeTestTop();
             PipeTestRight();
+
+            GoombaStats.HowMany();
+            KoopaStats.HowMany();
+            CoinStats.HowMany();
+            SuperStarStats.HowMany();
+            BreakableBlockStats.HowMany();
+            FireFlowerStats.HowMany();
         }
 
         public void questionBlockTestBottom()

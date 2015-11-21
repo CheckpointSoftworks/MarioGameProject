@@ -24,7 +24,7 @@ namespace Sprint2
             }
             else
             {
-                enemy.TakeDamage();
+                enemy.TakeDamage(mario);
             }
         }
     }

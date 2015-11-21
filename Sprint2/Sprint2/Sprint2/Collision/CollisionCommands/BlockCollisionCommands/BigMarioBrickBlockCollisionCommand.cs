@@ -25,6 +25,7 @@ namespace Sprint2
             block.Update();
             block.removeFromTestingCollision();
             ((Mario)mario).ScoreEvent(((BrickBlock)block).ScoreData());
+            ((Mario)mario).stats.BrokeBrickBlock();
         }
     }
 }

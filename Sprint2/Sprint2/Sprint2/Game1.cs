@@ -38,7 +38,7 @@ namespace Sprint2
         private ICommand keyNotPressed;
         private SpriteFont font;
         private SpriteFont basicarialfont;
-        private double time;
+        private TimeStat time;
         public GUI gui;
         public IEndingSequenceMario endMario { get; set; }
         public IPole pole { get; set; }
@@ -67,7 +67,7 @@ namespace Sprint2
             canPause = true;
             marioPause = false;
             stateTransistionPauseTimer = UtilityClass.stateTransistionTimer;
-            time = UtilityClass.LevelStartTime;
+            time = new TimeStat(UtilityClass.LevelStartTime);
             gui = new GUI();
             StatePuaseAlterationCall.setGame(this);
             base.Initialize();
@@ -146,7 +146,7 @@ namespace Sprint2
                 pipeTransition.Update((Mario)mario, elapsedtime, camera);
                 gameover.Update((Mario)mario, elapsedtime, this);
                 gui.Update();
-                UpdateTime(gameTime);
+                if (time.UpdateTime(gameTime)) { resetCommand.Execute(); }
                 base.Update(gameTime);
             }
 
@@ -200,7 +200,7 @@ namespace Sprint2
                     sourceRectangle = new Rectangle((int)camera.GetPosition().X - UtilityClass.backgroundChange, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
                     spriteBatch.Draw(background2, destinationRectangle, sourceRectangle, Color.White);
                 }
-                spriteBatch.DrawString(font, UtilityClass.GameTimeName + FormattedTime(), new Vector2(UtilityClass.timeLocation, UtilityClass.ten), Color.White);
+                spriteBatch.DrawString(font, UtilityClass.GameTimeName + time.FormattedTime(), new Vector2(UtilityClass.timeLocation, UtilityClass.ten), Color.White);
                 spriteBatch.DrawString(basicarialfont, UtilityClass.worldLevel, UtilityClass.GUILevelPosition, Color.White);
                 gui.DrawPlayGUI(spriteBatch, font);
                 levelStore.Draw(mario, spriteBatch, hitFlagpole);
@@ -216,28 +216,9 @@ namespace Sprint2
             }
         }
 
-        protected void UpdateTime(GameTime gameTime)
-        {
-            time -= gameTime.ElapsedGameTime.TotalSeconds * UtilityClass.timeAdjustment;
-            if (time <= UtilityClass.zero)
-            {
-                resetCommand.Execute();
-                ResetTime();
-            }
-        }
-
         public void ResetTime()
         {
-            time = UtilityClass.LevelStartTime;
-        }
-        private String FormattedTime()
-        {
-            return Math.Round(time, UtilityClass.zero).ToString();
-        }
-
-        public double CurrentTime()
-        {
-            return time;
+            time.ResetTime();
         }
     }
 }

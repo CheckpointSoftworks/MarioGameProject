@@ -17,7 +17,7 @@ namespace Sprint2
         public void Execute(){
             SoundEffectFactory.Stomp();
             ((Mario)mario).ScoreEvent(enemy.ScoreData());
-            enemy.TakeDamage();
+            enemy.TakeDamage(mario);
             ((Mario)mario).BounceOff();
         }
     }
