@@ -37,10 +37,6 @@ namespace Sprint2
             if (!won)
             {
                 deathTimes.Add(totalTime);
-                foreach (double t in deathTimes)
-                {
-                    Console.WriteLine("Died at " + (t / 1000) + " seconds.");
-                }
             }
             sessionTime = UtilityClass.LevelStartTime;
         }

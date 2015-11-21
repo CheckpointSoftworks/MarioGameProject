@@ -12,14 +12,7 @@ namespace Sprint2
         public static int TotalAvailable { get; set; }
         public KoopaStats(string name): base(name)
         {
-            StatName = "Koopas";
-        }
-
-        //Temporary, plz to delete thx
-        public static void HowMany()
-        {
-            Console.WriteLine("Koopas: " + TotalAvailable);
-
+            StatName = UtilityClass.KoopaName;
         }
     }
 }

@@ -12,14 +12,7 @@ namespace Sprint2
         public static int TotalAvailable {get; set;}
         public GoombaStats(string name) : base (name)
         {
-            StatName = "Goombas";   
-        }
-
-        //Temporary, plz to delete thx
-        public static void HowMany()
-        {
-            Console.WriteLine("Goombas: " + TotalAvailable);
-
+            StatName = UtilityClass.GoombaName;   
         }
     }
 }

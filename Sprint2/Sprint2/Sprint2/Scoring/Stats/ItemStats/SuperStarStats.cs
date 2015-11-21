@@ -13,14 +13,7 @@ namespace Sprint2
         public SuperStarStats(string name)
             : base(name)
         {
-            StatName = "SuperStars";
-        }
-
-        //Temporary, plz to delete thx
-        public static void HowMany()
-        {
-            Console.WriteLine("SuperStars: " + TotalAvailable);
-
+            StatName = UtilityClass.SuperStarName;
         }
     }
 }

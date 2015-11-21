@@ -13,14 +13,7 @@ namespace Sprint2
         public FireFlowerStats(string name)
             : base(name)
         {
-            StatName = "FireFlowers";
-        }
-
-        //Temporary, plz to delete thx
-        public static void HowMany()
-        {
-            Console.WriteLine("FireFlowers: " + TotalAvailable);
-
+            StatName = UtilityClass.FireFlowerName;
         }
     }
 }

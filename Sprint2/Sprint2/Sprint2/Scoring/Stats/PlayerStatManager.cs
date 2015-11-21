@@ -96,12 +96,12 @@ namespace Sprint2
 
         public void DrawTotals(SpriteBatch spriteBatch, SpriteFont font, Vector2 loc)
         {
-            String totals = "Koopas  " + KoopaStats.StatValueInt +" of " + KoopaStats.TotalAvailable + "\n" +
-                            "Goomba  " + GoombaStats.StatValueInt + " of " + GoombaStats.TotalAvailable + "\n" +
-                            "Coins  " + CoinStats.StatValueInt +" of " + CoinStats.TotalAvailable + "\n" +
-                            "SuperMushroom  " + SuperMushroomStats.StatValueInt + " of " + SuperMushroomStats.TotalAvailable + "\n" +
-                            "FireFlower  " + FireFlowerStats.StatValueInt + " of " + FireFlowerStats.TotalAvailable + "\n" +
-                            "SuperStar  " + SuperStarStats.StatValueInt + " of " + SuperStarStats.TotalAvailable + "\n";
+            String totals = KoopaStats.StatName + " " + KoopaStats.StatValueInt +" of " + KoopaStats.TotalAvailable + "\n" +
+                            GoombaStats.StatName + " " + GoombaStats.StatValueInt + " of " + GoombaStats.TotalAvailable + "\n" +
+                            CoinStats.StatName + " " + CoinStats.StatValueInt + " of " + CoinStats.TotalAvailable + "\n" +
+                            SuperMushroomStats.StatName + " " + SuperMushroomStats.StatValueInt + " of " + SuperMushroomStats.TotalAvailable + "\n" +
+                            FireFlowerStats.StatName + " " + FireFlowerStats.StatValueInt + " of " + FireFlowerStats.TotalAvailable + "\n" +
+                            SuperStarStats.StatName + " " + SuperStarStats.StatValueInt + " of " + SuperStarStats.TotalAvailable + "\n";
             spriteBatch.DrawString(font, totals, loc, Color.White);
             
         }

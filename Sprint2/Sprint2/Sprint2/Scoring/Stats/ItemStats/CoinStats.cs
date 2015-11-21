@@ -13,14 +13,8 @@ namespace Sprint2
         public CoinStats(string name)
             : base(name)
         {
-            StatName = "Coins";
+            StatName = UtilityClass.CoinName;
         }
-
-        //Temporary, plz to delete thx
-        public static void HowMany()
-        {
-            Console.WriteLine("Coins: " + TotalAvailable);
-
-        }
+        
     }
 }

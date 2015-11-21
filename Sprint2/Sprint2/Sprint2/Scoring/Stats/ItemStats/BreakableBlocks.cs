@@ -13,14 +13,7 @@ namespace Sprint2
         public BreakableBlockStats(string name)
             : base(name)
         {
-            StatName = "BreakableBlocks";
-        }
-
-        //Temporary, plz to delete thx
-        public static void HowMany()
-        {
-            Console.WriteLine("BreakableBlocks: " + TotalAvailable);
-
+            StatName = UtilityClass.BrickBlockName;
         }
     }
 }

@@ -13,14 +13,7 @@ namespace Sprint2
         public SuperMushroomStats(string name)
             : base(name)
         {
-            StatName = "SuperMushrooms";
-        }
-
-        //Temporary, plz to delete thx
-        public static void HowMany()
-        {
-            Console.WriteLine("SuperMushrooms: " + TotalAvailable);
-
+            StatName = UtilityClass.SuperMushroomName;
         }
     }
 }
