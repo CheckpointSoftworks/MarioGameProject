@@ -13,7 +13,7 @@ namespace Sprint2
         private double defaultValue = 0;
         public double StatValueDouble
         {
-            get { return statDoubleValue; }
+            get { return statDoubleValue*UtilityClass.deltaTime; }
             private set { statDoubleValue = value; }
         }
 

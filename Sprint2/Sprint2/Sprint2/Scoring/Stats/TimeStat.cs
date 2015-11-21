@@ -21,7 +21,7 @@ namespace Sprint2
         }
         public bool UpdateTime(GameTime gameTime)
         {
-            totalTime += gameTime.ElapsedGameTime.TotalMilliseconds;
+            totalTime += gameTime.ElapsedGameTime.Milliseconds;
             sessionTime -= gameTime.ElapsedGameTime.TotalSeconds * UtilityClass.timeAdjustment;
             if (sessionTime <= UtilityClass.zero)
             {
@@ -32,10 +32,10 @@ namespace Sprint2
 
         public void ResetTime()
         {
-            if (sessionTime < 500) deathTimes.Add(totalTime);
+            deathTimes.Add(totalTime);
             foreach (double t in deathTimes)
             {
-                Console.WriteLine("Died at " + (t/100) + " seconds.");
+                Console.WriteLine("Died at " + (t * Math.Pow(UtilityClass.deltaTime,3)) + " seconds.");
             }
             sessionTime = UtilityClass.LevelStartTime;
         }
