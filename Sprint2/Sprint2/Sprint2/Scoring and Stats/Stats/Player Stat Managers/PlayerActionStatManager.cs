@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.IO;
 
 namespace Sprint2
 {
@@ -83,18 +84,40 @@ namespace Sprint2
             Console.WriteLine(TimeSpentBig.StatName + ": " + TimeSpentBig.StatValueDouble / 1000);
         }
         public void DrawTotals(SpriteBatch spriteBatch, SpriteFont font, Vector2 loc)
+        {   
+            spriteBatch.DrawString(font, GetInformation(), loc, Color.White);
+        }
+
+        public string GetInformation()
         {
             string s = UtilityClass.StatSpacing;
             String totals = JumpCount.StatName + s + JumpCount.StatValueInt + "\n" +
-             AirTime.StatName + s + AirTime.StatValueDouble / 1000 +" seconds\n" +
+             AirTime.StatName + s + AirTime.StatValueDouble / 1000 + " seconds\n" +
              ShotsFired.StatName + s + ShotsFired.StatValueInt + "\n" +
               ShotsHit.StatName + s + ShotsHit.StatValueInt + "\n" +
               UtilityClass.StatShotAccuracyName + s + ShotAccuracy() + "\n" +
               DamageTaken.StatName + s + DamageTaken.StatValueInt + "\n" +
               TimeSpentInStar.StatName + s + TimeSpentInStar.StatValueDouble / 1000 + " seconds\n" +
               TimeSpentFire.StatName + s + TimeSpentFire.StatValueDouble / 1000 + " seconds\n" +
-              TimeSpentBig.StatName + s + TimeSpentBig.StatValueDouble / 1000 +" seconds";
-            spriteBatch.DrawString(font, totals, loc, Color.White);
+              TimeSpentBig.StatName + s + TimeSpentBig.StatValueDouble / 1000 + " seconds";
+            return totals;
+        }
+
+        public void WriteInformtionToFile(StreamWriter sw)
+        {
+            string s = ": ";
+            sw.WriteLine("Player actions: ");
+            sw.WriteLine(JumpCount.StatName + s + JumpCount.StatValueInt);
+            sw.WriteLine(AirTime.StatName + s + AirTime.StatValueDouble / 1000 + " seconds\n");
+            sw.WriteLine(ShotsFired.StatName + s + ShotsFired.StatValueInt + "\n");
+            sw.WriteLine(ShotsHit.StatName + s + ShotsHit.StatValueInt + "\n");
+            sw.WriteLine(UtilityClass.StatShotAccuracyName + s + ShotAccuracy() + "\n");
+            sw.WriteLine(DamageTaken.StatName + s + DamageTaken.StatValueInt + "\n");
+            sw.WriteLine(TimeSpentInStar.StatName + s + TimeSpentInStar.StatValueDouble / 1000 + " seconds\n");
+            sw.WriteLine(TimeSpentFire.StatName + s + TimeSpentFire.StatValueDouble / 1000 + " seconds\n");
+            sw.WriteLine(TimeSpentBig.StatName + s + TimeSpentBig.StatValueDouble / 1000 + " seconds");
+            sw.WriteLine("*****************************");
+            sw.WriteLine();
 
         }
 

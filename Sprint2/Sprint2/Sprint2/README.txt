@@ -91,5 +91,6 @@ Statistics and end game scoring - MATT MOHR
 		TimeStat's information is automatically generated based on a list of death times and succesful level completion times.
 	The only coupling involved in the new stats are in the DrawTotals method, which require spritebatches and fonts to properly rend the strings they generate.
 	Cohesion is very high. Most methods in the new classes are single-line methods. The only exception, again, is DrawTotals, but for good reason.
+	At the end of gameplay, relevant information is written to a file in bin/x86/Debug/GameRecords.txt
 
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.IO;
 
 namespace Sprint2
 {
@@ -75,14 +76,30 @@ namespace Sprint2
 
         public void DrawTotals(SpriteBatch spriteBatch, SpriteFont font, Vector2 loc)
         {
-            String totals = KoopaStats.StatName + " " + KoopaStats.StatValueInt +" of " + KoopaStats.TotalAvailable + "\n" +
+            spriteBatch.DrawString(font, GetInformation(), loc, Color.White);
+        }
+
+        public string GetInformation()
+        {
+            String totals = KoopaStats.StatName + " " + KoopaStats.StatValueInt + " of " + KoopaStats.TotalAvailable + "\n" +
                             GoombaStats.StatName + " " + GoombaStats.StatValueInt + " of " + GoombaStats.TotalAvailable + "\n" +
                             CoinStats.StatName + " " + CoinStats.StatValueInt + " of " + CoinStats.TotalAvailable + "\n" +
                             SuperMushroomStats.StatName + " " + SuperMushroomStats.StatValueInt + " of " + SuperMushroomStats.TotalAvailable + "\n" +
                             FireFlowerStats.StatName + " " + FireFlowerStats.StatValueInt + " of " + FireFlowerStats.TotalAvailable + "\n" +
                             SuperStarStats.StatName + " " + SuperStarStats.StatValueInt + " of " + SuperStarStats.TotalAvailable + "\n";
-            spriteBatch.DrawString(font, totals, loc, Color.White);
-            
+            return totals;
+        }
+
+        public void WriteInformtionToFile(StreamWriter sw)
+        {
+            sw.WriteLine(KoopaStats.StatName + "s: " + KoopaStats.StatValueInt + " of " + KoopaStats.TotalAvailable);
+            sw.WriteLine(GoombaStats.StatName + "s: " + GoombaStats.StatValueInt + " of " + GoombaStats.TotalAvailable);
+            sw.WriteLine(CoinStats.StatName + "s: " + CoinStats.StatValueInt + " of " + CoinStats.TotalAvailable);
+            sw.WriteLine(SuperMushroomStats.StatName + "s: " + SuperMushroomStats.StatValueInt + " of " + SuperMushroomStats.TotalAvailable);
+            sw.WriteLine(FireFlowerStats.StatName + "s: " + FireFlowerStats.StatValueInt + " of " + FireFlowerStats.TotalAvailable);
+            sw.WriteLine(SuperStarStats.StatName + "s: " + SuperStarStats.StatValueInt + " of " + SuperStarStats.TotalAvailable);
+            sw.WriteLine("*****************************");
+            sw.WriteLine();
         }
     }
 }

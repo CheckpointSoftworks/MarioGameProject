@@ -9,6 +9,9 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.IO;
+using System.Xml.Serialization;
+using System.Diagnostics;
 
 namespace Sprint2
 {
@@ -224,6 +227,18 @@ namespace Sprint2
         public void ResetTime()
         {
             time.ResetTime(levelWon);
+        }
+
+        public void WriteStats()
+        {
+            FileStream fs = new FileStream("GameRecords.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            ((Mario)mario).actions.WriteInformtionToFile(sw);
+            sw.WriteLine("Collection statistics: ");
+            sw.WriteLine(((Mario)mario).GetPoints().ScoreName + ": " + ((Mario)mario).GetPoints().ScoreValue);
+            ((Mario)mario).stats.WriteInformtionToFile(sw);
+            sw.Close();
+            fs.Close();  
         }
     }
 }
