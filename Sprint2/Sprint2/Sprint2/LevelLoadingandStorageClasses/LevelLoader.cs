@@ -457,7 +457,7 @@ namespace Sprint2
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
 
-                            Pipe GameObject = new Pipe(XVal, YVal);
+                            IEnviromental GameObject = new Pipe(XVal, YVal);
                             ((Pipe)GameObject).setUnderground();
                             storage.enviromentalObjectsList.Add(GameObject);
 
@@ -478,7 +478,7 @@ namespace Sprint2
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
 
-                            RightFacingPipeEdge GameObject = new RightFacingPipeEdge(XVal, YVal);
+                            IEnviromental GameObject = new RightFacingPipeEdge(XVal, YVal);
                             storage.enviromentalObjectsList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
@@ -498,7 +498,7 @@ namespace Sprint2
                             var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
                             int YVal = Int32.Parse(ysplit[1]);
 
-                            RightFacingPipe GameObject = new RightFacingPipe(XVal, YVal);
+                            IEnviromental GameObject = new RightFacingPipe(XVal, YVal);
                             storage.enviromentalObjectsList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
@@ -521,6 +521,46 @@ namespace Sprint2
                             IItemObjects GameObject = new StaticCoin(XVal, YVal);
                             storage.itemList.Add(GameObject);
                             CoinStats.TotalAvailable++;
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
+                        else if (ObjectType == "<GoombaEnemySpawner>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            IEnviromental GameObject = new EnemySpawner(XVal, YVal, true);
+                            storage.enviromentalObjectsList.Add(GameObject);
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
+                        else if (ObjectType == "<KoopaEnemySpawner>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            IEnviromental GameObject = new EnemySpawner(XVal, YVal, false);
+                            storage.enviromentalObjectsList.Add(GameObject);
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();

@@ -73,6 +73,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Achievements\AchievementManager.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BlueBrickBlock.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BlueGroundBlock.cs" />
     <Compile Include="Blocks\BlockSpriteClasses\BlueBrickBlockSprite.cs" />
@@ -87,6 +88,8 @@
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaDamaged.cs" />
     <Compile Include="Collision\CollisionHandlerClasses\EnemyCollisionHandlers\EnemyProjectileCollisionHandler.cs" />
+    <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\GoombaEnemySpawnerSprite.cs" />
+    <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\EnemySpawner.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\Flag.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\Pole.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\RightFacingPipe.cs" />
@@ -101,6 +104,7 @@
     <Compile Include="Interfaces\IFlagSprite.cs" />
     <Compile Include="Interfaces\IPole.cs" />
     <Compile Include="Interfaces\IPoleSprite.cs" />
+    <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\KoopaEnemySpawnerSprite.cs" />
     <Compile Include="LevelStateAlterations\GameOver.cs" />
     <Compile Include="LevelStateAlterations\GamepadPause.cs" />
     <Compile Include="ItemClasses\ItemObjectClasses\StaticCoin.cs" />

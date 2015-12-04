@@ -17,6 +17,8 @@ namespace Sprint2
         private static Texture2D rightfacingedgeSpritesheet;
         private static Texture2D poleSpriteSheet;
         private static Texture2D flagSpriteSheet;
+        private static Texture2D enemyGoombaSpawnerSheet;
+        private static Texture2D enemyKoopaSpawnerSheet;
         public static void Load(ContentManager content)
         {
             pipeSpriteSheet = content.Load<Texture2D>(UtilityClass.pipeSpriteSheet);
@@ -26,6 +28,8 @@ namespace Sprint2
             rightfacingedgeSpritesheet = content.Load<Texture2D>(UtilityClass.rightFacingEdgePipeSpritesheet);
             poleSpriteSheet = content.Load<Texture2D>(UtilityClass.poleSpriteSheet);
             flagSpriteSheet = content.Load<Texture2D>(UtilityClass.flagSpriteSheet);
+            enemyGoombaSpawnerSheet = content.Load<Texture2D>("GoombaEnemySpawnerSprite");
+            enemyKoopaSpawnerSheet = content.Load<Texture2D>("KoopaEnemySpawnerSprite");
         }
 
         public static Texture2D CreatePipeSprite()
@@ -59,6 +63,15 @@ namespace Sprint2
         public static Texture2D CreateFlagSprite()
         {
             return flagSpriteSheet;
+        }
+        public static Texture2D createGoombaEnemySpawnerSprite()
+        {
+            return enemyGoombaSpawnerSheet;
+        }
+
+        public static Texture2D createKoopaSpawnerSprite()
+        {
+            return enemyKoopaSpawnerSheet;
         }
     }
 }
