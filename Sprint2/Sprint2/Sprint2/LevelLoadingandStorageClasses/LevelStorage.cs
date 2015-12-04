@@ -22,6 +22,8 @@ namespace Sprint2
         public ArrayList blocksList;
         public ArrayList enviromentalObjectsList;
         public ArrayList projectileList;
+        private int enemyCount;
+        private int maxEnemiesCount;
 
         public LevelStorage(Camera camera)
         {
@@ -31,6 +33,8 @@ namespace Sprint2
             blocksList = new ArrayList();
             enviromentalObjectsList = new ArrayList();
             projectileList = new ArrayList();
+            enemyCount = 0;
+            maxEnemiesCount = 30;
         }
         public void Update()
         {

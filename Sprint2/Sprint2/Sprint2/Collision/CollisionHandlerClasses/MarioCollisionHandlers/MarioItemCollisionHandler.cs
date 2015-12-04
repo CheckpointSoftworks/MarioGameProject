@@ -19,8 +19,6 @@ namespace Sprint2
                 command.Execute();
                 mario.ScoreEvent(item.ScoreData());
             }
-
-
         }
         private static ICommand chooseCorrectCommand(IItemObjects item,IPlayer mario)
         {
@@ -40,13 +38,16 @@ namespace Sprint2
             }else if(item.returnItemType().Equals(ItemType.OneUpMushroom))
             {                
                 command = new MarioOneUpMushroomCollisionCommand(mario, item);
+                AchievementEventTracker.oneUpAcievement();
             }else if(item.returnItemType().Equals(ItemType.Star))
             {
                 command = new MarioStarCollisionCommand(mario, item);
+                AchievementEventTracker.starAcievement();
             }
             else
             {
                 command = new MarioSuperMushroomCollisionCommand(mario, item);
+                AchievementEventTracker.superMushAcievement();
                 if (((Mario)mario).Small)
                 {
                     StatePuaseAlterationCall.Execute();

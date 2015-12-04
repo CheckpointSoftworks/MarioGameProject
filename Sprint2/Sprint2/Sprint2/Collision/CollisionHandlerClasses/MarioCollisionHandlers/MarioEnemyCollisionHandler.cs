@@ -20,6 +20,7 @@ namespace Sprint2
             if (side.returnCollisionSide().Equals(CollisionSide.Top)&&enemy.canHurtMario())
             {
                 command = new MarioHitsEnemyCollision(enemy, mario);
+                AchievementEventTracker.killingEnemyAcievement();
                 command.Execute();
             }
             else if (!(side.returnCollisionSide().Equals(CollisionSide.None))&&enemy.canHurtMario())

@@ -28,6 +28,22 @@ namespace Sprint2
             {
                 SoundEffectFactory.Bump();
                 executeCollisionCommand(mario, block,game);
+                handleAchievements(block,mario);
+            }
+        }
+
+        private static void handleAchievements(IBlock block, Mario mario)
+        {
+
+            BlockType type = block.returnBlockType();
+
+            if (type.Equals(BlockType.BrickCoin))
+            {
+                AchievementEventTracker.hiddenDispenserAcievement();
+            }
+            if (type.Equals(BlockType.Brick) && ((!mario.Small) || (mario.Star)))
+            {
+                AchievementEventTracker.brickSmashedAcievement();
             }
         }
 
@@ -108,6 +124,5 @@ namespace Sprint2
                 mario.rigidbody.TopCollision();
             }
         }
-
     }
 }
