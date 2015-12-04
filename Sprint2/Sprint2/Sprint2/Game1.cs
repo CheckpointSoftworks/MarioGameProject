@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Xml.Serialization;
 using System.Diagnostics;
 
@@ -33,6 +34,11 @@ namespace Sprint2
         public bool marioPause { get; set; }
         public int fireBallCount { get; set; }
         public int stateTransistionPauseTimer { get; set; }
+        public IEndingSequenceMario endMario { get; set; }
+        public IPole pole { get; set; }
+        public IFlag flag { get; set; }
+        public bool hitFlagpole { get; set; }
+
         private Texture2D background;
         private Texture2D background2;
         private Texture2D deathbackground;
@@ -43,11 +49,9 @@ namespace Sprint2
         private SpriteFont basicarialfont;
         private TimeStat time;
         public GUI gui;
-        public IEndingSequenceMario endMario { get; set; }
-        public IPole pole { get; set; }
-        public IFlag flag { get; set; }
-        public bool hitFlagpole { get; set; }
         private bool levelWon;
+        private AchievementManager achievementManager;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -74,11 +78,13 @@ namespace Sprint2
             gui = new GUI();
             StatePuaseAlterationCall.setGame(this);
             base.Initialize();
-            tester.runTests();
+            //tester.runTests();
             pole = new Pole();
             flag = new Flag();
             hitFlagpole = false;
             levelWon = false;
+            achievementManager = new AchievementManager();
+            AchievementEventTracker.setManager(achievementManager);
         }
 
         protected override void LoadContent()

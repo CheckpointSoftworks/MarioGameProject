@@ -32,6 +32,7 @@ namespace Sprint2
             else if (item.returnItemType().Equals(ItemType.FireFlower))
             {
                 command = new MarioFireFlowerCollisionCommand(mario, item);
+                AchievementEventTracker.fireFlowerAcievement();
                 if (!((Mario)mario).Fire)
                 {
                     StatePuaseAlterationCall.Execute();

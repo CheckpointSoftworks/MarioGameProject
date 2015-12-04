@@ -73,6 +73,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Achievements\AchievementEventTracker.cs" />
     <Compile Include="Achievements\AchievementManager.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BlueBrickBlock.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BlueGroundBlock.cs" />
