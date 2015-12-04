@@ -10,7 +10,7 @@ namespace Sprint2
 {
     public class AchievementManager
     {
-        //Set up different Achievement Strings(12)
+        //Set up different Achievement bools(12)
         private bool undergroundAcievement;
         private bool killingEnemyAcievement;
         private bool oneUpAcievement;
@@ -23,8 +23,10 @@ namespace Sprint2
         private bool questionCoinAcievement;
         private bool levelFinishAcievement;
         private Vector2 displayLocation;
+        private SpriteBatch spriteBatch;
+        private SpriteFont font;
 
-        public AchievementManager(Vector2 cameraLocation)
+        public AchievementManager(Vector2 cameraLocation,SpriteBatch spriteBatch,SpriteFont font)
         {
             undergroundAcievement=false;
             killingEnemyAcievement=false;
@@ -38,6 +40,8 @@ namespace Sprint2
             questionCoinAcievement=false;
             levelFinishAcievement=false;
             displayLocation = cameraLocation;
+            this.spriteBatch = spriteBatch;
+            this.font = font;
         }
         //Different Achievement Methods
 
@@ -46,7 +50,9 @@ namespace Sprint2
         {
             if (!undergroundAcievement)
             {
-                //Display achievement message
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font,"Splunking Time!!!",displayLocation,Color.Black);
+                spriteBatch.End();
             }
             else
             {
@@ -59,7 +65,9 @@ namespace Sprint2
         {
             if (!killingEnemyAcievement)
             {
-                //Display achievement message
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font, "Stomp dat Enemy", displayLocation, Color.Black);
+                spriteBatch.End();
             }
             else
             {
@@ -72,7 +80,9 @@ namespace Sprint2
         {
             if (!oneUpAcievement)
             {
-                //Display achievement message
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font, "BONUS LIFE!", displayLocation, Color.Black);
+                spriteBatch.End();
             }
             else
             {
@@ -83,7 +93,9 @@ namespace Sprint2
         {
             if (!superMushAcievement)
             {
-                //Display achievement message
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font, "SUPER SUPER MUSHROOM", displayLocation, Color.Black);
+                spriteBatch.End();
             }
             else
             {
@@ -94,7 +106,9 @@ namespace Sprint2
         {
             if (!starAcievement)
             {
-                //Display achievement message
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font, "Starshine", displayLocation, Color.Black);
+                spriteBatch.End();
             }
             else
             {
@@ -105,7 +119,9 @@ namespace Sprint2
         {
             if (!fireFlowerAcievement)
             {
-                //Display achievement message
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font, "Fire is Fun", displayLocation, Color.Black);
+                spriteBatch.End();
             }
             else
             {
@@ -118,7 +134,9 @@ namespace Sprint2
         {
             if (!levelFinishAcievement)
             {
-                //Display achievement message
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font, "Winner Winner", displayLocation, Color.Black);
+                spriteBatch.End();
             }
             else
             {
@@ -131,7 +149,9 @@ namespace Sprint2
         {
             if (!dyingAcievement)
             {
-                //Display achievement message
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font, "Start a New Life", displayLocation, Color.Black);
+                spriteBatch.End();
             }
             else
             {
@@ -144,7 +164,9 @@ namespace Sprint2
         {
             if (!brickSmashedAcievement)
             {
-                //Display achievement message
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font, "SMASHED", displayLocation, Color.Black);
+                spriteBatch.End();
             }
             else
             {
@@ -157,7 +179,9 @@ namespace Sprint2
         {
             if (!hiddenDispenserAcievement)
             {
-                //Display achievement message
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font, "Hidden MONIES", displayLocation, Color.Black);
+                spriteBatch.End();
             }
             else
             {
@@ -170,7 +194,9 @@ namespace Sprint2
         {
             if (!questionCoinAcievement)
             {
-                //Display achievement message
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font, "Questions bring Dough", displayLocation, Color.Black);
+                spriteBatch.End();
             }
             else
             {
@@ -188,6 +214,11 @@ namespace Sprint2
         public void readInAchievements(StreamReader streamRead)
         {
 
+        }
+
+        public void updatePopUpBoxPosition(Vector2 location)
+        {
+            displayLocation.X = location.X;
         }
     }
 }
