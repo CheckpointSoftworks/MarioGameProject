@@ -50,6 +50,10 @@ namespace Sprint2
         {
             
         }
+        public void ShootIceball()
+        {
+
+        }
         public void Duck()
         {
             

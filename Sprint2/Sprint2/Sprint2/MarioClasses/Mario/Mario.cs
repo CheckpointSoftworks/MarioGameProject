@@ -34,14 +34,17 @@ namespace Sprint2
         private float transitionDuration;
         private float TransitionToBigTime;
         private float TransitionToFireTime;
+        private float TransitionToIceTime;
         private float TransitionToSmallTime;
         private float TransitionToDifferentDirection;
         private bool transitioning;
         private bool moveMario;
         private bool canFire;
+        private bool canIce;
         public bool FacingRight { get; set; }
         public bool Small { get; set; }
         public bool Fire { get; set; }
+        public bool Ice { get; set; }
         public bool Star { get; set; }
         public Vector2 Location { get; set; }
         public IMarioState State { get; set; }
@@ -54,6 +57,11 @@ namespace Sprint2
             get { return canFire && Fire; }
             set { canFire = value && Fire; }
         }
+        public bool CanIce
+        {
+            get { return canIce && Ice; }
+            set { canIce = value && Ice; }
+        }
 
         private int timer = UtilityClass.marioStarTimer;
         public ControllablePhysicsObject rigidbody { get; set; }
@@ -61,9 +69,11 @@ namespace Sprint2
         {
             Small = true;
             Fire = false;
+            Ice = false;
             FacingRight = true;
             Star = false;
             canFire = true;
+            canIce = true;
             transitioning = false;
             Location = new Vector2(locX, locY);
             State = new MarioStill(this);
@@ -76,6 +86,7 @@ namespace Sprint2
             transitionDuration = UtilityClass.marioTransitionDuration;
             TransitionToBigTime = UtilityClass.marioTransitionToBigTime;
             TransitionToFireTime = UtilityClass.marioTransitionToFireTime;
+            TransitionToIceTime = UtilityClass.marioTransitionToIceTime;
             TransitionToSmallTime = UtilityClass.marioTransitionToSmallTime;
             stats = new PlayerStatManager();
             actions = new PlayerActionStatManager();
@@ -147,6 +158,7 @@ namespace Sprint2
         {
             if (Star) { actions.AddStarTime(time.ElapsedGameTime.Milliseconds); }
             if (Fire) { actions.AddFireTime(time.ElapsedGameTime.Milliseconds); }
+            //if (Ice) { actions.AddIceTime(time.ElapsedGameTime.Milliseconds); }
             else if (!Small) { actions.AddBigTime(time.ElapsedGameTime.Milliseconds); }
             if (Math.Abs(rigidbody.Velocity.Y)>0.1) { actions.AddAirTime(time.ElapsedGameTime.Milliseconds); }
         }
@@ -257,7 +269,7 @@ namespace Sprint2
         }
         public void BecomeBig()
         {
-            if (!Fire)
+            if (!Fire && !Ice)
             {
                 TransitionToBigTime = UtilityClass.zero;
             }
@@ -265,6 +277,10 @@ namespace Sprint2
         public void BecomeFire()
         {
            if (!Fire) TransitionToFireTime = UtilityClass.zero;
+        }
+        public void BecomeIce()
+        {
+            if (!Ice) TransitionToIceTime = UtilityClass.zero;
         }
         public void BecomeSmall()
         {
@@ -282,6 +298,11 @@ namespace Sprint2
                 if (Fire)
                 {
                     Fire = false;
+                    BecomeBig();
+                }
+                else if (Ice)
+                {
+                    Ice = false;
                     BecomeBig();
                 }
                 else
@@ -304,6 +325,7 @@ namespace Sprint2
                     if (!transitioning)
                     {
                         Fire = false;
+                        Ice = false;
                         Small = false;
                     }
                 }
@@ -315,6 +337,7 @@ namespace Sprint2
                     if (!transitioning)
                     {
                         Fire = false;
+                        Ice = false;
                         Small = true;
                     }
                 }
@@ -331,13 +354,30 @@ namespace Sprint2
                     {
                         Small = false;
                         Fire = true;
+                        Ice = false;
+                    }
+                }
+                if (TransitionToIceTime < transitionDuration)
+                {
+                    TransitionToIceTime += UtilityClass.marioTransistionTimerCount;
+
+                    if ((TransitionToIceTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one)
+                    {
+                        Ice = !Ice;
+                    }
+                    transitioning = (TransitionToIceTime < transitionDuration);
+                    if (!transitioning)
+                    {
+                        Small = false;
+                        Ice = true;
+                        Fire = false;
                     }
                 }
                 if (TransitionToDifferentDirection < transitionDuration)
                 {
                     TransitionToDifferentDirection += UtilityClass.marioTransitionDirection;
                     State.ChangeDirection();
-                    transitioning = (TransitionToFireTime < transitionDuration);
+                    transitioning = ((TransitionToFireTime < transitionDuration) || (TransitionToIceTime < transitionDuration));
                 }
                 if (transitioning&&moveMario)
                 {

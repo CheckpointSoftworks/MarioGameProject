@@ -92,6 +92,7 @@ namespace Sprint2
         public const float coinMoveSpeed = -4.25f;
         public const float coindecayRate = 0.32f;
         public const float fireFlowerRiseSpeed = 0.4f;
+        public const float iceFlowerRiseSpeed = 0.4f;
         public const float mushroomAirFriction = 0.8f;
         public const float mushroomGroundFriction = 1f;
         public const float mushroomGroundSpeed = 1.5f;
@@ -115,6 +116,7 @@ namespace Sprint2
         public const float marioTransitionDuration = 3f;
         public const float marioTransitionToBigTime = 10;
         public const float marioTransitionToFireTime = 10;
+        public const float marioTransitionToIceTime = 10;
         public const float marioTransitionToSmallTime = 10;
         public const float marioElasticity = 0.0f;
         public const float marioAirFriction = 0.95f;
@@ -161,12 +163,19 @@ namespace Sprint2
 
         //Projectile Magic Numbers
         public const int fireballTimer = 200;
+        public const int iceballTimer = 200;
         public const float fireballAirFriction = 0.8f;
         public const float fireballGroundFriction = 1f;
         public const float fireballMaxFallSpeed = 1.5f;
         public const float fireballElasticity = 1f;
         public const float fireballRightGroundSpeed = 1.5f;
         public const float fireballLeftGroupSpeed = -1.5f;
+        public const float iceballAirFriction = 0.7f;
+        public const float iceballGroundFriction = 1f;
+        public const float iceballMaxFallSpeed = 1.0f;
+        public const float iceballElasticity = 1f;
+        public const float iceballRightGroundSpeed = 1.0f;
+        public const float iceballLeftGroupSpeed = -1.0f;
 
         //Sprite Factories and Texture Storage Magic Numbers and Strings
 
@@ -183,6 +192,7 @@ namespace Sprint2
         public const string oneUpSpriteSheet = "OneUpMushroom";
         public const string supMushroomSpriteSheet = "SuperMushroom";
         public const string fireFlowerSpriteSheet = "FireFlower";
+        public const string iceFlowerSpriteSheet = "IceFlower";
         public const string starSpriteSheet = "SuperStar";
         public const string boxCoinSpriteSheet = "BoxCoin";
         public const string staticCoinSpriteSheet = "StaticCoin";
@@ -190,6 +200,7 @@ namespace Sprint2
         public const string pipeSpriteSheet = "PipeSprite";
         public const string brickPiecesSpriteSheet = "BrickPieces";
         public const string fireballSpriteSheet = "FireballSprite";
+        public const string iceballSpriteSheet = "IceballSprite";
         public const string marioSmallStillSpriteSheet = "MarioSmallStill";
         public const string marioSmallRunningSpriteSheet = "MarioSmallRunning";
         public const string marioSmallJumpingSpriteSheet = "MarioSmallJump";
@@ -205,6 +216,13 @@ namespace Sprint2
         public const string marioFireJumpingSpriteSheet = "MarioFireJump";
         public const string marioFireDuckSpriteSheet = "MarioFireDuck";
         public const string marioFireChangeDirectionSpriteSheet = "MarioFireChangeDirection";
+        public const string marioIceStillSpriteSheet = "MarioIceStill";
+        public const string marioIceStillShootSpriteSheet = "MarioIceShootingStill";
+        public const string marioIceRunningSpriteSheet = "MarioIceRunning";
+        public const string marioIceRunningShootSpriteSheet = "MarioIceShootingRunning";
+        public const string marioIceJumpingSpriteSheet = "MarioIceJump";
+        public const string marioIceDuckSpriteSheet = "MarioIceDuck";
+        public const string marioIceChangeDirectionSpriteSheet = "MarioIceChangeDirection";
         public const string marioDuckSpriteSheet = "MarioDuck";
         public const string marioDyingSpriteSheet = "MarioDying";
         public const string rightFacingPipeSpritesheet = "RightFacingPipeSprite";
@@ -214,6 +232,7 @@ namespace Sprint2
         public const string marioBigFlagpoleSpriteSheet = "MarioBigFlagpole";
         public const string marioSmallFlagpoleSpriteSheet = "MarioSmallFlagpole";
         public const string marioFireFlagpoleSpriteSheet = "MarioFireFlagpole";
+        public const string marioIceFlagpoleSpriteSheet = "MarioIceFlagpole";
         public const string poleSpriteSheet = "Pole";
         public const string flagSpriteSheet = "Flag";
 
@@ -292,6 +311,7 @@ namespace Sprint2
         public const string CoinName = "Coin";
         public const string SuperMushroomName = "Super Mushroom";
         public const string FireFlowerName = "Fire Flower";
+        public const string IceFlowerName = "Ice Flower";
         public const string SuperStarName = "Super Star";
         public const string KoopaName = "Koopa";
         public const string GoombaName = "Goomba";

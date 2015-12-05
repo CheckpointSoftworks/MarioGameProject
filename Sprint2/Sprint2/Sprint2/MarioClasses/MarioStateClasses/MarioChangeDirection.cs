@@ -13,6 +13,7 @@ namespace Sprint2
         private AnimatedSprite small;
         private AnimatedSprite big;
         private AnimatedSprite fire;
+        private AnimatedSprite ice;
 
         public MarioChangeDirection(Mario mario)
         {
@@ -20,12 +21,17 @@ namespace Sprint2
             big = new AnimatedSprite(MarioSpriteFactory.CreateMarioBigChangeDirectionSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
             small = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallChangeDirectionSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
             fire = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireChangeDirectionSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
+            ice = new AnimatedSprite(MarioSpriteFactory.CreateMarioIceChangeDirectionSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
         }
         public void Update()
         {
             if (mario.Fire)
             {
                 fire.Update();
+            }
+            else if (mario.Ice)
+            {
+                ice.Update();
             }
             else if (mario.Small)
             {
@@ -41,6 +47,10 @@ namespace Sprint2
             if (mario.Fire)
             {
                 fire.Draw(spriteBatch, mario.Location, cameraLoc, mario.FacingRight);
+            }
+            else if (mario.Ice)
+            {
+                ice.Draw(spriteBatch, mario.Location, cameraLoc, mario.FacingRight);
             }
             else if (mario.Small)
             {
@@ -75,6 +85,10 @@ namespace Sprint2
         {
                 mario.State = new MarioShootFireball(mario);
         }
+        public void ShootIceball()
+        {
+            mario.State = new MarioShootIceball(mario);
+        }
         public void Duck()
         {
             mario.State = new MarioDuck(mario);
@@ -99,6 +113,10 @@ namespace Sprint2
             {
                 collisionRectangle = fire.returnCollisionRectangle();
             }
+            else if (mario.Ice)
+            {
+                collisionRectangle = ice.returnCollisionRectangle();
+            }
             else
             {
                 collisionRectangle = big.returnCollisionRectangle();
@@ -115,6 +133,10 @@ namespace Sprint2
             else if (mario.Fire)
             {
                 fire.setColorForDrawing(color);
+            }
+            else if (mario.Ice)
+            {
+                ice.setColorForDrawing(color);
             }
             else
             {

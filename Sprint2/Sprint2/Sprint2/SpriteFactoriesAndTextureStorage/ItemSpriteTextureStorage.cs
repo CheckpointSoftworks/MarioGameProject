@@ -13,6 +13,7 @@ namespace Sprint2
         private static Texture2D oneUpMushroomSpriteSheet;
         private static Texture2D superMushroomSpriteSheet;
         private static Texture2D fireFlowerSpriteSheet;
+        private static Texture2D iceFlowerSpriteSheet;
         private static Texture2D superStarSpriteSheet;
         private static Texture2D boxCoinSpriteSheet;
         private static Texture2D usedItemSpriteSheet;
@@ -22,6 +23,7 @@ namespace Sprint2
             oneUpMushroomSpriteSheet = content.Load<Texture2D>(UtilityClass.oneUpSpriteSheet);
             superMushroomSpriteSheet = content.Load<Texture2D>(UtilityClass.supMushroomSpriteSheet);
             fireFlowerSpriteSheet = content.Load<Texture2D>(UtilityClass.fireFlowerSpriteSheet);
+            iceFlowerSpriteSheet = content.Load<Texture2D>(UtilityClass.iceFlowerSpriteSheet);
             superStarSpriteSheet = content.Load<Texture2D>(UtilityClass.starSpriteSheet);
             boxCoinSpriteSheet = content.Load<Texture2D>(UtilityClass.boxCoinSpriteSheet);
             usedItemSpriteSheet = content.Load<Texture2D>(UtilityClass.usedItemSpriteSheet);
@@ -39,6 +41,10 @@ namespace Sprint2
         public static Texture2D CreateFireFlowerSprite()
         {
             return fireFlowerSpriteSheet;
+        }
+        public static Texture2D CreateIceFlowerSprite()
+        {
+            return iceFlowerSpriteSheet;
         }
         public static Texture2D CreateSuperStarSprite()
         {

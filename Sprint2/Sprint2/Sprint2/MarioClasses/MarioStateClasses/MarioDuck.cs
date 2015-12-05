@@ -19,6 +19,10 @@ namespace Sprint2
             {
                 sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireDuckSprite(), UtilityClass.one, UtilityClass.one,mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
             }
+            else if (mario.Ice)
+            {
+                sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioIceDuckSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
+            }
             else if (mario.Small)
             {
                 sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioSmallStillSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
@@ -60,6 +64,10 @@ namespace Sprint2
         public void ShootFireball()
         {
             mario.State = new MarioShootFireball(mario);
+        }
+        public void ShootIceball()
+        {
+            mario.State = new MarioShootIceball(mario);
         }
         public void Duck()
         {

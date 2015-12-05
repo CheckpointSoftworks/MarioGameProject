@@ -7,6 +7,6 @@ namespace Sprint2
 {
     public enum ItemType
     {
-        BoxCoin,Coin,FireFlower,Star,SuperMushroom,OneUpMushroom
+        BoxCoin,Coin,FireFlower,IceFlower,Star,SuperMushroom,OneUpMushroom
     }
 }

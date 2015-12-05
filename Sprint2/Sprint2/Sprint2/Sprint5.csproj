@@ -107,6 +107,8 @@
     <Compile Include="Interfaces\IPole.cs" />
     <Compile Include="Interfaces\IPoleSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\KoopaEnemySpawnerSprite.cs" />
+    <Compile Include="ItemClasses\ItemObjectClasses\IceFlower.cs" />
+    <Compile Include="ItemClasses\ItemSpriteClasses\IceFlowerSprite.cs" />
     <Compile Include="LevelStateAlterations\GameOver.cs" />
     <Compile Include="LevelStateAlterations\GamepadPause.cs" />
     <Compile Include="ItemClasses\ItemObjectClasses\StaticCoin.cs" />
@@ -116,9 +118,12 @@
     <Compile Include="LevelStateAlterations\PipeTransition.cs" />
     <Compile Include="LevelStateAlterations\StatePuaseAlterationCall.cs" />
     <Compile Include="LevelStateAlterations\StateTransistionPause.cs" />
+    <Compile Include="MarioClasses\MarioStateClasses\MarioShootIceball.cs" />
     <Compile Include="MarioClasses\Mario\EndingSequenceMario.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\QuitCommand.cs" />
     <Compile Include="MarioClasses\Mario\EndingSequenceMarioSprite.cs" />
+    <Compile Include="ProjectileClasses\ProjectileObjectClasses\Iceball.cs" />
+    <Compile Include="ProjectileClasses\ProjectileSpriteClasses\IceballSprite.cs" />
     <Compile Include="Scoring and Stats\Stats\General Stats\CollectableStat.cs" />
     <Compile Include="Scoring and Stats\Stats\EnemyStats\GoombaStats.cs" />
     <Compile Include="Scoring and Stats\Stats\EnemyStats\KoopaStats.cs" />

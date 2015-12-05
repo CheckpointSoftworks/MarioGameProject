@@ -6,20 +6,20 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
 namespace Sprint2
-{  
-    class MarioShootFireball: IMarioState
+{
+    class MarioShootIceball : IMarioState
     {
         private Mario mario;
         private AnimatedSprite sprite;
-        public MarioShootFireball(Mario mario)
+        public MarioShootIceball(Mario mario)
         {
             this.mario = mario;
             mario.actions.ShotFired();
-            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioFireStillShootSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
+            sprite = new AnimatedSprite(MarioSpriteFactory.CreateMarioIceStillShootSprite(), UtilityClass.one, UtilityClass.one, mario.Location, UtilityClass.generalTotalFramesAndSpecializedRows);
         }
         public void Update()
         {
-            sprite.Update();   
+            sprite.Update();
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
@@ -31,7 +31,7 @@ namespace Sprint2
         }
         public void Still()
         {
-            
+
         }
         public void Running()
         {
@@ -47,9 +47,9 @@ namespace Sprint2
         }
         public void ShootFireball()
         {
-            
+
         }
-        public void ShootIceball() 
+        public void ShootIceball()
         {
 
         }
@@ -70,13 +70,13 @@ namespace Sprint2
         {
             Rectangle collisionRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero);
 
-            
+
 
             return collisionRectangle;
         }
         public void setDrawColor(Color color)
         {
-            
+
         }
     }
 }

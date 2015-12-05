@@ -15,6 +15,7 @@ namespace Sprint2
         void ChangeDirection();
         void Jump();
         void ShootFireball();
+        void ShootIceball();
         void Duck();
         void TakeDamage();
         void Dying();

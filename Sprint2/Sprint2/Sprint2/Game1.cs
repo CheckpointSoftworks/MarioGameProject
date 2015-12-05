@@ -171,7 +171,7 @@ namespace Sprint2
             {
                 if (!hitFlagpole)
                 {
-                    endMario = new EndingSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire, time);
+                    endMario = new EndingSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire, ((Mario)mario).Ice, time);
                     hitFlagpole = true;
                 }
                 flag.MoveDown();

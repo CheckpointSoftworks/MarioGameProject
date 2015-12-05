@@ -37,7 +37,7 @@ namespace Sprint2
             get { return endSequenceFinished; }
             set { endSequenceFinished = value; }
         }
-        public EndingSequenceMario(Mario mario, bool smallMario, bool fireMario, TimeStat time)
+        public EndingSequenceMario(Mario mario, bool smallMario, bool fireMario, bool iceMario, TimeStat time)
         {
             this.location = mario.Location;
             endActions = mario.actions;
@@ -56,7 +56,7 @@ namespace Sprint2
             walkSpeed = UtilityClass.endMarioWalkSpeed;
             decayRate = UtilityClass.endMarioDecayRate;
             waitToLeaveFlagpole = UtilityClass.waitToLeaveFlagpole;
-            endMarioSprite = new EndingSequenceMarioSprite(location, smallMario, fireMario);
+            endMarioSprite = new EndingSequenceMarioSprite(location, smallMario, fireMario, iceMario);
         }
 
         private void SlideDownPole()
