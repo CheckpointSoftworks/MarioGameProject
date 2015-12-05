@@ -71,13 +71,18 @@ namespace Sprint2
             IEnemyObject newEnemy;
             if (goombaSpawner)
             {
-                newEnemy = new Goomba((int)location.X, (int)location.Y - UtilityClass.enemySpawnOffset);
+                newEnemy = new Goomba((int)location.X + UtilityClass.enemySpawnXOffset, (int)location.Y - UtilityClass.enemySpawnYOffset);
             }
             else
             {
-                newEnemy = new Koopa((int)location.X, (int)location.Y - UtilityClass.enemySpawnOffset);
+                newEnemy = new Koopa((int)location.X + UtilityClass.enemySpawnXOffset, (int)location.Y - UtilityClass.enemySpawnYOffset);
             }
             return newEnemy;
+        }
+
+        public Vector2 returnLocation()
+        {
+            return location;
         }
     }
 }

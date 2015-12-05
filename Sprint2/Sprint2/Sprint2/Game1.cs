@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Xml.Serialization;
 using System.Diagnostics;
 
@@ -33,6 +34,11 @@ namespace Sprint2
         public bool marioPause { get; set; }
         public int fireBallCount { get; set; }
         public int stateTransistionPauseTimer { get; set; }
+        public IEndingSequenceMario endMario { get; set; }
+        public IPole pole { get; set; }
+        public IFlag flag { get; set; }
+        public bool hitFlagpole { get; set; }
+
         private Texture2D background;
         private Texture2D background2;
         private Texture2D deathbackground;
@@ -43,11 +49,9 @@ namespace Sprint2
         private SpriteFont basicarialfont;
         private TimeStat time;
         public GUI gui;
-        public IEndingSequenceMario endMario { get; set; }
-        public IPole pole { get; set; }
-        public IFlag flag { get; set; }
-        public bool hitFlagpole { get; set; }
         private bool levelWon;
+        private AchievementManager achievementManager;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -56,7 +60,6 @@ namespace Sprint2
 
         protected override void Initialize()
         {
-            tester = new TestingClass(this);
             keyboard = new KeyboardController();
             gamepad = new GamepadController(this);
             camera = new Camera(UtilityClass.cameraHeight, UtilityClass.cameraWidth, new Vector2(UtilityClass.zero, UtilityClass.zero));
@@ -73,8 +76,12 @@ namespace Sprint2
             time = new TimeStat(UtilityClass.LevelStartTime);
             gui = new GUI();
             StatePuaseAlterationCall.setGame(this);
+            achievementManager = new AchievementManager();
+            AchievementEventTracker.setManager(achievementManager);
             base.Initialize();
+            tester = new TestingClass(this,levelStore);
             tester.runTests();
+            AchievementEventTracker.endRunningTesting();
             pole = new Pole();
             flag = new Flag();
             hitFlagpole = false;
@@ -169,6 +176,7 @@ namespace Sprint2
             flag.Update();
             if (levelWon)
             {
+                AchievementEventTracker.levelFinishAcievement();
                 if (!hitFlagpole)
                 {
                     endMario = new EndingSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire, ((Mario)mario).Ice, time);
@@ -239,6 +247,17 @@ namespace Sprint2
             ((Mario)mario).stats.WriteInformtionToFile(sw);
             sw.Close();
             fs.Close();  
+        }
+
+        public void writeAchievements()
+        {
+            var fileLoc=String.Format("{0}Achievements.txt",AppDomain.CurrentDomain.BaseDirectory);
+            FileStream achieveFile = new FileStream(fileLoc, FileMode.Create);
+            StreamWriter writeAchieves = new StreamWriter(achieveFile);
+            writeAchieves.WriteLine("Earned: ");
+            achievementManager.writeOutAchievements(writeAchieves);
+            writeAchieves.Close();
+            achieveFile.Close();
         }
     }
 }
