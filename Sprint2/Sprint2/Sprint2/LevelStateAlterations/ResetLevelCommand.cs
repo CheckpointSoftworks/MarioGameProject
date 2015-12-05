@@ -18,6 +18,7 @@ namespace Sprint2
         public void Execute()
         {
             game.WriteStats();
+            game.writeAchievements();
             game.camera = new Camera(UtilityClass.cameraHeight, UtilityClass.cameraWidth, new Vector2(UtilityClass.zero, UtilityClass.zero));
             game.loader = new LevelLoader(UtilityClass.levelFile, game.camera);
             game.levelStore = new LevelStorage(game.camera);

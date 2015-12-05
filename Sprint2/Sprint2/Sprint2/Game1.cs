@@ -248,5 +248,16 @@ namespace Sprint2
             sw.Close();
             fs.Close();  
         }
+
+        public void writeAchievements()
+        {
+            var fileLoc=String.Format("{0}Achievements.txt",AppDomain.CurrentDomain.BaseDirectory);
+            FileStream achieveFile = new FileStream(fileLoc, FileMode.Create);
+            StreamWriter writeAchieves = new StreamWriter(achieveFile);
+            writeAchieves.WriteLine("Earned: ");
+            achievementManager.writeOutAchievements(writeAchieves);
+            writeAchieves.Close();
+            achieveFile.Close();
+        }
     }
 }

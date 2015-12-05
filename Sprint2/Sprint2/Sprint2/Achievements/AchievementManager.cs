@@ -26,7 +26,17 @@ namespace Sprint2
         private bool hiddenDispenserAcievement;
         private bool questionCoinAcievement;
         private bool levelFinishAcievement;
-
+        private string undergroundAchievementString;
+        private string killingEnemyAcievementString;
+        private string oneUpAcievementString;
+        private string superMushAcievementString;
+        private string starAcievementString;
+        private string fireFlowerAcievementString;
+        private string dyingAcievementString;
+        private string brickSmashedAcievementString;
+        private string hiddenDispenserAcievementString;
+        private string questionCoinAcievementString;
+        private string levelFinishAcievementString;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern uint MessageBox(IntPtr hWnd, String text, String caption, uint type);
@@ -44,6 +54,17 @@ namespace Sprint2
             hiddenDispenserAcievement=false;
             questionCoinAcievement=false;
             levelFinishAcievement=false;
+            undergroundAchievementString = "Spelunking Time Achieved";
+            killingEnemyAcievementString = "Stomp dat Enemy";
+            oneUpAcievementString = "Bonus Life!";
+            superMushAcievementString = "Super Mushroom Funtime";
+            starAcievementString="STAR TIME";
+            fireFlowerAcievementString="FIRE IS FUN!!!";
+            levelFinishAcievementString="YOUR THE BEST AROUND";
+            dyingAcievementString="Time for a new life.";
+            brickSmashedAcievementString="MARIO SMASH";
+            hiddenDispenserAcievementString="HIDDEN MONIES!!!!!!";
+            questionCoinAcievementString = "Questions bring Dough";
         }
         //Different Achievement Methods
 
@@ -52,7 +73,7 @@ namespace Sprint2
         {
             if (!undergroundAcievement)
             {
-                MessageBox(new IntPtr(0), "Spelunking Time Achieved", "Achievement", 0);
+                MessageBox(new IntPtr(0), undergroundAchievementString, "Achievement Earned", 0);
                 undergroundAcievement = true;
             }
         }
@@ -62,7 +83,7 @@ namespace Sprint2
         {
             if (!killingEnemyAcievement)
             {
-                MessageBox(new IntPtr(0), "Stomp dat Enemy", "Achievement", 0);
+                MessageBox(new IntPtr(0), killingEnemyAcievementString, "Achievement Earned", 0);
                 killingEnemyAcievement = true;
             }
         }
@@ -72,7 +93,7 @@ namespace Sprint2
         {
             if (!oneUpAcievement)
             {
-                MessageBox(new IntPtr(0), "Bonus Life!", "Achievement", 0);
+                MessageBox(new IntPtr(0), oneUpAcievementString, "Achievement Earned", 0);
                 oneUpAcievement = true;
             }
         }
@@ -80,7 +101,7 @@ namespace Sprint2
         {
             if (!superMushAcievement)
             {
-                MessageBox(new IntPtr(0), "Super Mushroom Funtime", "Achievement", 0);
+                MessageBox(new IntPtr(0), superMushAcievementString, "Achievement Earned", 0);
                 superMushAcievement = true;
             }
         }
@@ -88,7 +109,7 @@ namespace Sprint2
         {
             if (!starAcievement)
             {
-                MessageBox(new IntPtr(0), "STAR TIME", "Achievement", 0);
+                MessageBox(new IntPtr(0), starAcievementString, "Achievement Earned", 0);
                 starAcievement = true;
             }
         }
@@ -96,7 +117,7 @@ namespace Sprint2
         {
             if (!fireFlowerAcievement)
             {
-                MessageBox(new IntPtr(0), "FIRE IS FUN!!!", "Achievement", 0);
+                MessageBox(new IntPtr(0), fireFlowerAcievementString, "Achievement Earned", 0);
                 fireFlowerAcievement = true;
             }
         }
@@ -106,7 +127,7 @@ namespace Sprint2
         {
             if (!levelFinishAcievement)
             {
-                MessageBox(new IntPtr(0), "YOUR THE BEST AROUND", "Achievement", 0);
+                MessageBox(new IntPtr(0), levelFinishAcievementString, "Achievement Earned", 0);
                 levelFinishAcievement = true;
             }
         }
@@ -116,7 +137,7 @@ namespace Sprint2
         {
             if (!dyingAcievement)
             {
-                MessageBox(new IntPtr(0), "Time for a new life.", "Achievement", 0);
+                MessageBox(new IntPtr(0), dyingAcievementString, "Achievement Earned", 0);
                 dyingAcievement = true;
             }
         }
@@ -126,7 +147,7 @@ namespace Sprint2
         {
             if (!brickSmashedAcievement)
             {
-                MessageBox(new IntPtr(0), "MARIO SMASH", "Achievement", 0);
+                MessageBox(new IntPtr(0), brickSmashedAcievementString, "Achievement Earned", 0);
                 brickSmashedAcievement = true;
             }
         }
@@ -136,7 +157,7 @@ namespace Sprint2
         {
             if (!hiddenDispenserAcievement)
             {
-                MessageBox(new IntPtr(0), "HIDDEN MONIES!!!!!!", "Achievement", 0);
+                MessageBox(new IntPtr(0), hiddenDispenserAcievementString, "Achievement Earned", 0);
                 hiddenDispenserAcievement = true;
             }
         }
@@ -146,7 +167,7 @@ namespace Sprint2
         {
             if (!questionCoinAcievement)
             {
-                MessageBox(new IntPtr(0), "Questions bring Dough", "Achievement", 0);
+                MessageBox(new IntPtr(0), questionCoinAcievementString, "Achievement Earned", 0);
                 questionCoinAcievement = true;
             }
         }
@@ -154,7 +175,50 @@ namespace Sprint2
         //Write achievements to a file
         public void writeOutAchievements(StreamWriter streamWrite)
         {
-
+            if (undergroundAcievement)
+            {
+                streamWrite.WriteLine(undergroundAchievementString);
+            }
+            if (killingEnemyAcievement)
+            {
+                streamWrite.WriteLine(killingEnemyAcievementString);
+            }
+            if (oneUpAcievement)
+            {
+                streamWrite.WriteLine(oneUpAcievementString);
+            }
+            if (superMushAcievement)
+            {
+                streamWrite.WriteLine(superMushAcievementString);
+            }
+            if (starAcievement)
+            {
+                streamWrite.WriteLine(starAcievementString);
+            }
+            if (fireFlowerAcievement)
+            {
+                streamWrite.WriteLine(fireFlowerAcievementString);
+            }
+            if (dyingAcievement)
+            {
+                streamWrite.WriteLine(dyingAcievementString);
+            }
+            if (brickSmashedAcievement)
+            {
+                streamWrite.WriteLine(brickSmashedAcievementString);
+            }
+            if (hiddenDispenserAcievement)
+            {
+                streamWrite.WriteLine(hiddenDispenserAcievementString);
+            }
+            if (questionCoinAcievement)
+            {
+                streamWrite.WriteLine(questionCoinAcievementString);
+            }
+            if (levelFinishAcievement)
+            {
+                streamWrite.WriteLine(levelFinishAcievementString);
+            }
         }
 
         //Read achievements from a file
