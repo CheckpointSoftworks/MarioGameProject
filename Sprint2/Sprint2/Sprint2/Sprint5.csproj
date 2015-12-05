@@ -79,7 +79,9 @@
     <Compile Include="Blocks\BlockSpriteClasses\BlueBrickBlockSprite.cs" />
     <Compile Include="Blocks\BlockSpriteClasses\BlueGroundBlockSprite.cs" />
     <Compile Include="CameraClasses\Camera.cs" />
-    <Compile Include="CameraClasses\CameraController.cs" />
+    <Compile Include="CameraClasses\Types\AutoScrollingCameraController.cs" />
+    <Compile Include="CameraClasses\Types\CameraController.cs" />
+    <Compile Include="CameraClasses\Types\ClassicCameraController.cs" />
     <Compile Include="Collision\CollisionCommands\EnemyCollisonCommands\ProjectileHitsEnemy.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\NoFireCommand.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\NoJumpCommand.cs" />
