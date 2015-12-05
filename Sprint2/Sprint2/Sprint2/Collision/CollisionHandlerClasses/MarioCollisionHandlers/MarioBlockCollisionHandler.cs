@@ -41,9 +41,13 @@ namespace Sprint2
             {
                 AchievementEventTracker.hiddenDispenserAcievement();
             }
-            if (type.Equals(BlockType.Brick) && ((!mario.Small) || (mario.Star)))
+            else if (type.Equals(BlockType.Brick) && ((!mario.Small) || (mario.Star)))
             {
                 AchievementEventTracker.brickSmashedAcievement();
+            }
+            else if (type.Equals(BlockType.QuestionCoin))
+            {
+                AchievementEventTracker.questionCoinAcievement();
             }
         }
 

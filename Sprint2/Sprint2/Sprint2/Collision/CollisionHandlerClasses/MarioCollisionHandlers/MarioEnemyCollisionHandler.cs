@@ -9,7 +9,7 @@ namespace Sprint2
 {
     public static class MarioEnemyCollisionHandler
     {
-        public static void handleCollision(Mario mario, IEnemyObject enemy, ICollision side)
+        public static void handleCollision(Mario mario, IEnemyObject enemy, ICollision side, LevelStorage levelStorage)
         {
             ICommand command;
             if (!(side.returnCollisionSide().Equals(CollisionSide.None)))
@@ -20,8 +20,8 @@ namespace Sprint2
             if (side.returnCollisionSide().Equals(CollisionSide.Top)&&enemy.canHurtMario())
             {
                 command = new MarioHitsEnemyCollision(enemy, mario);
-                AchievementEventTracker.killingEnemyAcievement();
                 command.Execute();
+                levelStorage.decreaseEnemyCount();
             }
             else if (!(side.returnCollisionSide().Equals(CollisionSide.None))&&enemy.canHurtMario())
             {
@@ -37,6 +37,7 @@ namespace Sprint2
                 handleMarioMovement(mario, enemy, side);
                 handleEnemyMovement(enemy,side);
             }
+            handleAchievement(mario,enemy,side);
         }
 
         private static void handleMarioMovement(Mario mario, IEnemyObject enemy,ICollision side)
@@ -85,6 +86,14 @@ namespace Sprint2
             else if (side.returnCollisionSide().Equals(CollisionSide.Top))
             {
                 ((Koopa)enemy).shellLeftHit();
+            }
+        }
+
+        private static void handleAchievement(Mario mario, IEnemyObject enemy, ICollision side)
+        {
+            if (side.returnCollisionSide().Equals(CollisionSide.Top) && enemy.canHurtMario())
+            {
+                AchievementEventTracker.killingEnemyAcievement();
             }
         }
     }

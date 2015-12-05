@@ -307,8 +307,9 @@ namespace Sprint2
         public const string StatShotAccuracyName = "Shot Accuracy";
         public const string StatSpacing = ":    ";
 
-        public const int spawnTimer = 300;
-        public const int enemySpawnOffset = 16;
+        public const int spawnTimer = 100;
+        public const int enemySpawnYOffset = 16;
+        public const int enemySpawnXOffset = 8;
 
     }
 }

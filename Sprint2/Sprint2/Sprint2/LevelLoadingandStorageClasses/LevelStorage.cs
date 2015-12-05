@@ -64,6 +64,7 @@ namespace Sprint2
                 foreach (IEnviromental enviromental in enviromentalObjectsList)
                 {
                     enviromental.Update();
+                    handleEnemySpawning(enviromental);
                 }
         }
 
@@ -138,6 +139,31 @@ namespace Sprint2
         private void handleProjectileCollision(IProjectile projectile)
         {
             LevelCollisionHandlerHelper.handleProjectileCollision(projectile, this);
+        }
+
+        private void handleEnemySpawning(IEnviromental enviromental)
+        {
+            if (enviromental is EnemySpawner)
+            {
+                int enemySpawnerRelativeXLocation=((int)((EnemySpawner)enviromental).returnLocation().X - ((int)camera.GetPosition().X + camera.GetWidth()));
+                bool spawnEnemyTime=((EnemySpawner)enviromental).timeToSpawnAnEnemy();
+                bool inEnableRange = (enemySpawnerRelativeXLocation<= UtilityClass.enableEnemyPixelWidth);
+                if (inEnableRange&&spawnEnemyTime&&enemyCount<maxEnemiesCount)
+                {
+                    enemiesList.Add(((EnemySpawner)enviromental).SpawnAnEnemy());
+                    increaseEnemyCount();
+                }
+            }
+        }
+
+        public void increaseEnemyCount()
+        {
+            enemyCount++;
+        }
+
+        public void decreaseEnemyCount()
+        {
+            enemyCount--;
         }
     }
 }

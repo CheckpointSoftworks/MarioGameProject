@@ -52,7 +52,7 @@ namespace Sprint2
         {
             if (!undergroundAcievement)
             {
-                MessageBox(new IntPtr(0), "Splunking Time Achieved", "Achievement", 0);
+                MessageBox(new IntPtr(0), "Spelunking Time Achieved", "Achievement", 0);
                 undergroundAcievement = true;
             }
         }

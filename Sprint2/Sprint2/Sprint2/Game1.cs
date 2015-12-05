@@ -60,7 +60,6 @@ namespace Sprint2
 
         protected override void Initialize()
         {
-            tester = new TestingClass(this);
             keyboard = new KeyboardController();
             gamepad = new GamepadController(this);
             camera = new Camera(UtilityClass.cameraHeight, UtilityClass.cameraWidth, new Vector2(UtilityClass.zero, UtilityClass.zero));
@@ -77,14 +76,16 @@ namespace Sprint2
             time = new TimeStat(UtilityClass.LevelStartTime);
             gui = new GUI();
             StatePuaseAlterationCall.setGame(this);
+            achievementManager = new AchievementManager();
+            AchievementEventTracker.setManager(achievementManager);
             base.Initialize();
-            //tester.runTests();
+            tester = new TestingClass(this,levelStore);
+            tester.runTests();
+            AchievementEventTracker.endRunningTesting();
             pole = new Pole();
             flag = new Flag();
             hitFlagpole = false;
             levelWon = false;
-            achievementManager = new AchievementManager();
-            AchievementEventTracker.setManager(achievementManager);
         }
 
         protected override void LoadContent()
@@ -175,6 +176,7 @@ namespace Sprint2
             flag.Update();
             if (levelWon)
             {
+                AchievementEventTracker.levelFinishAcievement();
                 if (!hitFlagpole)
                 {
                     endMario = new EndingSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire, time);

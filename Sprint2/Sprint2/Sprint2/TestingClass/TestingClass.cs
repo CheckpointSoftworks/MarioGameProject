@@ -16,11 +16,13 @@ namespace Sprint2
     public class TestingClass
     {
         private Game1 game;
+        private LevelStorage levelStorage;
 
-        public TestingClass(Game1 game)
+        public TestingClass(Game1 game, LevelStorage storage)
         {
             this.game = game;
             StatePuaseAlterationCall.setGame(game);
+            levelStorage=storage;
         }
 
         public void runTests()
@@ -525,7 +527,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side,levelStorage);
             if (((Mario)mario).StateStatus().Equals(MarioState.Die) && passed)
             {
                 Console.WriteLine("Goomba Left Test Passed");
@@ -553,7 +555,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side,levelStorage);
             if (((Mario)mario).StateStatus().Equals(MarioState.Die) && passed)
             {
                 Console.WriteLine("Goomba Right Test Passed");
@@ -581,7 +583,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side,levelStorage);
             if (passed)
             {
                 Console.WriteLine("Goomba Top Test Passed");
@@ -609,7 +611,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side,levelStorage);
             if (((Mario)mario).StateStatus().Equals(MarioState.Die) && passed)
             {
                 Console.WriteLine("Goomba Bottom Test Passed");
@@ -637,7 +639,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side,levelStorage);
             if (((Mario)mario).StateStatus().Equals(MarioState.Die) && passed)
             {
                 Console.WriteLine("Koopa Left Test Passed");
@@ -665,7 +667,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side,levelStorage);
             if (((Mario)mario).StateStatus().Equals(MarioState.Die) && passed)
             {
                 Console.WriteLine("Koopa Right Test Passed");
@@ -693,7 +695,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side, levelStorage);
             if (passed)
             {
                 Console.WriteLine("Koopa Top Test Passed");
@@ -721,7 +723,7 @@ namespace Sprint2
             {
                 passed = false;
             }
-            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
+            MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side,levelStorage);
             if (((Mario)mario).StateStatus().Equals(MarioState.Die) && passed)
             {
                 Console.WriteLine("Koopa Bottom Test Passed");

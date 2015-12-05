@@ -8,54 +8,93 @@ namespace Sprint2
     public static class AchievementEventTracker
     {
         private static AchievementManager achievementManager;
+        private static bool isRunningTestingClass=true;
 
         public static void setManager(AchievementManager manager)
         {
             achievementManager = manager;
         }
+
+        public static void endRunningTesting()
+        {
+            isRunningTestingClass = false;
+        }
         public static void undergroundAcievement()
         {
-            achievementManager.undergroundAchieved();
+            if (!isRunningTestingClass)
+            {
+                achievementManager.undergroundAchieved();
+            }
         }
         public static void killingEnemyAcievement()
         {
-            achievementManager.killedEnemyAchieved();
+            if (!isRunningTestingClass)
+            {
+                achievementManager.killedEnemyAchieved();
+            }
         }
         public static void oneUpAcievement()
         {
-            achievementManager.oneUpAchieved();
+            if (!isRunningTestingClass)
+            {
+                achievementManager.oneUpAchieved();
+            }
         }
         public static void superMushAcievement()
         {
-            achievementManager.superMushAchieved();
+            if (!isRunningTestingClass)
+            {
+                achievementManager.superMushAchieved();
+            }
         }
         public static void starAcievement()
         {
-            achievementManager.starAchieved();
+            if (!isRunningTestingClass)
+            {
+                achievementManager.starAchieved();
+            }
         }
         public static void fireFlowerAcievement()
         {
-            achievementManager.fireFlowerAchieved();
+            if (!isRunningTestingClass)
+            {
+                achievementManager.fireFlowerAchieved();
+            }
         }
         public static void dyingAcievement()
         {
-            achievementManager.dyingAchieved();
+            if (!isRunningTestingClass)
+            {
+                achievementManager.dyingAchieved();
+            }
         }
         public static void brickSmashedAcievement()
         {
-            achievementManager.smashedBrickAchieved();
+            if (!isRunningTestingClass)
+            {
+                achievementManager.smashedBrickAchieved();
+            }
         }
         public static void hiddenDispenserAcievement()
         {
-            achievementManager.coinDispenserAchieved();
+            if (!isRunningTestingClass)
+            {
+                achievementManager.coinDispenserAchieved();
+            }
         }
         public static void questionCoinAcievement()
         {
-            achievementManager.questionCoinAchieved();
+            if (!isRunningTestingClass)
+            {
+                achievementManager.questionCoinAchieved();
+            }
         }
         public static void levelFinishAcievement()
         {
-            achievementManager.finishedLevelAchieved();
+            if (!isRunningTestingClass)
+            {
+                achievementManager.finishedLevelAchieved();
+            }
         }
     }
 }

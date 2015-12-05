@@ -33,7 +33,7 @@ namespace Sprint2
             foreach (IEnemyObject enemy in storage.enemiesList)
             {
                 side = collisionDetector.getCollision(mario.returnCollisionRectangle(), enemy.returnCollisionRectangle());
-                MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side);
+                MarioEnemyCollisionHandler.handleCollision((Mario)mario, enemy, side,storage);
             }
             foreach (IItemObjects item in storage.itemList)
             {

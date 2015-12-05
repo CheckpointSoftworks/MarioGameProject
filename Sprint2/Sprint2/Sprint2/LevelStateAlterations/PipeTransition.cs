@@ -53,6 +53,7 @@ namespace Sprint2
         {
             if (((Mario)mario).StateStatus().Equals(MarioState.Duck) || hasbeguntransition == true)
             {
+                AchievementEventTracker.undergroundAcievement();
                 if (hasbeguntransition == false) { SoundEffectFactory.Pipe(); }
                 hasbeguntransition = true;
                 sendUndergroundAnimation(mario, elapsedtime);
