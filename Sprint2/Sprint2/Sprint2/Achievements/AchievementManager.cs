@@ -65,6 +65,7 @@ namespace Sprint2
             brickSmashedAcievementString="MARIO SMASH";
             hiddenDispenserAcievementString="HIDDEN MONIES!!!!!!";
             questionCoinAcievementString = "Questions bring Dough";
+            readInAchievements();
         }
         //Different Achievement Methods
 
@@ -221,10 +222,61 @@ namespace Sprint2
             }
         }
 
-        //Read achievements from a file
-        public void readInAchievements(StreamReader streamRead)
+        private void readInAchievements()
         {
-
+            var fileLoc = String.Format("{0}Achievements.txt", AppDomain.CurrentDomain.BaseDirectory);
+            FileStream achieveFile = new FileStream(fileLoc, FileMode.OpenOrCreate);
+            StreamReader reader = new StreamReader(achieveFile);
+            while (!reader.EndOfStream)
+            {
+                string nextLine=reader.ReadLine();
+                if (nextLine.Equals(undergroundAchievementString))
+                {
+                    undergroundAcievement = true;
+                }
+                else if (nextLine.Equals(killingEnemyAcievementString))
+                {
+                    killingEnemyAcievement = true;
+                }
+                else if (nextLine.Equals(oneUpAcievementString))
+                {
+                    oneUpAcievement= true;
+                }
+                else if (nextLine.Equals(superMushAcievementString))
+                {
+                    superMushAcievement = true;
+                }
+                else if (nextLine.Equals(starAcievementString))
+                {
+                    starAcievement = true;
+                }
+                else if (nextLine.Equals(fireFlowerAcievementString))
+                {
+                    fireFlowerAcievement = true;
+                }
+                else if (nextLine.Equals(dyingAcievementString))
+                {
+                    dyingAcievement = true;
+                }
+                else if (nextLine.Equals(brickSmashedAcievementString))
+                {
+                    brickSmashedAcievement = true;
+                }
+                else if (nextLine.Equals(hiddenDispenserAcievementString))
+                {
+                    hiddenDispenserAcievement = true;
+                }
+                else if (nextLine.Equals(questionCoinAcievementString))
+                {
+                    questionCoinAcievement = true;
+                }
+                else if (nextLine.Equals(levelFinishAcievementString))
+                {
+                    levelFinishAcievement = true;
+                }
+            }
+            reader.Close();
+            achieveFile.Close();
         }
     }
 }
