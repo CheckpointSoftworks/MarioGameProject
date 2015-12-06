@@ -33,6 +33,7 @@ namespace Sprint2
         public bool canPause { get; set; }
         public bool marioPause { get; set; }
         public int fireBallCount { get; set; }
+        public int iceBallCount { get; set; }
         public int stateTransistionPauseTimer { get; set; }
         public IEndingSequenceMario endMario { get; set; }
         public IPole pole { get; set; }
@@ -69,6 +70,7 @@ namespace Sprint2
             levelStore = new LevelStorage(camera);
             keyNotPressed = new KeyNotPressed(this);
             fireBallCount = UtilityClass.fireballLimit;
+            iceBallCount = UtilityClass.iceballLimit;
             pause = false;
             canPause = true;
             marioPause = false;
@@ -127,11 +129,13 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterCommand(Keys.Left, new LeftCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Right, new RightCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.X, new FireballCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.C, new IceballCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.R, new ResetLevelCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.S, new SprintCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.P, new PauseCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.Z,new NoJumpCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.X, new NoFireCommand(this));
+            ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.C, new NoIceCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.P,new NoPauseCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Q, new QuitCommand(this));
         }

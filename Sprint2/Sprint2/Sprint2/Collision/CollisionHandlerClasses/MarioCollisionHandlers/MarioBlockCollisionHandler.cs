@@ -70,6 +70,11 @@ namespace Sprint2
                 command = new QuestionFireFlowerCommand(block, game);
                 command.Execute();
             }
+            else if (type.Equals(BlockType.QuestionIceFlower))
+            {
+                command = new QuestionIceFlowerCommand(block, game);
+                command.Execute();
+            }
             else if (type.Equals(BlockType.QuestionStar))
             {
                 command = new QuestionStarCommand(block, game);

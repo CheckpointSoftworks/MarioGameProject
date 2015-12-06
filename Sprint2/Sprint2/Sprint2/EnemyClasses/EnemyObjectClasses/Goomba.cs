@@ -12,6 +12,9 @@ namespace Sprint2
         private NonPlayerScoreItem score;
         private Vector2 location;
         private bool directionLeft;
+        private bool frozen;
+        private int freezeCounter;
+        private int enemyFreezeTime;
         private IEnemyState state;
         public IEnemyState State
         {
@@ -30,6 +33,9 @@ namespace Sprint2
             score = new NonPlayerScoreItem(100, true);
             location = new Vector2(locX, locY);
             state = new GoombaHealthy(this);
+            frozen = false;
+            freezeCounter = UtilityClass.zero;
+            enemyFreezeTime = UtilityClass.enemyFreezeTime;
             rigidbody = new AutonomousPhysicsObject();
             LoadRigidBodyProperties();
         }
@@ -77,7 +83,20 @@ namespace Sprint2
         {
             rigidbody.UpdatePhysics();
             location += rigidbody.Velocity;
-            state.Update();
+            if (frozen)
+            {
+                freezeCounter++;
+                if (freezeCounter > enemyFreezeTime)
+                {
+                    frozen = false;
+                    rigidbody.GroundSpeed = UtilityClass.goombaGroundSpeed; 
+                    freezeCounter = UtilityClass.zero;
+                }
+            }
+            else
+            {
+                state.Update();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
@@ -103,7 +122,11 @@ namespace Sprint2
             state.TakeDamage();
             ZeroScoreValue();
         }
-
+        public void Freeze()
+        {
+            frozen = true;
+            rigidbody.GroundSpeed = UtilityClass.zero;
+        }
         public void updateLocation(Vector2 newLocation)
         {
             this.location = newLocation;

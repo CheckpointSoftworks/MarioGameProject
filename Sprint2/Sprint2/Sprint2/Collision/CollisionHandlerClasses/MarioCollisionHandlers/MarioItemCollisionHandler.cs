@@ -35,7 +35,12 @@ namespace Sprint2
                 {
                     StatePuaseAlterationCall.Execute();
                 }
-            }else if(item.returnItemType().Equals(ItemType.OneUpMushroom))
+            }
+            else if (item.returnItemType().Equals(ItemType.IceFlower))
+            {
+                command = new MarioIceFlowerCollisionCommand(mario, item);
+            }
+            else if(item.returnItemType().Equals(ItemType.OneUpMushroom))
             {                
                 command = new MarioOneUpMushroomCollisionCommand(mario, item);
                 AchievementEventTracker.oneUpAcievement();

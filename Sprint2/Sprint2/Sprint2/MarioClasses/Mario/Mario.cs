@@ -347,7 +347,8 @@ namespace Sprint2
 
                     if ((TransitionToFireTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one)
                     {
-                        Fire = !Fire;
+                        if (Ice) { Ice = false; Fire = !Fire; }
+                        else Fire = !Fire;
                     }
                     transitioning = (TransitionToFireTime < transitionDuration);
                     if (!transitioning)
@@ -357,13 +358,14 @@ namespace Sprint2
                         Ice = false;
                     }
                 }
-                if (TransitionToIceTime < transitionDuration)
+                else if (TransitionToIceTime < transitionDuration)
                 {
                     TransitionToIceTime += UtilityClass.marioTransistionTimerCount;
 
                     if ((TransitionToIceTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one)
                     {
-                        Ice = !Ice;
+                        if (Fire) { Fire = false; Ice = !Ice; }
+                        else Ice = !Ice;
                     }
                     transitioning = (TransitionToIceTime < transitionDuration);
                     if (!transitioning)

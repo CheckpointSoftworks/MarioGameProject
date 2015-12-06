@@ -24,6 +24,7 @@ namespace Sprint2
         Rectangle returnCollisionRectangle();
 
         void TakeDamage();
+        void Freeze();
         void TakeDamage(IPlayer mario);
 
         void updateLocation(Vector2 location);

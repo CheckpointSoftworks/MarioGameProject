@@ -18,9 +18,18 @@ namespace Sprint2
         public void Execute()
         {
             SoundEffectFactory.Kick();
-            ((Mario)((Fireball)projectile).GetOwner()).ProjectileScoreEvent(enemy.ScoreData());
-            enemy.TakeDamage(((Mario)((Fireball)projectile).GetOwner()));
-            ((Fireball)projectile).Killed();
+            if (projectile.ReturnProjectileType().Equals(ProjectileType.Fireball))
+            {
+                ((Mario)((Fireball)projectile).GetOwner()).ProjectileScoreEvent(enemy.ScoreData());
+                enemy.TakeDamage(((Mario)((Fireball)projectile).GetOwner()));
+                ((Fireball)projectile).Killed();
+            }
+            else if (projectile.ReturnProjectileType().Equals(ProjectileType.Iceball))
+            {
+                ((Mario)((Iceball)projectile).GetOwner()).ProjectileScoreEvent(enemy.ScoreData());
+                enemy.Freeze();
+                ((Iceball)projectile).Killed();
+            }
         }
     }
 }

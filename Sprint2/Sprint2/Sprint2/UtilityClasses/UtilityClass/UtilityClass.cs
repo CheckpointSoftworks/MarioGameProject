@@ -68,8 +68,11 @@ namespace Sprint2
         public const float sprintJumpDuration = 1.65f;
         public const int fireballSpawnXOffset = 3;
         public const int fireballSpawnYOffset = 8;
+        public const int iceballSpawnXOffset = 3;
+        public const int iceballSpawnYOffset = 8;
         public const float deadZone = 0.5f;
 
+        public const int enemyFreezeTime = 300;
         public const float goombaAirFriction = 0.8f;
         public const float goombaGroundFriction = 1f;
         public const float goombaGroundSpeed = 1.5f;
@@ -109,6 +112,7 @@ namespace Sprint2
 
         public const int enableEnemyPixelWidth = 10;
         public const int fireballLimit = 5;
+        public const int iceballLimit = 5;
         public const int stateTransistionTimer = 20;
 
         //Mario Magic Numbers
@@ -170,12 +174,12 @@ namespace Sprint2
         public const float fireballElasticity = 1f;
         public const float fireballRightGroundSpeed = 1.5f;
         public const float fireballLeftGroupSpeed = -1.5f;
-        public const float iceballAirFriction = 0.7f;
+        public const float iceballAirFriction = 0.8f;
         public const float iceballGroundFriction = 1f;
-        public const float iceballMaxFallSpeed = 1.0f;
+        public const float iceballMaxFallSpeed = 1.5f;
         public const float iceballElasticity = 1f;
-        public const float iceballRightGroundSpeed = 1.0f;
-        public const float iceballLeftGroupSpeed = -1.0f;
+        public const float iceballRightGroundSpeed = 1.5f;
+        public const float iceballLeftGroupSpeed = -1.5f;
 
         //Sprite Factories and Texture Storage Magic Numbers and Strings
 

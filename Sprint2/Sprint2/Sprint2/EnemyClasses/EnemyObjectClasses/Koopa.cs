@@ -16,6 +16,9 @@ namespace Sprint2
         private IEnemyState state;
         private bool shellForm;
         private bool hurtMario;
+        private bool frozen;
+        private int freezeCounter;
+        private int enemyFreezeTime;
 
         public IEnemyState State
         {
@@ -49,6 +52,9 @@ namespace Sprint2
             directionLeft = false;
             shellForm = false;
             hurtMario = true;
+            frozen = false;
+            freezeCounter = UtilityClass.zero;
+            enemyFreezeTime = UtilityClass.enemyFreezeTime;
         }
 
         private void LoadRigidBodyProperties()
@@ -91,7 +97,20 @@ namespace Sprint2
         {
             rigidbody.UpdatePhysics();
             location += rigidbody.Velocity;
-            state.Update();
+            if (frozen)
+            {
+                freezeCounter++;
+                if (freezeCounter > enemyFreezeTime)
+                {
+                    frozen = false;
+                    rigidbody.GroundSpeed = UtilityClass.koopaGroundSpeed;
+                    freezeCounter = UtilityClass.zero;
+                }
+            }
+            else 
+            { 
+                state.Update(); 
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
@@ -122,6 +141,11 @@ namespace Sprint2
             hurtMario = false;
             ((Mario)mario).ScoreEvent(score);
             ZeroScoreValue();
+        }
+        public void Freeze()
+        {
+            frozen = true;
+            rigidbody.GroundSpeed = UtilityClass.noMovement;
         }
 
         public void updateLocation(Vector2 newLocation)

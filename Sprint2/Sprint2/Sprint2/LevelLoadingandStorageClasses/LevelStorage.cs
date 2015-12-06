@@ -107,7 +107,7 @@ namespace Sprint2
             }
             foreach (IItemObjects item in itemList)
             {
-                if (!item.returnItemType().Equals(ItemType.BoxCoin) && !item.returnItemType().Equals(ItemType.FireFlower))
+                if (!item.returnItemType().Equals(ItemType.BoxCoin) && !item.returnItemType().Equals(ItemType.FireFlower) && !item.returnItemType().Equals(ItemType.IceFlower))
                 {
                     handleItemCollision(item);
                 }
@@ -115,9 +115,19 @@ namespace Sprint2
             foreach (IProjectile projectile in projectileList)
             {
                 handleProjectileCollision(projectile);
-                if (((Fireball)projectile).DoneFireBall() && game.fireBallCount < UtilityClass.fireballLimit && projectile.checkForCollisionTestFlag())
+                if (projectile.ReturnProjectileType().Equals(ProjectileType.Fireball))
                 {
-                    game.fireBallCount++;
+                    if (((Fireball)projectile).DoneFireBall() && game.fireBallCount < UtilityClass.fireballLimit && projectile.checkForCollisionTestFlag())
+                    {
+                        game.fireBallCount++;
+                    }
+                }
+                if (projectile.ReturnProjectileType().Equals(ProjectileType.Iceball))
+                {
+                    if (((Iceball)projectile).DoneIceBall() && game.iceBallCount < UtilityClass.iceballLimit && projectile.checkForCollisionTestFlag())
+                    {
+                        game.iceBallCount++;
+                    }
                 }
             }
         }

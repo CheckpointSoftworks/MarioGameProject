@@ -102,6 +102,28 @@ namespace Sprint2
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
                         }
+                        else if (ObjectType == "<IceFlower>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            IItemObjects GameObject;
+                            GameObject = new IceFlower(XVal, YVal);
+                            storage.itemList.Add(GameObject);
+                            //FireFlowerStats.TotalAvailable++;
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
                         else if (ObjectType == "<Goomba>")
                         {
                             var xstring = sr.ReadLine();
@@ -333,6 +355,28 @@ namespace Sprint2
                             GameObject = new QuestionSuperMushroomFireFlower(XVal, YVal, BlockType.QuestionSuperMushroomFireFlower);
                             storage.blocksList.Add(GameObject);
                             FireFlowerStats.TotalAvailable++;
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
+                        else if (ObjectType == "<QuestionIceFlowerBlock>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            IBlock GameObject;
+                            GameObject = new QuestionIceFlower(XVal, YVal, BlockType.QuestionIceFlower);
+                            storage.blocksList.Add(GameObject);
+                            //FireFlowerStats.TotalAvailable++;
 
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();

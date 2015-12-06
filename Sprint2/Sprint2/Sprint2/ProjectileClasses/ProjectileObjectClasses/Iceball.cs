@@ -17,19 +17,21 @@ namespace Sprint2
         private int timer;
         private IPlayer owner;
         private float spawnGroundSpeed;
+        private ProjectileType type;
 
         public Iceball(int x, int y, float spawnSpeed, bool facingRight, IPlayer shooter)
         {
             spawnGroundSpeed = spawnSpeed;
             spawnGroundSpeed += facingRight ? UtilityClass.one : -UtilityClass.one;
             location = new Vector2(x, y);
-            sprite = new FireballSprite(location);
+            sprite = new IceballSprite(location);
             testForCollision = true;
             timer = UtilityClass.iceballTimer;
             rigidbody = new AutonomousPhysicsObject();
             owner = shooter;
             LoadRigidBodyProperties();
             SoundEffectFactory.Fireball();
+            type = ProjectileType.Iceball;
         }
         private void LoadRigidBodyProperties()
         {
@@ -71,7 +73,10 @@ namespace Sprint2
         {
             return location;
         }
-
+        public ProjectileType ReturnProjectileType()
+        {
+            return type;
+        }
         public Rectangle returnCollisionRectangle()
         {
             return sprite.returnCollisionRectangle();

@@ -17,6 +17,7 @@ namespace Sprint2
         private int timer;
         private IPlayer owner;
         private float spawnGroundSpeed;
+        private ProjectileType type;
 
         public Fireball(int x, int y, float spawnSpeed, bool facingRight, IPlayer shooter)
         {
@@ -30,6 +31,7 @@ namespace Sprint2
             owner = shooter;
             LoadRigidBodyProperties();
             SoundEffectFactory.Fireball();
+            type = ProjectileType.Fireball;
         }
         private void LoadRigidBodyProperties()
         {
@@ -66,7 +68,10 @@ namespace Sprint2
         {
             sprite.Draw(spriteBatch, cameraLoc);
         }
-
+        public ProjectileType ReturnProjectileType()
+        {
+            return type;
+        }
         public Vector2 returnLocation()
         {
             return location;

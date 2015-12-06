@@ -77,14 +77,19 @@
     <Compile Include="Achievements\AchievementManager.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BlueBrickBlock.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BlueGroundBlock.cs" />
+    <Compile Include="Blocks\BlockObjectClasses\QuestionIceFlower.cs" />
     <Compile Include="Blocks\BlockSpriteClasses\BlueBrickBlockSprite.cs" />
     <Compile Include="Blocks\BlockSpriteClasses\BlueGroundBlockSprite.cs" />
     <Compile Include="CameraClasses\Camera.cs" />
     <Compile Include="CameraClasses\Types\AutoScrollingCameraController.cs" />
     <Compile Include="CameraClasses\Types\CameraController.cs" />
     <Compile Include="CameraClasses\Types\ClassicCameraController.cs" />
+    <Compile Include="Collision\CollisionCommands\BlockCollisionCommands\QuestionIceFlowerCommand.cs" />
     <Compile Include="Collision\CollisionCommands\EnemyCollisonCommands\ProjectileHitsEnemy.cs" />
+    <Compile Include="Collision\CollisionCommands\ItemCollisionCommands\MarioIceFlowerCollisionCommand.cs" />
+    <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\IceballCommand.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\NoFireCommand.cs" />
+    <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\NoIceCommand.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\NoJumpCommand.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\GoombaDamaged.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\GoombaHealthy.cs" />
@@ -140,6 +145,7 @@
     <Compile Include="Scoring and Stats\Stats\General Stats\TimeStat.cs" />
     <Compile Include="SoundClasses\MusicFactory.cs" />
     <Compile Include="SoundClasses\SoundEffectFactory.cs" />
+    <Compile Include="UtilityClasses\Enumerators\ProjectileTypeEnum.cs" />
     <Compile Include="UtilityClasses\UtilityClass\UtilityClass.cs" />
     <Compile Include="UtilityClasses\Enumerators\MarioStateEnum.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\BrickPieces.cs" />

@@ -23,5 +23,6 @@ namespace Sprint2
 
         AutonomousPhysicsObject RigidBody();
         bool Active();
+        ProjectileType ReturnProjectileType();
     }
 }
