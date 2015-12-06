@@ -78,6 +78,8 @@ namespace Sprint2
             time = new TimeStat(UtilityClass.LevelStartTime);
             gui = new GUI();
             StatePuaseAlterationCall.setGame(this);
+            AchievementPause.setGame(this);
+            AchievementUnPauser.setGame(this);
             achievementManager = new AchievementManager();
             AchievementEventTracker.setManager(achievementManager);
             base.Initialize();
