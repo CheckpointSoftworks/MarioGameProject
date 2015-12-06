@@ -30,6 +30,7 @@ namespace Sprint2
 
         public PlayerStatManager stats;
         public PlayerActionStatManager actions;
+        public int takingDamage;
 
         private float transitionDuration;
         private float TransitionToBigTime;
@@ -79,6 +80,7 @@ namespace Sprint2
             State = new MarioStill(this);
             moveMario = true;
             rigidbody = new ControllablePhysicsObject();
+            takingDamage = 0;
             LoadPhysicsProperties();
             lives = new PlayerScoreItem(PlayerScoreItem.GUIType.mario, UtilityClass.StartingLives, UtilityClass.GUIMarioPosition, false);
             points = new PlayerScoreItem(UtilityClass.GUIMarioScoreName, UtilityClass.zero, UtilityClass.GUIMarioScorePosition, true);
@@ -294,6 +296,7 @@ namespace Sprint2
             }
             else if (!Star)
             {
+                takingDamage++;
                 SoundEffectFactory.TransitionSmall();
                 if (Fire)
                 {
