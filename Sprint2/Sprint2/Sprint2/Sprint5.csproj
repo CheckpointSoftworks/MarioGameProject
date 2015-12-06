@@ -73,6 +73,9 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CameraClasses\Types\DrunkCameraController.cs" />
+    <Compile Include="CameraClasses\Types\MovableCameraController.cs" />
+    <Compile Include="CameraClasses\Types\ShakyCameraController.cs" />
     <Compile Include="LevelStateAlterations\AchievementUnPauser.cs" />
     <Compile Include="LevelStateAlterations\AchievementPause.cs" />
     <Compile Include="Achievements\AchievementEventTracker.cs" />
