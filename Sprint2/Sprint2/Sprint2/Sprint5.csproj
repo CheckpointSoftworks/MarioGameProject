@@ -73,6 +73,8 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LevelStateAlterations\AchievementUnPauser.cs" />
+    <Compile Include="LevelStateAlterations\AchievementPause.cs" />
     <Compile Include="Achievements\AchievementEventTracker.cs" />
     <Compile Include="Achievements\AchievementManager.cs" />
     <Compile Include="Blocks\BlockObjectClasses\BlueBrickBlock.cs" />

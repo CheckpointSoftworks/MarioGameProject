@@ -39,7 +39,7 @@ namespace Sprint2
         private string levelFinishAcievementString;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern uint MessageBox(IntPtr hWnd, String text, String caption, uint type);
+        private static extern int MessageBox(IntPtr hWnd, String text, String caption, uint type);
 
         public AchievementManager()
         {
@@ -74,6 +74,7 @@ namespace Sprint2
         {
             if (!undergroundAcievement)
             {
+                AchievementPause.Execute();
                 MessageBox(new IntPtr(0), undergroundAchievementString, "Achievement Earned", 0);
                 undergroundAcievement = true;
             }
@@ -84,6 +85,7 @@ namespace Sprint2
         {
             if (!killingEnemyAcievement)
             {
+                AchievementPause.Execute();
                 MessageBox(new IntPtr(0), killingEnemyAcievementString, "Achievement Earned", 0);
                 killingEnemyAcievement = true;
             }
@@ -94,6 +96,7 @@ namespace Sprint2
         {
             if (!oneUpAcievement)
             {
+                AchievementPause.Execute();
                 MessageBox(new IntPtr(0), oneUpAcievementString, "Achievement Earned", 0);
                 oneUpAcievement = true;
             }
@@ -102,6 +105,7 @@ namespace Sprint2
         {
             if (!superMushAcievement)
             {
+                AchievementPause.Execute();
                 MessageBox(new IntPtr(0), superMushAcievementString, "Achievement Earned", 0);
                 superMushAcievement = true;
             }
@@ -110,6 +114,7 @@ namespace Sprint2
         {
             if (!starAcievement)
             {
+                AchievementPause.Execute();
                 MessageBox(new IntPtr(0), starAcievementString, "Achievement Earned", 0);
                 starAcievement = true;
             }
@@ -118,6 +123,7 @@ namespace Sprint2
         {
             if (!fireFlowerAcievement)
             {
+                AchievementPause.Execute();
                 MessageBox(new IntPtr(0), fireFlowerAcievementString, "Achievement Earned", 0);
                 fireFlowerAcievement = true;
             }
@@ -128,6 +134,7 @@ namespace Sprint2
         {
             if (!levelFinishAcievement)
             {
+                AchievementPause.Execute();
                 MessageBox(new IntPtr(0), levelFinishAcievementString, "Achievement Earned", 0);
                 levelFinishAcievement = true;
             }
@@ -148,6 +155,7 @@ namespace Sprint2
         {
             if (!brickSmashedAcievement)
             {
+                AchievementPause.Execute();
                 MessageBox(new IntPtr(0), brickSmashedAcievementString, "Achievement Earned", 0);
                 brickSmashedAcievement = true;
             }
@@ -158,6 +166,7 @@ namespace Sprint2
         {
             if (!hiddenDispenserAcievement)
             {
+                AchievementPause.Execute();
                 MessageBox(new IntPtr(0), hiddenDispenserAcievementString, "Achievement Earned", 0);
                 hiddenDispenserAcievement = true;
             }
@@ -168,6 +177,7 @@ namespace Sprint2
         {
             if (!questionCoinAcievement)
             {
+                AchievementPause.Execute();
                 MessageBox(new IntPtr(0), questionCoinAcievementString, "Achievement Earned", 0);
                 questionCoinAcievement = true;
             }
