@@ -118,7 +118,7 @@
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\PoleSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\RightFacingPipeEdgeSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\RightFacingPipeSprite.cs" />
-    <Compile Include="Interfaces\EndingSequenceMarioSprite.cs" />
+    <Compile Include="Interfaces\IEndingSequenceMarioSprite.cs" />
     <Compile Include="Interfaces\IEndingSequenceMario.cs" />
     <Compile Include="Interfaces\IFlag.cs" />
     <Compile Include="Interfaces\IFlagSprite.cs" />
