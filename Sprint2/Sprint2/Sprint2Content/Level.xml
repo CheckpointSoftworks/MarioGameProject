@@ -2844,9 +2844,31 @@
     <x>5384</x>
     <y>440</y>
   </IceCloud>
-  
-  
 
+  <IceCloud>
+    <x>5480</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5528</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5576</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5624</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5672</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5720</x>
+    <y>440</y>
+  </IceCloud>
 
   <!-- End of SKYWORLD AREA -->
 </Level>

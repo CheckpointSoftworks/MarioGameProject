@@ -95,8 +95,6 @@ namespace Sprint2
             {
                 drawtransition = true;
                 VineMario.Update();
-                //VineMario.Draw(game.spriteBatch, ((Mario)mario).GetLocation(), game.font);
-                //game.hitFlagpole = true; //Removes the main mario from being drawn.
                 if (VineMario.SequenceFinished)
                 {
                     game.hitFlagpole = false;
@@ -116,6 +114,13 @@ namespace Sprint2
             {
                 isWithinSendingField = true;
             }
+            return isWithinSendingField;
+        }
+
+        private static Boolean IsWithinExitSkyWorldBoundary(Vector2 MarioLocation)
+        {
+            bool isWithinSendingField = false;
+            
             return isWithinSendingField;
         }
     }
