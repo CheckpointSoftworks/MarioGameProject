@@ -13,7 +13,7 @@ namespace Sprint2
         private Vector2 location;
         private AnimatedSprite BridgeSprite;
         private Rectangle collisionRectangle;
-        private bool sendunderground;
+
         public SkyWorldBridgeSprite(Vector2 location)
         {
             SkyWorldBridgeSpriteSheet = MiscGameObjectTextureStorage.CreateBridgeSprite();

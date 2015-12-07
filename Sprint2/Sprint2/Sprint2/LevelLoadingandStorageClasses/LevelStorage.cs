@@ -23,7 +23,7 @@ namespace Sprint2
         public ArrayList enviromentalObjectsList;
         public ArrayList projectileList;
         private int enemyCount;
-        private int maxEnemiesCount;
+        private int maxSpawnedEnemiesCount;
 
         public LevelStorage(Camera camera)
         {
@@ -34,7 +34,7 @@ namespace Sprint2
             enviromentalObjectsList = new ArrayList();
             projectileList = new ArrayList();
             enemyCount = 0;
-            maxEnemiesCount = 20;
+            maxSpawnedEnemiesCount = 6;
         }
         public void Update()
         {
@@ -158,7 +158,7 @@ namespace Sprint2
                 int enemySpawnerRelativeXLocation=((int)((EnemySpawner)enviromental).returnLocation().X - ((int)camera.GetPosition().X + camera.GetWidth()));
                 bool spawnEnemyTime=((EnemySpawner)enviromental).timeToSpawnAnEnemy();
                 bool inEnableRange = (enemySpawnerRelativeXLocation<= UtilityClass.enableEnemyPixelWidth);
-                if (inEnableRange&&spawnEnemyTime&&enemyCount<maxEnemiesCount)
+                if (inEnableRange&&spawnEnemyTime&&enemyCount<maxSpawnedEnemiesCount)
                 {
                     enemiesList.Add(((EnemySpawner)enviromental).SpawnAnEnemy());
                     increaseEnemyCount();
@@ -168,11 +168,13 @@ namespace Sprint2
 
         public void increaseEnemyCount()
         {
+            Console.WriteLine("Inc: "+enemyCount);
             enemyCount++;
         }
 
         public void decreaseEnemyCount()
         {
+            Console.WriteLine("Dec: "+enemyCount);
             enemyCount--;
         }
     }

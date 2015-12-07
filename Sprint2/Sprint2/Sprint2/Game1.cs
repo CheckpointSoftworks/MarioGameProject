@@ -42,6 +42,7 @@ namespace Sprint2
         public bool hitFlagpole { get; set; }
         public ICommand resetCommand { get; set; }
         public GUI gui { get; set; }
+        public SpriteFont font { get; set; }
 
         private Texture2D background;
         private Texture2D background2;
@@ -49,7 +50,6 @@ namespace Sprint2
         private Texture2D deathbackground;
         private TestingClass tester;
         private ICommand keyNotPressed;
-        public SpriteFont font;
         private SpriteFont basicarialfont;
         private TimeStat time;
         private bool levelWon;

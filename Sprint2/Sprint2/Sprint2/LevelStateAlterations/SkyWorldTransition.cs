@@ -89,14 +89,14 @@ namespace Sprint2
         {
             if (!hit_vine)
             {
-                VineMario = new VineSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire, ((Mario)mario).Ice, elapsedtime);
+                VineMario = new VineSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire, ((Mario)mario).Ice);
                 hit_vine = true;
             }
             else
             {
                 VineMario.Update();
                 game.spriteBatch.Begin();
-                VineMario.Draw(game.spriteBatch, game.camera.GetPosition(), game.font);
+                VineMario.Draw(game.spriteBatch, game.camera.GetPosition());
                 game.spriteBatch.End();
                 if (VineMario.SequenceFinished)
                 {
@@ -104,10 +104,12 @@ namespace Sprint2
                 }
             }
         }
-        private void SendFromSkyWorld(Mario mario, float elapsedtime)
+
+        private static void SendFromSkyWorld(Mario mario, float elapsedtime)
         {
 
         }
+
         private static Boolean IsWithinSendSkyWorldBoundary(Vector2 MarioLocation)
         {
             bool isWithinSendingField = false;
