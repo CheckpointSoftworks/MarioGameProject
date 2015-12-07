@@ -168,13 +168,11 @@ namespace Sprint2
 
         public void increaseEnemyCount()
         {
-            Console.WriteLine("Inc: "+enemyCount);
             enemyCount++;
         }
 
         public void decreaseEnemyCount()
         {
-            Console.WriteLine("Dec: "+enemyCount);
             enemyCount--;
         }
     }
