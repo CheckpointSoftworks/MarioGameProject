@@ -39,12 +39,16 @@ namespace Sprint2
         public const int pipeSendAboveGroundTransistionTwoX = 4210;
         public const int pipeSendAboveGroundTransistionThreeX = 4220;
         public const int pipeSendAboveGroundTransistionFourX = 4230;
-        public const int SkyWorldCoinBlockX1 = 368;
-        public const int SkyWorldCoinBlockX2 = 384;
+        public const int SkyWorldCoinBlockX1 = 365;
+        public const int SkyWorldCoinBlockX2 = 388;
         public const int pipeSendAboveCameraAdjustment = 1516;
         public const int pipeSendAboveGroundFinishedMarioLocationX = 2664;
         public const int leftfacingundergroundpipeX = 4188;
         public const int leftfacingundergroundpipeY = 408;
+        public const int MarioSkyWorldAppearLocationX = 5050;
+        public const int MarioSkyWorldAppearLocationY = 300;
+        public const int MarioSkyWorldExitPipeLocationX = 5928;
+        public const int MarioSkyWorldCameraAdjustmentForExit = 3300;
 
         public const int BrickPieceYAdjustment = 5;
         public const int itemOffSet = 16;

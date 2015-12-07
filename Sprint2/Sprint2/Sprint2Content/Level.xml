@@ -2845,6 +2845,11 @@
     <y>440</y>
   </IceCloud>
 
+  <IceBridge>
+    <x>5424</x>
+    <y>400</y>
+  </IceBridge>
+
   <IceCloud>
     <x>5480</x>
     <y>440</y>
@@ -2870,6 +2875,31 @@
     <y>440</y>
   </IceCloud>
 
+  <IceCloud>
+    <x>5864</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5912</x>
+    <y>440</y>
+  </IceCloud>
+  <IcePipe>
+    <x>5920</x>
+    <y>420</y>
+  </IcePipe>
+  <IceCloud>
+    <x>5960</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>6008</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>6056</x>
+    <y>440</y>
+  </IceCloud>
+  
   <!-- End of SKYWORLD AREA -->
 </Level>
 <!-- END -->
