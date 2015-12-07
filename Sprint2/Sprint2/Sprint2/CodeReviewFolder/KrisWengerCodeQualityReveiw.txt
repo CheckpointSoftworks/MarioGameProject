@@ -1,18 +1,17 @@
 ﻿Author of the code review: Kris Wenger
-Date of the code review: 11/16/15
-Sprint number: 5
-Name of the .cs file being reviewed: GUI.cs
+Date of the code review: 12/6/15
+Sprint number: 6
+Name of the .cs file being reviewed: PlayerStatManager
 Author of the .cs file being reviewed: Matthew Mohr
 Specific comments on code quality:
-	The class is quite percise in its variable naming conventions, except for its use of i as a loop variable.
-	However it makes sense in the context it used.  In terms of maintainability,
-	the class seems to be able to easily take IScoreItems and display the GUI.  Adding a 
-	new type of item which has a score can be done easily based off this desgin of the GUI, simply create
-	a new IScoreItem and use the suscribe method in GUI on it.  In terms of
-	dependencies the gui is only really dependent on an List Object, which is a commong type, and IScoreItem,
-	which is a interface and thus less coupling than with multiple concrete classes.
-	In terms of cohesion the GUI I would say has high cohesion becuase it is perfroming
-	only three tasks, both relating to the GUI, updating it and drawing it, it also adds items to the List to display
-	but again that is a method relating to GUI.  It is updating the camera through method calls.  
-	In terms of coupling as stated above the class has almost no dependencies, so I would also say 
-	that the GUI has loose coupling.  Overall, I believe this class has high cohesion and loose coupling.
+	The class is quite percise in its variable naming conventions, except for maybe sw as a variable for stream writer.
+	However it makes sense slso since it is for stream writer.  In terms of maintainability,
+	the class seems to be able to easily take different stats and display them.  Adding a 
+	new type of stats item seems like it could easily be done, just decalre a new private property for the class
+	and have it corrspond to a new stats item.  This item then could be tracked and increased as other the stats are.
+	In terms of	dependencies the player stats has a few since it is dependent on a few concrete classes instead of a type of 
+	interface.	In terms of cohesion the PlayerStatsManager I would say has high cohesion becuase it is perfroming
+	only tasks relating to stats, increasing the various stats and then displaying them or writing them to a file.  
+	In terms of coupling as stated above the class has a few dependencies, so I would also say 
+	that the PlayerStatsManager has loose or medium coupling.  Overall, I believe this class has high cohesion
+	and loose or medium coupling.

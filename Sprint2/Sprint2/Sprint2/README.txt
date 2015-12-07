@@ -1,4 +1,4 @@
-﻿Sprint 5
+﻿Sprint 6
 Team 6
 JONATHAN MILLER
 MATTHEW	MOHR
@@ -97,7 +97,45 @@ Statistics and end game scoring - MATT MOHR
 	At the end of gameplay, relevant information is written to a file in bin/x86/Debug/GameRecords.txt
 
 Achievements and Enemy Spawner - Kris Wenger
-	Added all files under the achievement folder, added the enemy spawner class under the Enviromental Object Classes subfolder of the Enviromental
+
+**IMPORTANT NOTE A GAME DESIGN DECISION MEANS THE GAME PAUSES AFTER AND ACHIEVEMENT IS OBTAINED**
+**EXCEPT FOR DYING AND FINISHING THE LEVEL**
+
+	Added all files under the achievement folder, added the enemy spawner class under the Environmental Object Classes subfolder of the Environment,
+	the GoombaEnemySpawnerSprite and KoopaEnemySpawnerSprite classes under the Environmental Sprite Classes subfolder of the Environmental Classes, 
+	and added the AchievementPuase class to the Level State Alterations folder.  I also added custom sprites based off the default pipe sprites for
+	both types of enemy spawners, these can be found in the content part of the solution.
+
+	There are twelve different achievements.  There are those revolving around level transitions, such as going to the underground area or finishing the level.
+	Those which are based on Mario colliding with certain objects, such as the different power up items or killing an enemy.
+
+	The achievement system has two components the manager, which deals with the displaying the pop-up message box for each achievement, and pausing the game when a
+	player gets an achievement so they can take their time to get back into to their game whenever they are ready.  The manager also deals with loading and saving 
+	the achievements to an external file found in the bin/x86/Debug folder of the solution.  The second component was created to help keep coupling between classes low,
+	this class the Achievement event tracker, has a reference to the achievement manager, and is static so it can be called in any class without being first instantiated.
+	This class is triggered when an event corresponding to an achievement is triggered to then call the achievement manager to have the proper logic for that achievement.
+	It is also implemented to allow for testing to occur without having the achievements occur.
+
+	The achievement system works by having the player complete certain events, if these events are completed the achievement manager pauses the game for the player, 
+	displays a pop-up message box displaying which achievement was earned.  The game is left paused till the player decides to un-pause the game themselves, 
+	the exception to this being the dying achievement which does not pause the game and the level finishing achievement which does not pause the ending sequence.  
+	This design choice was made for a few reasons, the first was to allow the player ample time after getting their achievement to process where they were in the game
+	and get ready to continue from that spot.  The second main reason was to pervent any glitches from where the pop-up message pauses the game.
+	Also at the end of the level or whenever a player dies, or the game is quit by command, the achievements are saved to an external file, as stated above.  
+	Then whenever the game is started again it remembers which achievements the player had.
+
+	The enemy spawners work like environmental objects, except they have added methods which tell if they are to spawn enemies, the timer is set to spawn enemies in a
+	manageable time set, and it can be changed easily through the utility class.  The logic for spawning enemies happens in the levelStorage class, since it handles the
+	updating of all the different objects on the level.  The game checks to see if the spawners are on screen, if they are, it checks to see if it is time to spawn an enemy,
+	if it is it adds the new enemy to the enemies array list.  The all of this is done through method calls to the enemy spawner, except for the actual placing the enemy in
+	the array list that is done in the level store class.
+
+	I believe for both of my new additions the coupling is low, achievement manager only knows about its own things, having no outside class calls, the only thing it relies
+	on are in its write method it relies on a sent stream writer.  The enemy spawner classes have a reasonable amount of coupling also since enemy spawner knows about its sprite,
+	and the sprites both use the animated sprite helper class.  Both of the sprite also use the texture storage to obtain their texture 2d.  In terms of cohesion I believe the 
+	cohesion for the created classes is high, because all the achievement manager class handles is reading/writing and displaying achievements.  The spawner handles the logic 
+	for spawning an enemy depending on if it is a goomba or koopa spawner.  Most methods in both classes are under ten lines, the only execption being the reading and writing
+	methods for achievements.
 
 Ice Mario State, Iceball Power, and Ice Flower - Jonathan Miller
 

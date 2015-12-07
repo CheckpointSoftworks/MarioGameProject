@@ -1,13 +1,12 @@
 ﻿Author of the code review: Kris Wenger
-Date of the code review: 11/12/15
-Sprint number: 5
-Name of the .cs file being reviewed: GUI.cs
+Date of the code review: 12/6/15
+Sprint number: 6
+Name of the .cs file being reviewed: PlayerStatManager.cs
 Author of the .cs file being reviewed: Matthew Mohr
-Number of minutes taken to complete the review: 13 mins to write all the review, only 2 or 3 to read the code.
+Number of minutes taken to complete the review:  12 mins to write all the review, 3 or 4 mins only to read the code.
 Specific comments on what is readable and what is not:
 	The naming of the variables are easy to understand what they, stand for and what they should do.
-	However, the use of i as a looping variable could be confusing because it is short and non-descriptive.
-	This could be fixed by calling i something like item or something that matches the items List. The calls to outside 
-	classes also are readable because the method names, such as i.Update(), makes sense what it should do. 
-	However the use of signle line if statements without the curly braces makes it harder to read.  But the class does not
-	have any long methods or methods which are overly complicated. Overall I believe the class' code is very Readable.
+	However, the use of sw for stream writer may be confusing but it makes since since sw is short for stream writer.
+	This could be simply fixed by changing sw to something like statsFileWriter or something along that lines. 
+	The short methods for the class make it much easier to read and the naming of the outside methods also make
+	understaning the code easy. Overall I believe the PlayerStatManager's code to be very Readable.
