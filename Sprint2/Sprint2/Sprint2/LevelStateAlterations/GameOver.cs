@@ -11,7 +11,7 @@ namespace Sprint2
 {
     public class GameOver
     {
-        public Boolean deathscreen;
+        private Boolean deathscreen;
         private float deathtime;
         private SpriteFont font;
         private SpriteFont basicarialfont;
@@ -93,5 +93,11 @@ namespace Sprint2
             else { game.spriteBatch.DrawString(font, UtilityClass.gameOver, UtilityClass.deathtextloc, Color.White); }
             game.spriteBatch.End();
         }
+        
+        public bool returnDeathScreenBool()
+        {
+            return deathscreen;
+        }
+
     }
 }
