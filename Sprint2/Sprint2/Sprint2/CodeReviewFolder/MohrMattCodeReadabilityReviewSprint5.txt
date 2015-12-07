@@ -1,9 +1,9 @@
 ﻿Author of the code review: Matt Mohr
-Date of the code review: 11/12/15
-Sprint number: 5
-Name of the .cs file being reviewed: SoundEffectFactory.cs
-Author of the .cs file being reviewed:  Scott Weddendorf
+Date of the code review: 12/6/15
+Sprint number: 6
+Name of the .cs file being reviewed: IceFlower.cs
+Author of the .cs file being reviewed:  Johnathan
 Number of minutes taken to complete the review: 3 minutes.
 Details:
-Prefectly readable and straight forward, SoundEffectFactory is a factory pattern class that it used throughout the game to play sound effects. 
-Its variables and methods are static, everything is reasonably named, so there's not much that can be improved.
+IceFlower.cs looks almost identical to the fire flower class, and that's good. They serve a very similar function.
+Overall, the code is readable and not too overwrought. Because it's based so heavily on fire flower, a well-written class, there aren't any readability problems.  

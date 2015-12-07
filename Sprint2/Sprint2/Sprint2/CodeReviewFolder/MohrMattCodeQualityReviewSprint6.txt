@@ -1,7 +1,7 @@
 ﻿Author of the code review: Matt Mohr
-Date of the code review: 11/12/15
-Sprint number: 5
-Name of the .cs file being reviewed: SoundEffectFactory.cs
-Author of the .cs file being reviewed:  Scott Weddendorf
-Specific notes: It's an exemplar factory pattern class, so coupling is high but cohesion is perfectly tight. 
-Additional feature: Again, it's a factory pattern, so there isn't much to add. Potentially, it could report when a file has stopped playing for looping puproses, but that's more up to the sound class' code.
+Date of the code review: 12/6/15
+Sprint number: 6
+Name of the .cs file being reviewed: IceFlower.cs
+Author of the .cs file being reviewed:  Johnathan
+Specific notes: Code quality is good. returnLocation() should just be a property called Location though. Other than that, the cohesion is pretty tight and the coupling is quite loose.
+Additional features: Because this and the fireflower are so similar, it may be best to just have a generic Flower class with a Flower Type instead of repeating the same code. 
