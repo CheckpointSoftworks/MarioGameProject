@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint2
 {
-    public class MovableCameraController
+    public class MovableCameraController : ICameraController
     {
 
         private int cameraWidth;

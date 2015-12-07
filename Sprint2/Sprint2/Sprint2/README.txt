@@ -64,19 +64,22 @@ Mario:
 arrow keys for left/right/crouch movement
 z key for jumping
 x key for fireballs
+c key for iceballs
 s key for sprinting
 r key for resetting level
 p key for pausing
 q key for quiting
 
-GamePad Mappings
+GamePad Mappings:
 
-left joystick for left/right/crouch/jump movement
-a key for sprinting
-x key for fireballs
-start for pausing
+Left Joystick for left/right/crouch/jump movement
+A key for sprinting
+X key for fireballs
+B key for iceballs
+Start for pausing
 
-FEATURES ADDED FOR SPRINT 6
+FEATURES ADDED FOR SPRINT 6:
+
 Statistics and end game scoring - MATT MOHR
 	Added all files found in the Stats subfolder of the Scoring and Stats folder.
 	Stats are dividied into four types: Collectable, Count-Int, Count-Double, and Time
@@ -94,6 +97,5 @@ Statistics and end game scoring - MATT MOHR
 	At the end of gameplay, relevant information is written to a file in bin/x86/Debug/GameRecords.txt
 
 Achievements and Enemy Spawner
-	
 
-
+Ice Mario State, Iceball Power, and Ice Flower - Jonathan Miller

@@ -76,6 +76,13 @@
     <Compile Include="CameraClasses\Types\DrunkCameraController.cs" />
     <Compile Include="CameraClasses\Types\MovableCameraController.cs" />
     <Compile Include="CameraClasses\Types\ShakyCameraController.cs" />
+    <Compile Include="ContollerClasses\ControllerCommands\CameraCommands\AutoScrollingCameraControllerCommand.cs" />
+    <Compile Include="ContollerClasses\ControllerCommands\CameraCommands\CameraControllerCommand.cs" />
+    <Compile Include="ContollerClasses\ControllerCommands\CameraCommands\ClassicCameraControllerCommand.cs" />
+    <Compile Include="ContollerClasses\ControllerCommands\CameraCommands\DrunkCameraControllerCommand.cs" />
+    <Compile Include="ContollerClasses\ControllerCommands\CameraCommands\MovableCameraControllerCommand.cs" />
+    <Compile Include="ContollerClasses\ControllerCommands\CameraCommands\ShakyCameraControllerCommand.cs" />
+    <Compile Include="Interfaces\ICameraController.cs" />
     <Compile Include="LevelStateAlterations\AchievementUnPauser.cs" />
     <Compile Include="LevelStateAlterations\AchievementPause.cs" />
     <Compile Include="Achievements\AchievementEventTracker.cs" />
