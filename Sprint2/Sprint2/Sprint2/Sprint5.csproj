@@ -83,7 +83,6 @@
     <Compile Include="ContollerClasses\ControllerCommands\CameraCommands\MovableCameraControllerCommand.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\CameraCommands\ShakyCameraControllerCommand.cs" />
     <Compile Include="Interfaces\ICameraController.cs" />
-    <Compile Include="LevelStateAlterations\AchievementUnPauser.cs" />
     <Compile Include="LevelStateAlterations\AchievementPause.cs" />
     <Compile Include="Achievements\AchievementEventTracker.cs" />
     <Compile Include="Achievements\AchievementManager.cs" />
