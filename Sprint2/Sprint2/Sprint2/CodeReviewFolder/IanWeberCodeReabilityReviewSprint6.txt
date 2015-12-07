@@ -1,0 +1,11 @@
+Author of the code review: Ian Weber
+Date of the code review: 12/7/2015
+Sprint number: 6
+Name of the .cs file being reviewed: DrunkCameraController.cs
+Author of the .cs file being reviewed: Scott Weddendorf
+Number of minutes taken to complete the review: 10
+Description: I wanted to see how readble this is because of the funny name.  Scott's classes are generally simple, effective,
+and easy to read through and re-use.  This class is no different.  We clearly see what the overall point of the class is.  It's a
+new camera type in which there will be a lot of shaking and random movements.  We can read though the detailed logic of the code
+and get a good general idea of how it works just based on the variable names.  
+ 

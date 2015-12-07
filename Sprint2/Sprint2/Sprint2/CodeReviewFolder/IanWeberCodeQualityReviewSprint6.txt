@@ -1,0 +1,7 @@
+Author of the code review: Ian Weber
+Date of the code review: 12/7/15
+Sprint number: 6
+Name of the .cs file being reviewed: DrunkCameraController.cs
+Author of the .cs file being reviewed: Scott Weddendorf
+Description:
+	
