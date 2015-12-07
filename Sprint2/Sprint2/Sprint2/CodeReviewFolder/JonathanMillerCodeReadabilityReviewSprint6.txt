@@ -11,4 +11,4 @@ Overall, this class is readable. All of the variables and methods are named appr
 easy to understand. When an EnemySpawner object is instantiated, it is passed a bool which determines which enemy the 
 spawner will spawn. If a true bool is passed to the constructor, then the SpawnAnEnemy method spawns a Goomba. If a 
 false bool is passed to the constructor, then the SpawnAnEnemy method spawns a Koopa. The class is well organized and 
-easy to understand.C:\Users\Jonathan Miller\Source\Repos\Team6PlatformingGameProject\Sprint2\Sprint2\Sprint2\EnviromentalClasses\
+easy to understand.

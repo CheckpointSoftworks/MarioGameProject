@@ -34,7 +34,7 @@ namespace Sprint2
             noLongerSpecialized = true;
             if(Vine_Box == true)
             {
-                if(dispenseItemFlag==false) //ie: it has been hit, so the vine should come out.
+                if(dispenseItemFlag==false)
                 {
                     Vine_Dispense = true;
                 }

@@ -14,7 +14,6 @@ namespace Sprint2
     public class AchievementManager
     {
 
-        //Set up different Achievement bools(12)
         private bool undergroundAchievement;
         private bool killingEnemyAchievement;
         private bool oneUpAchievement;
@@ -54,50 +53,46 @@ namespace Sprint2
             hiddenDispenserAchievement=false;
             questionCoinAchievement=false;
             levelFinishAchievement=false;
-            undergroundAchievementString = "Spelunking Time Achieved";
-            killingEnemyAchievementString = "Stomp dat Enemy";
-            oneUpAchievementString = "Bonus Life!";
-            superMushAchievementString = "Super Mushroom Funtime";
-            starAchievementString="STAR TIME";
-            fireFlowerAchievementString="FIRE IS FUN!!!";
-            levelFinishAchievementString="YOUR THE BEST AROUND";
-            dyingAchievementString="Time for a new life.";
-            brickSmashedAchievementString="MARIO SMASH";
-            hiddenDispenserAchievementString="HIDDEN MONIES!!!!!!";
-            questionCoinAchievementString = "Questions bring Dough";
+            undergroundAchievementString = UtilityClass.undergroundAchievementString;
+            killingEnemyAchievementString = UtilityClass.killingEnemyAchievementString;
+            oneUpAchievementString = UtilityClass.oneUpAchievementString;
+            superMushAchievementString = UtilityClass.superMushAchievementString;
+            starAchievementString=UtilityClass.starAchievementString;
+            fireFlowerAchievementString=UtilityClass.fireFlowerAchievementString;
+            levelFinishAchievementString=UtilityClass.levelFinishAchievementString;
+            dyingAchievementString = UtilityClass.dyingAchievementString;
+            brickSmashedAchievementString=UtilityClass.brickSmashedAchievementString;
+            hiddenDispenserAchievementString=UtilityClass.hiddenDispenserAchievementString;
+            questionCoinAchievementString = UtilityClass.questionCoinAchievementString;
             readInAchievements();
         }
-        //Different Achievement Methods
 
-        //Underground Achievement
         public void undergroundAchieved()
         {
             if (!undergroundAchievement)
             {
                 AchievementPause.Execute();
-                MessageBox(new IntPtr(0), undergroundAchievementString, "Achievement Earned", 0);
+                MessageBox(new IntPtr(0), undergroundAchievementString, UtilityClass.earnedAchievementHeader, UtilityClass.zero);
                 undergroundAchievement = true;
             }
         }
 
-        //Killing an enemy achievement
         public void killedEnemyAchieved()
         {
             if (!killingEnemyAchievement)
             {
                 AchievementPause.Execute();
-                MessageBox(new IntPtr(0), killingEnemyAchievementString, "Achievement Earned", 0);
+                MessageBox(new IntPtr(0), killingEnemyAchievementString, UtilityClass.earnedAchievementHeader, UtilityClass.zero);
                 killingEnemyAchievement = true;
             }
         }
 
-        //Different item achievements(4)
         public void oneUpAchieved()
         {
             if (!oneUpAchievement)
             {
                 AchievementPause.Execute();
-                MessageBox(new IntPtr(0), oneUpAchievementString, "Achievement Earned", 0);
+                MessageBox(new IntPtr(0), oneUpAchievementString, UtilityClass.earnedAchievementHeader, UtilityClass.zero);
                 oneUpAchievement = true;
             }
         }
@@ -106,7 +101,7 @@ namespace Sprint2
             if (!superMushAchievement)
             {
                 AchievementPause.Execute();
-                MessageBox(new IntPtr(0), superMushAchievementString, "Achievement Earned", 0);
+                MessageBox(new IntPtr(0), superMushAchievementString, UtilityClass.earnedAchievementHeader, UtilityClass.zero);
                 superMushAchievement = true;
             }
         }
@@ -115,7 +110,7 @@ namespace Sprint2
             if (!starAchievement)
             {
                 AchievementPause.Execute();
-                MessageBox(new IntPtr(0), starAchievementString, "Achievement Earned", 0);
+                MessageBox(new IntPtr(0), starAchievementString, UtilityClass.earnedAchievementHeader, UtilityClass.zero);
                 starAchievement = true;
             }
         }
@@ -125,67 +120,61 @@ namespace Sprint2
             if (!fireFlowerAchievement)
             {
                 AchievementPause.Execute();
-                MessageBox(new IntPtr(0), fireFlowerAchievementString, "Achievement Earned", 0);
+                MessageBox(new IntPtr(0), fireFlowerAchievementString, UtilityClass.earnedAchievementHeader, UtilityClass.zero);
                 fireFlowerAchievement = true;
             }
 
         }
 
-        //Finishing level achievement
         public void finishedLevelAchieved()
         {
             if (!levelFinishAchievement)
             {
                 AchievementPause.Execute();
-                MessageBox(new IntPtr(0), levelFinishAchievementString, "Achievement Earned", 0);
+                MessageBox(new IntPtr(0), levelFinishAchievementString, UtilityClass.earnedAchievementHeader, UtilityClass.zero);
                 levelFinishAchievement = true;
             }
         }
 
-        //Dying achievement
         public void dyingAchieved()
         {
             if (!dyingAchievement)
             {
-                MessageBox(new IntPtr(0), dyingAchievementString, "Achievement Earned", 0);
+                MessageBox(new IntPtr(0), dyingAchievementString, UtilityClass.earnedAchievementHeader, UtilityClass.zero);
                 dyingAchievement = true;
             }
         }
 
-        //Smashing a brick block achievement
         public void smashedBrickAchieved()
         {
             if (!brickSmashedAchievement)
             {
                 AchievementPause.Execute();
-                MessageBox(new IntPtr(0), brickSmashedAchievementString, "Achievement Earned", 0);
+                MessageBox(new IntPtr(0), brickSmashedAchievementString, UtilityClass.earnedAchievementHeader, UtilityClass.zero);
                 brickSmashedAchievement = true;
             }
         }
 
-        //Coin block dispenser achievement
         public void coinDispenserAchieved()
         {
             if (!hiddenDispenserAchievement)
             {
                 AchievementPause.Execute();
-                MessageBox(new IntPtr(0), hiddenDispenserAchievementString, "Achievement Earned", 0);
+                MessageBox(new IntPtr(0), hiddenDispenserAchievementString, UtilityClass.earnedAchievementHeader, UtilityClass.zero);
                 hiddenDispenserAchievement = true;
             }
         }
 
-        //Question block achievement
         public void questionCoinAchieved()
         {
             if (!questionCoinAchievement)
             {
                 AchievementPause.Execute();
-                MessageBox(new IntPtr(0), questionCoinAchievementString, "Achievement Earned", 0);
+                MessageBox(new IntPtr(0), questionCoinAchievementString, UtilityClass.earnedAchievementHeader, UtilityClass.zero);
                 questionCoinAchievement = true;
             }
         }
 
-        //Write achievements to a file
         public void writeOutAchievements(StreamWriter streamWrite)
         {
             if (undergroundAchievement)

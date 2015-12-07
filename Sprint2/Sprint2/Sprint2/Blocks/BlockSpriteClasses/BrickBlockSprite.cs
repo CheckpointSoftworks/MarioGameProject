@@ -32,13 +32,13 @@ namespace Sprint2
             if (smashed&&frame<totalFrames)
             {
                 frame++;
-                collisionRectangle = new Rectangle(0, 0, 0, 0);
+                collisionRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero);
             }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize*frame), 0, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
+            Rectangle sourceRectangle = sourceRectangle = new Rectangle((spriteSheetSpriteSize*frame), UtilityClass.zero, (spriteSheetSpriteSize), (spriteSheetSpriteSize));
             Rectangle destinationRectangle = new Rectangle((int)location.X - (int)cameraLoc.X, (int)location.Y - (int)cameraLoc.Y, spriteSheetSpriteSize, spriteSheetSpriteSize);
 
             

@@ -339,7 +339,17 @@ namespace Sprint2
         public const int enemySpawnYOffset = 16;
         public const int enemySpawnXOffset = 8;
 
-        
-
+        public const string earnedAchievementHeader = "Achievement Earned";
+        public const string undergroundAchievementString = "Spelunking Time Achieved";
+        public const string killingEnemyAchievementString = "Stomp dat Enemy";
+        public const string oneUpAchievementString = "Bonus Life!";
+        public const string superMushAchievementString = "Super Mushroom Funtime";
+        public const string starAchievementString="STAR TIME";
+        public const string fireFlowerAchievementString="FIRE IS FUN!!!";
+        public const string levelFinishAchievementString="YOUR THE BEST AROUND";
+        public const string dyingAchievementString="Time for a new life.";
+        public const string brickSmashedAchievementString="MARIO SMASH";
+        public const string hiddenDispenserAchievementString="HIDDEN MONIES!!!!!!";
+        public const string questionCoinAchievementString = "Questions bring Dough";
     }
 }
