@@ -28,6 +28,7 @@ namespace Sprint2
         public Camera camera { get; set; }
         public ICameraController cameraController { get; set; }
         public PipeTransition pipeTransition { get; set; }
+        public SkyWorldTransition skytransition { get; set; }
         public GameOver gameover { get; set; }
         public bool pause { get; set; }
         public bool canPause { get; set; }
@@ -42,15 +43,17 @@ namespace Sprint2
 
         private Texture2D background;
         private Texture2D background2;
+        private Texture2D skyworldbackground;
         private Texture2D deathbackground;
         private TestingClass tester;
         public ICommand resetCommand;
         private ICommand keyNotPressed;
-        private SpriteFont font;
+        public SpriteFont font;
         private SpriteFont basicarialfont;
         private TimeStat time;
         public GUI gui;
         private bool levelWon;
+        private bool vine_box_hit;
         private AchievementManager achievementManager;
 
         public Game1()
@@ -65,6 +68,7 @@ namespace Sprint2
             gamepad = new GamepadController(this);
             camera = new Camera(UtilityClass.cameraHeight, UtilityClass.cameraWidth, new Vector2(UtilityClass.zero, UtilityClass.zero));
             pipeTransition = new PipeTransition();
+            skytransition = new SkyWorldTransition();
             gameover = new GameOver(this);
             loader = new LevelLoader(UtilityClass.levelFile, camera);
             levelStore = new LevelStorage(camera);
@@ -89,6 +93,7 @@ namespace Sprint2
             flag = new Flag();
             hitFlagpole = false;
             levelWon = false;
+            vine_box_hit = false;
         }
 
         protected override void LoadContent()
@@ -104,6 +109,7 @@ namespace Sprint2
             MusicFactory.Load(this.Content);
             background = Content.Load<Texture2D>(UtilityClass.background);
             background2 = Content.Load<Texture2D>(UtilityClass.background2);
+            skyworldbackground = Content.Load<Texture2D>("skyworldbackground");
             deathbackground = Content.Load<Texture2D>(UtilityClass.deathbackground);
             font = Content.Load<SpriteFont>(UtilityClass.FontString);
             basicarialfont = Content.Load<SpriteFont>(UtilityClass.BasicArialFontString);
@@ -156,6 +162,18 @@ namespace Sprint2
                 gamepad.Update();
             }
 
+            foreach (IBlock block in levelStore.blocksList)
+            {
+                if (block.returnBlockType() == BlockType.QuestionCoin)
+                {
+                    if(((QuestionCoinBlock)block).Vine_Dispense && !vine_box_hit)
+                    {
+                        vine_box_hit = true;
+                        skytransition.vine_box_hit = true;
+                    }
+                }
+            }
+
             float elapsedtime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             levelWon = (mario.GetLocation().X >= UtilityClass.flagpoleLocation && mario.GetLocation().X < UtilityClass.aboveGroundEndLocation);
@@ -168,6 +186,7 @@ namespace Sprint2
                 levelStore.handleCollision(mario, this);
                 cameraController.Update();
                 pipeTransition.Update((Mario)mario, elapsedtime, camera);
+                skytransition.Update((Mario)mario, elapsedtime, camera, this);
                 gameover.Update((Mario)mario, elapsedtime, this);
                 gui.Update();
                 if (time.UpdateTime(gameTime)) { resetCommand.Execute(); }
@@ -217,9 +236,14 @@ namespace Sprint2
 
                 Rectangle sourceRectangle = new Rectangle((int)camera.GetPosition().X, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
                 Rectangle destinationRectangle = new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
-                if (mario.GetLocation().X > UtilityClass.deathbackgroundChange)
+                if (mario.GetLocation().X > UtilityClass.deathbackgroundChange && mario.GetLocation().X < UtilityClass.skyworldbackgroundChange)
                 {
                     spriteBatch.Draw(deathbackground, destinationRectangle, sourceRectangle, Color.White);
+                }
+                else if (mario.GetLocation().X > UtilityClass.skyworldbackgroundChange)
+                {
+                    sourceRectangle = new Rectangle((int)camera.GetPosition().X - UtilityClass.skyworldbackgroundChange, (int)camera.GetPosition().Y, UtilityClass.cameraWidth, UtilityClass.cameraHeight);
+                    spriteBatch.Draw(skyworldbackground, destinationRectangle, sourceRectangle, Color.White);
                 }
                 else if ((int)camera.GetPosition().X < UtilityClass.backgroundChange) { spriteBatch.Draw(background, destinationRectangle, sourceRectangle, Color.White); }
                 else

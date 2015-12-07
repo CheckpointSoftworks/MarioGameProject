@@ -16,7 +16,6 @@ namespace Sprint2
             hasbeguntransition = false;
             hasbeguntransitionout = false;
             transitiontime = UtilityClass.two;
-
         }
         public void Update(Mario mario, float elapsedtime, Camera camera)
         {
@@ -42,7 +41,7 @@ namespace Sprint2
         private static Boolean IsWithinReturnFromUndergroundPipeBoundary(Vector2 MarioLocation)
         {
             bool isWithinReturnField = false;
-            if (MarioLocation.X > UtilityClass.leftfacingundergroundpipeX && MarioLocation.Y > UtilityClass.leftfacingundergroundpipeY)
+            if (MarioLocation.X > UtilityClass.leftfacingundergroundpipeX && MarioLocation.Y > UtilityClass.leftfacingundergroundpipeY && MarioLocation.X < 4750)
             {
                 isWithinReturnField=true;
             }

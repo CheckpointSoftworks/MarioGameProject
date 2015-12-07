@@ -13,6 +13,8 @@ namespace Sprint2
         private BlockType type;
         private bool testForCollision;
         private bool noLongerSpecialized;
+        public bool Vine_Box;
+        public bool Vine_Dispense;
         private Vector2 location;
         private bool dispenseItemFlag;
         public QuestionCoinBlock(int locX,int locY,BlockType type)
@@ -21,6 +23,7 @@ namespace Sprint2
             sprite = new QuestionBlockSprite(location);
             this.type = type;
             testForCollision=true;
+            Vine_Box = false;
             noLongerSpecialized = false;
             dispenseItemFlag = true;
         }
@@ -29,6 +32,13 @@ namespace Sprint2
         {
             sprite.Update();
             noLongerSpecialized = true;
+            if(Vine_Box == true)
+            {
+                if(dispenseItemFlag==false) //ie: it has been hit, so the vine should come out.
+                {
+                    Vine_Dispense = true;
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)

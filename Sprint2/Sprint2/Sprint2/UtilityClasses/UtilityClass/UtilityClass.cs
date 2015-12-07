@@ -21,6 +21,7 @@ namespace Sprint2
         public const int generalSpriteHeightAndWidth = 16;
         public const int addCoinScore = 100;
 
+        public const float TopOfScreen = 0;
         public const float pipeTransistionAnimationFourthFrameTime = .5f;
         public const float pipeTransistionAnimationSecondFramTime = 1.5f;
         public const int undergroundpipeleftX = 928;
@@ -38,6 +39,8 @@ namespace Sprint2
         public const int pipeSendAboveGroundTransistionTwoX = 4210;
         public const int pipeSendAboveGroundTransistionThreeX = 4220;
         public const int pipeSendAboveGroundTransistionFourX = 4230;
+        public const int SkyWorldCoinBlockX1 = 368;
+        public const int SkyWorldCoinBlockX2 = 384;
         public const int pipeSendAboveCameraAdjustment = 1516;
         public const int pipeSendAboveGroundFinishedMarioLocationX = 2664;
         public const int leftfacingundergroundpipeX = 4188;
@@ -51,7 +54,7 @@ namespace Sprint2
         public const int BlockBounceTimer = 20;
 
         public const int currentScreenMax = 800;
-        public const int maxScroll = 3500;
+        public const int maxScroll = 6000;
 
         public const float restoreElasticity = 0.0f;
         public const float restoreAirFriction = 0.95f;
@@ -250,6 +253,7 @@ namespace Sprint2
         public const string deathbackground = "Deathbackground";
         public const int backgroundChange = 1500;
         public const int deathbackgroundChange = 4000;
+        public const int skyworldbackgroundChange = 4750;
         public const int LevelStartTime = 500;
         public const string GameTimeName = "TIME\n";
         public const string gameOver = "GAME OVER";

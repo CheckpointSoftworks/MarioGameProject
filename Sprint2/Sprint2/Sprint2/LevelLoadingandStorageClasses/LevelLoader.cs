@@ -609,6 +609,109 @@ namespace Sprint2
                             ObjectType = sr.ReadLine();
                             ObjectType = ObjectType.Trim();
                         }
+                        else if (ObjectType == "<SkyBridge>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            IEnviromental GameObject = new SkyWorldBridge(XVal, YVal);
+                            storage.enviromentalObjectsList.Add(GameObject);
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
+                        else if (ObjectType == "<IcePipe>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            IEnviromental GameObject = new IcePipe(XVal, YVal);
+                            storage.enviromentalObjectsList.Add(GameObject);
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
+                        else if (ObjectType == "<IceCloud>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            IEnviromental GameObject = new StandingCloud(XVal, YVal);
+                            storage.enviromentalObjectsList.Add(GameObject);
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
+                        else if (ObjectType == "<SmileyCloud>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            IEnviromental GameObject = new IceSmileyCloud(XVal, YVal);
+                            storage.enviromentalObjectsList.Add(GameObject);
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
+                        else if (ObjectType == "<VineCoinBox>")
+                        {
+                            var xstring = sr.ReadLine();
+                            string[] xstringSeparators = new string[] { " ", "<x>", "</x>", "\n" };
+                            string xtrimmed = xstring.Trim();
+                            var xsplit = xtrimmed.Split(xstringSeparators, StringSplitOptions.None);
+                            int XVal = Int32.Parse(xsplit[1]);
+
+                            var ystring = sr.ReadLine();
+                            string[] ystringSeparators = new string[] { " ", "<y>", "</y>", "\n" };
+                            string ytrimmed = ystring.Trim();
+                            var ysplit = ytrimmed.Split(ystringSeparators, StringSplitOptions.None);
+                            int YVal = Int32.Parse(ysplit[1]);
+
+                            QuestionCoinBlock GameObject;
+                            GameObject = new QuestionCoinBlock(XVal, YVal, BlockType.QuestionCoin);
+                            GameObject.Vine_Box = true;
+                            storage.blocksList.Add(GameObject);
+                            CoinStats.TotalAvailable++;
+
+                            ObjectType = sr.ReadLine();
+                            ObjectType = ObjectType.Trim();
+                        }
                         else
                         {
                             ObjectType = sr.ReadLine();
