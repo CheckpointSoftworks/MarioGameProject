@@ -262,7 +262,7 @@ namespace Sprint2
                 flag.Draw(spriteBatch, camera.GetPosition());
                 if(skytransition.drawtransition == true)
                 {
-                    skytransition.VineMario.Draw(spriteBatch, VineClimbBeginLocation, font);
+                    skytransition.VineMario.Draw(spriteBatch, VineClimbBeginLocation);
                     hitFlagpole = true; //Removes the main mario from being drawn.
                 }
                 if (levelWon)
