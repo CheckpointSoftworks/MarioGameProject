@@ -97,8 +97,7 @@ namespace Sprint2
         }
 
         private void handleSpecialKeys()
-        {
-            
+        {            
                 if (padState1.Buttons.X == ButtonState.Pressed)
                 {
                     if (!fireballShot)

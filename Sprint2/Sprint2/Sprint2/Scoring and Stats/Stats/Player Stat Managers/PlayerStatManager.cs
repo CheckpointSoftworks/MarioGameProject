@@ -62,7 +62,7 @@ namespace Sprint2
             KoopaStats.IncreaseValue(1);
         }
 
-        //Temporary, please delete
+
         public void PrintAll()
         {
             Console.WriteLine("********** Player Stats **********");

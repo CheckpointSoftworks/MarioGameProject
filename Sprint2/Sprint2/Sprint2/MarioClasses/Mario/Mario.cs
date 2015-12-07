@@ -150,9 +150,7 @@ namespace Sprint2
                     MusicFactory.MainTheme();
                 }
                 timer--;
-
                 State.Update();
-
             }
         }
 
@@ -160,7 +158,6 @@ namespace Sprint2
         {
             if (Star) { actions.AddStarTime(time.ElapsedGameTime.Milliseconds); }
             if (Fire) { actions.AddFireTime(time.ElapsedGameTime.Milliseconds); }
-            //if (Ice) { actions.AddIceTime(time.ElapsedGameTime.Milliseconds); }
             else if (!Small) { actions.AddBigTime(time.ElapsedGameTime.Milliseconds); }
             if (Math.Abs(rigidbody.Velocity.Y)>0.1) { actions.AddAirTime(time.ElapsedGameTime.Milliseconds); }
         }
@@ -319,83 +316,8 @@ namespace Sprint2
 
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
-            
-                if (TransitionToBigTime < transitionDuration)
-                {
-                    TransitionToBigTime += UtilityClass.marioTransistionTimerCount;
-                    if ((TransitionToBigTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one) Small = !Small;
-                    transitioning = (TransitionToBigTime < transitionDuration);
-                    if (!transitioning)
-                    {
-                        Fire = false;
-                        Ice = false;
-                        Small = false;
-                    }
-                }
-                if (TransitionToSmallTime < transitionDuration)
-                {
-                    TransitionToSmallTime += UtilityClass.marioTransistionTimerCount;
-                    if ((TransitionToSmallTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one) Small = !Small;
-                    transitioning = (TransitionToSmallTime < transitionDuration);
-                    if (!transitioning)
-                    {
-                        Fire = false;
-                        Ice = false;
-                        Small = true;
-                    }
-                }
-                if (TransitionToFireTime < transitionDuration)
-                {
-                    TransitionToFireTime += UtilityClass.marioTransistionTimerCount;
 
-                    if ((TransitionToFireTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one)
-                    {
-                        if (Ice) { Ice = false; Fire = !Fire; }
-                        else Fire = !Fire;
-                    }
-                    transitioning = (TransitionToFireTime < transitionDuration);
-                    if (!transitioning)
-                    {
-                        Small = false;
-                        Fire = true;
-                        Ice = false;
-                    }
-                }
-                else if (TransitionToIceTime < transitionDuration)
-                {
-                    TransitionToIceTime += UtilityClass.marioTransistionTimerCount;
-
-                    if ((TransitionToIceTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one)
-                    {
-                        if (Fire) { Fire = false; Ice = !Ice; }
-                        else Ice = !Ice;
-                    }
-                    transitioning = (TransitionToIceTime < transitionDuration);
-                    if (!transitioning)
-                    {
-                        Small = false;
-                        Ice = true;
-                        Fire = false;
-                    }
-                }
-                if (TransitionToDifferentDirection < transitionDuration)
-                {
-                    TransitionToDifferentDirection += UtilityClass.marioTransitionDirection;
-                    State.ChangeDirection();
-                    transitioning = ((TransitionToFireTime < transitionDuration) || (TransitionToIceTime < transitionDuration));
-                }
-                if (transitioning&&moveMario)
-                {
-                    Location = new Vector2(Location.X, Location.Y - UtilityClass.marioTransistionOffset);
-                    moveMario = false;
-                }
-                else if (!transitioning)
-                {
-                    moveMario = true;
-                }
-                State.setDrawColor(Color.White);
-                State.Draw(spriteBatch, cameraLoc);
-            
+            transistionalDrawing(spriteBatch, cameraLoc);
             if (Star)
             {
                 if (timer % UtilityClass.marioStarColorOne == UtilityClass.zero)
@@ -437,6 +359,85 @@ namespace Sprint2
         public Vector2 GetLocation()
         {
             return Location;
+        }
+
+        private void transistionalDrawing(SpriteBatch spriteBatch, Vector2 cameraLoc)
+        {
+            if (TransitionToBigTime < transitionDuration)
+            {
+                TransitionToBigTime += UtilityClass.marioTransistionTimerCount;
+                if ((TransitionToBigTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one) Small = !Small;
+                transitioning = (TransitionToBigTime < transitionDuration);
+                if (!transitioning)
+                {
+                    Fire = false;
+                    Ice = false;
+                    Small = false;
+                }
+            }
+            if (TransitionToSmallTime < transitionDuration)
+            {
+                TransitionToSmallTime += UtilityClass.marioTransistionTimerCount;
+                if ((TransitionToSmallTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one) Small = !Small;
+                transitioning = (TransitionToSmallTime < transitionDuration);
+                if (!transitioning)
+                {
+                    Fire = false;
+                    Ice = false;
+                    Small = true;
+                }
+            }
+            if (TransitionToFireTime < transitionDuration)
+            {
+                TransitionToFireTime += UtilityClass.marioTransistionTimerCount;
+
+                if ((TransitionToFireTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one)
+                {
+                    if (Ice) { Ice = false; Fire = !Fire; }
+                    else Fire = !Fire;
+                }
+                transitioning = (TransitionToFireTime < transitionDuration);
+                if (!transitioning)
+                {
+                    Small = false;
+                    Fire = true;
+                    Ice = false;
+                }
+            }
+            else if (TransitionToIceTime < transitionDuration)
+            {
+                TransitionToIceTime += UtilityClass.marioTransistionTimerCount;
+
+                if ((TransitionToIceTime * UtilityClass.ten) % UtilityClass.marioTranstitionTimeModulus < UtilityClass.one)
+                {
+                    if (Fire) { Fire = false; Ice = !Ice; }
+                    else Ice = !Ice;
+                }
+                transitioning = (TransitionToIceTime < transitionDuration);
+                if (!transitioning)
+                {
+                    Small = false;
+                    Ice = true;
+                    Fire = false;
+                }
+            }
+            if (TransitionToDifferentDirection < transitionDuration)
+            {
+                TransitionToDifferentDirection += UtilityClass.marioTransitionDirection;
+                State.ChangeDirection();
+                transitioning = ((TransitionToFireTime < transitionDuration) || (TransitionToIceTime < transitionDuration));
+            }
+            if (transitioning && moveMario)
+            {
+                Location = new Vector2(Location.X, Location.Y - UtilityClass.marioTransistionOffset);
+                moveMario = false;
+            }
+            else if (!transitioning)
+            {
+                moveMario = true;
+            }
+            State.setDrawColor(Color.White);
+            State.Draw(spriteBatch, cameraLoc);            
         }
     }
 }
