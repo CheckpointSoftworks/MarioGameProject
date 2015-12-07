@@ -10,7 +10,7 @@ namespace Sprint2
 {
     public class GamepadController : IController
     {
-        private GamePadState padState1;
+        public GamePadState padState1;
         private Vector2 leftThumbPosition;
         private ICommand left;
         private ICommand right;
