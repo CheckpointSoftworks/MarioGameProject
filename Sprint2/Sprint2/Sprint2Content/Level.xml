@@ -74,10 +74,10 @@
     <x>352</x>
     <y>384</y>
   </QuestionSuperMushroomFireFlowerBlock>
-  <QuestionCoinBlock>
+  <VineCoinBox>
     <x>368</x>
     <y>320</y>
-  </QuestionCoinBlock>
+  </VineCoinBox>
   <BrickBlock>
     <x>368</x>
     <y>384</y>
@@ -2807,6 +2807,45 @@
     <y>456</y>
   </BlueGroundBlock>
 
+  <!-- SKYWORLD AREA -->
+  <IceCloud>
+    <x>5000</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5048</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5096</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5144</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5192</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5240</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5288</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5336</x>
+    <y>440</y>
+  </IceCloud>
+  <IceCloud>
+    <x>5384</x>
+    <y>440</y>
+  </IceCloud>
 
+
+  <!-- End of SKYWORLD AREA -->
 </Level>
 <!-- END -->
