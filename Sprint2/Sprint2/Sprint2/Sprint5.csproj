@@ -92,12 +92,12 @@
     <Compile Include="EnviromentalClasses\EnviromentalObjectClasses\StandingCloud.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\FullVineSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\IcePipeSprite.cs" />
-    <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\IceSmileyCloudSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\LargeVineSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\MediumVineSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\SkyWorldBridgeSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\SmallVineSprite.cs" />
     <Compile Include="EnviromentalClasses\EnviromentalSpriteClasses\StandingCloudSprite.cs" />
+    <Compile Include="IceSmileyCloudSprite.cs" />
     <Compile Include="Interfaces\ICameraController.cs" />
     <Compile Include="LevelStateAlterations\AchievementPause.cs" />
     <Compile Include="Achievements\AchievementEventTracker.cs" />
