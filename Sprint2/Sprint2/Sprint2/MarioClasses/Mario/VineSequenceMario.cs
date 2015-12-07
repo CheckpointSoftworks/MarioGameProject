@@ -21,7 +21,7 @@ namespace Sprint2
             get { return sequencefinished; }
             set { sequencefinished = value; }
         }
-        public VineSequenceMario(Mario mario, bool smallMario, bool fireMario, bool iceMario, float elapsedtime)
+        public VineSequenceMario(Mario mario, bool smallMario, bool fireMario, bool iceMario)
         {
             this.location = mario.Location;
             this.smallMario = smallMario;
@@ -55,7 +55,7 @@ namespace Sprint2
         {
             VineMarioSprite.Update();
         }
-        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc, SpriteFont font)
+        public void Draw(SpriteBatch spriteBatch, Vector2 cameraLoc)
         {
             if (climbinganimation)
             {
