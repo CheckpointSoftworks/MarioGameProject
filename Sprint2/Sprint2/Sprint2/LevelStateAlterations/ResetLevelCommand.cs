@@ -18,14 +18,14 @@ namespace Sprint2
         public void Execute()
         {
             game.WriteStats();
-            game.writeAchievements();
+            AchievementEventTracker.writeAchievements();
             game.camera = new Camera(UtilityClass.cameraHeight, UtilityClass.cameraWidth, new Vector2(UtilityClass.zero, UtilityClass.zero));
             game.loader = new LevelLoader(UtilityClass.levelFile, game.camera);
             game.levelStore = new LevelStorage(game.camera);
             game.levelStore = game.loader.LoadLevel();
             game.mario = game.levelStore.player;
             game.cameraController = new CameraController(game.camera, game.mario);
-            game.pause = false;
+            game.setPause(false);
             MusicFactory.MainTheme();
             game.ResetTime();
             game.hitFlagpole = false;

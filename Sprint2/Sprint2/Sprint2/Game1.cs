@@ -27,20 +27,13 @@ namespace Sprint2
         public LevelLoader loader { get; set; }
         public Camera camera { get; set; }
         public ICameraController cameraController { get; set; }
-        public PipeTransition pipeTransition { get; set; }
-        public SkyWorldTransition skytransition { get; set; }
-        public GameOver gameover { get; set; }
-        public bool pause { get; set; }
-        public bool canPause { get; set; }
-        public bool marioPause { get; set; }
+        public ICommand resetCommand { get; set; }
         public int fireBallCount { get; set; }
         public int iceBallCount { get; set; }
-        public int stateTransistionPauseTimer { get; set; }
         public IEndingSequenceMario endMario { get; set; }
         public IPole pole { get; set; }
         public IFlag flag { get; set; }
         public bool hitFlagpole { get; set; }
-        public ICommand resetCommand { get; set; }
         public GUI gui { get; set; }
         public SpriteFont font { get; set; }
 
@@ -56,6 +49,13 @@ namespace Sprint2
         private bool levelWon;
         private bool vine_box_hit;
         private AchievementManager achievementManager;
+        private bool pause;
+        private PipeTransition pipeTransition;
+        private SkyWorldTransition skytransition;
+        private int stateTransistionPauseTimer;
+        private GameOver gameover;
+        private bool canPause;
+        private bool marioPause;
 
         public Game1()
         {
@@ -295,16 +295,6 @@ namespace Sprint2
             fs.Close();  
         }
 
-        public void writeAchievements()
-        {
-            var fileLoc=String.Format("{0}Achievements.txt",AppDomain.CurrentDomain.BaseDirectory);
-            FileStream achieveFile = new FileStream(fileLoc, FileMode.Create);
-            StreamWriter writeAchieves = new StreamWriter(achieveFile);
-            writeAchieves.WriteLine("Earned: ");
-            achievementManager.writeOutAchievements(writeAchieves);
-            writeAchieves.Close();
-            achieveFile.Close();
-        }
 
         private void drawPause()
         {
@@ -312,6 +302,35 @@ namespace Sprint2
             SpriteFont pausedFont = Content.Load<SpriteFont>(UtilityClass.FontString);
             spriteBatch.DrawString(pausedFont, "PAUSED", new Vector2(350, 200), Color.White);
             spriteBatch.End();
+        }
+
+        public bool returnPause()
+        {
+            return pause;
+        }
+        public void setPause(bool setTo)
+        {
+            pause = setTo;
+        }
+        public bool returnCanPause()
+        {
+            return canPause;
+        }
+        public void setCanPause(bool setTo)
+        {
+            canPause = setTo;
+        }
+        public bool returnMarioPause()
+        {
+            return marioPause;
+        }
+        public void setMarioPause(bool setTo)
+        {
+            marioPause = setTo;
+        }
+        public void setStateTransistionTimer(int newTime)
+        { 
+            stateTransistionPauseTimer=newTime;
         }
     }
 }

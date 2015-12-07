@@ -15,16 +15,16 @@ namespace Sprint2
 
         public void Execute()
         {
-            if (game.canPause)
+            if (game.returnCanPause())
             {
-                if (!game.pause) {
+                if (!game.returnPause()) {
                     SoundEffectFactory.Pause();
-                    game.pause = true;
-                    game.canPause = false;
+                    game.setPause(true);
+                    game.setCanPause(false);
                 }
-                else { 
-                    game.pause = false;
-                    game.canPause = false;
+                else {
+                    game.setPause(false);
+                    game.setCanPause(false);
                 }
             }
         }

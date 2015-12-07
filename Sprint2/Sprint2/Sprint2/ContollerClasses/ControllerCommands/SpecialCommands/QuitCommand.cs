@@ -14,7 +14,7 @@ namespace Sprint2
         }
         public void Execute()
         {
-            game.writeAchievements();
+            AchievementEventTracker.writeAchievements();
             game.Exit();
         }
     }
