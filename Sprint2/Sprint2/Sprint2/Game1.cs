@@ -26,7 +26,7 @@ namespace Sprint2
         public LevelStorage levelStore { get; set; }
         public LevelLoader loader { get; set; }
         public Camera camera { get; set; }
-        public CameraController cameraController { get; set; }
+        public ICameraController cameraController { get; set; }
         public PipeTransition pipeTransition { get; set; }
         public GameOver gameover { get; set; }
         public bool pause { get; set; }
@@ -140,6 +140,12 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.C, new NoIceCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.P,new NoPauseCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.Q, new QuitCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.NumPad0, new CameraControllerCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.NumPad1, new ClassicCameraControllerCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.NumPad2, new ShakyCameraControllerCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.NumPad3, new DrunkCameraControllerCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.NumPad4, new MovableCameraControllerCommand(this));
+            ((KeyboardController)keyboard).RegisterCommand(Keys.NumPad5, new AutoScrollingCameraControllerCommand(this));
         }
         protected override void UnloadContent() { }
 

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint2
 {
-    public class ShakyCameraController
+    public class ShakyCameraController : ICameraController
     {
         private Camera camera;
         private IPlayer mario;
