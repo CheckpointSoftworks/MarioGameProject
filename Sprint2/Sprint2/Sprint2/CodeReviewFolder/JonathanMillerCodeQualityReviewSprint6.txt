@@ -1,0 +1,17 @@
+﻿Author of the code review: Jonathan Miller
+Date of the code review: 12/06/2015
+Sprint number: 6
+Name of the .cs file being reviewed: EnemySpawner.cs
+Author of the .cs file being reviewed: Kristopher Wenger
+Number of minutes taken to complete the review: 10
+
+Comments:
+
+Overall, this class of good coding quality. There are only five necessary fields, three constructor arguments, and a 
+minimal amount of necessary methods that all cohesively work together to spawn the right enemy. The coupling is also 
+low with the class only depending on two non-primitive fields, one of which is an interface. The Draw and Update 
+methods are minimal by just updating the spawnerSprite and spawn timer logic and drawing the spawnerSprite. The 
+SpawnAnEnemy method is minimal by only needing a single if-else statement to determine which enemy is spawned and 
+where to spawn it. The class also doesn't have any magic numbers because it uses the Utility class. The class could be 
+easily adjusted to include more types of enemies that could spawn from the spawner. Overall, it is a well designed 
+class.

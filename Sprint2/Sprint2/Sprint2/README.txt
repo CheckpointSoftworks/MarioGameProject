@@ -100,3 +100,16 @@ Achievements and Enemy Spawner - Kris Wenger
 	Added all files under the achievement folder, added the enemy spawner class under the Enviromental Object Classes subfolder of the Enviromental
 
 Ice Mario State, Iceball Power, and Ice Flower - Jonathan Miller
+
+	Ice Mario, Iceball, and Ice Flower sprites were custom made using GIMP. Ice Mario state logic was added along with 
+	new ShootMarioIceball, Iceball, IceballSprite, IceFlower, IceFlowerSprite, QuestionIceFlower, 
+	QuestionIceFlowerCommand, MarioIceFlowerCollisionCommand, IceballCommand, NoIceCommand, and ProjectileTypeEnum 
+	classes were added to the project. Mario's state transition logic was updated to include the Ice Mario state.
+	EndingSequenceMario and EndingSequenceMarioSprite was updated for the Ice Mario state. Collision handlers were
+	updated for the added objects. Commands were added for collision between the new objects. Other general commands 
+	were added/updated for the new objects. The enemy classes were updated to include new logic for when the Iceball 
+	strikes them. They stop moving and they change color while they are in a frozen state, then return to normal when 
+	the frozen timer runs out. Texture storages and sprite factories were updated for the new sprite sheets. 
+	Interfaces were updated to include new methods or states. New numbers and strings were added to the Utility class 
+	for the new classes to use. The LevelLoader and LevelStorage classes were updated for the new objects. The 
+	Level.xml file was updated to add the new objects to the level. Controls were updated for shooting the Iceball.
