@@ -687,6 +687,10 @@
 
   <!-- Everything from second hole to third hole in Level 1-1 -->
   <!-- Special blocks, enemies: -->
+  <QuestionIceFlowerBlock>
+    <x>1232</x>
+    <y>384</y>
+  </QuestionIceFlowerBlock>
   <BrickBlock>
     <x>1248</x>
     <y>384</y>

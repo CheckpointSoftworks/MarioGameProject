@@ -31,6 +31,10 @@ namespace Sprint2
         {
             sprite.Draw(spriteBatch, koopa.returnLocation(), cameraLoc, true);
         }
+        public void SetDrawColor(Color color)
+        {
+            sprite.setColorForDrawing(color);
+        }
         public Rectangle returnStateCollisionRectangle()
         {
             return sprite.returnCollisionRectangle();

@@ -23,7 +23,9 @@ namespace Sprint2
         private ICommand fireball;
         private ICommand sprint;
         private ICommand pause;
-        private bool alreadyShot;
+        private ICommand iceball;
+        private bool fireballShot;
+        private bool iceballShot;
         private bool alreadyPaused;
         private float deadZone;
 
@@ -33,7 +35,8 @@ namespace Sprint2
             leftThumbPosition.Y = UtilityClass.zero;
             deadZone = UtilityClass.deadZone;
             alreadyPaused = false;
-
+            fireballShot = false;
+            iceballShot = false;
             left = new LeftCommand(game);
             right = new RightCommand(game);
             up = new UpCommand(game);
@@ -45,6 +48,7 @@ namespace Sprint2
             fireball = new FireballCommand(game);
             sprint = new SprintCommand(game);
             pause = new GamepadPause(game);
+            iceball = new IceballCommand(game);
         }
 
         public void Update()
@@ -97,16 +101,28 @@ namespace Sprint2
             
                 if (padState1.Buttons.X == ButtonState.Pressed)
                 {
-                    if (!alreadyShot)
+                    if (!fireballShot)
                     {
                         fireball.Execute();
                     }
-                    alreadyShot = true;
+                    fireballShot = true;
                 }
                 else
                 {
-                    alreadyShot = false;
-                } 
+                    fireballShot = false;
+                }
+                if (padState1.Buttons.B == ButtonState.Pressed)
+                {
+                    if (!iceballShot)
+                    {
+                        iceball.Execute();
+                    }
+                    iceballShot = true;
+                }
+                else
+                {
+                    iceballShot = false;
+                }
                 if (padState1.Buttons.Start == ButtonState.Pressed)
                 {
                     if (!alreadyPaused)

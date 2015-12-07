@@ -12,6 +12,7 @@ namespace Sprint2
         void Draw(SpriteBatch spritebatch, Vector2 cameraLoc);
         void Update();
         void TakeDamage();
+        void SetDrawColor(Color color);
         Rectangle returnStateCollisionRectangle();
     }
 }

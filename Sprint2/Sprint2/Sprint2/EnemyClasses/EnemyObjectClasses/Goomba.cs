@@ -85,6 +85,7 @@ namespace Sprint2
             location += rigidbody.Velocity;
             if (frozen)
             {
+                state.SetDrawColor(Color.LightSteelBlue);
                 freezeCounter++;
                 if (freezeCounter > enemyFreezeTime)
                 {
@@ -96,6 +97,7 @@ namespace Sprint2
             else
             {
                 state.Update();
+                state.SetDrawColor(Color.White);
             }
         }
 

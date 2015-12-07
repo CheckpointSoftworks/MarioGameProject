@@ -74,7 +74,7 @@ namespace Sprint2
         {
             if (fireMario)
             { fireWalking.Draw(spriteBatch, sentLocation, cameraLoc, true); }
-            if (iceMario)
+            else if (iceMario)
             { iceWalking.Draw(spriteBatch, sentLocation, cameraLoc, true); }
             else if (smallMario)
             { smallWalking.Draw(spriteBatch, sentLocation, cameraLoc, true); }

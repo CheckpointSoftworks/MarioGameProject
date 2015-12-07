@@ -31,6 +31,10 @@ namespace Sprint2
         {
             sprite.Draw(spriteBatch, goomba.returnLocation(), cameraLoc, true);
         }
+        public void SetDrawColor(Color color)
+        {
+            sprite.setColorForDrawing(color);
+        }
         public Rectangle returnStateCollisionRectangle()
         {
             return new Rectangle(UtilityClass.zero, UtilityClass.zero, UtilityClass.zero, UtilityClass.zero);
