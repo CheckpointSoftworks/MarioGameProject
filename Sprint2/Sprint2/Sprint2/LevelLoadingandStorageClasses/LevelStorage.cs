@@ -34,7 +34,7 @@ namespace Sprint2
             enviromentalObjectsList = new ArrayList();
             projectileList = new ArrayList();
             enemyCount = 0;
-            maxEnemiesCount = 30;
+            maxEnemiesCount = 20;
         }
         public void Update()
         {

@@ -1,12 +1,13 @@
 Author: Scott Weddendorf
-Date: November 12, 2015
-Sprint: 5
-Name of File: PauseCommand.cs
+Date: December 7, 2015
+Sprint: 6
+Name of File: AchievementManager.cs
 Author of File: Kris Wenger
 Minutes: 10
 Comments on Readability:
-	The set of classes dealing with game pausing is very simple.  There are two variables that
-	are clearly named such that they are named exactly what they do.  The class follows the
-	same organization found in other command classes.  Also, the only two variables are bools
-	so there is no confusion on what their values are set to.  Overall this class is very
-	readable because there are a very few number of variables and lines of code.
+	The code is well organized with all of the achievement types.  It is easy to see which
+	section of the code deals with which achievements.  All of the methods in the class are
+	well named and once again help with organization and readability when they are used in 
+	other methods.  There are quiet a few variables but they are well named.  Each one is 
+	pretty much named what it is or does. Overall, the class is very readable as the code 
+	organization allows easy recognition of the patterns of the code.   

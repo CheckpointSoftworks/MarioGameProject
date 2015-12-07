@@ -40,18 +40,18 @@ namespace Sprint2
         public IPole pole { get; set; }
         public IFlag flag { get; set; }
         public bool hitFlagpole { get; set; }
+        public ICommand resetCommand { get; set; }
+        public GUI gui { get; set; }
 
         private Texture2D background;
         private Texture2D background2;
         private Texture2D skyworldbackground;
         private Texture2D deathbackground;
         private TestingClass tester;
-        public ICommand resetCommand;
         private ICommand keyNotPressed;
         public SpriteFont font;
         private SpriteFont basicarialfont;
         private TimeStat time;
-        public GUI gui;
         private bool levelWon;
         private bool vine_box_hit;
         private AchievementManager achievementManager;
@@ -224,7 +224,7 @@ namespace Sprint2
 
         protected override void Draw(GameTime gameTime)
         {
-            if (gameover.deathscreen)
+            if (gameover.returnDeathScreenBool())
             {
                 gameover.Draw(this);
             }
@@ -260,10 +260,15 @@ namespace Sprint2
                 flag.Draw(spriteBatch, camera.GetPosition());
                 if (levelWon)
                 {
+                    AchievementPause.Execute();
                     endMario.Draw(spriteBatch, camera.GetPosition(),font);
                 }
                 spriteBatch.End();
                 base.Draw(gameTime);
+            }
+            if (pause&&!levelWon)
+            {
+                drawPause();
             }
         }
 
@@ -293,6 +298,14 @@ namespace Sprint2
             achievementManager.writeOutAchievements(writeAchieves);
             writeAchieves.Close();
             achieveFile.Close();
+        }
+
+        private void drawPause()
+        {
+            spriteBatch.Begin();
+            SpriteFont font = Content.Load<SpriteFont>(UtilityClass.FontString);
+            spriteBatch.DrawString(font,"PAUSED",new Vector2(350,200),Color.White);
+            spriteBatch.End();
         }
     }
 }

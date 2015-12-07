@@ -28,9 +28,9 @@ namespace Sprint2
             }
         }
 
-        public PlayerStatManager stats;
-        public PlayerActionStatManager actions;
-        public int takingDamage;
+        public PlayerStatManager stats { get; set; }
+        public PlayerActionStatManager actions { get; set; }
+        public int takingDamage { get; set; }
 
         private float transitionDuration;
         private float TransitionToBigTime;

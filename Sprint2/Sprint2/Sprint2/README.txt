@@ -152,6 +152,25 @@ Ice Mario State, Iceball Power, and Ice Flower - Jonathan Miller
 	for the new classes to use. The LevelLoader and LevelStorage classes were updated for the new objects. The 
 	Level.xml file was updated to add the new objects to the level. Controls were updated for shooting the Iceball.
 
+Alternate Cameras - Scott Weddendorf
+	Five new alternate camera modes are now available and are found in the CameraClasses>Types folder.  New Keyboard
+	commands were created to allow camera type to change during gameplay.  The camera type can be changed at any time
+	using numpad 0-5.
+		Numpad 0, Original Camera - This changes the camera to the original camera mode that moves with Mario's
+			movement when Mario moves past the center of the screen.
+		Numpad 1, Classic Camera - This camera mode more closely resembles the camera of the original Mario game as
+			it moves right slowly as Mario moves right until Mario moves past the middle of the screen in which the
+			camera moves right with Mario's movement.
+		Numpad 2, Shaky Camera - This new camera adds a shake feature that shakes the camera when mario takes damage.
+			This new feature can also easily be implemented to shake for any condition by simply calling the shake 
+			method found in the class.
+		Numpad 3, Drunk Camera - A dissorienting camera that moves back and forth constantly during gameplay.  The 
+			speed at which the camera moves and the distance it moves back and forth can be set during initialization.
+		Numpad 4, Movable Camera - This camera mode is specific to the gamepad.  The camera will move left or right
+			a certain distance based on the position of the right analog stick on the gamepad.
+		Numpad 5, AutoScrolling Camera - A simple camera mode that scrolls right at a speed specified at initialization.
+			The Mario can not affect the position of the camera at any point.
+
 Skyworld Hidden Level Area - Ian Weber
 
 	A new hidden area of the level was added including all new sprites and background image.  The area mimics the hidden skyworld

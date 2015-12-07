@@ -1,16 +1,13 @@
 Author: Scott Weddendorf
-Date: November 16, 2015
-Sprint: 5
-Name of File: PauseCommand.cs
+Date: December 7, 2015
+Sprint: 6
+Name of File: AchievementManager.cs
 Author of File: Kris Wenger
 Minutes: 10
 Comments:
-	The class has very low coupling which is good for maintainability.  The only dependency 
-	is Game1 which is typical for command classes.  The coupling is tight with the Game1 
-	class as calls are made to directly alter variables in the Game1 class.  However, this
-	is necessary for command classes.  The class is very simple and follows the guidlines 
-	and patterns that have been used for other command classes in the project which is good 
-	for readability of the code.  Overall, the class is of good quality as it is cohesive 
-	and has low coupling.  One possible improvement for the class would be to add a class
-	for a pause state that is called in the command so a pause menu could be added in the 
-	future.
+	First, the class is pretty long.  This however is necessary due to the nature of having 
+	a list of achievements.  There is also a lot of branching but it is also necessary and
+	it does not go past two levels so it is not a problem.  The class has high cohesion as 
+	it only deals with the achievement system.  The class also has low coupling as there are
+	no dependencies.  Overall, the class has very good quality as it is readable and has high
+	cohesion and low coupling.
