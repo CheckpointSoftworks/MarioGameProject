@@ -14,7 +14,7 @@ namespace Sprint2
         }
         public void Execute()
         {
-            game.canPause = true;
+            game.setCanPause(true);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace Sprint2
 {
@@ -95,6 +96,17 @@ namespace Sprint2
             {
                 achievementManager.finishedLevelAchieved();
             }
+        }
+
+        public static void writeAchievements()
+        {
+            var fileLoc = String.Format("{0}Achievements.txt", AppDomain.CurrentDomain.BaseDirectory);
+            FileStream achieveFile = new FileStream(fileLoc, FileMode.Create);
+            StreamWriter writeAchieves = new StreamWriter(achieveFile);
+            writeAchieves.WriteLine("Earned: ");
+            achievementManager.writeOutAchievements(writeAchieves);
+            writeAchieves.Close();
+            achieveFile.Close();
         }
     }
 }

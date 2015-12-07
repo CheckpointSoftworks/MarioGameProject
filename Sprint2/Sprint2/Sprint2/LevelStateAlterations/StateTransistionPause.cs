@@ -15,11 +15,11 @@ namespace Sprint2
 
         public void Execute()
         {
-            if (game.marioPause){
-                game.marioPause = false;
+            if (game.returnMarioPause()){
+                game.setMarioPause(false);
             }
             else {
-                game.marioPause = true;
+                game.setMarioPause(true);
             }
         }
     }
