@@ -88,7 +88,7 @@ namespace Sprint2
         {
             if (!hit_vine)
             {
-                VineMario = new VineSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire, ((Mario)mario).Ice, elapsedtime);
+                VineMario = new VineSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire, ((Mario)mario).Ice);
                 hit_vine = true;
             }
             else

@@ -119,6 +119,7 @@ namespace Sprint2
                 starAchievement = true;
             }
         }
+
         public void fireFlowerAchieved()
         {
             if (!fireFlowerAchievement)
@@ -127,6 +128,7 @@ namespace Sprint2
                 MessageBox(new IntPtr(0), fireFlowerAchievementString, "Achievement Earned", 0);
                 fireFlowerAchievement = true;
             }
+
         }
 
         //Finishing level achievement
