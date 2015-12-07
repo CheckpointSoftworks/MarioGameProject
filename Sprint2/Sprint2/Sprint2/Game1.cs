@@ -279,8 +279,8 @@ namespace Sprint2
         private void drawPause()
         {
             spriteBatch.Begin();
-            SpriteFont font = Content.Load<SpriteFont>(UtilityClass.FontString);
-            spriteBatch.DrawString(font,"PAUSED",new Vector2(350,200),Color.White);
+            SpriteFont pausedFont = Content.Load<SpriteFont>(UtilityClass.FontString);
+            spriteBatch.DrawString(pausedFont, "PAUSED", new Vector2(350, 200), Color.White);
             spriteBatch.End();
         }
     }
