@@ -176,11 +176,13 @@ Skyworld Hidden Level Area - Ian Weber
 	A new hidden area of the level was added including all new sprites and background image.  The area mimics the hidden skyworld
 	common in the Mario series where Mario can climb up a hidden vine to reach it.  Transition logic was added both to and from the 
 	skyworld, as well as logic for making the vine appear when the specific box is hit.  New sounds were added for the skyworld such
-	as the vine appearing sound and new music.  Enemies and obstacles and the new area itself were added to the skyworld in the XML file,
-	levelloader was updated to work with all the new object types.  New objects include IceCloud, IceSmileyCloud, IceBridge, Vine(s), IcePipe.
+	as the vine appearing sound.  Obstacles and the new area itself were added to the skyworld in the XML file,
+	levelloader was updated to work with all the new object types.  New objects include IceCloud, IceSmileyCloud, IceBridge, Vine(s), IcePipe,
+	and new classes include VineSequenceMario, VineSequenceMarioSprite, and SkyWorldTransition, as well as corresponding updates to game1.
 
 	TO ACCESS THE SKYWORLD: hit the coinblock on top of the pyramid like structure at the beginning of the level.  Then, a vine
 	will appear and reach to the top of the screen.  Stand on top of the block and press the jump command.  Mario will begin climbing up
 	the vine until he dissappears, then he will appear in the skyworld.  To exit the skyworld, walk through it to the end and go down
 	the IcePipe by standing on top of it and pressing the crouch command.  Mario will go down the IcePipe and reappear falling back to
-	the main level.
+	the main level.  (Note: Occassionally when approaching the vine from the right side, the transition does not occur.  I could not track
+	down why this random bug occurs, but it works the majority of the time.)

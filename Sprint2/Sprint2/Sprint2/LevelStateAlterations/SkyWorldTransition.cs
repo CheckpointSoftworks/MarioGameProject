@@ -17,8 +17,6 @@ namespace Sprint2
         private Boolean hasbeguntransitionout;
         private float vinegrowthtime;
         private float transitiontime;
-
-
         public VineSequenceMario VineMario { get; set; }
         public SkyWorldTransition()
         {
@@ -36,7 +34,6 @@ namespace Sprint2
         {
             if (vine_box_hit)
             {
-                //then display vine growing animation
                 if(vinegrowthtime > 1.5)
                 {
                     SoundEffectFactory.OneUp();
@@ -68,19 +65,25 @@ namespace Sprint2
                     vine_has_popped = true;
                 }
             }
-
-            //vine has grown all the way; if mario jumps between the boundaries of the vine, then show his transition animation.
             if(vine_has_popped)
             {
                 if (IsWithinSendSkyWorldBoundary(((Mario)mario).Location))
                 {
                     if(((Mario)mario).StateStatus().Equals(MarioState.Jump) || hasbeguntransition == true)
                     {
-                        //then show mario's transition animation (climbing up the vine!)
                         if (hasbeguntransition == false) { SoundEffectFactory.Pipe(); }
                         hasbeguntransition = true;
                         SendToSkyWorld(mario, elapsedtime, game);
                     }
+                }
+            }
+            if(IsWithinExitSkyWorldBoundary(((Mario)mario).Location))
+            {
+                if(((Mario)mario).StateStatus().Equals(MarioState.Duck) || hasbeguntransition == true)
+                {
+                    if (hasbeguntransition == false) { SoundEffectFactory.Pipe(); }
+                    hasbeguntransition = true;
+                    SendFromSkyWorld(mario, elapsedtime, game);
                 }
             }
         }
@@ -91,22 +94,36 @@ namespace Sprint2
                 VineMario = new VineSequenceMario(((Mario)mario), ((Mario)mario).Small, ((Mario)mario).Fire, ((Mario)mario).Ice);
                 hit_vine = true;
             }
-            else
+            drawtransition = true;
+            VineMario.Update();
+            if (VineMario.SequenceFinished)
             {
-                drawtransition = true;
-                VineMario.Update();
-                if (VineMario.SequenceFinished)
-                {
-                    game.hitFlagpole = false;
-                    drawtransition = false;
-                    ((Mario)mario).Location = new Vector2(5050, 300);
-                }
+                game.hitFlagpole = false;
+                drawtransition = false;
+                hasbeguntransition = false;
+                ((Mario)mario).Location = new Vector2(UtilityClass.MarioSkyWorldAppearLocationX,UtilityClass.MarioSkyWorldAppearLocationY);
             }
         }
-        private void SendFromSkyWorld(Mario mario, float elapsedtime)
+        private void SendFromSkyWorld(Mario mario, float elapsedtime, Game1 game)
         {
-
+            if (transitiontime > UtilityClass.zero)
+            {
+                if (transitiontime < UtilityClass.two && transitiontime > UtilityClass.pipeTransistionAnimationSecondFramTime) { ((Mario)mario).Location = new Vector2(UtilityClass.MarioSkyWorldExitPipeLocationX, UtilityClass.pipeSendBelowGroundTransistionOneY+ 35); }
+                if (transitiontime < UtilityClass.pipeTransistionAnimationSecondFramTime && transitiontime > UtilityClass.one) { ((Mario)mario).Location = new Vector2(UtilityClass.MarioSkyWorldExitPipeLocationX, UtilityClass.pipeSendBelowGroundTransistionTwoY + 35); }
+                if (transitiontime < UtilityClass.one && transitiontime > UtilityClass.pipeTransistionAnimationFourthFrameTime) { ((Mario)mario).Location = new Vector2(UtilityClass.MarioSkyWorldExitPipeLocationX, UtilityClass.pipeSendBelowGroundTransistionThreeY + 35); }
+                if (transitiontime < UtilityClass.pipeTransistionAnimationFourthFrameTime && transitiontime > UtilityClass.zero) { ((Mario)mario).Location = new Vector2(UtilityClass.MarioSkyWorldExitPipeLocationX, UtilityClass.pipeSendBelowGroundTransistionFourY + 35); }
+                transitiontime = transitiontime - elapsedtime;
+            }
+            else
+            {
+                ((Mario)mario).Location = new Vector2(UtilityClass.pipeSendAboveGroundFinishedMarioLocationX, 0);
+                game.camera.MoveLeft(UtilityClass.MarioSkyWorldCameraAdjustmentForExit);
+                transitiontime = UtilityClass.two;
+                hasbeguntransitionout = false;
+                MusicFactory.MainTheme();
+            }
         }
+
         private static Boolean IsWithinSendSkyWorldBoundary(Vector2 MarioLocation)
         {
             bool isWithinSendingField = false;
@@ -120,7 +137,10 @@ namespace Sprint2
         private static Boolean IsWithinExitSkyWorldBoundary(Vector2 MarioLocation)
         {
             bool isWithinSendingField = false;
-            
+            if (MarioLocation.X > UtilityClass.MarioSkyWorldExitPipeLocationX-8 && MarioLocation.X < UtilityClass.MarioSkyWorldExitPipeLocationX+26)
+            {
+                isWithinSendingField = true;
+            }
             return isWithinSendingField;
         }
     }
