@@ -28,15 +28,19 @@ namespace Sprint2
         private bool iceballShot;
         private bool alreadyPaused;
         private float deadZone;
+        private bool jumping;
+        private Game1 game;
 
         public GamepadController(Game1 game)
         {
+            this.game = game;
             leftThumbPosition.X = UtilityClass.zero;
             leftThumbPosition.Y = UtilityClass.zero;
             deadZone = UtilityClass.deadZone;
             alreadyPaused = false;
             fireballShot = false;
             iceballShot = false;
+            jumping = false;
             left = new LeftCommand(game);
             right = new RightCommand(game);
             up = new UpCommand(game);
@@ -98,6 +102,10 @@ namespace Sprint2
 
         private void handleSpecialKeys()
         {
+            if (padState1.Buttons.Y == ButtonState.Pressed)
+            {
+                up.Execute();
+            }
             
                 if (padState1.Buttons.X == ButtonState.Pressed)
                 {

@@ -142,7 +142,6 @@ namespace Sprint2
             ((KeyboardController)keyboard).RegisterCommand(Keys.R, new ResetLevelCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.S, new SprintCommand(this));
             ((KeyboardController)keyboard).RegisterCommand(Keys.P, new PauseCommand(this));
-            ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.Z,new NoJumpCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.X, new NoFireCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.C, new NoIceCommand(this));
             ((KeyboardController)keyboard).RegisterReleasedCommand(Keys.P,new NoPauseCommand(this));
@@ -183,7 +182,7 @@ namespace Sprint2
             if (!pause&&!marioPause)
             {
                 keyNotPressed.Execute();
-                if (!levelWon) mario.Update(gameTime);
+                if (!levelWon) { mario.Update(gameTime); }
                 levelStore.Update();
                 levelStore.handleCollision(mario, this);
                 cameraController.Update();
@@ -263,7 +262,7 @@ namespace Sprint2
                 if(skytransition.drawtransition == true)
                 {
                     skytransition.VineMario.Draw(spriteBatch, VineClimbBeginLocation);
-                    hitFlagpole = true; //Removes the main mario from being drawn.
+                    hitFlagpole = true;
                 }
                 if (levelWon)
                 {
