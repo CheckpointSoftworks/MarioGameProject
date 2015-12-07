@@ -12,19 +12,18 @@ namespace Sprint2
         private Boolean hasbeguntransition;
         private Boolean vine_has_popped;
         public Boolean vine_box_hit;
+        public Boolean drawtransition;
         private Boolean hit_vine;
         private Boolean hasbeguntransitionout;
         private float vinegrowthtime;
         private float transitiontime;
-        private AnimatedSprite bigFlagpole;
-        private AnimatedSprite smallFlagpole;
-        private AnimatedSprite fireFlagpole;
-        private AnimatedSprite iceFlagpole;
+
 
         public VineSequenceMario VineMario { get; set; }
         public SkyWorldTransition()
         {
             hasbeguntransition = false;
+            drawtransition = false;
             vine_has_popped = false; //whether vine has finished coming out of the coinbox
             vine_box_hit = false; //whether the box was hit by mario
             hit_vine = false; //whether mario has hit the vine and begun his transition upward
@@ -94,12 +93,14 @@ namespace Sprint2
             }
             else
             {
+                drawtransition = true;
                 VineMario.Update();
-                game.spriteBatch.Begin();
-                VineMario.Draw(game.spriteBatch, game.camera.GetPosition(), game.font);
-                game.spriteBatch.End();
+                //VineMario.Draw(game.spriteBatch, ((Mario)mario).GetLocation(), game.font);
+                //game.hitFlagpole = true; //Removes the main mario from being drawn.
                 if (VineMario.SequenceFinished)
                 {
+                    game.hitFlagpole = false;
+                    drawtransition = false;
                     ((Mario)mario).Location = new Vector2(5050, 300);
                 }
             }

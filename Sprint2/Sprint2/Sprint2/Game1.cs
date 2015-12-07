@@ -47,6 +47,7 @@ namespace Sprint2
         private Texture2D background2;
         private Texture2D skyworldbackground;
         private Texture2D deathbackground;
+        private Vector2 VineClimbBeginLocation;
         private TestingClass tester;
         private ICommand keyNotPressed;
         public SpriteFont font;
@@ -94,6 +95,7 @@ namespace Sprint2
             hitFlagpole = false;
             levelWon = false;
             vine_box_hit = false;
+            VineClimbBeginLocation = new Vector2(30, 0);
         }
 
         protected override void LoadContent()
@@ -258,6 +260,11 @@ namespace Sprint2
 
                 pole.Draw(spriteBatch, camera.GetPosition());
                 flag.Draw(spriteBatch, camera.GetPosition());
+                if(skytransition.drawtransition == true)
+                {
+                    skytransition.VineMario.Draw(spriteBatch, VineClimbBeginLocation, font);
+                    hitFlagpole = true; //Removes the main mario from being drawn.
+                }
                 if (levelWon)
                 {
                     AchievementPause.Execute();

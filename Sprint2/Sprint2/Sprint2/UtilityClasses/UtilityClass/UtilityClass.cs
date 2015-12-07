@@ -339,5 +339,7 @@ namespace Sprint2
         public const int enemySpawnYOffset = 16;
         public const int enemySpawnXOffset = 8;
 
+        
+
     }
 }
