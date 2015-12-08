@@ -117,7 +117,6 @@
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\IceballCommand.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\NoFireCommand.cs" />
     <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\NoIceCommand.cs" />
-    <Compile Include="ContollerClasses\ControllerCommands\SpecialCommands\NoJumpCommand.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\GoombaDamaged.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\GoombaHealthy.cs" />
     <Compile Include="EnemyClasses\EnemyObjectClasses\KoopaHealthy.cs" />

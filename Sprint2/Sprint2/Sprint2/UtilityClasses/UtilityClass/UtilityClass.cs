@@ -273,7 +273,6 @@ namespace Sprint2
         public const int deathMarioLocationX = 365;
         public const int deathMarioLocationY = 230;
 
-        //GUI stuff
         public const float DefaultSpriteWidth = 16;
         public const int StartingLives = 3;
         public static Vector2 deathtextloc = new Vector2(350, 200);

@@ -102,7 +102,7 @@ namespace Sprint2
         {
             var fileLoc = String.Format("{0}Achievements.txt", AppDomain.CurrentDomain.BaseDirectory);
             FileStream achieveFile = new FileStream(fileLoc, FileMode.Create);
-            StreamWriter writeAchieves = new StreamWriter(achieveFile);
+            TextWriter writeAchieves = new StreamWriter(achieveFile);
             writeAchieves.WriteLine("Earned: ");
             achievementManager.writeOutAchievements(writeAchieves);
             writeAchieves.Close();

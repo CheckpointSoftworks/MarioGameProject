@@ -103,7 +103,7 @@ namespace Sprint2
             return totals;
         }
 
-        public void WriteInformtionToFile(StreamWriter sw)
+        public void WriteInformtionToFile(TextWriter sw)
         {
             string s = ": ";
             sw.WriteLine("Player actions: ");

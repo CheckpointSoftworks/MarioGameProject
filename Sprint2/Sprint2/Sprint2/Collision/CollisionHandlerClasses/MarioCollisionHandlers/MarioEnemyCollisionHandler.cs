@@ -37,7 +37,7 @@ namespace Sprint2
                 handleMarioMovement(mario, enemy, side);
                 handleEnemyMovement(enemy,side);
             }
-            handleAchievement(mario,enemy,side);
+            handleAchievement(enemy,side);
         }
 
         private static void handleMarioMovement(Mario mario, IEnemyObject enemy,ICollision side)
@@ -89,7 +89,7 @@ namespace Sprint2
             }
         }
 
-        private static void handleAchievement(Mario mario, IEnemyObject enemy, ICollision side)
+        private static void handleAchievement(IEnemyObject enemy, ICollision side)
         {
             if (side.returnCollisionSide().Equals(CollisionSide.Top) && enemy.canHurtMario())
             {

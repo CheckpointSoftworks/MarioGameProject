@@ -59,6 +59,24 @@ Notes:
 	be declared as constants becuase of their types, the team decided to leave them as static fields instead, so that they 
 	can be accessed where they are needed.
 
+	For anytime a file was opened to be written or read from, or a streamwrite/stream reader was used, the analyzer said not to dispose of objects
+	multiple times refering to the file, or streamreader/writer, however, the only way to get rid of this warning is to not close the file, or
+	streamreader/writer, and good coding practices dictate always closing what you have opened so the team decided to ignore these warnings.
+
+	The analyzer gives a few warnings of the use of the messagebox and setting the dll import methods, such as specifying marshalling for
+	p/Invoke string arguments or moving P/invokes to NativeMethods class or used managed equivalents of 
+	win32 API.  After talking with Prof. Boggus, he said we	can ignore these warnings since for this class we are not worried about security concerns.
+	Also the fact becuase of how XNA is set up it is impossible to use the Win32 API equivalents, since Systems.Windows.Forms cannot be accessed.
+	
+	The analyzer said to make the fireFlowerAchievement method in both the achievementManager and EventTracker into an event, however since the coupling
+	is low with methods, and it said to only do it for one method not all of them the team believes this to not be a worthwhile change. 
+
+	The analyzer says not to return array values but the team believes that having the array as a return value rather than a public property is a better
+	way to keep coupling low so the team opted to keep it.
+
+	For almost all the stats items to not call override methods in the constructors however this allowed the team to keep the methods for those classes
+	simple and with low coupling so the team again opted to keep these overrides.
+
 Controls:
 Mario:
 arrow keys for left/right/crouch movement
@@ -69,6 +87,20 @@ s key for sprinting
 r key for resetting level
 p key for pausing
 q key for quiting
+Numpad 0, Original Camera - This changes the camera to the original camera mode that moves with Mario's
+			movement when Mario moves past the center of the screen.
+Numpad 1, Classic Camera - This camera mode more closely resembles the camera of the original Mario game as
+			it moves right slowly as Mario moves right until Mario moves past the middle of the screen in which the
+			camera moves right with Mario's movement.
+Numpad 2, Shaky Camera - This new camera adds a shake feature that shakes the camera when mario takes damage.
+			This new feature can also easily be implemented to shake for any condition by simply calling the shake 
+			method found in the class.
+Numpad 3, Drunk Camera - A dissorienting camera that moves back and forth constantly during gameplay.  The 
+			speed at which the camera moves and the distance it moves back and forth can be set during initialization.
+Numpad 4, Movable Camera - This camera mode is specific to the gamepad.  The camera will move left or right
+			a certain distance based on the position of the right analog stick on the gamepad.
+Numpad 5, AutoScrolling Camera - A simple camera mode that scrolls right at a speed specified at initialization.
+			The Mario can not affect the position of the camera at any point.
 
 GamePad Mappings:
 
