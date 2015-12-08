@@ -33,8 +33,8 @@ namespace Sprint2
             blocksList = new ArrayList();
             enviromentalObjectsList = new ArrayList();
             projectileList = new ArrayList();
-            enemyCount = 0;
-            maxSpawnedEnemiesCount = 6;
+            enemyCount = UtilityClass.enemyCount;
+            maxSpawnedEnemiesCount = UtilityClass.maxSpawnedEnemiesCount;
         }
         public void Update()
         {

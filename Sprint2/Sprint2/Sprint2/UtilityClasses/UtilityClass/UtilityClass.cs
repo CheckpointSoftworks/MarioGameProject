@@ -342,6 +342,10 @@ namespace Sprint2
         public const int enemySpawnYOffset = 16;
         public const int enemySpawnXOffset = 8;
 
+        
+        public const int enemyCount = 0;
+        public const int maxSpawnedEnemiesCount = 6;
+
         public const string earnedAchievementHeader = "Achievement Earned";
         public const string undergroundAchievementString = "Spelunking Time Achieved";
         public const string killingEnemyAchievementString = "Stomp dat Enemy";
