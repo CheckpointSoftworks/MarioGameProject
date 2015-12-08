@@ -68,6 +68,5 @@ namespace Sprint2
                 shakePosition -= shakeIntensity;
             }
         }
-
     }
 }

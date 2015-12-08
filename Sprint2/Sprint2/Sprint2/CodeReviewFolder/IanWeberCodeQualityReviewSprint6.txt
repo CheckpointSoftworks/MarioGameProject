@@ -3,5 +3,11 @@ Date of the code review: 12/7/15
 Sprint number: 6
 Name of the .cs file being reviewed: DrunkCameraController.cs
 Author of the .cs file being reviewed: Scott Weddendorf
-Description:
-	
+Description: As far as quality, i have been very impressed by all of Scott's classes.  They are very easy to use in our own code when
+needed.  Basically just a "plug-and-play" type of classes.  For example, for the camera controller I ran into a problem where I needed
+to move the camera backwards for my transitions (Skyworld, underground area).  As I stumbled upon fixing the bug, trying different
+things to no avail, I realized I would not have to rewrite any sections of the camera classes.  There was already a method built-in
+to the class for moving the camera backwards/forwards, and it solved my bug immeditately.  It was a plug-and-play solution to my
+problem which existed already in the class, so I was impressed by the quality and forward thinking.  For sprint 6 Scott made
+new camera models, that make the camera behave in strange and different ways.  I enjoyed using the camera modes and found them
+easy to implement usage of in my own classes although did not end up using them.  
