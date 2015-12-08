@@ -20,7 +20,7 @@ namespace Sprint2
             }
             else
             {
-                pipeSprite = new IcePipeSprite(location, sendunderground);
+                pipeSprite = new IcePipeSprite(location);
             }
         }
 

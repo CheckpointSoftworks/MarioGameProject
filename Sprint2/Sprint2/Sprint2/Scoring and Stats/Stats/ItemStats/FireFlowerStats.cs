@@ -10,6 +10,7 @@ namespace Sprint2
     public class FireFlowerStats : CollectableStat
     {
         public static int TotalAvailable { get; set; }
+
         public FireFlowerStats(string name)
             : base(name)
         {

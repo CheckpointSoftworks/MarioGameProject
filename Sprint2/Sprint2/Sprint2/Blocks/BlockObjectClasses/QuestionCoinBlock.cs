@@ -13,8 +13,8 @@ namespace Sprint2
         private BlockType type;
         private bool testForCollision;
         private bool noLongerSpecialized;
-        public bool Vine_Box;
-        public bool Vine_Dispense;
+        private bool VineBox;
+        private bool Vine_Dispense;
         private Vector2 location;
         private bool dispenseItemFlag;
         public QuestionCoinBlock(int locX,int locY,BlockType type)
@@ -23,7 +23,7 @@ namespace Sprint2
             sprite = new QuestionBlockSprite(location);
             this.type = type;
             testForCollision=true;
-            Vine_Box = false;
+            VineBox = false;
             noLongerSpecialized = false;
             dispenseItemFlag = true;
         }
@@ -32,7 +32,7 @@ namespace Sprint2
         {
             sprite.Update();
             noLongerSpecialized = true;
-            if(Vine_Box == true)
+            if(VineBox == true)
             {
                 if(dispenseItemFlag==false)
                 {
@@ -84,6 +84,16 @@ namespace Sprint2
         public bool dispenseItem()
         {
             return dispenseItemFlag;
+        }
+
+        public void setVineBox(bool toSet)
+        {
+            VineBox = toSet;
+        }
+
+        public bool returnVineDispense()
+        {
+            return Vine_Dispense;
         }
     }
 }

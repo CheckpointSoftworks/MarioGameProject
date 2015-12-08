@@ -12,10 +12,10 @@ namespace Sprint2
         private VineSequenceMarioSprite VineMarioSprite;
         private Vector2 location;
         private bool smallMario;
-        public bool attop;
+        private bool attop;
         private bool climbinganimation;
         private float slideSpeed;
-        bool sequencefinished;
+        private bool sequencefinished;
         public bool SequenceFinished
         {
             get { return sequencefinished; }

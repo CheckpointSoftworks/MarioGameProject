@@ -90,7 +90,7 @@ namespace Sprint2
             return totals;
         }
 
-        public void WriteInformtionToFile(StreamWriter sw)
+        public void WriteInformtionToFile(TextWriter sw)
         {
             sw.WriteLine(KoopaStats.StatName + "s: " + KoopaStats.StatValueInt + " of " + KoopaStats.TotalAvailable);
             sw.WriteLine(GoombaStats.StatName + "s: " + GoombaStats.StatValueInt + " of " + GoombaStats.TotalAvailable);

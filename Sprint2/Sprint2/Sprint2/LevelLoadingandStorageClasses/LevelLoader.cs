@@ -705,7 +705,7 @@ namespace Sprint2
 
                             QuestionCoinBlock GameObject;
                             GameObject = new QuestionCoinBlock(XVal, YVal, BlockType.QuestionCoin);
-                            GameObject.Vine_Box = true;
+                            GameObject.setVineBox(true);
                             storage.blocksList.Add(GameObject);
                             CoinStats.TotalAvailable++;
 

@@ -175,7 +175,7 @@ namespace Sprint2
             }
         }
 
-        public void writeOutAchievements(StreamWriter streamWrite)
+        public void writeOutAchievements(TextWriter streamWrite)
         {
             if (undergroundAchievement)
             {

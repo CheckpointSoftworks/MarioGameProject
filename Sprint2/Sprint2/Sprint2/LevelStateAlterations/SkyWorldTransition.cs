@@ -11,10 +11,9 @@ namespace Sprint2
     {
         private Boolean hasbeguntransition;
         private Boolean vine_has_popped;
-        public Boolean vine_box_hit;
-        public Boolean drawtransition;
+        private Boolean vine_box_hit;
+        private Boolean drawtransition;
         private Boolean hit_vine;
-        private Boolean hasbeguntransitionout;
         private float vinegrowthtime;
         private float transitiontime;
         public VineSequenceMario VineMario { get; set; }
@@ -22,15 +21,14 @@ namespace Sprint2
         {
             hasbeguntransition = false;
             drawtransition = false;
-            vine_has_popped = false; //whether vine has finished coming out of the coinbox
-            vine_box_hit = false; //whether the box was hit by mario
-            hit_vine = false; //whether mario has hit the vine and begun his transition upward
-            hasbeguntransitionout = false;
+            vine_has_popped = false;
+            vine_box_hit = false;
+            hit_vine = false;
             vinegrowthtime = UtilityClass.two;
             transitiontime = UtilityClass.two;
             Vector2 location = new Vector2(368,320);
         }
-        public void Update(Mario mario, float elapsedtime, Camera camera, Game1 game)
+        public void Update(Mario mario, float elapsedtime, Game1 game)
         {
             if (vine_box_hit)
             {
@@ -73,7 +71,7 @@ namespace Sprint2
                     {
                         if (hasbeguntransition == false) { SoundEffectFactory.Pipe(); }
                         hasbeguntransition = true;
-                        SendToSkyWorld(mario, elapsedtime, game);
+                        SendToSkyWorld(mario, game);
                     }
                 }
             }
@@ -87,7 +85,7 @@ namespace Sprint2
                 }
             }
         }
-        private void SendToSkyWorld(IPlayer mario, float elapsedtime, Game1 game)
+        private void SendToSkyWorld(IPlayer mario, Game1 game)
         {
             if (!hit_vine)
             {
@@ -119,7 +117,6 @@ namespace Sprint2
                 ((Mario)mario).Location = new Vector2(UtilityClass.pipeSendAboveGroundFinishedMarioLocationX, 0);
                 game.camera.MoveLeft(UtilityClass.MarioSkyWorldCameraAdjustmentForExit);
                 transitiontime = UtilityClass.two;
-                hasbeguntransitionout = false;
                 MusicFactory.MainTheme();
             }
         }
@@ -142,6 +139,16 @@ namespace Sprint2
                 isWithinSendingField = true;
             }
             return isWithinSendingField;
+        }
+
+        public void seVineBoxHit(Boolean toSet)
+        {
+            vine_box_hit = toSet;
+        }
+
+        public Boolean returnDrawTransition()
+        {
+            return drawtransition;
         }
     }
 }

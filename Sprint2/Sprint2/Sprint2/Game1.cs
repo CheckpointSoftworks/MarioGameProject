@@ -167,10 +167,10 @@ namespace Sprint2
             {
                 if (block.returnBlockType() == BlockType.QuestionCoin)
                 {
-                    if(((QuestionCoinBlock)block).Vine_Dispense && !vine_box_hit)
+                    if(((QuestionCoinBlock)block).returnVineDispense() && !vine_box_hit)
                     {
                         vine_box_hit = true;
-                        skytransition.vine_box_hit = true;
+                        skytransition.seVineBoxHit(true);
                     }
                 }
             }
@@ -187,7 +187,7 @@ namespace Sprint2
                 levelStore.handleCollision(mario, this);
                 cameraController.Update();
                 pipeTransition.Update((Mario)mario, elapsedtime, camera);
-                skytransition.Update((Mario)mario, elapsedtime, camera, this);
+                skytransition.Update((Mario)mario, elapsedtime, this);
                 gameover.Update((Mario)mario, elapsedtime, this);
                 gui.Update();
                 if (time.UpdateTime(gameTime)) { resetCommand.Execute(); }
@@ -259,7 +259,7 @@ namespace Sprint2
 
                 pole.Draw(spriteBatch, camera.GetPosition());
                 flag.Draw(spriteBatch, camera.GetPosition());
-                if(skytransition.drawtransition == true)
+                if(skytransition.returnDrawTransition())
                 {
                     skytransition.VineMario.Draw(spriteBatch, VineClimbBeginLocation);
                     hitFlagpole = true;
@@ -286,7 +286,7 @@ namespace Sprint2
         public void WriteStats()
         {
             FileStream fs = new FileStream("GameRecords.txt", FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
+            TextWriter sw = new StreamWriter(fs);
             ((Mario)mario).actions.WriteInformtionToFile(sw);
             sw.WriteLine("Collection statistics: ");
             sw.WriteLine(((Mario)mario).GetPoints().ScoreName + ": " + ((Mario)mario).GetPoints().ScoreValue);
